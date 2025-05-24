@@ -1,5 +1,18 @@
 # app.py
+import os
+import torch
 
+# Fix for PyTorch-Streamlit compatibility issue
+try:
+    # Method 1: Set an empty path list
+    torch.classes.__path__ = []
+except:
+    try:
+        # Method 2: Alternative fix if Method 1 doesn't work
+        torch.classes.__path__ = [os.path.join(torch.__path__[0], 'classes')]
+    except:
+        pass
+    
 import streamlit as st
 import os
 import time
@@ -166,7 +179,9 @@ core_models_loaded = load_core_models()
 
 if core_models_loaded:
     st.sidebar.header("⚙️ Configuration")
-    pdf_dir_input = st.sidebar.text_input("Enter PDF Directory Path:", os.getcwd()) # Default to current dir
+    #pdf_dir_input = st.sidebar.text_input("Enter PDF Directory Path:", os.getcwd()) # Default to current dir
+    default_data_dir = os.path.join(os.getcwd(), "data")
+    pdf_dir_input = st.sidebar.text_input("Enter PDF Directory Path:", default_data_dir)
     force_reindex_checkbox = st.sidebar.checkbox("Force Re-index PDFs", value=False)
 
     # Initialize session state for index data if it doesn't exist
