@@ -1,5 +1,5 @@
 # pdf_parser.py
-
+import os
 import fitz  # PyMuPDF
 from pdf2image import convert_from_path
 from PIL import Image
@@ -98,18 +98,28 @@ def extract_content_from_pdf(pdf_path, table_detector_pipeline, ocr_reader):
             # EasyOCR expects an image path or a numpy array (RGB) or a byte stream.
             non_table_ocr_results = ocr_reader.readtext(non_table_img_np, paragraph=True)
 
-            for (bbox, text, prob) in non_table_ocr_results:
+            for ocr_result in non_table_ocr_results:
+                if len(ocr_result) == 2:  # Expected for paragraph=True
+                    bbox, text = ocr_result
+                elif len(ocr_result) == 3:  # Fallback if it unexpectedly returns 3 items
+                    bbox, text, _ = ocr_result  # Ignore probability if present
+                    logger.debug(f"Received 3 items from paragraph OCR, expected 2. Ignoring prob: {text[:30]}")
+                else:
+                    logger.warning(f"Unexpected OCR result format for non-table text (item count: {len(ocr_result)}): {ocr_result} on page {page_num+1} of {pdf_path}")
+                    continue  # Skip this malformed result
+
                 # bbox is [[x0,y0],[x1,y0],[x1,y1],[x0,y1]]
                 # We need a consistent y-coordinate for sorting, e.g., top-left y
                 # Ensure bbox is valid list of lists/tuples with at least one point
                 if bbox and isinstance(bbox, list) and len(bbox) > 0 and \
                    isinstance(bbox[0], (list, tuple)) and len(bbox[0]) == 2:
-                    pos_y = int(bbox[0][1]) 
+                    pos_y = int(bbox[0][1])
                     page_content_blocks.append(
                         (pos_y, {"type": "plain_text", "text": text, "bbox_pil": [int(c) for pt in bbox for c in pt]})
                     )
                 else:
                     logger.warning(f"Invalid bbox format for non-table text: {text[:50]} on page {page_num+1} of {pdf_path}")
+
 
 
             # 5. OCR on table regions

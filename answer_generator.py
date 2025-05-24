@@ -1,8 +1,8 @@
 # answer_generator.py
 
 import logging
-from langchain_huggingface import HuggingFaceHub # Using Langchain's HuggingFaceHub
-
+#from langchain_huggingface import HuggingFaceHub # Using Langchain's HuggingFaceHub
+from langchain_community.llms import HuggingFaceHub # Using Langchain's Community LLMs
 # Assuming your config.py is in the same directory or accessible in PYTHONPATH
 import config
 
