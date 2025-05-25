@@ -101,7 +101,7 @@ def extract_content_from_pdf(pdf_path, table_detector_pipeline, ocr_reader):
                     logger.warning(f"Invalid bbox format for non-table text: {text[:50]} on page {page_num+1} of {pdf_path}")
 
             page_height = pil_image.height
-            tolerance = 50 # Pixels tolerance for checking if table is at edge
+            tolerance = 100 # Pixels tolerance for checking if table is at edge
 
             for x0_tbl, y0_tbl, x1_tbl, y1_tbl in table_boxes_pil:
                 table_pil_image_crop = pil_image.crop((x0_tbl, y0_tbl, x1_tbl, y1_tbl))

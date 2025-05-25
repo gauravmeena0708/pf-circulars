@@ -13,7 +13,8 @@ from vector_indexer import (
     convert_grouped_blocks_to_texts_and_metadata,
     create_faiss_index,
     save_faiss_index,
-    load_faiss_index
+    load_faiss_index,
+    merge_spanning_table_blocks
 )
 from retriever import retrieve_relevant_chunks
 from answer_generator import initialize_llm, get_llm_answer
@@ -127,10 +128,19 @@ def process_and_index_pdfs(pdf_directory, index_storage_path, force_reindex=Fals
         return None, None, None
 
     logger.info("Grouping extracted content into contextual blocks...")
-    grouped_blocks = group_extracted_content_to_blocks(all_extracted_page_data)
+    # Ensure group_extracted_content_to_blocks is imported
+    grouped_blocks = group_extracted_content_to_blocks(all_extracted_page_data) 
     if not grouped_blocks:
         logger.error("No contextual blocks created from extracted data.")
         return None, None, None
+
+    logger.info(f"Number of blocks after initial grouping: {len(grouped_blocks)}")
+
+    # >>> THIS IS THE STEP YOU NEED TO ADD/ENSURE IS PRESENT <<<
+    logger.info("Attempting to merge spanning table blocks...")
+    # Ensure merge_spanning_table_blocks is imported from vector_indexer
+    merged_final_blocks = merge_spanning_table_blocks(grouped_blocks) 
+    logger.info(f"Number of blocks after merging: {len(merged_final_blocks)}")
     
     logger.info(f"Converting {len(grouped_blocks)} grouped blocks to texts and metadata...")
     texts_for_embedding, metadata_for_embedding = convert_grouped_blocks_to_texts_and_metadata(grouped_blocks)

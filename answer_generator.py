@@ -23,8 +23,9 @@ def format_prompt(query, retrieved_chunks_data):
 
     prompt = f"""
 You are a helpful AI assistant. Answer the question based on the following context extracted from relevant documents.
+The context may contain tables that span multiple original pages but are now presented as a single merged text.
+Synthesize information from the entire provided context to answer comprehensively.
 If the context does not contain the answer, state that the information is not found in the provided documents.
-Do not make up information outside of the provided context.
 
 Context from documents:
 -----------------------
