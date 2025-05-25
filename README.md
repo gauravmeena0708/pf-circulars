@@ -96,6 +96,27 @@ The `main.py` script is used for processing a directory of PDFs, building/loadin
     python main.py /path/to/your/pdf_directory --query "A specific question" --index_dir /custom/path/for/index_files
     ```
 
+* **Query from 2 docs in single instance:**
+    ```bash
+    python main.py ./data/ --query "What is the existing and revised lease entitlement for PB-3 Level-11(Pre-revised GP 6600) in cities Y and what is deputation period of Programmers?"
+    ==================== Query Answer ====================
+    Query: What is the existing and revised lease entitlement for PB-3 Level-11(Pre-revised GP 6600) in cities Y and what is deputation period of Programmers?
+
+    Answer:
+    Based on the provided context, I can help you with the question.
+
+    The existing lease entitlement for PB-3 Level-11 (Pre-revised GP 6600) in cities Y is 21351, and the revised lease entitlement is 24554.
+
+    Regarding the deputation period of Programmers, according to the Corrigendum dated 09.05.2025, the tenure of deputation is initially for a period of one year and extendable up to 03 years.
+
+    So, to summarize:
+
+    * Existing lease entitlement for PB-3 Level-11 (Pre-revised GP 6600) in cities Y: 21351
+    * Revised lease entitlement for PB-3 Level-11 (Pre-revised GP 6600) in cities Y: 24554
+    * Deputation period of Programmers: Initially for a period of one year and extendable up to 03 years.
+    ======================================================
+    ```
+
 * **View all command-line options:**
     ```bash
     python main.py --help
