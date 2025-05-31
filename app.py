@@ -40,6 +40,10 @@ from sentence_transformers import SentenceTransformer
 logger = logging.getLogger("RAGAppStreamlit")
 logging.basicConfig(level=config.LOG_LEVEL, format=config.LOG_FORMAT)
 
+# Define constants for prebuilt index
+PREBUILT_INDEX_DIR = "/vector_store/data_index" # Make sure this path is correct for your environment
+PREBUILT_INDEX_NAME = "faiss_index" # Should match the name used when saving the index
+
 # --- Model Caching (Streamlit's caching is essential for performance) ---
 @st.cache_resource # Cache these heavy models across sessions/reruns
 def load_core_models():
@@ -179,63 +183,103 @@ core_models_loaded = load_core_models()
 
 if core_models_loaded:
     st.sidebar.header("⚙️ Configuration")
-    #pdf_dir_input = st.sidebar.text_input("Enter PDF Directory Path:", os.getcwd()) # Default to current dir
-    default_data_dir = os.path.join(os.getcwd(), "data")
-    pdf_dir_input = st.sidebar.text_input("Enter PDF Directory Path:", default_data_dir)
-    force_reindex_checkbox = st.sidebar.checkbox("Force Re-index PDFs", value=False)
 
-    # Initialize session state for index data if it doesn't exist
-    if 'current_pdf_dir' not in st.session_state:
-        st.session_state.current_pdf_dir = None
-    if 'faiss_index' not in st.session_state: # Using generic key for simplicity here, but specific keys used in funcs
+    # Initialize new session state variables
+    if 'prebuilt_index_loaded' not in st.session_state:
+        st.session_state.prebuilt_index_loaded = False
+    if 'faiss_index' not in st.session_state: # This will hold the currently active index
         st.session_state.faiss_index = None
+    if 'indexed_texts' not in st.session_state: # This will hold texts for the active index
         st.session_state.indexed_texts = None
+    if 'indexed_metadata' not in st.session_state: # This will hold metadata for the active index
         st.session_state.indexed_metadata = None
+    if 'current_query_source' not in st.session_state: # Description of the current index source
+        st.session_state.current_query_source = ""
+    # Note: 'current_pdf_dir' has been removed as it's no longer used by the main logic.
+    # The process_pdfs_and_get_index function manages its own cache keys internally.
+
+    # Attempt to load pre-built index automatically
+    if not st.session_state.prebuilt_index_loaded and not st.session_state.faiss_index: # Try to load only if not already loaded or processed
+        logger.info(f"Attempting to load pre-built index from: {PREBUILT_INDEX_DIR}")
+        embedding_model = core_models_loaded.get('embedding')
+        if embedding_model:
+            index, texts, metadata = load_faiss_index(
+                PREBUILT_INDEX_DIR,
+                embedding_model,
+                index_name=PREBUILT_INDEX_NAME
+            )
+            if index and texts and metadata:
+                st.session_state.faiss_index = index
+                st.session_state.indexed_texts = texts
+                st.session_state.indexed_metadata = metadata
+                st.session_state.prebuilt_index_loaded = True
+                st.session_state.current_query_source = f"Pre-built: {PREBUILT_INDEX_DIR}"
+                st.sidebar.success(f"Loaded pre-built index: {PREBUILT_INDEX_DIR}")
+                logger.info(f"Successfully loaded pre-built index from {PREBUILT_INDEX_DIR}")
+            else:
+                st.sidebar.warning(f"Pre-built index not found or failed to load from {PREBUILT_INDEX_DIR}. You can process a new directory if needed.")
+                logger.warning(f"Failed to load pre-built index from {PREBUILT_INDEX_DIR}")
+        else:
+            st.sidebar.error("Embedding model not loaded, cannot load FAISS index.")
+            logger.error("Embedding model not available for pre-built index loading.")
+
+    st.sidebar.subheader("Process New PDF Directory (Optional)")
+    default_data_dir = os.path.join(os.getcwd(), "data")
+    pdf_dir_input = st.sidebar.text_input("Enter PDF Directory Path:", default_data_dir, key="pdf_dir_input_main")
+    force_reindex_checkbox = st.sidebar.checkbox("Force Re-index PDFs", value=False, key="force_reindex_main")
 
     # Button to process directory
-    if st.sidebar.button("Load and Process PDF Directory"):
+    if st.sidebar.button("Process PDF Directory"):
         if pdf_dir_input and os.path.isdir(pdf_dir_input):
-            st.session_state.current_pdf_dir = pdf_dir_input # Store the current dir
-            # Clear old index data if directory changes or re-index is forced
-            if force_reindex_checkbox or st.session_state.current_pdf_dir != os.path.normpath(pdf_dir_input):
-                 pdf_directory_path_key = os.path.normpath(pdf_dir_input)
-                 for key in list(st.session_state.keys()): # Avoid iterating over changing dict
-                     if key.startswith(f"faiss_index_{pdf_directory_path_key}") or \
-                        key.startswith(f"faiss_texts_{pdf_directory_path_key}") or \
-                        key.startswith(f"faiss_metadata_{pdf_directory_path_key}"):
-                         del st.session_state[key]
+            # st.session_state.current_pdf_dir = pdf_dir_input # Store the current dir - Handled by process_pdfs_and_get_index cache key
+
+            # Clear specific session cache for the new directory if re-indexing is forced
+            # The process_pdfs_and_get_index function handles its own internal caching logic including re-indexing.
+            # We primarily need to update the main session state variables here.
 
             index, texts, metadata = process_pdfs_and_get_index(pdf_dir_input, force_reindex_checkbox, core_models_loaded)
-            # The function process_pdfs_and_get_index already sets session state
-            if index:
-                 st.sidebar.success(f"Directory '{pdf_dir_input}' processed. Ready for queries.")
+
+            if index and texts and metadata:
+                st.session_state.faiss_index = index
+                st.session_state.indexed_texts = texts
+                st.session_state.indexed_metadata = metadata
+                st.session_state.prebuilt_index_loaded = False # Now using a custom processed index
+                st.session_state.current_query_source = f"Processed: {pdf_dir_input}"
+                st.sidebar.success(f"Directory '{pdf_dir_input}' processed. Ready for queries.")
+                logger.info(f"Successfully processed and loaded index from {pdf_dir_input}")
             else:
-                 st.sidebar.error(f"Failed to process directory '{pdf_dir_input}'.")
+                st.sidebar.error(f"Failed to process directory '{pdf_dir_input}'.")
+                # Potentially clear previous index if processing fails? Or leave current index active?
+                # For now, leave the current active index (if any) as is.
         else:
             st.sidebar.error("Please enter a valid directory path.")
     
     st.markdown("---")
     
-    if st.session_state.current_pdf_dir:
-        st.subheader(f"Querying Documents in: `{st.session_state.current_pdf_dir}`")
-        query = st.text_input("Enter your query:", key="query_input")
+    # Updated Querying section
+    if st.session_state.get('faiss_index'):
+        st.subheader(f"Querying Documents from: `{st.session_state.get('current_query_source', 'N/A')}`")
+        query = st.text_input("Enter your query:", key="query_input_main_area")
 
         if query:
-            # Retrieve current index data from session state based on the active directory
-            # This assumes process_pdfs_and_get_index has populated session state correctly
-            pdf_dir_key = os.path.normpath(st.session_state.current_pdf_dir)
-            faiss_index, indexed_texts, indexed_metadata = get_cached_index_data(pdf_dir_key)
+            # Use the globally available index and text data from session state
+            faiss_index_to_use = st.session_state.faiss_index
+            texts_to_use = st.session_state.indexed_texts
+            metadata_to_use = st.session_state.indexed_metadata
 
-            if faiss_index and indexed_texts and indexed_metadata and core_models_loaded['embedding'] and core_models_loaded['llm']:
+            embedding_model = core_models_loaded.get('embedding')
+            llm_model = core_models_loaded.get('llm')
+
+            if embedding_model and llm_model and faiss_index_to_use and texts_to_use and metadata_to_use:
                 with st.spinner("Searching for relevant documents and generating answer..."):
                     retrieved_data = retrieve_relevant_chunks(query,
-                                                              faiss_index,
-                                                              indexed_texts,
-                                                              indexed_metadata,
-                                                              core_models_loaded['embedding'],
+                                                              faiss_index_to_use,
+                                                              texts_to_use,
+                                                              metadata_to_use,
+                                                              embedding_model,
                                                               top_n=config.TOP_N_RETRIEVAL)
                     
-                    final_answer = get_llm_answer(query, retrieved_data, core_models_loaded['llm'])
+                    final_answer = get_llm_answer(query, retrieved_data, llm_model)
 
                     st.markdown("### Answer")
                     st.markdown(final_answer)
@@ -250,9 +294,14 @@ if core_models_loaded:
                     else:
                         st.info("No specific context chunks were retrieved to formulate the answer, or the answer is general knowledge.")
             else:
-                st.warning("Index not available or models not loaded for the current directory. Please process the directory first.")
+                st.warning("Core models (embedding/LLM), index, or text data not fully available for querying. Please ensure models are loaded and an index is active.")
+    elif st.session_state.prebuilt_index_loaded:
+        # This case might occur if prebuilt was loaded, but then faiss_index somehow became None.
+        # Or, more likely, it's the initial state after successfully loading prebuilt index before any query.
+        st.info(f"Pre-built index from `{st.session_state.get('current_query_source', PREBUILT_INDEX_DIR)}` is loaded. Enter a query above.")
     else:
-        st.info("Please specify a PDF directory and click 'Load and Process PDF Directory' to begin.")
+        # No index loaded at all (neither prebuilt nor processed)
+        st.info("No index loaded. Attempt to load pre-built index (if available) or process a PDF directory via the sidebar.")
 
 else:
     st.error("Application cannot start: Core models failed to load. Check logs for details.")

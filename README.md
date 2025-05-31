@@ -1,166 +1,112 @@
-# PDF Document RAG Query System
+# Document RAG Query Application
 
-## Overview
-
-This project implements a Retrieval Augmented Generation (RAG) system designed to answer questions about a collection of PDF documents. It processes PDFs (including image-based ones with tables), extracts text and table content using OCR and table detection models, builds a searchable vector index, and then uses a Large Language Model (LLM) to generate answers based on the most relevant retrieved information from your documents.
-
-The system provides both a command-line interface (`main.py`) for processing and querying, and a Streamlit web application (`app.py`) for a more interactive experience.
-
-## Features
-
-* **PDF Parsing**: Handles text-based and image-based PDFs.
-* **Table Extraction**: Detects and extracts text from tables within PDFs.
-* **OCR Integration**: Uses EasyOCR for text extraction from images and scanned portions of PDFs.
-* **Vector Indexing**: Creates a FAISS vector index from document chunks for efficient similarity search.
-* **Modular Design**: Code is structured into logical modules for parsing, indexing, retrieval, and answer generation.
-* **Configurable**: Key parameters (model names, paths, API keys) are managed through a configuration file and environment variables.
-* **Two Interfaces**:
-    * `main.py`: A command-line tool for batch processing, indexing, and querying.
-    * `app.py`: A Streamlit web application for interactive use.
-* **Caching**: Streamlit app caches loaded models and index data for improved performance.
-
-## Project Structure
-
-The project is organized into the following Python modules:
-
-* `config.py`: Handles all configurations, including API keys and model parameters.
-* `pdf_parser.py`: Converts PDFs to images, detects tables, and performs OCR to extract structured content.
-* `vector_indexer.py`: Creates, saves, and loads the FAISS vector index from processed PDF content.
-* `retriever.py`: Retrieves relevant text chunks from the index based on a user query.
-* `answer_generator.py`: Formats prompts and interacts with an LLM to generate answers.
-* `main.py`: Command-line interface to orchestrate the RAG pipeline.
-* `app.py`: Streamlit web application for an interactive user interface.
-* `requirements.txt`: Lists all Python dependencies.
-* `.env` (user-created): For storing sensitive API keys locally.
+This application allows you to query documents using a Retrieval Augmented Generation (RAG) approach.
+It can load a pre-built FAISS vector index or process PDF documents from a specified directory to build a new index.
+Queries are then answered by retrieving relevant text chunks from the index and generating a response using a lightweight Language Model.
 
 ## Prerequisites
 
-* Python 3.8+
-* An active Hugging Face account and an API Token (`HF_TOKEN`) for accessing LLMs on the Hugging Face Hub.
-* System dependencies for `pdf2image` (like `poppler-utils` on Linux):
-    ```bash
-    sudo apt-get update && sudo apt-get install -y poppler-utils
-    ```
-    (For other OS, please refer to `pdf2image` documentation.)
+*   Python 3.8 - 3.11
+*   Git
 
-## Setup Instructions
+## Setup
 
-1.  **Clone the Repository (if applicable)**:
+1.  **Clone the Repository (if you haven't already):**
     ```bash
-    git clone <your-repository-url>
-    cd <your-repository-name>
+    git clone <your-repo-url>
+    cd <your-repo-directory>
     ```
 
-2.  **Create a Virtual Environment (Recommended)**:
+2.  **Create a Virtual Environment:**
+    It's highly recommended to use a virtual environment.
     ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows: venv\Scripts\activate
+    python -m venv .venv
+    source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
     ```
 
-3.  **Install Dependencies**:
+3.  **Install Dependencies:**
     ```bash
     pip install -r requirements.txt
     ```
 
-4.  **Set Up Environment Variables**:
-    Create a file named `.env` in the root directory of the project. Add your Hugging Face API token to this file:
-    ```env
-    HF_TOKEN="your_actual_huggingface_api_token"
-    # NGROK_AUTH_TOKEN="your_ngrok_auth_token" # If you plan to use ngrok with Streamlit
-    ```
-    Replace `"your_actual_huggingface_api_token"` with your real token.
+4.  **Set Hugging Face Token:**
+    This application uses models from the Hugging Face Hub, which requires an API token.
+    *   Obtain a token from [Hugging Face settings](https://huggingface.co/settings/tokens).
+    *   You can set this token as an environment variable:
+        ```bash
+        export HF_TOKEN="your_hugging_face_token_here"
+        ```
+    *   Alternatively, create a `.env` file in the root of the project directory and add your token there:
+        ```
+        HF_TOKEN="your_hugging_face_token_here"
+        ```
+        The application will load this `.env` file using `python-dotenv` (which is in `requirements.txt`).
 
-## Running the Application
+## Vector Index
 
-You can interact with the RAG system using either the command-line interface or the Streamlit web application.
+The application is configured to first look for a pre-built FAISS index.
 
-### 1. Command-Line Interface (`main.py`)
+*   **Using the Pre-built Index:**
+    *   Ensure your FAISS index files are located at:
+        *   `vector_store/data_index/faiss_index.index`
+        *   `vector_store/data_index/faiss_index.texts.json`
+    *   When the app starts, it will attempt to load this index. Status messages will appear in the sidebar.
 
-The `main.py` script is used for processing a directory of PDFs, building/loading an index, and answering queries from the terminal.
+*   **Processing New PDF Documents:**
+    *   If the pre-built index is not found, or if you wish to process a different set of documents:
+        1.  Place your PDF files into a directory (e.g., a subdirectory under `data/`).
+        2.  In the Streamlit application's sidebar, under "Process New PDF Directory (Optional)":
+            *   Enter the path to your PDF directory.
+            *   Optionally, check "Force Re-index PDFs" if you want to re-process even if a cached index for that directory exists.
+            *   Click "Process PDF Directory".
+        3.  This will create a new FAISS index specific to that directory (stored within `vector_store/app_<directory_name>_index/`). The application will then use this newly processed index for queries.
 
-**Usage Examples:**
+## Running Locally
 
-* **Process PDFs, build/load index, and ask a query:**
-    ```bash
-    python main.py /path/to/your/pdf_directory --query "What is the main topic discussed?"
-    ```
-
-* **Force re-processing and re-indexing of PDFs:**
-    (Useful if PDF content has changed or you want to rebuild the index from scratch)
-    ```bash
-    python main.py /path/to/your/pdf_directory --reindex
-    ```
-
-* **Specify a custom directory for storing the index:**
-    ```bash
-    python main.py /path/to/your/pdf_directory --query "A specific question" --index_dir /custom/path/for/index_files
-    ```
-
-* **Query from 2 docs in single instance:**
-    ```bash
-    python main.py ./data/ --query "What is the existing and revised lease entitlement for PB-3 Level-11(Pre-revised GP 6600) in cities Y and what is deputation period of Programmers?"
-    ==================== Query Answer ====================
-    Query: What is the existing and revised lease entitlement for PB-3 Level-11(Pre-revised GP 6600) in cities Y and what is deputation period of Programmers?
-
-    Answer:
-    Based on the provided context, I can help you with the question.
-
-    The existing lease entitlement for PB-3 Level-11 (Pre-revised GP 6600) in cities Y is 21351, and the revised lease entitlement is 24554.
-
-    Regarding the deputation period of Programmers, according to the Corrigendum dated 09.05.2025, the tenure of deputation is initially for a period of one year and extendable up to 03 years.
-
-    So, to summarize:
-
-    * Existing lease entitlement for PB-3 Level-11 (Pre-revised GP 6600) in cities Y: 21351
-    * Revised lease entitlement for PB-3 Level-11 (Pre-revised GP 6600) in cities Y: 24554
-    * Deputation period of Programmers: Initially for a period of one year and extendable up to 03 years.
-    ======================================================
-    ```
-
-* **View all command-line options:**
-    ```bash
-    python main.py --help
-    ```
-
-### 2. Streamlit Web Interface (`app.py`)
-
-The `app.py` script launches a web application for a more interactive experience.
-
-**To run the Streamlit app:**
-
-1.  Ensure you are in the project's root directory and your virtual environment is activated.
-2.  Run the following command:
+1.  Ensure your virtual environment is activated and `HF_TOKEN` is set.
+2.  Run the Streamlit application:
     ```bash
     streamlit run app.py
     ```
-3.  This will typically open the application in your default web browser (e.g., at `http://localhost:8501`).
+3.  Open your web browser and navigate to the local URL provided by Streamlit (usually `http://localhost:8501`).
 
-**Using the Streamlit App:**
+## Deployment
 
-1.  **Enter PDF Directory Path**: In the sidebar, input the full path to the directory containing your PDF files.
-2.  **Load and Process**: Click the "Load and Process PDF Directory" button. You can check "Force Re-index PDFs" if needed. The app will process the PDFs and build/load the vector index. Progress and status messages will be displayed.
-3.  **Enter Query**: Once the directory is processed, a text input field will appear. Type your question about the documents.
-4.  **View Answer**: The LLM's answer will be displayed, along with snippets from the source documents that were used as context.
+### Streamlit Cloud
 
-## Configuration
+1.  **Push your code to a GitHub repository.**
+2.  **Sign up or log in to [Streamlit Cloud](https://share.streamlit.io/).**
+3.  **Click "New app" and connect your GitHub repository.**
+    *   Select the repository and branch.
+    *   The main script file should be `app.py`.
+4.  **Advanced Settings:**
+    *   Ensure the Python version matches your local environment (e.g., 3.9, 3.10).
+    *   Go to the "Secrets" section and add your `HF_TOKEN`:
+        ```
+        HF_TOKEN="your_hugging_face_token_here"
+        ```
+5.  **Deploy!**
 
-* **General Settings**: Most application settings (default model names, paths, LLM parameters) are defined in `config.py`. You can modify these defaults if needed.
-* **API Keys**: Sensitive API keys (like `HF_TOKEN`) should **only** be set in the `.env` file or as environment variables. They are loaded by `config.py`. **Do not hardcode API keys directly into Python files.**
+### Hugging Face Spaces
 
-## Potential Future Enhancements
+1.  **Push your code to a GitHub repository OR prepare to upload it directly.**
+2.  **Sign up or log in to [Hugging Face](https://huggingface.co/).**
+3.  **Create a new Space:**
+    *   Click on your profile picture, then "New Space".
+    *   Give your Space a name.
+    *   Select "Streamlit" as the Space SDK.
+    *   Choose "Docker" for the Space hardware. You can usually start with a free CPU instance.
+    *   Choose whether to create from an existing GitHub repo or create a new empty Space to upload files to.
+4.  **Configure the Space:**
+    *   If creating from GitHub, ensure the correct branch and main application file (`app.py`) are specified.
+    *   If creating an empty space, upload your files (`app.py`, `config.py`, `requirements.txt`, `vector_indexer.py`, `answer_generator.py`, `retriever.py`, `pdf_parser.py`, and your `vector_store` directory with the pre-built index).
+        *   **Important for `vector_store`**: Due to typical storage limits on free tiers of HF Spaces, if your `vector_store/data_index` is very large, you might need to consider alternatives like Git LFS for the index files or a hosted vector database. For moderately sized indexes, direct upload should work.
+    *   Ensure your `requirements.txt` is present and correct.
+    *   Go to the "Settings" tab of your Space.
+    *   Under "Repository secrets", add your `HF_TOKEN`:
+        *   Secret name: `HF_TOKEN`
+        *   Secret value: `your_hugging_face_token_here`
+5.  **The Space should build and deploy automatically.** You'll be able to access it via `your-username-your-space-name.hf.space`.
 
-* Support for other document types (e.g., .txt, .docx).
-* More advanced chunking strategies for text.
-* Sophisticated re-ranking of retrieved documents before sending to LLM.
-* Asynchronous processing for the Streamlit app to handle long-running PDF processing tasks more gracefully.
-* Option to select different embedding or LLM models from the UI.
-* More robust error handling and user feedback.
-* Integration with a database for persistent storage of processed data and metadata.
-
-## Contributing
-
-Contributions are welcome! Please feel free to fork the repository, make changes, and submit a pull request. For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file (if you create one) for details.
+---
+This README provides comprehensive instructions for setting up, running, and deploying the application.

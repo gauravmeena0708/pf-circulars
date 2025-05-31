@@ -11,12 +11,14 @@ EMBEDDING_MODEL_NAME = 'sentence-transformers/all-MiniLM-L6-v2'
 EMBEDDING_DEVICE = "cuda" if os.environ.get("CUDA_IS_AVAILABLE", "false").lower() == "true" else "cpu" # Example dynamic device choice
 
 # LLM
-LLM_REPO_ID = 'meta-llama/Llama-3.2-3B-Instruct' # Or your preferred model
-LLM_REPO_ID = 'meta-llama/Llama-4-Scout-17B-16E-Instruct'
-LLM_TASK = "text2text-generation"
-LLM_TASK = "conversational"
+# LLM_REPO_ID = 'meta-llama/Llama-3.2-3B-Instruct' # Or your preferred model
+# LLM_REPO_ID = 'meta-llama/Llama-4-Scout-17B-16E-Instruct'
+# LLM_TASK = "text2text-generation"
+# LLM_TASK = "conversational"
 #LLM_REPO_ID = 'meta-llama/Meta-Llama-3-8B-Instruct'
 #LLM_TASK = "conversational" # Or try "text-generation" if "conversational" gives the task error
+LLM_REPO_ID = "google/flan-t5-base"
+LLM_TASK = "text2text-generation"
 LLM_TEMPERATURE = 0.1
 LLM_MAX_NEW_TOKENS = 300
 
