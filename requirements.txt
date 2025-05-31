@@ -7,7 +7,7 @@ langchain-huggingface
 transformers[torch] # Includes PyTorch; use transformers[tensorflow] or transformers[flax] if preferred
 torch 
 sentence-transformers
-
+timm
 # PDF Processing and OCR
 PyMuPDF # fitz
 pdf2image
