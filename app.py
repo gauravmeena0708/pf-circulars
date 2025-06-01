@@ -112,7 +112,7 @@ def process_pdfs_and_get_index(pdf_directory, force_reindex, core_models):
                                                   core_models['embedding'],
                                                   index_name=config.DEFAULT_INDEX_NAME)
         if index and texts and metadata:
-            st.success(f"Loaded index")
+            st.success(f"Loaded index. You can now query 2025-26 circulars like 'what is latest circular?', 'Deputation period of Programmers'")
             set_cached_index_data(pdf_directory_path_key, index, texts, metadata) # Cache in session
             return index, texts, metadata
 
