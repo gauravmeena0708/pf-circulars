@@ -21,7 +21,7 @@ faiss-cpu # Or faiss-gpu if you have a compatible GPU and setup
 numpy
 python-dotenv # For loading .env files (used in config.py)
 streamlit # For the web application (app.py)
-# pyngrok # If you plan to use ngrok for exposing Streamlit app
+pyngrok # If you plan to use ngrok for exposing Streamlit app
 
 # Optional, for dummy PDF creation in pdf_parser.py example
 reportlab

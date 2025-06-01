@@ -17,6 +17,13 @@ import streamlit as st
 import os
 import time
 import logging
+import io
+
+log_stream = io.StringIO()
+handler = logging.StreamHandler(log_stream)
+handler.setLevel(logging.INFO)
+logger = logging.getLogger("RAGAppStreamlit")
+logger.addHandler(handler)
 
 # Import configurations and modules from your project
 import config
@@ -295,11 +302,13 @@ else:
     st.markdown("Ensure you have set up your `HF_TOKEN` in `.env` or environment variables as per `config.py`.")
 
 # Placeholder for ngrok if needed, though this is better handled outside the script for deployment
-# from pyngrok import ngrok
-# if st.checkbox("Expose with ngrok? (Requires ngrok auth token in config)"):
-# if config.NGROK_AUTH_TOKEN:
-# ngrok.set_auth_token(config.NGROK_AUTH_TOKEN)
-# public_url = ngrok.connect(config.STREAMLIT_SERVER_PORT).public_url
-# st.success(f"Streamlit app is available at: {public_url}")
-# else:
-# st.warning("NGROK_AUTH_TOKEN not set in config. Cannot expose.")
+from pyngrok import ngrok
+if st.checkbox("Expose with ngrok? (Requires ngrok auth token in config)"):
+if config.NGROK_AUTH_TOKEN:
+ngrok.set_auth_token(config.NGROK_AUTH_TOKEN)
+public_url = ngrok.connect(config.STREAMLIT_SERVER_PORT).public_url
+st.success(f"Streamlit app is available at: {public_url}")
+else:
+st.warning("NGROK_AUTH_TOKEN not set in config. Cannot expose.")
+st.subheader("Application Logs")
+st.text(log_stream.getvalue())
