@@ -6,6 +6,7 @@ from PIL import Image
 import numpy as np
 import cv2
 import logging
+import streamlit as st  # Added for Streamlit UI
 
 # Assuming your config.py is in the same directory or accessible in PYTHONPATH
 import config
@@ -14,6 +15,15 @@ import config
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=config.LOG_LEVEL, format=config.LOG_FORMAT)
 
+# Streamlit UI setup
+st.title("PDF Parser and Content Extractor")
+st.sidebar.header("PDF Processing Logs")
+log_placeholder = st.sidebar.empty()  # Placeholder for logs
+content_placeholder = st.empty()  # Placeholder for extracted content
+
+def log_to_streamlit(message):
+    """Helper function to log messages to Streamlit UI."""
+    log_placeholder.text(message)
 
 def convert_pdf_page_to_image(pdf_path, page_num, dpi=config.PDF_TO_IMAGE_DPI):
     """Converts a single page of a PDF to a PIL Image."""
@@ -23,6 +33,7 @@ def convert_pdf_page_to_image(pdf_path, page_num, dpi=config.PDF_TO_IMAGE_DPI):
             return images[0]
     except Exception as e:
         logger.error(f"Error converting page {page_num} of PDF '{pdf_path}' to image: {e}")
+        log_to_streamlit(f"Error converting page {page_num} of PDF '{pdf_path}' to image: {e}")
     return None
 
 def pil_to_cv2(pil_image):
@@ -34,29 +45,36 @@ def extract_content_from_pdf(pdf_path, table_detector_pipeline, ocr_reader):
     Extracts structured content (text and tables) from a single PDF file.
     """
     logger.info(f"Opening PDF file: {pdf_path}")
+    log_to_streamlit(f"Opening PDF file: {pdf_path}")
     extracted_pdf_data = []
     try:
         doc = fitz.open(pdf_path)
     except Exception as e:
         logger.error(f"Error opening PDF '{pdf_path}': {e}")
+        log_to_streamlit(f"Error opening PDF '{pdf_path}': {e}")
         return extracted_pdf_data
 
     for page_num in range(len(doc)):
         logger.info(f"Processing page {page_num + 1}/{len(doc)} of PDF: {pdf_path}")
+        log_to_streamlit(f"Processing page {page_num + 1}/{len(doc)} of PDF: {pdf_path}")
         current_page_data = {"page_number": page_num + 1, "source_pdf": os.path.basename(pdf_path), "content": []}
 
         try:
             pil_image = convert_pdf_page_to_image(pdf_path, page_num, dpi=config.PDF_TO_IMAGE_DPI)
             if not pil_image:
                 logger.warning(f"Could not convert page {page_num + 1} of '{pdf_path}' to image. Skipping page.")
+                log_to_streamlit(f"Could not convert page {page_num + 1} of '{pdf_path}' to image. Skipping page.")
                 extracted_pdf_data.append(current_page_data)
                 continue
 
             logger.info(f"Running table detection on page {page_num + 1}...")
+            log_to_streamlit(f"Running table detection on page {page_num + 1}...")
             table_detections = table_detector_pipeline(pil_image)
             logger.info(f"Detected {len(table_detections)} potential tables on page {page_num + 1}.")
+            log_to_streamlit(f"Detected {len(table_detections)} potential tables on page {page_num + 1}.")
 
             logger.info(f"Running OCR on non-table regions of page {page_num + 1}...")
+            log_to_streamlit(f"Running OCR on non-table regions of page {page_num + 1}...")
             img_np_rgb = np.array(pil_image)
             non_table_mask = np.ones(img_np_rgb.shape[:2], dtype=np.uint8) * 255
             for detection in table_detections:
@@ -71,6 +89,7 @@ def extract_content_from_pdf(pdf_path, table_detector_pipeline, ocr_reader):
             non_table_img_np = cv2.bitwise_and(img_np_rgb, img_np_rgb, mask=non_table_mask)
             non_table_ocr_results = ocr_reader.readtext(non_table_img_np, paragraph=True)
             logger.info(f"Extracted {len(non_table_ocr_results)} text blocks from non-table regions on page {page_num + 1}.")
+            log_to_streamlit(f"Extracted {len(non_table_ocr_results)} text blocks from non-table regions on page {page_num + 1}.")
 
             for ocr_result in non_table_ocr_results:
                 if len(ocr_result) >= 2:
@@ -78,6 +97,7 @@ def extract_content_from_pdf(pdf_path, table_detector_pipeline, ocr_reader):
                     current_page_data["content"].append({"type": "plain_text", "text": text})
 
             logger.info(f"Running OCR on detected tables on page {page_num + 1}...")
+            log_to_streamlit(f"Running OCR on detected tables on page {page_num + 1}...")
             for detection in table_detections:
                 if detection['label'] == 'table':
                     box = detection['box']
@@ -89,12 +109,16 @@ def extract_content_from_pdf(pdf_path, table_detector_pipeline, ocr_reader):
 
         except Exception as e:
             logger.error(f"Error processing page {page_num + 1} of PDF '{pdf_path}': {e}", exc_info=True)
+            log_to_streamlit(f"Error processing page {page_num + 1} of PDF '{pdf_path}': {e}")
 
         extracted_pdf_data.append(current_page_data)
         logger.info(f"Page {page_num + 1} content items: {len(current_page_data['content'])}")
+        log_to_streamlit(f"Page {page_num + 1} content items: {len(current_page_data['content'])}")
+        content_placeholder.json(current_page_data)  # Display extracted content in Streamlit UI
     
     doc.close()
     logger.info(f"Finished processing PDF: {pdf_path}")
+    log_to_streamlit(f"Finished processing PDF: {pdf_path}")
     return extracted_pdf_data
 
 def group_content_into_contextual_blocks(extracted_data):
