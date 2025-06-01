@@ -160,6 +160,21 @@ def process_pdfs_and_get_index(pdf_directory, force_reindex, core_models):
 st.set_page_config(page_title="EPFO Circular Chatbot", layout="wide")
 st.title("EPFO Circular Chatbot")
 
+# --- Sidebar with Sample Queries ---
+st.sidebar.header("Sample Queries")
+sample_queries = [
+    "What preparatory activities are needed for Annual General Transfer of DPA?",
+    "Deputation of Programmers",
+    "What is the process for transfer of accounts?",
+    "Tell me about Revamped Appendix E",
+    "What is the latest update on EPFO interest rate?",
+    "Tell me about Examination scheme of JTO",
+    "What has been told about notional increment"
+]
+for q in sample_queries:
+    if st.sidebar.button(q, key=f"sample_{q}"):
+        st.session_state["query_input"] = q
+
 # Load models (cached)
 core_models_loaded = load_core_models()
 

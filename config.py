@@ -22,7 +22,7 @@ LLM_MAX_NEW_TOKENS = 300
 TABLE_DETECTION_MODEL = 'microsoft/table-transformer-detection'
 
 # OCR Configuration
-OCR_LANGUAGES = ['en', 'hi'] # Add 'hi' if Hindi is also consistently needed: ['hi', 'en']
+OCR_LANGUAGES = ['en'] # Add 'hi' if Hindi is also consistently needed: ['hi', 'en']
 DEFAULT_INDEX_DIR = "vector_store"
 DEFAULT_INDEX_NAME = "faiss_index" # The FAISS index file itself
 PROCESSED_DATA_DIR = "processed_pdf_data"
