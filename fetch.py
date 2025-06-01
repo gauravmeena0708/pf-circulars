@@ -208,65 +208,6 @@ def fetch_circular_metadata():
         print("No circular metadata was extracted.")
     print("Finished fetching circular metadata.")
 
-# --- Indexing Logic ---
-def update_pdf_index():
-    """
-    Reads circular-data.json, processes new English PDF links for OCR,
-    and updates index-data.json.
-    Limits processing to MAX_URLS_TO_INDEX_PER_RUN new URLs.
-    """
-    print("\nStarting PDF indexing process...")
-    circulars = load_json_file(CIRCULAR_DATA_FILE)
-    if not circulars:
-        print("No circular data found in {CIRCULAR_DATA_FILE}. Cannot proceed with indexing.")
-        return
-
-    indexed_data = load_json_file(INDEX_DATA_FILE)
-    newly_indexed_count = 0
-    processed_urls_in_this_run = 0
-
-    for circular_entry in circulars:
-        if processed_urls_in_this_run >= MAX_URLS_TO_INDEX_PER_RUN:
-            print(f"Reached maximum of {MAX_URLS_TO_INDEX_PER_RUN} URLs for this indexing run.")
-            break
-
-        pdf_url = circular_entry.get("english_pdf_link")
-
-        if not pdf_url:
-            # print(f"  Skipping entry S.No {circular_entry.get('serial_no', 'N/A')} (no English PDF link).")
-            continue
-
-        if pdf_url in indexed_data:
-            # print(f"  URL already indexed: {pdf_url.split('/')[-1]}")
-            continue # Skip if already indexed
-
-        print(f"  Processing new URL for indexing: {pdf_url.split('/')[-1]} (S.No {circular_entry.get('serial_no', 'N/A')})")
-        ocr_text = get_first_page_ocr_text_from_url(pdf_url)
-        processed_urls_in_this_run += 1
-
-        if ocr_text is not None: # Includes cases where OCR failed but attempted
-            indexed_data[pdf_url] = {
-                "ocr_content": ocr_text,
-                "indexed_at": datetime.now(timezone.utc).isoformat()
-            }
-            if not ocr_text.startswith("OCR_ERROR"): # Count only successful OCRs as "newly indexed" for this metric
-                 newly_indexed_count +=1
-            print(f"    Added to index. Total newly indexed in this run so far: {newly_indexed_count}")
-        else:
-            # Optionally, add a placeholder if OCR returned None to prevent re-attempts if it's a persistent issue
-            # indexed_data[pdf_url] = {
-            #     "ocr_content": "OCR_FAILED_PERMANENTLY_OR_EMPTY", # Or some other marker
-            #     "indexed_at": datetime.now(timezone.utc).isoformat()
-            # }
-            print(f"    OCR returned None. Not adding to index data for now: {pdf_url.split('/')[-1]}")
-
-
-    if newly_indexed_count > 0 or processed_urls_in_this_run > 0 : # Save if any attempt was made
-        save_json_file(indexed_data, INDEX_DATA_FILE)
-    else:
-        print("No new PDFs were processed or indexed in this run.")
-    print(f"Finished PDF indexing process. Successfully indexed {newly_indexed_count} new PDFs.")
-
 
 # --- Main Execution ---
 if __name__ == "__main__":
