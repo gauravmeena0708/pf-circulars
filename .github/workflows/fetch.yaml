@@ -2,6 +2,8 @@ name: Fetch EPF India circulars
 
 on:
   workflow_dispatch: # Allows manual triggering
+  schedule:
+   - cron: '0 4 * * 1' # Example: Runs every Monday at 4 AM UTC (after metadata fetch)
 
 jobs:
   fetch_data:
