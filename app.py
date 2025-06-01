@@ -217,14 +217,14 @@ if core_models_loaded:
                         st.markdown("---")
                         st.markdown("### Retrieved Contextual Sources")
                         for i, item in enumerate(retrieved_data):
-                            source_pdf = item['metadata'].get('source_pdf', 'N/A')
-                            if isinstance(source_pdf, str) and (source_pdf.startswith("http://") or source_pdf.startswith("https://")):
-                                doc_display = f'<a href="{source_pdf}" target="_blank">{source_pdf}</a>'
-                            else:
-                                doc_display = source_pdf
+                            source_pdf = item['metadata'].get('source_pdf_original_filename', 'N/A')
+                            source_pdf_url = item['metadata'].get('source_pdf', 'N/A')
+                            doc_display = source_pdf
                             with st.expander(f"Source {i+1}: {doc_display}"):
+                                st.markdown(f"[View Source PDF]({source_pdf_url})")
                                 st.caption(f"Text:")
                                 st.markdown(f"> {item['text']}")
+                                
                     else:
                         st.info("No specific context chunks were retrieved to formulate the answer, or the answer is general knowledge.")
             else:
