@@ -193,42 +193,32 @@ st.title("📄 Document RAG Query Application")
 core_models_loaded = load_core_models()
 
 if core_models_loaded:
-    st.sidebar.header("⚙️ Configuration")
-    #pdf_dir_input = st.sidebar.text_input("Enter PDF Directory Path:", os.getcwd()) # Default to current dir
+    # Remove sidebar config and button, always use default data dir
     default_data_dir = os.path.join(os.getcwd(), "data")
-    pdf_dir_input = st.sidebar.text_input("Enter PDF Directory Path:", default_data_dir)
-    force_reindex_checkbox = st.sidebar.checkbox("Force Re-index PDFs", value=False)
+    pdf_dir_input = default_data_dir
+    force_reindex_checkbox = False
 
     # Initialize session state for index data if it doesn't exist
     if 'current_pdf_dir' not in st.session_state:
         st.session_state.current_pdf_dir = None
-    if 'faiss_index' not in st.session_state: # Using generic key for simplicity here, but specific keys used in funcs
+    if 'faiss_index' not in st.session_state:
         st.session_state.faiss_index = None
         st.session_state.indexed_texts = None
         st.session_state.indexed_metadata = None
 
-    # Button to process directory
-    if st.sidebar.button("Load and Process PDF Directory"):
-        if pdf_dir_input and os.path.isdir(pdf_dir_input):
-            st.session_state.current_pdf_dir = pdf_dir_input # Store the current dir
-            # Clear old index data if directory changes or re-index is forced
-            if force_reindex_checkbox or st.session_state.current_pdf_dir != os.path.normpath(pdf_dir_input):
-                 pdf_directory_path_key = os.path.normpath(pdf_dir_input)
-                 for key in list(st.session_state.keys()): # Avoid iterating over changing dict
-                     if key.startswith(f"faiss_index_{pdf_directory_path_key}") or \
-                        key.startswith(f"faiss_texts_{pdf_directory_path_key}") or \
-                        key.startswith(f"faiss_metadata_{pdf_directory_path_key}"):
-                         del st.session_state[key]
+    # Always process the default directory on app start (if not already loaded)
+    if st.session_state.current_pdf_dir != os.path.normpath(pdf_dir_input):
+        st.session_state.current_pdf_dir = pdf_dir_input
+        pdf_directory_path_key = os.path.normpath(pdf_dir_input)
+        # Clear old index data for this directory
+        for key in list(st.session_state.keys()):
+            if key.startswith(f"faiss_index_{pdf_directory_path_key}") or \
+               key.startswith(f"faiss_texts_{pdf_directory_path_key}") or \
+               key.startswith(f"faiss_metadata_{pdf_directory_path_key}"):
+                del st.session_state[key]
+        index, texts, metadata = process_pdfs_and_get_index(pdf_dir_input, force_reindex_checkbox, core_models_loaded)
+        # The function process_pdfs_and_get_index already sets session state
 
-            index, texts, metadata = process_pdfs_and_get_index(pdf_dir_input, force_reindex_checkbox, core_models_loaded)
-            # The function process_pdfs_and_get_index already sets session state
-            if index:
-                 st.sidebar.success(f"Directory '{pdf_dir_input}' processed. Ready for queries.")
-            else:
-                 st.sidebar.error(f"Failed to process directory '{pdf_dir_input}'.")
-        else:
-            st.sidebar.error("Please enter a valid directory path.")
-    
     st.markdown("---")
     
     if st.session_state.current_pdf_dir:
@@ -237,7 +227,6 @@ if core_models_loaded:
 
         if query:
             # Retrieve current index data from session state based on the active directory
-            # This assumes process_pdfs_and_get_index has populated session state correctly
             pdf_dir_key = os.path.normpath(st.session_state.current_pdf_dir)
             faiss_index, indexed_texts, indexed_metadata = get_cached_index_data(pdf_dir_key)
 
@@ -265,9 +254,9 @@ if core_models_loaded:
                     else:
                         st.info("No specific context chunks were retrieved to formulate the answer, or the answer is general knowledge.")
             else:
-                st.warning("Index not available or models not loaded for the current directory. Please process the directory first.")
+                st.warning("Index not available or models not loaded for the current directory. Please check your data directory.")
     else:
-        st.info("Please specify a PDF directory and click 'Load and Process PDF Directory' to begin.")
+        st.info("No PDF directory found or processed. Please ensure the './data' directory exists and contains PDF files.")
 
 else:
     st.error("Application cannot start: Core models failed to load. Check logs for details.")
