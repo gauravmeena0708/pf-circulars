@@ -186,8 +186,8 @@ def process_pdfs_and_get_index(pdf_directory, force_reindex, core_models):
         return faiss_index_obj, texts_for_embedding, metadata_for_embedding
 
 # --- Streamlit UI ---
-st.set_page_config(page_title="Document RAG Query App", layout="wide")
-st.title("📄 Document RAG Query Application")
+st.set_page_config(page_title="EPFO Circular Chatbot", layout="wide")
+st.title("EPFO Circular Chatbot")
 
 # Load models (cached)
 core_models_loaded = load_core_models()
