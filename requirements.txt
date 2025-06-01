@@ -25,3 +25,4 @@ streamlit # For the web application (app.py)
 
 # Optional, for dummy PDF creation in pdf_parser.py example
 reportlab
+timm
