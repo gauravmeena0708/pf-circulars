@@ -4,6 +4,9 @@ import os
 import argparse
 import logging
 import time
+import warnings
+
+warnings.filterwarnings("ignore")
 
 # Import configurations and modules
 import config # General configurations
