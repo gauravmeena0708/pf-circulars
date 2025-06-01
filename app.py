@@ -48,7 +48,7 @@ logger = logging.getLogger("RAGAppStreamlit")
 logging.basicConfig(level=config.LOG_LEVEL, format=config.LOG_FORMAT)
 
 # Define constants for prebuilt index
-PREBUILT_INDEX_DIR = "/vector_store/data_index" # Make sure this path is correct for your environment
+PREBUILT_INDEX_DIR = "vector_store/data_index" # Use relative path, not absolute
 PREBUILT_INDEX_NAME = "faiss_index" # Should match the name used when saving the index
 
 # --- Model Caching (Streamlit's caching is essential for performance) ---
