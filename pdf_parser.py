@@ -97,6 +97,33 @@ def extract_content_from_pdf(pdf_path, table_detector_pipeline, ocr_reader):
     logger.info(f"Finished processing PDF: {pdf_path}")
     return extracted_pdf_data
 
+def group_content_into_contextual_blocks(extracted_data):
+    """
+    Groups extracted content into contextual blocks based on page numbers or content types.
+    """
+    logger.info("Grouping extracted content into contextual blocks...")
+    contextual_blocks = []
+
+    for page_data in extracted_data:
+        if not page_data["content"]:
+            logger.warning(f"No content found on page {page_data['page_number']} of {page_data['source_pdf']}. Skipping.")
+            continue
+
+        # Example grouping logic: Group all content from a single page into one block
+        block = {
+            "page_number": page_data["page_number"],
+            "source_pdf": page_data["source_pdf"],
+            "content": page_data["content"]
+        }
+        contextual_blocks.append(block)
+
+    if contextual_blocks:
+        logger.info(f"Created {len(contextual_blocks)} contextual blocks.")
+    else:
+        logger.warning("No contextual blocks created from extracted data.")
+    
+    return contextual_blocks
+
 if __name__ == '__main__':
     import os
     from transformers import pipeline
@@ -153,14 +180,11 @@ if __name__ == '__main__':
                         logger.info(f"      Text: {content_item['text'][:100]}...")
                     elif content_item['type'] == 'table':
                         logger.info(f"      Table Text List: {content_item['text']}")
-            logger.info("Grouping extracted content into contextual blocks...")
-            # Add logic to group content into contextual blocks
-            # Example: Group by page or content type
-            contextual_blocks = []
-            for page_data in structured_data:
-                contextual_blocks.append(page_data)  # Placeholder for actual grouping logic
+
+            # Group extracted content into contextual blocks
+            contextual_blocks = group_content_into_contextual_blocks(structured_data)
             if contextual_blocks:
-                logger.info(f"Created {len(contextual_blocks)} contextual blocks.")
+                logger.info("Contextual blocks created successfully.")
             else:
                 logger.warning("No contextual blocks created from extracted data.")
         else:
