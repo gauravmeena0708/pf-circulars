@@ -87,7 +87,9 @@ def convert_item_blocks_to_texts_and_metadata(grouped_blocks_for_item, item_deta
         if full_block_text:
             texts_for_embedding.append(full_block_text)
             metadata_item = {
-                "source_pdf_original_filename": block["source_pdf"], 
+                # Use the URL as the source_pdf for downstream display
+                "source_pdf": item_details_from_json.get("english_pdf_link"),  # CHANGED: Use URL as source
+                "source_pdf_original_filename": block.get("source_pdf"),  # Keep original filename for reference if needed
                 "page_number": str(block["page_number"]),
                 "original_group_content_snippet": full_block_text[:200],
                 "serial_no": item_details_from_json.get("serial_no"),
@@ -103,17 +105,23 @@ def convert_item_blocks_to_texts_and_metadata(grouped_blocks_for_item, item_deta
             
     return texts_for_embedding, corresponding_metadata
 
-def main_update_indexer(max_items_to_process=20):
+def main_update_indexer(max_items_to_process=5):
     initialize_models()
 
     index_dir = config.DEFAULT_INDEX_DIR
     index_name = config.DEFAULT_INDEX_NAME
     circular_data_path = "circular-data.json"
 
-    faiss_index, existing_texts, existing_metadata = load_faiss_index(index_dir, sbert_model, index_name)
+    # --- CHANGED: Use subdirectory for index, matching app.py ---
+    pdf_dir_basename = os.path.basename(os.path.normpath(os.path.join(os.getcwd(), "data")))
+    index_storage_path_app = os.path.join(index_dir, f"{pdf_dir_basename}_index")
+    if not os.path.exists(index_storage_path_app):
+        os.makedirs(index_storage_path_app, exist_ok=True)
 
-    if faiss_index is None:
-        logger.info(f"No existing FAISS index found at {os.path.join(index_dir, index_name)}. Creating a new one.")
+    faiss_index, existing_texts, existing_metadata = load_faiss_index(index_storage_path_app, sbert_model, index_name)
+
+    if (faiss_index is None):
+        logger.info(f"No existing FAISS index found at {os.path.join(index_storage_path_app, index_name)}. Creating a new one.")
         faiss_index = faiss.IndexFlatL2(sbert_model.get_sentence_embedding_dimension())
         faiss_index = faiss.IndexIDMap(faiss_index)
         existing_texts = []
@@ -216,13 +224,13 @@ def main_update_indexer(max_items_to_process=20):
         all_texts = existing_texts + new_texts_for_embedding
         all_metadata = existing_metadata + new_corresponding_metadata
 
-        save_faiss_index(faiss_index, all_texts, all_metadata, index_dir, index_name)
-        logger.info(f"Successfully updated and saved FAISS index and metadata to {index_dir}.")
+        save_faiss_index(faiss_index, all_texts, all_metadata, index_storage_path_app, index_name)
+        logger.info(f"Successfully updated and saved FAISS index and metadata to {index_storage_path_app}.")
     else:
         logger.info("No new embeddings were generated. Index not updated.")
 
 
 if __name__ == '__main__':
     logger.info("Starting FAISS index update script...")
-    main_update_indexer(max_items_to_process=20)
+    main_update_indexer(max_items_to_process=5)
     logger.info("FAISS index update script finished.")

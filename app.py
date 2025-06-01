@@ -218,7 +218,6 @@ if core_models_loaded:
                         st.markdown("### Retrieved Contextual Sources")
                         for i, item in enumerate(retrieved_data):
                             source_pdf = item['metadata'].get('source_pdf', 'N/A')
-                            # Only show the document name. If it's a URL, show as HTML link.
                             if isinstance(source_pdf, str) and (source_pdf.startswith("http://") or source_pdf.startswith("https://")):
                                 doc_display = f'<a href="{source_pdf}" target="_blank">{source_pdf}</a>'
                             else:
