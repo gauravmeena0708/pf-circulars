@@ -15,13 +15,13 @@ jobs:
         with:
           python-version: '3.x'
           
-      - name: Install Tesseract OCR
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y tesseract-ocr
+      #- name: Install Tesseract OCR
+      #  run: |
+      #    sudo apt-get update
+      #    sudo apt-get install -y tesseract-ocr
 
       - name: Install Python dependencies
-        run: pip install requests beautifulsoup4 pymupdf pytesseract Pillow
+        run: pip install requests beautifulsoup4 #pymupdf pytesseract Pillow
 
       - name: Run fetching script
         run: python ./fetch.py # Store the script in your repo
