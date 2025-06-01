@@ -30,8 +30,6 @@ from vector_indexer import (
 )
 from retriever import retrieve_relevant_chunks
 from answer_generator import initialize_llm, get_llm_answer
-
-# Import model classes for initialization
 from transformers import pipeline as hf_pipeline
 import easyocr
 from sentence_transformers import SentenceTransformer
@@ -55,35 +53,21 @@ def st_log(level, message, exc_info=False):
     else:
         logger.debug(message)
 
-# --- Model Caching (Streamlit's caching is essential for performance) ---
-@st.cache_resource # Cache these heavy models across sessions/reruns
+
+@st.cache_resource 
 def load_core_models():
-    #st_log("info", "Attempting to load core models for Streamlit app...")
     models = {}
     try:
-        #st_log("info", f"Loading OCR reader (GPU: {config.EMBEDDING_DEVICE == 'cuda'})...")
         models['ocr'] = easyocr.Reader(config.OCR_LANGUAGES, gpu=(config.EMBEDDING_DEVICE == "cuda"))
-        #st_log("info", "OCR reader loaded.")
-
-        #st_log("info", f"Loading table detection model (Device: {config.EMBEDDING_DEVICE})...")
         models['table_detector'] = hf_pipeline("object-detection", model=config.TABLE_DETECTION_MODEL, device=config.EMBEDDING_DEVICE)
-        #st_log("info", "Table detection model loaded.")
-
-        #st_log("info", f"Loading embedding model (Device: {config.EMBEDDING_DEVICE})...")
         models['embedding'] = SentenceTransformer(config.EMBEDDING_MODEL_NAME, device=config.EMBEDDING_DEVICE)
-        #st_log("info", "Embedding model loaded.")
-
-        #st_log("info", "Initializing LLM...")
-        models['llm'] = initialize_llm() # From answer_generator.py
-        #st_log("info", "LLM initialized.")
+        models['llm'] = initialize_llm()
         return models
     except Exception as e:
-        #st_log("error", f"Fatal Error: Failed to load one or more critical models: {e}", exc_info=True)
-        return None # Or raise an exception that Streamlit can catch
-
+        return None 
+    
 # --- Index Management and Caching ---
 # Cache for FAISS index, texts, and metadata based on pdf_directory
-# Using st.session_state is better for mutable objects like index or dynamic data
 def get_cached_index_data(pdf_directory_path_key):
     cache_key_index = f"faiss_index_{pdf_directory_path_key}"
     cache_key_texts = f"faiss_texts_{pdf_directory_path_key}"
@@ -105,16 +89,14 @@ def set_cached_index_data(pdf_directory_path_key, index, texts, metadata):
 def process_pdfs_and_get_index(pdf_directory, force_reindex, core_models):
     """Manages PDF processing, indexing, and caching for Streamlit."""
     if not core_models:
-        #st_log("error", "Core models are not loaded. Cannot process PDFs.")
         return None, None, None
 
-    # Create a unique key for caching based on the PDF directory path
-    # This helps if the user switches directories
+    # Normalize the PDF directory path for consistent caching
     pdf_directory_path_key = os.path.normpath(pdf_directory)
     
     # Determine index storage path (similar to main.py but specific for app)
     pdf_dir_basename = os.path.basename(pdf_directory_path_key)
-    index_storage_path_app = os.path.join(config.DEFAULT_INDEX_DIR, f"app_{pdf_dir_basename}_index")
+    index_storage_path_app = os.path.join(config.DEFAULT_INDEX_DIR, f"{pdf_dir_basename}_index")
     if not os.path.exists(index_storage_path_app):
         os.makedirs(index_storage_path_app, exist_ok=True)
 
@@ -122,34 +104,28 @@ def process_pdfs_and_get_index(pdf_directory, force_reindex, core_models):
     index, texts, metadata = get_cached_index_data(pdf_directory_path_key)
     if index and not force_reindex:
         st.success(f"Using cached index for directory: {pdf_directory}")
-        #st_log("info", f"Using Streamlit session cached index for {pdf_directory_path_key}")
         return index, texts, metadata
     
     # If not in session cache, try loading from disk
     if not force_reindex:
-        #st_log("info", f"Checking for disk-cached index in: {index_storage_path_app}")
         index, texts, metadata = load_faiss_index(index_storage_path_app,
                                                   core_models['embedding'],
                                                   index_name=config.DEFAULT_INDEX_NAME)
         if index and texts and metadata:
-            st.success(f"Loaded index from disk for directory: {pdf_directory}")
-            #st_log("info", f"Loaded index from disk: {index_storage_path_app}")
+            st.success(f"Loaded index")
             set_cached_index_data(pdf_directory_path_key, index, texts, metadata) # Cache in session
             return index, texts, metadata
 
     # If no cache and no disk index (or force_reindex), then process
     with st.spinner(f"Processing PDFs in '{pdf_directory}' and building index... This may take a while."):
-        #st_log("info", f"Starting PDF processing for Streamlit app: {pdf_directory}")
         all_extracted_page_data = []
         pdf_files = [f for f in os.listdir(pdf_directory) if f.lower().endswith(".pdf")]
         if not pdf_files:
-            #st_log("warning", f"No PDF files found in directory: {pdf_directory}")
             return None, None, None
         
         st.progress(0)
         for i, pdf_file in enumerate(pdf_files):
             pdf_path = os.path.join(pdf_directory, pdf_file)
-            #st_log("info", f"Processing PDF (app): {pdf_path}")
             try:
                 extracted_data_single_pdf = extract_content_from_pdf(pdf_path,
                                                                     core_models['table_detector'],
@@ -158,30 +134,25 @@ def process_pdfs_and_get_index(pdf_directory, force_reindex, core_models):
                     all_extracted_page_data.extend(extracted_data_single_pdf)
                 st.progress((i + 1) / len(pdf_files))
             except Exception as e:
-                #st_log("error", f"Error processing PDF {pdf_file}: {e}", exc_info=True)
                 st.error(f"Error processing PDF {pdf_file}: {e}")
                 continue
         
         if not all_extracted_page_data:
-            #st_log("error", "No data extracted from any PDFs.")
             return None, None, None
 
         grouped_blocks = group_extracted_content_to_blocks(all_extracted_page_data)
         texts_for_embedding, metadata_for_embedding = convert_grouped_blocks_to_texts_and_metadata(grouped_blocks)
         
         if not texts_for_embedding:
-            #st_log("error", "No text content to index after processing.")
             return None, None, None
             
         faiss_index_obj = create_faiss_index(texts_for_embedding, metadata_for_embedding, core_models['embedding'])
         
         if not faiss_index_obj:
-            #st_log("error", "Failed to create FAISS index.")
             return None, None, None
             
         save_faiss_index(faiss_index_obj, texts_for_embedding, metadata_for_embedding, index_storage_path_app, config.DEFAULT_INDEX_NAME)
         st.success("PDFs processed and index built successfully!")
-        #st_log("info", f"Index built and saved to {index_storage_path_app}")
         set_cached_index_data(pdf_directory_path_key, faiss_index_obj, texts_for_embedding, metadata_for_embedding) # Cache in session
         return faiss_index_obj, texts_for_embedding, metadata_for_embedding
 
@@ -221,12 +192,10 @@ if core_models_loaded:
 
     st.markdown("---")
     
-    # Only require the data folder for initial index build; for querying, just check if index is loaded
     pdf_dir_key = os.path.normpath(st.session_state.current_pdf_dir)
     faiss_index, indexed_texts, indexed_metadata = get_cached_index_data(pdf_dir_key)
 
     if faiss_index and indexed_texts and indexed_metadata:
-        st.subheader(f"Querying Documents in: `{st.session_state.current_pdf_dir}`")
         query = st.text_input("Enter your query:", key="query_input")
 
         if query:
@@ -261,13 +230,3 @@ if core_models_loaded:
 else:
     st.error("Application cannot start: Core models failed to load. Check logs for details.")
     st.markdown("Ensure you have set up your `HF_TOKEN` in `.env` or environment variables as per `config.py`.")
-
-# Placeholder for ngrok if needed, though this is better handled outside the script for deployment
-# from pyngrok import ngrok
-# if st.checkbox("Expose with ngrok? (Requires ngrok auth token in config)"):
-# if config.NGROK_AUTH_TOKEN:
-# ngrok.set_auth_token(config.NGROK_AUTH_TOKEN)
-# public_url = ngrok.connect(config.STREAMLIT_SERVER_PORT).public_url
-# st.success(f"Streamlit app is available at: {public_url}")
-# else:
-# st.warning("NGROK_AUTH_TOKEN not set in config. Cannot expose.")
