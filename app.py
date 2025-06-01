@@ -217,7 +217,13 @@ if core_models_loaded:
                         st.markdown("---")
                         st.markdown("### Retrieved Contextual Sources")
                         for i, item in enumerate(retrieved_data):
-                            with st.expander(f"Source {i+1}: PDF: {item['metadata'].get('source_pdf', 'N/A')}, Page: {item['metadata'].get('page_number', 'N/A')} (Score: {item['score']:.4f})"):
+                            source_pdf = item['metadata'].get('source_pdf', 'N/A')
+                            # Only show the document name. If it's a URL, show as HTML link.
+                            if isinstance(source_pdf, str) and (source_pdf.startswith("http://") or source_pdf.startswith("https://")):
+                                doc_display = f'<a href="{source_pdf}" target="_blank">{source_pdf}</a>'
+                            else:
+                                doc_display = source_pdf
+                            with st.expander(f"Source {i+1}: {doc_display}"):
                                 st.caption(f"Text Snippet:")
                                 st.markdown(f"> {item['text']}")
                     else:
