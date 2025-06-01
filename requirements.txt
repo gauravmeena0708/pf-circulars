@@ -15,14 +15,9 @@ easyocr
 opencv-python-headless # Or opencv-python if you need full GUI features elsewhere (headless is smaller)
 
 # Vector Store
-faiss-cpu # Or faiss-gpu if you have a compatible GPU and setup
-
-# Utilities
+faiss-cpu # Or faiss-gpu
 numpy
-python-dotenv # For loading .env files (used in config.py)
-streamlit # For the web application (app.py)
-# pyngrok # If you plan to use ngrok for exposing Streamlit app
-
-# Optional, for dummy PDF creation in pdf_parser.py example
+python-dotenv 
+streamlit 
 reportlab
 timm
