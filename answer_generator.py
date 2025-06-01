@@ -2,16 +2,14 @@
 
 import logging
 from langchain_huggingface import HuggingFaceEndpoint
-from langchain_huggingface.chat_models import ChatHuggingFace # <--- ADD THIS
-from langchain_core.messages import HumanMessage             # <--- ADD THIS
+from langchain_huggingface.chat_models import ChatHuggingFace
+from langchain_core.messages import HumanMessage             
 import config
 
-# Configure logging
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=config.LOG_LEVEL, format=config.LOG_FORMAT)
 
 def format_prompt(query, retrieved_chunks_data):
-    # This function can remain the same, as it produces the string prompt
     if not retrieved_chunks_data:
         context_str = "No relevant information found in the documents."
     else:
@@ -38,7 +36,7 @@ Helpful Answer:
 """
     return prompt
 
-def get_llm_answer(query, retrieved_chunks_data, llm_instance): # llm_instance will now be ChatHuggingFace
+def get_llm_answer(query, retrieved_chunks_data, llm_instance):
     if not query:
         logger.warning("Query is empty. Cannot generate answer.")
         return "No query provided."
@@ -46,24 +44,22 @@ def get_llm_answer(query, retrieved_chunks_data, llm_instance): # llm_instance w
         logger.error("LLM instance is not provided. Cannot generate answer.")
         return "LLM not available."
 
-    prompt_string = format_prompt(query, retrieved_chunks_data) # Still get the formatted string
+    prompt_string = format_prompt(query, retrieved_chunks_data) 
     logger.debug(f"Formatted Prompt String for Chat LLM:\n{prompt_string}")
 
     try:
         logger.info(f"Sending prompt to Chat LLM for query: '{query[:100]}...'")
         
-        # For Chat models, input is typically a list of messages
         messages = [HumanMessage(content=prompt_string)]
-        response_message = llm_instance.invoke(messages) # Invoke with the list of messages
+        response_message = llm_instance.invoke(messages) 
         
         logger.info("Received response from Chat LLM.")
         
-        # The response is an AIMessage object, extract its content
         if hasattr(response_message, 'content'):
             return response_message.content
         else:
             logger.error(f"Unexpected response type from Chat LLM: {type(response_message)}. Full response: {response_message}")
-            return str(response_message) # Fallback
+            return str(response_message) 
 
     except Exception as e:
         logger.error(f"Error during Chat LLM invocation: {e}", exc_info=True)
