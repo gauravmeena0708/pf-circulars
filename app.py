@@ -221,16 +221,16 @@ if core_models_loaded:
 
     st.markdown("---")
     
-    if st.session_state.current_pdf_dir:
+    # Only require the data folder for initial index build; for querying, just check if index is loaded
+    pdf_dir_key = os.path.normpath(st.session_state.current_pdf_dir)
+    faiss_index, indexed_texts, indexed_metadata = get_cached_index_data(pdf_dir_key)
+
+    if faiss_index and indexed_texts and indexed_metadata:
         st.subheader(f"Querying Documents in: `{st.session_state.current_pdf_dir}`")
         query = st.text_input("Enter your query:", key="query_input")
 
         if query:
-            # Retrieve current index data from session state based on the active directory
-            pdf_dir_key = os.path.normpath(st.session_state.current_pdf_dir)
-            faiss_index, indexed_texts, indexed_metadata = get_cached_index_data(pdf_dir_key)
-
-            if faiss_index and indexed_texts and indexed_metadata and core_models_loaded['embedding'] and core_models_loaded['llm']:
+            if core_models_loaded['embedding'] and core_models_loaded['llm']:
                 with st.spinner("Searching for relevant documents and generating answer..."):
                     retrieved_data = retrieve_relevant_chunks(query,
                                                               faiss_index,
@@ -256,7 +256,7 @@ if core_models_loaded:
             else:
                 st.warning("Index not available or models not loaded for the current directory. Please check your data directory.")
     else:
-        st.info("No PDF directory found or processed. Please ensure the './data' directory exists and contains PDF files.")
+        st.info("No index found in memory or on disk. Please ensure the './data' directory exists and contains PDF files, then restart the app to build the index.")
 
 else:
     st.error("Application cannot start: Core models failed to load. Check logs for details.")
