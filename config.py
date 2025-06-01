@@ -2,8 +2,6 @@
 
 import os
 from dotenv import load_dotenv
-# HF_TOKEN="your_huggingface_token"
-# NGROK_AUTH_TOKEN="your_ngrok_auth_token"
 load_dotenv()
 HF_TOKEN = os.environ.get("HF_TOKEN")
 NGROK_AUTH_TOKEN = os.environ.get("NGROK_AUTH_TOKEN") # If you plan to use ngrok
@@ -11,12 +9,12 @@ EMBEDDING_MODEL_NAME = 'sentence-transformers/all-MiniLM-L6-v2'
 EMBEDDING_DEVICE = "cuda" if os.environ.get("CUDA_IS_AVAILABLE", "false").lower() == "true" else "cpu" # Example dynamic device choice
 
 # LLM
-LLM_REPO_ID = 'meta-llama/Llama-3.2-3B-Instruct' # Or your preferred model
-LLM_REPO_ID = 'meta-llama/Llama-4-Scout-17B-16E-Instruct'
-LLM_TASK = "text2text-generation"
+LLM_REPO_ID = 'meta-llama/Llama-3.2-3B-Instruct'
 LLM_TASK = "conversational"
-#LLM_REPO_ID = 'meta-llama/Meta-Llama-3-8B-Instruct'
-#LLM_TASK = "conversational" # Or try "text-generation" if "conversational" gives the task error
+LLM_TEMPERATURE = 0.1
+LLM_MAX_NEW_TOKENS = 300
+LLM_TASK = "conversational"
+
 LLM_TEMPERATURE = 0.1
 LLM_MAX_NEW_TOKENS = 300
 
