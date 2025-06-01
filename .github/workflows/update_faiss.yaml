@@ -1,0 +1,76 @@
+name: Update FAISS Index
+
+on:
+  #schedule:
+    # Runs daily at 00:00 UTC. You can adjust this cron expression.
+    # See https://crontab.guru/ for help.
+  #  - cron: '0 0 * * *'
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required to push changes back to the repository
+      
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Fetches all history so that git push doesn't fail due to unrelated histories
+          # (though usually not an issue for simple commits to the same branch)
+          fetch-depth: 0 
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' # Or your preferred Python version, e.g., 3.9
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils # For pdf2image
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        # The requirements.txt should include:
+        # sentence-transformers, faiss-cpu, torch, transformers, PyMuPDF, easyocr, 
+        # numpy, requests, pdf2image, opencv-python-headless, python-dotenv (if used by config.py for HF_TOKEN)
+
+      - name: Run FAISS index update script
+        run: python update_indexer.py
+        env:
+          # If your models are private on Hugging Face, set HF_TOKEN as a secret in your GitHub repository settings
+          # and uncomment the line below.
+          # HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          # The script's config.py should be set up to use os.getenv("HF_TOKEN")
+          # Ensure config.py sets EMBEDDING_DEVICE to 'cpu' if CUDA is not available,
+          # which will be the case on standard GitHub runners.
+          # Example: EMBEDDING_DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
+          # Add the specific files/directories that your script modifies.
+          # Adjust these paths based on your config.py (DEFAULT_INDEX_DIR, PROCESSED_DATA_DIR)
+          git add vector_store/app_data_index/faiss_index.faiss
+          git add vector_store/app_data_index/faiss_index.texts.json
+          git add vector_store/app_data_index/faiss_index.metadata.json
+          git add vector_store/processed_data/update_run_pdfs/* # If you want to commit downloaded PDFs
+          
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Automated FAISS index update and new PDFs"
+            # Specify the branch to push to, typically the current branch
+            # For scheduled runs, this will be your default branch (e.g., main or master)
+            git push origin HEAD:${{ github.ref_name }} 
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is automatically available
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
