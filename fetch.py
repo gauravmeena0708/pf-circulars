@@ -282,7 +282,4 @@ if __name__ == "__main__":
     if args.action == 'fetch' or args.action == 'all':
         fetch_circular_metadata()
 
-    if args.action == 'index' or args.action == 'all':
-        update_pdf_index()
-
     print("\nScript finished.")
