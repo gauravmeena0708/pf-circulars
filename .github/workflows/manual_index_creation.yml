@@ -1,0 +1,42 @@
+name: Create FAISS Index Manually
+
+on:
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  build_index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          # Need to fetch history if we are going to commit back
+          # and also need a token that can push.
+          fetch-depth: 0
+          token: ${{ secrets.GH_ACTION_TOKEN_FOR_COMMIT }} # Using a specific PAT for commit
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' # Assuming Python 3.10, adjust if needed
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Run Indexing Script
+        run: python run_indexing.py
+
+      - name: Commit and Push Updated Index
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "docs: Update FAISS Index via GitHub Action"
+          branch: ${{ github.ref_name }} # Commits to the branch the workflow is run on
+          commit_options: '--no-verify --signoff'
+          file_pattern: 'vector_store/data_index/*.*' # Pattern for files to commit
+          repository: '.'
+          commit_user_name: "GitHub Actions Bot"
+          commit_user_email: "actions@github.com"
+          commit_author: "GitHub Actions Bot <actions@github.com>"
+          push_options: '--force' # Consider if force push is appropriate, or remove if not
