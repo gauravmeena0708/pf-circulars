@@ -96,83 +96,70 @@ def process_pdfs_and_get_index(pdf_directory, force_reindex, core_models):
     """Manages PDF processing, indexing, and caching for Streamlit."""
     if not core_models:
         st.error("Core models are not loaded. Cannot process PDFs.")
-        return None, None, None
+        return
 
-    # Create a unique key for caching based on the PDF directory path
-    # This helps if the user switches directories
     pdf_directory_path_key = os.path.normpath(pdf_directory)
-    
-    # Determine index storage path (similar to main.py but specific for app)
     pdf_dir_basename = os.path.basename(pdf_directory_path_key)
     index_storage_path_app = os.path.join(config.DEFAULT_INDEX_DIR, f"app_{pdf_dir_basename}_index")
     if not os.path.exists(index_storage_path_app):
         os.makedirs(index_storage_path_app, exist_ok=True)
 
-    # Try to load from Streamlit session cache first
-    index, texts, metadata = get_cached_index_data(pdf_directory_path_key)
-    if index and not force_reindex:
-        st.success(f"Using cached index for directory: {pdf_directory}")
-        logger.info(f"Using Streamlit session cached index for {pdf_directory_path_key}")
-        return index, texts, metadata
-    
-    # If not in session cache, try loading from disk
-    if not force_reindex:
-        logger.info(f"Checking for disk-cached index in: {index_storage_path_app}")
-        index, texts, metadata = load_faiss_index(index_storage_path_app,
-                                                  core_models['embedding'],
-                                                  index_name=config.DEFAULT_INDEX_NAME)
-        if index and texts and metadata:
-            st.success(f"Loaded index from disk for directory: {pdf_directory}")
-            logger.info(f"Loaded index from disk: {index_storage_path_app}")
-            set_cached_index_data(pdf_directory_path_key, index, texts, metadata) # Cache in session
-            return index, texts, metadata
+    logger.info(f"Listing files in directory: {pdf_directory}")
+    pdf_files = [f for f in os.listdir(pdf_directory) if f.lower().endswith(".pdf")]
+    logger.info(f"Found {len(pdf_files)} PDF files: {pdf_files}")
 
-    # If no cache and no disk index (or force_reindex), then process
-    with st.spinner(f"Processing PDFs in '{pdf_directory}' and building index... This may take a while."):
-        logger.info(f"Starting PDF processing for Streamlit app: {pdf_directory}")
-        all_extracted_page_data = []
-        pdf_files = [f for f in os.listdir(pdf_directory) if f.lower().endswith(".pdf")]
-        if not pdf_files:
-            st.warning(f"No PDF files found in directory: {pdf_directory}")
-            return None, None, None
-        
-        st.progress(0)
-        for i, pdf_file in enumerate(pdf_files):
-            pdf_path = os.path.join(pdf_directory, pdf_file)
-            logger.info(f"Processing PDF (app): {pdf_path}")
-            try:
-                extracted_data_single_pdf = extract_content_from_pdf(pdf_path,
-                                                                    core_models['table_detector'],
-                                                                    core_models['ocr'])
-                if extracted_data_single_pdf:
-                    all_extracted_page_data.extend(extracted_data_single_pdf)
-                st.progress((i + 1) / len(pdf_files))
-            except Exception as e:
-                st.error(f"Error processing PDF {pdf_file}: {e}")
-                logger.error(f"Error processing PDF {pdf_file} in app: {e}", exc_info=True)
-        
-        if not all_extracted_page_data:
-            st.error("No data extracted from any PDFs.")
-            return None, None, None
+    if not pdf_files:
+        st.warning(f"No PDF files found in directory: {pdf_directory}")
+        logger.warning(f"No PDF files found in directory: {pdf_directory}")
+        return None, None, None
 
-        grouped_blocks = group_extracted_content_to_blocks(all_extracted_page_data)
-        texts_for_embedding, metadata_for_embedding = convert_grouped_blocks_to_texts_and_metadata(grouped_blocks)
-        
-        if not texts_for_embedding:
-            st.error("No text content to index after processing.")
-            return None, None, None
-            
-        faiss_index_obj = create_faiss_index(texts_for_embedding, metadata_for_embedding, core_models['embedding'])
-        
-        if not faiss_index_obj:
-            st.error("Failed to create FAISS index.")
-            return None, None, None
-            
-        save_faiss_index(faiss_index_obj, texts_for_embedding, metadata_for_embedding, index_storage_path_app, config.DEFAULT_INDEX_NAME)
-        st.success("PDFs processed and index built successfully!")
-        logger.info(f"Index built and saved to {index_storage_path_app}")
-        set_cached_index_data(pdf_directory_path_key, faiss_index_obj, texts_for_embedding, metadata_for_embedding) # Cache in session
-        return faiss_index_obj, texts_for_embedding, metadata_for_embedding
+    all_extracted_page_data = []
+    for i, pdf_file in enumerate(pdf_files):
+        pdf_path = os.path.join(pdf_directory, pdf_file)
+        logger.info(f"Processing file {i + 1}/{len(pdf_files)}: {pdf_file}")
+        try:
+            extracted_data_single_pdf = extract_content_from_pdf(pdf_path, 
+                                                                 core_models['table_detector'], 
+                                                                 core_models['ocr'])
+            if extracted_data_single_pdf:
+                all_extracted_page_data.extend(extracted_data_single_pdf)
+            else:
+                logger.warning(f"No content extracted from file: {pdf_file}")
+        except Exception as e:
+            logger.error(f"Error processing file {pdf_file}: {e}", exc_info=True)
+
+    if not all_extracted_page_data:
+        st.error("No data extracted from any PDFs. Cannot create index.")
+        logger.error("No data extracted from any PDFs. Cannot create index.")
+        return None, None, None
+
+    logger.info("Grouping extracted content into contextual blocks...")
+    grouped_blocks = group_extracted_content_to_blocks(all_extracted_page_data)
+    if not grouped_blocks:
+        st.error("No contextual blocks created from extracted data.")
+        logger.error("No contextual blocks created from extracted data.")
+        return None, None, None
+
+    logger.info(f"Number of blocks after initial grouping: {len(grouped_blocks)}")
+    texts_for_embedding, metadata_for_embedding = convert_grouped_blocks_to_texts_and_metadata(grouped_blocks)
+    if not texts_for_embedding:
+        st.error("No text content available for embedding after grouping and conversion.")
+        logger.error("No text content available for embedding after grouping and conversion.")
+        return None, None, None
+
+    logger.info(f"Creating FAISS index for {len(texts_for_embedding)} text chunks...")
+    faiss_index_obj = create_faiss_index(texts_for_embedding, metadata_for_embedding, core_models['embedding'])
+    if not faiss_index_obj:
+        st.error("Failed to create FAISS index.")
+        logger.error("Failed to create FAISS index.")
+        return None, None, None
+
+    logger.info(f"Saving FAISS index and associated data to: {index_storage_path_app}")
+    save_faiss_index(faiss_index_obj, texts_for_embedding, metadata_for_embedding, index_storage_path_app, config.DEFAULT_INDEX_NAME)
+    st.success("PDFs processed and index built successfully!")
+    logger.info(f"Index built and saved to {index_storage_path_app}")
+    set_cached_index_data(pdf_directory_path_key, faiss_index_obj, texts_for_embedding, metadata_for_embedding)
+    return faiss_index_obj, texts_for_embedding, metadata_for_embedding
 
 # --- Streamlit UI ---
 st.set_page_config(page_title="Document RAG Query App", layout="wide")

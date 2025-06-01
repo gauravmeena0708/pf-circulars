@@ -32,17 +32,8 @@ def pil_to_cv2(pil_image):
 def extract_content_from_pdf(pdf_path, table_detector_pipeline, ocr_reader):
     """
     Extracts structured content (text and tables) from a single PDF file.
-
-    Args:
-        pdf_path (str): Path to the PDF file.
-        table_detector_pipeline (transformers.pipeline): Initialized table detection pipeline.
-        ocr_reader (easyocr.Reader): Initialized EasyOCR reader.
-
-    Returns:
-        list: A list of dictionaries, where each dictionary represents a page
-              and contains 'page_number' and 'content' (a list of text/table blocks).
-              Returns an empty list if the PDF cannot be processed.
     """
+    logger.info(f"Opening PDF file: {pdf_path}")
     extracted_pdf_data = []
     try:
         doc = fitz.open(pdf_path)
@@ -51,18 +42,23 @@ def extract_content_from_pdf(pdf_path, table_detector_pipeline, ocr_reader):
         return extracted_pdf_data
 
     for page_num in range(len(doc)):
-        page_content_blocks = []
+        logger.info(f"Processing page {page_num + 1}/{len(doc)} of PDF: {pdf_path}")
         current_page_data = {"page_number": page_num + 1, "source_pdf": os.path.basename(pdf_path), "content": []}
 
         try:
             pil_image = convert_pdf_page_to_image(pdf_path, page_num, dpi=config.PDF_TO_IMAGE_DPI)
             if not pil_image:
-                logger.warning(f"Could not convert page {page_num} of '{pdf_path}' to image. Skipping page.")
+                logger.warning(f"Could not convert page {page_num + 1} of '{pdf_path}' to image. Skipping page.")
                 extracted_pdf_data.append(current_page_data)
                 continue
 
+            logger.info(f"Running table detection on page {page_num + 1}...")
             table_detections = table_detector_pipeline(pil_image)
-            table_boxes_pil = []
+            logger.info(f"Detected {len(table_detections)} potential tables on page {page_num + 1}.")
+
+            logger.info(f"Running OCR on non-table regions of page {page_num + 1}...")
+            img_np_rgb = np.array(pil_image)
+            non_table_mask = np.ones(img_np_rgb.shape[:2], dtype=np.uint8) * 255
             for detection in table_detections:
                 if detection['label'] == 'table':
                     box = detection['box']
@@ -70,73 +66,34 @@ def extract_content_from_pdf(pdf_path, table_detector_pipeline, ocr_reader):
                     y0 = max(0, int(box['ymin']))
                     x1 = min(pil_image.width, int(box['xmax']))
                     y1 = min(pil_image.height, int(box['ymax']))
-                    if x1 > x0 and y1 > y0:
-                         table_boxes_pil.append((x0, y0, x1, y1))
+                    non_table_mask[y0:y1, x0:x1] = 0
 
-            img_np_rgb = np.array(pil_image)
-            non_table_mask = np.ones(img_np_rgb.shape[:2], dtype=np.uint8) * 255
-            for x0, y0, x1, y1 in table_boxes_pil:
-                non_table_mask[y0:y1, x0:x1] = 0
-            
             non_table_img_np = cv2.bitwise_and(img_np_rgb, img_np_rgb, mask=non_table_mask)
             non_table_ocr_results = ocr_reader.readtext(non_table_img_np, paragraph=True)
+            logger.info(f"Extracted {len(non_table_ocr_results)} text blocks from non-table regions on page {page_num + 1}.")
 
             for ocr_result in non_table_ocr_results:
-                if len(ocr_result) == 2:
-                    bbox, text = ocr_result
-                elif len(ocr_result) == 3:
-                    bbox, text, _ = ocr_result
-                    logger.debug(f"Received 3 items from paragraph OCR, expected 2. Ignoring prob: {text[:30]}")
-                else:
-                    logger.warning(f"Unexpected OCR result format for non-table text (item count: {len(ocr_result)}): {ocr_result} on page {page_num+1} of {pdf_path}")
-                    continue
+                if len(ocr_result) >= 2:
+                    _, text = ocr_result[:2]
+                    current_page_data["content"].append({"type": "plain_text", "text": text})
 
-                if bbox and isinstance(bbox, list) and len(bbox) > 0 and \
-                   isinstance(bbox[0], (list, tuple)) and len(bbox[0]) == 2:
-                    pos_y = int(bbox[0][1])
-                    page_content_blocks.append(
-                        (pos_y, {"type": "plain_text", "text": text, "bbox_pil": [int(c) for pt in bbox for c in pt]})
-                    )
-                else:
-                    logger.warning(f"Invalid bbox format for non-table text: {text[:50]} on page {page_num+1} of {pdf_path}")
-
-            page_height = pil_image.height
-            tolerance = 100 # Pixels tolerance for checking if table is at edge
-
-            for x0_tbl, y0_tbl, x1_tbl, y1_tbl in table_boxes_pil:
-                table_pil_image_crop = pil_image.crop((x0_tbl, y0_tbl, x1_tbl, y1_tbl))
-                table_ocr_results = ocr_reader.readtext(np.array(table_pil_image_crop))
-
-                table_cells_text = []
-                raw_table_cells = []
-                for (bbox_cell, text_cell, prob_cell) in table_ocr_results:
-                    table_cells_text.append(text_cell)
-                    adjusted_bbox_cell = [[int(pt[0] + x0_tbl), int(pt[1] + y0_tbl)] for pt in bbox_cell]
-                    raw_table_cells.append({"text": text_cell, "bbox_pil": [int(c) for pt in adjusted_bbox_cell for c in pt]})
-
-                if table_cells_text:
-                    is_at_top = (y0_tbl <= tolerance)
-                    is_at_bottom = (y1_tbl >= page_height - tolerance)
-                    page_content_blocks.append(
-                        (y0_tbl, {
-                            "type": "table",
-                            "bbox_pil": [x0_tbl, y0_tbl, x1_tbl, y1_tbl],
-                            "extracted_text_list": table_cells_text,
-                            "raw_cells": raw_table_cells,
-                            "is_at_page_top": is_at_top,      # ADDED METADATA
-                            "is_at_page_bottom": is_at_bottom # ADDED METADATA
-                        })
-                    )
-            
-            page_content_blocks.sort(key=lambda x: x[0])
-            current_page_data["content"] = [block[1] for block in page_content_blocks]
+            logger.info(f"Running OCR on detected tables on page {page_num + 1}...")
+            for detection in table_detections:
+                if detection['label'] == 'table':
+                    box = detection['box']
+                    x0, y0, x1, y1 = map(int, [box['xmin'], box['ymin'], box['xmax'], box['ymax']])
+                    table_image = pil_image.crop((x0, y0, x1, y1))
+                    table_ocr_results = ocr_reader.readtext(np.array(table_image))
+                    table_text = [result[1] for result in table_ocr_results]
+                    current_page_data["content"].append({"type": "table", "text": table_text})
 
         except Exception as e:
-            logger.error(f"Error processing page {page_num} of PDF '{pdf_path}': {e}", exc_info=True)
-        
+            logger.error(f"Error processing page {page_num + 1} of PDF '{pdf_path}': {e}", exc_info=True)
+
         extracted_pdf_data.append(current_page_data)
 
     doc.close()
+    logger.info(f"Finished processing PDF: {pdf_path}")
     return extracted_pdf_data
 
 if __name__ == '__main__':
