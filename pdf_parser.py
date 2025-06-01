@@ -8,6 +8,9 @@ import cv2
 import logging
 import streamlit as st  # Added for Streamlit UI
 
+# Set Streamlit page configuration
+st.set_page_config(page_title="PDF Parser and Content Extractor", layout="wide")
+
 # Assuming your config.py is in the same directory or accessible in PYTHONPATH
 import config
 
