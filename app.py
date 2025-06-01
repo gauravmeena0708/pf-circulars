@@ -40,31 +40,45 @@ from sentence_transformers import SentenceTransformer
 logger = logging.getLogger("RAGAppStreamlit")
 logging.basicConfig(level=config.LOG_LEVEL, format=config.LOG_FORMAT)
 
+# --- Streamlit UI Logging Helper ---
+def st_log(level, message, exc_info=False):
+    """Log to both logger and Streamlit UI."""
+    if level == "info":
+        logger.info(message)
+        st.info(message)
+    elif level == "warning":
+        logger.warning(message)
+        st.warning(message)
+    elif level == "error":
+        logger.error(message, exc_info=exc_info)
+        st.error(message)
+    else:
+        logger.debug(message)
+
 # --- Model Caching (Streamlit's caching is essential for performance) ---
 @st.cache_resource # Cache these heavy models across sessions/reruns
 def load_core_models():
-    logger.info("Attempting to load core models for Streamlit app...")
+    st_log("info", "Attempting to load core models for Streamlit app...")
     models = {}
     try:
-        logger.info(f"Loading OCR reader (GPU: {config.EMBEDDING_DEVICE == 'cuda'})...")
+        st_log("info", f"Loading OCR reader (GPU: {config.EMBEDDING_DEVICE == 'cuda'})...")
         models['ocr'] = easyocr.Reader(config.OCR_LANGUAGES, gpu=(config.EMBEDDING_DEVICE == "cuda"))
-        logger.info("OCR reader loaded.")
+        st_log("info", "OCR reader loaded.")
 
-        logger.info(f"Loading table detection model (Device: {config.EMBEDDING_DEVICE})...")
+        st_log("info", f"Loading table detection model (Device: {config.EMBEDDING_DEVICE})...")
         models['table_detector'] = hf_pipeline("object-detection", model=config.TABLE_DETECTION_MODEL, device=config.EMBEDDING_DEVICE)
-        logger.info("Table detection model loaded.")
+        st_log("info", "Table detection model loaded.")
 
-        logger.info(f"Loading embedding model (Device: {config.EMBEDDING_DEVICE})...")
+        st_log("info", f"Loading embedding model (Device: {config.EMBEDDING_DEVICE})...")
         models['embedding'] = SentenceTransformer(config.EMBEDDING_MODEL_NAME, device=config.EMBEDDING_DEVICE)
-        logger.info("Embedding model loaded.")
+        st_log("info", "Embedding model loaded.")
 
-        logger.info("Initializing LLM...")
+        st_log("info", "Initializing LLM...")
         models['llm'] = initialize_llm() # From answer_generator.py
-        logger.info("LLM initialized.")
+        st_log("info", "LLM initialized.")
         return models
     except Exception as e:
-        st.error(f"Fatal Error: Failed to load one or more critical models: {e}")
-        logger.error(f"Fatal Error during model loading: {e}", exc_info=True)
+        st_log("error", f"Fatal Error: Failed to load one or more critical models: {e}", exc_info=True)
         return None # Or raise an exception that Streamlit can catch
 
 # --- Index Management and Caching ---
@@ -91,7 +105,7 @@ def set_cached_index_data(pdf_directory_path_key, index, texts, metadata):
 def process_pdfs_and_get_index(pdf_directory, force_reindex, core_models):
     """Manages PDF processing, indexing, and caching for Streamlit."""
     if not core_models:
-        st.error("Core models are not loaded. Cannot process PDFs.")
+        st_log("error", "Core models are not loaded. Cannot process PDFs.")
         return None, None, None
 
     # Create a unique key for caching based on the PDF directory path
@@ -108,34 +122,34 @@ def process_pdfs_and_get_index(pdf_directory, force_reindex, core_models):
     index, texts, metadata = get_cached_index_data(pdf_directory_path_key)
     if index and not force_reindex:
         st.success(f"Using cached index for directory: {pdf_directory}")
-        logger.info(f"Using Streamlit session cached index for {pdf_directory_path_key}")
+        st_log("info", f"Using Streamlit session cached index for {pdf_directory_path_key}")
         return index, texts, metadata
     
     # If not in session cache, try loading from disk
     if not force_reindex:
-        logger.info(f"Checking for disk-cached index in: {index_storage_path_app}")
+        st_log("info", f"Checking for disk-cached index in: {index_storage_path_app}")
         index, texts, metadata = load_faiss_index(index_storage_path_app,
                                                   core_models['embedding'],
                                                   index_name=config.DEFAULT_INDEX_NAME)
         if index and texts and metadata:
             st.success(f"Loaded index from disk for directory: {pdf_directory}")
-            logger.info(f"Loaded index from disk: {index_storage_path_app}")
+            st_log("info", f"Loaded index from disk: {index_storage_path_app}")
             set_cached_index_data(pdf_directory_path_key, index, texts, metadata) # Cache in session
             return index, texts, metadata
 
     # If no cache and no disk index (or force_reindex), then process
     with st.spinner(f"Processing PDFs in '{pdf_directory}' and building index... This may take a while."):
-        logger.info(f"Starting PDF processing for Streamlit app: {pdf_directory}")
+        st_log("info", f"Starting PDF processing for Streamlit app: {pdf_directory}")
         all_extracted_page_data = []
         pdf_files = [f for f in os.listdir(pdf_directory) if f.lower().endswith(".pdf")]
         if not pdf_files:
-            st.warning(f"No PDF files found in directory: {pdf_directory}")
+            st_log("warning", f"No PDF files found in directory: {pdf_directory}")
             return None, None, None
         
         st.progress(0)
         for i, pdf_file in enumerate(pdf_files):
             pdf_path = os.path.join(pdf_directory, pdf_file)
-            logger.info(f"Processing PDF (app): {pdf_path}")
+            st_log("info", f"Processing PDF (app): {pdf_path}")
             try:
                 extracted_data_single_pdf = extract_content_from_pdf(pdf_path,
                                                                     core_models['table_detector'],
@@ -144,29 +158,28 @@ def process_pdfs_and_get_index(pdf_directory, force_reindex, core_models):
                     all_extracted_page_data.extend(extracted_data_single_pdf)
                 st.progress((i + 1) / len(pdf_files))
             except Exception as e:
-                st.error(f"Error processing PDF {pdf_file}: {e}")
-                logger.error(f"Error processing PDF {pdf_file} in app: {e}", exc_info=True)
+                st_log("error", f"Error processing PDF {pdf_file}: {e}", exc_info=True)
         
         if not all_extracted_page_data:
-            st.error("No data extracted from any PDFs.")
+            st_log("error", "No data extracted from any PDFs.")
             return None, None, None
 
         grouped_blocks = group_extracted_content_to_blocks(all_extracted_page_data)
         texts_for_embedding, metadata_for_embedding = convert_grouped_blocks_to_texts_and_metadata(grouped_blocks)
         
         if not texts_for_embedding:
-            st.error("No text content to index after processing.")
+            st_log("error", "No text content to index after processing.")
             return None, None, None
             
         faiss_index_obj = create_faiss_index(texts_for_embedding, metadata_for_embedding, core_models['embedding'])
         
         if not faiss_index_obj:
-            st.error("Failed to create FAISS index.")
+            st_log("error", "Failed to create FAISS index.")
             return None, None, None
             
         save_faiss_index(faiss_index_obj, texts_for_embedding, metadata_for_embedding, index_storage_path_app, config.DEFAULT_INDEX_NAME)
         st.success("PDFs processed and index built successfully!")
-        logger.info(f"Index built and saved to {index_storage_path_app}")
+        st_log("info", f"Index built and saved to {index_storage_path_app}")
         set_cached_index_data(pdf_directory_path_key, faiss_index_obj, texts_for_embedding, metadata_for_embedding) # Cache in session
         return faiss_index_obj, texts_for_embedding, metadata_for_embedding
 
