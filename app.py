@@ -224,7 +224,7 @@ if core_models_loaded:
                             else:
                                 doc_display = source_pdf
                             with st.expander(f"Source {i+1}: {doc_display}"):
-                                st.caption(f"Text Snippet:")
+                                st.caption(f"Text:")
                                 st.markdown(f"> {item['text']}")
                     else:
                         st.info("No specific context chunks were retrieved to formulate the answer, or the answer is general knowledge.")
