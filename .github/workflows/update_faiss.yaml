@@ -1,10 +1,10 @@
 name: Update FAISS Index
 
 on:
-  #schedule:
+  schedule:
     # Runs daily at 00:00 UTC. You can adjust this cron expression.
     # See https://crontab.guru/ for help.
-  #  - cron: '0 0 * * *'
+    - cron: '0 0 * * *'
   workflow_dispatch: # Allows manual triggering
 
 jobs:
