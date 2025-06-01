@@ -3,9 +3,6 @@ from bs4 import BeautifulSoup as bs, NavigableString
 import requests
 from urllib.parse import urljoin
 import json
-import fitz  # PyMuPDF
-import pytesseract
-from PIL import Image
 from datetime import datetime, timezone
 import os
 import argparse # For command-line arguments
