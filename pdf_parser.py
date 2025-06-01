@@ -91,7 +91,8 @@ def extract_content_from_pdf(pdf_path, table_detector_pipeline, ocr_reader):
             logger.error(f"Error processing page {page_num + 1} of PDF '{pdf_path}': {e}", exc_info=True)
 
         extracted_pdf_data.append(current_page_data)
-
+        logger.info(f"Page {page_num + 1} content items: {len(current_page_data['content'])}")
+    
     doc.close()
     logger.info(f"Finished processing PDF: {pdf_path}")
     return extracted_pdf_data
@@ -151,10 +152,17 @@ if __name__ == '__main__':
                     if content_item['type'] == 'plain_text':
                         logger.info(f"      Text: {content_item['text'][:100]}...")
                     elif content_item['type'] == 'table':
-                        logger.info(f"      Table Text List: {content_item['extracted_text_list']}")
-                        logger.info(f"      Table BBox (PIL): {content_item['bbox_pil']}")
-                        logger.info(f"      Is at page top: {content_item.get('is_at_page_top')}")
-                        logger.info(f"      Is at page bottom: {content_item.get('is_at_page_bottom')}")
+                        logger.info(f"      Table Text List: {content_item['text']}")
+            logger.info("Grouping extracted content into contextual blocks...")
+            # Add logic to group content into contextual blocks
+            # Example: Group by page or content type
+            contextual_blocks = []
+            for page_data in structured_data:
+                contextual_blocks.append(page_data)  # Placeholder for actual grouping logic
+            if contextual_blocks:
+                logger.info(f"Created {len(contextual_blocks)} contextual blocks.")
+            else:
+                logger.warning("No contextual blocks created from extracted data.")
         else:
             logger.error(f"No data extracted from {example_pdf_path}.")
     else:
