@@ -38,6 +38,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Update EPF contacts data"
+            git commit -m "Update EPF circulars data"
             git push
           fi
