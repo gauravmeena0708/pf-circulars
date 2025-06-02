@@ -12,7 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write # Required to push changes back to the repository
-      
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
