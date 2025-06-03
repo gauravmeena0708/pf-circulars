@@ -41,13 +41,7 @@ jobs:
       - name: Run FAISS index update script
         run: python update_indexer.py
         env:
-          # If your models are private on Hugging Face, set HF_TOKEN as a secret in your GitHub repository settings
-          # and uncomment the line below.
-          # HF_TOKEN: ${{ secrets.HF_TOKEN }}
-          # The script's config.py should be set up to use os.getenv("HF_TOKEN")
-          # Ensure config.py sets EMBEDDING_DEVICE to 'cpu' if CUDA is not available,
-          # which will be the case on standard GitHub runners.
-          # Example: EMBEDDING_DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+          EMBEDDING_DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
       - name: Commit and push changes
         run: |
