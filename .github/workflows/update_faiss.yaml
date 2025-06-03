@@ -48,7 +48,6 @@ jobs:
           
           git add vector_store/data_index/faiss_index.faiss
           git add vector_store/data_index/faiss_index.texts.json
-          git add vector_store/data_index/faiss_index.metadata.json
 
           if git diff --staged --quiet; then
             echo "No changes to commit."
