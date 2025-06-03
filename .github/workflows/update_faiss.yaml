@@ -40,8 +40,6 @@ jobs:
 
       - name: Run FAISS index update script
         run: python update_indexer.py
-        env:
-          EMBEDDING_DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
       - name: Commit and push changes
         run: |
