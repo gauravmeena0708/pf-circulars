@@ -48,10 +48,10 @@ jobs:
           
           # Add the specific files/directories that your script modifies.
           # Adjust these paths based on your config.py (DEFAULT_INDEX_DIR, PROCESSED_DATA_DIR)
-          git add vector_store/app_data_index/faiss_index.faiss
-          git add vector_store/app_data_index/faiss_index.texts.json
-          git add vector_store/app_data_index/faiss_index.metadata.json
-          git add vector_store/processed_data/update_run_pdfs/* # If you want to commit downloaded PDFs
+          git add vector_store/data_index/faiss_index.faiss
+          git add vector_store/data_index/faiss_index.texts.json
+          git add vector_store/data_index/faiss_index.metadata.json
+          #git add vector_store/processed_data/update_run_pdfs/* # If you want to commit downloaded PDFs
           
           # Check if there are changes to commit
           if git diff --staged --quiet; then
