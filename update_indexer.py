@@ -232,5 +232,5 @@ def main_update_indexer(max_items_to_process=5):
 
 if __name__ == '__main__':
     logger.info("Starting FAISS index update script...")
-    main_update_indexer(max_items_to_process=5)
+    main_update_indexer(max_items_to_process=1)
     logger.info("FAISS index update script finished.")
