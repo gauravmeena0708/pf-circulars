@@ -47,7 +47,7 @@ The project is organized into the following Python modules:
 ## Prerequisites
 
 * Python 3.8+
-* An active Hugging Face account and an API Token (`HF_TOKEN`) for accessing LLMs on the Hugging Face Hub.
+* An active Hugging Face account and an API Token (`HF_TOKEN`) for generating LLM answers through the Hugging Face Hub. Metadata fetching and local index maintenance do not require this token.
 * System dependencies for `pdf2image` (like `poppler-utils` on Linux):
     ```bash
     sudo apt-get update && sudo apt-get install -y poppler-utils
@@ -127,10 +127,10 @@ The `app.py` script launches a web application for a more interactive experience
 
 **Using the Streamlit App:**
 
-1.  **Enter PDF Directory Path**: In the sidebar, input the full path to the directory containing your PDF files.
-2.  **Load and Process**: Click the "Load and Process PDF Directory" button. You can check "Force Re-index PDFs" if needed. The app will process the PDFs and build/load the vector index. Progress and status messages will be displayed.
-3.  **Enter Query**: Once the directory is processed, a text input field will appear. Type your question about the documents.
-4.  **View Answer**: The LLM's answer will be displayed, along with snippets from the source documents that were used as context.
+1.  The app uses the repository's `./data` directory by default and loads an existing FAISS index from `vector_store/data_index` when available.
+2.  If no index exists, the app processes PDFs from `./data` and builds one.
+3.  Enter a question in the query field.
+4.  The LLM's answer is displayed with snippets from the retrieved source documents.
 
 ## Configuration
 

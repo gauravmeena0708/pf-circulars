@@ -7,7 +7,7 @@ This project is a Retrieval-Augmented Generation (RAG) system specifically desig
 - **Automated Scraping**: Periodically fetches circular metadata (titles, numbers, dates, PDF links) from the EPFO website.
 - **Robust PDF Processing**: Handles both text-based and image-based PDFs using OCR (EasyOCR) and table detection models.
 - **Vector Search**: Uses SBERT for embeddings and FAISS for efficient similarity search.
-- **LLM Integration**: Utilizes Hugging Face hosted models (e.g., Meta Llama 3.2) for generating context-aware answers.
+- **LLM Integration**: Utilizes Hugging Face hosted models (currently `Qwen/Qwen2.5-7B-Instruct`) for generating context-aware answers.
 - **Dual Interfaces**: Offers both a CLI (`main.py`) and a Streamlit web application (`app.py`).
 - **Automated Pipelines**: GitHub Actions manage weekly metadata updates and daily index refreshes.
 
@@ -16,7 +16,7 @@ This project is a Retrieval-Augmented Generation (RAG) system specifically desig
 - **RAG Framework**: LangChain
 - **Vector Store**: FAISS
 - **Embeddings**: `sentence-transformers/all-MiniLM-L6-v2`
-- **LLM**: `meta-llama/Llama-3.2-3B-Instruct` (via Hugging Face Hub)
+- **LLM**: `Qwen/Qwen2.5-7B-Instruct` (via Hugging Face Hub)
 - **PDF/OCR**: PyMuPDF, EasyOCR, Table Transformer
 - **Web App**: Streamlit
 

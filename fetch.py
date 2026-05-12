@@ -1,9 +1,8 @@
-import io
 from bs4 import BeautifulSoup as bs, NavigableString
 import requests
 from urllib.parse import urljoin
 import json
-from datetime import datetime, timezone
+from datetime import datetime
 import os
 import argparse # For command-line arguments
 
@@ -13,8 +12,6 @@ import argparse # For command-line arguments
 # pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 CIRCULAR_DATA_FILE = "circular-data.json"
-INDEX_DATA_FILE = "index-data.json"
-MAX_URLS_TO_INDEX_PER_RUN = 100
 
 HEADERS = {
     'Host': 'www.epfindia.gov.in',
@@ -68,49 +65,6 @@ def save_json_file(data, filepath):
     with open(filepath, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
     print(f"Data saved to {filepath}")
-
-# --- PDF Processing and OCR Function ---
-def get_first_page_ocr_text_from_url(pdf_url):
-    """
-    Downloads a PDF from a URL, extracts the first page,
-    and performs OCR on it.
-    Returns the OCRed text or None if an error occurs.
-    """
-    if not pdf_url:
-        return None
-    try:
-        print(f"    Downloading PDF: {pdf_url}")
-        pdf_response = requests.get(pdf_url, headers=HEADERS, timeout=45) # Increased timeout
-        pdf_response.raise_for_status()
-        pdf_bytes = pdf_response.content
-
-        print(f"    Opening PDF with PyMuPDF...")
-        pdf_document = fitz.open(stream=pdf_bytes, filetype="pdf")
-
-        if len(pdf_document) > 0:
-            first_page = pdf_document.load_page(0)
-            pix = first_page.get_pixmap(dpi=300)
-            img_bytes = pix.tobytes("png")
-            img = Image.open(io.BytesIO(img_bytes))
-
-            print(f"    Performing OCR on the first page...")
-            ocr_text = pytesseract.image_to_string(img, lang='eng')
-            pdf_document.close()
-            print(f"    OCR successful for {pdf_url.split('/')[-1]}.")
-            return ocr_text.strip()
-        else:
-            print(f"    PDF is empty: {pdf_url}")
-            pdf_document.close()
-            return None
-    except requests.exceptions.RequestException as e:
-        print(f"    Error downloading PDF {pdf_url}: {e}")
-        return None
-    except pytesseract.TesseractNotFoundError:
-        print("    Tesseract OCR not found. Please ensure it's installed and in your PATH.")
-        return "OCR_ERROR: Tesseract not found" # So we know it was attempted but failed due to setup
-    except Exception as e:
-        print(f"    Error processing PDF {pdf_url} for OCR: {e}")
-        return None
 
 # --- Main Data Fetching Logic ---
 def fetch_circular_metadata():
@@ -225,16 +179,16 @@ def fetch_circular_metadata():
 
 # --- Main Execution ---
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Fetch EPFO circular data and/or update PDF index.")
+    parser = argparse.ArgumentParser(description="Fetch EPFO circular metadata.")
     parser.add_argument(
         "--action",
-        choices=['fetch', 'index', 'all'],
-        default='all',
-        help="Specify action: 'fetch' metadata, 'index' PDFs, or 'all' (default)."
+        choices=['fetch', 'all'],
+        default='fetch',
+        help="'fetch' updates circular-data.json. 'all' is kept as a backwards-compatible alias."
     )
     args = parser.parse_args()
 
-    if args.action == 'fetch' or args.action == 'all':
+    if args.action in {'fetch', 'all'}:
         fetch_circular_metadata()
 
     print("\nScript finished.")

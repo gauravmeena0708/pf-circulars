@@ -14,8 +14,6 @@ except:
         pass
     
 import streamlit as st
-import os
-import time
 import logging
 
 # Import configurations and modules from your project
@@ -23,6 +21,7 @@ import config
 from pdf_parser import extract_content_from_pdf
 from vector_indexer import (
     group_extracted_content_to_blocks,
+    merge_spanning_table_blocks,
     convert_grouped_blocks_to_texts_and_metadata,
     create_faiss_index,
     save_faiss_index,
@@ -147,7 +146,8 @@ def process_pdfs_and_get_index(pdf_directory, force_reindex, core_models):
             return None, None, None
 
         grouped_blocks = group_extracted_content_to_blocks(all_extracted_page_data)
-        texts_for_embedding, metadata_for_embedding = convert_grouped_blocks_to_texts_and_metadata(grouped_blocks)
+        merged_blocks = merge_spanning_table_blocks(grouped_blocks)
+        texts_for_embedding, metadata_for_embedding = convert_grouped_blocks_to_texts_and_metadata(merged_blocks)
         
         if not texts_for_embedding:
             return None, None, None
@@ -230,10 +230,7 @@ if core_models_loaded:
                                                               cross_encoder_model=core_models_loaded.get('cross_encoder'))
                     
                 st.markdown("### Answer")
-                answer_container = st.empty()
-                
                 # Streaming the LLM answer
-                full_answer = ""
                 answer_stream = get_llm_answer(query, retrieved_data, core_models_loaded['llm'], stream=True)
                 
                 def stream_generator():
@@ -243,7 +240,7 @@ if core_models_loaded:
                         else:
                              yield str(chunk)
 
-                final_answer = st.write_stream(stream_generator())
+                st.write_stream(stream_generator())
 
                 if retrieved_data:
                     st.markdown("---")

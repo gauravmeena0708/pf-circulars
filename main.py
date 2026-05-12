@@ -42,11 +42,12 @@ ocr_reader_instance = None
 table_detector_instance = None
 embedding_model_instance = None
 llm_instance_global = None
+cross_encoder_instance = None
 
 
-def initialize_models():
-    """Initializes all global models."""
-    global ocr_reader_instance, table_detector_instance, embedding_model_instance, llm_instance_global
+def initialize_models(load_query_models=False):
+    """Initializes models needed for PDF processing and optional query answering."""
+    global ocr_reader_instance, table_detector_instance, embedding_model_instance, llm_instance_global, cross_encoder_instance
     
     success = True
     logger.info("Initializing core models...")
@@ -63,9 +64,15 @@ def initialize_models():
         embedding_model_instance = SentenceTransformer(config.EMBEDDING_MODEL_NAME, device=config.EMBEDDING_DEVICE)
         logger.info("Embedding model loaded.")
 
-        logger.info("Initializing LLM via Answer Generator...")
-        llm_instance_global = initialize_llm() # From answer_generator.py
-        logger.info("LLM initialized via Answer Generator.")
+        if load_query_models and getattr(config, "CROSS_ENCODER_MODEL_NAME", None):
+            logger.info(f"Loading cross-encoder model: {config.CROSS_ENCODER_MODEL_NAME} (Device: {config.EMBEDDING_DEVICE})...")
+            cross_encoder_instance = CrossEncoder(config.CROSS_ENCODER_MODEL_NAME, device=config.EMBEDDING_DEVICE)
+            logger.info("Cross-encoder model loaded.")
+
+        if load_query_models:
+            logger.info("Initializing LLM via Answer Generator...")
+            llm_instance_global = initialize_llm() # From answer_generator.py
+            logger.info("LLM initialized via Answer Generator.")
 
     except Exception as e:
         logger.error(f"Failed to initialize one or more models: {e}", exc_info=True)
@@ -82,8 +89,6 @@ def process_and_index_pdfs(pdf_directory, index_storage_path, force_reindex=Fals
     Processes all PDFs in a directory, creates a FAISS index, and saves it.
     If an index already exists and force_reindex is False, it loads the existing index.
     """
-    index_file_base = os.path.join(index_storage_path, config.DEFAULT_INDEX_NAME)
-    
     if not force_reindex:
         logger.info(f"Checking for existing index in: {index_storage_path}")
         # Pass the embedding model to load_faiss_index for potential dimension check
@@ -139,14 +144,13 @@ def process_and_index_pdfs(pdf_directory, index_storage_path, force_reindex=Fals
 
     logger.info(f"Number of blocks after initial grouping: {len(grouped_blocks)}")
 
-    # >>> THIS IS THE STEP YOU NEED TO ADD/ENSURE IS PRESENT <<<
     logger.info("Attempting to merge spanning table blocks...")
     # Ensure merge_spanning_table_blocks is imported from vector_indexer
-    merged_final_blocks = merge_spanning_table_blocks(grouped_blocks) 
+    merged_final_blocks = merge_spanning_table_blocks(grouped_blocks)
     logger.info(f"Number of blocks after merging: {len(merged_final_blocks)}")
-    
-    logger.info(f"Converting {len(grouped_blocks)} grouped blocks to texts and metadata...")
-    texts_for_embedding, metadata_for_embedding = convert_grouped_blocks_to_texts_and_metadata(grouped_blocks)
+
+    logger.info(f"Converting {len(merged_final_blocks)} grouped blocks to texts and metadata...")
+    texts_for_embedding, metadata_for_embedding = convert_grouped_blocks_to_texts_and_metadata(merged_final_blocks)
     if not texts_for_embedding:
         logger.error("No text content available for embedding after grouping and conversion.")
         return None, None, None
@@ -176,7 +180,7 @@ def main():
     start_time = time.time()
 
     # --- 1. Initialize all models ---
-    initialize_models() # This will exit if critical models fail
+    initialize_models(load_query_models=bool(args.query)) # This will exit if critical models fail
 
     # --- 2. Determine Index Path ---
     if args.index_dir:
@@ -241,16 +245,7 @@ def main():
 
 
 if __name__ == "__main__":
-    # Before running, ensure HF_TOKEN is set in your environment or .env file (see config.py)
-    # Example usage:
-    # python main.py /path/to/your/pdf_collection --query "What is this collection about?"
-    # python main.py /path/to/your/pdf_collection --reindex (to force re-indexing)
-    # python main.py /path/to/your/pdf_collection --query "Specific question" --index_dir /custom/index/location
-    main()")
-
-
-if __name__ == "__main__":
-    # Before running, ensure HF_TOKEN is set in your environment or .env file (see config.py)
+    # Before querying, ensure HF_TOKEN is set in your environment or .env file (see config.py)
     # Example usage:
     # python main.py /path/to/your/pdf_collection --query "What is this collection about?"
     # python main.py /path/to/your/pdf_collection --reindex (to force re-indexing)

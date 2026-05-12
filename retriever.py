@@ -167,7 +167,7 @@ if __name__ == '__main__':
                                                sample_texts,
                                                sample_metadata,
                                                sbert_model,
-                                               top_n=top_k)
+                                               top_n_final=top_k)
 
     if retrieved_chunks:
         logger.info(f"Retrieved {len(retrieved_chunks)} chunks:")

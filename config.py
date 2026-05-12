@@ -6,8 +6,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 HF_TOKEN = os.environ.get("HF_TOKEN")
-if not HF_TOKEN:
-    raise ValueError("Hugging Face token (HF_TOKEN) is not set in environment variables. Please set it in your .env file or environment.")
 
 NGROK_AUTH_TOKEN = os.environ.get("NGROK_AUTH_TOKEN") # If you plan to use ngrok
 EMBEDDING_MODEL_NAME = 'sentence-transformers/all-MiniLM-L6-v2'
@@ -23,10 +21,6 @@ else:
 # LLM
 LLM_REPO_ID = 'Qwen/Qwen2.5-7B-Instruct'
 LLM_TASK = "conversational"
-LLM_TEMPERATURE = 0.1
-LLM_MAX_NEW_TOKENS = 300
-LLM_TASK = "conversational"
-
 LLM_TEMPERATURE = 0.1
 LLM_MAX_NEW_TOKENS = 300
 

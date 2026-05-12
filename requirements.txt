@@ -4,12 +4,16 @@
 langchain
 langchain-community
 langchain-huggingface
+langchain-core
 transformers[torch] # Includes PyTorch; use transformers[tensorflow] or transformers[flax] if preferred
-torch 
+torch
 sentence-transformers
+requests
+beautifulsoup4
 
 # PDF Processing and OCR
 PyMuPDF # fitz
+Pillow
 pdf2image
 easyocr
 opencv-python-headless # Or opencv-python if you need full GUI features elsewhere (headless is smaller)
