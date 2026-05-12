@@ -192,13 +192,19 @@ def merge_spanning_table_blocks(grouped_blocks_input):
         # or if it was a candidate but no merge/skip occurred with subsequent blocks in the j-loop.
         final_merged_blocks.append(current_block)
         i += 1
-            
+
     return final_merged_blocks
 
+def get_recursive_text_splitter_class():
+    try:
+        from langchain_text_splitters import RecursiveCharacterTextSplitter
+    except ImportError:
+        from langchain.text_splitter import RecursiveCharacterTextSplitter
+    return RecursiveCharacterTextSplitter
 
 def convert_grouped_blocks_to_texts_and_metadata(grouped_blocks):
     # Converts grouped blocks into plain text strings for embedding and extracts metadata.
-    from langchain.text_splitter import RecursiveCharacterTextSplitter
+    RecursiveCharacterTextSplitter = get_recursive_text_splitter_class()
     texts_for_embedding = []
     corresponding_metadata = []
 

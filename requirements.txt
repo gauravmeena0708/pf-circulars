@@ -5,6 +5,7 @@ langchain
 langchain-community
 langchain-huggingface
 langchain-core
+langchain-text-splitters
 transformers[torch] # Includes PyTorch; use transformers[tensorflow] or transformers[flax] if preferred
 torch
 sentence-transformers

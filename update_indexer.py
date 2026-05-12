@@ -135,8 +135,15 @@ def find_unindexed_items(all_circulars, existing_metadata, failed_items, failure
 
     return unindexed_items, skipped_failed
 
+def get_recursive_text_splitter_class():
+    try:
+        from langchain_text_splitters import RecursiveCharacterTextSplitter
+    except ImportError:
+        from langchain.text_splitter import RecursiveCharacterTextSplitter
+    return RecursiveCharacterTextSplitter
+
 def convert_item_blocks_to_texts_and_metadata(grouped_blocks_for_item, item_details_from_json):
-    from langchain.text_splitter import RecursiveCharacterTextSplitter
+    RecursiveCharacterTextSplitter = get_recursive_text_splitter_class()
     texts_for_embedding = []
     corresponding_metadata = []
 
@@ -330,9 +337,8 @@ def main_update_indexer(
                 "No new text chunks generated in this pass. "
                 f"Failures recorded: {failed_this_pass}. Index remains unchanged."
             )
-            if not until_complete:
-                break
-            continue
+            logger.warning("Stopping because this pass made no indexing progress.")
+            break
 
         logger.info(f"Generating embeddings for {len(new_texts_for_embedding)} new text blocks...")
         new_embeddings = sbert_model.encode(new_texts_for_embedding, convert_to_tensor=False, show_progress_bar=True)
