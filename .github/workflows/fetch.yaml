@@ -1,0 +1,53 @@
+name: Fetch EPF India circulars
+
+on:
+  workflow_dispatch: # Allows manual triggering
+  schedule:
+   - cron: '0 4 * * 1' # Example: Runs every Monday at 4 AM UTC (after metadata fetch)
+
+jobs:
+  fetch_data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+          
+      #- name: Install Tesseract OCR
+      #  run: |
+      #    sudo apt-get update
+      #    sudo apt-get install -y tesseract-ocr
+
+      - name: Install Python dependencies
+        run: pip install requests beautifulsoup4 #pymupdf pytesseract Pillow
+
+      - name: Run fetching script
+        run: python ./fetch.py # Store the script in your repo
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git pull
+          git add circular-data.json # Or whatever your output file is named
+          # Commit only if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+            echo "updated=false" >> $GITHUB_ENV
+          else
+            git commit -m "Update EPF circulars data"
+            git push
+            echo "updated=true" >> $GITHUB_ENV
+          fi
+
+      - name: Sync to Hugging Face Space
+        if: env.updated == 'true' || github.event_name == 'workflow_dispatch'
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          pip install huggingface_hub
+          python -c "from huggingface_hub import HfApi; HfApi().upload_folder(folder_path='.', repo_id='gauravmeena0708/epfo-circulars', repo_type='space', ignore_patterns=['.git/*', '.github/*'])"

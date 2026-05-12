@@ -1,0 +1,71 @@
+name: Update FAISS Index
+
+on:
+  schedule:
+    # Runs daily at 00:00 UTC. You can adjust this cron expression.
+    # See https://crontab.guru/ for help.
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required to push changes back to the repository
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Fetches all history so that git push doesn't fail due to unrelated histories
+          # (though usually not an issue for simple commits to the same branch)
+          fetch-depth: 0 
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' # Or your preferred Python version, e.g., 3.9
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils # For pdf2image
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        # The requirements.txt should include:
+        # sentence-transformers, faiss-cpu, torch, transformers, PyMuPDF, easyocr, 
+        # numpy, requests, pdf2image, opencv-python-headless, python-dotenv (if used by config.py for HF_TOKEN)
+
+      - name: Run FAISS index update script
+        run: python update_indexer.py
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
+          git add vector_store/data_index/faiss_index.index
+          git add vector_store/data_index/faiss_index.texts.json
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+            echo "updated=false" >> $GITHUB_ENV
+          else
+            git commit -m "Automated FAISS index update"
+            git push origin HEAD:${{ github.ref_name }} 
+            echo "updated=true" >> $GITHUB_ENV
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Sync to Hugging Face Space
+        if: env.updated == 'true' || github.event_name == 'workflow_dispatch'
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          pip install huggingface_hub
+          python -c "from huggingface_hub import HfApi; HfApi().upload_folder(folder_path='.', repo_id='gauravmeena0708/epfo-circulars', repo_type='space', ignore_patterns=['.git/*', '.github/*'])"

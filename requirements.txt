@@ -1,0 +1,23 @@
+# requirements.txt
+
+# Core Langchain and Hugging Face
+langchain
+langchain-community
+langchain-huggingface
+transformers[torch] # Includes PyTorch; use transformers[tensorflow] or transformers[flax] if preferred
+torch 
+sentence-transformers
+
+# PDF Processing and OCR
+PyMuPDF # fitz
+pdf2image
+easyocr
+opencv-python-headless # Or opencv-python if you need full GUI features elsewhere (headless is smaller)
+
+# Vector Store
+faiss-cpu # Or faiss-gpu
+numpy
+python-dotenv 
+streamlit 
+reportlab
+timm
