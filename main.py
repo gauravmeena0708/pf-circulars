@@ -230,7 +230,11 @@ def main():
             indexed_texts, 
             indexed_metadata, 
             embedding_model_instance, 
-            cross_encoder_model=cross_encoder_instance
+            cross_encoder_model=cross_encoder_instance,
+            bm25_cache_path=os.path.join(
+                index_storage_path,
+                f"{config.DEFAULT_INDEX_NAME}.bm25.json.gz"
+            )
         )
         
         if not retrieved_data:

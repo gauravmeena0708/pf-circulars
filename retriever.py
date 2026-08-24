@@ -1,10 +1,13 @@
 # retriever.py
 
+import gzip
+import hashlib
+import json
 import logging
+import os
 import re
+import tempfile
 import numpy as np
-import faiss
-from sentence_transformers import SentenceTransformer, CrossEncoder
 from rank_bm25 import BM25Okapi
 import config
 
@@ -14,9 +17,23 @@ logging.basicConfig(level=config.LOG_LEVEL, format=config.LOG_FORMAT)
 
 # In-memory cache for BM25 index to avoid re-tokenizing corpus on every query
 _BM25_CACHE = {
-    "corpus_hash": None,
+    "corpus": None,
+    "corpus_fingerprint": None,
     "bm25_instance": None
 }
+
+_BM25_CACHE_VERSION = 1
+_BM25_STATE_FIELDS = (
+    "k1",
+    "b",
+    "epsilon",
+    "corpus_size",
+    "avgdl",
+    "doc_freqs",
+    "idf",
+    "doc_len",
+    "average_idf",
+)
 
 
 def _tokenize_for_bm25(text):
@@ -31,25 +48,142 @@ def _tokenize_for_bm25(text):
     return tokens
 
 
-def _get_or_build_bm25_index(all_indexed_texts):
-    """Retrieves cached BM25 instance or builds a new one for the corpus."""
-    corpus_id = (len(all_indexed_texts), hash(tuple(t[:40] for t in all_indexed_texts[:min(20, len(all_indexed_texts))])))
-    
-    if _BM25_CACHE["corpus_hash"] == corpus_id and _BM25_CACHE["bm25_instance"] is not None:
+def _fingerprint_corpus(all_indexed_texts):
+    """Returns a stable content hash used to reject stale persisted indexes."""
+    digest = hashlib.sha256()
+    digest.update(len(all_indexed_texts).to_bytes(8, byteorder="big"))
+    for text in all_indexed_texts:
+        encoded_text = text.encode("utf-8", errors="replace")
+        digest.update(len(encoded_text).to_bytes(8, byteorder="big"))
+        digest.update(encoded_text)
+    return digest.hexdigest()
+
+
+def _load_persisted_bm25(cache_path, corpus_fingerprint, document_count):
+    if not cache_path or not os.path.isfile(cache_path):
+        return None
+
+    try:
+        with gzip.open(cache_path, "rt", encoding="utf-8") as cache_file:
+            payload = json.load(cache_file)
+        if (
+            payload.get("version") != _BM25_CACHE_VERSION
+            or payload.get("corpus_fingerprint") != corpus_fingerprint
+            or payload.get("document_count") != document_count
+        ):
+            logger.info("Ignoring stale BM25 cache at %s.", cache_path)
+            return None
+
+        state = payload.get("bm25_state", {})
+        if not all(field in state for field in _BM25_STATE_FIELDS):
+            logger.warning("BM25 cache at %s is missing required fields.", cache_path)
+            return None
+
+        bm25_instance = BM25Okapi.__new__(BM25Okapi)
+        bm25_instance.__dict__.update(state)
+        bm25_instance.tokenizer = None
+        logger.info("Loaded persisted BM25 index from %s.", cache_path)
+        return bm25_instance
+    except (
+        OSError,
+        EOFError,
+        UnicodeError,
+        ValueError,
+        AttributeError,
+        TypeError,
+    ) as error:
+        logger.warning("Could not load BM25 cache '%s': %s", cache_path, error)
+        return None
+
+
+def _persist_bm25(cache_path, corpus_fingerprint, document_count, bm25_instance):
+    if not cache_path:
+        return
+
+    cache_dir = os.path.dirname(os.path.abspath(cache_path))
+    temp_path = None
+    try:
+        os.makedirs(cache_dir, exist_ok=True)
+        file_descriptor, temp_path = tempfile.mkstemp(
+            prefix=".bm25-",
+            suffix=".tmp",
+            dir=cache_dir,
+        )
+        os.close(file_descriptor)
+        payload = {
+            "version": _BM25_CACHE_VERSION,
+            "corpus_fingerprint": corpus_fingerprint,
+            "document_count": document_count,
+            "bm25_state": {
+                field: getattr(bm25_instance, field)
+                for field in _BM25_STATE_FIELDS
+            },
+        }
+        with gzip.open(temp_path, "wt", encoding="utf-8", compresslevel=5) as cache_file:
+            json.dump(payload, cache_file, ensure_ascii=True, separators=(",", ":"))
+        os.replace(temp_path, cache_path)
+        temp_path = None
+        logger.info("Persisted BM25 index to %s.", cache_path)
+    except (OSError, TypeError, ValueError) as error:
+        logger.warning("Could not persist BM25 cache '%s': %s", cache_path, error)
+    finally:
+        if temp_path and os.path.exists(temp_path):
+            try:
+                os.remove(temp_path)
+            except OSError:
+                pass
+
+
+def _get_or_build_bm25_index(all_indexed_texts, cache_path=None):
+    """Loads BM25 from memory or disk, rebuilding it when the corpus changes."""
+    if (
+        _BM25_CACHE["corpus"] is all_indexed_texts
+        and _BM25_CACHE["bm25_instance"] is not None
+    ):
         return _BM25_CACHE["bm25_instance"]
-    
-    logger.info(f"Building BM25 index for {len(all_indexed_texts)} documents...")
-    tokenized_corpus = [_tokenize_for_bm25(text) for text in all_indexed_texts]
-    bm25 = BM25Okapi(tokenized_corpus)
-    _BM25_CACHE["corpus_hash"] = corpus_id
+
+    corpus_fingerprint = _fingerprint_corpus(all_indexed_texts)
+    bm25 = _load_persisted_bm25(
+        cache_path,
+        corpus_fingerprint,
+        len(all_indexed_texts),
+    )
+    if bm25 is None:
+        logger.info(f"Building BM25 index for {len(all_indexed_texts)} documents...")
+        tokenized_corpus = [_tokenize_for_bm25(text) for text in all_indexed_texts]
+        bm25 = BM25Okapi(tokenized_corpus)
+        _persist_bm25(
+            cache_path,
+            corpus_fingerprint,
+            len(all_indexed_texts),
+            bm25,
+        )
+
+    _BM25_CACHE["corpus"] = all_indexed_texts
+    _BM25_CACHE["corpus_fingerprint"] = corpus_fingerprint
     _BM25_CACHE["bm25_instance"] = bm25
     return bm25
+
+
+def _top_k_score_indices(scores, top_k):
+    """Returns score indices in descending order without sorting the full array."""
+    scores = np.asarray(scores)
+    if scores.ndim != 1 or scores.size == 0 or top_k <= 0:
+        return np.empty(0, dtype=np.intp)
+
+    top_k = min(top_k, scores.size)
+    if top_k == scores.size:
+        return np.argsort(scores)[::-1]
+
+    candidate_indices = np.argpartition(scores, scores.size - top_k)[-top_k:]
+    candidate_order = np.argsort(scores[candidate_indices])[::-1]
+    return candidate_indices[candidate_order]
 
 
 def retrieve_relevant_chunks(query_text, faiss_index, all_indexed_texts, all_indexed_metadata, 
                              embedding_model, cross_encoder_model=None, 
                              top_n_initial=None, top_n_final=None,
-                             use_hybrid=None):
+                             use_hybrid=None, bm25_cache_path=None):
     """
     Retrieves the most relevant text chunks using Hybrid Retrieval (BM25 + Dense FAISS)
     fused with Reciprocal Rank Fusion (RRF) and re-ranked with a CrossEncoder.
@@ -64,6 +198,7 @@ def retrieve_relevant_chunks(query_text, faiss_index, all_indexed_texts, all_ind
         top_n_initial (int, optional): Number of candidates to retrieve initially.
         top_n_final (int, optional): Number of top results to return.
         use_hybrid (bool, optional): Whether to use hybrid BM25 + Dense search.
+        bm25_cache_path (str, optional): Path used to persist the sparse index.
 
     Returns:
         list: List of dicts with keys 'text', 'metadata', 'score'.
@@ -122,11 +257,11 @@ def retrieve_relevant_chunks(query_text, faiss_index, all_indexed_texts, all_ind
         
         if use_hybrid:
             try:
-                bm25 = _get_or_build_bm25_index(all_indexed_texts)
+                bm25 = _get_or_build_bm25_index(all_indexed_texts, bm25_cache_path)
                 tokenized_query = _tokenize_for_bm25(query_text)
                 if tokenized_query:
                     doc_scores = bm25.get_scores(tokenized_query)
-                    top_bm25_indices = np.argsort(doc_scores)[::-1][:sparse_k]
+                    top_bm25_indices = _top_k_score_indices(doc_scores, sparse_k)
                     
                     for rank, doc_idx in enumerate(top_bm25_indices):
                         score = doc_scores[doc_idx]
@@ -167,15 +302,22 @@ def retrieve_relevant_chunks(query_text, faiss_index, all_indexed_texts, all_ind
         # 4. Cross-Encoder Deep Re-ranking
         # -------------------------------------------------------------
         if cross_encoder_model and retrieved_results:
-            logger.info(f"Re-ranking {len(retrieved_results)} hybrid candidates with CrossEncoder...")
-            cross_input = [[query_text, res["text"]] for res in retrieved_results]
-            cross_scores = cross_encoder_model.predict(cross_input)
-            
-            for i, c_score in enumerate(cross_scores):
-                retrieved_results[i]["score"] = float(c_score)
-                
-            # Sort by CrossEncoder score descending
-            retrieved_results.sort(key=lambda x: x['score'], reverse=True)
+            try:
+                logger.info(f"Re-ranking {len(retrieved_results)} hybrid candidates with CrossEncoder...")
+                cross_input = [[query_text, res["text"]] for res in retrieved_results]
+                cross_scores = cross_encoder_model.predict(cross_input)
+
+                for i, c_score in enumerate(cross_scores):
+                    retrieved_results[i]["score"] = float(c_score)
+
+                # Sort by CrossEncoder score descending
+                retrieved_results.sort(key=lambda x: x['score'], reverse=True)
+            except Exception as cross_encoder_error:
+                logger.warning(
+                    "Cross-encoder re-ranking failed: %s. Using RRF ranking.",
+                    cross_encoder_error,
+                )
+                retrieved_results.sort(key=lambda x: x['rrf_score'], reverse=True)
         else:
             # Sort by RRF score descending
             retrieved_results.sort(key=lambda x: x['rrf_score'], reverse=True)
