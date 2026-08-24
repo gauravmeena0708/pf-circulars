@@ -1,273 +1,203 @@
 # app.py
 import os
+import sys
+
+# Ensure UTF-8 output encoding on Windows
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8")
+
 import torch
 
 # Fix for PyTorch-Streamlit compatibility issue
 try:
-    # Method 1: Set an empty path list
     torch.classes.__path__ = []
-except:
+except Exception:
     try:
-        # Method 2: Alternative fix if Method 1 doesn't work
         torch.classes.__path__ = [os.path.join(torch.__path__[0], 'classes')]
-    except:
+    except Exception:
         pass
-    
+
 import streamlit as st
 import logging
 
-# Import configurations and modules from your project
+# Import configurations and modules
 import config
-from pdf_parser import extract_content_from_pdf
-from vector_indexer import (
-    group_extracted_content_to_blocks,
-    merge_spanning_table_blocks,
-    convert_grouped_blocks_to_texts_and_metadata,
-    create_faiss_index,
-    save_faiss_index,
-    load_faiss_index
-)
+from vector_indexer import load_faiss_index
 from retriever import retrieve_relevant_chunks
 from answer_generator import initialize_llm, get_llm_answer
-from transformers import pipeline as hf_pipeline
-import easyocr
 from sentence_transformers import SentenceTransformer, CrossEncoder
 
-# Configure logging (Streamlit also has its own logging)
+# Configure logging
 logger = logging.getLogger("RAGAppStreamlit")
 logging.basicConfig(level=config.LOG_LEVEL, format=config.LOG_FORMAT)
 
-# --- Streamlit UI Logging Helper ---
-def st_log(level, message, exc_info=False):
-    """Log to both logger and Streamlit UI."""
-    if level == "info":
-        logger.info(message)
-        st.info(message)
-    elif level == "warning":
-        logger.warning(message)
-        st.warning(message)
-    elif level == "error":
-        logger.error(message, exc_info=exc_info)
-        st.error(message)
-    else:
-        logger.debug(message)
 
-
-@st.cache_resource 
-def load_core_models():
+@st.cache_resource
+def load_embedding_and_reranker_models():
+    """Loads lightweight embedding and cross-encoder models for fast startup."""
     models = {}
     try:
-        models['ocr'] = easyocr.Reader(config.OCR_LANGUAGES, gpu=(config.EMBEDDING_DEVICE == "cuda"))
-        models['table_detector'] = hf_pipeline("object-detection", model=config.TABLE_DETECTION_MODEL, device=config.EMBEDDING_DEVICE)
+        logger.info(f"Loading embedding model: {config.EMBEDDING_MODEL_NAME}")
         models['embedding'] = SentenceTransformer(config.EMBEDDING_MODEL_NAME, device=config.EMBEDDING_DEVICE)
-        if hasattr(config, 'CROSS_ENCODER_MODEL_NAME') and config.CROSS_ENCODER_MODEL_NAME:
+        
+        if getattr(config, 'CROSS_ENCODER_MODEL_NAME', None):
+            logger.info(f"Loading cross-encoder model: {config.CROSS_ENCODER_MODEL_NAME}")
             models['cross_encoder'] = CrossEncoder(config.CROSS_ENCODER_MODEL_NAME, device=config.EMBEDDING_DEVICE)
         else:
             models['cross_encoder'] = None
-        models['llm'] = initialize_llm()
+            
         return models
     except Exception as e:
-        logger.error(f"Error loading models: {e}", exc_info=True)
-        print(f"Error loading models: {e}")
-        return None 
-    
-# --- Index Management and Caching ---
-# Cache for FAISS index, texts, and metadata based on pdf_directory
-def get_cached_index_data(pdf_directory_path_key):
-    cache_key_index = f"faiss_index_{pdf_directory_path_key}"
-    cache_key_texts = f"faiss_texts_{pdf_directory_path_key}"
-    cache_key_metadata = f"faiss_metadata_{pdf_directory_path_key}"
-    
-    if cache_key_index in st.session_state:
-        return st.session_state[cache_key_index], st.session_state[cache_key_texts], st.session_state[cache_key_metadata]
-    return None, None, None
+        logger.error(f"Error loading embedding models: {e}", exc_info=True)
+        return None
 
-def set_cached_index_data(pdf_directory_path_key, index, texts, metadata):
-    cache_key_index = f"faiss_index_{pdf_directory_path_key}"
-    cache_key_texts = f"faiss_texts_{pdf_directory_path_key}"
-    cache_key_metadata = f"faiss_metadata_{pdf_directory_path_key}"
-    
-    st.session_state[cache_key_index] = index
-    st.session_state[cache_key_texts] = texts
-    st.session_state[cache_key_metadata] = metadata
 
-def process_pdfs_and_get_index(pdf_directory, force_reindex, core_models):
-    """Manages PDF processing, indexing, and caching for Streamlit."""
-    if not core_models:
-        return None, None, None
+def get_llm_model(custom_token=None):
+    """Initializes LLM on demand using env or user-provided HuggingFace token."""
+    token = custom_token or config.HF_TOKEN
+    if not token:
+        return None
+    try:
+        return initialize_llm(hf_token=token)
+    except Exception as e:
+        logger.warning(f"Could not initialize LLM with token: {e}")
+        return None
 
-    # Normalize the PDF directory path for consistent caching
-    pdf_directory_path_key = os.path.normpath(pdf_directory)
-    
-    # Determine index storage path (similar to main.py but specific for app)
-    pdf_dir_basename = os.path.basename(pdf_directory_path_key)
-    index_storage_path_app = os.path.join(config.DEFAULT_INDEX_DIR, f"{pdf_dir_basename}_index")
-    if not os.path.exists(index_storage_path_app):
-        os.makedirs(index_storage_path_app, exist_ok=True)
 
-    # Try to load from Streamlit session cache first
-    index, texts, metadata = get_cached_index_data(pdf_directory_path_key)
-    if index and not force_reindex:
-        st.success(f"Using cached index for directory: {pdf_directory}")
-        return index, texts, metadata
-    
-    # If not in session cache, try loading from disk
-    if not force_reindex:
-        index, texts, metadata = load_faiss_index(index_storage_path_app,
-                                                  core_models['embedding'],
-                                                  index_name=config.DEFAULT_INDEX_NAME)
-        if index and texts and metadata:
-            st.success(f"Loaded index. You can now query the latest circulars like 'What preparatory activities are needed for Annual General Transfer of DPA?', 'Deputation of Programmers'")
-            set_cached_index_data(pdf_directory_path_key, index, texts, metadata) # Cache in session
-            return index, texts, metadata
+@st.cache_resource
+def load_cached_faiss_index(_embedding_model, index_dir=None):
+    """Loads and caches the persistent FAISS index and metadata in memory."""
+    target_dir = index_dir or os.path.join(config.DEFAULT_INDEX_DIR, "data_index")
+    index, texts, metadata = load_faiss_index(
+        target_dir,
+        _embedding_model,
+        index_name=config.DEFAULT_INDEX_NAME
+    )
+    return index, texts, metadata
 
-    # If no cache and no disk index (or force_reindex), then process
-    with st.spinner(f"Processing PDFs in '{pdf_directory}' and building index... This may take a while."):
-        all_extracted_page_data = []
-        pdf_files = [f for f in os.listdir(pdf_directory) if f.lower().endswith(".pdf")]
-        if not pdf_files:
-            return None, None, None
-        
-        st.progress(0)
-        for i, pdf_file in enumerate(pdf_files):
-            pdf_path = os.path.join(pdf_directory, pdf_file)
-            try:
-                extracted_data_single_pdf = extract_content_from_pdf(pdf_path,
-                                                                    core_models['table_detector'],
-                                                                    core_models['ocr'])
-                if extracted_data_single_pdf:
-                    all_extracted_page_data.extend(extracted_data_single_pdf)
-                st.progress((i + 1) / len(pdf_files))
-            except Exception as e:
-                st.error(f"Error processing PDF {pdf_file}: {e}")
-                continue
-        
-        if not all_extracted_page_data:
-            return None, None, None
 
-        grouped_blocks = group_extracted_content_to_blocks(all_extracted_page_data)
-        merged_blocks = merge_spanning_table_blocks(grouped_blocks)
-        texts_for_embedding, metadata_for_embedding = convert_grouped_blocks_to_texts_and_metadata(merged_blocks)
-        
-        if not texts_for_embedding:
-            return None, None, None
-            
-        faiss_index_obj = create_faiss_index(texts_for_embedding, metadata_for_embedding, core_models['embedding'])
-        
-        if not faiss_index_obj:
-            return None, None, None
-            
-        save_faiss_index(faiss_index_obj, texts_for_embedding, metadata_for_embedding, index_storage_path_app, config.DEFAULT_INDEX_NAME)
-        st.success("PDFs processed and index built successfully!")
-        set_cached_index_data(pdf_directory_path_key, faiss_index_obj, texts_for_embedding, metadata_for_embedding) # Cache in session
-        return faiss_index_obj, texts_for_embedding, metadata_for_embedding
+# --- Streamlit UI Configuration ---
+st.set_page_config(
+    page_title="EPFO Circulars & Manuals RAG",
+    page_icon="📜",
+    layout="wide"
+)
 
-# --- Streamlit UI ---
-st.set_page_config(page_title="EPFO Circular Chatbot", layout="wide")
-st.title("EPFO Circular Chatbot")
+st.title("📜 EPFO Circulars & Statutory Manuals AI Assistant")
+st.caption("Intelligent Retrieval-Augmented Generation across 8,800+ EPFO Circulars & Official Statutory Manuals (1952–2027)")
 
-# --- Sidebar with Sample Queries ---
-st.sidebar.header("Sample Queries")
+# --- Sidebar Configuration ---
+st.sidebar.header("⚙️ Configuration")
+user_hf_token = st.sidebar.text_input(
+    "Hugging Face Token (for LLM Synthesis)",
+    value=config.HF_TOKEN or "",
+    type="password",
+    help="Required only for AI synthesized answers. If omitted, full search & citations still work."
+)
+
+st.sidebar.markdown("---")
+st.sidebar.header("💡 Sample Queries")
 sample_queries = [
-    "What preparatory activities are needed for Annual General Transfer of DPA?",
-    "Deputation of Programmers",
-    "What is the process for transfer of accounts?",
-    "Tell me about Revamped Appendix E",
-    "What is the latest update on EPFO interest rate?",
-    "Tell me about Examination scheme of JTO",
-    "What has been told about notional increment"
+    "What is the procedure for joint declaration profile update?",
+    "What are the duties of Recovery Officer under EPFO Recovery Manual?",
+    "What is the eligibility for monthly pension under EPS 1995?",
+    "What is the rule for transfer of accounts under EPF Scheme 1952?",
+    "What are the guidelines for exemption under Section 17?",
+    "Strengthening and streamlining of Nidhi Aapke Nikat 2.0",
+    "What is the interest rate credited to PF members?"
 ]
+
 for q in sample_queries:
-    if st.sidebar.button(q, key=f"sample_{q}"):
+    if st.sidebar.button(q, key=f"sample_{hash(q)}"):
         st.session_state["query_input"] = q
 
-# Load models (cached)
-core_models_loaded = load_core_models()
+# --- Load Models & Index ---
+core_models = load_embedding_and_reranker_models()
 
-if core_models_loaded:
-    # Remove sidebar config and button, always use default data dir
-    default_data_dir = os.path.join(os.getcwd(), "data")
-    pdf_dir_input = default_data_dir
-    force_reindex_checkbox = False
+if not core_models or not core_models.get('embedding'):
+    st.error("❌ Failed to load embedding model. Please check dependencies and configuration.")
+    st.stop()
 
-    # Initialize session state for index data if it doesn't exist
-    if 'current_pdf_dir' not in st.session_state:
-        st.session_state.current_pdf_dir = None
-    if 'faiss_index' not in st.session_state:
-        st.session_state.faiss_index = None
-        st.session_state.indexed_texts = None
-        st.session_state.indexed_metadata = None
+index_dir = os.path.join(config.DEFAULT_INDEX_DIR, "data_index")
+faiss_index, indexed_texts, indexed_metadata = load_cached_faiss_index(core_models['embedding'], index_dir)
 
-    # Always process the default directory on app start (if not already loaded)
-    if st.session_state.current_pdf_dir != os.path.normpath(pdf_dir_input):
-        st.session_state.current_pdf_dir = pdf_dir_input
-        pdf_directory_path_key = os.path.normpath(pdf_dir_input)
-        # Clear old index data for this directory
-        for key in list(st.session_state.keys()):
-            if key.startswith(f"faiss_index_{pdf_directory_path_key}") or \
-               key.startswith(f"faiss_texts_{pdf_directory_path_key}") or \
-               key.startswith(f"faiss_metadata_{pdf_directory_path_key}"):
-                del st.session_state[key]
-        index, texts, metadata = process_pdfs_and_get_index(pdf_dir_input, force_reindex_checkbox, core_models_loaded)
-        # The function process_pdfs_and_get_index already sets session state
+if not faiss_index or not indexed_texts or not indexed_metadata:
+    st.warning("⚠️ FAISS vector index not found. Run `python import_pf_circular_index.py` or `python index_manuals.py` first.")
+    st.stop()
 
-    st.markdown("---")
-    
-    pdf_dir_key = os.path.normpath(st.session_state.current_pdf_dir)
-    faiss_index, indexed_texts, indexed_metadata = get_cached_index_data(pdf_dir_key)
+# Display index statistics in sidebar
+st.sidebar.markdown("---")
+st.sidebar.markdown("### 📊 Index Statistics")
+st.sidebar.info(f"**Indexed Vectors / Chunks:** {faiss_index.ntotal:,}\n\n**Total Document Catalog:** {len(indexed_metadata):,}")
 
-    if faiss_index and indexed_texts and indexed_metadata:
-        query = st.text_input("Enter your query:", key="query_input")
+# --- Main Query Interface ---
+query = st.text_input("🔍 Ask a question about EPFO rules, schemes, circulars, or manuals:", key="query_input")
 
-        if query:
-            if core_models_loaded['embedding'] and core_models_loaded['llm']:
-                with st.spinner("Searching for relevant documents..."):
-                    retrieved_data = retrieve_relevant_chunks(query,
-                                                              faiss_index,
-                                                              indexed_texts,
-                                                              indexed_metadata,
-                                                              core_models_loaded['embedding'],
-                                                              cross_encoder_model=core_models_loaded.get('cross_encoder'))
-                    
-                st.markdown("### Answer")
-                # Streaming the LLM answer
-                answer_stream = get_llm_answer(query, retrieved_data, core_models_loaded['llm'], stream=True)
-                
-                def stream_generator():
-                    for chunk in answer_stream:
-                        if hasattr(chunk, 'content'):
-                             yield chunk.content
-                        else:
-                             yield str(chunk)
+if query:
+    with st.spinner("Searching knowledge base with Hybrid Retrieval (BM25 + Dense FAISS)..."):
+        retrieved_data = retrieve_relevant_chunks(
+            query,
+            faiss_index,
+            indexed_texts,
+            indexed_metadata,
+            core_models['embedding'],
+            cross_encoder_model=core_models.get('cross_encoder'),
+            top_n_final=5
+        )
 
-                st.write_stream(stream_generator())
+    # Attempt LLM Synthesis
+    llm = get_llm_model(custom_token=user_hf_token)
 
-                if retrieved_data:
-                    st.markdown("---")
-                    st.markdown("### Retrieved Contextual Sources")
-                    for i, item in enumerate(retrieved_data):
-                        meta = item['metadata']
-                        source_pdf_url = meta.get('source_pdf', 'N/A')
-                        title = meta.get('title', 'Unknown Title')
-                        date = meta.get('date', 'Unknown Date')
-                        circular_no = meta.get('circular_no', 'N/A')
-                        page_no = meta.get('page_number', 'N/A')
-                        
-                        header = f"Source {i+1}: {title} (Circular No: {circular_no}, Date: {date})"
-                        
-                        with st.expander(header):
-                            st.markdown(f"**Circular No:** {circular_no} | **Date:** {date} | **Page(s):** {page_no}")
-                            st.markdown(f"[View Source PDF]({source_pdf_url})")
-                            st.caption(f"Relevant Snippet:")
-                            st.markdown(f"> {item['text']}")
-                                
+    if llm and retrieved_data:
+        st.markdown("### 🤖 Synthesized Answer")
+        try:
+            answer_stream = get_llm_answer(query, retrieved_data, llm, stream=True)
+            
+            def stream_generator():
+                for chunk in answer_stream:
+                    if hasattr(chunk, 'content'):
+                        yield chunk.content
+                    else:
+                        yield str(chunk)
+
+            st.write_stream(stream_generator())
+        except Exception as gen_err:
+            st.error(f"Error during LLM generation: {gen_err}")
+    elif not llm:
+        st.info("💡 **LLM synthesis not enabled:** Provide a Hugging Face API token in the sidebar or in `.env` (`HF_TOKEN`) for AI-generated answers. Showing top matched sources below:")
+
+    # Display Sources
+    if retrieved_data:
+        st.markdown("---")
+        st.markdown(f"### 📚 Retrieved Sources ({len(retrieved_data)} matches)")
+        
+        for i, item in enumerate(retrieved_data):
+            meta = item.get('metadata', {})
+            title = meta.get('title') or "EPFO Document"
+            circular_no = meta.get('circular_no') or "N/A"
+            date = meta.get('date') or "N/A"
+            page_no = meta.get('page_number') or "1"
+            pdf_link = meta.get('english_pdf_link') or meta.get('source_pdf') or ""
+            doc_type = meta.get('doc_type', 'circular')
+            score = item.get('score', 0.0)
+
+            badge = "📖 [MANUAL]" if doc_type == "manual" or "MANUAL" in str(circular_no) else "📄 [CIRCULAR]"
+            header = f"{badge} #{i+1}: {title}"
+
+            with st.expander(header, expanded=(i == 0)):
+                col1, col2, col3 = st.columns(3)
+                col1.markdown(f"**Identifier:** `{circular_no}`")
+                col2.markdown(f"**Date:** `{date}`")
+                col3.markdown(f"**Page:** `{page_no}` | **Score:** `{score:.4f}`")
+
+                if pdf_link.startswith("http"):
+                    st.markdown(f"🔗 **[Open Official PDF Document]({pdf_link})**")
                 else:
-                    st.info("No specific context chunks were retrieved to formulate the answer, or the answer is general knowledge.")
-            else:
-                st.warning("Index not available or models not loaded for the current directory. Please check your data directory.")
-    else:
-        st.info("No index found in memory or on disk. Please ensure the './data' directory exists and contains PDF files, then restart the app to build the index.")
+                    st.markdown(f"📁 **Source File:** `{pdf_link}`")
 
-else:
-    st.error("Application cannot start: Core models failed to load. Check logs for details.")
-    st.markdown("Ensure you have set up your `HF_TOKEN` in `.env` or environment variables as per `config.py`.")
+                st.caption("Relevant Excerpt:")
+                st.markdown(f"> {item['text']}")
+    else:
+        st.warning("No relevant passages found for your query. Try rephrasing or searching with different keywords.")

@@ -1,7 +1,10 @@
 # pdf_parser.py
 import os
 import re
-import fitz  # PyMuPDF
+try:
+    import pymupdf as fitz
+except ImportError:
+    import fitz
 from pdf2image import convert_from_path
 from PIL import Image
 import numpy as np

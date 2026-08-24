@@ -1,76 +1,64 @@
-# EPFO Circulars RAG System - GEMINI.md
+# EPFO Circulars & Statutory Manuals RAG System - GEMINI.md
 
 ## Project Overview
-This project is a Retrieval-Augmented Generation (RAG) system specifically designed for querying Employees' Provident Fund Organisation (EPFO) circulars. It automates the end-to-end process from scraping circular metadata to providing an interactive Q&A interface using Large Language Models (LLMs).
+This project is an advanced Retrieval-Augmented Generation (RAG) system specifically designed for querying Employees' Provident Fund Organisation (EPFO) official circulars, statutory schemes, acts, and functional manuals.
 
 ### Core Features
-- **Automated Scraping**: Periodically fetches circular metadata (titles, numbers, dates, PDF links) from the EPFO website.
-- **Robust PDF Processing**: Handles both text-based and image-based PDFs using OCR (EasyOCR) and table detection models.
-- **Vector Search**: Uses SBERT for embeddings and FAISS for efficient similarity search.
-- **LLM Integration**: Utilizes Hugging Face hosted models (currently `Qwen/Qwen2.5-7B-Instruct`) for generating context-aware answers.
-- **Dual Interfaces**: Offers both a CLI (`main.py`) and a Streamlit web application (`app.py`).
-- **Automated Pipelines**: GitHub Actions manage weekly metadata updates and daily index refreshes.
+- **Comprehensive Knowledge Archive**: Covers 8,820+ EPFO circulars (from 2009 to 2027) and 16 complete statutory manuals, schemes, and regulations (over 74,300 indexed vectors).
+- **Hybrid Retrieval Pipeline**: Combines dense semantic search (SBERT + FAISS) and sparse lexical search (BM25Okapi) fused via Reciprocal Rank Fusion (RRF) and re-ranked with a Cross-Encoder (`ms-marco-MiniLM-L-6-v2`).
+- **Robust PDF & Table Processing**: Handles both text-based and scanned image-based PDFs using PyMuPDF, Tesseract OCR, EasyOCR, and Hugging Face Table Transformer.
+- **LLM Integration**: Uses Hugging Face inference models (e.g. `Qwen/Qwen2.5-7B-Instruct`) for precise, citation-grounded answers.
+- **Dual Interfaces**: High-speed Streamlit web application (`app.py`) and CLI tool (`main.py`).
+- **Git LFS Enabled**: Large FAISS index files (`>100 MB`) are tracked and versioned using Git Large File Storage.
 
 ### Key Technologies
-- **Language**: Python 3.8+
-- **RAG Framework**: LangChain
-- **Vector Store**: FAISS
-- **Embeddings**: `sentence-transformers/all-MiniLM-L6-v2`
-- **LLM**: `Qwen/Qwen2.5-7B-Instruct` (via Hugging Face Hub)
-- **PDF/OCR**: PyMuPDF, EasyOCR, Table Transformer
+- **Language**: Python 3.8+ (tested on Python 3.12)
+- **RAG & Search**: LangChain, FAISS (`faiss-cpu`), `rank-bm25`
+- **Embeddings & Re-ranking**: `sentence-transformers/all-MiniLM-L6-v2`, `cross-encoder/ms-marco-MiniLM-L-6-v2`
+- **LLM**: `Qwen/Qwen2.5-7B-Instruct` (via Hugging Face Endpoint)
+- **PDF & OCR**: PyMuPDF (`fitz`), Tesseract OCR (`pytesseract`), EasyOCR, Table Transformer
 - **Web App**: Streamlit
 
 ---
 
 ## Project Structure
 - `config.py`: Centralized configuration for models, paths, and environment variables.
-- `fetch.py`: Scraper for EPFO circular metadata, outputting to `circular-data.json`.
-- `update_indexer.py`: Automates downloading new PDFs and incrementally updating the FAISS index.
+- `fetch.py`: Scrapes circular metadata from EPFO website into `circular-data.json`.
+- `fetch_manuals.py`: Downloads statutory manuals and schemes into `data/manuals/`.
+- `import_pf_circular_index.py`: Ingests and vectorizes precomputed OCR circular datasets into FAISS.
+- `index_manuals.py`: Ingests and vectorizes all statutory manuals into the FAISS store.
+- `update_indexer.py`: Automates downloading new PDFs and incrementally updating the FAISS index with deep OCR.
 - `pdf_parser.py`: Core logic for text and table extraction from PDFs.
-- `vector_indexer.py`: Manages creation, saving, and loading of the FAISS index.
-- `retriever.py`: Handles similarity search against the vector index.
-- `answer_generator.py`: Manages prompt engineering and LLM interaction.
-- `main.py`: Command-line interface for the RAG pipeline.
-- `app.py`: Streamlit-based interactive web interface.
-- `vector_store/`: Directory containing the persisted FAISS index and metadata.
-- `.github/workflows/`: Automated CI/CD pipelines for data fetching and indexing.
+- `vector_indexer.py`: Manages creation, saving, and loading of the FAISS index and metadata.
+- `retriever.py`: Hybrid search (BM25 + FAISS + CrossEncoder).
+- `answer_generator.py`: Prompt synthesis, grounding, and LLM interaction.
+- `main.py`: Fast CLI interface for queries and batch re-indexing.
+- `app.py`: Streamlit web application with search cards, direct PDF links, and streaming answers.
+- `vector_store/`: Directory containing the persisted FAISS index and metadata (tracked via Git LFS).
 
 ---
 
 ## Building and Running
 
 ### Prerequisites
-- Install system dependencies for `pdf2image` (e.g., `sudo apt-get install poppler-utils`).
-- Create a `.env` file with `HF_TOKEN="your_huggingface_token"`.
+- Install system dependencies for OCR & PDF rendering (Tesseract OCR, Poppler).
+- Initialize Git LFS if cloning fresh:
+  ```bash
+  git lfs install
+  git lfs pull
+  ```
+- Create a `.env` file with `HF_TOKEN="your_huggingface_token"` (optional for search/retrieval, required for LLM synthesis).
 
 ### Setup
 ```bash
+python -m venv .venv
+.\.venv\Scripts\activate   # On Linux/macOS: source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
 ### Key Commands
-- **Run Streamlit App**: `streamlit run app.py`
-- **Query via CLI**: `python main.py data/ --query "Your question here"`
+- **Run Streamlit Web App**: `streamlit run app.py`
+- **Query via CLI**: `python main.py data --query "What is the procedure for joint declaration?"`
+- **Import Precomputed OCR**: `python import_pf_circular_index.py`
+- **Index Statutory Manuals**: `python index_manuals.py`
 - **Manual Metadata Fetch**: `python fetch.py --action fetch`
-- **Manual Index Update**: `python update_indexer.py` (processes new circulars from `circular-data.json`)
-- **Full Re-indexing**: `python main.py data/ --reindex`
-
----
-
-## Development Conventions
-
-### Configuration
-- Always use `config.py` for parameters; do not hardcode paths or model names.
-- Secrets (API keys) must be managed via `.env` or environment variables.
-
-### Data Flow
-1. `fetch.py` updates `circular-data.json`.
-2. `update_indexer.py` reads `circular-data.json`, downloads missing PDFs, and updates `vector_store/`.
-3. `main.py` or `app.py` use `retriever.py` and `answer_generator.py` to provide answers.
-
-### Error Handling & Logging
-- Use the standard `logging` module. Configuration is provided in `config.py`.
-- Be mindful of OCR and LLM API rate limits and timeouts.
-
-### Testing
-- [TODO] Formal test suite (e.g., pytest) is currently missing. Contributions should include unit tests for parsers and retrievers.
