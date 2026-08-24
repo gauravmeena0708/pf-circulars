@@ -21,6 +21,7 @@ opencv-python-headless # Or opencv-python if you need full GUI features elsewher
 
 # Vector Store
 faiss-cpu # Or faiss-gpu
+rank-bm25
 numpy
 python-dotenv 
 streamlit 
