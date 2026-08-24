@@ -77,6 +77,13 @@ st.markdown(
         border-radius: 0.55rem;
         min-height: 2.65rem;
     }
+    .token-alert {
+        background: rgba(245, 158, 11, 0.1);
+        border: 1px solid rgba(245, 158, 11, 0.3);
+        border-radius: 0.6rem;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -84,16 +91,27 @@ st.markdown(
 
 
 # --- Helper Functions ---
-@st.cache_resource
-def get_llm(hf_token=None):
-    """Initializes LLM instance using config.py credentials or user token."""
-    token = hf_token or config.HF_TOKEN
+def get_session_llm(hf_token=None, provider_type="huggingface", ollama_model="qwen2.5:7b", ollama_base_url="http://localhost:11434"):
+    """Initializes LLM based on selected provider and token without rigid global caching."""
+    token = (hf_token or "").strip() or config.HF_TOKEN
+    
+    if provider_type == "ollama":
+        try:
+            from langchain_community.chat_models import ChatOllama
+            return ChatOllama(model=ollama_model, base_url=ollama_base_url, temperature=0.1)
+        except Exception as e:
+            logger.error(f"Error initializing Ollama: {e}")
+            st.sidebar.error(f"Failed to connect to local Ollama at {ollama_base_url}: {e}")
+            return None
+            
+    # Default Hugging Face provider
     if not token:
         return None
     try:
         return initialize_llm(hf_token=token)
     except Exception as e:
-        logger.error(f"Error initializing LLM: {e}")
+        logger.error(f"Error initializing Hugging Face LLM: {e}")
+        st.sidebar.error(f"Hugging Face initialization error: {e}")
         return None
 
 
@@ -148,7 +166,7 @@ def extract_text_from_pdf(uploaded_file):
 def stream_document_query(full_text, user_prompt, system_instruction="", llm=None):
     """Sends document text and query to LLM and yields streaming chunks."""
     if not llm:
-        yield "⚠️ Language Model is not initialized. Please provide a valid `HF_TOKEN` in `.env` or in the sidebar."
+        yield "⚠️ Language Model is not initialized.\n\nPlease enter your free **Hugging Face Token** in the sidebar (or `.env` file) to enable AI synthesis."
         return
 
     full_prompt = f"""You are an expert administrative officer and legal analyst specializing in examining official files, noting sheets, correspondence, and office orders.
@@ -173,7 +191,7 @@ Detailed, factual, and well-structured response (refer to exact page/note number
                 yield str(chunk)
     except Exception as e:
         logger.error(f"LLM Error during stream: {e}", exc_info=True)
-        yield f"\n\n❌ Error during generation: {e}"
+        yield f"\n\n❌ Error during generation: {e}\n\n*Tip: Check that your Hugging Face token has 'Inference' permissions at https://huggingface.co/settings/tokens.*"
 
 
 # --- Sidebar ---
@@ -184,16 +202,44 @@ uploaded_file = st.sidebar.file_uploader(
     help="Upload scanned or digital PDF files (e.g., test_noting_sheet.pdf)",
 )
 
-with st.sidebar.expander("⚙️ Advanced Settings", expanded=False):
-    custom_hf_token = st.text_input(
-        "Hugging Face Token",
-        value="",
-        type="password",
-        help="Optional if HF_TOKEN is already configured in .env",
-    )
+# LLM Provider Configuration
+st.sidebar.markdown("---")
+st.sidebar.markdown("### 🤖 LLM Model Settings")
+provider_choice = st.sidebar.radio(
+    "Select LLM Backend",
+    options=["Hugging Face Cloud (Default)", "Local Ollama (Offline & Private)"],
+    index=0,
+)
 
-active_token = custom_hf_token.strip() if custom_hf_token.strip() else config.HF_TOKEN
-llm_service = get_llm(active_token)
+provider_type = "ollama" if "Ollama" in provider_choice else "huggingface"
+ollama_model = "qwen2.5:7b"
+ollama_url = "http://localhost:11434"
+custom_token = ""
+
+if provider_type == "huggingface":
+    env_token = config.HF_TOKEN or ""
+    custom_token = st.sidebar.text_input(
+        "Hugging Face Token",
+        value=st.session_state.get("sidebar_token", env_token),
+        type="password",
+        help="Get a free User Access Token from https://huggingface.co/settings/tokens",
+    )
+    if custom_token:
+        st.session_state["sidebar_token"] = custom_token.strip()
+    
+    if not (custom_token or env_token):
+        st.sidebar.caption("👉 [Get a free Hugging Face token](https://huggingface.co/settings/tokens)")
+else:
+    ollama_url = st.sidebar.text_input("Ollama Server URL", value="http://localhost:11434")
+    ollama_model = st.sidebar.text_input("Ollama Model Name", value="qwen2.5:7b", help="e.g., qwen2.5:7b, llama3.2, mistral")
+
+# Initialize LLM instance
+llm_service = get_session_llm(
+    hf_token=custom_token or config.HF_TOKEN,
+    provider_type=provider_type,
+    ollama_model=ollama_model,
+    ollama_base_url=ollama_url
+)
 
 if uploaded_file:
     if "current_file" not in st.session_state or st.session_state["current_file"] != uploaded_file.name:
@@ -220,6 +266,19 @@ st.caption(
     "chronological timelines, or ask specific departmental questions."
 )
 
+# Token Alert Banner if not configured
+if not llm_service and provider_type == "huggingface":
+    st.markdown(
+        """
+        <div class="token-alert">
+            <strong>🔑 Hugging Face Token Required for AI Synthesis</strong><br>
+            Please paste your Hugging Face User Access Token in the sidebar on the left (or add <code>HF_TOKEN="your_token"</code> in a <code>.env</code> file).<br>
+            <small>You can generate a free token in 30 seconds at <a href="https://huggingface.co/settings/tokens" target="_blank">huggingface.co/settings/tokens</a> (with Inference permissions).</small>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
 if not uploaded_file:
     st.info("👈 Please upload a PDF noting sheet from the sidebar to get started.")
     st.stop()
@@ -232,7 +291,7 @@ if not doc_text.strip():
     st.stop()
 
 # Status Banner
-llm_status = "AI Synthesis Active" if llm_service else "HF Token Required"
+llm_status = "AI Synthesis Active" if llm_service else "⚠️ Token Required"
 st.markdown(
     f"""
     <div class="doc-meta-box">
