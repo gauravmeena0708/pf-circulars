@@ -36,12 +36,14 @@ def format_prompt(query, retrieved_chunks_data):
             source_pdf = meta.get('english_pdf_link') or meta.get('source_pdf', 'N/A')
             page_no = meta.get('page_number', 'N/A')
             source_info = f"[Title: {title} | Identifier: {circular_no} | PDF: {source_pdf} | Page: {page_no}]"
-            context_parts.append(f"Context Chunk {i+1} {source_info}:\n{chunk_data['text']}")
+            context_parts.append(f"Source [{i+1}] {source_info}:\n{chunk_data['text']}")
         context_str = "\n\n".join(context_parts)
 
     prompt = f"""You are a helpful and precise assistant specializing in Employees' Provident Fund Organisation (EPFO) rules, circulars, schemes, and manuals.
 Answer the user's question based strictly on the context provided below.
-If the context contains relevant circular numbers, dates, or sections, cite them in your answer.
+Support factual claims with inline source numbers such as [1] or [2], matching the numbered sources below the answer.
+Also mention relevant circular numbers, dates, or statutory sections when they are present in the context.
+Never invent a source number or cite a source that does not support the claim.
 If the provided context does not contain enough information to answer the question, state clearly that the information was not found in the documents.
 
 Context from EPFO Documents:

@@ -158,38 +158,84 @@ def retrieve_cached_chunks(
 
 # --- Streamlit UI Configuration ---
 st.set_page_config(
-    page_title="EPFO Circulars & Manuals RAG",
+    page_title="Chat with EPFO Circulars",
     page_icon="📜",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="collapsed",
 )
 
-st.title("📜 EPFO Circulars & Statutory Manuals AI Assistant")
-st.caption("Intelligent Retrieval-Augmented Generation across 8,800+ EPFO Circulars & Official Statutory Manuals (1952–2026)")
+st.markdown(
+    """
+    <style>
+    .block-container {
+        max-width: 1120px;
+        padding-top: 2.5rem;
+        padding-bottom: 4rem;
+    }
+    h1 {
+        letter-spacing: -0.025em;
+    }
+    [data-testid="stForm"] {
+        background: #ffffff;
+        border: 1px solid #dbe3ef;
+        border-radius: 0.85rem;
+        box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+        padding: 1rem 1rem 0.5rem;
+    }
+    [data-testid="stForm"] [data-testid="stHorizontalBlock"] {
+        align-items: flex-end;
+    }
+    div[data-testid="stButton"] > button,
+    div[data-testid="stFormSubmitButton"] > button {
+        border-radius: 0.55rem;
+        min-height: 2.65rem;
+    }
+    .corpus-status {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        margin: 1rem 0 1.25rem;
+    }
+    .status-pill {
+        background: #eff6ff;
+        border: 1px solid #bfdbfe;
+        border-radius: 999px;
+        color: #1e3a8a;
+        font-size: 0.86rem;
+        padding: 0.35rem 0.75rem;
+    }
+    @media (max-width: 768px) {
+        .block-container {
+            padding-top: 1.5rem;
+        }
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.title("EPFO Knowledge Assistant")
+st.caption(
+    "Search official EPFO circulars, statutory schemes, acts, and manuals "
+    "covering guidance from 1952 to 2026."
+)
 
 # --- Sidebar Configuration ---
-st.sidebar.header("⚙️ Configuration")
-user_hf_token = st.sidebar.text_input(
-    "Hugging Face Token (for LLM Synthesis)",
-    value="",
-    type="password",
-    help="Optional: Enter token for AI synthesized answers. Server token from .env is used automatically if configured."
+with st.sidebar.expander("Advanced settings", expanded=False):
+    user_hf_token = st.text_input(
+        "Hugging Face token",
+        value="",
+        type="password",
+        help=(
+            "Optional. Enables synthesized answers when the deployment does not "
+            "already provide a server-side token."
+        ),
+    )
+
+st.sidebar.caption(
+    "Retrieval and source citations work without a token. Tokens entered here "
+    "are used only for the current browser session."
 )
-
-st.sidebar.markdown("---")
-st.sidebar.header("💡 Sample Queries")
-sample_queries = [
-    "What is the procedure for joint declaration profile update?",
-    "What are the duties of Recovery Officer under EPFO Recovery Manual?",
-    "What is the eligibility for monthly pension under EPS 1995?",
-    "What is the rule for transfer of accounts under EPF Scheme 1952?",
-    "What are the guidelines for exemption under Section 17?",
-    "Strengthening and streamlining of Nidhi Aapke Nikat 2.0",
-    "What is the interest rate credited to PF members?"
-]
-
-for q in sample_queries:
-    if st.sidebar.button(q, key=f"sample_{hash(q)}"):
-        st.session_state["query_input"] = q
 
 # --- Load Required Model & Index ---
 embedding_model = load_embedding_model(
@@ -228,21 +274,67 @@ if not faiss_index or not indexed_texts or not indexed_metadata:
     st.warning("⚠️ FAISS vector index not found. Run `python import_pf_circular_index.py` or `python index_manuals.py` first.")
     st.stop()
 
-# Display index statistics in sidebar
-st.sidebar.markdown("---")
-st.sidebar.markdown("### 📊 Index Statistics")
-st.sidebar.info(f"**Indexed Vectors / Chunks:** {faiss_index.ntotal:,}\n\n**Total Document Catalog:** {len(indexed_metadata):,}")
+# Display concise readiness information
+answer_mode = "AI answers enabled" if user_hf_token or config.HF_TOKEN else "Search and citations enabled"
+st.markdown(
+    f"""
+    <div class="corpus-status">
+        <span class="status-pill">{faiss_index.ntotal:,} passages indexed</span>
+        <span class="status-pill">8,820 circulars + 16 manuals</span>
+        <span class="status-pill">{answer_mode}</span>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.sidebar.markdown("### Knowledge base")
+st.sidebar.caption(
+    f"{faiss_index.ntotal:,} indexed passages across 8,820 circulars and 16 manuals."
+)
+
+sample_queries = [
+    ("Joint declaration updates", "What is the procedure for joint declaration profile update?"),
+    ("Recovery officer duties", "What are the duties of Recovery Officer under EPFO Recovery Manual?"),
+    ("EPS pension eligibility", "What is the eligibility for monthly pension under EPS 1995?"),
+    ("EPF account transfers", "What is the rule for transfer of accounts under EPF Scheme 1952?"),
+    ("Section 17 exemptions", "What are the guidelines for exemption under Section 17?"),
+    ("PF interest rate", "What is the interest rate credited to PF members?"),
+]
+
+with st.expander(
+    "Try an example question",
+    expanded=not bool(st.session_state.get("_active_query")),
+):
+    sample_columns = st.columns(3)
+    for index, (label, sample_query) in enumerate(sample_queries):
+        if sample_columns[index % 3].button(
+            label,
+            key=f"sample_{index}",
+            use_container_width=True,
+        ):
+            st.session_state["query_input"] = sample_query
 
 # --- Main Query Interface ---
 with st.form("query_form"):
-    query_input = st.text_input(
-        "🔍 Ask a question about EPFO rules, schemes, circulars, or manuals:",
-        key="query_input",
-    )
-    query_submitted = st.form_submit_button("Search", type="primary")
+    st.markdown("#### Ask about an EPFO rule, circular, scheme, or procedure")
+    query_column, submit_column = st.columns([6, 1])
+    with query_column:
+        query_input = st.text_input(
+            "Question",
+            key="query_input",
+            placeholder="For example: What is the eligibility for pension under EPS 1995?",
+            label_visibility="collapsed",
+        )
+    with submit_column:
+        query_submitted = st.form_submit_button(
+            "Search",
+            type="primary",
+            use_container_width=True,
+        )
 
 answer_rendered_this_run = False
 status_rendered_this_run = False
+query_context_rendered_this_run = False
 
 if query_submitted:
     query = query_input.strip()
@@ -287,11 +379,13 @@ if query_submitted:
         st.session_state["_answer_text"] = None
         st.session_state["_answer_status"] = "pending"
         st.session_state["_answer_error"] = None
+        st.caption(f"Results for: “{query}”")
+        query_context_rendered_this_run = True
 
         if retrieved_data:
             llm = get_session_llm_model(custom_token=user_hf_token)
             if llm:
-                st.markdown("### 🤖 Synthesized Answer")
+                st.markdown("### Answer")
                 try:
                     answer_stream = get_llm_answer(query, retrieved_data, llm, stream=True)
 
@@ -326,18 +420,21 @@ retrieved_data = st.session_state.get("_retrieved_data", [])
 answer_status = st.session_state.get("_answer_status")
 
 if active_query:
+    if not query_context_rendered_this_run:
+        st.caption(f"Results for: “{active_query}”")
+
     if answer_status == "generated" and not answer_rendered_this_run:
-        st.markdown("### 🤖 Synthesized Answer")
+        st.markdown("### Answer")
         st.markdown(st.session_state.get("_answer_text", ""))
     elif answer_status == "error" and not status_rendered_this_run:
         st.error(f"Error during LLM generation: {st.session_state.get('_answer_error', 'Unknown error')}")
     elif answer_status == "unavailable":
-        st.info("💡 **LLM synthesis not enabled:** Provide a Hugging Face API token in the sidebar or in `.env` (`HF_TOKEN`) for AI-generated answers. Showing top matched sources below:")
+        st.info("AI synthesis is not enabled. Showing the most relevant source passages instead.")
 
     # Display Sources
     if retrieved_data:
         st.markdown("---")
-        st.markdown(f"### 📚 Retrieved Sources ({len(retrieved_data)} matches)")
+        st.markdown(f"### Sources ({len(retrieved_data)})")
 
         for i, item in enumerate(retrieved_data):
             meta = item.get('metadata', {})
@@ -347,21 +444,20 @@ if active_query:
             page_no = meta.get('page_number') or "1"
             pdf_link = meta.get('english_pdf_link') or meta.get('source_pdf') or ""
             doc_type = meta.get('doc_type', 'circular')
-            score = item.get('score', 0.0)
 
-            badge = "📖 [MANUAL]" if doc_type == "manual" or "MANUAL" in str(circular_no) else "📄 [CIRCULAR]"
-            header = f"{badge} #{i+1}: {title}"
+            source_type = "Manual" if doc_type == "manual" or "MANUAL" in str(circular_no) else "Circular"
+            header = f"Source {i+1} · {source_type} · {title}"
 
             with st.expander(header, expanded=(i == 0)):
                 col1, col2, col3 = st.columns(3)
                 col1.markdown(f"**Identifier:** `{circular_no}`")
                 col2.markdown(f"**Date:** `{date}`")
-                col3.markdown(f"**Page:** `{page_no}` | **Score:** `{score:.4f}`")
+                col3.markdown(f"**Page:** `{page_no}`")
 
                 if pdf_link.startswith("http"):
-                    st.markdown(f"🔗 **[Open Official PDF Document]({pdf_link})**")
+                    st.markdown(f"**[Open official PDF]({pdf_link})**")
                 else:
-                    st.markdown(f"📁 **Source File:** `{pdf_link}`")
+                    st.markdown(f"**Source file:** `{pdf_link}`")
 
                 st.caption("Relevant Excerpt:")
                 st.markdown(f"> {item['text']}")

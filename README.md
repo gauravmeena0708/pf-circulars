@@ -1,5 +1,5 @@
 ---
-title: EPFO Circulars & Manuals AI Bot
+title: EPFO Knowledge Assistant
 emoji: 📜
 colorFrom: blue
 colorTo: green
