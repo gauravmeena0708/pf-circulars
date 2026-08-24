@@ -4,7 +4,7 @@
 This project is an advanced Retrieval-Augmented Generation (RAG) system specifically designed for querying Employees' Provident Fund Organisation (EPFO) official circulars, statutory schemes, acts, and functional manuals.
 
 ### Core Features
-- **Comprehensive Knowledge Archive**: Covers 8,820+ EPFO circulars (from 2009 to 2027) and 16 complete statutory manuals, schemes, and regulations (over 74,300 indexed vectors).
+- **Comprehensive Knowledge Archive**: Covers 8,820+ EPFO circulars (from 2006 to 2026) and 16 complete statutory manuals, schemes, and regulations (over 74,300 indexed vectors).
 - **Hybrid Retrieval Pipeline**: Combines dense semantic search (SBERT + FAISS) and sparse lexical search (BM25Okapi) fused via Reciprocal Rank Fusion (RRF) and re-ranked with a Cross-Encoder (`ms-marco-MiniLM-L-6-v2`).
 - **Robust PDF & Table Processing**: Handles both text-based and scanned image-based PDFs using PyMuPDF, Tesseract OCR, EasyOCR, and Hugging Face Table Transformer.
 - **LLM Integration**: Uses Hugging Face inference models (e.g. `Qwen/Qwen2.5-7B-Instruct`) for precise, citation-grounded answers.

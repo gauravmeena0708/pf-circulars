@@ -5,3 +5,4 @@ data/
 processed_pdf_data/
 .venv/
 vector_store/*_backup/
+*.bm25.json.gz

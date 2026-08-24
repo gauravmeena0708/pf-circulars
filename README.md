@@ -11,14 +11,14 @@ pinned: false
 
 # EPFO Circulars & Statutory Manuals RAG System
 
-An intelligent Retrieval-Augmented Generation (RAG) system for querying **8,800+ Employees' Provident Fund Organisation (EPFO) circulars (2009–2027)** and **16 official statutory manuals, schemes, and acts** (74,300+ indexed chunks).
+An intelligent Retrieval-Augmented Generation (RAG) system for querying **8,800+ Employees' Provident Fund Organisation (EPFO) circulars (2006–2026)** and **16 official statutory manuals, schemes, and acts** (74,300+ indexed chunks).
 
 ---
 
 ## 🌟 Features
 
 * **Complete EPFO Corpus**:
-  * **8,820+ Official Circulars** spanning 2009 to 2027.
+  * **8,820+ Official Circulars** spanning 2006 to 2026.
   * **16 Statutory Manuals & Schemes**: EPF & MP Act 1952, EPF Scheme 1952, EPS 1995, EDLI 1976, Compliance Manual, Pension Manual, Audit Manual, Recovery Manual, Exemption Manual, and 5-Part Manual of Accounting Procedure (MAP).
 * **Hybrid Retrieval (Dense + Sparse)**:
   * **Dense Semantic Search**: FAISS index powered by `sentence-transformers/all-MiniLM-L6-v2`.
@@ -26,7 +26,7 @@ An intelligent Retrieval-Augmented Generation (RAG) system for querying **8,800+
   * **Reciprocal Rank Fusion (RRF)**: Merges dense and sparse rankings for balanced precision.
   * **Cross-Encoder Re-ranking**: `cross-encoder/ms-marco-MiniLM-L-6-v2` re-ranks top candidates for maximum relevance.
 * **Streamlit Web Application (`app.py`)**:
-  * Fast startup with lazy model loading.
+  * Reduced startup overhead by excluding OCR and table-detection models, caching retrieval models, and initializing the LLM only when needed.
   * Interactive query input with sample questions.
   * Streaming AI answers powered by Hugging Face models (`Qwen/Qwen2.5-7B-Instruct`).
   * Structured source cards with circular numbers, dates, pages, and direct links to official EPFO PDF documents.
@@ -106,6 +106,6 @@ python main.py data --query "What are the duties of Recovery Officer under EPFO 
 
 | Corpus | Scope | Vectors / Chunks |
 | :--- | :--- | :--- |
-| **EPFO Circulars Archive** | 2009 – 2027 (8,820+ circulars) | **63,798 chunks** |
+| **EPFO Circulars Archive** | 2006 – 2026 (8,820+ circulars) | **63,798 chunks** |
 | **Statutory Manuals & Schemes** | 16 Manuals (Acts, MAP Parts I-IV, SOPs) | **10,519 chunks** |
 | **Total Knowledge Base** | **Full EPFO Policy & Procedural Corpus** | **`74,317 vectors`** |
