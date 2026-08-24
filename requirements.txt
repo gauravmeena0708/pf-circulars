@@ -17,6 +17,7 @@ PyMuPDF # fitz
 Pillow
 pdf2image
 easyocr
+pytesseract
 opencv-python-headless # Or opencv-python if you need full GUI features elsewhere (headless is smaller)
 
 # Vector Store

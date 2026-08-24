@@ -1,5 +1,7 @@
 .env
-__pycache__
+__pycache__/
+*.pyc
 data/
 processed_pdf_data/
-.venv
+.venv/
+vector_store/*_backup/
