@@ -4,9 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import hashlib
-import os
 import re
-import tempfile
 from typing import Callable, Iterable, Mapping, Sequence
 
 import numpy as np
@@ -87,91 +85,79 @@ def extract_pdf_text(
     if not pdf_data:
         raise DocumentExtractionError("The uploaded PDF is empty.")
 
-    temp_path = None
     try:
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as temp_file:
-            temp_file.write(pdf_data)
-            temp_path = temp_file.name
+        document = fitz.open(stream=pdf_data, filetype="pdf")
+    except Exception as exc:
+        raise DocumentExtractionError(
+            "The uploaded file is not a readable PDF or is damaged."
+        ) from exc
 
-        try:
-            document = fitz.open(temp_path)
-        except Exception as exc:
+    with document:
+        if document.needs_pass:
             raise DocumentExtractionError(
-                "The uploaded file is not a readable PDF or is damaged."
-            ) from exc
-
-        with document:
-            if document.needs_pass:
-                raise DocumentExtractionError(
-                    "This PDF is password-protected. Upload an unlocked copy."
-                )
-
-            page_count = len(document)
-            if page_count == 0:
-                raise DocumentExtractionError("The uploaded PDF has no pages.")
-
-            extracted_pages: list[str | None] = [None] * page_count
-            native_fallbacks: dict[int, str] = {}
-            scanned_indices: list[int] = []
-
-            for page_number in range(page_count):
-                page = document[page_number]
-                native_text = (page.get_text("text") or "").strip()
-                marker = f"--- [Page {page_number + 1} / Note Page] ---"
-                if len(native_text.split()) >= native_text_min_words:
-                    extracted_pages[page_number] = f"{marker}\n{native_text}"
-                else:
-                    native_fallbacks[page_number] = native_text
-                    scanned_indices.append(page_number)
-
-            warnings: list[str] = []
-            ocr_reader = None
-            if scanned_indices and ocr_reader_factory is not None:
-                try:
-                    ocr_reader = ocr_reader_factory()
-                except Exception:
-                    warnings.append(
-                        "OCR could not be initialized. Short native text was preserved "
-                        "where available, but some scanned pages may be unreadable."
-                    )
-
-            unreadable_pages: list[int] = []
-            for page_number in scanned_indices:
-                ocr_text = ""
-                if ocr_reader is not None:
-                    try:
-                        ocr_text = _ocr_page(document[page_number], ocr_reader, ocr_dpi)
-                    except Exception:
-                        unreadable_pages.append(page_number + 1)
-
-                fallback_text = native_fallbacks.get(page_number, "")
-                content = ocr_text or fallback_text
-                page_type = "Scanned Page" if ocr_text else "Short/Scanned Page"
-                if not content:
-                    if page_number + 1 not in unreadable_pages:
-                        unreadable_pages.append(page_number + 1)
-                    content = "[No readable text could be extracted from this page.]"
-                extracted_pages[page_number] = (
-                    f"--- [Page {page_number + 1} / {page_type}] ---\n{content}"
-                )
-
-            if unreadable_pages:
-                page_list = ", ".join(str(number) for number in unreadable_pages)
-                warnings.append(f"No readable text was found on page(s): {page_list}.")
-
-            full_text = "\n\n".join(page for page in extracted_pages if page)
-            return ExtractionResult(
-                text=full_text,
-                page_count=page_count,
-                scanned_page_count=len(scanned_indices),
-                warnings=tuple(warnings),
+                "This PDF is password-protected. Upload an unlocked copy."
             )
-    finally:
-        if temp_path:
+
+        page_count = len(document)
+        if page_count == 0:
+            raise DocumentExtractionError("The uploaded PDF has no pages.")
+
+        extracted_pages: list[str | None] = [None] * page_count
+        native_fallbacks: dict[int, str] = {}
+        scanned_indices: list[int] = []
+
+        for page_number in range(page_count):
+            page = document[page_number]
+            native_text = (page.get_text("text") or "").strip()
+            marker = f"--- [Page {page_number + 1} / Note Page] ---"
+            if len(native_text.split()) >= native_text_min_words:
+                extracted_pages[page_number] = f"{marker}\n{native_text}"
+            else:
+                native_fallbacks[page_number] = native_text
+                scanned_indices.append(page_number)
+
+        warnings: list[str] = []
+        ocr_reader = None
+        if scanned_indices and ocr_reader_factory is not None:
             try:
-                os.remove(temp_path)
-            except OSError:
-                pass
+                ocr_reader = ocr_reader_factory()
+            except Exception:
+                warnings.append(
+                    "OCR could not be initialized. Short native text was preserved "
+                    "where available, but some scanned pages may be unreadable."
+                )
+
+        unreadable_pages: list[int] = []
+        for page_number in scanned_indices:
+            ocr_text = ""
+            if ocr_reader is not None:
+                try:
+                    ocr_text = _ocr_page(document[page_number], ocr_reader, ocr_dpi)
+                except Exception:
+                    unreadable_pages.append(page_number + 1)
+
+            fallback_text = native_fallbacks.get(page_number, "")
+            content = ocr_text or fallback_text
+            page_type = "Scanned Page" if ocr_text else "Short/Scanned Page"
+            if not content:
+                if page_number + 1 not in unreadable_pages:
+                    unreadable_pages.append(page_number + 1)
+                content = "[No readable text could be extracted from this page.]"
+            extracted_pages[page_number] = (
+                f"--- [Page {page_number + 1} / {page_type}] ---\n{content}"
+            )
+
+        if unreadable_pages:
+            page_list = ", ".join(str(number) for number in unreadable_pages)
+            warnings.append(f"No readable text was found on page(s): {page_list}.")
+
+        full_text = "\n\n".join(page for page in extracted_pages if page)
+        return ExtractionResult(
+            text=full_text,
+            page_count=page_count,
+            scanned_page_count=len(scanned_indices),
+            warnings=tuple(warnings),
+        )
 
 
 def _truncate_middle(text: str, max_chars: int) -> str:
