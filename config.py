@@ -27,9 +27,21 @@ LLM_MAX_NEW_TOKENS = 300
 # Table Detection Model
 TABLE_DETECTION_MODEL = 'microsoft/table-transformer-detection'
 
-# Re-ranking Model
+# Re-ranking & Hybrid Retrieval Model
 CROSS_ENCODER_MODEL_NAME = 'cross-encoder/ms-marco-MiniLM-L-6-v2'
 TOP_N_INITIAL_RETRIEVAL = 20
+USE_HYBRID_RETRIEVAL = True
+BM25_TOP_K = 40
+DENSE_TOP_K = 40
+RRF_K = 60
+
+# Chunking Configuration
+CHUNK_SIZE = 800
+CHUNK_OVERLAP = 150
+
+# Ingestion / PDF Extraction Settings
+USE_NATIVE_PDF_TEXT = True
+NATIVE_TEXT_MIN_WORDS = 25  # Safety net: minimum meaningful words required to accept native digital text
 
 # OCR Configuration
 OCR_LANGUAGES = ['en'] # Add 'hi' if Hindi is also consistently needed: ['hi', 'en']
