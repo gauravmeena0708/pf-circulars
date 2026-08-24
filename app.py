@@ -92,9 +92,9 @@ st.caption("Intelligent Retrieval-Augmented Generation across 8,800+ EPFO Circul
 st.sidebar.header("⚙️ Configuration")
 user_hf_token = st.sidebar.text_input(
     "Hugging Face Token (for LLM Synthesis)",
-    value=config.HF_TOKEN or "",
+    value="",
     type="password",
-    help="Required only for AI synthesized answers. If omitted, full search & citations still work."
+    help="Optional: Enter token for AI synthesized answers. Server token from .env is used automatically if configured."
 )
 
 st.sidebar.markdown("---")
