@@ -824,19 +824,46 @@ with tab2:
         pending_query = None
         pending_instruction = ""
 
-        if c1.button("📋 Executive Summary", use_container_width=True, key="btn_summary"):
+        summary_clicked = c1.button(
+            "📋 Executive Summary",
+            use_container_width=True,
+            key="btn_summary",
+        )
+        note_clicked = c2.button(
+            "📑 Self-Contained Note",
+            use_container_width=True,
+            key="btn_note",
+        )
+        timeline_clicked = c3.button(
+            "📅 Timeline Table",
+            use_container_width=True,
+            key="btn_timeline",
+        )
+        finance_clicked = c4.button(
+            "💰 Finance Division View",
+            use_container_width=True,
+            key="btn_finance",
+        )
+        clear_clicked = c5.button(
+            "🔄 Clear",
+            use_container_width=True,
+            key="btn_clear_tab2",
+            help="Clear conversation history",
+        )
+
+        if summary_clicked:
             pending_query = "Provide a comprehensive Executive Summary of this noting sheet."
             pending_instruction = "Highlight: Subject, Originating Division / Proposal, Key Issues Discussed, Final Decision / Current Pending Status."
-        elif c2.button("📑 Self-Contained Note", use_container_width=True, key="btn_note"):
+        elif note_clicked:
             pending_query = "Draft a formal, self-contained Note for Record from this file."
             pending_instruction = "Structure clearly: 1. Subject, 2. Brief Background & Facts, 3. Division Comments, 4. Financial & Administrative Implications, 5. Recommendation / Proposal for Approval. Be detailed, exhaustive, and complete without truncating."
-        elif c3.button("📅 Timeline Table", use_container_width=True, key="btn_timeline"):
+        elif timeline_clicked:
             pending_query = "Generate a chronological timeline of all events, notes, approvals, and queries in this noting sheet."
             pending_instruction = "Format as a Markdown table with columns: `Date` | `Page / Note No.` | `Division / Officer` | `Action / Observation / Decision`."
-        elif c4.button("💰 Finance Division View", use_container_width=True, key="btn_finance"):
+        elif finance_clicked:
             pending_query = "What did the Finance Division / Internal Audit / Financial Advisor observe or decide on this file?"
             pending_instruction = "Extract all financial objections, concurrence points, financial sanctions, or calculations with exact page references."
-        elif c5.button("🔄 Clear", use_container_width=True, key="btn_clear_tab2", help="Clear conversation history"):
+        elif clear_clicked:
             st.session_state["tab2_chat_history"] = []
             st.rerun()
 
