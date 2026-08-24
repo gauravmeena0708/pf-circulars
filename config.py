@@ -23,7 +23,7 @@ else:
 LLM_REPO_ID = os.environ.get("LLM_REPO_ID", "Qwen/Qwen2.5-7B-Instruct")
 LLM_TASK = os.environ.get("LLM_TASK", "conversational")
 LLM_TEMPERATURE = float(os.environ.get("LLM_TEMPERATURE", "0.1"))
-LLM_MAX_NEW_TOKENS = int(os.environ.get("LLM_MAX_NEW_TOKENS", "300"))
+LLM_MAX_NEW_TOKENS = int(os.environ.get("LLM_MAX_NEW_TOKENS", "2048"))
 
 # Table Detection Model
 TABLE_DETECTION_MODEL = 'microsoft/table-transformer-detection'
@@ -46,6 +46,21 @@ NATIVE_TEXT_MIN_WORDS = 25  # Safety net: minimum meaningful words required to a
 
 # OCR Configuration
 OCR_LANGUAGES = ['en'] # Add 'hi' if Hindi is also consistently needed: ['hi', 'en']
+
+# Uploaded File & Noting Sheet Assistant
+DOCUMENT_ASSISTANT_MAX_UPLOAD_BYTES = int(
+    os.environ.get("DOCUMENT_ASSISTANT_MAX_UPLOAD_BYTES", str(50 * 1024 * 1024))
+)
+DOCUMENT_ASSISTANT_MAX_CONTEXT_CHARS = int(
+    os.environ.get("DOCUMENT_ASSISTANT_MAX_CONTEXT_CHARS", "120000")
+)
+DOCUMENT_ASSISTANT_MAX_HISTORY_CHARS = int(
+    os.environ.get("DOCUMENT_ASSISTANT_MAX_HISTORY_CHARS", "12000")
+)
+DOCUMENT_ASSISTANT_MAX_HISTORY_MESSAGES = int(
+    os.environ.get("DOCUMENT_ASSISTANT_MAX_HISTORY_MESSAGES", "8")
+)
+
 DEFAULT_INDEX_DIR = "vector_store"
 DEFAULT_INDEX_NAME = "faiss_index" # The FAISS index file itself
 PROCESSED_DATA_DIR = "processed_pdf_data"

@@ -88,7 +88,7 @@ def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False):
         return "An error occurred while trying to generate an answer from the language model."
 
 
-def initialize_llm(hf_token=None):
+def initialize_llm(hf_token=None, max_new_tokens=None):
     token = hf_token or config.HF_TOKEN
     if not token:
         logger.error("Hugging Face API token (HF_TOKEN) is not set. LLM cannot be initialized.")
@@ -103,7 +103,7 @@ def initialize_llm(hf_token=None):
             "repo_id": config.LLM_REPO_ID,
             "task": config.LLM_TASK,
             "temperature": config.LLM_TEMPERATURE,
-            "max_new_tokens": config.LLM_MAX_NEW_TOKENS,
+            "max_new_tokens": max_new_tokens or getattr(config, "LLM_MAX_NEW_TOKENS", 2048),
             "huggingfacehub_api_token": token,
         }
         if getattr(config, "HF_INFERENCE_PROVIDER", None):
