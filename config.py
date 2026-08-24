@@ -61,6 +61,17 @@ DOCUMENT_ASSISTANT_MAX_HISTORY_MESSAGES = int(
     os.environ.get("DOCUMENT_ASSISTANT_MAX_HISTORY_MESSAGES", "8")
 )
 
+# CSV Data Analysis Assistant
+DATA_ASSISTANT_MAX_UPLOAD_BYTES = int(
+    os.environ.get("DATA_ASSISTANT_MAX_UPLOAD_BYTES", str(25 * 1024 * 1024))
+)
+DATA_ASSISTANT_MAX_CONTEXT_CHARS = int(
+    os.environ.get("DATA_ASSISTANT_MAX_CONTEXT_CHARS", "60000")
+)
+DATA_ASSISTANT_PREVIEW_ROWS = int(
+    os.environ.get("DATA_ASSISTANT_PREVIEW_ROWS", "100")
+)
+
 DEFAULT_INDEX_DIR = "vector_store"
 DEFAULT_INDEX_NAME = "faiss_index" # The FAISS index file itself
 PROCESSED_DATA_DIR = "processed_pdf_data"

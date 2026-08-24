@@ -26,5 +26,6 @@ rank-bm25
 numpy
 python-dotenv 
 streamlit 
+pandas
 reportlab
 timm

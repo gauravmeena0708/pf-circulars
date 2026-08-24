@@ -29,12 +29,20 @@ import config
 from vector_indexer import load_faiss_index
 from retriever import retrieve_relevant_chunks
 from answer_generator import initialize_llm, get_llm_answer
+import pandas as pd
 from document_assistant import (
     DocumentExtractionError,
     extract_pdf_text,
     format_conversation_history,
     select_document_context,
     uploaded_file_signature,
+)
+from data_assistant import (
+    DataExtractionError,
+    load_csv_dataframe,
+    generate_dataset_profile,
+    search_dataframe,
+    stream_tabular_query,
 )
 from langchain_core.messages import HumanMessage
 from sentence_transformers import SentenceTransformer, CrossEncoder
@@ -407,7 +415,7 @@ if st.session_state.get("_loaded_retrieval_signature") != loaded_retrieval_signa
 # --- Top-Level Tabs ---
 tab1, tab2 = st.tabs([
     "🏛️ Search Official Circulars & Manuals (8,820+ Docs)",
-    "📝 Uploaded File & Noting Sheet Assistant"
+    "📊 Uploaded Document & CSV Data Assistant",
 ])
 
 with tab1:
@@ -731,196 +739,464 @@ with tab1:
 
 
 # =========================================================================
-# TAB 2: UPLOADED FILE & NOTING SHEET ASSISTANT
+# TAB 2: UPLOADED DOCUMENT & CSV DATA ASSISTANT
 # =========================================================================
 with tab2:
-    st.markdown("#### 📝 Analyze Office Noting Sheets, Orders, or Scanned Files")
-    st.caption("Upload any administrative file or noting sheet to extract summaries, formal briefs, timelines, or ask specific departmental questions.")
-
-    uploaded_pdf = st.file_uploader(
-        "Upload PDF Document (scanned or text-based)",
-        type=["pdf"],
-        key="uploader_tab2",
-        help="Upload files such as test_noting_sheet.pdf",
+    st.markdown("#### 📊 Analyze Administrative Documents (PDF) & Datasets (CSV)")
+    st.caption(
+        "Upload noting sheets, office orders (PDF) or issue trackers, reports, MIS data (CSV) "
+        "to run deterministic analysis, summarize findings, generate charts, and query with AI."
     )
 
-    if uploaded_pdf:
-        uploaded_bytes = uploaded_pdf.getvalue()
-        max_upload_bytes = getattr(config, "DOCUMENT_ASSISTANT_MAX_UPLOAD_BYTES", 50 * 1024 * 1024)
+    uploaded_file = st.file_uploader(
+        "Upload PDF Document or CSV Dataset",
+        type=["pdf", "csv"],
+        key="uploader_tab2",
+        help="Upload files such as test_noting_sheet.pdf or CITES_Functional_Ownership_Issue_Topics.csv",
+    )
+
+    if uploaded_file:
+        uploaded_bytes = uploaded_file.getvalue()
+        file_extension = os.path.splitext(uploaded_file.name)[1].lower()
+        if file_extension == ".csv":
+            max_upload_bytes = getattr(
+                config,
+                "DATA_ASSISTANT_MAX_UPLOAD_BYTES",
+                25 * 1024 * 1024,
+            )
+        else:
+            max_upload_bytes = getattr(
+                config,
+                "DOCUMENT_ASSISTANT_MAX_UPLOAD_BYTES",
+                50 * 1024 * 1024,
+            )
         if len(uploaded_bytes) > max_upload_bytes:
             st.error(
-                f"This PDF is {len(uploaded_bytes) / (1024 * 1024):.1f} MB. "
+                f"This file is {len(uploaded_bytes) / (1024 * 1024):.1f} MB. "
                 f"The upload assistant accepts files up to {max_upload_bytes / (1024 * 1024):.0f} MB."
             )
             st.stop()
 
-        current_signature = uploaded_file_signature(uploaded_pdf.name, uploaded_bytes)
-        if st.session_state.get("tab2_current_file_signature") != current_signature:
-            with st.spinner("Extracting text and running OCR fallback if required..."):
+        current_signature = uploaded_file_signature(uploaded_file.name, uploaded_bytes)
+        llm_client_tab2 = get_session_llm_model(custom_token=user_hf_token)
+
+        # -----------------------------------------------------------------
+        # CSV DATASET WORKFLOW
+        # -----------------------------------------------------------------
+        if file_extension == ".csv":
+            if st.session_state.get("tab2_current_file_signature") != current_signature:
                 try:
-                    extraction_result = extract_text_from_uploaded_pdf(uploaded_pdf)
-                except DocumentExtractionError as exc:
-                    logger.info("Uploaded PDF could not be extracted: %s", exc)
-                    st.session_state["tab2_extraction_error"] = str(exc)
-                    st.session_state["tab2_doc_text"] = ""
-                    st.session_state["tab2_page_count"] = 0
-                    st.session_state["tab2_extraction_warnings"] = []
-                except Exception:
-                    logger.error("Unexpected uploaded-PDF extraction failure", exc_info=True)
-                    st.session_state["tab2_extraction_error"] = (
-                        "The PDF could not be processed. Try an unlocked, valid PDF file."
-                    )
-                    st.session_state["tab2_doc_text"] = ""
-                    st.session_state["tab2_page_count"] = 0
-                    st.session_state["tab2_extraction_warnings"] = []
-                else:
+                    df = load_csv_dataframe(uploaded_bytes, uploaded_file.name)
+                    profile = generate_dataset_profile(df)
+                    st.session_state["tab2_csv_df"] = df
+                    st.session_state["tab2_csv_profile"] = profile
                     st.session_state["tab2_extraction_error"] = None
-                    st.session_state["tab2_doc_text"] = extraction_result.text
-                    st.session_state["tab2_page_count"] = extraction_result.page_count
-                    st.session_state["tab2_extraction_warnings"] = list(extraction_result.warnings)
-                st.session_state["tab2_current_file"] = uploaded_pdf.name
+                except DataExtractionError as exc:
+                    logger.info("Uploaded CSV error: %s", exc)
+                    st.session_state["tab2_extraction_error"] = str(exc)
+                    st.session_state["tab2_csv_df"] = None
+                    st.session_state["tab2_csv_profile"] = None
+                except Exception:
+                    logger.error("Unexpected CSV parsing failure", exc_info=True)
+                    st.session_state["tab2_extraction_error"] = (
+                        "Could not parse the CSV file. Check its delimiter, encoding, and row structure."
+                    )
+                    st.session_state["tab2_csv_df"] = None
+                    st.session_state["tab2_csv_profile"] = None
+
+                st.session_state["tab2_current_file"] = uploaded_file.name
                 st.session_state["tab2_current_file_signature"] = current_signature
                 st.session_state["tab2_chat_history"] = []
+                st.session_state.pop("csv_search_box", None)
+                st.session_state.pop("csv_dist_col", None)
 
-        extraction_error = st.session_state.get("tab2_extraction_error")
-        if extraction_error:
-            st.error(extraction_error)
-            st.stop()
+            extraction_error = st.session_state.get("tab2_extraction_error")
+            if extraction_error:
+                st.error(extraction_error)
+                st.stop()
 
-        doc_text = st.session_state.get("tab2_doc_text", "")
-        page_count = st.session_state.get("tab2_page_count", 0)
-        if not doc_text.strip():
-            st.warning("No readable text was found in this PDF. Try a clearer or unlocked copy.")
-            st.stop()
+            df = st.session_state.get("tab2_csv_df")
+            profile = st.session_state.get("tab2_csv_profile")
+            if df is None or df.empty:
+                st.warning("The uploaded CSV contains no readable rows or columns.")
+                st.stop()
 
-        for extraction_warning in st.session_state.get("tab2_extraction_warnings", []):
-            st.warning(extraction_warning)
+            st.session_state.setdefault("tab2_chat_history", [])
 
-        st.session_state.setdefault("tab2_chat_history", [])
-
-        # Document Status Pill
-        llm_client_tab2 = get_session_llm_model(custom_token=user_hf_token)
-        llm_status_badge = "AI Analysis Ready" if llm_client_tab2 else "Token Required in Sidebar"
-        safe_uploaded_name = html.escape(uploaded_pdf.name)
-        st.markdown(
-            f"""
-            <div class="doc-meta-box">
-                <span class="status-pill">📄 {safe_uploaded_name}</span>
-                <span class="status-pill">📑 {page_count} Pages</span>
-                <span class="status-pill">🔤 ~{len(doc_text.split()):,} Words</span>
-                <span class="status-pill">{llm_status_badge}</span>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-        with st.expander("🔍 View Raw Extracted Document Text", expanded=False):
-            st.text_area("Extracted Content", doc_text, height=250)
-
-        # Quick Action Buttons
-        st.markdown("##### ⚡ Quick Presets")
-        c1, c2, c3, c4, c5 = st.columns([1.2, 1.2, 1.2, 1.3, 0.7])
-
-        pending_query = None
-        pending_instruction = ""
-
-        summary_clicked = c1.button(
-            "📋 Executive Summary",
-            use_container_width=True,
-            key="btn_summary",
-        )
-        note_clicked = c2.button(
-            "📑 Self-Contained Note",
-            use_container_width=True,
-            key="btn_note",
-        )
-        timeline_clicked = c3.button(
-            "📅 Timeline Table",
-            use_container_width=True,
-            key="btn_timeline",
-        )
-        finance_clicked = c4.button(
-            "💰 Finance Division View",
-            use_container_width=True,
-            key="btn_finance",
-        )
-        clear_clicked = c5.button(
-            "🔄 Clear",
-            use_container_width=True,
-            key="btn_clear_tab2",
-            help="Clear conversation history",
-        )
-
-        if summary_clicked:
-            pending_query = "Provide a comprehensive Executive Summary of this noting sheet."
-            pending_instruction = "Highlight: Subject, Originating Division / Proposal, Key Issues Discussed, Final Decision / Current Pending Status."
-        elif note_clicked:
-            pending_query = "Draft a formal, self-contained Note for Record from this file."
-            pending_instruction = "Structure clearly: 1. Subject, 2. Brief Background & Facts, 3. Division Comments, 4. Financial & Administrative Implications, 5. Recommendation / Proposal for Approval. Be detailed, exhaustive, and complete without truncating."
-        elif timeline_clicked:
-            pending_query = "Generate a chronological timeline of all events, notes, approvals, and queries in this noting sheet."
-            pending_instruction = "Format as a Markdown table with columns: `Date` | `Page / Note No.` | `Division / Officer` | `Action / Observation / Decision`."
-        elif finance_clicked:
-            pending_query = "What did the Finance Division / Internal Audit / Financial Advisor observe or decide on this file?"
-            pending_instruction = "Extract all financial objections, concurrence points, financial sanctions, or calculations with exact page references."
-        elif clear_clicked:
-            st.session_state["tab2_chat_history"] = []
-            st.rerun()
-
-        # Interactive Chat History & Input
-        st.markdown("---")
-        st.markdown("##### 💬 Conversation & Analysis")
-
-        # Render previous chat history
-        for msg in st.session_state.get("tab2_chat_history", []):
-            with st.chat_message(msg["role"]):
-                st.markdown(msg["content"])
-
-        tab2_user_query = st.chat_input(
-            "Ask anything about this document (e.g. 'What did the Legal Cell advise on Note 4?')"
-        )
-
-        if tab2_user_query:
-            pending_query = tab2_user_query
-            pending_instruction = "Answer strictly based on the uploaded noting sheet. Cite relevant Page Numbers and Note Numbers."
-
-        if pending_query:
-            st.session_state["tab2_chat_history"].append({"role": "user", "content": pending_query})
-            with st.chat_message("user"):
-                st.markdown(pending_query)
-
-            with st.chat_message("assistant"):
-                response_stream = stream_document_query(
-                    doc_text,
-                    pending_query,
-                    system_instruction=pending_instruction,
-                    llm=llm_client_tab2,
-                    chat_history=st.session_state["tab2_chat_history"][:-1],
-                )
-                full_response = st.write_stream(response_stream)
-                st.session_state["tab2_chat_history"].append({"role": "assistant", "content": full_response})
-
-        # Download Analysis Report
-        if st.session_state.get("tab2_chat_history"):
-            st.markdown("---")
-            report_lines = [
-                f"# Noting Sheet Analysis Report: {uploaded_pdf.name}",
-                f"**Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
-                f"**Total Pages:** {page_count}",
-                "",
-                "---",
-                "",
-            ]
-            for msg in st.session_state["tab2_chat_history"]:
-                role_label = "👤 User Query" if msg["role"] == "user" else "🤖 Analysis & Response"
-                report_lines.append(f"## {role_label}\n\n{msg['content']}\n\n---\n")
-
-            st.download_button(
-                label="📥 Download Analysis Report (Markdown)",
-                data="\n".join(report_lines),
-                file_name=f"noting_sheet_analysis_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md",
-                mime="text/markdown",
-                use_container_width=True,
+            # Status pill
+            llm_status_badge = "AI Analysis Ready" if llm_client_tab2 else "Token Required in Sidebar"
+            safe_uploaded_name = html.escape(uploaded_file.name)
+            st.markdown(
+                f"""
+                <div class="doc-meta-box">
+                    <span class="status-pill">📊 {safe_uploaded_name}</span>
+                    <span class="status-pill">📑 {profile.row_count:,} Rows</span>
+                    <span class="status-pill">🏷️ {profile.column_count} Columns</span>
+                    <span class="status-pill">{llm_status_badge}</span>
+                </div>
+                """,
+                unsafe_allow_html=True,
             )
+
+            # Interactive Table & Profile Explorer
+            with st.expander("🔍 Interactive Data Explorer & Summary Statistics", expanded=False):
+                col_exp1, col_exp2 = st.columns([2, 1])
+                with col_exp1:
+                    st.markdown("**Dataset Preview:**")
+                    preview_rows = getattr(config, "DATA_ASSISTANT_PREVIEW_ROWS", 100)
+                    st.dataframe(
+                        df.head(preview_rows),
+                        use_container_width=True,
+                        height=260,
+                    )
+                    if len(df) > preview_rows:
+                        st.caption(
+                            f"Showing the first {preview_rows:,} of {len(df):,} rows."
+                        )
+                with col_exp2:
+                    st.markdown("**Data Types & Null Counts:**")
+                    col_info_df = pd.DataFrame({
+                        "Column": profile.columns,
+                        "Type": [profile.dtypes[c] for c in profile.columns],
+                        "Nulls": [profile.null_counts[c] for c in profile.columns],
+                    })
+                    st.dataframe(col_info_df, use_container_width=True, height=260)
+
+                if profile.summary_stats:
+                    st.markdown("**Numeric Summary Statistics:**")
+                    num_summary_df = df.describe().T
+                    st.dataframe(num_summary_df, use_container_width=True)
+
+            # Interactive Analytical Tools: Quick Search & Distribution Visualizer
+            st.markdown("##### 🛠️ Interactive Analytics & Visualizer")
+            tool_tab1, tool_tab2 = st.columns([1.2, 1])
+
+            with tool_tab1:
+                st.markdown("**🔍 Keyword / Exact Term Search:**")
+                search_term = st.text_input(
+                    "Search across all columns (e.g. 'Form 13', 'Delhi', 'Rejection')",
+                    value="",
+                    key="csv_search_box",
+                    placeholder="Enter query term...",
+                )
+                if search_term.strip():
+                    matched_df, total_matches, breakdown = search_dataframe(df, search_term)
+                    breakdown_text = ", ".join(f"{col}: {cnt}" for col, cnt in breakdown.items())
+                    breakdown_suffix = f" ({breakdown_text})" if breakdown_text else ""
+                    st.success(
+                        f"**Found {total_matches:,} matching row(s)** for '{search_term}'"
+                        f"{breakdown_suffix}"
+                    )
+                    matched_preview = matched_df.head(preview_rows)
+                    st.dataframe(matched_preview, use_container_width=True, height=200)
+                    if total_matches > len(matched_preview):
+                        st.caption(
+                            f"Showing the first {len(matched_preview):,} of "
+                            f"{total_matches:,} matching rows."
+                        )
+
+            with tool_tab2:
+                st.markdown("**📈 Column Distribution Visualizer:**")
+                selected_col = st.selectbox(
+                    "Select column to visualize",
+                    options=list(df.columns),
+                    key="csv_dist_col",
+                )
+                if selected_col:
+                    val_counts = df[selected_col].dropna().astype(str).value_counts().head(10)
+                    if not val_counts.empty:
+                        st.bar_chart(val_counts)
+
+            # Quick Action Buttons for CSV
+            st.markdown("##### ⚡ Quick Presets")
+            c1, c2, c3, c4, c5 = st.columns([1.2, 1.2, 1.2, 1.3, 0.7])
+
+            pending_query = None
+            pending_instruction = ""
+
+            brief_clicked = c1.button(
+                "📋 Executive Brief",
+                use_container_width=True,
+                key="btn_csv_brief",
+            )
+            breakdown_clicked = c2.button(
+                "📊 Key Distributions",
+                use_container_width=True,
+                key="btn_csv_breakdown",
+            )
+            issues_clicked = c3.button(
+                "⚠️ Issues & Outliers",
+                use_container_width=True,
+                key="btn_csv_issues",
+            )
+            form13_clicked = c4.button(
+                "🔍 Form 13 Analysis",
+                use_container_width=True,
+                key="btn_csv_form13",
+            )
+            clear_clicked = c5.button(
+                "🔄 Clear",
+                use_container_width=True,
+                key="btn_clear_tab2",
+                help="Clear conversation history",
+            )
+
+            if brief_clicked:
+                pending_query = "Provide an executive data analysis summary of this dataset."
+                pending_instruction = (
+                    "Summarize: 1. Total records and scope, 2. Key categories/topics, "
+                    "3. Data health and null values, 4. Strategic operational recommendations."
+                )
+            elif breakdown_clicked:
+                pending_query = "What are the primary category, status, and ownership distributions in this dataset?"
+                pending_instruction = (
+                    "Provide clear quantitative breakdowns. Cite exact counts and percentages where relevant."
+                )
+            elif issues_clicked:
+                pending_query = "Identify the major bottlenecks, error patterns, and high-frequency problem areas in this data."
+                pending_instruction = (
+                    "Highlight critical open issues, top failing categories, and operational backlogs."
+                )
+            elif form13_clicked:
+                pending_query = "How many Form 13 issues are in this dataset, and what is their breakdown by owner, category, and status?"
+                pending_instruction = (
+                    "Perform a focused analysis of Form 13 transfer issues. Quote exact counts from the deterministic verification metrics."
+                )
+            elif clear_clicked:
+                st.session_state["tab2_chat_history"] = []
+                st.rerun()
+
+            # Interactive Chat
+            st.markdown("---")
+            st.markdown("##### 💬 Conversation & Query Assistant")
+
+            for msg in st.session_state.get("tab2_chat_history", []):
+                with st.chat_message(msg["role"]):
+                    st.markdown(msg["content"])
+
+            tab2_user_query = st.chat_input(
+                "Ask anything about this dataset (e.g. 'How many Form 13 issues are there and who owns them?')"
+            )
+
+            if tab2_user_query:
+                pending_query = tab2_user_query
+                pending_instruction = (
+                    "Answer strictly based on the provided dataset context and deterministic search statistics."
+                )
+
+            if pending_query:
+                st.session_state["tab2_chat_history"].append({"role": "user", "content": pending_query})
+                with st.chat_message("user"):
+                    st.markdown(pending_query)
+
+                with st.chat_message("assistant"):
+                    response_stream = stream_tabular_query(
+                        df,
+                        pending_query,
+                        system_instruction=pending_instruction,
+                        llm=llm_client_tab2,
+                        chat_history=st.session_state["tab2_chat_history"][:-1],
+                        max_context_chars=getattr(
+                            config,
+                            "DATA_ASSISTANT_MAX_CONTEXT_CHARS",
+                            60_000,
+                        ),
+                    )
+                    full_response = st.write_stream(response_stream)
+                    st.session_state["tab2_chat_history"].append({"role": "assistant", "content": full_response})
+
+            # Download Analysis Report
+            if st.session_state.get("tab2_chat_history"):
+                st.markdown("---")
+                report_lines = [
+                    f"# Data Analysis Report: {uploaded_file.name}",
+                    f"**Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+                    f"**Total Records:** {profile.row_count:,} rows across {profile.column_count} columns",
+                    "",
+                    "---",
+                    "",
+                ]
+                for msg in st.session_state["tab2_chat_history"]:
+                    role_label = "👤 User Query" if msg["role"] == "user" else "🤖 Data Analysis & Response"
+                    report_lines.append(f"## {role_label}\n\n{msg['content']}\n\n---\n")
+
+                st.download_button(
+                    label="📥 Download Data Analysis Report (Markdown)",
+                    data="\n".join(report_lines),
+                    file_name=f"data_analysis_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md",
+                    mime="text/markdown",
+                    use_container_width=True,
+                )
+
+        # -----------------------------------------------------------------
+        # PDF DOCUMENT WORKFLOW
+        # -----------------------------------------------------------------
+        else:
+            if st.session_state.get("tab2_current_file_signature") != current_signature:
+                with st.spinner("Extracting text and running OCR fallback if required..."):
+                    try:
+                        extraction_result = extract_text_from_uploaded_pdf(uploaded_file)
+                    except DocumentExtractionError as exc:
+                        logger.info("Uploaded PDF could not be extracted: %s", exc)
+                        st.session_state["tab2_extraction_error"] = str(exc)
+                        st.session_state["tab2_doc_text"] = ""
+                        st.session_state["tab2_page_count"] = 0
+                        st.session_state["tab2_extraction_warnings"] = []
+                    except Exception:
+                        logger.error("Unexpected uploaded-PDF extraction failure", exc_info=True)
+                        st.session_state["tab2_extraction_error"] = (
+                            "The PDF could not be processed. Try an unlocked, valid PDF file."
+                        )
+                        st.session_state["tab2_doc_text"] = ""
+                        st.session_state["tab2_page_count"] = 0
+                        st.session_state["tab2_extraction_warnings"] = []
+                    else:
+                        st.session_state["tab2_extraction_error"] = None
+                        st.session_state["tab2_doc_text"] = extraction_result.text
+                        st.session_state["tab2_page_count"] = extraction_result.page_count
+                        st.session_state["tab2_extraction_warnings"] = list(extraction_result.warnings)
+                    st.session_state["tab2_current_file"] = uploaded_file.name
+                    st.session_state["tab2_current_file_signature"] = current_signature
+                    st.session_state["tab2_chat_history"] = []
+
+            extraction_error = st.session_state.get("tab2_extraction_error")
+            if extraction_error:
+                st.error(extraction_error)
+                st.stop()
+
+            doc_text = st.session_state.get("tab2_doc_text", "")
+            page_count = st.session_state.get("tab2_page_count", 0)
+            if not doc_text.strip():
+                st.warning("No readable text was found in this PDF. Try a clearer or unlocked copy.")
+                st.stop()
+
+            for extraction_warning in st.session_state.get("tab2_extraction_warnings", []):
+                st.warning(extraction_warning)
+
+            st.session_state.setdefault("tab2_chat_history", [])
+
+            # Document Status Pill
+            llm_status_badge = "AI Analysis Ready" if llm_client_tab2 else "Token Required in Sidebar"
+            safe_uploaded_name = html.escape(uploaded_file.name)
+            st.markdown(
+                f"""
+                <div class="doc-meta-box">
+                    <span class="status-pill">📄 {safe_uploaded_name}</span>
+                    <span class="status-pill">📑 {page_count} Pages</span>
+                    <span class="status-pill">🔤 ~{len(doc_text.split()):,} Words</span>
+                    <span class="status-pill">{llm_status_badge}</span>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+            with st.expander("🔍 View Raw Extracted Document Text", expanded=False):
+                st.text_area("Extracted Content", doc_text, height=250)
+
+            # Quick Action Buttons
+            st.markdown("##### ⚡ Quick Presets")
+            c1, c2, c3, c4, c5 = st.columns([1.2, 1.2, 1.2, 1.3, 0.7])
+
+            pending_query = None
+            pending_instruction = ""
+
+            summary_clicked = c1.button(
+                "📋 Executive Summary",
+                use_container_width=True,
+                key="btn_summary",
+            )
+            note_clicked = c2.button(
+                "📑 Self-Contained Note",
+                use_container_width=True,
+                key="btn_note",
+            )
+            timeline_clicked = c3.button(
+                "📅 Timeline Table",
+                use_container_width=True,
+                key="btn_timeline",
+            )
+            finance_clicked = c4.button(
+                "💰 Finance Division View",
+                use_container_width=True,
+                key="btn_finance",
+            )
+            clear_clicked = c5.button(
+                "🔄 Clear",
+                use_container_width=True,
+                key="btn_clear_tab2",
+                help="Clear conversation history",
+            )
+
+            if summary_clicked:
+                pending_query = "Provide a comprehensive Executive Summary of this noting sheet."
+                pending_instruction = "Highlight: Subject, Originating Division / Proposal, Key Issues Discussed, Final Decision / Current Pending Status."
+            elif note_clicked:
+                pending_query = "Draft a formal, self-contained Note for Record from this file."
+                pending_instruction = "Structure clearly: 1. Subject, 2. Brief Background & Facts, 3. Division Comments, 4. Financial & Administrative Implications, 5. Recommendation / Proposal for Approval. Be detailed, exhaustive, and complete without truncating."
+            elif timeline_clicked:
+                pending_query = "Generate a chronological timeline of all events, notes, approvals, and queries in this noting sheet."
+                pending_instruction = "Format as a Markdown table with columns: `Date` | `Page / Note No.` | `Division / Officer` | `Action / Observation / Decision`."
+            elif finance_clicked:
+                pending_query = "What did the Finance Division / Internal Audit / Financial Advisor observe or decide on this file?"
+                pending_instruction = "Extract all financial objections, concurrence points, financial sanctions, or calculations with exact page references."
+            elif clear_clicked:
+                st.session_state["tab2_chat_history"] = []
+                st.rerun()
+
+            # Interactive Chat History & Input
+            st.markdown("---")
+            st.markdown("##### 💬 Conversation & Analysis")
+
+            # Render previous chat history
+            for msg in st.session_state.get("tab2_chat_history", []):
+                with st.chat_message(msg["role"]):
+                    st.markdown(msg["content"])
+
+            tab2_user_query = st.chat_input(
+                "Ask anything about this document (e.g. 'What did the Legal Cell advise on Note 4?')"
+            )
+
+            if tab2_user_query:
+                pending_query = tab2_user_query
+                pending_instruction = "Answer strictly based on the uploaded noting sheet. Cite relevant Page Numbers and Note Numbers."
+
+            if pending_query:
+                st.session_state["tab2_chat_history"].append({"role": "user", "content": pending_query})
+                with st.chat_message("user"):
+                    st.markdown(pending_query)
+
+                with st.chat_message("assistant"):
+                    response_stream = stream_document_query(
+                        doc_text,
+                        pending_query,
+                        system_instruction=pending_instruction,
+                        llm=llm_client_tab2,
+                        chat_history=st.session_state["tab2_chat_history"][:-1],
+                    )
+                    full_response = st.write_stream(response_stream)
+                    st.session_state["tab2_chat_history"].append({"role": "assistant", "content": full_response})
+
+            # Download Analysis Report
+            if st.session_state.get("tab2_chat_history"):
+                st.markdown("---")
+                report_lines = [
+                    f"# Noting Sheet Analysis Report: {uploaded_file.name}",
+                    f"**Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+                    f"**Total Pages:** {page_count}",
+                    "",
+                    "---",
+                    "",
+                ]
+                for msg in st.session_state["tab2_chat_history"]:
+                    role_label = "👤 User Query" if msg["role"] == "user" else "🤖 Analysis & Response"
+                    report_lines.append(f"## {role_label}\n\n{msg['content']}\n\n---\n")
+
+                st.download_button(
+                    label="📥 Download Analysis Report (Markdown)",
+                    data="\n".join(report_lines),
+                    file_name=f"noting_sheet_analysis_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md",
+                    mime="text/markdown",
+                    use_container_width=True,
+                )
     else:
-        st.info("👈 Please upload a PDF noting sheet above to begin.")
+        st.info("👈 Please upload a PDF noting sheet or CSV dataset above to begin.")

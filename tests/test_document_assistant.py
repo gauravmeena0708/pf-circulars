@@ -1,6 +1,9 @@
 import unittest
 
-import pymupdf as fitz
+try:
+    import pymupdf as fitz
+except ImportError:
+    import fitz
 
 from document_assistant import (
     DocumentExtractionError,
