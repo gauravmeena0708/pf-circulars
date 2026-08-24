@@ -77,9 +77,13 @@ The project is organized into the following Python modules:
     Create a file named `.env` in the root directory of the project. Add your Hugging Face API token to this file:
     ```env
     HF_TOKEN="your_actual_huggingface_api_token"
+    HF_INFERENCE_PROVIDER="featherless-ai"
+    LLM_REPO_ID="Qwen/Qwen2.5-7B-Instruct"
     # NGROK_AUTH_TOKEN="your_ngrok_auth_token" # If you plan to use ngrok with Streamlit
     ```
     Replace `"your_actual_huggingface_api_token"` with your real token.
+    The token must have the **Make calls to Inference Providers** permission. The
+    provider and model can be changed without editing the application code.
 
 ## Running the Application
 

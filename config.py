@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 HF_TOKEN = os.environ.get("HF_TOKEN")
+HF_INFERENCE_PROVIDER = os.environ.get("HF_INFERENCE_PROVIDER", "featherless-ai")
 
 NGROK_AUTH_TOKEN = os.environ.get("NGROK_AUTH_TOKEN") # If you plan to use ngrok
 EMBEDDING_MODEL_NAME = 'sentence-transformers/all-MiniLM-L6-v2'
@@ -19,10 +20,10 @@ else:
 
 
 # LLM
-LLM_REPO_ID = 'Qwen/Qwen2.5-7B-Instruct'
-LLM_TASK = "conversational"
-LLM_TEMPERATURE = 0.1
-LLM_MAX_NEW_TOKENS = 300
+LLM_REPO_ID = os.environ.get("LLM_REPO_ID", "Qwen/Qwen2.5-7B-Instruct")
+LLM_TASK = os.environ.get("LLM_TASK", "conversational")
+LLM_TEMPERATURE = float(os.environ.get("LLM_TEMPERATURE", "0.1"))
+LLM_MAX_NEW_TOKENS = int(os.environ.get("LLM_MAX_NEW_TOKENS", "300"))
 
 # Table Detection Model
 TABLE_DETECTION_MODEL = 'microsoft/table-transformer-detection'

@@ -9,6 +9,20 @@ import config
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=config.LOG_LEVEL, format=config.LOG_FORMAT)
 
+
+def _stream_llm_answer(llm_instance, messages):
+    """Iterate the remote stream while keeping provider failures out of the UI."""
+    try:
+        yield from llm_instance.stream(messages)
+    except Exception as e:
+        logger.error(f"Error while streaming the Chat LLM response: {e}", exc_info=True)
+        provider = getattr(config, "HF_INFERENCE_PROVIDER", "configured")
+        yield (
+            "The language-model service is temporarily unavailable. "
+            f"Verify that the Hugging Face provider '{provider}' is enabled and "
+            "that HF_TOKEN has Inference Providers permission."
+        )
+
 def format_prompt(query, retrieved_chunks_data):
     if not retrieved_chunks_data:
         context_str = "No relevant information found in the documents."
@@ -47,21 +61,20 @@ def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False):
     prompt_string = format_prompt(query, retrieved_chunks_data) 
     logger.debug(f"Formatted Prompt String for Chat LLM:\n{prompt_string}")
 
+    logger.info(f"Sending prompt to Chat LLM for query: '{query[:100]}...'")
+    messages = [HumanMessage(content=prompt_string)]
+
+    if stream:
+        return _stream_llm_answer(llm_instance, messages)
+
     try:
-        logger.info(f"Sending prompt to Chat LLM for query: '{query[:100]}...'")
-        
-        messages = [HumanMessage(content=prompt_string)]
-        
-        if stream:
-            return llm_instance.stream(messages)
+        response_message = llm_instance.invoke(messages)
+        logger.info("Received response from Chat LLM.")
+        if hasattr(response_message, 'content'):
+            return response_message.content
         else:
-            response_message = llm_instance.invoke(messages) 
-            logger.info("Received response from Chat LLM.")
-            if hasattr(response_message, 'content'):
-                return response_message.content
-            else:
-                logger.error(f"Unexpected response type from Chat LLM: {type(response_message)}. Full response: {response_message}")
-                return str(response_message) 
+            logger.error(f"Unexpected response type from Chat LLM: {type(response_message)}. Full response: {response_message}")
+            return str(response_message)
 
     except Exception as e:
         logger.error(f"Error during Chat LLM invocation: {e}", exc_info=True)
@@ -74,10 +87,15 @@ def initialize_llm():
         raise ValueError("HF_TOKEN not found. LLM initialization failed.")
 
     try:
-        logger.info(f"Initializing Chat LLM via HuggingFaceEndpoint: {config.LLM_REPO_ID}, Task: {config.LLM_TASK}")
+        logger.info(
+            "Initializing Chat LLM via HuggingFaceEndpoint: "
+            f"{config.LLM_REPO_ID}, Provider: {config.HF_INFERENCE_PROVIDER}, "
+            f"Task: {config.LLM_TASK}"
+        )
         endpoint = HuggingFaceEndpoint(
             repo_id=config.LLM_REPO_ID,
-            task=config.LLM_TASK, # Make sure this is "conversational" in config.py
+            provider=config.HF_INFERENCE_PROVIDER,
+            task=config.LLM_TASK,
             temperature=config.LLM_TEMPERATURE,
             max_new_tokens=config.LLM_MAX_NEW_TOKENS,
             huggingfacehub_api_token=config.HF_TOKEN
