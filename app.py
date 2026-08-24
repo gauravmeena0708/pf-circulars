@@ -742,17 +742,17 @@ with tab1:
 # TAB 2: UPLOADED DOCUMENT & CSV DATA ASSISTANT
 # =========================================================================
 with tab2:
-    st.markdown("#### 📊 Analyze Administrative Documents (PDF) & Datasets (CSV)")
+    st.markdown("#### 📊 Analyze Uploaded Documents (PDF) or Data (CSV)")
     st.caption(
-        "Upload noting sheets, office orders (PDF) or issue trackers, reports, MIS data (CSV) "
-        "to run deterministic analysis, summarize findings, generate charts, and query with AI."
+        "PDFs can contain noting sheets or other documents. CSV files may use any filename, "
+        "columns, subject area, or row structure."
     )
 
     uploaded_file = st.file_uploader(
         "Upload PDF Document or CSV Dataset",
         type=["pdf", "csv"],
         key="uploader_tab2",
-        help="Upload files such as test_noting_sheet.pdf or CITES_Functional_Ownership_Issue_Topics.csv",
+        help="Upload any valid .pdf or .csv file; double-suffix names ending in .csv are supported.",
     )
 
     if uploaded_file:
@@ -874,10 +874,10 @@ with tab2:
             with tool_tab1:
                 st.markdown("**🔍 Keyword / Exact Term Search:**")
                 search_term = st.text_input(
-                    "Search across all columns (e.g. 'Form 13', 'Delhi', 'Rejection')",
+                    "Search across all columns",
                     value="",
                     key="csv_search_box",
-                    placeholder="Enter query term...",
+                    placeholder="Enter any value or phrase from the dataset...",
                 )
                 if search_term.strip():
                     matched_df, total_matches, breakdown = search_dataframe(df, search_term)
@@ -914,25 +914,69 @@ with tab2:
             pending_query = None
             pending_instruction = ""
 
+            def concise_column_label(column_name, max_length=18):
+                """Create a stable button label from an arbitrary CSV column name."""
+                one_line_name = " ".join(str(column_name).split()) or "Unnamed Column"
+                return (
+                    one_line_name
+                    if len(one_line_name) <= max_length
+                    else f"{one_line_name[:max_length - 1]}…"
+                )
+
+            def safe_column_reference(column_name):
+                """Keep uploaded column names from changing the generated instruction shape."""
+                return " ".join(str(column_name).replace("`", "'").split())[:200]
+
+            primary_focus_column = (
+                profile.categorical_columns[0]
+                if profile.categorical_columns
+                else profile.columns[0]
+            )
+            remaining_columns = [
+                column for column in profile.columns if column != primary_focus_column
+            ]
+            remaining_numeric_columns = [
+                column
+                for column in profile.numeric_columns
+                if column != primary_focus_column
+            ]
+            secondary_focus_column = (
+                remaining_numeric_columns[0]
+                if remaining_numeric_columns
+                else (remaining_columns[0] if remaining_columns else None)
+            )
+            primary_button_label = concise_column_label(primary_focus_column)
+            secondary_button_label = (
+                concise_column_label(secondary_focus_column)
+                if secondary_focus_column is not None
+                else "Dataset Patterns"
+            )
+
             brief_clicked = c1.button(
-                "📋 Executive Brief",
+                "📋 Dataset Overview",
                 use_container_width=True,
                 key="btn_csv_brief",
             )
             breakdown_clicked = c2.button(
-                "📊 Key Distributions",
+                "🧹 Data Quality",
                 use_container_width=True,
                 key="btn_csv_breakdown",
             )
-            issues_clicked = c3.button(
-                "⚠️ Issues & Outliers",
+            primary_column_clicked = c3.button(
+                f"📊 {primary_button_label}",
                 use_container_width=True,
-                key="btn_csv_issues",
+                key="btn_csv_primary_column",
+                help=f"Analyze the '{primary_focus_column}' column",
             )
-            form13_clicked = c4.button(
-                "🔍 Form 13 Analysis",
+            secondary_column_clicked = c4.button(
+                f"🔎 {secondary_button_label}",
                 use_container_width=True,
-                key="btn_csv_form13",
+                key="btn_csv_secondary_column",
+                help=(
+                    f"Analyze the '{secondary_focus_column}' column"
+                    if secondary_focus_column is not None
+                    else "Analyze general patterns in the dataset"
+                ),
             )
             clear_clicked = c5.button(
                 "🔄 Clear",
@@ -942,26 +986,37 @@ with tab2:
             )
 
             if brief_clicked:
-                pending_query = "Provide an executive data analysis summary of this dataset."
+                pending_query = "Provide a concise overview of this dataset."
                 pending_instruction = (
-                    "Summarize: 1. Total records and scope, 2. Key categories/topics, "
-                    "3. Data health and null values, 4. Strategic operational recommendations."
+                    "Describe its dimensions, available fields, data types, key distributions, "
+                    "numeric ranges, and limitations without assuming a particular domain."
                 )
             elif breakdown_clicked:
-                pending_query = "What are the primary category, status, and ownership distributions in this dataset?"
+                pending_query = "Assess the quality and completeness of this dataset."
                 pending_instruction = (
-                    "Provide clear quantitative breakdowns. Cite exact counts and percentages where relevant."
+                    "Discuss missing values, duplicate-looking fields, inconsistent values, "
+                    "type concerns, and useful validation checks based only on the supplied context."
                 )
-            elif issues_clicked:
-                pending_query = "Identify the major bottlenecks, error patterns, and high-frequency problem areas in this data."
+            elif primary_column_clicked:
+                safe_primary_column = safe_column_reference(primary_focus_column)
+                pending_query = f"Analyze the column named '{safe_primary_column}'."
                 pending_instruction = (
-                    "Highlight critical open issues, top failing categories, and operational backlogs."
+                    "Explain its type, missing values, observed frequencies or numeric statistics, "
+                    "and notable patterns without assigning domain-specific meaning."
                 )
-            elif form13_clicked:
-                pending_query = "How many Form 13 issues are in this dataset, and what is their breakdown by owner, category, and status?"
-                pending_instruction = (
-                    "Perform a focused analysis of Form 13 transfer issues. Quote exact counts from the deterministic verification metrics."
-                )
+            elif secondary_column_clicked:
+                if secondary_focus_column is not None:
+                    safe_secondary_column = safe_column_reference(secondary_focus_column)
+                    pending_query = f"Analyze the column named '{safe_secondary_column}'."
+                    pending_instruction = (
+                        "Explain its type, missing values, observed frequencies or numeric statistics, "
+                        "and notable patterns without assigning domain-specific meaning."
+                    )
+                else:
+                    pending_query = "Identify notable patterns in this dataset."
+                    pending_instruction = (
+                        "Use only supplied statistics and sample records, and clearly label limitations."
+                    )
             elif clear_clicked:
                 st.session_state["tab2_chat_history"] = []
                 st.rerun()
@@ -975,7 +1030,7 @@ with tab2:
                     st.markdown(msg["content"])
 
             tab2_user_query = st.chat_input(
-                "Ask anything about this dataset (e.g. 'How many Form 13 issues are there and who owns them?')"
+                "Ask anything about the uploaded dataset, its columns, values, or counts"
             )
 
             if tab2_user_query:

@@ -52,6 +52,35 @@ def _truncate_text(text: str, max_chars: int) -> str:
     return f"{text[:head]}{marker}{text[-tail:] if tail else ''}"
 
 
+def _query_search_candidates(user_query: str, stop_words: set[str]) -> list[str]:
+    """Build domain-neutral search phrases from quoted text and meaningful tokens."""
+    quoted_terms = [
+        match.strip()
+        for match in re.findall(r'["\']([^"\']+)["\']', user_query)
+        if match.strip()
+    ]
+    tokens = re.findall(r"[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*", user_query)
+    meaningful_tokens = [
+        token for token in tokens if token.lower() not in stop_words
+    ]
+
+    candidates = list(quoted_terms)
+    for phrase_length in (3, 2, 1):
+        for start in range(len(meaningful_tokens) - phrase_length + 1):
+            candidates.append(
+                " ".join(meaningful_tokens[start:start + phrase_length])
+            )
+
+    unique_candidates = []
+    seen = set()
+    for candidate in candidates:
+        normalized = candidate.casefold()
+        if len(candidate) >= 2 and normalized not in seen:
+            seen.add(normalized)
+            unique_candidates.append(candidate)
+    return unique_candidates
+
+
 def load_csv_dataframe(file_bytes: bytes, filename: str = "dataset.csv") -> pd.DataFrame:
     """Load a CSV file with automatic encoding and delimiter fallback."""
     if not file_bytes or len(file_bytes.strip()) == 0:
@@ -236,30 +265,29 @@ def prepare_dataframe_llm_context(
         sections.append("\n".join(num_lines))
 
     # 4. Keyword Grounding & Deterministic Matches
-    potential_terms = re.findall(r'["\']([^"\']+)["\']|\b([A-Za-z0-9_-]+(?:\s+[A-Za-z0-9_-]+)?)\b', user_query)
-    flattened_terms = [t[0] or t[1] for t in potential_terms if (t[0] or t[1])]
-    
     query_stop_words = {
         "how", "many", "what", "which", "where", "when", "who", "why", "are", "there",
-        "is", "the", "a", "an", "of", "in", "for", "to", "and", "or", "issues", "records",
-        "data", "rows", "file", "csv", "show", "give", "list", "tell", "me", "find"
+        "is", "the", "a", "an", "of", "in", "for", "to", "and", "or",
+        "show", "give", "list", "tell", "me", "find", "analyze", "summarize"
     }
-    search_candidates = list(dict.fromkeys(
-        t for t in flattened_terms 
-        if len(t) >= 2 and t.lower() not in query_stop_words
-    ))
+    search_candidates = _query_search_candidates(user_query, query_stop_words)
 
     deterministic_matches_info = []
     matched_term_masks: list[tuple[str, pd.Series]] = []
 
-    for term in search_candidates[:4]:
+    for term in search_candidates[:20]:
         matched_slice, match_count, col_breakdown = search_dataframe(df, term)
         if match_count > 0:
+            term_mask = pd.Series(df.index.isin(matched_slice.index), index=df.index)
+            if any(term_mask.equals(existing_mask) for _, existing_mask in matched_term_masks):
+                continue
             breakdown_str = ", ".join(f"`{c}`: {cnt}" for c, cnt in col_breakdown.items())
             deterministic_matches_info.append(
                 f"- Exact search for term **'{term}'**: Exactly **{match_count}** matching row(s) found (Breakdown by column: {breakdown_str})."
             )
-            matched_term_masks.append((term, df.index.isin(matched_slice.index)))
+            matched_term_masks.append((term, term_mask))
+            if len(matched_term_masks) >= 4:
+                break
 
     sample_matched_df = None
     if matched_term_masks:
@@ -333,7 +361,7 @@ def stream_tabular_query(
         else ""
     )
 
-    full_prompt = f"""You are an expert Data Analyst, Quantitative Auditor, and Administrative Operations Specialist.
+    full_prompt = f"""You are an expert data analyst working with a dataset whose domain and schema are not known in advance.
 Your task is to analyze the provided tabular dataset (CSV) and provide an accurate, fact-based, quantitative answer.
 
 {system_instruction}

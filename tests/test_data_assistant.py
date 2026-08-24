@@ -29,6 +29,26 @@ class DataAssistantTests(unittest.TestCase):
         self.assertIn("Issue_Topic", df.columns)
         self.assertIn("Functional_Owner", df.columns)
 
+    def test_arbitrary_schema_and_double_csv_suffix_are_supported(self):
+        location_csv = (
+            b"place,latitude,longitude,population\n"
+            b"North Point,28.61,77.21,1200\n"
+            b"South Point,19.08,72.88,900\n"
+        )
+        df = load_csv_dataframe(
+            location_csv,
+            "~/Downloads/location.csv - location.csv.csv",
+        )
+
+        self.assertEqual(list(df.columns), ["place", "latitude", "longitude", "population"])
+        self.assertEqual(len(df), 2)
+
+    def test_domain_words_are_not_discarded_from_deterministic_search(self):
+        df = load_csv_dataframe(b"category\nissues\nother\n", "generic.csv")
+        context = prepare_dataframe_llm_context(df, "How many issues are there?")
+
+        self.assertIn("Exactly **1** matching row(s) found", context)
+
     def test_load_empty_csv_raises_error(self):
         with self.assertRaises(DataExtractionError):
             load_csv_dataframe(b"", "empty.csv")
