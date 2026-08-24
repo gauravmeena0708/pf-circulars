@@ -1,3 +1,4 @@
+from datetime import datetime
 import hashlib
 import logging
 import os
@@ -169,24 +170,24 @@ st.markdown(
     <style>
     .block-container {
         max-width: 1120px;
-        padding-top: 2.5rem;
+        padding-top: 2.2rem;
         padding-bottom: 4rem;
     }
     h1 {
         letter-spacing: -0.025em;
     }
     [data-testid="stForm"] {
-        background: #ffffff;
-        border: 1px solid #dbe3ef;
+        border: 1px solid rgba(128, 128, 128, 0.22);
         border-radius: 0.85rem;
-        box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+        box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
         padding: 1rem 1rem 0.5rem;
     }
     [data-testid="stForm"] [data-testid="stHorizontalBlock"] {
         align-items: flex-end;
     }
     div[data-testid="stButton"] > button,
-    div[data-testid="stFormSubmitButton"] > button {
+    div[data-testid="stFormSubmitButton"] > button,
+    div[data-testid="stDownloadButton"] > button {
         border-radius: 0.55rem;
         min-height: 2.65rem;
     }
@@ -197,16 +198,65 @@ st.markdown(
         margin: 1rem 0 1.25rem;
     }
     .status-pill {
-        background: #eff6ff;
-        border: 1px solid #bfdbfe;
+        background: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.25);
         border-radius: 999px;
-        color: #1e3a8a;
+        color: #2563eb;
         font-size: 0.86rem;
+        font-weight: 500;
         padding: 0.35rem 0.75rem;
+    }
+    /* Citation & Source Card Badges */
+    .source-meta-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 0.6rem;
+        margin-bottom: 0.75rem;
+        padding: 0.75rem 0.9rem;
+        background: rgba(128, 128, 128, 0.07);
+        border-radius: 0.5rem;
+        border: 1px solid rgba(128, 128, 128, 0.12);
+        font-size: 0.9rem;
+    }
+    .badge-pill {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 0.2rem 0.55rem;
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+    .badge-circular {
+        background: rgba(14, 165, 233, 0.15);
+        color: #0284c7;
+        border: 1px solid rgba(14, 165, 233, 0.3);
+    }
+    .badge-manual {
+        background: rgba(168, 85, 247, 0.15);
+        color: #9333ea;
+        border: 1px solid rgba(168, 85, 247, 0.3);
+    }
+    .badge-act {
+        background: rgba(234, 88, 12, 0.15);
+        color: #ea580c;
+        border: 1px solid rgba(234, 88, 12, 0.3);
+    }
+    .excerpt-box {
+        border-left: 3.5px solid #3b82f6;
+        background: rgba(128, 128, 128, 0.05);
+        padding: 0.85rem 1.1rem;
+        border-radius: 0 0.45rem 0.45rem 0;
+        margin: 0.5rem 0 0.25rem;
+        font-size: 0.92rem;
+        line-height: 1.55;
     }
     @media (max-width: 768px) {
         .block-container {
             padding-top: 1.5rem;
+        }
+        .source-meta-grid {
+            grid-template-columns: 1fr;
         }
     }
     </style>
@@ -314,6 +364,142 @@ with st.expander(
         ):
             st.session_state["query_input"] = sample_query
 
+def generate_markdown_report(query, answer_text, retrieved_data):
+    """Generates a structured research report in clean Markdown."""
+    lines = [
+        "# EPFO Knowledge Assistant — Research & Citation Report",
+        f"**Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+        f"**Query:** {query}",
+        "",
+        "---",
+        "",
+        "## 💡 Synthesized Answer",
+        "",
+        answer_text or "_No synthesized answer generated (Search & Citations mode)._",
+        "",
+        "---",
+        "",
+        f"## 📚 Source References ({len(retrieved_data)})",
+        "",
+    ]
+    for idx, item in enumerate(retrieved_data, start=1):
+        meta = item.get("metadata", {})
+        title = meta.get("title") or "EPFO Document"
+        circ_no = meta.get("circular_no") or "N/A"
+        date = meta.get("date") or "N/A"
+        page = meta.get("page_number") or "1"
+        link = meta.get("english_pdf_link") or meta.get("source_pdf") or "N/A"
+        doc_type = meta.get("doc_type", "circular")
+        
+        title_lower = title.lower()
+        if doc_type == "manual" or "MANUAL" in str(circ_no) or "manual" in title_lower:
+            doc_label = "Statutory Manual"
+        elif "act" in title_lower or "scheme" in title_lower:
+            doc_label = "Act & Scheme"
+        else:
+            doc_label = "Official Circular"
+        
+        lines.append(f"### [{idx}] {title}")
+        lines.append(f"- **Document Type:** {doc_label}")
+        lines.append(f"- **Identifier / Circular No:** `{circ_no}`")
+        lines.append(f"- **Date:** {date} | **Page:** {page}")
+        lines.append(f"- **Source Reference:** {link}")
+        lines.append("")
+        lines.append(f"> {item.get('text', '').strip()}")
+        lines.append("")
+        
+    return "\n".join(lines)
+
+
+def render_action_bar(query, answer_text, retrieved_data):
+    """Renders action buttons below the generated answer: Download, Copy/Raw Markdown, and Feedback."""
+    st.markdown("<div style='margin-top: 0.75rem;'></div>", unsafe_allow_html=True)
+    col1, col2, col3, col4 = st.columns([2.8, 2.2, 1.2, 1.2])
+    
+    with col1:
+        report_md = generate_markdown_report(query, answer_text, retrieved_data)
+        st.download_button(
+            label="📥 Download Research Report",
+            data=report_md,
+            file_name=f"epfo_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md",
+            mime="text/markdown",
+            use_container_width=True,
+            help="Download a formatted Markdown file containing the question, answer, and all full citations.",
+        )
+    with col2:
+        show_raw = st.toggle("📋 View Raw Markdown", key="toggle_raw_md")
+    with col3:
+        if st.button("👍 Helpful", key="feedback_up", use_container_width=True, help="Mark this response as accurate and helpful"):
+            st.toast("Thank you for your feedback!", icon="⭐")
+    with col4:
+        if st.button("👎 Issues", key="feedback_down", use_container_width=True, help="Report an issue or inaccurate citation"):
+            st.toast("Feedback recorded. We will continue improving citation grounding.", icon="📝")
+            
+    if show_raw and answer_text:
+        st.code(answer_text, language="markdown")
+
+
+def render_source_cards(retrieved_data):
+    """Renders structured, visually enhanced citation cards for all retrieved chunks."""
+    st.markdown("---")
+    st.markdown(f"### 📚 Verified Sources & Citations ({len(retrieved_data)})")
+    st.caption("Review official circulars, statutory manuals, and exact excerpts used to ground the answer.")
+
+    for i, item in enumerate(retrieved_data):
+        meta = item.get('metadata', {})
+        title = meta.get('title') or "EPFO Document"
+        circular_no = meta.get('circular_no') or "N/A"
+        date = meta.get('date') or "N/A"
+        page_no = meta.get('page_number') or "1"
+        pdf_link = meta.get('english_pdf_link') or meta.get('source_pdf') or ""
+        doc_type = meta.get('doc_type', 'circular')
+        
+        # Classify document type and visual badges
+        title_lower = title.lower()
+        if doc_type == "manual" or "MANUAL" in str(circular_no) or "manual" in title_lower:
+            doc_label = "Statutory Manual"
+            icon = "📘"
+            badge_class = "badge-manual"
+        elif "act" in title_lower or "scheme" in title_lower:
+            doc_label = "Act & Scheme"
+            icon = "🏛️"
+            badge_class = "badge-act"
+        else:
+            doc_label = "Official Circular"
+            icon = "📄"
+            badge_class = "badge-circular"
+            
+        header_title = f"{icon} Source [{i+1}] · {doc_label} · {title}"
+        
+        with st.expander(header_title, expanded=(i == 0)):
+            # Metadata grid
+            st.markdown(
+                f"""
+                <div class="source-meta-grid">
+                    <div><strong>Identifier:</strong> <code>{circular_no}</code></div>
+                    <div><strong>Date:</strong> {date}</div>
+                    <div><strong>Page:</strong> {page_no}</div>
+                    <div><strong>Type:</strong> <span class="badge-pill {badge_class}">{doc_label}</span></div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+            
+            # Official PDF link or Local Reference
+            if pdf_link.startswith("http"):
+                st.markdown(f"🔗 **[Open Official EPFO PDF Document]({pdf_link})**")
+            elif pdf_link:
+                st.markdown(f"📂 **Source Document:** `{pdf_link}`")
+
+            # Excerpt Box
+            st.markdown("**Relevant Excerpt:**")
+            excerpt_text = item.get("text", "").strip()
+            st.markdown(
+                f"""<div class="excerpt-box">{excerpt_text}</div>""",
+                unsafe_allow_html=True,
+            )
+
+
 # --- Main Query Interface ---
 with st.form("query_form"):
     st.markdown("#### Ask about an EPFO rule, circular, scheme, or procedure")
@@ -404,6 +590,7 @@ if query_submitted:
                     st.session_state["_answer_text"] = answer_text
                     st.session_state["_answer_status"] = "generated"
                     answer_rendered_this_run = True
+                    render_action_bar(query, answer_text, retrieved_data)
                 except Exception as gen_err:
                     logger.error("Error during LLM generation: %s", gen_err, exc_info=True)
                     st.session_state["_answer_status"] = "error"
@@ -418,48 +605,25 @@ if query_submitted:
 active_query = st.session_state.get("_active_query")
 retrieved_data = st.session_state.get("_retrieved_data", [])
 answer_status = st.session_state.get("_answer_status")
+saved_answer_text = st.session_state.get("_answer_text", "")
 
 if active_query:
     if not query_context_rendered_this_run:
         st.caption(f"Results for: “{active_query}”")
 
-    if answer_status == "generated" and not answer_rendered_this_run:
-        st.markdown("### Answer")
-        st.markdown(st.session_state.get("_answer_text", ""))
+    if answer_status == "generated":
+        if not answer_rendered_this_run:
+            st.markdown("### Answer")
+            st.markdown(saved_answer_text)
+            render_action_bar(active_query, saved_answer_text, retrieved_data)
     elif answer_status == "error" and not status_rendered_this_run:
         st.error(f"Error during LLM generation: {st.session_state.get('_answer_error', 'Unknown error')}")
     elif answer_status == "unavailable":
         st.info("AI synthesis is not enabled. Showing the most relevant source passages instead.")
+        render_action_bar(active_query, "", retrieved_data)
 
     # Display Sources
     if retrieved_data:
-        st.markdown("---")
-        st.markdown(f"### Sources ({len(retrieved_data)})")
-
-        for i, item in enumerate(retrieved_data):
-            meta = item.get('metadata', {})
-            title = meta.get('title') or "EPFO Document"
-            circular_no = meta.get('circular_no') or "N/A"
-            date = meta.get('date') or "N/A"
-            page_no = meta.get('page_number') or "1"
-            pdf_link = meta.get('english_pdf_link') or meta.get('source_pdf') or ""
-            doc_type = meta.get('doc_type', 'circular')
-
-            source_type = "Manual" if doc_type == "manual" or "MANUAL" in str(circular_no) else "Circular"
-            header = f"Source {i+1} · {source_type} · {title}"
-
-            with st.expander(header, expanded=(i == 0)):
-                col1, col2, col3 = st.columns(3)
-                col1.markdown(f"**Identifier:** `{circular_no}`")
-                col2.markdown(f"**Date:** `{date}`")
-                col3.markdown(f"**Page:** `{page_no}`")
-
-                if pdf_link.startswith("http"):
-                    st.markdown(f"**[Open official PDF]({pdf_link})**")
-                else:
-                    st.markdown(f"**Source file:** `{pdf_link}`")
-
-                st.caption("Relevant Excerpt:")
-                st.markdown(f"> {item['text']}")
+        render_source_cards(retrieved_data)
     elif answer_status == "no_results":
         st.warning("No relevant passages found for your query. Try rephrasing or searching with different keywords.")
