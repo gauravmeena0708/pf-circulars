@@ -1,9 +1,11 @@
 from datetime import datetime
 import hashlib
 import html
+import io
 import logging
 import os
 import sys
+import zipfile
 
 # Ensure UTF-8 output encoding on Windows
 if hasattr(sys.stdout, "reconfigure"):
@@ -30,6 +32,12 @@ from vector_indexer import load_faiss_index
 from retriever import retrieve_relevant_chunks
 from answer_generator import initialize_llm, get_llm_answer
 import pandas as pd
+import pdf_utils
+from docx_export import (
+    create_research_report_docx,
+    create_chat_transcript_docx,
+    create_text_document_docx,
+)
 from document_assistant import (
     DocumentExtractionError,
     extract_pdf_text,
@@ -413,9 +421,10 @@ if st.session_state.get("_loaded_retrieval_signature") != loaded_retrieval_signa
     st.session_state["_loaded_retrieval_signature"] = loaded_retrieval_signature
 
 # --- Top-Level Tabs ---
-tab1, tab2 = st.tabs([
+tab1, tab2, tab3 = st.tabs([
     "🏛️ Search Official Circulars & Manuals (8,820+ Docs)",
     "📊 Uploaded Document & CSV Data Assistant",
+    "🛠️ Office PDF & Document Utilities",
 ])
 
 with tab1:
@@ -510,26 +519,50 @@ with tab1:
 
 
         def render_action_bar(query, answer_text, retrieved_data):
-            """Renders action buttons below the generated answer: Download, Copy/Raw Markdown, and Feedback."""
+            """Renders action buttons below the generated answer: Download (MD & DOCX), Copy/Raw Markdown, and Feedback."""
             st.markdown("<div style='margin-top: 0.75rem;'></div>", unsafe_allow_html=True)
-            col1, col2, col3, col4 = st.columns([2.8, 2.2, 1.2, 1.2])
+            col1, col2, col3, col4, col5 = st.columns([1.8, 1.8, 1.8, 1.0, 1.0])
             
             with col1:
                 report_md = generate_markdown_report(query, answer_text, retrieved_data)
                 st.download_button(
-                    label="📥 Download Research Report",
+                    label="📥 Report (.md)",
                     data=report_md,
                     file_name=f"epfo_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md",
                     mime="text/markdown",
                     use_container_width=True,
-                    help="Download a formatted Markdown file containing the question, answer, and all full citations.",
+                    help="Download a formatted Markdown file containing question, answer, and citations.",
                 )
             with col2:
-                show_raw = st.toggle("📋 View Raw Markdown", key="toggle_raw_md")
+                report_docx = create_research_report_docx(
+                    query=query,
+                    answer_text=answer_text,
+                    source_references=[
+                        {
+                            "title": item.get("metadata", {}).get("title"),
+                            "source": item.get("metadata", {}).get("circular_no"),
+                            "date": item.get("metadata", {}).get("date"),
+                            "score": item.get("similarity"),
+                            "text": item.get("text"),
+                            "url": item.get("metadata", {}).get("english_pdf_link") or item.get("metadata", {}).get("source_pdf"),
+                        }
+                        for item in retrieved_data
+                    ],
+                )
+                st.download_button(
+                    label="📄 Report (.docx)",
+                    data=report_docx,
+                    file_name=f"epfo_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.docx",
+                    mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                    use_container_width=True,
+                    help="Download a formatted Microsoft Word (.docx) document.",
+                )
             with col3:
+                show_raw = st.toggle("📋 View Raw Markdown", key="toggle_raw_md")
+            with col4:
                 if st.button("👍 Helpful", key="feedback_up", use_container_width=True, help="Mark this response as accurate and helpful"):
                     st.toast("Thank you for your feedback!", icon="⭐")
-            with col4:
+            with col5:
                 if st.button("👎 Issues", key="feedback_down", use_container_width=True, help="Report an issue or inaccurate citation"):
                     st.toast("Feedback recorded. We will continue improving citation grounding.", icon="📝")
                     
@@ -1075,13 +1108,31 @@ with tab2:
                     role_label = "👤 User Query" if msg["role"] == "user" else "🤖 Data Analysis & Response"
                     report_lines.append(f"## {role_label}\n\n{msg['content']}\n\n---\n")
 
-                st.download_button(
-                    label="📥 Download Data Analysis Report (Markdown)",
-                    data="\n".join(report_lines),
-                    file_name=f"data_analysis_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md",
-                    mime="text/markdown",
-                    use_container_width=True,
-                )
+                col_csv_dl1, col_csv_dl2 = st.columns(2)
+                with col_csv_dl1:
+                    st.download_button(
+                        label="📥 Download Report (.md)",
+                        data="\n".join(report_lines),
+                        file_name=f"data_analysis_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md",
+                        mime="text/markdown",
+                        use_container_width=True,
+                    )
+                with col_csv_dl2:
+                    csv_docx = create_chat_transcript_docx(
+                        title=f"Data Analysis Report: {uploaded_file.name}",
+                        chat_history=st.session_state["tab2_chat_history"],
+                        metadata={
+                            "Dataset Name": uploaded_file.name,
+                            "Total Records": f"{profile.row_count:,} rows across {profile.column_count} columns",
+                        },
+                    )
+                    st.download_button(
+                        label="📄 Download Report (.docx)",
+                        data=csv_docx,
+                        file_name=f"data_analysis_{datetime.now().strftime('%Y%m%d_%H%M%S')}.docx",
+                        mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                        use_container_width=True,
+                    )
 
         # -----------------------------------------------------------------
         # PDF DOCUMENT WORKFLOW
@@ -1246,12 +1297,517 @@ with tab2:
                     role_label = "👤 User Query" if msg["role"] == "user" else "🤖 Analysis & Response"
                     report_lines.append(f"## {role_label}\n\n{msg['content']}\n\n---\n")
 
-                st.download_button(
-                    label="📥 Download Analysis Report (Markdown)",
-                    data="\n".join(report_lines),
-                    file_name=f"noting_sheet_analysis_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md",
-                    mime="text/markdown",
-                    use_container_width=True,
-                )
+                col_pdf_dl1, col_pdf_dl2 = st.columns(2)
+                with col_pdf_dl1:
+                    st.download_button(
+                        label="📥 Download Report (.md)",
+                        data="\n".join(report_lines),
+                        file_name=f"noting_sheet_analysis_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md",
+                        mime="text/markdown",
+                        use_container_width=True,
+                    )
+                with col_pdf_dl2:
+                    pdf_docx = create_chat_transcript_docx(
+                        title=f"Noting Sheet Analysis Report: {uploaded_file.name}",
+                        chat_history=st.session_state["tab2_chat_history"],
+                        metadata={
+                            "Document Name": uploaded_file.name,
+                            "Total Pages": page_count,
+                        },
+                    )
+                    st.download_button(
+                        label="📄 Download Report (.docx)",
+                        data=pdf_docx,
+                        file_name=f"noting_sheet_analysis_{datetime.now().strftime('%Y%m%d_%H%M%S')}.docx",
+                        mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                        use_container_width=True,
+                    )
     else:
         st.info("👈 Please upload a PDF noting sheet or CSV dataset above to begin.")
+
+
+# =========================================================================
+# TAB 3: OFFICE PDF & DOCUMENT UTILITIES
+# =========================================================================
+with tab3:
+    st.markdown("#### 🛠️ Office PDF & Document Utilities")
+    st.caption("Secure, 100% private, on-premises PDF tools for office staff. Files are processed in-memory and never leave your computer.")
+
+    pdf_tool = st.radio(
+        "Select PDF Utility:",
+        [
+            "📑 Merge PDFs",
+            "✂️ Split & Extract Pages",
+            "🔄 Rotate Pages",
+            "🗜️ Compress PDF",
+            "🖼️ Image ↔ PDF Converter",
+            "🔍 Scanned PDF OCR (Bilingual)",
+        ],
+        horizontal=True,
+        key="pdf_tool_selection",
+    )
+    st.markdown("---")
+
+    # -----------------------------------------------------------------
+    # TOOL 1: MERGE PDFS
+    # -----------------------------------------------------------------
+    if pdf_tool == "📑 Merge PDFs":
+        st.markdown("##### 📑 Merge Multiple PDF Documents")
+        st.caption("Combine 2, 3, or more PDF files into a single continuous PDF document.")
+
+        merge_files = st.file_uploader(
+            "Upload 2 or more PDF files to combine",
+            type=["pdf"],
+            accept_multiple_files=True,
+            key="merge_uploader",
+        )
+
+        if merge_files:
+            st.markdown(f"**Selected Files ({len(merge_files)}):**")
+            for idx, mf in enumerate(merge_files, start=1):
+                size_kb = len(mf.getvalue()) / 1024
+                st.markdown(f"{idx}. `{mf.name}` ({size_kb:.1f} KB)")
+
+            if len(merge_files) < 2:
+                st.info("ℹ️ Please upload at least 2 PDF files to merge.")
+            else:
+                if st.button("🔗 Merge PDFs into Single Document", type="primary", key="btn_execute_merge"):
+                    with st.spinner("Merging PDF documents in memory..."):
+                        try:
+                            pdf_bytes_list = [f.getvalue() for f in merge_files]
+                            merged_bytes = pdf_utils.merge_pdfs(pdf_bytes_list)
+                            st.session_state["merged_pdf_result"] = merged_bytes
+                            st.session_state["merged_pdf_count"] = len(merge_files)
+                            st.success(f"✅ Successfully merged {len(merge_files)} PDF files ({len(merged_bytes) / (1024*1024):.2f} MB)!")
+                        except Exception as e:
+                            st.error(f"❌ Failed to merge PDFs: {e}")
+                            st.session_state["merged_pdf_result"] = None
+
+                if st.session_state.get("merged_pdf_result"):
+                    st.download_button(
+                        label="📥 Download Merged PDF",
+                        data=st.session_state["merged_pdf_result"],
+                        file_name=f"merged_document_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf",
+                        mime="application/pdf",
+                        type="primary",
+                        use_container_width=True,
+                    )
+
+    # -----------------------------------------------------------------
+    # TOOL 2: SPLIT & EXTRACT PAGES
+    # -----------------------------------------------------------------
+    elif pdf_tool == "✂️ Split & Extract Pages":
+        st.markdown("##### ✂️ Split or Extract Specific Pages from PDF")
+        st.caption("Extract custom page ranges (e.g. 1-3, 5, 8-10) or split every page into a separate PDF file.")
+
+        split_file = st.file_uploader(
+            "Upload PDF document to split",
+            type=["pdf"],
+            key="split_uploader",
+        )
+
+        if split_file:
+            raw_bytes = split_file.getvalue()
+            try:
+                doc_info = fitz.open(stream=raw_bytes, filetype="pdf")
+                total_pages = len(doc_info)
+                doc_info.close()
+            except Exception:
+                st.error("Could not read uploaded PDF.")
+                st.stop()
+
+            st.markdown(
+                f"""
+                <div class="doc-meta-box">
+                    <span class="status-pill">📄 {html.escape(split_file.name)}</span>
+                    <span class="status-pill">📑 {total_pages} Total Pages</span>
+                    <span class="status-pill">📦 {len(raw_bytes)/(1024*1024):.2f} MB</span>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+            split_mode = st.radio(
+                "Split Mode:",
+                [
+                    "Extract Specific Page Range (e.g. 1-3, 5)",
+                    "Split Every Page into Separate PDFs (ZIP Archive)",
+                ],
+                key="split_mode_radio",
+            )
+
+            if split_mode == "Extract Specific Page Range (e.g. 1-3, 5)":
+                page_range_input = st.text_input(
+                    "Enter Page Numbers or Ranges (1-indexed, separated by comma):",
+                    value=f"1-{min(total_pages, 3)}" if total_pages > 1 else "1",
+                    help="Examples: '1-5', '1, 3, 5', '2-4, 7-10', 'all'",
+                )
+
+                if st.button("✂️ Extract Pages into New PDF", type="primary", key="btn_execute_split"):
+                    with st.spinner("Extracting specified pages..."):
+                        try:
+                            extracted_bytes = pdf_utils.split_pdf(raw_bytes, page_range_input)
+                            st.session_state["split_pdf_result"] = extracted_bytes
+                            st.success(f"✅ Successfully extracted pages ({page_range_input}) into new PDF!")
+                        except Exception as e:
+                            st.error(f"❌ Extraction error: {e}")
+                            st.session_state["split_pdf_result"] = None
+
+                if st.session_state.get("split_pdf_result"):
+                    st.download_button(
+                        label="📥 Download Extracted PDF",
+                        data=st.session_state["split_pdf_result"],
+                        file_name=f"extracted_{os.path.splitext(split_file.name)[0]}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf",
+                        mime="application/pdf",
+                        type="primary",
+                        use_container_width=True,
+                    )
+            else:
+                if st.button("📦 Split All Pages to ZIP Archive", type="primary", key="btn_execute_zip_split"):
+                    with st.spinner("Splitting all pages..."):
+                        try:
+                            individual_pages = pdf_utils.split_pdf_to_individual_pages(raw_bytes)
+                            zip_buf = io.BytesIO()
+                            with zipfile.ZipFile(zip_buf, "w", zipfile.ZIP_DEFLATED) as zip_out:
+                                for page_name, page_bytes in individual_pages:
+                                    zip_out.writestr(page_name, page_bytes)
+                            zip_bytes = zip_buf.getvalue()
+                            st.session_state["split_zip_result"] = zip_bytes
+                            st.success(f"✅ Successfully generated ZIP with {len(individual_pages)} individual PDF pages!")
+                        except Exception as e:
+                            st.error(f"❌ Error: {e}")
+                            st.session_state["split_zip_result"] = None
+
+                if st.session_state.get("split_zip_result"):
+                    st.download_button(
+                        label="📥 Download All Pages (ZIP Archive)",
+                        data=st.session_state["split_zip_result"],
+                        file_name=f"split_pages_{os.path.splitext(split_file.name)[0]}.zip",
+                        mime="application/zip",
+                        type="primary",
+                        use_container_width=True,
+                    )
+
+    # -----------------------------------------------------------------
+    # TOOL 3: ROTATE PAGES
+    # -----------------------------------------------------------------
+    elif pdf_tool == "🔄 Rotate Pages":
+        st.markdown("##### 🔄 Rotate & Correct Page Orientation")
+        st.caption("Fix upside-down or sideways scanned pages (90°, 180°, 270°).")
+
+        rotate_file = st.file_uploader(
+            "Upload PDF document to rotate",
+            type=["pdf"],
+            key="rotate_uploader",
+        )
+
+        if rotate_file:
+            raw_bytes = rotate_file.getvalue()
+            try:
+                doc_info = fitz.open(stream=raw_bytes, filetype="pdf")
+                total_pages = len(doc_info)
+                doc_info.close()
+            except Exception:
+                st.error("Could not read uploaded PDF.")
+                st.stop()
+
+            col_rot1, col_rot2 = st.columns(2)
+            with col_rot1:
+                rotation_choice = st.selectbox(
+                    "Select Rotation Angle:",
+                    [
+                        ("90° Clockwise (Turn Right)", 90),
+                        ("180° Upside Down (Flip)", 180),
+                        ("270° Counter-Clockwise (Turn Left)", 270),
+                    ],
+                    format_func=lambda x: x[0],
+                    key="rotation_degrees_choice",
+                )
+            with col_rot2:
+                apply_target = st.selectbox(
+                    "Apply Rotation To:",
+                    ["All Pages", "Custom Page Range (e.g. 1, 3-5)"],
+                    key="rotation_target_choice",
+                )
+
+            custom_rot_range = None
+            if apply_target == "Custom Page Range (e.g. 1, 3-5)":
+                custom_rot_range = st.text_input(
+                    "Enter Page Numbers or Ranges to Rotate:",
+                    value="1",
+                    help="e.g. '1', '1, 3', '2-4'",
+                )
+
+            if st.button("🔄 Rotate and Generate PDF", type="primary", key="btn_execute_rotate"):
+                with st.spinner("Rotating document pages..."):
+                    try:
+                        deg = rotation_choice[1]
+                        rotated_bytes = pdf_utils.rotate_pdf_pages(raw_bytes, deg, custom_rot_range)
+                        st.session_state["rotated_pdf_result"] = rotated_bytes
+                        st.success("✅ Successfully rotated document pages!")
+                    except Exception as e:
+                        st.error(f"❌ Rotation error: {e}")
+                        st.session_state["rotated_pdf_result"] = None
+
+            if st.session_state.get("rotated_pdf_result"):
+                st.download_button(
+                    label="📥 Download Rotated PDF",
+                    data=st.session_state["rotated_pdf_result"],
+                    file_name=f"rotated_{os.path.splitext(rotate_file.name)[0]}.pdf",
+                    mime="application/pdf",
+                    type="primary",
+                    use_container_width=True,
+                )
+
+    # -----------------------------------------------------------------
+    # TOOL 4: COMPRESS PDF
+    # -----------------------------------------------------------------
+    elif pdf_tool == "🗜️ Compress PDF":
+        st.markdown("##### 🗜️ Compress & Optimize PDF File Size")
+        st.caption("Reduce PDF file size for portal uploads (e-Office, EPFO portal, email) without quality degradation.")
+
+        compress_file = st.file_uploader(
+            "Upload PDF document to compress",
+            type=["pdf"],
+            key="compress_uploader",
+        )
+
+        if compress_file:
+            raw_bytes = compress_file.getvalue()
+            orig_mb = len(raw_bytes) / (1024 * 1024)
+
+            st.markdown(f"**Original File Size:** `{orig_mb:.2f} MB` ({len(raw_bytes):,} bytes)")
+
+            if st.button("🗜️ Compress & Optimize PDF", type="primary", key="btn_execute_compress"):
+                with st.spinner("Compressing and deflating PDF streams in memory..."):
+                    try:
+                        compressed_bytes, orig_size, new_size = pdf_utils.compress_pdf(raw_bytes)
+                        st.session_state["compressed_pdf_result"] = compressed_bytes
+                        st.session_state["compress_stats"] = (orig_size, new_size)
+                        st.success("✅ PDF Optimization complete!")
+                    except Exception as e:
+                        st.error(f"❌ Compression error: {e}")
+                        st.session_state["compressed_pdf_result"] = None
+
+            if st.session_state.get("compressed_pdf_result"):
+                orig_size, new_size = st.session_state["compress_stats"]
+                saved_pct = max(0.0, (1 - (new_size / orig_size)) * 100) if orig_size > 0 else 0.0
+
+                m1, m2, m3 = st.columns(3)
+                m1.metric("Original Size", f"{orig_size / (1024*1024):.2f} MB")
+                m2.metric("Compressed Size", f"{new_size / (1024*1024):.2f} MB")
+                m3.metric("Reduction Saved", f"{saved_pct:.1f}%")
+
+                st.download_button(
+                    label="📥 Download Compressed PDF",
+                    data=st.session_state["compressed_pdf_result"],
+                    file_name=f"compressed_{os.path.splitext(compress_file.name)[0]}.pdf",
+                    mime="application/pdf",
+                    type="primary",
+                    use_container_width=True,
+                )
+
+    # -----------------------------------------------------------------
+    # TOOL 5: IMAGE <-> PDF CONVERTER
+    # -----------------------------------------------------------------
+    elif pdf_tool == "🖼️ Image ↔ PDF Converter":
+        st.markdown("##### 🖼️ Image ↔ PDF Converter")
+        st.caption("Convert phone camera photos/receipts (JPG/PNG) into a single PDF, or extract PDF pages as images.")
+
+        conv_mode = st.radio(
+            "Select Conversion Direction:",
+            ["📷 Images ➔ Single PDF Document", "📄 PDF Document ➔ Images ZIP Archive"],
+            key="img_pdf_direction_radio",
+            horizontal=True,
+        )
+
+        if conv_mode == "📷 Images ➔ Single PDF Document":
+            img_files = st.file_uploader(
+                "Upload images (JPG, PNG, BMP, WEBP) to combine into PDF",
+                type=["png", "jpg", "jpeg", "bmp", "webp"],
+                accept_multiple_files=True,
+                key="img_to_pdf_uploader",
+            )
+
+            if img_files:
+                st.markdown(f"**Selected Images ({len(img_files)}):**")
+                for idx, imf in enumerate(img_files, start=1):
+                    st.markdown(f"{idx}. `{imf.name}` ({len(imf.getvalue())/1024:.1f} KB)")
+
+                if st.button("📄 Combine Images into PDF", type="primary", key="btn_exec_img_to_pdf"):
+                    with st.spinner("Converting and packaging images into PDF..."):
+                        try:
+                            img_tuples = [(f.name, f.getvalue()) for f in img_files]
+                            out_pdf_bytes = pdf_utils.images_to_pdf(img_tuples)
+                            st.session_state["img_to_pdf_result"] = out_pdf_bytes
+                            st.success(f"✅ Successfully converted {len(img_files)} images into PDF ({len(out_pdf_bytes)/(1024*1024):.2f} MB)!")
+                        except Exception as e:
+                            st.error(f"❌ Conversion failed: {e}")
+                            st.session_state["img_to_pdf_result"] = None
+
+                if st.session_state.get("img_to_pdf_result"):
+                    st.download_button(
+                        label="📥 Download Converted PDF Document",
+                        data=st.session_state["img_to_pdf_result"],
+                        file_name=f"images_combined_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf",
+                        mime="application/pdf",
+                        type="primary",
+                        use_container_width=True,
+                    )
+        else:
+            pdf_to_img_file = st.file_uploader(
+                "Upload PDF to extract pages as images",
+                type=["pdf"],
+                key="pdf_to_img_uploader",
+            )
+
+            if pdf_to_img_file:
+                raw_bytes = pdf_to_img_file.getvalue()
+                col_p2i1, col_p2i2 = st.columns(2)
+                with col_p2i1:
+                    dpi_choice = st.selectbox(
+                        "Image Resolution (DPI):",
+                        [150, 200, 300],
+                        index=1,
+                        help="200 DPI is recommended for crisp office documents.",
+                    )
+                with col_p2i2:
+                    format_choice = st.selectbox(
+                        "Image Format:",
+                        ["PNG (Lossless High Quality)", "JPG (Compact File Size)"],
+                    )
+
+                if st.button("🖼️ Extract Pages as Images", type="primary", key="btn_exec_pdf_to_img"):
+                    with st.spinner("Rendering PDF pages to images..."):
+                        try:
+                            fmt = "PNG" if "PNG" in format_choice else "JPG"
+                            rendered_images = pdf_utils.pdf_to_images(raw_bytes, dpi=dpi_choice, image_format=fmt)
+
+                            zip_buf = io.BytesIO()
+                            with zipfile.ZipFile(zip_buf, "w", zipfile.ZIP_DEFLATED) as zip_out:
+                                for img_name, img_data in rendered_images:
+                                    zip_out.writestr(img_name, img_data)
+
+                            st.session_state["pdf_to_img_zip"] = zip_buf.getvalue()
+                            st.session_state["pdf_to_img_count"] = len(rendered_images)
+                            st.success(f"✅ Successfully extracted {len(rendered_images)} page images into ZIP!")
+                        except Exception as e:
+                            st.error(f"❌ Error: {e}")
+                            st.session_state["pdf_to_img_zip"] = None
+
+                if st.session_state.get("pdf_to_img_zip"):
+                    st.download_button(
+                        label=f"📥 Download {st.session_state.get('pdf_to_img_count', '')} Images (ZIP Archive)",
+                        data=st.session_state["pdf_to_img_zip"],
+                        file_name=f"pages_{os.path.splitext(pdf_to_img_file.name)[0]}.zip",
+                        mime="application/zip",
+                        type="primary",
+                        use_container_width=True,
+                    )
+
+    # -----------------------------------------------------------------
+    # TOOL 6: SCANNED PDF OCR (BILINGUAL) & WORD EXPORT
+    # -----------------------------------------------------------------
+    elif pdf_tool == "🔍 Scanned PDF OCR (Bilingual)":
+        st.markdown("##### 🔍 Scanned PDF OCR & Word (.docx) Converter")
+        st.caption("Perform bilingual (English + Hindi Devanagari) OCR on scanned PDFs and export to Searchable PDF, Word (.docx), or Text.")
+
+        ocr_input_file = st.file_uploader(
+            "Upload scanned / image-based PDF for OCR",
+            type=["pdf"],
+            key="ocr_tool_uploader",
+        )
+
+        if ocr_input_file:
+            raw_bytes = ocr_input_file.getvalue()
+
+            col_ocr1, col_ocr2 = st.columns(2)
+            with col_ocr1:
+                ocr_lang_choice = st.selectbox(
+                    "OCR Language Model:",
+                    [
+                        "Bilingual (English + Hindi)",
+                        "English Only",
+                        "Hindi (Devanagari) Only",
+                    ],
+                    key="ocr_tool_lang_choice",
+                )
+            with col_ocr2:
+                ocr_res_choice = st.selectbox(
+                    "OCR Resolution (DPI):",
+                    [150, 200, 300],
+                    index=1,
+                    key="ocr_tool_dpi_choice",
+                    help="200 DPI offers an optimal balance between OCR accuracy and processing speed.",
+                )
+
+            selected_languages = config.OCR_LANGUAGE_OPTIONS.get(ocr_lang_choice, ["en", "hi"])
+
+            if st.button("⚡ Run OCR & Generate Outputs", type="primary", key="btn_exec_ocr_tool"):
+                with st.spinner(f"Running {ocr_lang_choice} OCR on scanned pages..."):
+                    try:
+                        reader = load_ocr_reader(tuple(selected_languages), config.EMBEDDING_DEVICE == "cuda")
+                        extracted_text, searchable_pdf_bytes = pdf_utils.ocr_scanned_pdf(
+                            raw_bytes,
+                            reader,
+                            dpi=ocr_res_choice,
+                        )
+                        st.session_state["ocr_tool_extracted_text"] = extracted_text
+                        st.session_state["ocr_tool_searchable_pdf"] = searchable_pdf_bytes
+                        st.session_state["ocr_tool_file_name"] = ocr_input_file.name
+                        st.success(f"✅ OCR Extraction complete! ~{len(extracted_text.split()):,} words recognized.")
+                    except Exception as e:
+                        st.error(f"❌ OCR processing failure: {e}")
+                        st.session_state["ocr_tool_extracted_text"] = None
+                        st.session_state["ocr_tool_searchable_pdf"] = None
+
+            if st.session_state.get("ocr_tool_extracted_text"):
+                extracted_text = st.session_state["ocr_tool_extracted_text"]
+                searchable_pdf = st.session_state["ocr_tool_searchable_pdf"]
+                base_name = os.path.splitext(st.session_state["ocr_tool_file_name"])[0]
+
+                with st.expander("🔍 View Recognized OCR Text Preview", expanded=True):
+                    st.text_area("Recognized Text", extracted_text, height=220)
+
+                st.markdown("##### 📥 Export OCR Results:")
+                col_dl1, col_dl2, col_dl3 = st.columns(3)
+
+                with col_dl1:
+                    st.download_button(
+                        label="📄 Download Searchable PDF",
+                        data=searchable_pdf,
+                        file_name=f"ocr_searchable_{base_name}.pdf",
+                        mime="application/pdf",
+                        type="primary",
+                        use_container_width=True,
+                        help="PDF with original scanned image plus invisible searchable text layer.",
+                    )
+
+                with col_dl2:
+                    docx_bytes = create_text_document_docx(
+                        title=f"OCR Extracted Text: {st.session_state['ocr_tool_file_name']}",
+                        body_text=extracted_text,
+                        metadata={
+                            "Source File": st.session_state["ocr_tool_file_name"],
+                            "Language Model": ocr_lang_choice,
+                        },
+                    )
+                    st.download_button(
+                        label="📝 Download Word Document (.docx)",
+                        data=docx_bytes,
+                        file_name=f"ocr_text_{base_name}.docx",
+                        mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                        use_container_width=True,
+                        help="Formatted Microsoft Word (.docx) document with recognized text.",
+                    )
+
+                with col_dl3:
+                    st.download_button(
+                        label="📋 Download Plain Text (.txt)",
+                        data=extracted_text,
+                        file_name=f"ocr_text_{base_name}.txt",
+                        mime="text/plain",
+                        use_container_width=True,
+                        help="Plain text file of recognized OCR content.",
+                    )
+

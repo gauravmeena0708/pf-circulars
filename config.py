@@ -45,7 +45,18 @@ USE_NATIVE_PDF_TEXT = True
 NATIVE_TEXT_MIN_WORDS = 25  # Safety net: minimum meaningful words required to accept native digital text
 
 # OCR Configuration
-OCR_LANGUAGES = ['en'] # Add 'hi' if Hindi is also consistently needed: ['hi', 'en']
+OCR_LANGUAGES = ['en', 'hi'] # Default bilingual (English + Hindi)
+OCR_LANGUAGE_OPTIONS = {
+    "Bilingual (English + Hindi)": ["en", "hi"],
+    "English Only": ["en"],
+    "Hindi (Devanagari) Only": ["hi"],
+}
+DEFAULT_OCR_LANGUAGE_OPTION = "Bilingual (English + Hindi)"
+
+# PDF Office Utilities
+PDF_UTILS_MAX_UPLOAD_BYTES = int(
+    os.environ.get("PDF_UTILS_MAX_UPLOAD_BYTES", str(100 * 1024 * 1024))
+)
 
 # Uploaded File & Noting Sheet Assistant
 DOCUMENT_ASSISTANT_MAX_UPLOAD_BYTES = int(
