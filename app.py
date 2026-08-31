@@ -4,7 +4,6 @@ import html
 import io
 import logging
 import os
-import re
 import sys
 import zipfile
 
@@ -192,96 +191,6 @@ def retrieve_cached_chunks(
     )
 
 
-def _page_sort_key(page_label):
-    """Sort page labels such as ``2-3`` after page 2 and before page 4."""
-    match = re.search(r"\d+", str(page_label or ""))
-    return int(match.group()) if match else 10**9
-
-
-@st.cache_data(show_spinner=False, max_entries=64)
-def get_circular_pages(source_id, index_signature, _indexed_texts, _indexed_metadata):
-    """Rebuild a readable circular from the locally indexed page chunks.
-
-    The retrieval archive contains text chunks and metadata, rather than the
-    original PDF for every EPFO circular. This groups chunks by page without
-    making an external EPFO request.
-    """
-    _ = index_signature
-    pages = {}
-    seen_text_by_page = {}
-
-    for text, metadata in zip(_indexed_texts, _indexed_metadata):
-        metadata = metadata or {}
-        document_ids = {
-            str(metadata.get("source_pdf") or ""),
-            str(metadata.get("english_pdf_link") or ""),
-        }
-        if source_id not in document_ids:
-            continue
-
-        page_label = str(metadata.get("page_number") or "Document text")
-        normalized_text = " ".join(str(text or "").split())
-        if not normalized_text or normalized_text in seen_text_by_page.setdefault(page_label, set()):
-            continue
-
-        seen_text_by_page[page_label].add(normalized_text)
-        pages.setdefault(page_label, []).append(str(text).strip())
-
-    return [
-        {"label": page_label, "text": "\n\n".join(page_texts)}
-        for page_label, page_texts in sorted(
-            pages.items(), key=lambda item: (_page_sort_key(item[0]), item[0])
-        )
-    ]
-
-
-@st.dialog("Archived EPFO Circular", width="large")
-def show_circular_viewer(source, index_signature, indexed_texts, indexed_metadata):
-    """Show the locally indexed circular text when its original EPFO link fails."""
-    metadata = source.get("metadata", {})
-    source_id = str(
-        metadata.get("source_pdf")
-        or metadata.get("english_pdf_link")
-        or ""
-    )
-    title = metadata.get("title") or "EPFO Document"
-    circular_no = metadata.get("circular_no") or "Not recorded"
-    source_page = str(metadata.get("page_number") or "")
-    official_link = metadata.get("english_pdf_link") or metadata.get("source_pdf") or ""
-
-    st.markdown(f"### {html.escape(title)}")
-    st.markdown(
-        "<div class='circular-viewer-meta'>"
-        f"<span>Reference: <strong>{html.escape(str(circular_no))}</strong></span>"
-        f"<span>Date: {html.escape(str(metadata.get('date') or 'Not recorded'))}</span>"
-        "</div>",
-        unsafe_allow_html=True,
-    )
-    st.info(
-        "This is a locally indexed text reproduction of the circular. "
-        "It remains available if the original EPFO document link is unavailable."
-    )
-
-    pages = get_circular_pages(
-        source_id, index_signature, indexed_texts, indexed_metadata
-    )
-    if not pages:
-        st.warning("No archived text is available for this circular yet.")
-    else:
-        page_labels = [page["label"] for page in pages]
-        default_index = page_labels.index(source_page) if source_page in page_labels else 0
-        selected_page = st.selectbox(
-            "Page", page_labels, index=default_index, key=f"circular_page_{hashlib.sha256(source_id.encode('utf-8')).hexdigest()[:12]}"
-        )
-        page = next(item for item in pages if item["label"] == selected_page)
-        if source_page and selected_page == source_page:
-            st.caption("This is the page cited in the answer.")
-        st.markdown(page["text"])
-
-    if official_link.startswith("http"):
-        st.link_button("Try original EPFO PDF", official_link, use_container_width=True)
-
-
 # --- PDF Ingestion Helper for Uploaded Files ---
 def extract_text_from_uploaded_pdf(uploaded_file):
     """Extract uploaded PDF text with native parsing and lazy EasyOCR fallback."""
@@ -450,66 +359,6 @@ st.markdown(
         margin: 0.5rem 0 0.25rem;
         font-size: 0.92rem;
         line-height: 1.55;
-    }
-    .source-panel-heading {
-        color: #0b4f8a;
-        font-size: 1.05rem;
-        font-weight: 700;
-        margin: 0 0 0.25rem;
-    }
-    .source-panel-copy {
-        color: #526273;
-        font-size: 0.84rem;
-        margin-bottom: 0.8rem;
-    }
-    .source-reference-card {
-        border: 1px solid #cfe1f3;
-        border-radius: 0.75rem;
-        background: #ffffff;
-        padding: 0.8rem 0.85rem 0.15rem;
-        margin-bottom: 0.7rem;
-        box-shadow: 0 2px 8px rgba(1, 74, 135, 0.05);
-    }
-    .source-reference-number {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 1.45rem;
-        height: 1.45rem;
-        margin-right: 0.35rem;
-        border-radius: 999px;
-        background: #075a9f;
-        color: #ffffff;
-        font-size: 0.76rem;
-        font-weight: 700;
-    }
-    .source-reference-title {
-        color: #143c61;
-        font-size: 0.9rem;
-        font-weight: 650;
-        line-height: 1.35;
-    }
-    .source-reference-meta {
-        color: #62758a;
-        font-size: 0.78rem;
-        line-height: 1.45;
-        margin: 0.45rem 0 0.7rem;
-    }
-    .circular-viewer-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem 1rem;
-        color: #3c5871;
-        font-size: 0.88rem;
-        margin: -0.25rem 0 0.75rem;
-    }
-    [data-testid="stDialog"] [data-testid="stMarkdownContainer"] p {
-        line-height: 1.65;
-    }
-    [data-testid="stDialog"] [data-testid="stAlert"] {
-        background: #eff7ff;
-        border-color: #cfe1f3;
-        color: #143c61;
     }
     @media (max-width: 768px) {
         .block-container {
@@ -782,65 +631,6 @@ with tab1:
                     )
 
 
-        def render_source_reference_panel(retrieved_data):
-            """Render compact, in-app source references beside the answer."""
-            unique_sources = []
-            seen_source_ids = set()
-            for item in retrieved_data:
-                meta = item.get("metadata", {})
-                source_id = str(meta.get("source_pdf") or meta.get("english_pdf_link") or "")
-                dedupe_key = source_id or str(meta.get("circular_no") or "")
-                if dedupe_key and dedupe_key in seen_source_ids:
-                    continue
-                if dedupe_key:
-                    seen_source_ids.add(dedupe_key)
-                unique_sources.append(item)
-
-            st.markdown(
-                f"<div class='source-panel-heading'>Sources used ({len(unique_sources)})</div>"
-                "<div class='source-panel-copy'>Open an archived circular without leaving this page.</div>",
-                unsafe_allow_html=True,
-            )
-
-            for i, item in enumerate(unique_sources, start=1):
-                meta = item.get("metadata", {})
-                title = str(meta.get("title") or "EPFO Document")
-                circular_no = str(meta.get("circular_no") or "Reference not recorded")
-                date = str(meta.get("date") or "Date not recorded")
-                page_no = str(meta.get("page_number") or "Page not recorded")
-                source_id = str(meta.get("source_pdf") or meta.get("english_pdf_link") or "")
-                official_link = str(meta.get("english_pdf_link") or "")
-                card_key = hashlib.sha256(
-                    f"{source_id}|{page_no}|{i}".encode("utf-8")
-                ).hexdigest()[:12]
-
-                st.markdown(
-                    "<div class='source-reference-card'>"
-                    f"<span class='source-reference-number'>{i}</span>"
-                    f"<span class='source-reference-title'>{html.escape(title)}</span>"
-                    "<div class='source-reference-meta'>"
-                    f"{html.escape(circular_no)}<br>{html.escape(date)} · Page {html.escape(page_no)}"
-                    "</div></div>",
-                    unsafe_allow_html=True,
-                )
-                view_column, link_column = st.columns(2)
-                with view_column:
-                    if st.button(
-                        "View circular",
-                        key=f"view_circular_{card_key}",
-                        use_container_width=True,
-                        disabled=not source_id,
-                    ):
-                        st.session_state["_selected_circular_source"] = item
-                with link_column:
-                    if official_link.startswith("http"):
-                        st.link_button(
-                            "Original PDF",
-                            official_link,
-                            use_container_width=True,
-                        )
-
-
         # --- Main Query Interface ---
         with st.form("query_form"):
             st.markdown("#### Ask about an EPFO rule, circular, scheme, or procedure")
@@ -862,7 +652,6 @@ with tab1:
         answer_rendered_this_run = False
         status_rendered_this_run = False
         query_context_rendered_this_run = False
-        answer_column, source_column = st.columns([2.15, 1], gap="large")
 
         if query_submitted:
             query = query_input.strip()
@@ -918,15 +707,13 @@ with tab1:
                 st.session_state["_answer_text"] = None
                 st.session_state["_answer_status"] = "pending"
                 st.session_state["_answer_error"] = None
-                with answer_column:
-                    st.caption(f"Results for: “{query}”")
+                st.caption(f"Results for: “{query}”")
                 query_context_rendered_this_run = True
 
                 if retrieved_data:
                     llm = get_session_llm_model(custom_token=user_hf_token)
                     if llm:
-                        with answer_column:
-                            st.markdown("### Answer")
+                        st.markdown("### Answer")
                         try:
                             answer_stream = get_llm_answer(query, retrieved_data, llm, stream=True)
 
@@ -937,8 +724,7 @@ with tab1:
                                     else:
                                         yield str(chunk)
 
-                            with answer_column:
-                                streamed_answer = st.write_stream(stream_generator())
+                            streamed_answer = st.write_stream(stream_generator())
                             if isinstance(streamed_answer, str):
                                 answer_text = streamed_answer
                             else:
@@ -946,14 +732,12 @@ with tab1:
                             st.session_state["_answer_text"] = answer_text
                             st.session_state["_answer_status"] = "generated"
                             answer_rendered_this_run = True
-                            with answer_column:
-                                render_action_bar(query, answer_text, retrieved_data)
+                            render_action_bar(query, answer_text, retrieved_data)
                         except Exception as gen_err:
                             logger.error("Error during LLM generation: %s", gen_err, exc_info=True)
                             st.session_state["_answer_status"] = "error"
                             st.session_state["_answer_error"] = str(gen_err)
-                            with answer_column:
-                                st.error(f"Error during LLM generation: {gen_err}")
+                            st.error(f"Error during LLM generation: {gen_err}")
                             status_rendered_this_run = True
                     else:
                         st.session_state["_answer_status"] = "unavailable"
@@ -967,38 +751,24 @@ with tab1:
 
         if active_query:
             if not query_context_rendered_this_run:
-                with answer_column:
-                    st.caption(f"Results for: “{active_query}”")
+                st.caption(f"Results for: “{active_query}”")
 
             if answer_status == "generated":
                 if not answer_rendered_this_run:
-                    with answer_column:
-                        st.markdown("### Answer")
-                        st.markdown(saved_answer_text)
-                        render_action_bar(active_query, saved_answer_text, retrieved_data)
+                    st.markdown("### Answer")
+                    st.markdown(saved_answer_text)
+                    render_action_bar(active_query, saved_answer_text, retrieved_data)
             elif answer_status == "error" and not status_rendered_this_run:
-                with answer_column:
-                    st.error(f"Error during LLM generation: {st.session_state.get('_answer_error', 'Unknown error')}")
+                st.error(f"Error during LLM generation: {st.session_state.get('_answer_error', 'Unknown error')}")
             elif answer_status == "unavailable":
-                with answer_column:
-                    st.info("AI synthesis is not enabled. Showing the most relevant source passages instead.")
-                    render_action_bar(active_query, "", retrieved_data)
+                st.info("AI synthesis is not enabled. Showing the most relevant source passages instead.")
+                render_action_bar(active_query, "", retrieved_data)
 
+            # Display Sources
             if retrieved_data:
-                with source_column:
-                    render_source_reference_panel(retrieved_data)
+                render_source_cards(retrieved_data)
             elif answer_status == "no_results":
-                with answer_column:
-                    st.warning("No relevant passages found for your query. Try rephrasing or searching with different keywords.")
-
-        selected_circular = st.session_state.pop("_selected_circular_source", None)
-        if selected_circular:
-            show_circular_viewer(
-                selected_circular,
-                index_signature,
-                indexed_texts,
-                indexed_metadata,
-            )
+                st.warning("No relevant passages found for your query. Try rephrasing or searching with different keywords.")
 
 
 # =========================================================================
