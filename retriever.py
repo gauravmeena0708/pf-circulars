@@ -165,6 +165,16 @@ def _get_or_build_bm25_index(all_indexed_texts, cache_path=None):
     return bm25
 
 
+def warm_bm25_cache(all_indexed_texts, cache_path):
+    """Builds the BM25 index for all_indexed_texts and ensures cache_path
+    holds a persisted gzip cache matching that corpus.
+
+    Ingestion scripts call this after writing a new index so the sparse
+    index ships pre-built instead of being rebuilt on the first query.
+    """
+    _get_or_build_bm25_index(all_indexed_texts, cache_path)
+
+
 def _top_k_score_indices(scores, top_k):
     """Returns score indices in descending order without sorting the full array."""
     scores = np.asarray(scores)
