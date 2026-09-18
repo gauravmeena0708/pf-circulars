@@ -172,10 +172,11 @@ def prewarm_search_pipeline(
     _embedding_model,
     _bm25_cache_path,
 ):
-    """Runs one throwaway retrieval at process startup so the first real user
-    query doesn't also pay for first-time embedding-model inference and BM25
-    setup. Cached so this only runs once per server process, not on every
-    Streamlit script rerun."""
+    """Runs one throwaway retrieval on the first client session (not at
+    container boot -- Streamlit only executes the script body when a client
+    connects) so a real user's first query doesn't also pay for first-time
+    embedding-model inference and BM25 setup. Cached so this only runs once
+    per server process, not on every Streamlit script rerun or session."""
     _ = (index_signature, embedding_model_name)
     try:
         retrieve_relevant_chunks(
@@ -427,7 +428,7 @@ st.sidebar.caption(
     "are used only for the current browser session."
 )
 
-# --- Load the persisted index and pre-warm the search pipeline at startup ---
+# --- Load the persisted index and pre-warm the search pipeline on first use ---
 index_dir = os.path.join(config.DEFAULT_INDEX_DIR, "data_index")
 bm25_cache_path = os.path.join(index_dir, f"{config.DEFAULT_INDEX_NAME}.bm25.json.gz")
 index_signature = get_index_file_signature(index_dir, config.DEFAULT_INDEX_NAME)

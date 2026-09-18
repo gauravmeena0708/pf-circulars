@@ -11,7 +11,6 @@ import numpy as np
 import torch
 torch.set_num_threads(min(8, os.cpu_count() or 4))
 
-import faiss
 from sentence_transformers import SentenceTransformer
 
 try:
@@ -143,7 +142,7 @@ def run_import(
     )
 
     if faiss_index is None:
-        logger.info("No valid existing FAISS index found. Initializing a new IndexFlatL2 + IndexIDMap.")
+        logger.info("No valid existing FAISS index found. Initializing a new inner-product FAISS index.")
         faiss_index = create_empty_faiss_index(embedding_dim)
         existing_texts = []
         existing_metadata = []
