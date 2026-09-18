@@ -20,7 +20,7 @@ except ImportError:
     from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 import config
-from vector_indexer import load_faiss_index, save_faiss_index
+from vector_indexer import load_faiss_index, save_faiss_index, create_empty_faiss_index, encode_normalized
 
 # Configure logging
 logging.basicConfig(
@@ -144,8 +144,7 @@ def run_import(
 
     if faiss_index is None:
         logger.info("No valid existing FAISS index found. Initializing a new IndexFlatL2 + IndexIDMap.")
-        base_index = faiss.IndexFlatL2(embedding_dim)
-        faiss_index = faiss.IndexIDMap(base_index)
+        faiss_index = create_empty_faiss_index(embedding_dim)
         existing_texts = []
         existing_metadata = []
     else:
@@ -256,10 +255,10 @@ def run_import(
         slice_len = len(chunk_slice)
 
         logger.info(f"Embedding chunks {i + 1} to {i + slice_len} of {total_new}...")
-        embeddings = embedding_model.encode(
+        embeddings = encode_normalized(
+            embedding_model,
             chunk_slice,
             batch_size=batch_size,
-            convert_to_tensor=False,
             show_progress_bar=False
         )
         embeddings_np = np.array(embeddings, dtype=np.float32)

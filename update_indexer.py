@@ -16,7 +16,9 @@ from vector_indexer import (
     group_extracted_content_to_blocks,
     merge_spanning_table_blocks,
     load_faiss_index,
-    save_faiss_index
+    save_faiss_index,
+    create_empty_faiss_index,
+    encode_normalized,
 )
 
 # Configure logging
@@ -221,8 +223,7 @@ def main_update_indexer(
 
     if (faiss_index is None):
         logger.info(f"No existing FAISS index found at {os.path.join(index_storage_path_app, index_name)}. Creating a new one.")
-        faiss_index = faiss.IndexFlatL2(sbert_model.get_sentence_embedding_dimension())
-        faiss_index = faiss.IndexIDMap(faiss_index)
+        faiss_index = create_empty_faiss_index(sbert_model.get_sentence_embedding_dimension())
         existing_texts = []
         existing_metadata = []
     else:
@@ -341,7 +342,7 @@ def main_update_indexer(
             break
 
         logger.info(f"Generating embeddings for {len(new_texts_for_embedding)} new text blocks...")
-        new_embeddings = sbert_model.encode(new_texts_for_embedding, convert_to_tensor=False, show_progress_bar=True)
+        new_embeddings = encode_normalized(sbert_model, new_texts_for_embedding, show_progress_bar=True)
         new_embeddings_np = np.array(new_embeddings).astype('float32')
 
         if new_embeddings_np.ndim == 1:
