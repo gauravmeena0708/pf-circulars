@@ -198,10 +198,30 @@ def _top_k_score_indices(scores, top_k):
     return candidate_indices[candidate_order]
 
 
-def retrieve_relevant_chunks(query_text, faiss_index, all_indexed_texts, all_indexed_metadata, 
-                             embedding_model, cross_encoder_model=None, 
+def _has_high_confidence_agreement(dense_rankings, sparse_rankings):
+    """Returns True when dense and sparse retrieval independently agree on
+    the same single best-matching document (each ranks it #1) -- a strong
+    signal that a CrossEncoder re-ranking pass would not change the outcome.
+    Most often true for an exact statutory reference or circular number that
+    both a literal BM25 token match and a semantic embedding recognize as
+    the unique best hit.
+    """
+    if not dense_rankings or not sparse_rankings:
+        return False
+    top_dense_doc_id = min(dense_rankings, key=dense_rankings.get)
+    top_sparse_doc_id = min(sparse_rankings, key=sparse_rankings.get)
+    return (
+        dense_rankings[top_dense_doc_id] == 1
+        and sparse_rankings[top_sparse_doc_id] == 1
+        and top_dense_doc_id == top_sparse_doc_id
+    )
+
+
+def retrieve_relevant_chunks(query_text, faiss_index, all_indexed_texts, all_indexed_metadata,
+                             embedding_model, cross_encoder_model=None,
                              top_n_initial=None, top_n_final=None,
-                             use_hybrid=None, bm25_cache_path=None):
+                             use_hybrid=None, bm25_cache_path=None,
+                             confidence_gate_enabled=None):
     """
     Retrieves the most relevant text chunks using Hybrid Retrieval (BM25 + Dense FAISS)
     fused with Reciprocal Rank Fusion (RRF) and re-ranked with a CrossEncoder.
@@ -227,6 +247,8 @@ def retrieve_relevant_chunks(query_text, faiss_index, all_indexed_texts, all_ind
         top_n_final = getattr(config, "TOP_N_RETRIEVAL", 5)
     if use_hybrid is None:
         use_hybrid = getattr(config, "USE_HYBRID_RETRIEVAL", True)
+    if confidence_gate_enabled is None:
+        confidence_gate_enabled = getattr(config, "CONFIDENCE_GATE_ENABLED", True)
 
     if not query_text or not faiss_index or embedding_model is None:
         logger.warning("Missing required query, index, or embedding model.")
@@ -317,9 +339,14 @@ def retrieve_relevant_chunks(query_text, faiss_index, all_indexed_texts, all_ind
             })
 
         # -------------------------------------------------------------
-        # 4. Cross-Encoder Deep Re-ranking
+        # 4. Cross-Encoder Deep Re-ranking (skipped on high-confidence agreement)
         # -------------------------------------------------------------
-        if cross_encoder_model and retrieved_results:
+        if confidence_gate_enabled and _has_high_confidence_agreement(dense_rankings, sparse_rankings):
+            logger.info(
+                "Dense and sparse retrieval agree on the top document; skipping CrossEncoder re-ranking."
+            )
+            retrieved_results.sort(key=lambda x: x['rrf_score'], reverse=True)
+        elif cross_encoder_model and retrieved_results:
             try:
                 logger.info(f"Re-ranking {len(retrieved_results)} hybrid candidates with CrossEncoder...")
                 cross_input = [[query_text, res["text"]] for res in retrieved_results]

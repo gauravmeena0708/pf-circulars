@@ -35,6 +35,7 @@ USE_HYBRID_RETRIEVAL = True
 BM25_TOP_K = 40
 DENSE_TOP_K = 40
 RRF_K = 60
+CONFIDENCE_GATE_ENABLED = True  # Skip CrossEncoder re-ranking when dense and sparse retrieval already agree on the top document
 
 # Chunking Configuration
 CHUNK_SIZE = 800
