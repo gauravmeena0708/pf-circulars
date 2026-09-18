@@ -252,6 +252,27 @@ def create_faiss_index(texts_for_embedding, list_of_metadata, embedding_model):
         return None
 
 
+def create_empty_faiss_index(dimension):
+    """Creates an empty, ID-mapped FAISS index using the canonical inner-product
+    metric for cosine similarity on L2-normalized vectors.
+
+    Shared by every ingestion script's "no existing index found" fallback so
+    they can't independently drift onto a different (wrong) metric type.
+    """
+    return faiss.IndexIDMap(faiss.IndexFlatIP(dimension))
+
+
+def encode_normalized(embedding_model, texts, **kwargs):
+    """Encodes texts with normalize_embeddings always forced True.
+
+    Shared by every ingestion script's embedding step so a caller can never
+    accidentally add un-normalized vectors into an inner-product index.
+    """
+    kwargs.setdefault("convert_to_tensor", False)
+    kwargs["normalize_embeddings"] = True
+    return embedding_model.encode(texts, **kwargs)
+
+
 def save_faiss_index(index, texts_for_retrieval, metadata_for_retrieval, index_dir, index_name=config.DEFAULT_INDEX_NAME):
     # Saves the FAISS index, corresponding texts, and metadata to disk.
     if not os.path.exists(index_dir):
