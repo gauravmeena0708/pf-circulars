@@ -200,11 +200,13 @@ def _top_k_score_indices(scores, top_k):
 
 def _has_high_confidence_agreement(dense_rankings, sparse_rankings):
     """Returns True when dense and sparse retrieval independently agree on
-    the same single best-matching document (each ranks it #1) -- a strong
-    signal that a CrossEncoder re-ranking pass would not change the outcome.
-    Most often true for an exact statutory reference or circular number that
-    both a literal BM25 token match and a semantic embedding recognize as
-    the unique best hit.
+    the same document as their respective #1 rank -- a strong signal that a
+    CrossEncoder re-ranking pass would not change the outcome. Most often
+    true for an exact statutory reference or circular number that both a
+    literal BM25 token match and a semantic embedding rank highest. Note:
+    if multiple documents tie for the top BM25 score, which one lands at
+    rank 1 depends on an internal tie-break, not necessarily on which is
+    most semantically unique.
     """
     if not dense_rankings or not sparse_rankings:
         return False
@@ -237,6 +239,9 @@ def retrieve_relevant_chunks(query_text, faiss_index, all_indexed_texts, all_ind
         top_n_final (int, optional): Number of top results to return.
         use_hybrid (bool, optional): Whether to use hybrid BM25 + Dense search.
         bm25_cache_path (str, optional): Path used to persist the sparse index.
+        confidence_gate_enabled (bool, optional): Whether to skip CrossEncoder
+            re-ranking when dense and sparse retrieval already agree on the
+            top document.
 
     Returns:
         list: List of dicts with keys 'text', 'metadata', 'score'.
@@ -341,9 +346,18 @@ def retrieve_relevant_chunks(query_text, faiss_index, all_indexed_texts, all_ind
         # -------------------------------------------------------------
         # 4. Cross-Encoder Deep Re-ranking (skipped on high-confidence agreement)
         # -------------------------------------------------------------
-        if confidence_gate_enabled and _has_high_confidence_agreement(dense_rankings, sparse_rankings):
+        if (
+            confidence_gate_enabled
+            and cross_encoder_model
+            and _has_high_confidence_agreement(dense_rankings, sparse_rankings)
+        ):
+            agreed_doc_id = min(dense_rankings, key=dense_rankings.get)
+            agreed_source = "unknown"
+            if 0 <= agreed_doc_id < len(all_indexed_metadata):
+                agreed_source = all_indexed_metadata[agreed_doc_id].get("source_pdf", "unknown")
             logger.info(
-                "Dense and sparse retrieval agree on the top document; skipping CrossEncoder re-ranking."
+                "Dense and sparse retrieval agree on top document id=%s (source=%s); skipping CrossEncoder re-ranking.",
+                agreed_doc_id, agreed_source,
             )
             retrieved_results.sort(key=lambda x: x['rrf_score'], reverse=True)
         elif cross_encoder_model and retrieved_results:

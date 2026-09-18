@@ -122,3 +122,62 @@ def test_confidence_gate_can_be_disabled_via_parameter():
     )
 
     assert cross_encoder.predict_calls == 1
+
+
+def test_confidence_gate_never_fires_when_hybrid_disabled():
+    # Same agreement scenario as the "skipped" test, but with use_hybrid=False.
+    # sparse_rankings will be empty, so the gate must never fire regardless of dense agreement.
+    index, texts, metadata, embedding_model = _build_fixture(query_vector=[1.0, 0.0, 0.0, 0.0])
+    cross_encoder = _RecordingCrossEncoder()
+
+    retriever.retrieve_relevant_chunks(
+        "alpha",
+        index,
+        texts,
+        metadata,
+        embedding_model,
+        cross_encoder_model=cross_encoder,
+        top_n_final=3,
+        use_hybrid=False,
+    )
+
+    assert cross_encoder.predict_calls == 1
+
+
+def test_agreed_doc_wins_even_when_a_rival_is_rank_two_in_both_rankings():
+    # doc0 is rank 1 in both dense and sparse. doc1 is rank 2 in both. Confirms
+    # the RRF-maximum guarantee holds beyond the simple 3-orthogonal-doc case:
+    # doc0's RRF score (rank 1 + rank 1) must still beat doc1's (rank 2 + rank 2).
+    dense_rankings = {0: 1, 1: 2, 2: 3}
+    sparse_rankings = {0: 1, 1: 2, 2: 3}
+    rrf_k = 60
+
+    def rrf_score(doc_id):
+        return 1.0 / (rrf_k + dense_rankings[doc_id]) + 1.0 / (rrf_k + sparse_rankings[doc_id])
+
+    assert retriever._has_high_confidence_agreement(dense_rankings, sparse_rankings) is True
+    assert rrf_score(0) > rrf_score(1) > rrf_score(2)
+
+
+def test_gate_preserves_rrf_order_for_slots_beyond_the_top_match():
+    # Documents this branch's known, accepted tradeoff: when the gate fires, slots
+    # 2..N are ordered by RRF score (not re-ranked by CrossEncoder), which can differ
+    # from what the CrossEncoder would have chosen. This test locks in that RRF
+    # ordering is what's actually returned, so a future change to this behavior is
+    # a visible, deliberate diff rather than a silent regression.
+    index, texts, metadata, embedding_model = _build_fixture(query_vector=[1.0, 0.0, 0.0, 0.0])
+    cross_encoder = _RecordingCrossEncoder()
+
+    results = retriever.retrieve_relevant_chunks(
+        "alpha",
+        index,
+        texts,
+        metadata,
+        embedding_model,
+        cross_encoder_model=cross_encoder,
+        top_n_final=3,
+    )
+
+    assert cross_encoder.predict_calls == 0
+    result_rrf_scores = [r["rrf_score"] for r in results]
+    assert result_rrf_scores == sorted(result_rrf_scores, reverse=True)

@@ -729,6 +729,7 @@ with tab1:
                     getattr(config, "RRF_K", 60),
                     getattr(config, "TOP_N_INITIAL_RETRIEVAL", 20),
                     config.EMBEDDING_MODEL_NAME,
+                    getattr(config, "CONFIDENCE_GATE_ENABLED", True),
                     getattr(config, "TOP_N_RETRIEVAL", 5),
                 )
 
