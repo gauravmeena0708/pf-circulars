@@ -162,6 +162,37 @@ def load_cached_faiss_index(
     return index, texts, metadata
 
 
+@st.cache_resource(max_entries=1)
+def prewarm_search_pipeline(
+    index_signature,
+    embedding_model_name,
+    _faiss_index,
+    _indexed_texts,
+    _indexed_metadata,
+    _embedding_model,
+    _bm25_cache_path,
+):
+    """Runs one throwaway retrieval at process startup so the first real user
+    query doesn't also pay for first-time embedding-model inference and BM25
+    setup. Cached so this only runs once per server process, not on every
+    Streamlit script rerun."""
+    _ = (index_signature, embedding_model_name)
+    try:
+        retrieve_relevant_chunks(
+            "a",
+            _faiss_index,
+            _indexed_texts,
+            _indexed_metadata,
+            _embedding_model,
+            top_n_final=1,
+            bm25_cache_path=_bm25_cache_path,
+        )
+        logger.info("Pre-warmed embedding model, FAISS index, and BM25 cache.")
+    except Exception as e:
+        logger.warning(f"Pre-warm failed (non-fatal, first real query will pay the cost): {e}", exc_info=True)
+    return True
+
+
 @st.cache_data(show_spinner=False, max_entries=128)
 def retrieve_cached_chunks(
     query,
@@ -396,7 +427,7 @@ st.sidebar.caption(
     "are used only for the current browser session."
 )
 
-# --- Load the persisted index; query models are loaded only when Tab 1 searches ---
+# --- Load the persisted index and pre-warm the search pipeline at startup ---
 index_dir = os.path.join(config.DEFAULT_INDEX_DIR, "data_index")
 bm25_cache_path = os.path.join(index_dir, f"{config.DEFAULT_INDEX_NAME}.bm25.json.gz")
 index_signature = get_index_file_signature(index_dir, config.DEFAULT_INDEX_NAME)
@@ -407,6 +438,19 @@ faiss_index, indexed_texts, indexed_metadata = load_cached_faiss_index(
     config.EMBEDDING_MODEL_NAME,
     None,
 )
+
+if faiss_index and indexed_texts and indexed_metadata:
+    _prewarm_embedding_model = load_embedding_model(config.EMBEDDING_MODEL_NAME, config.EMBEDDING_DEVICE)
+    if _prewarm_embedding_model:
+        prewarm_search_pipeline(
+            index_signature,
+            config.EMBEDDING_MODEL_NAME,
+            faiss_index,
+            indexed_texts,
+            indexed_metadata,
+            _prewarm_embedding_model,
+            bm25_cache_path,
+        )
 
 loaded_retrieval_signature = (index_signature, config.EMBEDDING_MODEL_NAME)
 if st.session_state.get("_loaded_retrieval_signature") != loaded_retrieval_signature:
