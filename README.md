@@ -49,7 +49,7 @@ An intelligent Retrieval-Augmented Generation (RAG) system for querying **8,800+
 * `pdf_parser.py`: OCR (EasyOCR / PyMuPDF) and Table Transformer processing.
 * `vector_indexer.py`: FAISS vector index creation and persistence utilities.
 * `data/manuals/`: PDF repository of EPFO statutory schemes and functional manuals.
-* `vector_store/`: Persisted FAISS vector index (tracked via Git LFS).
+* `vector_store/`: Persisted FAISS vector index, texts/metadata, and BM25 sparse cache (`*.bm25.json.gz`) — all tracked via Git LFS. The BM25 cache is regenerated automatically by `save_faiss_index()` whenever an ingestion script saves; re-commit it after re-indexing.
 
 ---
 

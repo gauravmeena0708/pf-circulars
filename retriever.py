@@ -134,10 +134,11 @@ def _persist_bm25(cache_path, corpus_fingerprint, document_count, bm25_instance)
                 pass
 
 
-def _get_or_build_bm25_index(all_indexed_texts, cache_path=None):
+def _get_or_build_bm25_index(all_indexed_texts, cache_path=None, use_memory_cache=True):
     """Loads BM25 from memory or disk, rebuilding it when the corpus changes."""
     if (
-        _BM25_CACHE["corpus"] is all_indexed_texts
+        use_memory_cache
+        and _BM25_CACHE["corpus"] is all_indexed_texts
         and _BM25_CACHE["bm25_instance"] is not None
     ):
         return _BM25_CACHE["bm25_instance"]
@@ -171,8 +172,15 @@ def warm_bm25_cache(all_indexed_texts, cache_path):
 
     Ingestion scripts call this after writing a new index so the sparse
     index ships pre-built instead of being rebuilt on the first query.
+    Always bypasses the in-memory identity-based shortcut (use_memory_cache=False)
+    and validates against the persisted cache's fingerprint instead, so repeated
+    calls within one process on an in-place-mutated corpus list (e.g. checkpoint
+    saves during a long ingestion run) still detect that the corpus grew and
+    rebuild, instead of silently reusing a stale in-memory instance.
     """
-    _get_or_build_bm25_index(all_indexed_texts, cache_path)
+    if not all_indexed_texts:
+        return
+    _get_or_build_bm25_index(all_indexed_texts, cache_path, use_memory_cache=False)
 
 
 def _top_k_score_indices(scores, top_k):

@@ -267,7 +267,8 @@ def save_faiss_index(index, texts_for_retrieval, metadata_for_retrieval, index_d
         logger.info(f"Texts and metadata saved to {texts_path}")
         bm25_cache_path = os.path.join(index_dir, f"{index_name}.bm25.json.gz")
         retriever.warm_bm25_cache(texts_for_retrieval, bm25_cache_path)
-        logger.info(f"BM25 sparse index cache refreshed at {bm25_cache_path}")
+        if texts_for_retrieval:
+            logger.info(f"BM25 sparse index cache refreshed at {bm25_cache_path}")
     except Exception as e:
         logger.error(f"Error saving FAISS index or associated data: {e}", exc_info=True)
 

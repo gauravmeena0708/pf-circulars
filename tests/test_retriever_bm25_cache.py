@@ -2,7 +2,17 @@ import gzip
 import json
 import os
 
+import pytest
+
 import retriever
+
+
+@pytest.fixture(autouse=True)
+def _reset_bm25_cache():
+    yield
+    retriever._BM25_CACHE["corpus"] = None
+    retriever._BM25_CACHE["corpus_fingerprint"] = None
+    retriever._BM25_CACHE["bm25_instance"] = None
 
 
 def test_warm_bm25_cache_creates_persisted_file(tmp_path):
