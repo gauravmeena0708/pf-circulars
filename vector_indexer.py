@@ -2,6 +2,7 @@
 
 import os
 import json
+import sqlite3
 import faiss
 import numpy as np
 import logging
@@ -278,14 +279,32 @@ def save_faiss_index(index, texts_for_retrieval, metadata_for_retrieval, index_d
     if not os.path.exists(index_dir):
         os.makedirs(index_dir)
     index_path = os.path.join(index_dir, f"{index_name}.index")
-    texts_path = os.path.join(index_dir, f"{index_name}.texts.json") 
+    db_path = os.path.join(index_dir, f"{index_name}.passages.db")
     try:
         logger.info(f"Saving FAISS index to {index_path}")
         faiss.write_index(index, index_path)
-        retrieval_data = {"texts": texts_for_retrieval, "metadata": metadata_for_retrieval}
-        with open(texts_path, 'w', encoding='utf-8') as f:
-            json.dump(retrieval_data, f, ensure_ascii=False, indent=4)
-        logger.info(f"Texts and metadata saved to {texts_path}")
+
+        if os.path.exists(db_path):
+            os.remove(db_path)
+        conn = sqlite3.connect(db_path)
+        try:
+            conn.execute(
+                "CREATE TABLE passages (id INTEGER PRIMARY KEY, text TEXT NOT NULL, metadata TEXT NOT NULL)"
+            )
+            conn.executemany(
+                "INSERT INTO passages (id, text, metadata) VALUES (?, ?, ?)",
+                (
+                    (doc_id, text, json.dumps(meta, ensure_ascii=False))
+                    for doc_id, (text, meta) in enumerate(
+                        zip(texts_for_retrieval, metadata_for_retrieval)
+                    )
+                ),
+            )
+            conn.commit()
+        finally:
+            conn.close()
+        logger.info(f"Texts and metadata saved to {db_path}")
+
         bm25_cache_path = os.path.join(index_dir, f"{index_name}.bm25.json.gz")
         retriever.warm_bm25_cache(texts_for_retrieval, bm25_cache_path)
         if texts_for_retrieval:
@@ -294,13 +313,12 @@ def save_faiss_index(index, texts_for_retrieval, metadata_for_retrieval, index_d
         logger.error(f"Error saving FAISS index or associated data: {e}", exc_info=True)
 
 
-def load_faiss_index(index_dir, embedding_model_for_dim_check=None, index_name=config.DEFAULT_INDEX_NAME):
-    # Loads the FAISS index, corresponding texts, and metadata from disk.
+def load_faiss_binary_index(index_dir, embedding_model_for_dim_check=None, index_name=config.DEFAULT_INDEX_NAME):
+    # Loads just the FAISS binary index from disk, without touching passage text/metadata.
     index_path = os.path.join(index_dir, f"{index_name}.index")
-    texts_path = os.path.join(index_dir, f"{index_name}.texts.json")
-    if not os.path.exists(index_path) or not os.path.exists(texts_path):
-        logger.warning(f"Index file '{index_path}' or texts file '{texts_path}' not found.")
-        return None, None, None
+    if not os.path.exists(index_path):
+        logger.warning(f"Index file '{index_path}' not found.")
+        return None
     try:
         logger.info(f"Loading FAISS index from {index_path}")
         index = faiss.read_index(index_path)
@@ -308,13 +326,33 @@ def load_faiss_index(index_dir, embedding_model_for_dim_check=None, index_name=c
             expected_dim = embedding_model_for_dim_check.get_sentence_embedding_dimension()
             if index.d != expected_dim:
                 logger.error(f"Loaded index dimension ({index.d}) does not match embedding model dimension ({expected_dim}).")
-                return None, None, None
-        with open(texts_path, 'r', encoding='utf-8') as f:
-            retrieval_data = json.load(f)
-        texts_for_retrieval = retrieval_data.get("texts", [])
-        metadata_for_retrieval = retrieval_data.get("metadata", [])
+                return None
+        return index
+    except Exception as e:
+        logger.error(f"Error loading FAISS index: {e}", exc_info=True)
+        return None
+
+
+def load_faiss_index(index_dir, embedding_model_for_dim_check=None, index_name=config.DEFAULT_INDEX_NAME):
+    # Loads the FAISS index, corresponding texts, and metadata from disk.
+    index = load_faiss_binary_index(index_dir, embedding_model_for_dim_check, index_name)
+    if index is None:
+        return None, None, None
+
+    db_path = os.path.join(index_dir, f"{index_name}.passages.db")
+    if not os.path.exists(db_path):
+        logger.warning(f"Passages database '{db_path}' not found.")
+        return None, None, None
+    try:
+        conn = sqlite3.connect(db_path)
+        try:
+            rows = conn.execute("SELECT text, metadata FROM passages ORDER BY id").fetchall()
+        finally:
+            conn.close()
+        texts_for_retrieval = [row[0] for row in rows]
+        metadata_for_retrieval = [json.loads(row[1]) for row in rows]
         logger.info(f"FAISS index and {len(texts_for_retrieval)} text blocks with metadata loaded successfully.")
         return index, texts_for_retrieval, metadata_for_retrieval
     except Exception as e:
-        logger.error(f"Error loading FAISS index or associated data: {e}", exc_info=True)
+        logger.error(f"Error loading passages database: {e}", exc_info=True)
         return None, None, None
