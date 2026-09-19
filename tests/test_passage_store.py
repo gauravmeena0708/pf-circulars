@@ -109,3 +109,53 @@ def test_retrieve_relevant_chunks_gives_identical_results_for_lists_and_passage_
     )
 
     assert list_based_results == store_based_results
+
+
+def test_retrieve_relevant_chunks_gives_identical_results_with_confidence_gate_and_cross_encoder(tmp_path, monkeypatch):
+    """Proves the confidence-gate branch's direct all_indexed_metadata[agreed_doc_id]
+    access (used for its log line) also behaves identically for lists vs.
+    PassageStore views -- the other cross-check test never exercises this
+    branch since it never passes a cross_encoder_model."""
+    import faiss
+    import numpy as np
+
+    import retriever
+
+    texts = [
+        "alpha unique statutory reference one",
+        "beta unique statutory reference two",
+        "gamma unique statutory reference three",
+    ]
+    metadata = [{"source_pdf": f"doc{i}.pdf"} for i in range(3)]
+
+    db_path = os.path.join(str(tmp_path), "faiss_index.passages.db")
+    _write_passages_db(db_path, list(zip(range(3), texts, metadata)))
+    store = passage_store.open_passage_store(str(tmp_path))
+
+    dimension = 4
+    index = faiss.IndexFlatIP(dimension)
+    index.add(np.eye(3, dimension, dtype="float32"))
+
+    class _FixedVectorEmbeddingModel:
+        def encode(self, _texts, **_kwargs):
+            return np.array([0.0, 1.0, 0.0, 0.0], dtype="float32")
+
+    class _RecordingCrossEncoder:
+        def predict(self, pairs):
+            return [0.0] * len(pairs)
+
+    embedding_model = _FixedVectorEmbeddingModel()
+    cross_encoder = _RecordingCrossEncoder()
+
+    monkeypatch.setattr(retriever, "_has_high_confidence_agreement", lambda dense, sparse: True)
+
+    list_based_results = retriever.retrieve_relevant_chunks(
+        "beta", index, texts, metadata, embedding_model,
+        cross_encoder_model=cross_encoder, top_n_final=3,
+    )
+    store_based_results = retriever.retrieve_relevant_chunks(
+        "beta", index, store.texts, store.metadata, embedding_model,
+        cross_encoder_model=cross_encoder, top_n_final=3,
+    )
+
+    assert list_based_results == store_based_results

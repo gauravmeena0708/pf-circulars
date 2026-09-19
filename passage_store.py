@@ -64,6 +64,18 @@ class PassageStore:
     def __len__(self):
         return self._total
 
+    def close(self):
+        """Closes the underlying SQLite connection. Safe to call more than once."""
+        if self._conn is not None:
+            self._conn.close()
+            self._conn = None
+
+    def __del__(self):
+        try:
+            self.close()
+        except Exception:
+            pass
+
     def fetch_text(self, doc_id):
         # retriever.py indexes with doc ids taken straight from FAISS/BM25
         # results (numpy.int64), which plain Python lists accept via

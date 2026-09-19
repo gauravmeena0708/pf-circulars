@@ -49,7 +49,8 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           
           git add vector_store/data_index/faiss_index.index
-          git add vector_store/data_index/faiss_index.texts.json
+          git add vector_store/data_index/faiss_index.passages.db
+          git add vector_store/data_index/faiss_index.bm25.json.gz
 
           if git diff --staged --quiet; then
             echo "No changes to commit."
@@ -68,4 +69,4 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           pip install huggingface_hub
-          python -c "from huggingface_hub import HfApi; HfApi().upload_folder(folder_path='.', repo_id='gauravmeena0708/epfo-circulars', repo_type='space', ignore_patterns=['.git/*', '.github/*'])"
+          python -c "from huggingface_hub import HfApi; HfApi().upload_folder(folder_path='.', repo_id='gauravmeena0708/epfo-circulars', repo_type='space', ignore_patterns=['.git/*', '.github/*'], delete_patterns=['vector_store/data_index/faiss_index.texts.json'])"

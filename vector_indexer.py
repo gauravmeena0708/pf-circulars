@@ -280,13 +280,17 @@ def save_faiss_index(index, texts_for_retrieval, metadata_for_retrieval, index_d
         os.makedirs(index_dir)
     index_path = os.path.join(index_dir, f"{index_name}.index")
     db_path = os.path.join(index_dir, f"{index_name}.passages.db")
+    temp_db_path = db_path + ".tmp"
     try:
-        logger.info(f"Saving FAISS index to {index_path}")
-        faiss.write_index(index, index_path)
+        if len(texts_for_retrieval) != len(metadata_for_retrieval):
+            raise ValueError(
+                f"texts_for_retrieval ({len(texts_for_retrieval)}) and metadata_for_retrieval "
+                f"({len(metadata_for_retrieval)}) must be the same length."
+            )
 
-        if os.path.exists(db_path):
-            os.remove(db_path)
-        conn = sqlite3.connect(db_path)
+        if os.path.exists(temp_db_path):
+            os.remove(temp_db_path)
+        conn = sqlite3.connect(temp_db_path)
         try:
             conn.execute(
                 "CREATE TABLE passages (id INTEGER PRIMARY KEY, text TEXT NOT NULL, metadata TEXT NOT NULL)"
@@ -303,7 +307,11 @@ def save_faiss_index(index, texts_for_retrieval, metadata_for_retrieval, index_d
             conn.commit()
         finally:
             conn.close()
+        os.replace(temp_db_path, db_path)
         logger.info(f"Texts and metadata saved to {db_path}")
+
+        logger.info(f"Saving FAISS index to {index_path}")
+        faiss.write_index(index, index_path)
 
         bm25_cache_path = os.path.join(index_dir, f"{index_name}.bm25.json.gz")
         retriever.warm_bm25_cache(texts_for_retrieval, bm25_cache_path)
@@ -311,6 +319,12 @@ def save_faiss_index(index, texts_for_retrieval, metadata_for_retrieval, index_d
             logger.info(f"BM25 sparse index cache refreshed at {bm25_cache_path}")
     except Exception as e:
         logger.error(f"Error saving FAISS index or associated data: {e}", exc_info=True)
+    finally:
+        if os.path.exists(temp_db_path):
+            try:
+                os.remove(temp_db_path)
+            except OSError:
+                pass
 
 
 def load_faiss_binary_index(index_dir, embedding_model_for_dim_check=None, index_name=config.DEFAULT_INDEX_NAME):
