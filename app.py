@@ -28,7 +28,8 @@ import streamlit as st
 
 # Import configurations and modules
 import config
-from vector_indexer import load_faiss_index
+from vector_indexer import load_faiss_binary_index
+from passage_store import open_passage_store
 from retriever import retrieve_relevant_chunks
 from answer_generator import initialize_llm, get_llm_answer
 import pandas as pd
@@ -133,7 +134,7 @@ def get_session_llm_model(custom_token=None):
 def get_index_file_signature(index_dir, index_name):
     """Returns a lightweight signature that changes when either index file changes."""
     signature = []
-    for suffix in ("index", "texts.json"):
+    for suffix in ("index", "passages.db"):
         path = os.path.abspath(os.path.join(index_dir, f"{index_name}.{suffix}"))
         try:
             stat_result = os.stat(path)
@@ -151,15 +152,22 @@ def load_cached_faiss_index(
     embedding_model_name,
     _embedding_model,
 ):
-    """Loads and caches the persistent FAISS index and metadata in memory."""
+    """Loads and caches the persistent FAISS index, and opens a lazy
+    SQLite-backed passage store instead of loading all passage text and
+    metadata into memory."""
     # These values are intentionally part of the cache key.
     _ = (index_signature, embedding_model_name)
-    index, texts, metadata = load_faiss_index(
+    index = load_faiss_binary_index(
         index_dir,
         _embedding_model,
         index_name=index_name,
     )
-    return index, texts, metadata
+    if index is None:
+        return None, None, None
+    store = open_passage_store(index_dir, index_name=index_name)
+    if store is None:
+        return None, None, None
+    return index, store.texts, store.metadata
 
 
 @st.cache_resource(max_entries=1)
