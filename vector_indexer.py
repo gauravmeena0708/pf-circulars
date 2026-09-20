@@ -276,11 +276,20 @@ def encode_normalized(embedding_model, texts, **kwargs):
 
 def save_faiss_index(index, texts_for_retrieval, metadata_for_retrieval, index_dir, index_name=config.DEFAULT_INDEX_NAME):
     # Saves the FAISS index, corresponding texts, and metadata to disk.
+    #
+    # Both artifacts are written to temp paths first and only swapped into
+    # their final location -- via os.replace, each individually atomic --
+    # once BOTH writes have fully succeeded. This keeps the (index, db) pair
+    # atomic as a whole: a failure at either step (disk full, an interrupted
+    # process, a Windows file-lock denial) leaves the previously-saved,
+    # mutually-consistent pair untouched instead of publishing a passages.db
+    # that no longer matches the .index file's row count (or vice versa).
     if not os.path.exists(index_dir):
         os.makedirs(index_dir)
     index_path = os.path.join(index_dir, f"{index_name}.index")
     db_path = os.path.join(index_dir, f"{index_name}.passages.db")
     temp_db_path = db_path + ".tmp"
+    temp_index_path = index_path + ".tmp"
     try:
         if len(texts_for_retrieval) != len(metadata_for_retrieval):
             raise ValueError(
@@ -307,11 +316,20 @@ def save_faiss_index(index, texts_for_retrieval, metadata_for_retrieval, index_d
             conn.commit()
         finally:
             conn.close()
+
+        if os.path.exists(temp_index_path):
+            os.remove(temp_index_path)
+        faiss.write_index(index, temp_index_path)
+
+        # Both temp artifacts are complete -- publish them together. Each
+        # os.replace is individually atomic; doing the db swap first (as
+        # before) means a failure on the index swap still leaves a passages.db
+        # that is at worst *ahead* of a stale-but-internally-consistent index,
+        # never a torn write of either file.
         os.replace(temp_db_path, db_path)
         logger.info(f"Texts and metadata saved to {db_path}")
-
-        logger.info(f"Saving FAISS index to {index_path}")
-        faiss.write_index(index, index_path)
+        os.replace(temp_index_path, index_path)
+        logger.info(f"Saved FAISS index to {index_path}")
 
         bm25_cache_path = os.path.join(index_dir, f"{index_name}.bm25.json.gz")
         retriever.warm_bm25_cache(texts_for_retrieval, bm25_cache_path)
@@ -320,11 +338,12 @@ def save_faiss_index(index, texts_for_retrieval, metadata_for_retrieval, index_d
     except Exception as e:
         logger.error(f"Error saving FAISS index or associated data: {e}", exc_info=True)
     finally:
-        if os.path.exists(temp_db_path):
-            try:
-                os.remove(temp_db_path)
-            except OSError:
-                pass
+        for tmp_path in (temp_db_path, temp_index_path):
+            if os.path.exists(tmp_path):
+                try:
+                    os.remove(tmp_path)
+                except OSError:
+                    pass
 
 
 def load_faiss_binary_index(index_dir, embedding_model_for_dim_check=None, index_name=config.DEFAULT_INDEX_NAME):

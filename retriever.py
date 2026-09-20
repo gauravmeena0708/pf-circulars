@@ -335,10 +335,13 @@ def retrieve_relevant_chunks(query_text, faiss_index, all_indexed_texts, all_ind
         top_candidates = sorted_candidates[:top_n_initial]
 
         retrieved_results = []
+        metadata_by_id = {}
         for doc_id in top_candidates:
+            metadata = all_indexed_metadata[doc_id]
+            metadata_by_id[doc_id] = metadata
             retrieved_results.append({
                 "text": all_indexed_texts[doc_id],
-                "metadata": all_indexed_metadata[doc_id],
+                "metadata": metadata,
                 "score": float(dense_scores.get(doc_id, rrf_scores[doc_id])),
                 "rrf_score": float(rrf_scores[doc_id])
             })
@@ -352,9 +355,12 @@ def retrieve_relevant_chunks(query_text, faiss_index, all_indexed_texts, all_ind
             and _has_high_confidence_agreement(dense_rankings, sparse_rankings)
         ):
             agreed_doc_id = min(dense_rankings, key=dense_rankings.get)
-            agreed_source = "unknown"
-            if 0 <= agreed_doc_id < len(all_indexed_metadata):
-                agreed_source = all_indexed_metadata[agreed_doc_id].get("source_pdf", "unknown")
+            # Reuse the metadata already fetched into retrieved_results above
+            # (agreed_doc_id -- rank 1 in both dense and sparse rankings --
+            # is always among top_candidates) instead of paying another
+            # passage-store round trip just to log its source.
+            agreed_metadata = metadata_by_id.get(agreed_doc_id)
+            agreed_source = agreed_metadata.get("source_pdf", "unknown") if agreed_metadata else "unknown"
             logger.info(
                 "Dense and sparse retrieval agree on top document id=%s (source=%s); skipping CrossEncoder re-ranking.",
                 agreed_doc_id, agreed_source,

@@ -4,6 +4,7 @@ import json
 import logging
 import os
 import sqlite3
+import threading
 
 import config
 
@@ -57,7 +58,15 @@ class PassageStore:
     def __init__(self, db_path):
         self._db_path = db_path
         self._conn = sqlite3.connect(db_path, check_same_thread=False)
-        self._total = self._conn.execute("SELECT COUNT(*) FROM passages").fetchone()[0]
+        # This one connection is shared (via app.py's @st.cache_resource) across
+        # every concurrent Streamlit session/thread in the process.
+        # check_same_thread=False only lifts Python's ownership check -- it does
+        # not make concurrent statement execution on one sqlite3.Connection safe.
+        # Serialize all access through this lock so two threads never call
+        # execute()/fetchone() on the connection at the same time.
+        self._lock = threading.Lock()
+        with self._lock:
+            self._total = self._conn.execute("SELECT COUNT(*) FROM passages").fetchone()[0]
         self.texts = _PassageTextsView(self)
         self.metadata = _PassageMetadataView(self)
 
@@ -84,30 +93,52 @@ class PassageStore:
         # column, so the query returns no row rather than raising. Coerce
         # to a native int first so a SQLite-backed store behaves exactly
         # like a list here too.
-        row = self._conn.execute(
-            "SELECT text FROM passages WHERE id = ?", (int(doc_id),)
-        ).fetchone()
+        with self._lock:
+            row = self._conn.execute(
+                "SELECT text FROM passages WHERE id = ?", (int(doc_id),)
+            ).fetchone()
         if row is None:
             raise IndexError(f"No passage with id {doc_id}")
         return row[0]
 
     def fetch_metadata(self, doc_id):
-        row = self._conn.execute(
-            "SELECT metadata FROM passages WHERE id = ?", (int(doc_id),)
-        ).fetchone()
+        with self._lock:
+            row = self._conn.execute(
+                "SELECT metadata FROM passages WHERE id = ?", (int(doc_id),)
+            ).fetchone()
         if row is None:
             raise IndexError(f"No passage with id {doc_id}")
         return json.loads(row[0])
 
     def iter_texts(self):
-        cursor = self._conn.execute("SELECT text FROM passages ORDER BY id")
-        for (text,) in cursor:
-            yield text
+        # Stream in bounded-size batches rather than either extreme:
+        # fetchall() would materialize the whole corpus at once, defeating
+        # this module's entire reason for existing (measured at ~371MB for
+        # the full-list path vs. ~2.2MB for the lazy path); holding the
+        # lock across every yield would block every other thread's
+        # point-lookups for the whole iteration. Re-acquiring the lock per
+        # batch bounds memory to one batch and lets other queries
+        # interleave between batches.
+        with self._lock:
+            cursor = self._conn.execute("SELECT text FROM passages ORDER BY id")
+        while True:
+            with self._lock:
+                batch = cursor.fetchmany(500)
+            if not batch:
+                return
+            for (text,) in batch:
+                yield text
 
     def iter_metadata(self):
-        cursor = self._conn.execute("SELECT metadata FROM passages ORDER BY id")
-        for (metadata_json,) in cursor:
-            yield json.loads(metadata_json)
+        with self._lock:
+            cursor = self._conn.execute("SELECT metadata FROM passages ORDER BY id")
+        while True:
+            with self._lock:
+                batch = cursor.fetchmany(500)
+            if not batch:
+                return
+            for (metadata_json,) in batch:
+                yield json.loads(metadata_json)
 
 
 def open_passage_store(index_dir, index_name=config.DEFAULT_INDEX_NAME):
