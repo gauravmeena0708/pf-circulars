@@ -24,7 +24,28 @@ def _stream_llm_answer(llm_instance, messages):
         )
 
 
-def format_prompt(query, retrieved_chunks_data):
+def _sanitize_conversation_context(conversation_context):
+    """Neutralizes text in conversation_context that could be mistaken for
+    our own prompt delimiters.
+
+    conversation_context is built from earlier turns' assistant answers --
+    LLM output nominally grounded in retrieved documents, but those
+    documents are bulk-ingested, untrusted PDFs. If a prior answer happens
+    to echo (or hallucinate) text resembling the "PREVIOUS CONVERSATION"
+    markers below, splicing it in verbatim could let it prematurely close
+    that block and have the remainder read as new instructions.
+    """
+    if not conversation_context:
+        return conversation_context
+    return (
+        conversation_context.replace(
+            "--- END PREVIOUS CONVERSATION ---", "[conversation marker omitted]"
+        ).replace("--- PREVIOUS CONVERSATION", "[conversation marker omitted]")
+    )
+
+
+def format_prompt(query, retrieved_chunks_data, conversation_context=""):
+    conversation_context = _sanitize_conversation_context(conversation_context)
     if not retrieved_chunks_data:
         context_str = "No relevant information found in the documents."
     else:
@@ -39,6 +60,14 @@ def format_prompt(query, retrieved_chunks_data):
             context_parts.append(f"Source [{i+1}] {source_info}:\n{chunk_data['text']}")
         context_str = "\n\n".join(context_parts)
 
+    history_section = (
+        f"\n--- PREVIOUS CONVERSATION (for follow-up context only; "
+        f"ground every factual claim in the numbered sources above, not in "
+        f"prior turns) ---\n{conversation_context}\n--- END PREVIOUS CONVERSATION ---\n"
+        if conversation_context
+        else ""
+    )
+
     prompt = f"""You are a helpful and precise assistant specializing in Employees' Provident Fund Organisation (EPFO) rules, circulars, schemes, and manuals.
 Answer the user's question based strictly on the context provided below.
 Support factual claims with inline source numbers such as [1] or [2], matching the numbered sources below the answer.
@@ -50,14 +79,14 @@ Context from EPFO Documents:
 -----------------------
 {context_str}
 -----------------------
-
+{history_section}
 Question: {query}
 
 Helpful & Grounded Answer:"""
     return prompt
 
 
-def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False):
+def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False, conversation_context=""):
     if not query:
         logger.warning("Query is empty. Cannot generate answer.")
         return "No query provided."
@@ -65,7 +94,7 @@ def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False):
         logger.error("LLM instance is not provided. Cannot generate answer.")
         return "LLM not available."
 
-    prompt_string = format_prompt(query, retrieved_chunks_data) 
+    prompt_string = format_prompt(query, retrieved_chunks_data, conversation_context=conversation_context)
     logger.debug(f"Formatted Prompt String for Chat LLM:\n{prompt_string}")
 
     logger.info(f"Sending prompt to Chat LLM for query: '{query[:100]}...'")

@@ -5,6 +5,7 @@ import io
 import logging
 import os
 import sys
+import time
 import zipfile
 
 # Ensure UTF-8 output encoding on Windows
@@ -53,12 +54,55 @@ from data_assistant import (
     search_dataframe,
     stream_tabular_query,
 )
+from rate_limiter import SlidingWindowRateLimiter
 from langchain_core.messages import HumanMessage
 from sentence_transformers import SentenceTransformer, CrossEncoder
 
 # Configure logging
 logger = logging.getLogger("RAGAppStreamlit")
 logging.basicConfig(level=config.LOG_LEVEL, format=config.LOG_FORMAT)
+
+# Shared across every browser session in this process: protects the
+# server's default Hugging Face token (config.HF_TOKEN) from being
+# exhausted by concurrent users. A session that supplies its own token in
+# the sidebar bypasses this limiter entirely -- see check_shared_llm_rate_limit.
+#
+# Streamlit re-executes this whole script top-to-bottom on every rerun (any
+# session's interaction), so the limiter instance itself must be created
+# through @st.cache_resource -- exactly like load_embedding_model below --
+# or a plain module-level assignment would build a brand-new, empty limiter
+# on every rerun and never actually accumulate request history.
+@st.cache_resource
+def _get_shared_llm_rate_limiter():
+    return SlidingWindowRateLimiter(
+        max_requests=getattr(config, "LLM_RATE_LIMIT_MAX_REQUESTS", 20),
+        window_seconds=getattr(config, "LLM_RATE_LIMIT_WINDOW_SECONDS", 60),
+    )
+
+
+def check_shared_llm_rate_limit(has_custom_token):
+    """Throttles LLM calls that fall back to the server's shared token.
+
+    Returns (allowed, retry_after_seconds). Always allowed when the current
+    session supplied its own Hugging Face token, since that draws on the
+    user's own account/budget rather than the shared one.
+    """
+    if has_custom_token:
+        return True, 0.0
+    return _get_shared_llm_rate_limiter().try_acquire()
+
+
+def format_shared_rate_limit_message(retry_after):
+    """Builds the user-facing "shared credential is busy" warning text.
+
+    Shared by every LLM entry point (tab1 answer generation, and both tab2
+    chat flows) so the wording can't drift between call sites.
+    """
+    return (
+        f"The shared AI credential is busy with other users' requests. "
+        f"Please retry in about {max(int(retry_after) + 1, 1)} second(s), "
+        f"or add your own Hugging Face token in the sidebar to bypass this limit."
+    )
 
 
 @st.cache_resource
@@ -469,6 +513,7 @@ if st.session_state.get("_loaded_retrieval_signature") != loaded_retrieval_signa
         "_answer_text",
         "_answer_status",
         "_answer_error",
+        "tab1_chat_history",
     ):
         st.session_state.pop(state_key, None)
     st.session_state["_loaded_retrieval_signature"] = loaded_retrieval_signature
@@ -486,16 +531,42 @@ with tab1:
     else:
         # Display concise readiness information
         answer_mode = "AI answers enabled" if user_hf_token or config.HF_TOKEN else "Search and citations enabled"
+        st.session_state.setdefault("tab1_chat_history", [])
+        # format_conversation_history (called below, when actually generating
+        # an answer) truncates to CIRCULAR_SEARCH_MAX_HISTORY_MESSAGES messages
+        # before sending anything to the LLM -- cap the displayed count the
+        # same way, so the UI never claims more context is "remembered" than
+        # the model will actually receive.
+        max_history_messages = getattr(config, "CIRCULAR_SEARCH_MAX_HISTORY_MESSAGES", 6)
+        remembered_exchanges = min(
+            len(st.session_state["tab1_chat_history"]) // 2,
+            max_history_messages // 2,
+        )
+        memory_pill = (
+            f"<span class=\"status-pill\">💬 {remembered_exchanges} previous "
+            f"exchange{'s' if remembered_exchanges != 1 else ''} remembered</span>"
+            if remembered_exchanges
+            else ""
+        )
         st.markdown(
             f"""
             <div class="corpus-status">
                 <span class="status-pill">{faiss_index.ntotal:,} passages indexed</span>
                 <span class="status-pill">8,820 circulars + 16 manuals</span>
                 <span class="status-pill">{answer_mode}</span>
+                {memory_pill}
             </div>
             """,
             unsafe_allow_html=True,
         )
+        if remembered_exchanges:
+            if st.button(
+                "🔄 Clear conversation memory",
+                key="btn_clear_tab1_history",
+                help="Forget previous follow-up context; new answers will not reference earlier questions in this session.",
+            ):
+                st.session_state["tab1_chat_history"] = []
+                st.rerun()
 
         st.sidebar.markdown("### Knowledge base")
         st.sidebar.caption(
@@ -767,32 +838,59 @@ with tab1:
                 if retrieved_data:
                     llm = get_session_llm_model(custom_token=user_hf_token)
                     if llm:
-                        st.markdown("### Answer")
-                        try:
-                            answer_stream = get_llm_answer(query, retrieved_data, llm, stream=True)
-
-                            def stream_generator():
-                                for chunk in answer_stream:
-                                    if hasattr(chunk, 'content'):
-                                        yield chunk.content
-                                    else:
-                                        yield str(chunk)
-
-                            streamed_answer = st.write_stream(stream_generator())
-                            if isinstance(streamed_answer, str):
-                                answer_text = streamed_answer
-                            else:
-                                answer_text = "".join(str(part) for part in streamed_answer)
-                            st.session_state["_answer_text"] = answer_text
-                            st.session_state["_answer_status"] = "generated"
-                            answer_rendered_this_run = True
-                            render_action_bar(query, answer_text, retrieved_data)
-                        except Exception as gen_err:
-                            logger.error("Error during LLM generation: %s", gen_err, exc_info=True)
-                            st.session_state["_answer_status"] = "error"
-                            st.session_state["_answer_error"] = str(gen_err)
-                            st.error(f"Error during LLM generation: {gen_err}")
+                        rate_allowed, retry_after = check_shared_llm_rate_limit(bool(user_hf_token))
+                        if not rate_allowed:
+                            st.session_state["_answer_status"] = "rate_limited"
+                            st.session_state["_answer_error"] = format_shared_rate_limit_message(retry_after)
+                            # Remember when this throttle actually expires so a
+                            # later, unrelated rerun (switching tabs, clicking
+                            # another button) doesn't keep re-showing this
+                            # warning long after the rate-limit window passed.
+                            st.session_state["_answer_rate_limit_until"] = time.monotonic() + retry_after
+                            st.warning(st.session_state["_answer_error"])
                             status_rendered_this_run = True
+                        else:
+                            st.markdown("### Answer")
+                            try:
+                                conversation_context = format_conversation_history(
+                                    st.session_state.get("tab1_chat_history", []),
+                                    max_chars=getattr(config, "CIRCULAR_SEARCH_MAX_HISTORY_CHARS", 8_000),
+                                    max_messages=getattr(config, "CIRCULAR_SEARCH_MAX_HISTORY_MESSAGES", 6),
+                                )
+                                answer_stream = get_llm_answer(
+                                    query,
+                                    retrieved_data,
+                                    llm,
+                                    stream=True,
+                                    conversation_context=conversation_context,
+                                )
+
+                                def stream_generator():
+                                    for chunk in answer_stream:
+                                        if hasattr(chunk, 'content'):
+                                            yield chunk.content
+                                        else:
+                                            yield str(chunk)
+
+                                streamed_answer = st.write_stream(stream_generator())
+                                if isinstance(streamed_answer, str):
+                                    answer_text = streamed_answer
+                                else:
+                                    answer_text = "".join(str(part) for part in streamed_answer)
+                                st.session_state["_answer_text"] = answer_text
+                                st.session_state["_answer_status"] = "generated"
+                                st.session_state.setdefault("tab1_chat_history", []).extend([
+                                    {"role": "user", "content": query},
+                                    {"role": "assistant", "content": answer_text},
+                                ])
+                                answer_rendered_this_run = True
+                                render_action_bar(query, answer_text, retrieved_data)
+                            except Exception as gen_err:
+                                logger.error("Error during LLM generation: %s", gen_err, exc_info=True)
+                                st.session_state["_answer_status"] = "error"
+                                st.session_state["_answer_error"] = str(gen_err)
+                                st.error(f"Error during LLM generation: {gen_err}")
+                                status_rendered_this_run = True
                     else:
                         st.session_state["_answer_status"] = "unavailable"
                 else:
@@ -814,6 +912,14 @@ with tab1:
                     render_action_bar(active_query, saved_answer_text, retrieved_data)
             elif answer_status == "error" and not status_rendered_this_run:
                 st.error(f"Error during LLM generation: {st.session_state.get('_answer_error', 'Unknown error')}")
+            elif answer_status == "rate_limited" and not status_rendered_this_run:
+                rate_limit_until = st.session_state.get("_answer_rate_limit_until", 0.0)
+                if time.monotonic() >= rate_limit_until:
+                    # The throttle window has already elapsed -- stop
+                    # re-showing a stale "busy" warning on unrelated reruns.
+                    st.session_state["_answer_status"] = None
+                else:
+                    st.warning(st.session_state.get("_answer_error", "The shared AI credential is busy. Please retry shortly."))
             elif answer_status == "unavailable":
                 st.info("AI synthesis is not enabled. Showing the most relevant source passages instead.")
                 render_action_bar(active_query, "", retrieved_data)
@@ -1131,6 +1237,18 @@ with tab2:
                 with st.chat_message("user"):
                     st.markdown(pending_query)
 
+                rate_allowed, retry_after = (
+                    check_shared_llm_rate_limit(bool(user_hf_token))
+                    if llm_client_tab2
+                    else (True, 0.0)
+                )
+                if not rate_allowed:
+                    full_response = "⚠️ " + format_shared_rate_limit_message(retry_after)
+                    with st.chat_message("assistant"):
+                        st.warning(full_response)
+                    st.session_state["tab2_chat_history"].append({"role": "assistant", "content": full_response})
+                    st.stop()
+
                 with st.chat_message("assistant"):
                     response_stream = stream_tabular_query(
                         df,
@@ -1324,6 +1442,18 @@ with tab2:
                 st.session_state["tab2_chat_history"].append({"role": "user", "content": pending_query})
                 with st.chat_message("user"):
                     st.markdown(pending_query)
+
+                rate_allowed, retry_after = (
+                    check_shared_llm_rate_limit(bool(user_hf_token))
+                    if llm_client_tab2
+                    else (True, 0.0)
+                )
+                if not rate_allowed:
+                    full_response = "⚠️ " + format_shared_rate_limit_message(retry_after)
+                    with st.chat_message("assistant"):
+                        st.warning(full_response)
+                    st.session_state["tab2_chat_history"].append({"role": "assistant", "content": full_response})
+                    st.stop()
 
                 with st.chat_message("assistant"):
                     response_stream = stream_document_query(

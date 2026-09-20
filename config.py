@@ -84,6 +84,26 @@ DATA_ASSISTANT_PREVIEW_ROWS = int(
     os.environ.get("DATA_ASSISTANT_PREVIEW_ROWS", "100")
 )
 
+# Circular & Manual Search Conversation Memory (Tab 1)
+CIRCULAR_SEARCH_MAX_HISTORY_CHARS = int(
+    os.environ.get("CIRCULAR_SEARCH_MAX_HISTORY_CHARS", "8000")
+)
+CIRCULAR_SEARCH_MAX_HISTORY_MESSAGES = int(
+    os.environ.get("CIRCULAR_SEARCH_MAX_HISTORY_MESSAGES", "6")
+)
+
+# Shared LLM Rate Limiting
+# Protects the server-side default HF_TOKEN from being exhausted by
+# concurrent users. A session that supplies its own Hugging Face token in
+# the sidebar draws on that user's own account/budget instead, so it is not
+# subject to this limit. Set LLM_RATE_LIMIT_MAX_REQUESTS to 0 to disable.
+LLM_RATE_LIMIT_MAX_REQUESTS = int(
+    os.environ.get("LLM_RATE_LIMIT_MAX_REQUESTS", "20")
+)
+LLM_RATE_LIMIT_WINDOW_SECONDS = int(
+    os.environ.get("LLM_RATE_LIMIT_WINDOW_SECONDS", "60")
+)
+
 DEFAULT_INDEX_DIR = "vector_store"
 DEFAULT_INDEX_NAME = "faiss_index" # The FAISS index file itself
 PROCESSED_DATA_DIR = "processed_pdf_data"
