@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 HF_TOKEN = os.environ.get("HF_TOKEN")
-HF_INFERENCE_PROVIDER = os.environ.get("HF_INFERENCE_PROVIDER", "featherless-ai")
+HF_INFERENCE_PROVIDER = os.environ.get("HF_INFERENCE_PROVIDER", "groq")
 
 NGROK_AUTH_TOKEN = os.environ.get("NGROK_AUTH_TOKEN") # If you plan to use ngrok
 EMBEDDING_MODEL_NAME = 'sentence-transformers/all-MiniLM-L6-v2'
@@ -20,10 +20,15 @@ else:
 
 
 # LLM
-LLM_REPO_ID = os.environ.get("LLM_REPO_ID", "Qwen/Qwen2.5-7B-Instruct")
+LLM_REPO_ID = os.environ.get("LLM_REPO_ID", "openai/gpt-oss-20b")
 LLM_TASK = os.environ.get("LLM_TASK", "conversational")
 LLM_TEMPERATURE = float(os.environ.get("LLM_TEMPERATURE", "0.1"))
-LLM_MAX_NEW_TOKENS = int(os.environ.get("LLM_MAX_NEW_TOKENS", "2048"))
+LLM_MAX_NEW_TOKENS = int(os.environ.get("LLM_MAX_NEW_TOKENS", "1024"))
+# Reasoning models (gpt-oss) spend max_new_tokens on hidden reasoning before
+# answering; "low" keeps that small. Set to "" for non-reasoning models.
+LLM_REASONING_EFFORT = os.environ.get(
+    "LLM_REASONING_EFFORT", "low" if LLM_REPO_ID.startswith("openai/gpt-oss") else ""
+).strip()
 
 # Table Detection Model
 TABLE_DETECTION_MODEL = 'microsoft/table-transformer-detection'
@@ -64,10 +69,10 @@ DOCUMENT_ASSISTANT_MAX_UPLOAD_BYTES = int(
     os.environ.get("DOCUMENT_ASSISTANT_MAX_UPLOAD_BYTES", str(50 * 1024 * 1024))
 )
 DOCUMENT_ASSISTANT_MAX_CONTEXT_CHARS = int(
-    os.environ.get("DOCUMENT_ASSISTANT_MAX_CONTEXT_CHARS", "120000")
+    os.environ.get("DOCUMENT_ASSISTANT_MAX_CONTEXT_CHARS", "20000")
 )
 DOCUMENT_ASSISTANT_MAX_HISTORY_CHARS = int(
-    os.environ.get("DOCUMENT_ASSISTANT_MAX_HISTORY_CHARS", "12000")
+    os.environ.get("DOCUMENT_ASSISTANT_MAX_HISTORY_CHARS", "4000")
 )
 DOCUMENT_ASSISTANT_MAX_HISTORY_MESSAGES = int(
     os.environ.get("DOCUMENT_ASSISTANT_MAX_HISTORY_MESSAGES", "8")
@@ -78,7 +83,7 @@ DATA_ASSISTANT_MAX_UPLOAD_BYTES = int(
     os.environ.get("DATA_ASSISTANT_MAX_UPLOAD_BYTES", str(25 * 1024 * 1024))
 )
 DATA_ASSISTANT_MAX_CONTEXT_CHARS = int(
-    os.environ.get("DATA_ASSISTANT_MAX_CONTEXT_CHARS", "60000")
+    os.environ.get("DATA_ASSISTANT_MAX_CONTEXT_CHARS", "16000")
 )
 DATA_ASSISTANT_PREVIEW_ROWS = int(
     os.environ.get("DATA_ASSISTANT_PREVIEW_ROWS", "100")
@@ -86,7 +91,7 @@ DATA_ASSISTANT_PREVIEW_ROWS = int(
 
 # Circular & Manual Search Conversation Memory (Tab 1)
 CIRCULAR_SEARCH_MAX_HISTORY_CHARS = int(
-    os.environ.get("CIRCULAR_SEARCH_MAX_HISTORY_CHARS", "8000")
+    os.environ.get("CIRCULAR_SEARCH_MAX_HISTORY_CHARS", "3000")
 )
 CIRCULAR_SEARCH_MAX_HISTORY_MESSAGES = int(
     os.environ.get("CIRCULAR_SEARCH_MAX_HISTORY_MESSAGES", "6")
@@ -98,7 +103,7 @@ CIRCULAR_SEARCH_MAX_HISTORY_MESSAGES = int(
 # the sidebar draws on that user's own account/budget instead, so it is not
 # subject to this limit. Set LLM_RATE_LIMIT_MAX_REQUESTS to 0 to disable.
 LLM_RATE_LIMIT_MAX_REQUESTS = int(
-    os.environ.get("LLM_RATE_LIMIT_MAX_REQUESTS", "20")
+    os.environ.get("LLM_RATE_LIMIT_MAX_REQUESTS", "10")
 )
 LLM_RATE_LIMIT_WINDOW_SECONDS = int(
     os.environ.get("LLM_RATE_LIMIT_WINDOW_SECONDS", "60")

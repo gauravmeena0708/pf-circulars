@@ -7,7 +7,7 @@ This project is an advanced Retrieval-Augmented Generation (RAG) system specific
 - **Comprehensive Knowledge Archive**: Covers 8,820+ EPFO circulars (from 2006 to 2026) and 16 complete statutory manuals, schemes, and regulations (over 74,300 indexed vectors).
 - **Hybrid Retrieval Pipeline**: Combines dense semantic search (SBERT + FAISS) and sparse lexical search (BM25Okapi) fused via Reciprocal Rank Fusion (RRF) and re-ranked with a Cross-Encoder (`ms-marco-MiniLM-L-6-v2`).
 - **Robust PDF & Table Processing**: Handles both text-based and scanned image-based PDFs using PyMuPDF, Tesseract OCR, EasyOCR, and Hugging Face Table Transformer.
-- **LLM Integration**: Uses Hugging Face inference models (e.g. `Qwen/Qwen2.5-7B-Instruct`) for precise, citation-grounded answers.
+- **LLM Integration**: Uses Hugging Face Inference Providers (default `openai/gpt-oss-20b` on Groq) for precise, citation-grounded answers.
 - **Dual Interfaces**: High-speed Streamlit web application (`app.py`) and CLI tool (`main.py`).
 - **Git LFS Enabled**: Large FAISS index files (`>100 MB`) are tracked and versioned using Git Large File Storage.
 
@@ -15,7 +15,7 @@ This project is an advanced Retrieval-Augmented Generation (RAG) system specific
 - **Language**: Python 3.8+ (tested on Python 3.12)
 - **RAG & Search**: LangChain, FAISS (`faiss-cpu`), `rank-bm25`
 - **Embeddings & Re-ranking**: `sentence-transformers/all-MiniLM-L6-v2`, `cross-encoder/ms-marco-MiniLM-L-6-v2`
-- **LLM**: `Qwen/Qwen2.5-7B-Instruct` (via Hugging Face Endpoint)
+- **LLM**: `openai/gpt-oss-20b` via Hugging Face Inference Providers (Groq)
 - **PDF & OCR**: PyMuPDF (`fitz`), Tesseract OCR (`pytesseract`), EasyOCR, Table Transformer
 - **Web App**: Streamlit
 

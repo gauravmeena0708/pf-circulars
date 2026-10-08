@@ -167,7 +167,12 @@ def initialize_llm(hf_token=None, max_new_tokens=None):
             kwargs["provider"] = config.HF_INFERENCE_PROVIDER
 
         endpoint = HuggingFaceEndpoint(**kwargs)
-        chat_model = ChatHuggingFace(llm=endpoint)
+        chat_kwargs = {}
+        reasoning_effort = getattr(config, "LLM_REASONING_EFFORT", "")
+        if reasoning_effort:
+            # chat_completion() forwards extra_body verbatim to the provider.
+            chat_kwargs["model_kwargs"] = {"extra_body": {"reasoning_effort": reasoning_effort}}
+        chat_model = ChatHuggingFace(llm=endpoint, **chat_kwargs)
         logger.info("ChatHuggingFace LLM initialized successfully.")
         return chat_model
     except Exception as e:

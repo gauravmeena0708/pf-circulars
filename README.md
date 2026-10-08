@@ -28,7 +28,7 @@ An intelligent Retrieval-Augmented Generation (RAG) system for querying **8,800+
 * **Streamlit Web Application (`app.py`)**:
   * Reduced startup overhead by excluding OCR and table-detection models, caching retrieval models, and initializing the LLM only when needed.
   * Interactive query input with sample questions.
-  * Streaming AI answers powered by Hugging Face models (`Qwen/Qwen2.5-7B-Instruct`).
+  * Streaming AI answers powered by Hugging Face Inference Providers (`openai/gpt-oss-20b` on Groq by default).
   * Structured source cards with circular numbers, dates, pages, and direct links to official EPFO PDF documents.
 * **CLI Interface (`main.py`)**:
   * Fast command-line query execution and batch PDF re-indexing.
@@ -79,9 +79,10 @@ pip install -r requirements.txt
 Create a `.env` file in the root directory:
 ```env
 HF_TOKEN="your_huggingface_token"
-LLM_REPO_ID="Qwen/Qwen2.5-7B-Instruct"
+LLM_REPO_ID="openai/gpt-oss-20b"
+HF_INFERENCE_PROVIDER="groq"
 ```
-*(Note: Full hybrid search, relevance scoring, and source citations work without a token. `HF_TOKEN` is only required for AI answer synthesis).*
+*(Note: Full hybrid search, relevance scoring, and source citations work without a token. `HF_TOKEN` is only required for AI answer synthesis. To bill Groq instead of your Hugging Face credits, add a Groq API key under Hugging Face Settings → Inference Providers).*
 
 ---
 
