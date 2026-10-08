@@ -1,6 +1,7 @@
+from types import SimpleNamespace
 import unittest
 
-from answer_generator import format_prompt
+from answer_generator import describe_llm_error, format_prompt
 
 
 class FormatPromptTests(unittest.TestCase):
@@ -90,6 +91,45 @@ class FormatPromptTests(unittest.TestCase):
 
         self.assertIn("Source [1]", prompt)
         self.assertIn("Interest Rate Circular", prompt)
+
+    def test_english_answer_adds_no_language_instruction(self):
+        prompt = format_prompt("What is the PF interest rate?", self._sample_chunks())
+
+        self.assertNotIn("Hindi", prompt)
+
+    def test_hindi_answer_requests_hindi_but_keeps_citations_verbatim(self):
+        prompt = format_prompt(
+            "What is the PF interest rate?",
+            self._sample_chunks(),
+            answer_language="Hindi",
+        )
+
+        self.assertIn("Write the entire answer in Hindi", prompt)
+        self.assertIn("Keep source numbers such as [1]", prompt)
+        # The instruction must come before the question, alongside the other rules.
+        self.assertLess(
+            prompt.index("Write the entire answer in Hindi"),
+            prompt.index("Question: What is the PF interest rate?"),
+        )
+
+
+class DescribeLlmErrorTests(unittest.TestCase):
+    def _http_error(self, status):
+        error = Exception("provider error")
+        error.response = SimpleNamespace(status_code=status)
+        return error
+
+    def test_maps_known_status_codes_to_specific_reasons(self):
+        self.assertIn("(402)", describe_llm_error(self._http_error(402)))
+        self.assertIn("(403)", describe_llm_error(self._http_error(403)))
+        self.assertIn("(429)", describe_llm_error(self._http_error(429)))
+
+    def test_never_echoes_raw_exception_text(self):
+        message = describe_llm_error(RuntimeError("secret https://internal/url hf_abc123"))
+
+        self.assertIn("temporarily unavailable", message)
+        self.assertNotIn("hf_abc123", message)
+        self.assertNotIn("internal/url", message)
 
 
 if __name__ == "__main__":

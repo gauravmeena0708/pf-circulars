@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import io
+import logging
 import re
 from typing import Mapping, Sequence
 
@@ -11,6 +12,8 @@ import numpy as np
 import pandas as pd
 
 from document_assistant import format_conversation_history
+
+logger = logging.getLogger(__name__)
 
 
 class DataExtractionError(ValueError):
@@ -339,7 +342,7 @@ def stream_tabular_query(
 ):
     """Sends tabular dataset context and query to LLM and yields streaming chunks."""
     if not llm:
-        yield "⚠️ Language Model is not initialized.\n\nPlease enter your **Hugging Face Token** in the sidebar to enable AI synthesis."
+        yield "AI answers are not available right now. Add a Hugging Face token under Advanced settings in the sidebar to enable them."
         return
 
     from langchain_core.messages import HumanMessage
@@ -391,4 +394,9 @@ Detailed, precise, data-grounded response:"""
             else:
                 yield str(chunk)
     except Exception as e:
-        yield f"\n\n❌ Error during generation: {e}\n\n*Tip: Verify your token has 'Inference' permissions at https://huggingface.co/settings/tokens.*"
+        # Imported lazily so the dataframe helpers stay usable without the
+        # langchain_huggingface dependency answer_generator pulls in.
+        from answer_generator import describe_llm_error
+
+        logger.error("LLM error while streaming tabular answer: %s", e, exc_info=True)
+        yield f"\n\n{describe_llm_error(e)}"

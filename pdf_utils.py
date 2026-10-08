@@ -194,7 +194,6 @@ def compress_pdf(
             garbage=4,
             deflate=deflate,
             clean=clean,
-            linear=True,
         )
         return compressed_bytes, orig_size, len(compressed_bytes)
     finally:

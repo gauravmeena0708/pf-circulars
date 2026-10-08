@@ -32,7 +32,14 @@ import config
 from vector_indexer import load_faiss_binary_index
 from passage_store import open_passage_store
 from retriever import retrieve_relevant_chunks
-from answer_generator import initialize_llm, get_llm_answer
+from answer_generator import (
+    ANSWER_LANGUAGES,
+    describe_llm_error,
+    get_llm_answer,
+    initialize_llm,
+    language_instruction,
+)
+import fitz
 import pandas as pd
 import pdf_utils
 from docx_export import (
@@ -300,7 +307,7 @@ def stream_document_query(
 ):
     """Sends document text and query to LLM and yields streaming chunks."""
     if not llm:
-        yield "⚠️ Language Model is not initialized.\n\nPlease enter your **Hugging Face Token** in the sidebar to enable AI synthesis."
+        yield "AI answers are not available right now. Add a Hugging Face token under Advanced settings in the sidebar to enable them."
         return
 
     document_context, context_was_limited = select_document_context(
@@ -338,7 +345,7 @@ Detailed, factual, and well-structured response (refer to exact page/note number
 
     try:
         if context_was_limited:
-            yield "ℹ️ *The document exceeded the model context limit; the first, last, and most relevant pages were selected for this response.*\n\n"
+            yield "*The document exceeded the model context limit; the first, last, and most relevant pages were selected for this response.*\n\n"
         messages = [HumanMessage(content=full_prompt)]
         for chunk in llm.stream(messages):
             if hasattr(chunk, "content"):
@@ -347,13 +354,12 @@ Detailed, factual, and well-structured response (refer to exact page/note number
                 yield str(chunk)
     except Exception as e:
         logger.error(f"LLM Error during stream: {e}", exc_info=True)
-        yield f"\n\n❌ Error during generation: {e}\n\n*Tip: Verify your token has 'Inference' permissions at https://huggingface.co/settings/tokens.*"
+        yield f"\n\n{describe_llm_error(e)}"
 
 
 # --- Streamlit UI Configuration ---
 st.set_page_config(
     page_title="Chat with EPFO Circulars",
-    page_icon="📜",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
@@ -462,8 +468,20 @@ st.caption(
     "Search official EPFO circulars, statutory schemes, acts, and manuals "
     "covering guidance from 1952 to 2026."
 )
+st.info(
+    "This is an independent tool and not an official EPFO service. AI-generated "
+    "answers can be incomplete or wrong; always confirm against the linked "
+    "circular or manual before acting on them."
+)
 
 # --- Sidebar Configuration ---
+answer_language = st.sidebar.radio(
+    "Answer language",
+    ANSWER_LANGUAGES,
+    horizontal=True,
+    key="answer_language",
+    help="Sources are in English; AI answers can be written in Hindi.",
+)
 with st.sidebar.expander("Advanced settings", expanded=False):
     user_hf_token = st.text_input(
         "Hugging Face token",
@@ -520,14 +538,15 @@ if st.session_state.get("_loaded_retrieval_signature") != loaded_retrieval_signa
 
 # --- Top-Level Tabs ---
 tab1, tab2, tab3 = st.tabs([
-    "🏛️ Search Official Circulars & Manuals (8,820+ Docs)",
-    "📊 Uploaded Document & CSV Data Assistant",
-    "🛠️ Office PDF & Document Utilities",
+    "Search Official Circulars & Manuals (8,820+ Docs)",
+    "Uploaded Document & CSV Data Assistant",
+    "Office PDF & Document Utilities",
 ])
 
 with tab1:
     if not faiss_index or not indexed_texts or not indexed_metadata:
-        st.warning("⚠️ FAISS vector index not found. Run `python import_pf_circular_index.py` or `python index_manuals.py` first.")
+        logger.error("FAISS index not found in %s; run import_pf_circular_index.py or index_manuals.py.", index_dir)
+        st.warning("The circular search is temporarily unavailable. Please try again later.")
     else:
         # Display concise readiness information
         answer_mode = "AI answers enabled" if user_hf_token or config.HF_TOKEN else "Search and citations enabled"
@@ -543,7 +562,7 @@ with tab1:
             max_history_messages // 2,
         )
         memory_pill = (
-            f"<span class=\"status-pill\">💬 {remembered_exchanges} previous "
+            f"<span class=\"status-pill\">{remembered_exchanges} previous "
             f"exchange{'s' if remembered_exchanges != 1 else ''} remembered</span>"
             if remembered_exchanges
             else ""
@@ -551,7 +570,6 @@ with tab1:
         st.markdown(
             f"""
             <div class="corpus-status">
-                <span class="status-pill">{faiss_index.ntotal:,} passages indexed</span>
                 <span class="status-pill">8,820 circulars + 16 manuals</span>
                 <span class="status-pill">{answer_mode}</span>
                 {memory_pill}
@@ -561,7 +579,7 @@ with tab1:
         )
         if remembered_exchanges:
             if st.button(
-                "🔄 Clear conversation memory",
+                "Clear conversation memory",
                 key="btn_clear_tab1_history",
                 help="Forget previous follow-up context; new answers will not reference earlier questions in this session.",
             ):
@@ -604,13 +622,13 @@ with tab1:
                 "",
                 "---",
                 "",
-                "## 💡 Synthesized Answer",
+                "## Synthesized Answer",
                 "",
                 answer_text or "_No synthesized answer generated (Search & Citations mode)._",
                 "",
                 "---",
                 "",
-                f"## 📚 Source References ({len(retrieved_data)})",
+                f"## Source References ({len(retrieved_data)})",
                 "",
             ]
             for idx, item in enumerate(retrieved_data, start=1):
@@ -645,12 +663,12 @@ with tab1:
         def render_action_bar(query, answer_text, retrieved_data):
             """Renders action buttons below the generated answer: Download (MD & DOCX), Copy/Raw Markdown, and Feedback."""
             st.markdown("<div style='margin-top: 0.75rem;'></div>", unsafe_allow_html=True)
-            col1, col2, col3, col4, col5 = st.columns([1.8, 1.8, 1.8, 1.0, 1.0])
+            col1, col2, col3 = st.columns(3)
             
             with col1:
                 report_md = generate_markdown_report(query, answer_text, retrieved_data)
                 st.download_button(
-                    label="📥 Report (.md)",
+                    label="Report (.md)",
                     data=report_md,
                     file_name=f"epfo_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md",
                     mime="text/markdown",
@@ -674,7 +692,7 @@ with tab1:
                     ],
                 )
                 st.download_button(
-                    label="📄 Report (.docx)",
+                    label="Report (.docx)",
                     data=report_docx,
                     file_name=f"epfo_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.docx",
                     mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
@@ -682,13 +700,7 @@ with tab1:
                     help="Download a formatted Microsoft Word (.docx) document.",
                 )
             with col3:
-                show_raw = st.toggle("📋 View Raw Markdown", key="toggle_raw_md")
-            with col4:
-                if st.button("👍 Helpful", key="feedback_up", use_container_width=True, help="Mark this response as accurate and helpful"):
-                    st.toast("Thank you for your feedback!", icon="⭐")
-            with col5:
-                if st.button("👎 Issues", key="feedback_down", use_container_width=True, help="Report an issue or inaccurate citation"):
-                    st.toast("Feedback recorded. We will continue improving citation grounding.", icon="📝")
+                show_raw = st.toggle("View Raw Markdown", key="toggle_raw_md")
                     
             if show_raw and answer_text:
                 st.code(answer_text, language="markdown")
@@ -697,8 +709,8 @@ with tab1:
         def render_source_cards(retrieved_data):
             """Renders structured, visually enhanced citation cards for all retrieved chunks."""
             st.markdown("---")
-            st.markdown(f"### 📚 Verified Sources & Citations ({len(retrieved_data)})")
-            st.caption("Review official circulars, statutory manuals, and exact excerpts used to ground the answer.")
+            st.markdown(f"### Sources ({len(retrieved_data)})")
+            st.caption("Excerpts from the circulars and manuals used for the answer. Check the original document before relying on it.")
 
             for i, item in enumerate(retrieved_data):
                 meta = item.get('metadata', {})
@@ -713,27 +725,24 @@ with tab1:
                 title_lower = title.lower()
                 if doc_type == "manual" or "MANUAL" in str(circular_no) or "manual" in title_lower:
                     doc_label = "Statutory Manual"
-                    icon = "📘"
                     badge_class = "badge-manual"
                 elif "act" in title_lower or "scheme" in title_lower:
                     doc_label = "Act & Scheme"
-                    icon = "🏛️"
                     badge_class = "badge-act"
                 else:
                     doc_label = "Official Circular"
-                    icon = "📄"
                     badge_class = "badge-circular"
                     
-                header_title = f"{icon} Source [{i+1}] · {doc_label} · {title}"
+                header_title = f"[{i+1}] {doc_label} · {title}"
                 
                 with st.expander(header_title, expanded=(i == 0)):
                     # Metadata grid
                     st.markdown(
                         f"""
                         <div class="source-meta-grid">
-                            <div><strong>Identifier:</strong> <code>{circular_no}</code></div>
-                            <div><strong>Date:</strong> {date}</div>
-                            <div><strong>Page:</strong> {page_no}</div>
+                            <div><strong>Identifier:</strong> <code>{html.escape(str(circular_no))}</code></div>
+                            <div><strong>Date:</strong> {html.escape(str(date))}</div>
+                            <div><strong>Page:</strong> {html.escape(str(page_no))}</div>
                             <div><strong>Type:</strong> <span class="badge-pill {badge_class}">{doc_label}</span></div>
                         </div>
                         """,
@@ -742,13 +751,15 @@ with tab1:
                     
                     # Official PDF link or Local Reference
                     if pdf_link.startswith("http"):
-                        st.markdown(f"🔗 **[Open Official EPFO PDF Document]({pdf_link})**")
+                        st.markdown(f"**[Open Official EPFO PDF Document]({pdf_link})**")
                     elif pdf_link:
-                        st.markdown(f"📂 **Source Document:** `{pdf_link}`")
+                        st.markdown(f"**Source Document:** `{pdf_link}`")
 
                     # Excerpt Box
                     st.markdown("**Relevant Excerpt:**")
-                    excerpt_text = item.get("text", "").strip()
+                    # Passage text comes from bulk-ingested PDFs; escape it so
+                    # stray "<", "&" or markup cannot break or inject into the page.
+                    excerpt_text = html.escape(item.get("text", "").strip())
                     st.markdown(
                         f"""<div class="excerpt-box">{excerpt_text}</div>""",
                         unsafe_allow_html=True,
@@ -788,8 +799,8 @@ with tab1:
                 )
                 if embedding_model is None:
                     st.error(
-                        "The circular-search embedding model could not be loaded. "
-                        "The uploaded-file assistant remains available in the second tab."
+                        "The circular search is temporarily unavailable. "
+                        "The document and data assistant in the second tab still works."
                     )
                     st.stop()
 
@@ -799,7 +810,7 @@ with tab1:
                     config.EMBEDDING_DEVICE,
                 )
                 if reranker_name and cross_encoder_model is None:
-                    st.warning("Cross-encoder re-ranking is unavailable; using FAISS and BM25 ranking.")
+                    logger.warning("Cross-encoder re-ranking is unavailable; using FAISS and BM25 ranking.")
 
                 retrieval_settings = (
                     getattr(config, "USE_HYBRID_RETRIEVAL", True),
@@ -812,7 +823,7 @@ with tab1:
                     getattr(config, "TOP_N_RETRIEVAL", 5),
                 )
 
-                with st.spinner("Searching knowledge base with Hybrid Retrieval (BM25 + Dense FAISS)..."):
+                with st.spinner("Searching circulars and manuals..."):
                     retrieved_data = retrieve_cached_chunks(
                         query,
                         index_signature,
@@ -863,6 +874,7 @@ with tab1:
                                     llm,
                                     stream=True,
                                     conversation_context=conversation_context,
+                                    answer_language=answer_language,
                                 )
 
                                 def stream_generator():
@@ -888,8 +900,8 @@ with tab1:
                             except Exception as gen_err:
                                 logger.error("Error during LLM generation: %s", gen_err, exc_info=True)
                                 st.session_state["_answer_status"] = "error"
-                                st.session_state["_answer_error"] = str(gen_err)
-                                st.error(f"Error during LLM generation: {gen_err}")
+                                st.session_state["_answer_error"] = describe_llm_error(gen_err)
+                                st.error(st.session_state["_answer_error"])
                                 status_rendered_this_run = True
                     else:
                         st.session_state["_answer_status"] = "unavailable"
@@ -911,7 +923,7 @@ with tab1:
                     st.markdown(saved_answer_text)
                     render_action_bar(active_query, saved_answer_text, retrieved_data)
             elif answer_status == "error" and not status_rendered_this_run:
-                st.error(f"Error during LLM generation: {st.session_state.get('_answer_error', 'Unknown error')}")
+                st.error(st.session_state.get("_answer_error") or "The answer could not be generated. Please try again.")
             elif answer_status == "rate_limited" and not status_rendered_this_run:
                 rate_limit_until = st.session_state.get("_answer_rate_limit_until", 0.0)
                 if time.monotonic() >= rate_limit_until:
@@ -921,7 +933,7 @@ with tab1:
                 else:
                     st.warning(st.session_state.get("_answer_error", "The shared AI credential is busy. Please retry shortly."))
             elif answer_status == "unavailable":
-                st.info("AI synthesis is not enabled. Showing the most relevant source passages instead.")
+                st.info("AI answers are not enabled. Showing the most relevant source passages instead.")
                 render_action_bar(active_query, "", retrieved_data)
 
             # Display Sources
@@ -935,7 +947,7 @@ with tab1:
 # TAB 2: UPLOADED DOCUMENT & CSV DATA ASSISTANT
 # =========================================================================
 with tab2:
-    st.markdown("#### 📊 Analyze Uploaded Documents (PDF) or Data (CSV)")
+    st.markdown("#### Analyze Uploaded Documents (PDF) or Data (CSV)")
     st.caption(
         "PDFs can contain noting sheets or other documents. CSV files may use any filename, "
         "columns, subject area, or row structure."
@@ -1022,9 +1034,9 @@ with tab2:
             st.markdown(
                 f"""
                 <div class="doc-meta-box">
-                    <span class="status-pill">📊 {safe_uploaded_name}</span>
-                    <span class="status-pill">📑 {profile.row_count:,} Rows</span>
-                    <span class="status-pill">🏷️ {profile.column_count} Columns</span>
+                    <span class="status-pill">{safe_uploaded_name}</span>
+                    <span class="status-pill">{profile.row_count:,} Rows</span>
+                    <span class="status-pill">{profile.column_count} Columns</span>
                     <span class="status-pill">{llm_status_badge}</span>
                 </div>
                 """,
@@ -1032,7 +1044,7 @@ with tab2:
             )
 
             # Interactive Table & Profile Explorer
-            with st.expander("🔍 Interactive Data Explorer & Summary Statistics", expanded=False):
+            with st.expander("Interactive Data Explorer & Summary Statistics", expanded=False):
                 col_exp1, col_exp2 = st.columns([2, 1])
                 with col_exp1:
                     st.markdown("**Dataset Preview:**")
@@ -1061,11 +1073,11 @@ with tab2:
                     st.dataframe(num_summary_df, use_container_width=True)
 
             # Interactive Analytical Tools: Quick Search & Distribution Visualizer
-            st.markdown("##### 🛠️ Interactive Analytics & Visualizer")
+            st.markdown("##### Interactive Analytics & Visualizer")
             tool_tab1, tool_tab2 = st.columns([1.2, 1])
 
             with tool_tab1:
-                st.markdown("**🔍 Keyword / Exact Term Search:**")
+                st.markdown("**Keyword / Exact Term Search:**")
                 search_term = st.text_input(
                     "Search across all columns",
                     value="",
@@ -1089,7 +1101,7 @@ with tab2:
                         )
 
             with tool_tab2:
-                st.markdown("**📈 Column Distribution Visualizer:**")
+                st.markdown("**Column Distribution Visualizer:**")
                 selected_col = st.selectbox(
                     "Select column to visualize",
                     options=list(df.columns),
@@ -1101,7 +1113,7 @@ with tab2:
                         st.bar_chart(val_counts)
 
             # Quick Action Buttons for CSV
-            st.markdown("##### ⚡ Quick Presets")
+            st.markdown("##### Quick Presets")
             c1, c2, c3, c4, c5 = st.columns([1.2, 1.2, 1.2, 1.3, 0.7])
 
             pending_query = None
@@ -1146,23 +1158,23 @@ with tab2:
             )
 
             brief_clicked = c1.button(
-                "📋 Dataset Overview",
+                "Dataset Overview",
                 use_container_width=True,
                 key="btn_csv_brief",
             )
             breakdown_clicked = c2.button(
-                "🧹 Data Quality",
+                "Data Quality",
                 use_container_width=True,
                 key="btn_csv_breakdown",
             )
             primary_column_clicked = c3.button(
-                f"📊 {primary_button_label}",
+                f"{primary_button_label}",
                 use_container_width=True,
                 key="btn_csv_primary_column",
                 help=f"Analyze the '{primary_focus_column}' column",
             )
             secondary_column_clicked = c4.button(
-                f"🔎 {secondary_button_label}",
+                f"{secondary_button_label}",
                 use_container_width=True,
                 key="btn_csv_secondary_column",
                 help=(
@@ -1172,7 +1184,7 @@ with tab2:
                 ),
             )
             clear_clicked = c5.button(
-                "🔄 Clear",
+                "Clear",
                 use_container_width=True,
                 key="btn_clear_tab2",
                 help="Clear conversation history",
@@ -1216,7 +1228,7 @@ with tab2:
 
             # Interactive Chat
             st.markdown("---")
-            st.markdown("##### 💬 Conversation & Query Assistant")
+            st.markdown("##### Conversation & Query Assistant")
 
             for msg in st.session_state.get("tab2_chat_history", []):
                 with st.chat_message(msg["role"]):
@@ -1243,7 +1255,7 @@ with tab2:
                     else (True, 0.0)
                 )
                 if not rate_allowed:
-                    full_response = "⚠️ " + format_shared_rate_limit_message(retry_after)
+                    full_response = format_shared_rate_limit_message(retry_after)
                     with st.chat_message("assistant"):
                         st.warning(full_response)
                     st.session_state["tab2_chat_history"].append({"role": "assistant", "content": full_response})
@@ -1253,7 +1265,9 @@ with tab2:
                     response_stream = stream_tabular_query(
                         df,
                         pending_query,
-                        system_instruction=pending_instruction,
+                        system_instruction="\n".join(
+                            part for part in (pending_instruction, language_instruction(answer_language)) if part
+                        ),
                         llm=llm_client_tab2,
                         chat_history=st.session_state["tab2_chat_history"][:-1],
                         max_context_chars=getattr(
@@ -1277,13 +1291,13 @@ with tab2:
                     "",
                 ]
                 for msg in st.session_state["tab2_chat_history"]:
-                    role_label = "👤 User Query" if msg["role"] == "user" else "🤖 Data Analysis & Response"
+                    role_label = "User Query" if msg["role"] == "user" else "Data Analysis & Response"
                     report_lines.append(f"## {role_label}\n\n{msg['content']}\n\n---\n")
 
                 col_csv_dl1, col_csv_dl2 = st.columns(2)
                 with col_csv_dl1:
                     st.download_button(
-                        label="📥 Download Report (.md)",
+                        label="Download Report (.md)",
                         data="\n".join(report_lines),
                         file_name=f"data_analysis_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md",
                         mime="text/markdown",
@@ -1299,7 +1313,7 @@ with tab2:
                         },
                     )
                     st.download_button(
-                        label="📄 Download Report (.docx)",
+                        label="Download Report (.docx)",
                         data=csv_docx,
                         file_name=f"data_analysis_{datetime.now().strftime('%Y%m%d_%H%M%S')}.docx",
                         mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
@@ -1359,47 +1373,47 @@ with tab2:
             st.markdown(
                 f"""
                 <div class="doc-meta-box">
-                    <span class="status-pill">📄 {safe_uploaded_name}</span>
-                    <span class="status-pill">📑 {page_count} Pages</span>
-                    <span class="status-pill">🔤 ~{len(doc_text.split()):,} Words</span>
+                    <span class="status-pill">{safe_uploaded_name}</span>
+                    <span class="status-pill">{page_count} Pages</span>
+                    <span class="status-pill">~{len(doc_text.split()):,} Words</span>
                     <span class="status-pill">{llm_status_badge}</span>
                 </div>
                 """,
                 unsafe_allow_html=True,
             )
 
-            with st.expander("🔍 View Raw Extracted Document Text", expanded=False):
+            with st.expander("View Raw Extracted Document Text", expanded=False):
                 st.text_area("Extracted Content", doc_text, height=250)
 
             # Quick Action Buttons
-            st.markdown("##### ⚡ Quick Presets")
+            st.markdown("##### Quick Presets")
             c1, c2, c3, c4, c5 = st.columns([1.2, 1.2, 1.2, 1.3, 0.7])
 
             pending_query = None
             pending_instruction = ""
 
             summary_clicked = c1.button(
-                "📋 Executive Summary",
+                "Executive Summary",
                 use_container_width=True,
                 key="btn_summary",
             )
             note_clicked = c2.button(
-                "📑 Self-Contained Note",
+                "Self-Contained Note",
                 use_container_width=True,
                 key="btn_note",
             )
             timeline_clicked = c3.button(
-                "📅 Timeline Table",
+                "Timeline Table",
                 use_container_width=True,
                 key="btn_timeline",
             )
             finance_clicked = c4.button(
-                "💰 Finance Division View",
+                "Finance Division View",
                 use_container_width=True,
                 key="btn_finance",
             )
             clear_clicked = c5.button(
-                "🔄 Clear",
+                "Clear",
                 use_container_width=True,
                 key="btn_clear_tab2",
                 help="Clear conversation history",
@@ -1423,7 +1437,7 @@ with tab2:
 
             # Interactive Chat History & Input
             st.markdown("---")
-            st.markdown("##### 💬 Conversation & Analysis")
+            st.markdown("##### Conversation & Analysis")
 
             # Render previous chat history
             for msg in st.session_state.get("tab2_chat_history", []):
@@ -1449,7 +1463,7 @@ with tab2:
                     else (True, 0.0)
                 )
                 if not rate_allowed:
-                    full_response = "⚠️ " + format_shared_rate_limit_message(retry_after)
+                    full_response = format_shared_rate_limit_message(retry_after)
                     with st.chat_message("assistant"):
                         st.warning(full_response)
                     st.session_state["tab2_chat_history"].append({"role": "assistant", "content": full_response})
@@ -1459,7 +1473,9 @@ with tab2:
                     response_stream = stream_document_query(
                         doc_text,
                         pending_query,
-                        system_instruction=pending_instruction,
+                        system_instruction="\n".join(
+                            part for part in (pending_instruction, language_instruction(answer_language)) if part
+                        ),
                         llm=llm_client_tab2,
                         chat_history=st.session_state["tab2_chat_history"][:-1],
                     )
@@ -1478,13 +1494,13 @@ with tab2:
                     "",
                 ]
                 for msg in st.session_state["tab2_chat_history"]:
-                    role_label = "👤 User Query" if msg["role"] == "user" else "🤖 Analysis & Response"
+                    role_label = "User Query" if msg["role"] == "user" else "Analysis & Response"
                     report_lines.append(f"## {role_label}\n\n{msg['content']}\n\n---\n")
 
                 col_pdf_dl1, col_pdf_dl2 = st.columns(2)
                 with col_pdf_dl1:
                     st.download_button(
-                        label="📥 Download Report (.md)",
+                        label="Download Report (.md)",
                         data="\n".join(report_lines),
                         file_name=f"noting_sheet_analysis_{datetime.now().strftime('%Y%m%d_%H%M%S')}.md",
                         mime="text/markdown",
@@ -1500,32 +1516,32 @@ with tab2:
                         },
                     )
                     st.download_button(
-                        label="📄 Download Report (.docx)",
+                        label="Download Report (.docx)",
                         data=pdf_docx,
                         file_name=f"noting_sheet_analysis_{datetime.now().strftime('%Y%m%d_%H%M%S')}.docx",
                         mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
                         use_container_width=True,
                     )
     else:
-        st.info("👈 Please upload a PDF noting sheet or CSV dataset above to begin.")
+        st.info("Please upload a PDF noting sheet or CSV dataset above to begin.")
 
 
 # =========================================================================
 # TAB 3: OFFICE PDF & DOCUMENT UTILITIES
 # =========================================================================
 with tab3:
-    st.markdown("#### 🛠️ Office PDF & Document Utilities")
+    st.markdown("#### Office PDF & Document Utilities")
     st.caption("Secure, 100% private, on-premises PDF tools for office staff. Files are processed in-memory and never leave your computer.")
 
     pdf_tool = st.radio(
         "Select PDF Utility:",
         [
-            "📑 Merge PDFs",
-            "✂️ Split & Extract Pages",
-            "🔄 Rotate Pages",
-            "🗜️ Compress PDF",
-            "🖼️ Image ↔ PDF Converter",
-            "🔍 Scanned PDF OCR (Bilingual)",
+            "Merge PDFs",
+            "Split & Extract Pages",
+            "Rotate Pages",
+            "Compress PDF",
+            "Image ↔ PDF Converter",
+            "Scanned PDF OCR (Bilingual)",
         ],
         horizontal=True,
         key="pdf_tool_selection",
@@ -1535,8 +1551,8 @@ with tab3:
     # -----------------------------------------------------------------
     # TOOL 1: MERGE PDFS
     # -----------------------------------------------------------------
-    if pdf_tool == "📑 Merge PDFs":
-        st.markdown("##### 📑 Merge Multiple PDF Documents")
+    if pdf_tool == "Merge PDFs":
+        st.markdown("##### Merge Multiple PDF Documents")
         st.caption("Combine 2, 3, or more PDF files into a single continuous PDF document.")
 
         merge_files = st.file_uploader(
@@ -1553,23 +1569,23 @@ with tab3:
                 st.markdown(f"{idx}. `{mf.name}` ({size_kb:.1f} KB)")
 
             if len(merge_files) < 2:
-                st.info("ℹ️ Please upload at least 2 PDF files to merge.")
+                st.info("Please upload at least 2 PDF files to merge.")
             else:
-                if st.button("🔗 Merge PDFs into Single Document", type="primary", key="btn_execute_merge"):
+                if st.button("Merge PDFs into Single Document", type="primary", key="btn_execute_merge"):
                     with st.spinner("Merging PDF documents in memory..."):
                         try:
                             pdf_bytes_list = [f.getvalue() for f in merge_files]
                             merged_bytes = pdf_utils.merge_pdfs(pdf_bytes_list)
                             st.session_state["merged_pdf_result"] = merged_bytes
                             st.session_state["merged_pdf_count"] = len(merge_files)
-                            st.success(f"✅ Successfully merged {len(merge_files)} PDF files ({len(merged_bytes) / (1024*1024):.2f} MB)!")
+                            st.success(f"Successfully merged {len(merge_files)} PDF files ({len(merged_bytes) / (1024*1024):.2f} MB)!")
                         except Exception as e:
-                            st.error(f"❌ Failed to merge PDFs: {e}")
+                            st.error(f"Failed to merge PDFs: {e}")
                             st.session_state["merged_pdf_result"] = None
 
                 if st.session_state.get("merged_pdf_result"):
                     st.download_button(
-                        label="📥 Download Merged PDF",
+                        label="Download Merged PDF",
                         data=st.session_state["merged_pdf_result"],
                         file_name=f"merged_document_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf",
                         mime="application/pdf",
@@ -1580,8 +1596,8 @@ with tab3:
     # -----------------------------------------------------------------
     # TOOL 2: SPLIT & EXTRACT PAGES
     # -----------------------------------------------------------------
-    elif pdf_tool == "✂️ Split & Extract Pages":
-        st.markdown("##### ✂️ Split or Extract Specific Pages from PDF")
+    elif pdf_tool == "Split & Extract Pages":
+        st.markdown("##### Split or Extract Specific Pages from PDF")
         st.caption("Extract custom page ranges (e.g. 1-3, 5, 8-10) or split every page into a separate PDF file.")
 
         split_file = st.file_uploader(
@@ -1603,9 +1619,9 @@ with tab3:
             st.markdown(
                 f"""
                 <div class="doc-meta-box">
-                    <span class="status-pill">📄 {html.escape(split_file.name)}</span>
-                    <span class="status-pill">📑 {total_pages} Total Pages</span>
-                    <span class="status-pill">📦 {len(raw_bytes)/(1024*1024):.2f} MB</span>
+                    <span class="status-pill">{html.escape(split_file.name)}</span>
+                    <span class="status-pill">{total_pages} Total Pages</span>
+                    <span class="status-pill">{len(raw_bytes)/(1024*1024):.2f} MB</span>
                 </div>
                 """,
                 unsafe_allow_html=True,
@@ -1627,19 +1643,19 @@ with tab3:
                     help="Examples: '1-5', '1, 3, 5', '2-4, 7-10', 'all'",
                 )
 
-                if st.button("✂️ Extract Pages into New PDF", type="primary", key="btn_execute_split"):
+                if st.button("Extract Pages into New PDF", type="primary", key="btn_execute_split"):
                     with st.spinner("Extracting specified pages..."):
                         try:
                             extracted_bytes = pdf_utils.split_pdf(raw_bytes, page_range_input)
                             st.session_state["split_pdf_result"] = extracted_bytes
-                            st.success(f"✅ Successfully extracted pages ({page_range_input}) into new PDF!")
+                            st.success(f"Successfully extracted pages ({page_range_input}) into new PDF!")
                         except Exception as e:
-                            st.error(f"❌ Extraction error: {e}")
+                            st.error(f"Extraction error: {e}")
                             st.session_state["split_pdf_result"] = None
 
                 if st.session_state.get("split_pdf_result"):
                     st.download_button(
-                        label="📥 Download Extracted PDF",
+                        label="Download Extracted PDF",
                         data=st.session_state["split_pdf_result"],
                         file_name=f"extracted_{os.path.splitext(split_file.name)[0]}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf",
                         mime="application/pdf",
@@ -1647,7 +1663,7 @@ with tab3:
                         use_container_width=True,
                     )
             else:
-                if st.button("📦 Split All Pages to ZIP Archive", type="primary", key="btn_execute_zip_split"):
+                if st.button("Split All Pages to ZIP Archive", type="primary", key="btn_execute_zip_split"):
                     with st.spinner("Splitting all pages..."):
                         try:
                             individual_pages = pdf_utils.split_pdf_to_individual_pages(raw_bytes)
@@ -1657,14 +1673,14 @@ with tab3:
                                     zip_out.writestr(page_name, page_bytes)
                             zip_bytes = zip_buf.getvalue()
                             st.session_state["split_zip_result"] = zip_bytes
-                            st.success(f"✅ Successfully generated ZIP with {len(individual_pages)} individual PDF pages!")
+                            st.success(f"Successfully generated ZIP with {len(individual_pages)} individual PDF pages!")
                         except Exception as e:
-                            st.error(f"❌ Error: {e}")
+                            st.error(f"Error: {e}")
                             st.session_state["split_zip_result"] = None
 
                 if st.session_state.get("split_zip_result"):
                     st.download_button(
-                        label="📥 Download All Pages (ZIP Archive)",
+                        label="Download All Pages (ZIP Archive)",
                         data=st.session_state["split_zip_result"],
                         file_name=f"split_pages_{os.path.splitext(split_file.name)[0]}.zip",
                         mime="application/zip",
@@ -1675,8 +1691,8 @@ with tab3:
     # -----------------------------------------------------------------
     # TOOL 3: ROTATE PAGES
     # -----------------------------------------------------------------
-    elif pdf_tool == "🔄 Rotate Pages":
-        st.markdown("##### 🔄 Rotate & Correct Page Orientation")
+    elif pdf_tool == "Rotate Pages":
+        st.markdown("##### Rotate & Correct Page Orientation")
         st.caption("Fix upside-down or sideways scanned pages (90°, 180°, 270°).")
 
         rotate_file = st.file_uploader(
@@ -1722,20 +1738,20 @@ with tab3:
                     help="e.g. '1', '1, 3', '2-4'",
                 )
 
-            if st.button("🔄 Rotate and Generate PDF", type="primary", key="btn_execute_rotate"):
+            if st.button("Rotate and Generate PDF", type="primary", key="btn_execute_rotate"):
                 with st.spinner("Rotating document pages..."):
                     try:
                         deg = rotation_choice[1]
                         rotated_bytes = pdf_utils.rotate_pdf_pages(raw_bytes, deg, custom_rot_range)
                         st.session_state["rotated_pdf_result"] = rotated_bytes
-                        st.success("✅ Successfully rotated document pages!")
+                        st.success("Successfully rotated document pages!")
                     except Exception as e:
-                        st.error(f"❌ Rotation error: {e}")
+                        st.error(f"Rotation error: {e}")
                         st.session_state["rotated_pdf_result"] = None
 
             if st.session_state.get("rotated_pdf_result"):
                 st.download_button(
-                    label="📥 Download Rotated PDF",
+                    label="Download Rotated PDF",
                     data=st.session_state["rotated_pdf_result"],
                     file_name=f"rotated_{os.path.splitext(rotate_file.name)[0]}.pdf",
                     mime="application/pdf",
@@ -1746,8 +1762,8 @@ with tab3:
     # -----------------------------------------------------------------
     # TOOL 4: COMPRESS PDF
     # -----------------------------------------------------------------
-    elif pdf_tool == "🗜️ Compress PDF":
-        st.markdown("##### 🗜️ Compress & Optimize PDF File Size")
+    elif pdf_tool == "Compress PDF":
+        st.markdown("##### Compress & Optimize PDF File Size")
         st.caption("Reduce PDF file size for portal uploads (e-Office, EPFO portal, email) without quality degradation.")
 
         compress_file = st.file_uploader(
@@ -1762,15 +1778,15 @@ with tab3:
 
             st.markdown(f"**Original File Size:** `{orig_mb:.2f} MB` ({len(raw_bytes):,} bytes)")
 
-            if st.button("🗜️ Compress & Optimize PDF", type="primary", key="btn_execute_compress"):
+            if st.button("Compress & Optimize PDF", type="primary", key="btn_execute_compress"):
                 with st.spinner("Compressing and deflating PDF streams in memory..."):
                     try:
                         compressed_bytes, orig_size, new_size = pdf_utils.compress_pdf(raw_bytes)
                         st.session_state["compressed_pdf_result"] = compressed_bytes
                         st.session_state["compress_stats"] = (orig_size, new_size)
-                        st.success("✅ PDF Optimization complete!")
+                        st.success("PDF Optimization complete!")
                     except Exception as e:
-                        st.error(f"❌ Compression error: {e}")
+                        st.error(f"Compression error: {e}")
                         st.session_state["compressed_pdf_result"] = None
 
             if st.session_state.get("compressed_pdf_result"):
@@ -1783,7 +1799,7 @@ with tab3:
                 m3.metric("Reduction Saved", f"{saved_pct:.1f}%")
 
                 st.download_button(
-                    label="📥 Download Compressed PDF",
+                    label="Download Compressed PDF",
                     data=st.session_state["compressed_pdf_result"],
                     file_name=f"compressed_{os.path.splitext(compress_file.name)[0]}.pdf",
                     mime="application/pdf",
@@ -1794,18 +1810,18 @@ with tab3:
     # -----------------------------------------------------------------
     # TOOL 5: IMAGE <-> PDF CONVERTER
     # -----------------------------------------------------------------
-    elif pdf_tool == "🖼️ Image ↔ PDF Converter":
-        st.markdown("##### 🖼️ Image ↔ PDF Converter")
+    elif pdf_tool == "Image ↔ PDF Converter":
+        st.markdown("##### Image ↔ PDF Converter")
         st.caption("Convert phone camera photos/receipts (JPG/PNG) into a single PDF, or extract PDF pages as images.")
 
         conv_mode = st.radio(
             "Select Conversion Direction:",
-            ["📷 Images ➔ Single PDF Document", "📄 PDF Document ➔ Images ZIP Archive"],
+            ["Images to Single PDF Document", "PDF Document to Images ZIP Archive"],
             key="img_pdf_direction_radio",
             horizontal=True,
         )
 
-        if conv_mode == "📷 Images ➔ Single PDF Document":
+        if conv_mode == "Images to Single PDF Document":
             img_files = st.file_uploader(
                 "Upload images (JPG, PNG, BMP, WEBP) to combine into PDF",
                 type=["png", "jpg", "jpeg", "bmp", "webp"],
@@ -1818,20 +1834,20 @@ with tab3:
                 for idx, imf in enumerate(img_files, start=1):
                     st.markdown(f"{idx}. `{imf.name}` ({len(imf.getvalue())/1024:.1f} KB)")
 
-                if st.button("📄 Combine Images into PDF", type="primary", key="btn_exec_img_to_pdf"):
+                if st.button("Combine Images into PDF", type="primary", key="btn_exec_img_to_pdf"):
                     with st.spinner("Converting and packaging images into PDF..."):
                         try:
                             img_tuples = [(f.name, f.getvalue()) for f in img_files]
                             out_pdf_bytes = pdf_utils.images_to_pdf(img_tuples)
                             st.session_state["img_to_pdf_result"] = out_pdf_bytes
-                            st.success(f"✅ Successfully converted {len(img_files)} images into PDF ({len(out_pdf_bytes)/(1024*1024):.2f} MB)!")
+                            st.success(f"Successfully converted {len(img_files)} images into PDF ({len(out_pdf_bytes)/(1024*1024):.2f} MB)!")
                         except Exception as e:
-                            st.error(f"❌ Conversion failed: {e}")
+                            st.error(f"Conversion failed: {e}")
                             st.session_state["img_to_pdf_result"] = None
 
                 if st.session_state.get("img_to_pdf_result"):
                     st.download_button(
-                        label="📥 Download Converted PDF Document",
+                        label="Download Converted PDF Document",
                         data=st.session_state["img_to_pdf_result"],
                         file_name=f"images_combined_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf",
                         mime="application/pdf",
@@ -1861,7 +1877,7 @@ with tab3:
                         ["PNG (Lossless High Quality)", "JPG (Compact File Size)"],
                     )
 
-                if st.button("🖼️ Extract Pages as Images", type="primary", key="btn_exec_pdf_to_img"):
+                if st.button("Extract Pages as Images", type="primary", key="btn_exec_pdf_to_img"):
                     with st.spinner("Rendering PDF pages to images..."):
                         try:
                             fmt = "PNG" if "PNG" in format_choice else "JPG"
@@ -1874,14 +1890,14 @@ with tab3:
 
                             st.session_state["pdf_to_img_zip"] = zip_buf.getvalue()
                             st.session_state["pdf_to_img_count"] = len(rendered_images)
-                            st.success(f"✅ Successfully extracted {len(rendered_images)} page images into ZIP!")
+                            st.success(f"Successfully extracted {len(rendered_images)} page images into ZIP!")
                         except Exception as e:
-                            st.error(f"❌ Error: {e}")
+                            st.error(f"Error: {e}")
                             st.session_state["pdf_to_img_zip"] = None
 
                 if st.session_state.get("pdf_to_img_zip"):
                     st.download_button(
-                        label=f"📥 Download {st.session_state.get('pdf_to_img_count', '')} Images (ZIP Archive)",
+                        label=f"Download {st.session_state.get('pdf_to_img_count', '')} Images (ZIP Archive)",
                         data=st.session_state["pdf_to_img_zip"],
                         file_name=f"pages_{os.path.splitext(pdf_to_img_file.name)[0]}.zip",
                         mime="application/zip",
@@ -1892,8 +1908,8 @@ with tab3:
     # -----------------------------------------------------------------
     # TOOL 6: SCANNED PDF OCR (BILINGUAL) & WORD EXPORT
     # -----------------------------------------------------------------
-    elif pdf_tool == "🔍 Scanned PDF OCR (Bilingual)":
-        st.markdown("##### 🔍 Scanned PDF OCR & Word (.docx) Converter")
+    elif pdf_tool == "Scanned PDF OCR (Bilingual)":
+        st.markdown("##### Scanned PDF OCR & Word (.docx) Converter")
         st.caption("Perform bilingual (English + Hindi Devanagari) OCR on scanned PDFs and export to Searchable PDF, Word (.docx), or Text.")
 
         ocr_input_file = st.file_uploader(
@@ -1927,7 +1943,7 @@ with tab3:
 
             selected_languages = config.OCR_LANGUAGE_OPTIONS.get(ocr_lang_choice, ["en", "hi"])
 
-            if st.button("⚡ Run OCR & Generate Outputs", type="primary", key="btn_exec_ocr_tool"):
+            if st.button("Run OCR & Generate Outputs", type="primary", key="btn_exec_ocr_tool"):
                 with st.spinner(f"Running {ocr_lang_choice} OCR on scanned pages..."):
                     try:
                         reader = load_ocr_reader(tuple(selected_languages), config.EMBEDDING_DEVICE == "cuda")
@@ -1939,9 +1955,9 @@ with tab3:
                         st.session_state["ocr_tool_extracted_text"] = extracted_text
                         st.session_state["ocr_tool_searchable_pdf"] = searchable_pdf_bytes
                         st.session_state["ocr_tool_file_name"] = ocr_input_file.name
-                        st.success(f"✅ OCR Extraction complete! ~{len(extracted_text.split()):,} words recognized.")
+                        st.success(f"OCR Extraction complete! ~{len(extracted_text.split()):,} words recognized.")
                     except Exception as e:
-                        st.error(f"❌ OCR processing failure: {e}")
+                        st.error(f"OCR processing failure: {e}")
                         st.session_state["ocr_tool_extracted_text"] = None
                         st.session_state["ocr_tool_searchable_pdf"] = None
 
@@ -1950,15 +1966,15 @@ with tab3:
                 searchable_pdf = st.session_state["ocr_tool_searchable_pdf"]
                 base_name = os.path.splitext(st.session_state["ocr_tool_file_name"])[0]
 
-                with st.expander("🔍 View Recognized OCR Text Preview", expanded=True):
+                with st.expander("View Recognized OCR Text Preview", expanded=True):
                     st.text_area("Recognized Text", extracted_text, height=220)
 
-                st.markdown("##### 📥 Export OCR Results:")
+                st.markdown("##### Export OCR Results:")
                 col_dl1, col_dl2, col_dl3 = st.columns(3)
 
                 with col_dl1:
                     st.download_button(
-                        label="📄 Download Searchable PDF",
+                        label="Download Searchable PDF",
                         data=searchable_pdf,
                         file_name=f"ocr_searchable_{base_name}.pdf",
                         mime="application/pdf",
@@ -1977,7 +1993,7 @@ with tab3:
                         },
                     )
                     st.download_button(
-                        label="📝 Download Word Document (.docx)",
+                        label="Download Word Document (.docx)",
                         data=docx_bytes,
                         file_name=f"ocr_text_{base_name}.docx",
                         mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
@@ -1987,7 +2003,7 @@ with tab3:
 
                 with col_dl3:
                     st.download_button(
-                        label="📋 Download Plain Text (.txt)",
+                        label="Download Plain Text (.txt)",
                         data=extracted_text,
                         file_name=f"ocr_text_{base_name}.txt",
                         mime="text/plain",

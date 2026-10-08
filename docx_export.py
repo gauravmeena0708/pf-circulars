@@ -173,7 +173,7 @@ def create_research_report_docx(
 
     # Section 1: Synthesized Answer
     h1 = doc.add_heading(level=1)
-    h1_run = h1.add_run("💡 Synthesized Answer & Analysis")
+    h1_run = h1.add_run("Synthesized Answer & Analysis")
     h1_run.font.color.rgb = NAVY_COLOR
     h1.paragraph_format.space_before = Pt(12)
     h1.paragraph_format.space_after = Pt(6)
@@ -191,7 +191,7 @@ def create_research_report_docx(
     # Section 2: Source References & Citations
     if source_references:
         h2 = doc.add_heading(level=1)
-        h2_run = h2.add_run(f"📚 Source References ({len(source_references)})")
+        h2_run = h2.add_run(f"Source References ({len(source_references)})")
         h2_run.font.color.rgb = NAVY_COLOR
         h2.paragraph_format.space_before = Pt(14)
         h2.paragraph_format.space_after = Pt(8)
@@ -318,7 +318,7 @@ def create_chat_transcript_docx(
         content = msg.get("content", "")
 
         is_user = role == "user"
-        role_label = "👤 User Query" if is_user else "🤖 Analysis & Response"
+        role_label = "User Query" if is_user else "Analysis & Response"
 
         head = doc.add_heading(level=2)
         head.paragraph_format.space_before = Pt(12)

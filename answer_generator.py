@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 logging.basicConfig(level=config.LOG_LEVEL, format=config.LOG_FORMAT)
 
 
-def _describe_llm_error(e):
+def describe_llm_error(e):
     """Maps a provider failure to a user-facing reason without leaking the raw
     exception text (which can include request URLs or account details)."""
     provider = getattr(config, "HF_INFERENCE_PROVIDER", "configured")
@@ -49,7 +49,24 @@ def _stream_llm_answer(llm_instance, messages):
         yield from llm_instance.stream(messages)
     except Exception as e:
         logger.error(f"Error while streaming the Chat LLM response: {e}", exc_info=True)
-        yield _describe_llm_error(e)
+        yield describe_llm_error(e)
+
+
+ANSWER_LANGUAGES = ("English", "Hindi")
+
+
+def language_instruction(answer_language="English"):
+    """Returns a prompt line asking for the answer in the chosen language, or
+    "" for English (the prompts' default). Citation markers, circular numbers
+    and statutory references stay verbatim so they still match the sources."""
+    if answer_language == "Hindi":
+        return (
+            "Write the entire answer in Hindi (Devanagari script), even though the "
+            "sources are in English. Keep source numbers such as [1], circular "
+            "numbers, dates, section numbers, and official scheme names exactly as "
+            "they appear in the sources."
+        )
+    return ""
 
 
 def _sanitize_conversation_context(conversation_context):
@@ -72,7 +89,7 @@ def _sanitize_conversation_context(conversation_context):
     )
 
 
-def format_prompt(query, retrieved_chunks_data, conversation_context=""):
+def format_prompt(query, retrieved_chunks_data, conversation_context="", answer_language="English"):
     conversation_context = _sanitize_conversation_context(conversation_context)
     if not retrieved_chunks_data:
         context_str = "No relevant information found in the documents."
@@ -102,6 +119,7 @@ Support factual claims with inline source numbers such as [1] or [2], matching t
 Also mention relevant circular numbers, dates, or statutory sections when they are present in the context.
 Never invent a source number or cite a source that does not support the claim.
 If the provided context does not contain enough information to answer the question, state clearly that the information was not found in the documents.
+{language_instruction(answer_language)}
 
 Context from EPFO Documents:
 -----------------------
@@ -114,7 +132,7 @@ Helpful & Grounded Answer:"""
     return prompt
 
 
-def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False, conversation_context=""):
+def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False, conversation_context="", answer_language="English"):
     if not query:
         logger.warning("Query is empty. Cannot generate answer.")
         return "No query provided."
@@ -122,7 +140,12 @@ def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False, con
         logger.error("LLM instance is not provided. Cannot generate answer.")
         return "LLM not available."
 
-    prompt_string = format_prompt(query, retrieved_chunks_data, conversation_context=conversation_context)
+    prompt_string = format_prompt(
+        query,
+        retrieved_chunks_data,
+        conversation_context=conversation_context,
+        answer_language=answer_language,
+    )
     logger.debug(f"Formatted Prompt String for Chat LLM:\n{prompt_string}")
 
     logger.info(f"Sending prompt to Chat LLM for query: '{query[:100]}...'")
@@ -142,7 +165,7 @@ def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False, con
 
     except Exception as e:
         logger.error(f"Error during Chat LLM invocation: {e}", exc_info=True)
-        return _describe_llm_error(e)
+        return describe_llm_error(e)
 
 
 def initialize_llm(hf_token=None, max_new_tokens=None):
