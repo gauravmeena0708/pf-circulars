@@ -10,18 +10,46 @@ logger = logging.getLogger(__name__)
 logging.basicConfig(level=config.LOG_LEVEL, format=config.LOG_FORMAT)
 
 
+def _describe_llm_error(e):
+    """Maps a provider failure to a user-facing reason without leaking the raw
+    exception text (which can include request URLs or account details)."""
+    provider = getattr(config, "HF_INFERENCE_PROVIDER", "configured")
+    response = getattr(e, "response", None)
+    status = getattr(response, "status_code", None)
+    if status == 401:
+        return "The Hugging Face token was rejected (401). Check that HF_TOKEN is valid."
+    if status == 402:
+        return (
+            "The Hugging Face account behind HF_TOKEN has used up its Inference "
+            "Providers credits (402). Add credits/upgrade to PRO, or supply your own token."
+        )
+    if status == 403:
+        return (
+            "HF_TOKEN is not allowed to call Inference Providers (403). Enable "
+            "'Make calls to Inference Providers' on the token."
+        )
+    if status == 404:
+        return (
+            f"Model '{config.LLM_REPO_ID}' is not served by provider '{provider}' (404). "
+            "Change LLM_REPO_ID or HF_INFERENCE_PROVIDER."
+        )
+    if status == 429:
+        return "The language-model provider is rate-limiting requests (429). Please retry shortly."
+    suffix = f" (HTTP {status})" if status else ""
+    return (
+        f"The language-model service is temporarily unavailable{suffix}. "
+        f"Verify that the Hugging Face provider '{provider}' is enabled and "
+        "that HF_TOKEN has Inference Providers permission."
+    )
+
+
 def _stream_llm_answer(llm_instance, messages):
     """Iterate the remote stream while keeping provider failures out of the UI."""
     try:
         yield from llm_instance.stream(messages)
     except Exception as e:
         logger.error(f"Error while streaming the Chat LLM response: {e}", exc_info=True)
-        provider = getattr(config, "HF_INFERENCE_PROVIDER", "configured")
-        yield (
-            "The language-model service is temporarily unavailable. "
-            f"Verify that the Hugging Face provider '{provider}' is enabled and "
-            "that HF_TOKEN has Inference Providers permission."
-        )
+        yield _describe_llm_error(e)
 
 
 def _sanitize_conversation_context(conversation_context):
@@ -114,7 +142,7 @@ def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False, con
 
     except Exception as e:
         logger.error(f"Error during Chat LLM invocation: {e}", exc_info=True)
-        return "An error occurred while trying to generate an answer from the language model."
+        return _describe_llm_error(e)
 
 
 def initialize_llm(hf_token=None, max_new_tokens=None):
