@@ -134,3 +134,14 @@ class DescribeLlmErrorTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_prompt_does_not_assert_a_page_for_document_only_ocr():
+    prompt = format_prompt("Which instruction?", [{
+        "text": "A direction from a flattened OCR document.",
+        "metadata": {"title": "Pilot circular", "page_number": "1-35",
+                     "page_provenance": "document_only", "total_pages": 35},
+    }])
+    assert "Page: unverified (document-level source)" in prompt
+    assert "Page: 1-35" not in prompt
+    assert "cite the document without inventing a page" in prompt

@@ -32,6 +32,7 @@ import config
 from vector_indexer import load_faiss_binary_index
 from passage_store import open_passage_store
 from retriever import retrieve_relevant_chunks
+from citation_provenance import page_label
 from answer_generator import (
     ANSWER_LANGUAGES,
     describe_llm_error,
@@ -636,7 +637,7 @@ with tab1:
                 title = meta.get("title") or "EPFO Document"
                 circ_no = meta.get("circular_no") or "N/A"
                 date = meta.get("date") or "N/A"
-                page = meta.get("page_number") or "1"
+                page = page_label(meta)
                 link = meta.get("english_pdf_link") or meta.get("source_pdf") or "N/A"
                 doc_type = meta.get("doc_type", "circular")
                 
@@ -717,7 +718,7 @@ with tab1:
                 title = meta.get('title') or "EPFO Document"
                 circular_no = meta.get('circular_no') or "N/A"
                 date = meta.get('date') or "N/A"
-                page_no = meta.get('page_number') or "1"
+                page_no = page_label(meta)
                 pdf_link = meta.get('english_pdf_link') or meta.get('source_pdf') or ""
                 doc_type = meta.get('doc_type', 'circular')
                 

@@ -207,15 +207,20 @@ def run_import(
             if not chunks:
                 continue
 
-            total_pages = val.get("pages_indexed") or val.get("total_pages") or "1-2"
-            page_info = f"1-{total_pages}" if isinstance(total_pages, int) and total_pages > 1 else str(total_pages)
+            # Flattened OCR has no reliable passage-to-page mapping. Keep counts
+            # separately; never turn them into an asserted citation range.
+            total_pages = val.get("total_pages")
+            pages_indexed = val.get("pages_indexed")
 
             for chunk in chunks:
                 new_texts.append(chunk)
                 new_metadata.append({
                     "source_pdf": pdf_url,
                     "source_pdf_original_filename": filename,
-                    "page_number": page_info,
+                    "page_number": None,
+                    "page_provenance": "document_only",
+                    "total_pages": total_pages,
+                    "pages_indexed": pages_indexed,
                     "original_group_content_snippet": chunk[:200],
                     "serial_no": item_meta.get("serial_no"),
                     "title": item_meta.get("title"),

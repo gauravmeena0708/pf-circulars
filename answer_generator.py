@@ -5,6 +5,7 @@ from langchain_huggingface import HuggingFaceEndpoint
 from langchain_huggingface.chat_models import ChatHuggingFace
 from langchain_core.messages import HumanMessage             
 import config
+from citation_provenance import page_label
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=config.LOG_LEVEL, format=config.LOG_FORMAT)
@@ -100,7 +101,7 @@ def format_prompt(query, retrieved_chunks_data, conversation_context="", answer_
             title = meta.get('title') or "EPFO Document"
             circular_no = meta.get('circular_no') or "N/A"
             source_pdf = meta.get('english_pdf_link') or meta.get('source_pdf', 'N/A')
-            page_no = meta.get('page_number', 'N/A')
+            page_no = page_label(meta)
             source_info = f"[Title: {title} | Identifier: {circular_no} | PDF: {source_pdf} | Page: {page_no}]"
             context_parts.append(f"Source [{i+1}] {source_info}:\n{chunk_data['text']}")
         context_str = "\n\n".join(context_parts)
@@ -118,6 +119,8 @@ Answer the user's question based strictly on the context provided below.
 Support factual claims with inline source numbers such as [1] or [2], matching the numbered sources below the answer.
 Also mention relevant circular numbers, dates, or statutory sections when they are present in the context.
 Never invent a source number or cite a source that does not support the claim.
+Where page provenance is unverified, cite the document without inventing a page.
+Relevance or recent issue date does not establish that a provision remains applicable.
 If the provided context does not contain enough information to answer the question, state clearly that the information was not found in the documents.
 {language_instruction(answer_language)}
 

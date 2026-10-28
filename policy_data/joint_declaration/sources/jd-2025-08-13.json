@@ -1,0 +1,22 @@
+{
+  "document_id": "jd-2025-08-13",
+  "pdf_sha256": "847e5de6f2df6b49917ac3e658f6801b98d2335bdd0492f1750e91d4e3fb5343",
+  "total_pdf_pages": 4,
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "For E-Office/ Web Circulation\n\nptt ufaa Afe wroa\n\nEmployees Provident Fund Organisation\n- (orm Ud Dene Hare, ua BEST)\nnoite (MINISTRY OF LABOUR & EMPLOYMENT, GOVERNMENT OF INDIA)\nWet eratea/Head Office\nwe U, WSs, sate-, de fang ane ag Rect-110023\nPlate A Ground Floor, Block Il, East Kidwai Nagar, New Delhi-110023\nWebsite: www.epfindia.gov.in, www.epfindia.nic.in\n\n6\n\nig\n\nNo: WSU/MemberProfile/E- 710137/2025-26/ 9 ¢ Date: |3/Aug/2025\n\nTo, ,\nAll ACC (HQ)s/ACCs (Zones)\nAll RPFC-I/RPFC-II/APFC OICs\n\nSub: Seeding/Correcting Aadhaar in Universal Account Number(UAN) - reg.\n\nRef: 1. R-1/C-DAC/2014 dt.25-07-2014\n2. WSU/JointDeclaration/E-54018/2024-25/006 dt.16/01/2025\n\nMadam/Sir,\n\nVide ref (1) above, the seeding of Aadhaar as KYC for UAN has been initially\ninstituted with an aim to provide services directly to the beneficiaries without\nintermediation of the employer. This has resulted in seamless service delivery and has\ngreatly reduced the turnaround time of availing the benefits by the members.\n\n2. Vide ref (2), a vastly simplified process was instituted whereby members\nthemselves can modify their profile if their Aadhaar has been seeded and got verified\nfrom UIDAI with only few cases of members who are yet to seed/verify their Aadhaar\ngetting routed to the employer or EPFO for approval.\n\n3. Further, in all cases where the Name, Gender and Date of Birth as available in\nthe UAN matches exactly with those in Aadhaar, then the member can approach his/her\nEmployer, who can seed Aadhaar with the UAN of the Member through KYC\nfunctionality available in the Employer Portal. No separate approval as such is required\nfrom EPFO.\n\n4. In order to facilitate members who are yet to seed/verify Aadhaar or need to\ncorrect the Aadhaar in their UAN, the existing Joint Declaration functionality has further\nbeen simplified as under:-\n\na. In case of mismatch in any of the fields of Name, Gender and Date of Birth,\nbetween UAN as well as Aadhaar for the members, the Employer can file the\nrequest for rectification of the above fields through the Joint Declaration(JD)\nFunctionality.\n\nb. For correction of Aadhaar, i.e., cases where a wrong Aadhaar has been\nerroneously linked with the UAN, the Employer can now enter the correct Aadhaar\nin online Joint Declaration(JD) Functionality and forward to the RO concerned for\napproval.",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 2,
+      "text": "c.\n\nIn case the Employer is not available or the Establishment is closed, the Member\ncan still file a physical JD in the format at Annexure I duly attested by any one\nof the authorities authorized to attest the claim vide Para 10.18 of the MAP Part\nII-A and submit to the Public Relations Officer (PRO) Counter in the concerned\nRegional Office with due acknowledgement. The PRO after due verification shall\nenter the details in the JD functionality and submit the request for further\nprocessing by the office.\n\n. All such requests which involve seeding or correcting Aadhaar in the JD\n\nfunctionality shall be carefully examined and will require approval at the level of\nAPFC. While approving the same, the APFC shall satisfy himself after due\nverification of the case that the request is genuine. Requests for changes in\nalready Aadhaar verified cases should not be allowed.\n\n[This has the approval of CPFC]\n\n- Yours sincerely,\n\non\n\nG.R. Suchindranath\nACC (WSU)",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ],
+  "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Seeding_Correcting-AadhaarIn_UAN-2.pdf",
+  "retrieved_on": "2026-10-28",
+  "catalogue_url": "https://www.epfo.gov.in/circulars",
+  "page_numbering": "physical PDF page, one-based; not printed SOP page",
+  "scope": "Selected directions and document-control pages; not complete PDF transcription."
+}

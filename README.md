@@ -110,3 +110,13 @@ python main.py data --query "What are the duties of Recovery Officer under EPFO 
 | **EPFO Circulars Archive** | 2006 – 2026 (8,820+ circulars) | **63,798 chunks** |
 | **Statutory Manuals & Schemes** | 16 Manuals (Acts, MAP Parts I-IV, SOPs) | **10,519 chunks** |
 | **Total Knowledge Base** | **Full EPFO Policy & Procedural Corpus** | **`74,317 vectors`** |
+
+
+## Joint Declaration policy-history pilot
+
+An offline WSU member-profile correction pilot provides dated source inventories,
+scoped amendment relationships, page-preserving evidence and coverage gaps.
+Run `python policy_history.py --as-of 2025-01-16 --query "closed establishment"`.
+See [pilot sources, commands and limitations](policy_data/joint_declaration/README.md).
+This research CLI is separate from production answers and does not certify complete
+legal applicability.
