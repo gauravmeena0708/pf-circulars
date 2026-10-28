@@ -126,6 +126,8 @@ def format_prompt(query, retrieved_chunks_data, conversation_context="", answer_
             + "\nExplain known changes chronologically, distinguishing historical directions from the requested date. "
             "Only source_checked relationships have been checked against source text. "
             "Never promote an unverified target or unknown effective date to a verified fact. "
+            "The highest numeric SOP version is not necessarily the latest policy; account for later dated changes. "
+            "Never invent version 4.0 or a later version number unless the source explicitly supplies it. "
             "Partial modifications apply only to their stated scope. "
             "Distinguish press-release reports and Board approvals from scheme amendments and operative circulars. "
             "Do not treat approval, a processing threshold, an audit deadline, or a software deployment date as general legal commencement or entitlement. "
