@@ -68,6 +68,9 @@ def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=No
         for evidence in required:
             key = evidence["document_id"], evidence["page_number"]
             if key in included_pages:
+                for chunk in chunks:
+                    if chunk.get("document_id") == key[0] and chunk["metadata"]["page_number"] == key[1]:
+                        chunk["metadata"]["policy_change_evidence"] = True
                 continue
             doc = documents[key[0]]
             if doc["status"] == "not_yet_effective":
@@ -76,7 +79,7 @@ def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=No
             chunks.append({"text": page["text"], "metadata": {
                 "title": doc["title"], "circular_no": doc["circular_no"], "date": doc["issued_on"],
                 "english_pdf_link": doc["source_url"], "page_number": key[1],
-                "page_provenance": "physical_pdf_page", "evidence_status": "curated relationship or commencement page",
+                "page_provenance": "physical_pdf_page", "policy_change_evidence": True, "evidence_status": "curated relationship or commencement page",
                 "policy_document_status": doc["status"],
             }})
             included_pages.add(key)

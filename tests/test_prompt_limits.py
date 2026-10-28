@@ -63,3 +63,28 @@ def test_unicode_request_obeys_byte_budget():
     chunks = [{'text': 'अध्याय ' * 1000, 'metadata': {}}]
     prompt = bounded_prompt('नियम क्या हैं?', chunks, answer_language='Hindi', limit=9000)
     assert len(prompt.encode('utf-8')) <= 9000
+
+
+def test_latest_jd_request_and_retry_retain_2025_evidence_before_old_sops():
+    from policy_router import route_retrieval
+    question = 'What is the latest Joint Declaration policy and SOP version?'
+    result = route_retrieval(question, '2026-10-28', lambda: [], mode='jd')
+    for limit in (18000, 9000):
+        prompt = bounded_prompt(question, result['chunks'], policy_context=result['policy_context'], limit=limit)
+        assert len(prompt.encode('utf-8')) <= limit
+        numbered = prompt.split('POLICY EVIDENCE REVIEW')[0]
+        assert '2025-08-13' in numbered
+        assert '2025-01-16' in numbered
+        assert 'In supersession of the directions' in numbered
+        assert 'jd-2025-12-26' in prompt  # known missing original stays visible
+
+
+def test_general_jd_procedure_retains_later_superseding_directions():
+    from policy_router import route_retrieval
+    question = 'What is the procedure for joint declaration profile update?'
+    result = route_retrieval(question, '2026-10-28', lambda: [], mode='jd')
+    for limit in (18000, 9000):
+        prompt = bounded_prompt(question, result['chunks'], policy_context=result['policy_context'], limit=limit)
+        numbered = prompt.split('POLICY EVIDENCE REVIEW')[0]
+        assert '2025-01-16' in numbered
+        assert 'In supersession of the directions' in numbered

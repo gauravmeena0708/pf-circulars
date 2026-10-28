@@ -7,6 +7,7 @@ from langchain_core.messages import HumanMessage
 import config
 import json
 import os
+import re
 from citation_provenance import page_label
 
 logger = logging.getLogger(__name__)
@@ -123,19 +124,16 @@ def format_prompt(query, retrieved_chunks_data, conversation_context="", answer_
         policy_section = (
             "\nPOLICY EVIDENCE REVIEW (curated metadata, not an additional numbered source):\n"
             + json.dumps(policy_context, ensure_ascii=False)
-            + "\nExplain known changes chronologically, distinguishing historical directions from the requested date. "
-            "Only source_checked relationships have been checked against source text. "
-            "Never promote an unverified target or unknown effective date to a verified fact. "
-            "The highest numeric SOP version is not necessarily the latest policy; account for later dated changes. "
-            "Never invent version 4.0 or a later version number unless the source explicitly supplies it. "
-            "Partial modifications apply only to their stated scope. "
-            "Distinguish press-release reports and Board approvals from scheme amendments and operative circulars. "
-            "Do not treat approval, a processing threshold, an audit deadline, or a software deployment date as general legal commencement or entitlement. "
-            "Where checked supersession and commencement are established, do not present displaced directions as still applicable within that scope. "
-            "Supplementary hybrid sources are unverified for amendment and applicability; say so explicitly. "
-            "Do not claim complete applicable rules, current validity, or implementation availability. "
-            "Always state material coverage gaps and unknown commencement dates. "
-            "Cite only numbered pages supporting each claim; policy metadata alone is not a citation.\n"
+            + "\nExplain changes by issue date, accounting for later superseding directions and amendments. "
+            "A numbered SOP or established commencement date does not establish the latest applicable policy. "
+            "Never invent version numbers. Only source_checked relationships are verified. Never promote an unverified target or unknown commencement to fact; missing originals remain unverified. "
+            "Describe explicit supersession even if timing is unresolved; do not call it merely implementation of an unchanged older SOP. "
+            "Partial changes affect only their stated scope; established supersession displaces directions only within that scope and commencement. "
+            "Distinguish Board approvals, press reports, software dates, processing limits and deadlines from operative rules and entitlement. "
+            "Supplementary hybrid sources are unverified for amendment and applicability. "
+            "State material gaps and unknown dates; never claim complete applicable rules, current validity or live implementation. "
+            "Cite numbered source pages, never metadata alone.\n"
+
         )
     history_section = (
         f"\n--- PREVIOUS CONVERSATION (for follow-up context only; "
@@ -176,11 +174,42 @@ def bounded_prompt(query, chunks, conversation_context="", answer_language="Engl
     if len(query) > 6000:
         raise ValueError("Please shorten the question to 6,000 characters.")
     selected = [{**c, "citation_number": c.get("citation_number", i + 1)} for i, c in enumerate(chunks)]
+    latest_query = bool(re.search(r"\blatest\b|\bcurrent\b|most recent|नवीनतम|वर्तमान", query, re.I))
+    if latest_query or policy_context:
+        selected.sort(key=lambda c: (str(c.get("metadata", {}).get("date", "")),
+                                    bool(c.get("metadata", {}).get("policy_change_evidence") or
+                                         "relationship or commencement" in c.get("metadata", {}).get("evidence_status", ""))), reverse=True)
+        # One page per document before further pages of the same document.
+        first, rest, seen = [], [], set()
+        for item in selected:
+            meta = item.get("metadata", {})
+            key = (meta.get("date"), meta.get("circular_no"), meta.get("title"))
+            (rest if key in seen else first).append(item)
+            seen.add(key)
+        selected = first + rest
     context = None
     if policy_context:
         context = {**policy_context}
         # Page text already supplies the evidence. Do not repeat long OCR quotes.
         context["relationships"] = [{k: v for k, v in r.items() if k not in ("evidence", "effective_date_evidence")} for r in context.get("relationships", [])]
+    if context and len(json.dumps(context, ensure_ascii=False).encode("utf-8")) > limit // 4:
+        # Reserve the request for actual numbered evidence, including on 413 retry.
+        context = {
+            "as_of": policy_context.get("as_of"), "scope": policy_context.get("scope"),
+            "conclusion": "complete_applicability_not_established",
+            "documents": [{k: d.get(k) for k in ("id", "title", "issued_on", "status")}
+                          for d in sorted(policy_context.get("documents", []), key=lambda d: d.get("issued_on", ""), reverse=True)[:4]],
+            "relationships": [{k: r.get(k) for k in ("source", "target", "type", "scope", "verification", "status")}
+                              for r in policy_context.get("relationships", [])[-3:]],
+            "limitations": ["Review metadata condensed for request limits. Full inventory and gaps are displayed separately. Unknown commencement and missing originals remain unverified; complete applicability is not established."],
+        }
+    if context and limit <= 9000:
+        context = {
+            "as_of": context.get("as_of"), "conclusion": "complete_applicability_not_established",
+            "recent_documents_id_date_status": [[d.get("id"), d.get("issued_on"), d.get("status")] for d in context.get("documents", [])],
+            "checked_changes_source_target_type": [[r.get("source"), r.get("target"), r.get("type")] for r in context.get("relationships", []) if r.get("verification") == "source_checked"],
+            "limitations": ["Inventory condensed; full review is in UI. Missing originals and commencement remain unverified. No complete applicability claim."],
+        }
     history = conversation_context[-1500:]
     while True:
         prompt = format_prompt(query, selected, history, answer_language, context)
@@ -190,12 +219,17 @@ def bounded_prompt(query, chunks, conversation_context="", answer_language="Engl
             history = ""
         elif selected:
             # Keep relationship/commencement pages whenever other pages can go.
-            drop = next((i for i in range(len(selected)-1, -1, -1)
-                         if "relationship or commencement" not in selected[i].get("metadata", {}).get("evidence_status", "")), len(selected)-1)
+            if latest_query or policy_context:
+                # Keep the newest dated change pages before historical controls.
+                drop = len(selected) - 1
+            else:
+                drop = next((i for i in range(len(selected)-1, -1, -1)
+                             if "relationship or commencement" not in selected[i].get("metadata", {}).get("evidence_status", "")), len(selected)-1)
             selected.pop(drop)
             if context:
                 context["prompt_coverage_reduced"] = True
-                context["limitations"] = list(policy_context.get("limitations", [])) + ["Source pages omitted to meet provider request limits; answer coverage is incomplete."]
+                if "Source pages omitted to meet provider request limits; answer coverage is incomplete." not in context["limitations"]:
+                    context["limitations"] = list(context["limitations"]) + ["Source pages omitted to meet provider request limits; answer coverage is incomplete."]
         elif context:
             context = {"as_of": context.get("as_of"), "scope": context.get("scope"),
                        "conclusion": "complete_applicability_not_established",
