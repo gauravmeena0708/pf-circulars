@@ -149,7 +149,7 @@ def test_prompt_does_not_assert_a_page_for_document_only_ocr():
 
 def test_policy_context_is_sent_to_llm_with_fallback_caveats():
     prompt = format_prompt("JD documents", [{"text": "A checked parent page", "metadata": {"evidence_status": "supplementary hybrid source; applicability unverified", "date": "2025-01-16"}}], policy_context={"as_of": "2025-01-16", "relationships": [], "conclusion": "complete_applicability_not_established"})
-    assert "JD POLICY EVIDENCE REVIEW" in prompt
+    assert "POLICY EVIDENCE REVIEW" in prompt
     assert "2025-01-16" in prompt
     assert "Never promote an unverified target" in prompt
     assert "Supplementary hybrid sources are unverified" in prompt
@@ -164,6 +164,6 @@ def test_answer_invocation_receives_dated_policy_review():
     llm = SimpleNamespace(invoke=lambda messages: (captured.extend(messages), SimpleNamespace(content="Evidence summary"))[1])
     answer = get_llm_answer("JD closed establishment", result["chunks"], llm, policy_context=result["policy_context"])
     assert answer == "Evidence summary"
-    assert "JD POLICY EVIDENCE REVIEW" in captured[0].content
+    assert "POLICY EVIDENCE REVIEW" in captured[0].content
     assert "relationship_verified_timing_unresolved" in captured[0].content
     assert "Aadhaar" in captured[0].content

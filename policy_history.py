@@ -207,12 +207,18 @@ class PolicyHistory:
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--policy", type=Path, default=DEFAULT_POLICY)
+    from policy_registry import registered_policies
+    policies = registered_policies()
+    parser.add_argument("--policy-name", choices=[p.id for p in policies], help="Use a registered policy history")
     parser.add_argument("--as-of", required=True, help="YYYY-MM-DD; issue-date cutoff, not inferred commencement")
     parser.add_argument("--query", default="")
     parser.add_argument("--max-characters", type=int, default=16000)
     args = parser.parse_args()
     try:
-        history = PolicyHistory(args.policy)
+        if args.policy_name and args.policy != DEFAULT_POLICY:
+            parser.error("Use either --policy or --policy-name")
+        path = next(p.path for p in policies if p.id == args.policy_name) if args.policy_name else args.policy
+        history = PolicyHistory(path)
         report = history.search(args.query, args.as_of, args.max_characters) if args.query else history.snapshot(args.as_of)
     except (ValueError, KeyError, StopIteration) as error:
         parser.error(str(error))

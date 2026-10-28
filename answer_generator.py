@@ -111,7 +111,7 @@ def format_prompt(query, retrieved_chunks_data, conversation_context="", answer_
     policy_section = ""
     if policy_context:
         policy_section = (
-            "\nJD POLICY EVIDENCE REVIEW (curated metadata, not an additional numbered source):\n"
+            "\nPOLICY EVIDENCE REVIEW (curated metadata, not an additional numbered source):\n"
             + json.dumps(policy_context, ensure_ascii=False)
             + "\nExplain known changes chronologically, distinguishing historical directions from the requested date. "
             "Only source_checked relationships have been checked against source text. "

@@ -112,15 +112,17 @@ python main.py data --query "What are the duties of Recovery Officer under EPFO 
 | **Total Knowledge Base** | **Full EPFO Policy & Procedural Corpus** | **`74,317 vectors`** |
 
 
-## Joint Declaration policy history
+## Policy version and date histories
 
-Hosted search routes JD member-profile questions through curated dated evidence.
-Choose **Automatic** or **JD member profile**, set **JD evidence as of**, then search.
+Hosted search supports curated **JD member profile** and **Member profile / Aadhaar** histories.
+Choose **Automatic** or a policy, set **Evidence as of**, then search.
 Other policies retain hybrid retrieval. Missing JD coverage can use supplementary
 hybrid sources, explicitly unverified for amendment and applicability.
 Use **Standard search** to compare against the original retrieval path.
 
 The offline CLI remains available:
 `python policy_history.py --as-of 2025-01-16 --query "closed establishment"`.
-See [sources, commands and limitations](policy_data/joint_declaration/README.md).
+See [registered policies and how to extend them](policy_data/README.md),
+[JD sources](policy_data/joint_declaration/README.md) and
+[Aadhaar sources](policy_data/member_profile_aadhaar/README.md).
 This pilot does not certify complete legal applicability.

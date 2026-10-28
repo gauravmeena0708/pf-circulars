@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "policies": [
+    {
+      "id": "aadhaar",
+      "label": "Member profile / Aadhaar",
+      "scope": "EPFO member-profile correction, Aadhaar seeding and correcting Aadhaar linked to UAN; not changing the Aadhaar database itself or ECR deadlines",
+      "path": "member_profile_aadhaar/policy.json",
+      "include": "(?:aadhaar|aadhar|आधार).*(?:seed|correct|mismatch|profile|uan|dob|birth|जोड़|सुधार)|(?:seed|correct|mismatch|profile|uan|dob|birth).*(?:aadhaar|aadhar)|member\\s+profile\\s+correction",
+      "exclude": "higher[ -]?pension|joint option|26\\s*\\(6\\)|ईसीआर|\\becr\\b|UIDAI.*(?:address|mobile).*update|update.*(?:address|mobile).*UIDAI|(?:aadhaar|aadhar).*(?:address|mobile).*(?:update|correct|change)|(?:update|correct|change).*(?:aadhaar|aadhar).*(?:address|mobile)",
+      "route": "aadhaar_policy"
+    },
+    {
+      "id": "jd",
+      "label": "JD member profile",
+      "scope": "WSU Joint Declaration member-profile correction only",
+      "path": "joint_declaration/policy.json",
+      "include": "joint\\s*declaration|\\bjd\\b|member\\s+profile|संयुक्त घोषणा|जॉइंट डिक्लेरेशन",
+      "exclude": "higher[ -]?pension|joint option|26\\s*\\(6\\)|उच्च पेंशन|(?:aadhaar|aadhar).*(?:address|mobile).*(?:update|correct|change)|(?:update|correct|change).*(?:aadhaar|aadhar).*(?:address|mobile)",
+      "route": "jd_policy"
+    }
+  ]
+}

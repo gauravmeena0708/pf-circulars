@@ -98,7 +98,7 @@ The page-preserving extraction paths remain available.
 ## Next implementation boundary
 
 The hosted search now uses `policy_router.py` for JD profile questions. Choose
-**Automatic** or **JD member profile** in **Evidence route**, set **JD evidence as
+**Automatic** or **JD member profile** in **Evidence route**, set **Evidence as
 of**, and search. Other policies use the existing hybrid search. **Standard search**
 explicitly selects that original path, including for JD comparison queries.
 

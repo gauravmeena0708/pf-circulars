@@ -1,19 +1,14 @@
-"""JD-only policy routing with explicit, conservative hybrid fallback."""
+"""Registered policy histories with explicit, conservative hybrid fallback."""
 
 from datetime import datetime
-import re
 
 from policy_history import PolicyHistory, _date
+from policy_registry import registered_policies, select_policy
 
 
 def is_jd_question(query):
-    text = query.casefold()
-    # WSU profile correction is distinct from higher-pension joint options.
-    if re.search(r"higher[ -]?pension|joint option|26\s*\(6\)|उच्च पेंशन", text):
-        return False
-    return bool(re.search(
-        r"joint\s*declaration|\bjd\b|member\s+profile|संयुक्त घोषणा|जॉइंट डिक्लेरेशन", text
-    ))
+    """Compatibility helper; the registry owns all routing expressions."""
+    return next(p for p in registered_policies() if p.id == "jd").matches(query)
 
 
 def _issued_on(metadata):
@@ -28,26 +23,27 @@ def _issued_on(metadata):
     return None
 
 
-def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=PolicyHistory):
+def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=None):
     """Return answer chunks plus a separate policy review report.
 
-    ``hybrid_search`` is lazy so JD evidence works without embedding services.
+    ``hybrid_search`` is lazy so curated evidence works without embedding services.
     Fallback is supplementary evidence, never a legal-currentness determination.
     """
     cutoff = _date(as_of)
-    if mode not in {"auto", "jd", "hybrid"}:
+    policies = registered_policies()
+    if mode not in {"auto", "hybrid", *(p.id for p in policies)}:
         raise ValueError("Unknown retrieval mode")
-    use_jd = mode == "jd" or (mode == "auto" and is_jd_question(query))
-    if not use_jd:
+    policy = select_policy(query, mode, policies)
+    if policy is None:
         return {"route": "hybrid", "chunks": hybrid_search(), "policy_context": None, "report": None}
 
     warning = None
     try:
-        history = history_factory()
+        history = history_factory() if history_factory else PolicyHistory(policy.path)
         report = history.search(query, as_of)
     except (OSError, ValueError, KeyError) as error:
         # Do not present a failed policy load as a successful verification pass.
-        warning = "Curated JD evidence could not be loaded; policy verification is unavailable."
+        warning = f"Curated {policy.label} evidence could not be loaded; policy verification is unavailable."
         report = {"as_of": as_of, "documents": [], "relationships": [], "evidence": [],
                   "coverage": {}, "limitations": [warning]}
 
@@ -88,7 +84,7 @@ def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=Po
     supporting = []
     fallback_reason = ""
     if warning or not report["evidence"] or report["coverage"].get("documents_without_page_text") or report["coverage"].get("omitted_by_budget"):
-        fallback_reason = warning or "Curated JD coverage is incomplete; supplementary hybrid results remain unverified."
+        fallback_reason = warning or f"Curated {policy.label} coverage is incomplete; supplementary hybrid results remain unverified."
         try:
             candidates = hybrid_search()
         except Exception:
@@ -98,7 +94,7 @@ def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=Po
         for candidate in candidates:
             meta = candidate.get("metadata", {})
             title = meta.get("title") or ""
-            if not is_jd_question(title + " " + candidate.get("text", "")):
+            if not policy.matches(title + " " + candidate.get("text", "")):
                 continue
             issued = _issued_on(meta)
             # Unknown dates cannot safely enter a historical evidence packet.
@@ -118,12 +114,12 @@ def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=Po
         chunks.extend(supporting)
 
     context = {
-        "as_of": as_of, "scope": "WSU Joint Declaration member-profile correction only",
+        "as_of": as_of, "scope": policy.scope, "policy_id": policy.id, "policy_label": policy.label,
         "date_semantics": "Instructions issued by this date; not a complete retrospective legal applicability determination.",
         "conclusion": "complete_applicability_not_established",
-        "documents": [{k: d.get(k) for k in ("id", "circular_no", "issued_on", "effective_from", "status")} for d in documents.values()],
+        "documents": [{k: d.get(k) for k in ("id", "title", "version_label", "circular_no", "issued_on", "effective_from", "status")} for d in documents.values()],
         "relationships": report["relationships"], "coverage": report["coverage"],
         "limitations": report["limitations"], "fallback_reason": fallback_reason,
         "supporting_source_count": len(supporting),
     }
-    return {"route": "jd_policy", "chunks": chunks, "policy_context": context, "report": report}
+    return {"route": policy.route, "chunks": chunks, "policy_context": context, "report": report}

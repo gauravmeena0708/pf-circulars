@@ -34,8 +34,8 @@ from passage_store import open_passage_store
 from retriever import retrieve_relevant_chunks
 from citation_provenance import page_label
 from policy_router import route_retrieval
+from policy_registry import mode_for_label, registered_policies
 from policy_ui import policy_controls, render_policy_review
-from policy_history import DEFAULT_POLICY
 from answer_generator import (
     ANSWER_LANGUAGES,
     describe_llm_error,
@@ -550,7 +550,7 @@ tab1, tab2, tab3 = st.tabs([
 ])
 
 with tab1:
-    if (not faiss_index or not indexed_texts or not indexed_metadata) and not DEFAULT_POLICY.exists():
+    if (not faiss_index or not indexed_texts or not indexed_metadata) and not any(policy.path.exists() for policy in registered_policies()):
         logger.error("FAISS index not found in %s; run import_pf_circular_index.py or index_manuals.py.", index_dir)
         st.warning("The circular search is temporarily unavailable. Please try again later.")
     else:
@@ -594,7 +594,7 @@ with tab1:
 
         st.sidebar.markdown("### Knowledge base")
         st.sidebar.caption(
-            f"{faiss_index.ntotal if faiss_index else 0:,} indexed passages across the hybrid corpus; curated JD history available separately."
+            f"{faiss_index.ntotal if faiss_index else 0:,} indexed passages across the hybrid corpus; curated policy histories available separately."
         )
 
         sample_queries = [
@@ -776,7 +776,7 @@ with tab1:
                     )
 
 
-        policy_mode, jd_as_of = policy_controls()
+        policy_mode, policy_as_of = policy_controls()
         # --- Main Query Interface ---
         with st.form("query_form"):
             st.markdown("#### Ask about an EPFO rule, circular, scheme, or procedure")
@@ -825,10 +825,10 @@ with tab1:
                         faiss_index, indexed_texts, indexed_metadata, embedding_model, cross_encoder_model,
                     )
 
-                mode = {"Automatic": "auto", "JD member profile": "jd", "Standard search": "hybrid"}[policy_mode]
+                mode = mode_for_label(policy_mode)
                 try:
                     with st.spinner("Assembling source evidence..."):
-                        routed = route_retrieval(query, jd_as_of.isoformat(), hybrid_search, mode=mode)
+                        routed = route_retrieval(query, policy_as_of.isoformat(), hybrid_search, mode=mode)
                 except Exception:
                     logger.exception("Search failed")
                     st.error("Search is temporarily unavailable. Please try again later.")
