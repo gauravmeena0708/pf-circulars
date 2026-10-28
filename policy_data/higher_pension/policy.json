@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "id": "higher_pension",
+  "reviewed_on": "2026-10-28",
+  "documents": [
+    {
+      "id": "pohw-2022-12-29",
+      "title": "Validation of options baseline (referenced original)",
+      "circular_no": "Pension/2022/54877/15149",
+      "issued_on": "2022-12-29",
+      "authority": "EPFO administrative circular",
+      "source_url": null,
+      "source_file": null,
+      "verification": "original_not_verified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Validation of options baseline (referenced original)"
+    },
+    {
+      "id": "pohw-2023-01-05",
+      "title": "Validation instructions (referenced original)",
+      "circular_no": "Pension/2022/54877/15238",
+      "issued_on": "2023-01-05",
+      "authority": "EPFO administrative circular",
+      "source_url": null,
+      "source_file": null,
+      "verification": "original_not_verified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Validation instructions (referenced original)"
+    },
+    {
+      "id": "pohw-2023-02-20",
+      "title": "Joint options baseline (referenced original)",
+      "circular_no": "Pension/2022/56259/16541",
+      "issued_on": "2023-02-20",
+      "authority": "EPFO administrative circular",
+      "source_url": null,
+      "source_file": null,
+      "verification": "original_not_verified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Joint options baseline (referenced original)"
+    },
+    {
+      "id": "pohw-2023-05-09",
+      "title": "Deposit or transfer with interest (referenced original)",
+      "circular_no": "Pension/SupremeCourtjudgement/POHW/2022/143",
+      "issued_on": "2023-05-09",
+      "authority": "EPFO administrative circular",
+      "source_url": null,
+      "source_file": null,
+      "verification": "original_not_verified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Deposit or transfer with interest (referenced original)"
+    },
+    {
+      "id": "pohw-2023-06-01",
+      "title": "Computation of pension: 12 and 60 month periods",
+      "circular_no": "Pension/SC/HigherPension/2022/1357",
+      "issued_on": "2023-06-01",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Circular_Pension_14062023-1.pdf",
+      "source_file": "sources/pohw-2023-06-01.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Computation of pension: 12 and 60 month periods"
+    },
+    {
+      "id": "pohw-2023-06-14",
+      "title": "Proof of joint option under paragraph 26(6)",
+      "circular_no": "Pension/PoHW/23/Circular-26(6)/139610/1648",
+      "issued_on": "2023-06-14",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Circular_-Penion_266_14062023.pdf",
+      "source_file": "sources/pohw-2023-06-14.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Proof of joint option under paragraph 26(6)"
+    },
+    {
+      "id": "pohw-2025-01-18",
+      "title": "Processing-policy clarifications (original unavailable)",
+      "circular_no": "Pension/V1/PoHW/2024-25/efile-951977/09",
+      "issued_on": "2025-01-18",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.nic.in/site_docs/PDFs/Circulars/Y2024-2025/PoHWCircular_180125_Signed.pdf",
+      "source_file": null,
+      "verification": "original_not_verified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Processing-policy clarifications (original unavailable)"
+    },
+    {
+      "id": "pohw-2025-07-25",
+      "title": "Audit of disposal of PoHW applications",
+      "circular_no": "Audit/PoHW/E-1108439/14",
+      "issued_on": "2025-07-25",
+      "authority": "EPFO audit circular and meeting record",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/89.pdf",
+      "source_file": "sources/pohw-2025-07-25.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Audit of disposal of PoHW applications"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "pohw-2023-06-01-pohw-2023-05-09",
+      "source": "pohw-2023-06-01",
+      "target": "pohw-2023-05-09",
+      "type": "clarifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "pohw-2023-06-01",
+        "page_number": 1,
+        "quote": "wherein it was informed in Para 14 that the method of computation of Pension will\nfollow through subsequent circular."
+      },
+      "scope": "Provides the pension computation method anticipated by the referenced circular; no whole-document supersession."
+    },
+    {
+      "id": "pohw-2023-06-14-pohw-2022-12-29",
+      "source": "pohw-2023-06-14",
+      "target": "pohw-2022-12-29",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "pohw-2023-06-14",
+        "page_number": 1,
+        "quote": "Pension/2022/54877/15149 dated\n29.12.2022"
+      },
+      "scope": "Proof of joint option under paragraph 26(6); reference does not verify the original."
+    },
+    {
+      "id": "pohw-2023-06-14-pohw-2023-01-05",
+      "source": "pohw-2023-06-14",
+      "target": "pohw-2023-01-05",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "pohw-2023-06-14",
+        "page_number": 1,
+        "quote": "Pension/2022/54877/15238 dated 05.01.2023"
+      },
+      "scope": "Proof of joint option under paragraph 26(6); reference does not verify the original."
+    },
+    {
+      "id": "pohw-2023-06-14-pohw-2023-02-20",
+      "source": "pohw-2023-06-14",
+      "target": "pohw-2023-02-20",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "pohw-2023-06-14",
+        "page_number": 1,
+        "quote": "Pension/2022/56259/16541\ndated 20.02.2023"
+      },
+      "scope": "Proof of joint option under paragraph 26(6); reference does not verify the original."
+    }
+  ],
+  "limitations": [
+    "Supreme Court judgments, scheme amendments, deadline extensions and subsequent litigation are not fully collected as originals.",
+    "The 18 January 2025 clarification original could not be fetched; this inventory cannot settle pro-rata calculation or trust-rule issues.",
+    "July 2025 audit targets are administrative deadlines, not new member application windows or commencement dates.",
+    "General EPF paragraph 26(6) enrolment and JD profile correction are separate scopes.",
+    "Issue-date evidence inventory only; complete applicable rules and current validity are not certified."
+  ]
+}

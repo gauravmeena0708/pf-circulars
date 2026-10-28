@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "id": "advances",
+  "reviewed_on": "2026-10-28",
+  "documents": [
+    {
+      "id": "advances-2020-03-28",
+      "title": "COVID advance notification forwarding (referenced original)",
+      "circular_no": "C_I/Misc./2019-20/Vol.II/Part/",
+      "issued_on": "2020-03-28",
+      "authority": "EPFO administrative circular",
+      "source_url": null,
+      "source_file": null,
+      "verification": "original_not_verified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "COVID advance notification forwarding (referenced original)"
+    },
+    {
+      "id": "advances-2024-04-16",
+      "title": "Illness auto-processing limit increased to one lakh",
+      "circular_no": "WSU/E-13719/697",
+      "issued_on": "2024-04-16",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/circular_WSU_16042024-3.pdf",
+      "source_file": "sources/advances-2024-04-16.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Illness auto-processing limit increased to one lakh"
+    },
+    {
+      "id": "advances-2024-06-12",
+      "title": "Discontinuation of COVID-19 advance",
+      "circular_no": "WSU/2020/COVID-19/AgendaItem/1701",
+      "issued_on": "2024-06-12",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/WSU_CircularCovid-19_advance-discontinue.pdf",
+      "source_file": "sources/advances-2024-06-12.json",
+      "verification": "source_checked",
+      "effective_from": "2024-06-12",
+      "effective_date_evidence": {
+        "document_id": "advances-2024-06-12",
+        "page_number": 1,
+        "quote": "discontinue the said advance with immediate effect."
+      },
+      "version_label": "Discontinuation of COVID-19 advance"
+    },
+    {
+      "id": "advances-2025-04-17",
+      "title": "Paragraph 68B(7) self-declaration",
+      "circular_no": "WSU/RationalisationofAdvances/E-48776/2025-26/18",
+      "issued_on": "2025-04-17",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Advance_UnderPara_68B-7_Self-Declaration-1.pdf",
+      "source_file": "sources/advances-2025-04-17.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Paragraph 68B(7) self-declaration"
+    },
+    {
+      "id": "advances-2025-06-24",
+      "title": "Reported auto-settlement limit increased to five lakh",
+      "circular_no": "PIB Release 2139291",
+      "issued_on": "2025-06-24",
+      "authority": "Government press release reporting service change",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/10/PressRelease_24062025-1.pdf",
+      "source_file": "sources/advances-2025-06-24.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Reported auto-settlement limit increased to five lakh"
+    },
+    {
+      "id": "advances-2025-10-13",
+      "title": "CBT approval of partial-withdrawal reforms",
+      "circular_no": "PIB 238th CBT meeting, 13 October 2025",
+      "issued_on": "2025-10-13",
+      "authority": "Government press release reporting CBT decisions",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/10/PressBrief_MOLEChairs238thMeetingCBT_EPF_13102025.pdf",
+      "source_file": "sources/advances-2025-10-13.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "CBT approval of partial-withdrawal reforms"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "advances-2024-06-12-advances-2020-03-28",
+      "source": "advances-2024-06-12",
+      "target": "advances-2020-03-28",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2024-06-12",
+      "effective_date_evidence": {
+        "document_id": "advances-2024-06-12",
+        "page_number": 1,
+        "quote": "discontinue the said advance with immediate effect."
+      },
+      "evidence": {
+        "document_id": "advances-2024-06-12",
+        "page_number": 1,
+        "quote": "discontinue the said advance with immediate effect."
+      },
+      "scope": "Discontinues COVID advance under paragraph 68L(3), including exempted trusts; no change to other advance purposes is asserted."
+    }
+  ],
+  "limitations": [
+    "Auto-processing thresholds do not replace withdrawal-purpose eligibility, available balance or scheme conditions.",
+    "The April 2024 circular reports software deployment on 10 April; no general legal commencement is inferred from a deployment date.",
+    "The June 2025 five-lakh limit is reported in a press release; the underlying implementation circular is missing.",
+    "October 2025 CBT approval does not establish gazette notification, commencement or live portal implementation. Subsequent implementation instruments remain unverified.",
+    "Earlier COVID notification and the complete scheme amendment chain are not collected.",
+    "Issue-date evidence inventory only; complete applicable rules and current validity are not certified."
+  ]
+}

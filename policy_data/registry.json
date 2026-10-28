@@ -2,6 +2,42 @@
   "schema_version": 1,
   "policies": [
     {
+      "id": "higher_pension",
+      "label": "Higher pension / PoHW",
+      "scope": "EPS pension on higher wages and related joint options; excludes JD profile correction and general EPF enrolment",
+      "path": "higher_pension/policy.json",
+      "include": "higher[ -]?(?:pension|wage)|pension\\s+on\\s+higher|\\bpohw\\b|joint\\s+option|उच्च\\s*पेंशन",
+      "exclude": "",
+      "route": "higher_pension_policy"
+    },
+    {
+      "id": "cpps",
+      "label": "Pension payment / CPPS",
+      "scope": "EPS pension payment routing, PPO office, interim scroll schedules and DLC; excludes pension entitlement and staff pensions",
+      "path": "pension_payment/policy.json",
+      "include": "\\bcpps\\b|centrali[sz]ed\\s+pension|pension.*(?:payment|disburs|bank|scroll)|\\bppo\\b.*(?:transfer|revis)|digital life certificate|\\bdlc\\b",
+      "exclude": "staff pension|CCS|CPPC",
+      "route": "cpps_policy"
+    },
+    {
+      "id": "transfers",
+      "label": "Transfer claims",
+      "scope": "EPF account transfer claims, Form 13, Annexure K, overlapping service; excludes employee postings and EDLI death benefits",
+      "path": "transfer_claims/policy.json",
+      "include": "transfer\\s+(?:claim|of\\s+(?:EPF|PF|account)|(?:EPF|PF)\\s+account)|(?:PF|EPF|EPS|service|account).*transfer|form\\s*13|annexure\\s*[ -]?k|overlap.*service",
+      "exclude": "cadre|posting|staff transfer|compassionate|\\bEDLI\\b|death benefit",
+      "route": "transfers_policy"
+    },
+    {
+      "id": "advances",
+      "label": "Advances / auto-settlement",
+      "scope": "Member EPF advances, auto-processing and withdrawal-reform announcements; excludes staff advances, bonus and settlement of employer dues",
+      "path": "advances/policy.json",
+      "include": "auto[ -]?(?:settle|mode|claim)|(?:EPF|PF|illness|housing|marriage|education|covid).*advance|para(?:graph)?\\s*68|partial\\s+withdraw|withdrawal.*(?:rule|reform)",
+      "exclude": "bonus|\\bPLB\\b|staff advance|LTC|productivity|penal damage",
+      "route": "advances_policy"
+    },
+    {
       "id": "aadhaar",
       "label": "Member profile / Aadhaar",
       "scope": "EPFO member-profile correction, Aadhaar seeding and correcting Aadhaar linked to UAN; not changing the Aadhaar database itself or ECR deadlines",

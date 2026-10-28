@@ -40,7 +40,7 @@ def render_policy_review(context):
     with st.expander(f"{label} history, changes and evidence gaps"):
         if context["documents"]:
             st.dataframe([
-                {"Version / document": d.get("version_label") or d.get("title") or d["id"], "Circular": d["circular_no"], "Issued": d["issued_on"],
+                {"Version / document": d.get("version_label") or d.get("title") or d["id"], "Authority": d.get("authority", "EPFO document"), "Circular": d["circular_no"], "Issued": d["issued_on"],
                  "Effective from": d["effective_from"], "Evidence status": labels.get(d["status"], d["status"])}
                 for d in context["documents"]
             ], use_container_width=True)

@@ -117,7 +117,7 @@ def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=No
         "as_of": as_of, "scope": policy.scope, "policy_id": policy.id, "policy_label": policy.label,
         "date_semantics": "Instructions issued by this date; not a complete retrospective legal applicability determination.",
         "conclusion": "complete_applicability_not_established",
-        "documents": [{k: d.get(k) for k in ("id", "title", "version_label", "circular_no", "issued_on", "effective_from", "status")} for d in documents.values()],
+        "documents": [{k: d.get(k) for k in ("id", "title", "version_label", "authority", "notes", "circular_no", "issued_on", "effective_from", "status")} for d in documents.values()],
         "relationships": report["relationships"], "coverage": report["coverage"],
         "limitations": report["limitations"], "fallback_reason": fallback_reason,
         "supporting_source_count": len(supporting),

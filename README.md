@@ -114,9 +114,11 @@ python main.py data --query "What are the duties of Recovery Officer under EPFO 
 
 ## Policy version and date histories
 
-Hosted search supports curated **JD member profile** and **Member profile / Aadhaar** histories.
+Hosted search supports curated **JD member profile**, **Member profile / Aadhaar**,
+**Transfer claims**, **Higher pension / PoHW**, **Pension payment / CPPS**, and
+**Advances / auto-settlement** histories.
 Choose **Automatic** or a policy, set **Evidence as of**, then search.
-Other policies retain hybrid retrieval. Missing JD coverage can use supplementary
+Other policies retain hybrid retrieval. Missing curated coverage can use supplementary
 hybrid sources, explicitly unverified for amendment and applicability.
 Use **Standard search** to compare against the original retrieval path.
 

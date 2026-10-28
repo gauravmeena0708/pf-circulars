@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "id": "cpps",
+  "reviewed_on": "2026-10-28",
+  "documents": [
+    {
+      "id": "cpps-2025-01-17",
+      "title": "CPPS implementation and interim payment schedule",
+      "circular_no": "Pension/V4/CPPS/Pilot/2024-Part(1)/efile-948434/2024-25/08",
+      "issued_on": "2025-01-17",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/CPPS_Circular_17012025-3.pdf",
+      "source_file": "sources/cpps-2025-01-17.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "CPPS implementation and interim payment schedule",
+      "notes": [
+        "Paragraph 8 expressly reports CPPS implemented from 1 January 2025. Circular issued 17 January; issue-date snapshots before then do not import its retrospective report. Other paragraphs have their own operational scope."
+      ]
+    },
+    {
+      "id": "advances-2025-10-13",
+      "title": "CBT approval: doorstep DLC and digital transformation",
+      "circular_no": "PIB 238th CBT meeting, 13 October 2025",
+      "issued_on": "2025-10-13",
+      "authority": "Government press release reporting CBT decisions",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/10/PressBrief_MOLEChairs238thMeetingCBT_EPF_13102025.pdf",
+      "source_file": "../advances/sources/advances-2025-10-13.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "CBT approval: doorstep DLC and digital transformation"
+    }
+  ],
+  "relationships": [],
+  "limitations": [
+    "2024 approval and pilot originals and the pre-CPPS bank-agreement chain are not collected here.",
+    "January 2025 specifies an interim schedule until further notice. Later daily-payment software instructions are missing; do not present this schedule as certified current.",
+    "The October 2025 IPPB/DLC announcement is Board approval, not evidence of an executed MoU or operational availability.",
+    "Payment routing does not establish EPS eligibility, pension amounts or PoHW entitlement.",
+    "Issue-date evidence inventory only; complete applicable rules and current validity are not certified.",
+    "The January CPPS PDF copy has three physical pages and lacks the undertaking annexure; no undertaking wording is verified."
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "dataset_status": "Development source/page seeds and guardrails; not held-out legal-answer evaluation",
+  "cases": [
+    {
+      "id": "higher_pension-0",
+      "as_of": "2023-06-01",
+      "question": "What average monthly pay applies to pension commencement before September 2014?",
+      "required_evidence": [
+        {
+          "document_id": "pohw-2023-06-01",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "higher_pension-1",
+      "as_of": "2023-06-14",
+      "question": "What wage details and salary slip are admissible for proof of joint option?",
+      "required_evidence": [
+        {
+          "document_id": "pohw-2023-06-14",
+          "page_number": 3
+        }
+      ]
+    },
+    {
+      "id": "higher_pension-2",
+      "as_of": "2025-07-25",
+      "question": "What special audit exercise deadline applies to PoHW disposal?",
+      "required_evidence": [
+        {
+          "document_id": "pohw-2025-07-25",
+          "page_number": 3
+        }
+      ]
+    },
+    {
+      "id": "higher_pension-cutoff",
+      "as_of": "2023-01-01",
+      "question": "latest rules",
+      "absent_documents": [
+        "pohw-2023-06-01"
+      ]
+    },
+    {
+      "id": "higher_pension-incomplete",
+      "as_of": "2026-10-28",
+      "question": "all applicable rules",
+      "expected_conclusion": "evidence_inventory_only"
+    }
+  ]
+}

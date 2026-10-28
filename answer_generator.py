@@ -6,6 +6,7 @@ from langchain_huggingface.chat_models import ChatHuggingFace
 from langchain_core.messages import HumanMessage             
 import config
 import json
+import os
 from citation_provenance import page_label
 
 logger = logging.getLogger(__name__)
@@ -35,6 +36,9 @@ def describe_llm_error(e):
             f"Model '{config.LLM_REPO_ID}' is not served by provider '{provider}' (404). "
             "Change LLM_REPO_ID or HF_INFERENCE_PROVIDER."
         )
+    if status == 413:
+        return ("The evidence request exceeds the language-model provider's size or token limit (413). "
+                "Try a narrower question or a shorter evidence history. Token permissions are not the cause of this error.")
     if status == 429:
         return "The language-model provider is rate-limiting requests (429). Please retry shortly."
     suffix = f" (HTTP {status})" if status else ""
@@ -45,11 +49,17 @@ def describe_llm_error(e):
     )
 
 
-def _stream_llm_answer(llm_instance, messages):
+def _stream_llm_answer(llm_instance, messages, retry_messages=None):
     """Iterate the remote stream while keeping provider failures out of the UI."""
+    emitted = False
     try:
-        yield from llm_instance.stream(messages)
+        for part in llm_instance.stream(messages):
+            emitted = True
+            yield part
     except Exception as e:
+        if not emitted and retry_messages and getattr(getattr(e, "response", None), "status_code", None) == 413:
+            yield from _stream_llm_answer(llm_instance, retry_messages)
+            return
         logger.error(f"Error while streaming the Chat LLM response: {e}", exc_info=True)
         yield describe_llm_error(e)
 
@@ -104,8 +114,8 @@ def format_prompt(query, retrieved_chunks_data, conversation_context="", answer_
             source_pdf = meta.get('english_pdf_link') or meta.get('source_pdf', 'N/A')
             page_no = page_label(meta)
             evidence_status = meta.get("evidence_status", "retrieved source; applicability unverified")
-            source_info = f"[Title: {title} | Identifier: {circular_no} | Date: {meta.get('date', 'unknown')} | PDF: {source_pdf} | Page: {page_no} | Evidence: {evidence_status}]"
-            context_parts.append(f"Source [{i+1}] {source_info}:\n{chunk_data['text']}")
+            source_info = f"[Title: {title} | Identifier: {circular_no} | Date: {meta.get('date', 'unknown')} | PDF: {source_pdf} | Page: {page_no} | Authority: {meta.get('authority', 'not classified')} | Evidence: {evidence_status}]"
+            context_parts.append(f"Source [{chunk_data.get('citation_number', i+1)}] {source_info}:\n{chunk_data['text']}")
         context_str = "\n\n".join(context_parts)
 
     policy_section = ""
@@ -117,6 +127,8 @@ def format_prompt(query, retrieved_chunks_data, conversation_context="", answer_
             "Only source_checked relationships have been checked against source text. "
             "Never promote an unverified target or unknown effective date to a verified fact. "
             "Partial modifications apply only to their stated scope. "
+            "Distinguish press-release reports and Board approvals from scheme amendments and operative circulars. "
+            "Do not treat approval, a processing threshold, an audit deadline, or a software deployment date as general legal commencement or entitlement. "
             "Where checked supersession and commencement are established, do not present displaced directions as still applicable within that scope. "
             "Supplementary hybrid sources are unverified for amendment and applicability; say so explicitly. "
             "Do not claim complete applicable rules, current validity, or implementation availability. "
@@ -153,6 +165,45 @@ Helpful & Grounded Answer:"""
     return prompt
 
 
+def bounded_prompt(query, chunks, conversation_context="", answer_language="English", policy_context=None, limit=18000):
+    """Bound the complete request, preserving original UI citation numbers.
+
+    Omit whole source pages instead of cutting instructions out of context. The
+    model is told about reduced coverage. Retry uses the same numbered sources.
+    """
+    if len(query) > 6000:
+        raise ValueError("Please shorten the question to 6,000 characters.")
+    selected = [{**c, "citation_number": c.get("citation_number", i + 1)} for i, c in enumerate(chunks)]
+    context = None
+    if policy_context:
+        context = {**policy_context}
+        # Page text already supplies the evidence. Do not repeat long OCR quotes.
+        context["relationships"] = [{k: v for k, v in r.items() if k not in ("evidence", "effective_date_evidence")} for r in context.get("relationships", [])]
+    history = conversation_context[-1500:]
+    while True:
+        prompt = format_prompt(query, selected, history, answer_language, context)
+        if len(prompt.encode("utf-8")) <= limit:
+            return prompt
+        if history:
+            history = ""
+        elif selected:
+            # Keep relationship/commencement pages whenever other pages can go.
+            drop = next((i for i in range(len(selected)-1, -1, -1)
+                         if "relationship or commencement" not in selected[i].get("metadata", {}).get("evidence_status", "")), len(selected)-1)
+            selected.pop(drop)
+            if context:
+                context["prompt_coverage_reduced"] = True
+                context["limitations"] = list(policy_context.get("limitations", [])) + ["Source pages omitted to meet provider request limits; answer coverage is incomplete."]
+        elif context:
+            context = {"as_of": context.get("as_of"), "scope": context.get("scope"),
+                       "conclusion": "complete_applicability_not_established",
+                       "limitations": ["Policy inventory omitted to meet request limits; no complete applicability claim is supported."]}
+            if len(format_prompt(query, [], "", answer_language, context).encode("utf-8")) > limit:
+                raise ValueError("The question is too long for the configured request limit.")
+        else:
+            raise ValueError("The question is too long for the configured request limit.")
+
+
 def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False, conversation_context="", answer_language="English", policy_context=None):
     if not query:
         logger.warning("Query is empty. Cannot generate answer.")
@@ -161,23 +212,29 @@ def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False, con
         logger.error("LLM instance is not provided. Cannot generate answer.")
         return "LLM not available."
 
-    prompt_string = format_prompt(
-        query,
-        retrieved_chunks_data,
-        conversation_context=conversation_context,
-        answer_language=answer_language,
-        policy_context=policy_context,
-    )
+    try:
+        prompt_string = bounded_prompt(query, retrieved_chunks_data, conversation_context,
+                                       answer_language, policy_context,
+                                       limit=int(os.environ.get("LLM_MAX_PROMPT_BYTES", "18000")))
+        retry_prompt = bounded_prompt(query, retrieved_chunks_data, "", answer_language,
+                                     policy_context, limit=9000)
+    except ValueError as error:
+        return str(error)
     logger.debug(f"Formatted Prompt String for Chat LLM:\n{prompt_string}")
 
     logger.info(f"Sending prompt to Chat LLM for query: '{query[:100]}...'")
     messages = [HumanMessage(content=prompt_string)]
 
     if stream:
-        return _stream_llm_answer(llm_instance, messages)
+        return _stream_llm_answer(llm_instance, messages, [HumanMessage(content=retry_prompt)])
 
     try:
-        response_message = llm_instance.invoke(messages)
+        try:
+            response_message = llm_instance.invoke(messages)
+        except Exception as error:
+            if getattr(getattr(error, "response", None), "status_code", None) != 413:
+                raise
+            response_message = llm_instance.invoke([HumanMessage(content=retry_prompt)])
         logger.info("Received response from Chat LLM.")
         if hasattr(response_message, 'content'):
             return response_message.content

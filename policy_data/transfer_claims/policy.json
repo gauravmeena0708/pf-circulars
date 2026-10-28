@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "id": "transfers",
+  "reviewed_on": "2026-10-28",
+  "documents": [
+    {
+      "id": "transfer-2022-04-06",
+      "title": "Taxable and non-taxable PF components (referenced original)",
+      "circular_no": "WSU/6(1)2019/IncomeTax/Part-I(E-33306)/4581",
+      "issued_on": "2022-04-06",
+      "authority": "EPFO administrative circular",
+      "source_url": null,
+      "source_file": null,
+      "verification": "original_not_verified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Taxable and non-taxable PF components (referenced original)"
+    },
+    {
+      "id": "transfer-2024-01-29",
+      "title": "Multiple account numbers and EPS entitlement (referenced original)",
+      "circular_no": "E-597451/4406",
+      "issued_on": "2024-01-29",
+      "authority": "EPFO administrative circular",
+      "source_url": null,
+      "source_file": null,
+      "verification": "original_not_verified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Multiple account numbers and EPS entitlement (referenced original)"
+    },
+    {
+      "id": "transfer-2025-01-15",
+      "title": "Employer routing simplification (original unavailable)",
+      "circular_no": "WSU/Transfer of Claims/E-52972/2024-25/005",
+      "issued_on": "2025-01-15",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.nic.in/site_docs/PDFs/Circulars/Y2024-2025/WSU_CircularOnSimplificationOfTransferPFAccounts.pdf",
+      "source_file": null,
+      "verification": "original_not_verified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Employer routing simplification (original unavailable)"
+    },
+    {
+      "id": "transfer-2025-04-25",
+      "title": "Revamped Form 13 and destination-office processing",
+      "circular_no": "WSU/Amendments in IT, 1961/E-33306/2025-26/21",
+      "issued_on": "2025-04-25",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/26.pdf",
+      "source_file": "sources/transfer-2025-04-25.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revamped Form 13 and destination-office processing"
+    },
+    {
+      "id": "transfer-2025-05-20",
+      "title": "Overlapping service during transfer processing",
+      "circular_no": "WSU/TransferClaim/E-52972/2025-26/07",
+      "issued_on": "2025-05-20",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/41.pdf",
+      "source_file": "sources/transfer-2025-05-20.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Overlapping service during transfer processing"
+    },
+    {
+      "id": "transfer-2025-09-18",
+      "title": "Annexure K available in member portal",
+      "circular_no": "WSU/TransferClaimPt1/E-1163369/2025-26/33",
+      "issued_on": "2025-09-18",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/125.pdf",
+      "source_file": "sources/transfer-2025-09-18.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Annexure K available in member portal"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "transfer-2025-05-20-transfer-2025-04-25",
+      "source": "transfer-2025-05-20",
+      "target": "transfer-2025-04-25",
+      "type": "clarifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "transfer-2025-05-20",
+        "page_number": 1,
+        "quote": "overlapping in services\ncan occur due to genuine reasons"
+      },
+      "scope": "Overlapping service alone is not disqualification for transfer; source-office verification responsibility is reiterated."
+    },
+    {
+      "id": "transfer-2025-05-20-transfer-2024-01-29",
+      "source": "transfer-2025-05-20",
+      "target": "transfer-2024-01-29",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "transfer-2025-05-20",
+        "page_number": 1,
+        "quote": "E-597451/4406 dated 29/01/2024"
+      },
+      "scope": "References EPS modalities for multiple account numbers; original remains unverified."
+    }
+  ],
+  "limitations": [
+    "Earlier OTCP/auto-transfer instructions and exempted-trust transfer rules are not fully collected.",
+    "The January 2025 employer-routing original is unavailable; exact qualifying categories require supplementary evidence.",
+    "Overlapping service is not by itself disqualifying for transfer. This does not establish EPS entitlement or double-counting of service.",
+    "Issue-date evidence inventory only; complete applicable rules and current validity are not certified."
+  ]
+}

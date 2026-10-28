@@ -1,6 +1,8 @@
 # Registered policy version and date histories
 
-The hosted search supports **JD member profile** and **Member profile / Aadhaar**.
+The hosted search supports **JD member profile**, **Member profile / Aadhaar**,
+**Transfer claims**, **Higher pension / PoHW**, **Pension payment / CPPS**, and
+**Advances / auto-settlement**.
 Choose a policy or Automatic, set **Evidence as of**, then submit a question.
 Automatic recognises registered scopes in registry order; the more specific Aadhaar
 scope precedes JD. Choose an explicit policy for short follow-up questions. Standard
@@ -57,3 +59,15 @@ python -m pytest -q tests/test_policy_registry.py tests/test_policy_router.py te
 These development cases check retrieval and safeguards, not legal completeness or
 generated-answer correctness. New policies need their own reviewed evidence and
 held-out evaluation before any stronger applicability claim.
+
+New histories use original PDFs linked from epfo.gov.in and its EPFO CDN. The CPPS
+history currently has the January 2025 operational circular and October 2025 DLC
+approval; the 2024 approval/pilot chain remains a gap. Higher-pension baseline
+originals and January 2025 clarifications remain unverified. All six histories
+retain standard hybrid search as supplementary evidence where coverage is missing.
+
+The complete LLM prompt has an 18,000-byte UTF-8 budget by default
+(`LLM_MAX_PROMPT_BYTES` can override it). A 413 response retries once with
+9,000 bytes. Whole pages are omitted, original source numbers are retained and
+policy answers receive a reduced-coverage notice. This mitigates provider request
+limits without switching the configured GPT-OSS model or inference provider.

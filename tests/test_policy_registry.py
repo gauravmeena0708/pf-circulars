@@ -17,8 +17,8 @@ def test_aadhaar_scope_detected(query):
 
 
 @pytest.mark.parametrize("query", [
-    "Mandatory Aadhaar seeding for ECR filing", "EPS pension eligibility", "higher pension Aadhaar correction",
-    "UIDAI address update", "How can I correct Aadhaar address?", "transfer of EPF accounts",
+    "Mandatory Aadhaar seeding for ECR filing", "EPS pension eligibility",
+    "UIDAI address update", "How can I correct Aadhaar address?",
 ])
 def test_unregistered_scopes_keep_hybrid_fallback(query):
     original = [{"text": "original search result", "metadata": {}}]
@@ -30,7 +30,7 @@ def test_unregistered_scopes_keep_hybrid_fallback(query):
 
 def test_registered_paths_and_explicit_followups():
     policies = registered_policies()
-    assert {p.id for p in policies} == {"jd", "aadhaar"}
+    assert {p.id for p in policies} == {"jd", "aadhaar", "transfers", "higher_pension", "cpps", "advances"}
     for policy in policies:
         assert policy.path.is_file()
         PolicyHistory(policy.path)

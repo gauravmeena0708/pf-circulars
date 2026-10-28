@@ -186,7 +186,7 @@ class PolicyHistory:
                 "document_id": doc_id, "score": score, "text": chunk,
                 "parent_context": parent, "match_start": start,
                 "metadata": {"title": doc["title"], "circular_no": doc["circular_no"],
-                             "date": doc["issued_on"], "page_number": page["page_number"],
+                             "date": doc["issued_on"], "authority": doc.get("authority", "EPFO document"), "page_number": page["page_number"],
                              "page_provenance": "physical_pdf_page", "english_pdf_link": doc["source_url"],
                              "extraction_method": page["extraction_method"]},
             })
