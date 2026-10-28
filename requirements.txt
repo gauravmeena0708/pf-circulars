@@ -25,7 +25,7 @@ faiss-cpu # Or faiss-gpu
 rank-bm25
 numpy
 python-dotenv 
-streamlit 
+streamlit==1.45.1
 pandas
 reportlab
 timm
