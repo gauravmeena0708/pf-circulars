@@ -1,6 +1,6 @@
 # WSU Joint Declaration policy history pilot
 
-This is a working research CLI for **member profile correction**, separate from
+This is a working evidence pilot for **member profile correction**, separate from
 higher-pension joint options. It uses an explicit issue-date cutoff and returns
 an evidence inventory, rather than certifying the complete applicable rules.
 Later-issued retrospective directions are excluded by this cutoff; resolving legal
@@ -97,8 +97,25 @@ The page-preserving extraction paths remain available.
 
 ## Next implementation boundary
 
-Before integrating into generated answers: recover the December original, complete
+The hosted search now uses `policy_router.py` for JD profile questions. Choose
+**Automatic** or **JD member profile** in **Evidence route**, set **JD evidence as
+of**, and search. Other policies use the existing hybrid search. **Standard search**
+explicitly selects that original path, including for JD comparison queries.
+
+Curated JD pages and relationship/commencement evidence are sent to answer generation
+with explicit coverage warnings. When coverage is missing, supplementary hybrid
+results must concern JD profile correction, have a known issue date no later than
+the selected cutoff, and remain labelled unverified for applicability. A curated
+store failure also uses this conservative fallback. If hybrid retrieval fails,
+available curated evidence is retained. If neither path supplies evidence, no
+answer is generated. Higher-pension joint options and paragraph 26(6) declarations
+are excluded from automatic JD routing. Short follow-ups can use the explicit JD
+selection. Results include a downloadable evidence review and visible gaps.
+
+Before relying on applicability conclusions: recover the December original, complete
 the needed annexures and historical references, review relationship targets and
 commencement, and add held-out gold answers. Then use the dated inventory and
 relationship evidence alongside existing hybrid candidates, with explicit coverage
-gates. The CLI currently has no Streamlit interface or LLM answer generation.
+gates. Hosted generated answers are evidence-limited summaries, not a complete
+determination of applicable law. Tests cover routing, fallback, prompt propagation
+and Streamlit controls; the development cases are still not a held-out benchmark.

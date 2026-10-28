@@ -5,6 +5,7 @@ from langchain_huggingface import HuggingFaceEndpoint
 from langchain_huggingface.chat_models import ChatHuggingFace
 from langchain_core.messages import HumanMessage             
 import config
+import json
 from citation_provenance import page_label
 
 logger = logging.getLogger(__name__)
@@ -90,7 +91,7 @@ def _sanitize_conversation_context(conversation_context):
     )
 
 
-def format_prompt(query, retrieved_chunks_data, conversation_context="", answer_language="English"):
+def format_prompt(query, retrieved_chunks_data, conversation_context="", answer_language="English", policy_context=None):
     conversation_context = _sanitize_conversation_context(conversation_context)
     if not retrieved_chunks_data:
         context_str = "No relevant information found in the documents."
@@ -102,10 +103,26 @@ def format_prompt(query, retrieved_chunks_data, conversation_context="", answer_
             circular_no = meta.get('circular_no') or "N/A"
             source_pdf = meta.get('english_pdf_link') or meta.get('source_pdf', 'N/A')
             page_no = page_label(meta)
-            source_info = f"[Title: {title} | Identifier: {circular_no} | PDF: {source_pdf} | Page: {page_no}]"
+            evidence_status = meta.get("evidence_status", "retrieved source; applicability unverified")
+            source_info = f"[Title: {title} | Identifier: {circular_no} | Date: {meta.get('date', 'unknown')} | PDF: {source_pdf} | Page: {page_no} | Evidence: {evidence_status}]"
             context_parts.append(f"Source [{i+1}] {source_info}:\n{chunk_data['text']}")
         context_str = "\n\n".join(context_parts)
 
+    policy_section = ""
+    if policy_context:
+        policy_section = (
+            "\nJD POLICY EVIDENCE REVIEW (curated metadata, not an additional numbered source):\n"
+            + json.dumps(policy_context, ensure_ascii=False)
+            + "\nExplain known changes chronologically, distinguishing historical directions from the requested date. "
+            "Only source_checked relationships have been checked against source text. "
+            "Never promote an unverified target or unknown effective date to a verified fact. "
+            "Partial modifications apply only to their stated scope. "
+            "Where checked supersession and commencement are established, do not present displaced directions as still applicable within that scope. "
+            "Supplementary hybrid sources are unverified for amendment and applicability; say so explicitly. "
+            "Do not claim complete applicable rules, current validity, or implementation availability. "
+            "Always state material coverage gaps and unknown commencement dates. "
+            "Cite only numbered pages supporting each claim; policy metadata alone is not a citation.\n"
+        )
     history_section = (
         f"\n--- PREVIOUS CONVERSATION (for follow-up context only; "
         f"ground every factual claim in the numbered sources above, not in "
@@ -129,13 +146,14 @@ Context from EPFO Documents:
 {context_str}
 -----------------------
 {history_section}
+{policy_section}
 Question: {query}
 
 Helpful & Grounded Answer:"""
     return prompt
 
 
-def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False, conversation_context="", answer_language="English"):
+def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False, conversation_context="", answer_language="English", policy_context=None):
     if not query:
         logger.warning("Query is empty. Cannot generate answer.")
         return "No query provided."
@@ -148,6 +166,7 @@ def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False, con
         retrieved_chunks_data,
         conversation_context=conversation_context,
         answer_language=answer_language,
+        policy_context=policy_context,
     )
     logger.debug(f"Formatted Prompt String for Chat LLM:\n{prompt_string}")
 

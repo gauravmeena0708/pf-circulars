@@ -33,6 +33,9 @@ from vector_indexer import load_faiss_binary_index
 from passage_store import open_passage_store
 from retriever import retrieve_relevant_chunks
 from citation_provenance import page_label
+from policy_router import route_retrieval
+from policy_ui import policy_controls, render_policy_review
+from policy_history import DEFAULT_POLICY
 from answer_generator import (
     ANSWER_LANGUAGES,
     describe_llm_error,
@@ -528,6 +531,8 @@ loaded_retrieval_signature = (index_signature, config.EMBEDDING_MODEL_NAME)
 if st.session_state.get("_loaded_retrieval_signature") != loaded_retrieval_signature:
     for state_key in (
         "_active_query",
+        "_policy_context",
+        "_evidence_route",
         "_retrieved_data",
         "_answer_text",
         "_answer_status",
@@ -545,7 +550,7 @@ tab1, tab2, tab3 = st.tabs([
 ])
 
 with tab1:
-    if not faiss_index or not indexed_texts or not indexed_metadata:
+    if (not faiss_index or not indexed_texts or not indexed_metadata) and not DEFAULT_POLICY.exists():
         logger.error("FAISS index not found in %s; run import_pf_circular_index.py or index_manuals.py.", index_dir)
         st.warning("The circular search is temporarily unavailable. Please try again later.")
     else:
@@ -589,7 +594,7 @@ with tab1:
 
         st.sidebar.markdown("### Knowledge base")
         st.sidebar.caption(
-            f"{faiss_index.ntotal:,} indexed passages across 8,820 circulars and 16 manuals."
+            f"{faiss_index.ntotal if faiss_index else 0:,} indexed passages across the hybrid corpus; curated JD history available separately."
         )
 
         sample_queries = [
@@ -651,6 +656,8 @@ with tab1:
                 
                 lines.append(f"### [{idx}] {title}")
                 lines.append(f"- **Document Type:** {doc_label}")
+                if meta.get("evidence_status"):
+                    lines.append(f"- **Evidence status:** {meta['evidence_status']}")
                 lines.append(f"- **Identifier / Circular No:** `{circ_no}`")
                 lines.append(f"- **Date:** {date} | **Page:** {page}")
                 lines.append(f"- **Source Reference:** {link}")
@@ -750,6 +757,8 @@ with tab1:
                         unsafe_allow_html=True,
                     )
                     
+                    if meta.get("evidence_status"):
+                        st.caption(meta["evidence_status"])
                     # Official PDF link or Local Reference
                     if pdf_link.startswith("http"):
                         st.markdown(f"**[Open Official EPFO PDF Document]({pdf_link})**")
@@ -767,6 +776,7 @@ with tab1:
                     )
 
 
+        policy_mode, jd_as_of = policy_controls()
         # --- Main Query Interface ---
         with st.form("query_form"):
             st.markdown("#### Ask about an EPFO rule, circular, scheme, or procedure")
@@ -794,50 +804,41 @@ with tab1:
             if not query:
                 st.warning("Enter a question before searching.")
             else:
-                embedding_model = load_embedding_model(
-                    config.EMBEDDING_MODEL_NAME,
-                    config.EMBEDDING_DEVICE,
-                )
-                if embedding_model is None:
-                    st.error(
-                        "The circular search is temporarily unavailable. "
-                        "The document and data assistant in the second tab still works."
+                def hybrid_search():
+                    if not faiss_index or not indexed_texts or not indexed_metadata:
+                        raise RuntimeError("Hybrid index unavailable")
+                    embedding_model = load_embedding_model(config.EMBEDDING_MODEL_NAME, config.EMBEDDING_DEVICE)
+                    if embedding_model is None:
+                        raise RuntimeError("Embedding model unavailable")
+                    reranker_name = getattr(config, "CROSS_ENCODER_MODEL_NAME", None)
+                    cross_encoder_model = get_cross_encoder_model(reranker_name, config.EMBEDDING_DEVICE)
+                    retrieval_settings = (
+                        getattr(config, "USE_HYBRID_RETRIEVAL", True),
+                        getattr(config, "DENSE_TOP_K", 40), getattr(config, "BM25_TOP_K", 40),
+                        getattr(config, "RRF_K", 60), getattr(config, "TOP_N_INITIAL_RETRIEVAL", 20),
+                        config.EMBEDDING_MODEL_NAME, getattr(config, "CONFIDENCE_GATE_ENABLED", True),
+                        getattr(config, "TOP_N_RETRIEVAL", 5),
                     )
+                    return retrieve_cached_chunks(
+                        query, index_signature, retrieval_settings, bm25_cache_path,
+                        reranker_name, cross_encoder_model is not None,
+                        faiss_index, indexed_texts, indexed_metadata, embedding_model, cross_encoder_model,
+                    )
+
+                mode = {"Automatic": "auto", "JD member profile": "jd", "Standard search": "hybrid"}[policy_mode]
+                try:
+                    with st.spinner("Assembling source evidence..."):
+                        routed = route_retrieval(query, jd_as_of.isoformat(), hybrid_search, mode=mode)
+                except Exception:
+                    logger.exception("Search failed")
+                    st.error("Search is temporarily unavailable. Please try again later.")
                     st.stop()
-
-                reranker_name = getattr(config, 'CROSS_ENCODER_MODEL_NAME', None)
-                cross_encoder_model = get_cross_encoder_model(
-                    reranker_name,
-                    config.EMBEDDING_DEVICE,
-                )
-                if reranker_name and cross_encoder_model is None:
-                    logger.warning("Cross-encoder re-ranking is unavailable; using FAISS and BM25 ranking.")
-
-                retrieval_settings = (
-                    getattr(config, "USE_HYBRID_RETRIEVAL", True),
-                    getattr(config, "DENSE_TOP_K", 40),
-                    getattr(config, "BM25_TOP_K", 40),
-                    getattr(config, "RRF_K", 60),
-                    getattr(config, "TOP_N_INITIAL_RETRIEVAL", 20),
-                    config.EMBEDDING_MODEL_NAME,
-                    getattr(config, "CONFIDENCE_GATE_ENABLED", True),
-                    getattr(config, "TOP_N_RETRIEVAL", 5),
-                )
-
-                with st.spinner("Searching circulars and manuals..."):
-                    retrieved_data = retrieve_cached_chunks(
-                        query,
-                        index_signature,
-                        retrieval_settings,
-                        bm25_cache_path,
-                        reranker_name,
-                        cross_encoder_model is not None,
-                        faiss_index,
-                        indexed_texts,
-                        indexed_metadata,
-                        embedding_model,
-                        cross_encoder_model,
-                    )
+                retrieved_data = routed["chunks"]
+                st.session_state["_policy_context"] = routed["policy_context"]
+                st.session_state["_evidence_route"] = routed["route"]
+                # Do not let prior answers from a different policy/date stand in for evidence.
+                if routed["policy_context"]:
+                    st.session_state["tab1_chat_history"] = []
 
                 st.session_state["_active_query"] = query
                 st.session_state["_retrieved_data"] = retrieved_data
@@ -876,6 +877,7 @@ with tab1:
                                     stream=True,
                                     conversation_context=conversation_context,
                                     answer_language=answer_language,
+                                    policy_context=st.session_state.get("_policy_context"),
                                 )
 
                                 def stream_generator():
@@ -915,6 +917,7 @@ with tab1:
         saved_answer_text = st.session_state.get("_answer_text", "")
 
         if active_query:
+            render_policy_review(st.session_state.get("_policy_context"))
             if not query_context_rendered_this_run:
                 st.caption(f"Results for: “{active_query}”")
 

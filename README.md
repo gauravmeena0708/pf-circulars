@@ -112,11 +112,15 @@ python main.py data --query "What are the duties of Recovery Officer under EPFO 
 | **Total Knowledge Base** | **Full EPFO Policy & Procedural Corpus** | **`74,317 vectors`** |
 
 
-## Joint Declaration policy-history pilot
+## Joint Declaration policy history
 
-An offline WSU member-profile correction pilot provides dated source inventories,
-scoped amendment relationships, page-preserving evidence and coverage gaps.
-Run `python policy_history.py --as-of 2025-01-16 --query "closed establishment"`.
-See [pilot sources, commands and limitations](policy_data/joint_declaration/README.md).
-This research CLI is separate from production answers and does not certify complete
-legal applicability.
+Hosted search routes JD member-profile questions through curated dated evidence.
+Choose **Automatic** or **JD member profile**, set **JD evidence as of**, then search.
+Other policies retain hybrid retrieval. Missing JD coverage can use supplementary
+hybrid sources, explicitly unverified for amendment and applicability.
+Use **Standard search** to compare against the original retrieval path.
+
+The offline CLI remains available:
+`python policy_history.py --as-of 2025-01-16 --query "closed establishment"`.
+See [sources, commands and limitations](policy_data/joint_declaration/README.md).
+This pilot does not certify complete legal applicability.
