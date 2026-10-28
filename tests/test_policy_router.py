@@ -46,6 +46,8 @@ def test_current_jd_fallback_filters_future_unknown_and_wrong_policy():
     supporting = [c for c in result["chunks"] if "supplementary" in c["metadata"]["evidence_status"]]
     assert len(supporting) == 1
     assert "transgender" in supporting[0]["text"]
+    assert supporting[0]["metadata"]["page_number"] is None
+    assert supporting[0]["metadata"]["page_provenance"] == "document_only"
     assert result["policy_context"]["fallback_reason"]
 
 

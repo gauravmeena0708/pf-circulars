@@ -107,9 +107,14 @@ def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=Po
             doc = known.get(str(meta.get("circular_no", "")).casefold().replace(" ", ""))
             if doc and doc["status"] == "not_yet_effective":
                 continue
-            supporting.append({**candidate, "metadata": {
+            supporting_metadata = {
                 **meta, "evidence_status": "supplementary hybrid source; amendment and applicability unverified",
-            }})
+            }
+            # Legacy OCR imports can contain a document-wide range masquerading
+            # as a chunk page. Only explicitly mapped pages keep a page claim.
+            if meta.get("page_provenance") != "physical_pdf_page":
+                supporting_metadata.update(page_number=None, page_provenance="document_only")
+            supporting.append({**candidate, "metadata": supporting_metadata})
         chunks.extend(supporting)
 
     context = {
