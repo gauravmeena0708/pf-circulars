@@ -22,7 +22,8 @@
       },
       "notes": [
         "Cover dated 22.08.2023 and stamped 23 AUG 2023. March 2024 modification cites 23.08.2023 and the same circular /3638; retain both dates as provenance."
-      ]
+      ],
+      "local_pdf": "pdfs/jd-2023-08-22.pdf"
     },
     {
       "id": "jd-2024-01-16",
@@ -34,7 +35,8 @@
       "source_file": "sources/jd-2024-01-16.json",
       "verification": "source_checked",
       "effective_from": null,
-      "effective_date_evidence": null
+      "effective_date_evidence": null,
+      "local_pdf": "pdfs/jd-2024-01-16.pdf"
     },
     {
       "id": "jd-2024-03-11",
@@ -46,7 +48,8 @@
       "source_file": "sources/jd-2024-03-11.json",
       "verification": "source_checked",
       "effective_from": null,
-      "effective_date_evidence": null
+      "effective_date_evidence": null,
+      "local_pdf": "pdfs/jd-2024-03-11.pdf"
     },
     {
       "id": "jd-2024-03-26",
@@ -63,7 +66,8 @@
         "page_number": 2,
         "quote": "Effective Date: Date of issue",
         "interpretation": "Document control page expressly specifies date of issue; cover supplies issue date."
-      }
+      },
+      "local_pdf": "pdfs/jd-2024-03-26.pdf"
     },
     {
       "id": "jd-2024-07-31",
@@ -80,7 +84,8 @@
         "page_number": 2,
         "quote": "Effective Date: Date of issue",
         "interpretation": "Document control page expressly specifies date of issue; cover supplies issue date."
-      }
+      },
+      "local_pdf": "pdfs/jd-2024-07-31.pdf"
     },
     {
       "id": "jd-2025-01-16",
@@ -92,7 +97,8 @@
       "source_file": "sources/jd-2025-01-16.json",
       "verification": "source_checked",
       "effective_from": null,
-      "effective_date_evidence": null
+      "effective_date_evidence": null,
+      "local_pdf": "pdfs/jd-2025-01-16.pdf"
     },
     {
       "id": "jd-2025-08-13",
@@ -104,7 +110,8 @@
       "source_file": "sources/jd-2025-08-13.json",
       "verification": "source_checked",
       "effective_from": null,
-      "effective_date_evidence": null
+      "effective_date_evidence": null,
+      "local_pdf": "pdfs/jd-2025-08-13.pdf"
     },
     {
       "id": "jd-2025-12-26",
@@ -232,7 +239,7 @@
   ],
   "limitations": [
     "Pilot evidence inventory, not a determination of the complete rules applicable on the requested date.",
-    "Only selected physical PDF pages are transcribed. Historical SOP annexures and prior circulars are not comprehensively indexed.",
+    "All physical pages of the recovered PDFs are extracted, including attached SOPs. The original circular chain remains incomplete, and attachments retain their historical context.",
     "OCR is machine extracted. Relationship passages and cover dates were visually checked; other OCR, especially tables, requires checking against the PDF.",
     "Effective dates are recorded only where expressly established. Issue dates are not substituted for missing commencement dates.",
     "Version 3.0 says earlier SOP without naming version 2.0; that target remains unverified.",

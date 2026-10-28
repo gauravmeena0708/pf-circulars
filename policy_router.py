@@ -78,7 +78,7 @@ def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=No
             page = history.page(*key)
             chunks.append({"text": page["text"], "metadata": {
                 "title": doc["title"], "circular_no": doc["circular_no"], "date": doc["issued_on"],
-                "english_pdf_link": doc["source_url"], "page_number": key[1],
+                "english_pdf_link": doc["source_url"], "source_host_kind": doc.get("source_host_kind", "issuer_hosted"), "authority": doc.get("authority"), "page_number": key[1],
                 "page_provenance": "physical_pdf_page", "policy_change_evidence": True, "evidence_status": "curated relationship or commencement page",
                 "policy_document_status": doc["status"],
             }})
@@ -120,7 +120,7 @@ def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=No
         "as_of": as_of, "scope": policy.scope, "policy_id": policy.id, "policy_label": policy.label,
         "date_semantics": "Instructions issued by this date; not a complete retrospective legal applicability determination.",
         "conclusion": "complete_applicability_not_established",
-        "documents": [{k: d.get(k) for k in ("id", "title", "version_label", "authority", "notes", "circular_no", "issued_on", "effective_from", "status")} for d in documents.values()],
+        "documents": [{k: d.get(k) for k in ("id", "title", "version_label", "authority", "notes", "source_host_kind", "original_source_url", "circular_no", "issued_on", "effective_from", "status")} for d in documents.values()],
         "relationships": report["relationships"], "coverage": report["coverage"],
         "limitations": report["limitations"], "fallback_reason": fallback_reason,
         "supporting_source_count": len(supporting),

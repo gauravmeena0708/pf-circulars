@@ -71,3 +71,29 @@ The complete LLM prompt has an 18,000-byte UTF-8 budget by default
 9,000 bytes. Whole pages are omitted, original source numbers are retained and
 policy answers receive a reduced-coverage notice. This mitigates provider request
 limits without switching the configured GPT-OSS model or inference provider.
+
+
+## Bank, MID and EPS correction histories
+
+Bank KYC / cheque upload, MID de-linking and EPS contribution corrections are
+registered separately. Original scans are archived under each policy's `pdfs/`.
+Every checked source has physical page text, extraction method and a PDF hash.
+The April 2026 MID and December 2025 EPS PDFs were recovered as mirror copies
+when the original URLs failed; both retrieval and original URLs are retained.
+
+The January 2024 concurrent-EPS original says **e-597452/4406**. The May 2025
+transfer circular cites **E-597451/4406**. The candidate target is therefore
+unverified despite the same date and subject. The 1998 reference is checked
+against the January original, but the 1998 original itself remains missing.
+
+The bank history records the May 2024 conditional relaxation and April 2025
+bank-validation change. The newer circular does not explicitly name the May
+circular, so its exact amending target remains unverified. April's upload rule
+expressly applies from its issue date; the older software deployment date is
+kept distinct.
+
+`python scripts/index_policy_evidence.py --index-dir vector_store/data_index
+--output-dir /tmp/policy-index` builds a separate candidate dense/passages/BM25
+index, deduplicates source/page/offset hashes, preserves old rows and verifies
+alignment. Check its ingestion report before publishing all three artifacts.
+This command uses the existing cached MiniLM model and normalized embeddings.

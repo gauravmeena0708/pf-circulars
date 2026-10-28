@@ -22,7 +22,8 @@
       "notes": [
         "Cover dated 22.08.2023 and stamped 23 AUG 2023. March 2024 modification cites 23.08.2023 and the same circular /3638; retain both dates as provenance."
       ],
-      "version_label": "2023 SOP (no numeric version asserted)"
+      "version_label": "2023 SOP (no numeric version asserted)",
+      "local_pdf": "../joint_declaration/pdfs/jd-2023-08-22.pdf"
     },
     {
       "id": "jd-2024-01-16",
@@ -35,7 +36,8 @@
       "verification": "source_checked",
       "effective_from": null,
       "effective_date_evidence": null,
-      "version_label": "2024 DOB-proof modification"
+      "version_label": "2024 DOB-proof modification",
+      "local_pdf": "../joint_declaration/pdfs/jd-2024-01-16.pdf"
     },
     {
       "id": "jd-2024-03-11",
@@ -48,7 +50,8 @@
       "verification": "source_checked",
       "effective_from": null,
       "effective_date_evidence": null,
-      "version_label": "2024 parent-name document modification"
+      "version_label": "2024 parent-name document modification",
+      "local_pdf": "../joint_declaration/pdfs/jd-2024-03-11.pdf"
     },
     {
       "id": "jd-2024-03-26",
@@ -66,7 +69,8 @@
         "quote": "Effective Date: Date of issue",
         "interpretation": "Document control page expressly specifies date of issue; cover supplies issue date."
       },
-      "version_label": "SOP version 2.0"
+      "version_label": "SOP version 2.0",
+      "local_pdf": "../joint_declaration/pdfs/jd-2024-03-26.pdf"
     },
     {
       "id": "jd-2024-07-31",
@@ -84,7 +88,8 @@
         "quote": "Effective Date: Date of issue",
         "interpretation": "Document control page expressly specifies date of issue; cover supplies issue date."
       },
-      "version_label": "SOP version 3.0"
+      "version_label": "SOP version 3.0",
+      "local_pdf": "../joint_declaration/pdfs/jd-2024-07-31.pdf"
     },
     {
       "id": "jd-2025-01-16",
@@ -97,7 +102,8 @@
       "verification": "source_checked",
       "effective_from": null,
       "effective_date_evidence": null,
-      "version_label": "January 2025 simplification"
+      "version_label": "January 2025 simplification",
+      "local_pdf": "../joint_declaration/pdfs/jd-2025-01-16.pdf"
     },
     {
       "id": "jd-2025-08-13",
@@ -110,7 +116,8 @@
       "verification": "source_checked",
       "effective_from": null,
       "effective_date_evidence": null,
-      "version_label": "August 2025 Aadhaar seeding/correction instructions"
+      "version_label": "August 2025 Aadhaar seeding/correction instructions",
+      "local_pdf": "../joint_declaration/pdfs/jd-2025-08-13.pdf"
     },
     {
       "id": "jd-2025-12-26",
@@ -156,7 +163,8 @@
       "version_label": "2016 seeding campaign (unversioned)",
       "notes": [
         "31 December 2016 is a campaign completion target, not an established commencement date or an ongoing deadline."
-      ]
+      ],
+      "local_pdf": "pdfs/aadhaar-2016-11-21.pdf"
     },
     {
       "id": "aadhaar-2020-04-03",
@@ -300,7 +308,7 @@
   ],
   "limitations": [
     "Pilot evidence inventory, not a determination of the complete rules applicable on the requested date.",
-    "Only selected physical PDF pages are transcribed. Historical SOP annexures and prior circulars are not comprehensively indexed.",
+    "All physical pages of the recovered PDFs are extracted, including attached SOPs. The original circular chain remains incomplete, and attachments retain their historical context.",
     "OCR is machine extracted. Relationship passages and cover dates were visually checked; other OCR, especially tables, requires checking against the PDF.",
     "Effective dates are recorded only where expressly established. Issue dates are not substituted for missing commencement dates.",
     "Version 3.0 says earlier SOP without naming version 2.0; that target remains unverified.",

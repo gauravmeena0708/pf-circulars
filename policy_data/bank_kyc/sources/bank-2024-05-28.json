@@ -1,0 +1,15 @@
+{
+  "document_id": "bank-2024-05-28",
+  "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Circular_WSU_28052024-7.pdf",
+  "pdf_sha256": "cd019c34e28cb81cd1a2c82366a2de5afef4b342a4501bf13bd57b5746309b0b",
+  "total_pdf_pages": 1,
+  "extracted_on": "2026-10-28",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "[a= G2\netartt ufaqa fifa a7\nEMPLOYEES’ PROVIDENT FUND ORGANISATION\nae wa Tee aT, SIA ART\nMINISTRY OF LABOUR & EMPLOYMENT, GOVERNMENT OF INDIA\nwaa Fatt /Head Office\nwfaan fafa waa, iy, fra grat waa, at fraft-110066\nwen we Bhavishya Nidhi Bhawan, 14, Bhikaiji Cama Place, New Delhi-110066\nWebsite: www.epfindia.gow.in, www.epfindia nic in\n\nNo: WSU/E- 49885 { (3.32 Date: 28/May/2024\n\nTo, 2 8 MAY 2024\n\nAll ACC (HQ)/ACC (Zones)\nAll RPFC-I/RPFC-II/APFC OICs\n\nSubject: Removal of mandatory uploading of the image of cheque leaf/ attested bank\npassbook for certain eligible cases-reg.\n\nMadam /Sir,\n\nWith a view to facilitate the speedy settlement of claims filed online and to reduce the rejection\nof claims due to the reason of non-uploading of the image of cheque leaf/ attested bank\npassbook while filing claims online, it has been decided with the approval of the CPFC to relax\nthe requirement of mandatory uploading of the image of cheque leaf/ attested bank passbook\nfor certain eligible cases based on certain validations which include Online Verification of the\nBank KYC by concerned Bank/NPCI, Verification of Bank KYC by the employer using DSC,\nSeeded Aadhaar Number verified by UIDAI among others.\n\nIn all such cases, the following message is displayed in the last part of the PDF of the claim.\n\n\"The bank KYC has been online verified by bank and has been digitally signed by the employer\nfor this case among other validations and therefore, mandatory uploading of the image of\ncheque leaf/attested bank passbook is not required\"\n\nThis new relaxation has been deployed in the Field Office application on 09/05/2024 and an\nemail notification on this had also been sent to all ZOs on 13/May/2024.\n\nThe claims being eligible for this relaxation would be soon color coded for ease of identification\nof such claims by the Dealing Hands to prevent any inadvertent returning of such claims due\nto the reason of NON uploading of the image of the cheque leaf/bank passbook, alone.\n\nTill such time, all the DAs in Accounts Section are required to watch for the above message in\nthe claim PDF so as to avoid any such inadvertent returns.\n\nYours sincerely,\nNate\n\nRPFC-I (WSU)\n\nTH cas\nRAMAN DHANASEKAR\nafar PR amgaa-t\n\nRegional P. F. Commissioner-l",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

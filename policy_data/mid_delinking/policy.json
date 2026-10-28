@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "id": "mid_delinking",
+  "reviewed_on": "2026-10-28",
+  "documents": [
+    {
+      "id": "mid-2025-01-17",
+      "title": "Erroneously linked MID de-linking and user manual",
+      "circular_no": "WSU/ErroneousLinkingofUAN/E-838432/2024-25/10",
+      "issued_on": "2025-01-17",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Circular_ErroneouslyLinkedMemberIDsfromUAN-6.pdf",
+      "source_file": "sources/mid-2025-01-17.json",
+      "local_pdf": "pdfs/mid-2025-01-17.pdf",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Erroneously linked MID de-linking and user manual",
+      "source_host_kind": "issuer_hosted"
+    },
+    {
+      "id": "mid-2026-04-13",
+      "title": "De-linking extension where contributions exist",
+      "circular_no": "WSU/ErroneousLinkingofUAN/E-838432/2026-27/12",
+      "issued_on": "2026-04-13",
+      "authority": "EPFO administrative circular (original scan retrieved from mirror)",
+      "source_url": "https://www.sgcms.com/regulatory-updates/wp-content/uploads/2026/04/WSUCircular_DelinkingOfMIDs_13042026.pdf",
+      "source_file": "sources/mid-2026-04-13.json",
+      "local_pdf": "pdfs/mid-2026-04-13.pdf",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "De-linking extension where contributions exist",
+      "source_host_kind": "mirror_copy",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2026-2027/WSUCircular_DelinkingOfMIDs_13042026.pdf",
+      "notes": [
+        "Official PDF URL returned 404/403. Retrieved copy checked visually against circular date, number and indexed text; issuer-hosted bytes could not be independently compared."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "mid-2026-extends-2025",
+      "source": "mid-2026-04-13",
+      "target": "mid-2025-01-17",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "mid-2026-04-13",
+        "page_number": 1,
+        "quote": "Authority has approved the extension of this functionality"
+      },
+      "scope": "Extends the January 2025 MID de-linking functionality to wrongly created MIDs with contributions, subject to specified contribution/claim conditions; does not supersede the full manual."
+    }
+  ],
+  "limitations": [
+    "De-linking a wrong MID is separate from correcting Aadhaar, merging genuine service, transferring balances or correcting EPS contributions.",
+    "The 2026 circular says separate instructions will follow for transfer of de-linked balances to SRF; no automatic balance-transfer outcome is inferred.",
+    "Both full manuals are extracted, but screenshots and OCR may contain errors. Cover instructions and manual validation tables must be reconciled; no date-of-joining cutoff is certified here.",
+    "January manual version 1.0 dated 11 January is distinct from the circular issue date of 17 January.",
+    "2026 original URL is unavailable; a mirror copy is retained, with issuer-hosted byte identity unverified.",
+    "Issue-date filtering does not establish operational availability or legal commencement."
+  ]
+}

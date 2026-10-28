@@ -30,7 +30,7 @@ def test_unregistered_scopes_keep_hybrid_fallback(query):
 
 def test_registered_paths_and_explicit_followups():
     policies = registered_policies()
-    assert {p.id for p in policies} == {"jd", "aadhaar", "transfers", "higher_pension", "cpps", "advances"}
+    assert {p.id for p in policies} == {"jd", "aadhaar", "transfers", "higher_pension", "cpps", "advances", "bank_kyc", "mid_delinking", "eps_corrections"}
     for policy in policies:
         assert policy.path.is_file()
         PolicyHistory(policy.path)

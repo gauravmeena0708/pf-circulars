@@ -1,0 +1,235 @@
+{
+  "document_id": "mid-2026-04-13",
+  "source_url": "https://www.sgcms.com/regulatory-updates/wp-content/uploads/2026/04/WSUCircular_DelinkingOfMIDs_13042026.pdf",
+  "pdf_sha256": "b7e96d5b0e0e75f5f9a7d0aac80fbf50b84c7a4e97cbc6c3a28df2a58046fda3",
+  "total_pdf_pages": 45,
+  "extracted_on": "2026-10-28",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "For & Office and Web Circulation\n\nog enfant airy Fria area\nThis Employers Provident Fund Organisation\non (09 Ga Vor sare, urea BT)\nPi — am (MINISTRY OF LABOUR & EMPLOVMENT GOVERNMENT Cf IMAI\n\nFen erie /Head Office\nwhe yocueneris ater Ger Read are ae feet\nPlate A Ground Floor Bock f fast Micheal Magar Mew Deblbi-7 10023\nWietatte: werw.ep find a.gev.in, wa ep tin erin\n\nNo: WSU/ErroneousLinkingofU AN/E-838432/2026-27/ ! a Date: 4 (April/2026\n\nTo\nAll ACC (HQVACC (Zones),\nAll RPFC-V/RPFC-IUAPFC OICs\n\nSubject: De- Linking of MIDs from UAN in case Contribution is remitted by Employer.\nMadam/Sir,\n\nKind reference is sought to the User Manual for De-linking of wrong MIDs enclosed vide Circular No,\nWSU/ErroneousLinkingofUAN/E-838432/2024-25/10 dated 17.01.2025. In this connection, the Competent\nAuthority has approved the extension of this functionality to include those cases where wrong MIDs were\ncreated without the members’ knowledge and contribution is also available in such MIDs. The indicative\nprocess flow is as below:-\n\n1. Member will raise the De-Linking request through the Member Portal,\n\n2. The request shail be forwarded to the Employer's log-in for accepting or refusing the request.\n\n3. Incase the employer accepts the request, the MID shall be de-linked at the level of employer, provided\ncontributions have been received for not more than 2 times.\n\n4. In case the employer refuses or does nat take any action on the request for 2 weeks or wherever\ncontributions have been received in respect of the said member for more than 2 times but up to 6\ntimes, the De-Linking request shall be escalated to the Regional Office concerned as a task for the\nDealing Hand (Compliance) at FOINTERFACE for further examination.\n\n5. Dealing Hand after due examination shall submit to the Section Supervisor (Compliance) who would\nthen submit it to the RPFC (Compliance) with due recommendations\n\n8, RPFC(Compliance) shall examine and approve/raject such De-Linking request by recording the\nreasons based on the merit of the request.\n\n7, Separate instructions will be issued later about transfer of such de-linked balances to SRF\n\nMember IDs from which claims have already been processed/settled/pending OR have received\ncontributions more than 6 times will not be allowed to file the De-Linking Request.\n\nThe User Manual for the above functionality, as received from the ISD is enclosed herewith for ready\nreference.\n\nDue diligence should be carried out in the above process to avoid errors, delay and consequent\ngrievances.\n\n[This has the approval of the CPFC]\nEncl: User Manual\nYours sincerely,\n\nG.R. Suchindranath\n\nACC (WSU)",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 2,
+      "text": "CDAC\n\nUser Manual of De-link member id functionality\n\nEmployees’ Provident Fund Organization",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 3,
+      "text": "De-link Member ID (EPFO Portal) - Delink Validations\nStep 1: Login to EPFO Member Portal\nLogin to the EPFO Member Interface using your UAN and password. After successful login,\nthe home page will display your member profile and menu options.\nReference: See following Image for the main dashboard and the \"View\" menu\nnavigation.\nStep 2: Navigate to Service History\nFrom the top navigation menu, go to: View →Service History. This section displays all\nMember IDs currently linked with your UAN.\nStep 3: View Service Details\nThe Service Details page provides a comprehensive list of establishments linked to your\nUAN, including Member ID, Establishment Name, Date of Joining (DOJ), and Date of Exit\n(DOE).\nReference: See the following Image for the layout of the Service Details table.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 4,
+      "text": "Step 4: Initiate De-link\nIdentify the Member ID you wish to remove and click the De-link button in the Action\ncolumn.\nReference: See the following Images\nStep 5: System Validations and Error Handling",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 5,
+      "text": "The system performs automated checks to ensure the Member ID is eligible for removal.\nBased on the system status, you may encounter the following restrictions:\nA. Date of Joining Restriction (ERR_UNE008)\nIf the Member ID has a recorded Date of Joining (DOJ) prior to the system's cutoff date (31-\nDEC-2016), it cannot be removed via this interface.\nError Message: ERR_UNE008: Date of joining EPF is before 31-DEC-2016, so member id :\n[Member ID] cannot be de-linked.\nReference: See the following Image for a visual of this error notification.\nB. Settled or Pending Claims (ERR_UNE009 / ERR_UNE010)\nIf there is any financial activity, claim, or transfer request associated with the ID, de-linking is\nblocked to maintain record integrity.\nError Message (Claims): ERR_UNE009: Claim with status settled or pending found. So\nmember id : [Member ID] cannot be de-linked.\nReference: See the following Image.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 6,
+      "text": "Error Message (Transfers): ERR_UNE010: Online transfer with status settled or pending\nfound. So member id : [Member ID] cannot be de-linked.\nReference: See the following Image.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 7,
+      "text": "Step 6: Successful De-link\nIf the Member ID passes all validation checks (no early DOJ and no active/settled claims), the\nsystem will process the request, and the Member ID will be removed from your UAN service\nhistory.\nImportant Notes\nEligibility: Only Member IDs that were incorrectly or mistakenly linked should be removed.\nFinancial Records: Member IDs with existing transfer claims or settled withdrawals are\nstrictly ineligible for de-linking.\nDate Constraints: The portal currently restricts de-linking for records established before\nDecember 31, 2016.\nEPFO De-Link Member ID- Employer Approval Case (Less Contribution Case)\nThis manual outlines the end-to-end process for delinking a Member ID from a Universal\nAccount Number (UAN). This process is divided into two phases: Member Initiation and\nEmployer Approval.\nPhase 1: Member Action (Initiating the Request)\nStep 1: Access Service History Log in to the EPFO Member Portal. On the main dashboard,\nnavigate to the View menu and select Service History. See the following image.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 8,
+      "text": "Step 2: Initiate De-link A list of all Member IDs linked to your UAN will appear. Identify the\nerroneous Member ID and click the De-link button under the \"Action\" column. See the\nfollowing image.\nStep 3: Provide Reason & Consent On the De-link Member page:\nSelect the Reason for delinking (e.g., \"Establishment offered the employment, but I had not\njoined\").\nTick the declaration checkboxes to provide consent for Aadhaar-based e-KYC.\nClick Get OTP. See the following image.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 9,
+      "text": "Step 4: Authentication An OTP will be sent to your Aadhaar-registered mobile number.\nEnter the One Time Password and click Submit. See the following image.\nStep 5: Confirmation of Submission A \"Please wait...\" message will appear, followed by a\npopup notification stating: \"Delink request submitted to employer.\" Click OK. See the\nfollowing image.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 10,
+      "text": "Phase 2: Employer Action (Approving the Request)\nStep 6: Navigate to De-link Module The Employer must log in to the Unified Employer\nPortal. Under the Member tab, select the menu option DE-LINK MEMBER ID. See the\nfollowing image.\nStep 7: Review Contributions In the \"Pending Delink Applications\" dashboard, the employer\nshould click View Contributions. This allows them to verify if any wages or shares\n(Employee/Employer) were actually reconciled for that period.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 11,
+      "text": "Step 8: Review Claims Click the View Claims button to check if any withdrawals or advances\n(e.g., Form-31) were previously attempted or rejected for this Member ID.See the following\nimage.\nStep 9: Approval/Rejection\nEnter a Remark (e.g., \"AAAAA\").\nClick Approve (or Reject if details are incorrect).\nA confirmation box will appear: \"Do you want to proceed?\" Click Yes.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 12,
+      "text": "A success message will state: \"Application Approved successfully.\" See the following image.\nPhase 3: Final Verification\nStep 10: Status Check (Employer) The employer can verify the final status under the\nProcessed Applications tab. The \"Application Status\" should now reflect \"Approved by\nEmployer.\" See the following image.\nStep 11: Updated Service History (Member) Once the employer approves, the Member can\nlog back into their portal and view Service History. As seen in the updated records, the\ndelinked Member ID (e.g., PUPUN...) has been successfully removed from the active service\nlist, leaving only the legitimate Member IDs. See the following image.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 13,
+      "text": "EPFO De-Link Member ID: Full User Manual - Employer Rejection Case (Less Contribution)\nPhase 1: Member-Initiated De-Linking Request\nStep 1: Accessing Member Portal and Navigation\nLog in to the EPFO Unified Member Portal.\nGo to the 'View' tab and select 'Service History'. See the following image\nStep 2: Identifying Incorrect Entry\nLocate the establishment to be removed.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 14,
+      "text": "Under 'Action', click the 'De-link' button. See the following image\nStep 3: Reason and Consent\nSelect the reason (e.g., \"I never worked in this establishment\").\nCheck the consent box and click 'Get OTP'. See the following image\nStep 4: OTP Verification\nEnter the 6-digit OTP and click 'Submit'.\nConfirm the browser pop-up. See the following image",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 15,
+      "text": "@ a ate ar\n\nContbaton uploaded and ni ae founds dining or member 0 OD000000000004 wl be procened hough Employed OMe, x\n\n{B perty ect heave Meer IO dens ot Belong ome an ha een std thet my cre ey rhe ge my creo ein hs one cess Meer For my UAN an ft ry ams tanya ing esr MamberD tht mgt get\n{BL nerety ove my et onset rth seo my Aad number the puzee of KY Bethe ude nd do ye Ugur eran Aue (AD. under hatmy Aachineraton wl bewedto ae my erty ante estes Une\n‘cout Nonter AN) he ployee Prieta) hee, cntr othe calcon erage and rc my penenlnomaton, XSI MT RR afte oN) eR Pea UE ER eV SUE Te eons TIN\ngo ewe a en a TS ne TS oc ah fae er ha fs aes a am aN) oe ag se tre he er a we\n\ngaa egg Ba I rember FR eR wa Bea nh AR aT AEA Temes ae RR TB\n\n(4.07 has ben tnt your regeared mobi number: 0OEOO235\n\nEE © ivetereto seach mo: ASR V\n\negov-pspune cacin says",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 16,
+      "text": "Phase 2: Employer processing of De-Linking Request\n1.\nIn employer portal on click of cliams button all claims details get displayed.\n2.\nOn click of contribution button all contributions get displayed.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 17,
+      "text": "3.\nClick the Reject button and click yes to give conformation.\n4.\nFor final confirmation see the processed application tab.\n5.\nThough the contributions are less but employer rejects the request the the request gets\nforwarded to field office.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 18,
+      "text": "Phase 3: Dealing Assistant (DA(Compliance) (Compliance) ) Action\nStep 6: DA(Compliance) Dashboard Review\nThe DA(Compliance) reviews the pending application and examines the Employer Remarks.\nSee the following image\nStep 7: DA(Compliance) Financial Verification",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 19,
+      "text": "The DA(Compliance) clicks View Contributions and View Claims to audit the Member ID\nhistory. See the following image\nStep 8: DA(Compliance) Recommendation\nThe DA(Compliance) enters remarks and clicks 'Recommend to Reject' (or Approve).\nConfirmation moves the request to the Section Supervisor (SS(Compliance) ). See the\nfollowing image",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 20,
+      "text": "Phase 4: Section Supervisor (SS(Compliance) ) Action\nStep 9: SS(Compliance) Dashboard Access\nThe SS(Compliance) navigates to Member > DE-LINK MEMBER ID and opens the Pending\nApplications tab. See the following image\nStep 10: SS(Compliance) Financial Verification",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 21,
+      "text": "The SS(Compliance) clicks View Contributions and View Claims to audit the Member ID\nhistory. See the following image\n\nContributions\n\nage Ment) TRIN tnplye Share Employer Share Peon Shave Payment Star",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 22,
+      "text": "Enter a remark and click 'Recommend to Reject' (or Approve). See the following image\nStep 11: Forwarding to RPFC II (Compliance)\nOn clicking yes to give confirmation reuest is sent to APFC/RPFC II\nPhase 5: APFC / RPFC II (Compliance) Final Action\nStep 12: RPFC II (Compliance) Review and Final Remark\nThe RPFC II logs in, reviews the audit trail from Employer, DA(Compliance) , and\nSS(Compliance) , and enters the final remark. See the following image",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 23,
+      "text": "Step 13: RPFC II Final Audit\n\nThe RPFC II conducts the final audit of Contributions and Claims. See the following image\n\nContributions\n\nry Payment stat",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 24,
+      "text": "Step 14: Final Rejection/Approval\nThe RPFC II clicks the final action button (e.g., 'Reject') and confirms the success message.\nSee the following image\nStep 15: RPFC II Processed History\nThe RPFC II can verify the completed case in the 'Processed Applications' tab. See the\nfollowing image\nOn member portal remarks of APFC/RPFC II are displayed under action.\nMember ID De-linking - Approved Case (More Contribution)\nThis process is used when a Member ID (MID) has been erroneously linked to a UAN (e.g.,\nthe member never worked at that establishment).",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 25,
+      "text": "Phase 1: Member Request Submission\nObjective: To initiate the de-link request from the Member portal.\nLogin and Navigation:\nLog in to the EPFO Member Unified Portal.\nGo to the View menu and select Service History (See the following Image).\nIdentify Member ID:\nThe Service Details page will display all linked Member IDs.\nLocate the Member ID you wish to remove and click the De-link button under the \"Action\"\ncolumn (See the following Image).",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 26,
+      "text": "Provide De-linking Reason:\nA new page will open showing the specific Member ID.\nSelect the Reason for delinking from the dropdown menu (e.g., \"I never worked in this\nestablishment and my UAN was added without my consent\").\nConsent and Authentication:\nTick the checkboxes to declare that the Member ID does not belong to you and to provide\nAadhaar e-KYC consent (See the following Image).\nClick on Get OTP.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 27,
+      "text": "OTP Verification:\nEnter the OTP sent to your Aadhaar-registered mobile number.\nClick Submit (See the following Image).\nConfirmation:\nA pop-up will appear stating \"Delink request submitted to employer.\" Click OK (See the\nfollowing Image).\nThe status in your Service History will now show as Pending at Employer (See the following\nImage).",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 28,
+      "text": "Phase 2: Employer Approval Process\nObjective: For the establishment to review and approve/reject the member's request.\nAccess Dashboard:\nThe employer logs into the Establishment Portal and navigates to the Pending Delink\nApplications dashboard.\nReview Contributions & Claims:\nView Contributions: The employer can click \"View Contributions\" to see monthly wage\ndetails linked to that MID (See the following Image).",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 29,
+      "text": "View Claims: The employer can click \"View Claims\" to see if any previous claims were made\n(or rejected) against this ID (See the following Image).\nTake Action:\nEnter a Remark in the text box.\nClick Approve to proceed with de-linking or Reject if the request is invalid.\nFinal Confirmation:",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 30,
+      "text": "A confirmation box will appear asking \"Do you want to proceed?\" Click Yes (See the\nfollowing Image).\n⚠️Important Notes\nIrreversibility: Once a Member ID is successfully de-linked, it cannot be linked again\nto the same UAN.\nForfeiture of Funds: All funds available under the de-linked Member ID shall be\nforfeited upon approval, as the member is declaring they have no right to those\nfunds (See the following Image).\nPhase 3: Field Office (FO) Verification & Final Approval\nObjective: Final administrative oversight to complete the de-linking process.\nApproval Confirmation:\nOnce the employer clicks \"Yes,\" a success message will appear: \"Delink request approved by\nemployer and sent to Field Office.\" Click OK to proceed (See the following Image).",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 31,
+      "text": "Field Office Review:\nThe request moves to the EPFO Field Office portal. The FO officer reviews the Service\nDetails, Employer Remarks, and Frozen Status (See the following Image).\nOn clicking of Contribution and Cliam button, details of contribution and claims will get\ndisplayed.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 32,
+      "text": "Final Field Office Confirmation:\nA final confirmation prompt, \"Do you want to proceed?\", is shown to the FO officer.\nSelecting Yes officially de-links the Member ID from the UAN (See the following Image).\nOn clicking yes button to give confirmation, request gets delegated to SS(Compliance)\nPhase 4: Final Status Verification\nObjective: Confirming that the de-linking is reflected in the system for both parties.\nOn clicking processed application we can find recent application on which action has taken.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 33,
+      "text": "evnconnmmreeo ONE nom o010 mplayer Remus: A\n\nEt!\n\n[: Es Ee\n\nLogin with SS(Compliance) credentials:\n\nClick delink under Member menu.\n\nClick contribution button to see contributions against the member id.",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 34,
+      "text": "Click claims button to see claims against the member id.\n1. Social Security Assistant (SS(Compliance) ) Recommendation\nAction Initiation: The SS(Compliance)\nreviewer accesses the Pending Applications\ndashboard. After reviewing the member and service details, they select an action.\nRecommendation: To deny the request based on their review, the SS(Compliance) clicks\nRecommend to Reject (See the following Image).",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 35,
+      "text": "To accept the request based on their review, the SS(Compliance)\nclicks Recommend to\nApprove (See the following Image).\nConfirmation: A prompt \"Do you want to proceed?\" appears. Click Yes (See the following\nImage).\nRouting: A notification confirms: \"Recommended for rejection. Request moved to\nAPFC/RPFC II\" (See the following Image).",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 36,
+      "text": "Tracking: The request can now be viewed under the Processed Applications tab, showing\nthe SS(Compliance)\nRecommendation and SS(Compliance)\nRemark (See the following\nImage).\n2. APFC / RPFC II Dashboard Access\nNavigation: The Assistant Provident Fund Commissioner (APFC) logs into the portal.\nMenu Path: Go to the Member menu and select DE-LINK MEMBER ID ( See the following\nImage).",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 37,
+      "text": "3. Final Verification of Records\nAudit Contributions: The RPFC II clicks the Contributions button to audit monthly payments.\nA pop-up displays the UAN, wage months, and payment status (e.g., \"PAYMENT NOT\nPROCEEDED YET\") (See the following Image).\nAudit Claims: The RPFC II clicks the Claims button to review any historical claim activity,\nverifying rejection status or previous tracking IDs (See the following Image).",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 38,
+      "text": "4. Final Decision Execution\nFinal Approval: If the details are in order, the RPFC II clicks the Approve button (See the\nfollowing Image).\nFinal Confirmation: A \"Please Confirm\" pop-up appears asking \"Do you want to proceed?\".\nClick Yes (See the following Image).\nSystem Completion: A final success message appears: \"Delink request approved\" (See the\nfollowing Image). The Member ID is now officially de-linked from the UAN.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 39,
+      "text": "Final Process Notes\nHierarchy of Approval: The process ensures multiple \"eyes\" on the request: Employer →\nDealing Assistant (DA(Compliance) (Compliance) ) →Social Security (SS(Compliance) ) →\nAPFC/RPFC II\nManual: De-linking a Member ID (EPFO Portal)-Without Contribution Case\n1. View Service History\nStart by navigating to the Service Details dashboard. As seen in Image 2, your profile shows\nmultiple Member IDs. In this example, there are two IDs for \"DEF BANK LTD\" and one for\n\"AVC\".\nIdentify the duplicate or incorrect Member ID (e.g., PUPUN00222220000010131).\nClick the blue De-link button in the Action column. See the following image",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 40,
+      "text": "2. Select the Reason\nYou will be moved to the \"De-link Member\" screen (See the following Image). You must\nspecify why this ID should be removed.\nClick the Reason for delinking dropdown.\nOptions include: * I never worked in this establishment and my UAN was added without my\nconsent.\nEstablishment offered the employment, but I had not joined.\n3. Acceptance of Terms & Conditions",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 41,
+      "text": "As shown in Image 3, you must check the two mandatory consent boxes.\n[!WARNING] Important Note: Once the request is approved, any funds in that\nspecific Member ID will be forfeited, and that ID cannot be linked again to your\nUAN.See the following image\n4. Aadhaar Authentication\nOnce the reason is selected and boxes are checked:\nClick Get OTP (See the following Image).\nA One-Time Password (OTP) will be sent to your registered mobile number ending in ...2435.\nEnter the OTP into the One Time Password field.\nClick Submit.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 42,
+      "text": "5. Final Confirmation\nAfter clicking submit, a \"Please wait...\" overlay will appear, followed by a browser alert (See\nthe following Image):\nMessage: \"Successfully delinked the member.\"\nClick OK to close the prompt.\n6. Verification\nThe system will redirect you back to the Service Details page (See the following Image).",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 43,
+      "text": "DB ESSE ee ee\n\nBasic Validations",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 44,
+      "text": "\nMember ID must have DOJ EPF less than or equal to 31-12-2016\n\nNo claim should be there with status Pending or Settled\n\nNo online transfer with status Pending or Settled should be there\nCase 1 :\n\nIf member id fulfills the basic validations and no ECR (Contribution), CLAIM (OCS) or\nTRANSFER (OTCP) available against the member id then de-linking gets initiated\nand\ngets completed at Member Portal.\nCase 2 :\n\nIf ECR (Contribution), CLAIM (OCS) or TRANSFER (OTCP) is available against the\nmember id then request gets delegated to Employer Portal\nSub Case 1:\n\nIf ECR (Contribution) is less than or equal to 2 and employer approves the\napplication then de-link process ends and member id gets removed from\nservice history.\nSub Case 2:\n\nIf ECR (Contribution) is greater than 2 and employer approves the application\nthen application gets delegated to Field Office.\nSub Case 3:\n\nIf Employer rejects the application then it gets delegated to Field Office.\nFiled Office Flow :\nDA (Compliance) ---> SS(Compliance) ---> APFC / RPFC II (Compliance)\nAt field office level DA and SS gives recommendation and remarks.\nAPFC / RPFC II (Compliance) is the final actor who takes decision to approve or reject the\napplication.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 45,
+      "text": "",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

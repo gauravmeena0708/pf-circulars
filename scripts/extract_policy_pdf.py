@@ -31,7 +31,7 @@ def extract(pdf_path, document_id, source_url, pages):
             page = doc[number - 1]
             text = page.get_text("text").strip()
             method = "native"
-            if len(text) < 50:
+            if len(text) < 50 or len(text.split()) < 25:
                 image = Image.open(io.BytesIO(page.get_pixmap(dpi=180).tobytes("png")))
                 text = pytesseract.image_to_string(image, lang="eng", config="--psm 3").strip()
                 method = "tesseract_eng_180dpi"

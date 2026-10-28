@@ -1,0 +1,40 @@
+{
+  "document_id": "mid-2025-01-17",
+  "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Circular_ErroneouslyLinkedMemberIDsfromUAN-6.pdf",
+  "pdf_sha256": "88ce92a1b268f62fcd3bcd7853221aaec855f667997cded5c656d2d4caf65d9c",
+  "total_pdf_pages": 6,
+  "extracted_on": "2026-10-28",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "For E-Office/Web Circulation\n\noiant ufo Ate a3\n\nEmployees Provident Fund Organisation\n(98 Ue TTR BATTS, UIT ART)\nISTRY OF LABOUR & EMPLOYMENT, GOVERNMENT OF INDIA)\nyar wratera/Head Office\nPlate A, Ground Floor, Block Il, East Kidwai Nagar, New Delhi-110023\n\nWebsite: www.epfindia.gov.in, www.epfindia.nic.in\n\nNo: WSU/ErroneousLinkingofU AN/E-838432/2024-25/ 10 Date: 17/Jan/2025\n\nTo\nAll ACC HQ’s Zones\nAddl. CPFC (Zones),\nAll RPFCs/OICs (Field Offices)\n\nSub: De-Linking of erroneously linked Member Ids from UAN - reg.\nMadam / Sir,\n\nIn order to empower the members to delink any erroneous Member Id in their UAN\nwhich had been linked without their knowledge, it has been decided to provide a\nfacility to the members to De-Link such wrongly linked MIDs from their UAN. A\ndetailed User Manual for such facility is enclosed herewith for guidance of the\nmembers about the process of delinking.\n\nThis facility may be widely publicized to all the employers and members in your\nrespective jurisdictions for making use of the same judiciously.\n\n[This has the approval of CPFC]\n\nYours sincerely,\n\n=\n\nuchindranath\n\nG.\nAddl. CPFC (WSU)",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 2,
+      "text": "Page 1 of 5 \nVersion 1.0 dated 11-Jan-2025 \n \nEmployees’ Provident Fund Organisation \nUser Manual for Delinking of Member IDs \n \n \nIntroduction \nThis guide provides step-by-step instructions for members to delink their wrongly \nlinked Member IDs via the unified portal. Follow the instructions carefully to ensure \na smooth process. \n \n \nSteps to Delink Member IDs \n \n1. Login to the Member Interface \n \n1. \nOpen \nthe \nMember \nInterface \nof \nunified \nportal \n(https://unifiedportal-\nmem.epfindia.gov.in/memberinterface/). \n2. \nEnter your UAN, Password, and Captcha. \n3. \nClick the Sign in button. \n \n \n \n2. OTP Verification \n \n1. \nAfter signing in, an OTP will be sent to your registered mobile number. \n2. \nEnter the OTP received on your registered mobile in the designated field. \n3. \nComplete the captcha and click the Submit button. \n2816210/2025/WSU-I\n197",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 3,
+      "text": "Page 2 of 5 \nVersion 1.0 dated 11-Jan-2025 \n \nEmployees’ Provident Fund Organisation \n \n3. Accessing the Service History \n \n1. \nAfter successful login, navigate to the View menu. \n2. \nClick on the Service History sub-menu. \n \n2816210/2025/WSU-I\n198",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 4,
+      "text": "Page 3 of 5 \nVersion 1.0 dated 11-Jan-2025 \n \nEmployees’ Provident Fund Organisation \n4. Viewing Service History \n \n1. \nOn the Service History page, you can view all your service records. \n2. \nTo delink wrongly linked previous member ID details, click the Delink button next \nto the corresponding record. \n \n \n \n5. Confirmation Prompt \n \n1. \nA confirmation alert will appear. Click OK to proceed. \n \n \n2816210/2025/WSU-I\n199",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 5,
+      "text": "Page 4 of 5 \nVersion 1.0 dated 11-Jan-2025 \n \nEmployees’ Provident Fund Organisation \n6. Employment Status and Consent \n \n1. \nThe next page will prompt you to select reason for delinking. \n2. \nProvide the required consents by checking the two boxes. \n3. \nClick the Get OTP button. \n \n \n7. OTP Verification for Delinking \n \n1. \nAn OTP will be sent to your Aadhaar-registered mobile number. \n2. \nEnter the OTP, then click Submit. \n3. \nIf the OTP is not received within 2 minutes, click the Resend button to generate a \nnew OTP. \n \n \n2816210/2025/WSU-I\n200",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 6,
+      "text": "Page 5 of 5 \nVersion 1.0 dated 11-Jan-2025 \n \nEmployees’ Provident Fund Organisation \n8. Successful Delinking \n \n1. \nUpon successful verification, the Member ID will be delinked. \n2. \nA success message will be displayed. \n3. \nThe page will redirect to your service history, where the delinked Member ID will no \nlonger appear. \n \n \n \n9. Error Scenario \n \n \nIf an ECR (Electronic Challan-cum-Return) has been filed against the Member ID, \nyou will receive an error message upon attempting to delink. \n \nAfter acknowledging the error message by clicking OK, you will be redirected to the \nService History page, and delinking will not proceed. \n \n \n \n \n \n \n \n \n \n \nNotes \n \nEnsure your Aadhaar-linked mobile number is active and accessible. \n \nVerify all details before initiating the delinking process to avoid errors. \n \nContact support if you face repeated issues or errors during the process. \n \n2816210/2025/WSU-I\n201",
+      "extraction_method": "native"
+    }
+  ]
+}

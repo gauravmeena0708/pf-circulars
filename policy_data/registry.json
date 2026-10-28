@@ -2,6 +2,33 @@
   "schema_version": 1,
   "policies": [
     {
+      "id": "bank_kyc",
+      "label": "Bank KYC / cheque upload",
+      "scope": "EPFO UAN bank seeding and cheque/passbook upload requirements",
+      "path": "bank_kyc/policy.json",
+      "include": "bank\\s*kyc|cheque\\s*(?:leaf|upload)|passbook.*upload|upload.*(?:passbook|cheque)|(?:bank\\s*account|bank\\s*details).*(?:seed|link|approv|validat)|(?:seed|link|approv|validat).*bank\\s*(?:account|details)",
+      "exclude": "\\bcpps\\b|pension.*(?:bank|payment)|UIDAI|NPCI.*(?:mapping|mapper)|ELI|PMVBRY",
+      "route": "bank_kyc_policy"
+    },
+    {
+      "id": "mid_delinking",
+      "label": "MID de-linking",
+      "scope": "Wrong MID linked to UAN; January 2025 process and April 2026 contribution extension",
+      "path": "mid_delinking/policy.json",
+      "include": "de[ -]?link|delink|wrong.*(?:member\\s*id|\\bmid\\b)|erroneous.*(?:member\\s*id|\\bmid\\b)",
+      "exclude": "aadhaar|aadhar",
+      "route": "mid_delinking_policy"
+    },
+    {
+      "id": "eps_corrections",
+      "label": "EPS contribution corrections",
+      "scope": "Erroneous EPS membership and contribution correction; concurrent membership context",
+      "path": "eps_corrections/policy.json",
+      "include": "(?:erroneous|wrong|incorrect|rectif|correct).*(?:EPS|pension\\s*contribut)|(?:EPS|pension\\s*contribut).*(?:erroneous|wrong|incorrect|rectif|correct)|concurrent.*(?:EPS|pension)|multiple\\s+account.*EPS",
+      "exclude": "higher\\s*pension|PoHW",
+      "route": "eps_corrections_policy"
+    },
+    {
       "id": "higher_pension",
       "label": "Higher pension / PoHW",
       "scope": "EPS pension on higher wages and related joint options; excludes JD profile correction and general EPF enrolment",

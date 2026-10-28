@@ -66,7 +66,8 @@
       "verification": "source_checked",
       "effective_from": null,
       "effective_date_evidence": null,
-      "version_label": "Computation of pension: 12 and 60 month periods"
+      "version_label": "Computation of pension: 12 and 60 month periods",
+      "local_pdf": "pdfs/pohw-2023-06-01.pdf"
     },
     {
       "id": "pohw-2023-06-14",
@@ -79,7 +80,8 @@
       "verification": "source_checked",
       "effective_from": null,
       "effective_date_evidence": null,
-      "version_label": "Proof of joint option under paragraph 26(6)"
+      "version_label": "Proof of joint option under paragraph 26(6)",
+      "local_pdf": "pdfs/pohw-2023-06-14.pdf"
     },
     {
       "id": "pohw-2025-01-18",
@@ -105,7 +107,8 @@
       "verification": "source_checked",
       "effective_from": null,
       "effective_date_evidence": null,
-      "version_label": "Audit of disposal of PoHW applications"
+      "version_label": "Audit of disposal of PoHW applications",
+      "local_pdf": "pdfs/pohw-2025-07-25.pdf"
     }
   ],
   "relationships": [

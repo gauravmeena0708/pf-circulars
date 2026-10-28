@@ -1,0 +1,27 @@
+{
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
+  "cases": [
+    {
+      "id": "eps_corrections-0",
+      "question": "How are concurrent EPS pensions aggregated subject to wage ceiling?",
+      "as_of": "2024-01-29",
+      "required_evidence": [
+        {
+          "document_id": "transfer-2024-01-29",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "eps_corrections-1",
+      "question": "How are erroneous EPS contributions transferred between Account 10 and Account 1 with interest?",
+      "as_of": "2025-12-19",
+      "required_evidence": [
+        {
+          "document_id": "eps-2025-12-19",
+          "page_number": 1
+        }
+      ]
+    }
+  ]
+}

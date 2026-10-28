@@ -27,7 +27,8 @@
       "verification": "source_checked",
       "effective_from": null,
       "effective_date_evidence": null,
-      "version_label": "Illness auto-processing limit increased to one lakh"
+      "version_label": "Illness auto-processing limit increased to one lakh",
+      "local_pdf": "pdfs/advances-2024-04-16.pdf"
     },
     {
       "id": "advances-2024-06-12",
@@ -44,7 +45,8 @@
         "page_number": 1,
         "quote": "discontinue the said advance with immediate effect."
       },
-      "version_label": "Discontinuation of COVID-19 advance"
+      "version_label": "Discontinuation of COVID-19 advance",
+      "local_pdf": "pdfs/advances-2024-06-12.pdf"
     },
     {
       "id": "advances-2025-04-17",
@@ -57,7 +59,8 @@
       "verification": "source_checked",
       "effective_from": null,
       "effective_date_evidence": null,
-      "version_label": "Paragraph 68B(7) self-declaration"
+      "version_label": "Paragraph 68B(7) self-declaration",
+      "local_pdf": "pdfs/advances-2025-04-17.pdf"
     },
     {
       "id": "advances-2025-06-24",
@@ -70,7 +73,8 @@
       "verification": "source_checked",
       "effective_from": null,
       "effective_date_evidence": null,
-      "version_label": "Reported auto-settlement limit increased to five lakh"
+      "version_label": "Reported auto-settlement limit increased to five lakh",
+      "local_pdf": "pdfs/advances-2025-06-24.pdf"
     },
     {
       "id": "advances-2025-10-13",
@@ -83,7 +87,8 @@
       "verification": "source_checked",
       "effective_from": null,
       "effective_date_evidence": null,
-      "version_label": "CBT approval of partial-withdrawal reforms"
+      "version_label": "CBT approval of partial-withdrawal reforms",
+      "local_pdf": "pdfs/advances-2025-10-13.pdf"
     }
   ],
   "relationships": [

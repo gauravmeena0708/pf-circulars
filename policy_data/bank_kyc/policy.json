@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "bank_kyc",
+  "reviewed_on": "2026-10-28",
+  "documents": [
+    {
+      "id": "bank-2024-05-28",
+      "title": "Conditional relaxation of cheque/passbook upload",
+      "circular_no": "WSU/E-49885/1333",
+      "issued_on": "2024-05-28",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Circular_WSU_28052024-7.pdf",
+      "source_file": "sources/bank-2024-05-28.json",
+      "local_pdf": "pdfs/bank-2024-05-28.pdf",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Conditional relaxation of cheque/passbook upload",
+      "source_host_kind": "issuer_hosted"
+    },
+    {
+      "id": "bank-2025-04-03",
+      "title": "Bank validation and removal of employer approval",
+      "circular_no": "WSU/IssuesofBKG/E-49885/2024-25/16",
+      "issued_on": "2025-04-03",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Circular_RemovalOfUploadingImage-1.pdf",
+      "source_file": "sources/bank-2025-04-03.json",
+      "local_pdf": "pdfs/bank-2025-04-03.pdf",
+      "verification": "source_checked",
+      "effective_from": "2025-04-03",
+      "effective_date_evidence": {
+        "document_id": "bank-2025-04-03",
+        "page_number": 1,
+        "quote": "with effect from the date of this circular."
+      },
+      "version_label": "Bank validation and removal of employer approval",
+      "source_host_kind": "issuer_hosted"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "bank-2025-modification-target-candidate",
+      "source": "bank-2025-04-03",
+      "target": "bank-2024-05-28",
+      "type": "partially_modifies",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "bank-2025-04-03",
+        "page_number": 1,
+        "quote": "In continuation of earlier efforts"
+      },
+      "scope": "Candidate link: later bank-validation/upload rule changes the earlier procedure. The 2025 circular does not identify the May 2024 circular by number; no verified whole-document supersession is asserted."
+    }
+  ],
+  "limitations": [
+    "May 2024 reports software deployment on 9 May; this is not inferred legal commencement.",
+    "April 2025 expressly ties the cheque/passbook upload change to its issue date. Bank/NPCI validation remains a condition; this is not unconditional removal of KYC.",
+    "The 2025 circular does not expressly name the May 2024 circular as its target. Their chronological comparison is not a verified supersession.",
+    "Bank seeding into EPFO UAN is separate from UIDAI record updates, Aadhaar-bank NPCI mapping, pension disbursement and ELI-specific deadlines."
+  ]
+}

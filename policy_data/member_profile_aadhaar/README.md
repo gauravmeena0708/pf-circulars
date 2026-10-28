@@ -11,7 +11,7 @@ dates, relationship statuses, source pages and gaps, with a downloadable review.
 
 The timeline contains 11 records: the referenced July 2014 baseline, a source-checked
 November 2016 seeding campaign, an unfetched April 2020 DOB-proof circular, and the
-eight related JD records. It reuses the seven fetched JD PDFs' 18 extracted pages
+eight related JD records. It reuses the seven fetched JD PDFs' 148 extracted pages
 and adds one fully extracted page from the original 2016 PDF. Shared source files
 are referenced by relative path, rather than duplicated. The 2016 PDF was downloaded
 from the current [official circular catalogue](https://www.epfo.gov.in/circulars),
@@ -44,5 +44,5 @@ python eval/joint_declaration/run.py --policy-name aadhaar --cases eval/member_p
 ```
 
 Before certifying applicability: recover and review the missing originals, complete
-the earlier change chain and needed annexures, establish unresolved effective dates,
+the earlier change chain, establish unresolved effective dates,
 review legal authority conflicts, and add independent held-out answer evaluation.

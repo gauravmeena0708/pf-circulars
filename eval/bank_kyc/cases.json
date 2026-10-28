@@ -1,0 +1,36 @@
+{
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
+  "cases": [
+    {
+      "id": "bank_kyc-0",
+      "question": "Which Bank KYC validations allowed relaxation of cheque passbook image upload?",
+      "as_of": "2024-05-28",
+      "required_evidence": [
+        {
+          "document_id": "bank-2024-05-28",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "bank_kyc-1",
+      "question": "Is employer approval required for bank account seeding after bank NPCI verification?",
+      "as_of": "2025-04-03",
+      "required_evidence": [
+        {
+          "document_id": "bank-2025-04-03",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "bank-effective",
+      "question": "Bank seeding",
+      "as_of": "2025-04-03",
+      "document_status": {
+        "id": "bank-2025-04-03",
+        "status": "effective_date_established"
+      }
+    }
+  ]
+}

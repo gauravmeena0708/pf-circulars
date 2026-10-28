@@ -152,11 +152,17 @@ class PolicyHistory:
         for *_, counts in candidates:
             frequencies.update(counts.keys())
         ranked = []
+        navigation_request = bool(re.search(r"\bcontrol\b|effective date|\bversion\b", query, re.I))
+        wanted_version = re.search(r"\bversion\s*(\d+(?:\.\d+)?)", query, re.I)
         for doc_id, page, start, chunk, counts in candidates:
             score = sum(
                 (1 + math.log(counts[t])) * math.log(1 + len(candidates) / frequencies[t])
                 for t in terms if counts[t]
             )
+            if score and navigation_request and re.search(r"SOP\s+version", page["text"], re.I) and re.search(r"Effective\s+Date", page["text"], re.I):
+                score *= 2
+                if wanted_version and re.search(r"version\s*[:\s]*" + re.escape(wanted_version.group(1)) + r"\b", page["text"], re.I):
+                    score *= 2
             if score:
                 ranked.append((score, doc_id, page, start, chunk))
         ranked.sort(key=lambda x: (-x[0], x[1], x[2]["page_number"], x[3]))
@@ -188,6 +194,7 @@ class PolicyHistory:
                 "metadata": {"title": doc["title"], "circular_no": doc["circular_no"],
                              "date": doc["issued_on"], "authority": doc.get("authority", "EPFO document"), "page_number": page["page_number"],
                              "page_provenance": "physical_pdf_page", "english_pdf_link": doc["source_url"],
+                             "source_host_kind": doc.get("source_host_kind", "issuer_hosted"), "original_source_url": doc.get("original_source_url"),
                              "extraction_method": page["extraction_method"]},
             })
         report.update({

@@ -761,7 +761,8 @@ with tab1:
                         st.caption(meta["evidence_status"])
                     # Official PDF link or Local Reference
                     if pdf_link.startswith("http"):
-                        st.markdown(f"**[Open Official EPFO PDF Document]({pdf_link})**")
+                        source_label = "Open copy of EPFO circular (mirror host)" if meta.get("source_host_kind") == "mirror_copy" else "Open Official EPFO PDF Document"
+                        st.markdown(f"**[{source_label}]({pdf_link})**")
                     elif pdf_link:
                         st.markdown(f"**Source Document:** `{pdf_link}`")
 

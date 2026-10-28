@@ -18,16 +18,20 @@
     },
     {
       "id": "transfer-2024-01-29",
-      "title": "Multiple account numbers and EPS entitlement (referenced original)",
-      "circular_no": "E-597451/4406",
+      "title": "EPS entitlement with concurrent multiple account numbers",
+      "circular_no": "e-597452/4406",
       "issued_on": "2024-01-29",
       "authority": "EPFO administrative circular",
-      "source_url": null,
-      "source_file": null,
-      "verification": "original_not_verified",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/EPS-entitlement_multiple_accounts-1.pdf",
+      "source_file": "sources/transfer-2024-01-29.json",
+      "verification": "source_checked",
       "effective_from": null,
       "effective_date_evidence": null,
-      "version_label": "Multiple account numbers and EPS entitlement (referenced original)"
+      "version_label": "January 2024 concurrent EPS membership directions",
+      "local_pdf": "pdfs/transfer-2024-01-29.pdf",
+      "notes": [
+        "Cover says e-597452/4406; May 2025 transfer circular cites E-597451/4406 with same date and subject. Preserve discrepancy; exact relationship target requires review."
+      ]
     },
     {
       "id": "transfer-2025-01-15",
@@ -53,7 +57,8 @@
       "verification": "source_checked",
       "effective_from": null,
       "effective_date_evidence": null,
-      "version_label": "Revamped Form 13 and destination-office processing"
+      "version_label": "Revamped Form 13 and destination-office processing",
+      "local_pdf": "pdfs/transfer-2025-04-25.pdf"
     },
     {
       "id": "transfer-2025-05-20",
@@ -66,7 +71,8 @@
       "verification": "source_checked",
       "effective_from": null,
       "effective_date_evidence": null,
-      "version_label": "Overlapping service during transfer processing"
+      "version_label": "Overlapping service during transfer processing",
+      "local_pdf": "pdfs/transfer-2025-05-20.pdf"
     },
     {
       "id": "transfer-2025-09-18",
@@ -79,7 +85,20 @@
       "verification": "source_checked",
       "effective_from": null,
       "effective_date_evidence": null,
-      "version_label": "Annexure K available in member portal"
+      "version_label": "Annexure K available in member portal",
+      "local_pdf": "pdfs/transfer-2025-09-18.pdf"
+    },
+    {
+      "id": "eps-1998-11-30",
+      "title": "Concurrent EPS membership guidelines (referenced original)",
+      "circular_no": "Pension/8/MP/Clarification/96",
+      "issued_on": "1998-11-30",
+      "authority": "EPFO referenced circular",
+      "source_url": null,
+      "source_file": null,
+      "verification": "original_not_verified",
+      "effective_from": null,
+      "effective_date_evidence": null
     }
   ],
   "relationships": [
@@ -103,7 +122,7 @@
       "source": "transfer-2025-05-20",
       "target": "transfer-2024-01-29",
       "type": "references",
-      "verification": "source_checked",
+      "verification": "target_unverified",
       "effective_from": null,
       "effective_date_evidence": null,
       "evidence": {
@@ -111,13 +130,45 @@
         "page_number": 1,
         "quote": "E-597451/4406 dated 29/01/2024"
       },
-      "scope": "References EPS modalities for multiple account numbers; original remains unverified."
+      "scope": "References EPS modalities for multiple account numbers; original remains unverified. Cover/reference file numbers differ (e-597452 versus E-597451); target identification remains unresolved."
+    },
+    {
+      "id": "eps-2024-ref-1998",
+      "source": "transfer-2024-01-29",
+      "target": "eps-1998-11-30",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "transfer-2024-01-29",
+        "page_number": 1,
+        "quote": "Pension/8/MP/Clarification/96\ndated 30.11.1998"
+      },
+      "scope": "January 2024 reiterates the 1998 concurrent-membership guidelines; the supplied two-page PDF does not include the referenced original."
+    },
+    {
+      "id": "transfer-2025-tax-ref-2022",
+      "source": "transfer-2025-04-25",
+      "target": "transfer-2022-04-06",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "transfer-2025-04-25",
+        "page_number": 1,
+        "quote": "WSU /6(1)2019/IncomeTax/Part-I(E-33306)/4581 dt 06/04/2022"
+      },
+      "scope": "Revamped Form 13 incorporates taxable and non-taxable PF components specified in the referenced tax instruction; original remains unverified."
     }
   ],
   "limitations": [
     "Earlier OTCP/auto-transfer instructions and exempted-trust transfer rules are not fully collected.",
     "The January 2025 employer-routing original is unavailable; exact qualifying categories require supplementary evidence.",
     "Overlapping service is not by itself disqualifying for transfer. This does not establish EPS entitlement or double-counting of service.",
-    "Issue-date evidence inventory only; complete applicable rules and current validity are not certified."
+    "Issue-date evidence inventory only; complete applicable rules and current validity are not certified.",
+    "The recovered January 2024 EPS PDF is dated 29 January, despite a later catalogue date. Its number differs by one digit from the May 2025 citation; the exact target is unverified.",
+    "The referenced 1998 original is absent. Concurrent EPS entitlement cannot be inferred merely from transfer acceptance."
   ]
 }

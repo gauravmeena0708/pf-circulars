@@ -26,15 +26,12 @@ Tesseract English language data. Neither CLI search nor evaluation calls an LLM.
 2025 candidate. Seven PDFs were downloaded from links in the current official
 [EPFO circular catalogue](https://www.epfo.gov.in/circulars). Each source JSON records
 the download URL, PDF SHA-256, total physical pages, extracted physical page numbers,
-and native/OCR extraction method. Raw PDFs are not committed. OCR text is retained
+and native/OCR extraction method. Recovered raw PDFs are archived under `pdfs/`. OCR text is retained
 unchanged, including errors; metadata corrections are separately curated from the
 cover image. For example, January 2025 OCR reads the handwritten suffix as `004`,
 while the visually checked cover reads `006`.
 
-The current extraction covers 18 physical pages: the cover and document-control
-pages of the 2023 and 2024 SOPs, the two-page January 2024 circular, the March 2024
-modification cover and next page, the full six-page January 2025 PDF, and the first
-two August 2025 pages. It does **not** transcribe every historical annexure.
+The current extraction covers all 148 physical pages of the seven recovered PDFs, including historical SOP annexures. Extraction completeness does not establish that every attached provision remains applicable.
 
 Five relationships are source-checked and one target remains unverified. The loader
 checks that quoted relationship and effective-date passages occur on the claimed
@@ -63,7 +60,7 @@ It includes evidence from different documents before further pages from one
 document, deduplicates parent pages, and reports budget omissions. Pages are kept
 whole; an oversized page is omitted and recorded, rather than silently truncated.
 All dated document and relationship records remain in the report even if they do
-not match the query. The production FAISS/BM25/RRF pipeline is unchanged.
+not match the query. Checked physical-page chunks are also appended to the production FAISS/BM25 corpus.
 
 The 30 development cases include 20 required-source/page checks and 10 dated-history
 guardrails. They cover partial modification, express supersession, future-source
@@ -119,3 +116,5 @@ relationship evidence alongside existing hybrid candidates, with explicit covera
 gates. Hosted generated answers are evidence-limited summaries, not a complete
 determination of applicable law. Tests cover routing, fallback, prompt propagation
 and Streamlit controls; the development cases are still not a held-out benchmark.
+
+All 148 physical pages of the seven recovered JD PDFs are now extracted and vectorised, including historical attachments and annexures. Earlier selective-page limitations have been removed; missing original documents and uncertain relationships remain explicit.

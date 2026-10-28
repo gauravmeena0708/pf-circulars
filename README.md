@@ -107,16 +107,17 @@ python main.py data --query "What are the duties of Recovery Officer under EPFO 
 
 | Corpus | Scope | Vectors / Chunks |
 | :--- | :--- | :--- |
-| **EPFO Circulars Archive** | 2006 – 2026 (8,820+ circulars) | **63,798 chunks** |
+| **EPFO Circulars Archive** | 2006 – 2026 (8,820+ circulars) | **64,365 chunks** |
 | **Statutory Manuals & Schemes** | 16 Manuals (Acts, MAP Parts I-IV, SOPs) | **10,519 chunks** |
-| **Total Knowledge Base** | **Full EPFO Policy & Procedural Corpus** | **`74,317 vectors`** |
+| **Total Knowledge Base** | **Full EPFO Policy & Procedural Corpus** | **`74,884 vectors`** |
 
 
 ## Policy version and date histories
 
 Hosted search supports curated **JD member profile**, **Member profile / Aadhaar**,
 **Transfer claims**, **Higher pension / PoHW**, **Pension payment / CPPS**, and
-**Advances / auto-settlement** histories.
+**Advances / auto-settlement**, **Bank KYC / cheque upload**, **MID de-linking**,
+ and **EPS contribution corrections** histories.
 Choose **Automatic** or a policy, set **Evidence as of**, then search.
 Other policies retain hybrid retrieval. Missing curated coverage can use supplementary
 hybrid sources, explicitly unverified for amendment and applicability.
