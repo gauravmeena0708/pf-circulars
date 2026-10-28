@@ -39,10 +39,14 @@ def render_policy_review(context):
     }
     with st.expander(f"{label} history, changes and evidence gaps"):
         if context["documents"]:
+            checked = [d for d in context["documents"] if d["status"] != "source_unverified"]
+            if checked:
+                newest = max(checked, key=lambda d: d["issued_on"])
+                st.caption(f"Most recent checked document in this inventory: {newest.get('title') or newest['id']} ({newest['issued_on']}). Later dated changes can follow a numbered SOP; this inventory does not certify the latest applicable policy.")
             st.dataframe([
                 {"Version / document": d.get("version_label") or d.get("title") or d["id"], "Authority": d.get("authority", "EPFO document"), "Circular": d["circular_no"], "Issued": d["issued_on"],
                  "Effective from": d["effective_from"], "Evidence status": labels.get(d["status"], d["status"])}
-                for d in context["documents"]
+                for d in sorted(context["documents"], key=lambda d: d["issued_on"], reverse=True)
             ], use_container_width=True)
         for relation in context["relationships"]:
             status = "Source checked; commencement unresolved"

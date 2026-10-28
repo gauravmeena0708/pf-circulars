@@ -42,3 +42,17 @@ render_policy_review(result["policy_context"])
     assert not app.exception
     assert any("Member profile / Aadhaar history" in c.value for c in app.caption)
     assert app.dataframe
+
+
+def test_review_distinguishes_numbered_sop_from_later_checked_directions():
+    root = str(Path(__file__).resolve().parents[1])
+    app = AppTest.from_string(f'''
+import sys
+sys.path.insert(0, {root!r})
+from policy_router import route_retrieval
+from policy_ui import render_policy_review
+render_policy_review(route_retrieval("JD", "2025-01-16", lambda: [], mode="jd")["policy_context"])
+''').run(timeout=20)
+    assert not app.exception
+    assert any('Most recent checked document' in c.value and '2025-01-16' in c.value for c in app.caption)
+    assert app.dataframe[0].value.iloc[0]['Issued'] == '2025-01-16'
