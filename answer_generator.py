@@ -7,7 +7,6 @@ from langchain_core.messages import HumanMessage
 import config
 import json
 import os
-import re
 from citation_provenance import page_label
 
 logger = logging.getLogger(__name__)
@@ -174,8 +173,7 @@ def bounded_prompt(query, chunks, conversation_context="", answer_language="Engl
     if len(query) > 6000:
         raise ValueError("Please shorten the question to 6,000 characters.")
     selected = [{**c, "citation_number": c.get("citation_number", i + 1)} for i, c in enumerate(chunks)]
-    latest_query = bool(re.search(r"\blatest\b|\bcurrent\b|most recent|नवीनतम|वर्तमान", query, re.I))
-    if latest_query or policy_context:
+    if policy_context:
         selected.sort(key=lambda c: (str(c.get("metadata", {}).get("date", "")),
                                     bool(c.get("metadata", {}).get("policy_change_evidence") or
                                          "relationship or commencement" in c.get("metadata", {}).get("evidence_status", ""))), reverse=True)
@@ -219,7 +217,7 @@ def bounded_prompt(query, chunks, conversation_context="", answer_language="Engl
             history = ""
         elif selected:
             # Keep relationship/commencement pages whenever other pages can go.
-            if latest_query or policy_context:
+            if policy_context:
                 # Keep the newest dated change pages before historical controls.
                 drop = len(selected) - 1
             else:
