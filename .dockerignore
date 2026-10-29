@@ -1,0 +1,12 @@
+.git
+.github
+.env
+.venv
+__pycache__
+**/__pycache__
+.pytest_cache
+frontend/node_modules
+frontend/dist
+data
+processed_pdf_data
+vector_store/*_backup

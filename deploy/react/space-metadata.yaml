@@ -1,0 +1,8 @@
+# Replace the README YAML block only when switching the Space to Docker.
+title: EPFO Knowledge Assistant
+emoji: 📜
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 7860
+pinned: false

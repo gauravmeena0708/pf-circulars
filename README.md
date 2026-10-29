@@ -3,17 +3,42 @@ title: EPFO Knowledge Assistant
 emoji: 📜
 colorFrom: blue
 colorTo: green
-sdk: streamlit
-sdk_version: "1.45.1"
-app_file: app.py
+sdk: docker
+app_port: 7860
 pinned: false
 ---
 
 # EPFO Circulars & Statutory Manuals RAG System
 
-An intelligent Retrieval-Augmented Generation (RAG) system for querying **8,800+ Employees' Provident Fund Organisation (EPFO) circulars (2006–2026)** and **16 official statutory manuals, schemes, and acts** (74,300+ indexed chunks).
+An intelligent Retrieval-Augmented Generation (RAG) system for querying **8,800+ Employees' Provident Fund Organisation (EPFO) circulars (2006–2026)** and **16 official statutory manuals, schemes, and acts** (74,884 indexed passages).
 
 ---
+
+## React research and office workspace
+
+The hosted Hugging Face Space uses React + Vite and a FastAPI backend in one Docker
+Space. The interface provides policy research with source/PDF inspection, nine dated
+policy histories, PDF/CSV assistance, English/Hindi drafting, Word reports and
+transcripts, and eight PDF utilities. It retains the existing FAISS/BM25 retrieval
+and GPT-OSS configuration. Missing sources and unverified applicability remain
+explicit in the interface.
+
+```bash
+# Production-equivalent local deployment
+# Includes CPU Torch, Tesseract English/Hindi, and the React build.
+docker build -t epfo-workspace .
+docker run --rm -p 7860:7860 --env-file .env epfo-workspace
+```
+
+Open `http://localhost:7860`. `HF_TOKEN` belongs in the Space secrets (or local
+`.env`); it is needed for generated answers, not source review or PDF tools. An
+optional personal token is kept only in browser memory for the current visit.
+Uploaded files expire after 30 minutes and are isolated per browser session.
+
+For separate frontend/backend development commands, API limits and the migration
+record, see [the React workspace guide](docs/ui/react-workspace.md). The original
+Streamlit entry point remains available locally through `streamlit run app.py`
+with `requirements.txt`; Docker uses `requirements-react.txt`.
 
 ## 🌟 Features
 
