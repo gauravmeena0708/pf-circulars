@@ -28,6 +28,19 @@ def test_archive_lookup_cannot_read_unregistered_files():
     assert client.get('/api/policies/unknown/documents/example/pdf').status_code==404
 
 
+def test_unresolved_lfs_pointer_is_not_advertised_as_a_pdf(tmp_path, monkeypatch):
+    from types import SimpleNamespace
+    root = tmp_path / 'policy_data' / 'example'
+    root.mkdir(parents=True)
+    pointer = root / 'source.pdf'
+    pointer.write_text('version https://git-lfs.github.com/spec/v1\noid sha256:example\nsize 123\n')
+    monkeypatch.setattr(module, 'ROOT', tmp_path)
+    policy = SimpleNamespace(path=root / 'policy.json')
+    assert module.pdf_path(policy, {'local_pdf': 'source.pdf'}) is None
+    pointer.write_bytes(b'%PDF-1.4\n')
+    assert module.pdf_path(policy, {'local_pdf': 'source.pdf'}) == pointer
+
+
 def test_search_uses_real_curated_bank_history_without_models(monkeypatch):
     def forbidden(question):
         raise AssertionError('Bank history should be complete without supplementary retrieval')

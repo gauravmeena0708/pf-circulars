@@ -117,6 +117,11 @@ def pdf_path(policy, document):
     path = (policy.path.parent / relative).resolve()
     if not path.is_relative_to(ROOT / 'policy_data') or not path.is_file():
         return None
+    # Hub uploads can be LFS-backed even when the original GitHub file was not.
+    # Never advertise or serve an unresolved pointer as an archived PDF.
+    with path.open('rb') as source:
+        if source.read(5) != b'%PDF-':
+            return None
     return path
 
 

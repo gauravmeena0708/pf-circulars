@@ -90,7 +90,7 @@ a named migration recipe; update both if runtime dependencies or serving change.
 
 - The React production build passes with a checked-in lockfile. Vite emits benign
   client-directive warnings for lucide-react; this app does not use server components.
-- 59 tests pass across `test_web_api.py`, `test_web_workspace.py`, and the existing
+- 60 tests pass across `test_web_api.py`, `test_web_workspace.py`, and the existing
   document/data/PDF/Word helper suites. Tests use real PDF and DOCX bytes and real
   Tesseract OCR. Model streaming tests use a fake model, not paid inference.
 - API tests cover live registry/index metadata, cutoffs, supersession and missing
@@ -126,3 +126,8 @@ CSV and PDF operation. Generation can be checked with the configured server toke
 For rollback, restore the README YAML to `sdk: streamlit`,
 `sdk_version: "1.45.1"`, `app_file: app.py`, remove `app_port`, and push through the
 same workflow. The original Streamlit code and dependency file remain available.
+
+Archived policy PDFs are explicitly tracked through LFS in both repositories.
+The GitHub sync preserves their LFS attributes so Docker receives actual PDF
+bytes. The API also rejects unresolved pointer files rather than serving them as
+PDFs. This was verified during hosted acceptance after the initial cutover.
