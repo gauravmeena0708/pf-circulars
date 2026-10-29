@@ -149,3 +149,25 @@ briefcase tables were checked against their scans, with raw OCR retained.
 133 relevant Python checks pass, along with the frontend Markdown checks and the
 production build. The new development datasets each contain six source/page/date
 cases; these do not measure generated legal-answer accuracy.
+
+
+## Runtime artifact storage
+
+The October 2026 staff-index upload reached the Space repository's 1 GB storage
+limit. The running Docker image now obtains its PDFs and three aligned index files
+from immutable public GitHub LFS URLs using `deploy/runtime-assets.json`. Each file
+must match its recorded byte size and SHA-256 before it enters the image. Downloads
+happen in a separate Docker build stage so unchanged data can use the build cache.
+No credential is sent to GitHub for these public files.
+
+The GitHub sync excludes index/PDF binaries from new Space commits and pins the
+Hub upload client. Before upload it refreshes the manifest against the checked-out
+LFS bytes, advancing its source commit only when data changed. Normal GitHub commits
+and pushes therefore still publish updated policy data automatically. The Space
+keeps its existing history; this change does not squash or delete old revisions.
+
+For a local data change, commit the assets and run
+`python scripts/fetch_runtime_assets.py --record-commit <full-commit-sha>` before a
+local Docker build. CI refreshes the manifest automatically for the pushed commit.
+Builds need access to public GitHub LFS; a failed download or hash check fails the
+build and does not start an image with a mismatched corpus.

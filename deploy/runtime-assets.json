@@ -1,0 +1,256 @@
+{
+  "repo": "gauravmeena0708/pf-circulars",
+  "revision": "d13011e6fbf4f684dcd8a3d4bbcaa3f75fae0eab",
+  "files": [
+    {
+      "path": "policy_data/advances/pdfs/advances-2024-04-16.pdf",
+      "size": 282902,
+      "sha256": "273ca3c68ca1d389983bdb42ed76fd471cb216f8365112d78a4c334b75257434"
+    },
+    {
+      "path": "policy_data/advances/pdfs/advances-2024-06-12.pdf",
+      "size": 344472,
+      "sha256": "073bef996947e1a8f9e0617a43a653be8583bc2372aad3ccb1cc879d06946fbe"
+    },
+    {
+      "path": "policy_data/advances/pdfs/advances-2025-04-17.pdf",
+      "size": 324708,
+      "sha256": "a00380c96c2508da56420521b2845abc6b8d06d96d5b799ad561fd0b5957c39e"
+    },
+    {
+      "path": "policy_data/advances/pdfs/advances-2025-06-24.pdf",
+      "size": 158999,
+      "sha256": "51c7a8350a19a319f35ae3c29ce6527bf9205c3692a2306385e897fda0404946"
+    },
+    {
+      "path": "policy_data/advances/pdfs/advances-2025-10-13.pdf",
+      "size": 150280,
+      "sha256": "eca1d70d011dca2c4ad53a0e6edab8201772882b727b19ed53e94582ee85b8ce"
+    },
+    {
+      "path": "policy_data/bank_kyc/pdfs/bank-2024-05-28.pdf",
+      "size": 455030,
+      "sha256": "cd019c34e28cb81cd1a2c82366a2de5afef4b342a4501bf13bd57b5746309b0b"
+    },
+    {
+      "path": "policy_data/bank_kyc/pdfs/bank-2025-04-03.pdf",
+      "size": 477294,
+      "sha256": "aac90f2400c33e3176d4a0dda41d3c67978dd180662a7343f27430260ab9eb55"
+    },
+    {
+      "path": "policy_data/delegation/pdfs/delegation-2012-03-06-e9f733.pdf",
+      "size": 38168,
+      "sha256": "c4bd5cef7ceb09d985030d2773a41c7ea1fec5226a89612bb524f4faa63502b2"
+    },
+    {
+      "path": "policy_data/delegation/pdfs/delegation-2016-05-20-5e9ee8.pdf",
+      "size": 431837,
+      "sha256": "fc55bc382cbd33c6b1f2f5a984a602c10671463dd96959ffcb42c80b7d339d49"
+    },
+    {
+      "path": "policy_data/delegation/pdfs/delegation-2016-11-16-1c3613.pdf",
+      "size": 345711,
+      "sha256": "8fc3c1042438f62e6fd4347ae46245837486a70ab59d1ae715dee55c2cf2beaa"
+    },
+    {
+      "path": "policy_data/delegation/pdfs/delegation-2017-05-03-e1bf73.pdf",
+      "size": 807246,
+      "sha256": "ef16ee4dc8554e3b1e3f2c2263f5b2c3454e0e1e133f6e58e801c6074cdc92b7"
+    },
+    {
+      "path": "policy_data/delegation/pdfs/delegation-2017-05-24-4b762a.pdf",
+      "size": 528043,
+      "sha256": "8212065d83978cc2cd79c6cc09a39a9f841b853e6153c6aa905cc84cfd1e20dd"
+    },
+    {
+      "path": "policy_data/delegation/pdfs/delegation-2017-10-06-90b4ef.pdf",
+      "size": 474206,
+      "sha256": "858b568fb4b49cee8382225762e6ae97829c8c1bb6aa6dd5cb31e53f6a326b32"
+    },
+    {
+      "path": "policy_data/delegation/pdfs/delegation-2017-10-31-e9d9bf.pdf",
+      "size": 43477,
+      "sha256": "75de683c69c9058804884d915252eaed314f8a39476785819256182847df2701"
+    },
+    {
+      "path": "policy_data/delegation/pdfs/delegation-2020-01-17-f8b101.pdf",
+      "size": 569420,
+      "sha256": "e3b5c0a44427a750fa1624bf4fff3c789d6c6f441fc0278467952607687285c9"
+    },
+    {
+      "path": "policy_data/delegation/pdfs/delegation-2021-11-24-327be5.pdf",
+      "size": 518556,
+      "sha256": "6e043b0f7bb67c398b61c740352c1acb11b73c0bfc1f69ab1ef0c2f77dba15e0"
+    },
+    {
+      "path": "policy_data/delegation/pdfs/delegation-2022-07-08-dd9a9f.pdf",
+      "size": 2555206,
+      "sha256": "2cdfb9d084fbeff2b6d2f4e4bd50f231a9a7ca905bb6d6410140316cadd520ab"
+    },
+    {
+      "path": "policy_data/delegation/pdfs/delegation-2022-07-14-5f0991.pdf",
+      "size": 304783,
+      "sha256": "ee5fb710d34d923c72c0fd9f584c498b13d42aa0f1f21af4ffd8adcb89c6d41f"
+    },
+    {
+      "path": "policy_data/delegation/pdfs/delegation-2023-03-09-c6887a.pdf",
+      "size": 1134387,
+      "sha256": "aab533bb84a14335f35037846757a47d1049c72b9d8391286b4cca94711a79d0"
+    },
+    {
+      "path": "policy_data/delegation/pdfs/delegation-2023-03-09-db238b.pdf",
+      "size": 1175682,
+      "sha256": "b890e6ff453a055292ea054c0805ca4a894811f9d52ee046e348bdd6c1182db8"
+    },
+    {
+      "path": "policy_data/delegation/pdfs/delegation-2023-07-31-616754.pdf",
+      "size": 170428,
+      "sha256": "3d545a158d4d43d28bd8135cc3d2330b02ffa9e395066ed0c5cab8b055efab9c"
+    },
+    {
+      "path": "policy_data/delegation/pdfs/delegation-2025-09-18-6f1a4a.pdf",
+      "size": 551022,
+      "sha256": "9e3c6abd9bc3e07ec4e8b324f00cbd09b7f1893e0c36acf3ff2cff60891bcf61"
+    },
+    {
+      "path": "policy_data/employee_benefits/pdfs/employee_benefits-2018-04-17-544683.pdf",
+      "size": 572251,
+      "sha256": "c0063eaa9034c6470a06e00164c87c9b0e2fc6ebe73ab62f63d7a17e51e8be66"
+    },
+    {
+      "path": "policy_data/employee_benefits/pdfs/employee_benefits-2018-04-17-754c44.pdf",
+      "size": 284569,
+      "sha256": "5e7ac66cc6d1e4c018558689300eb201497817f6295b06cae574a5b650a4f2b3"
+    },
+    {
+      "path": "policy_data/employee_benefits/pdfs/employee_benefits-2019-01-16-0788ad.pdf",
+      "size": 328174,
+      "sha256": "4add071a26429f2a7fcfd10aee0f7c5ebce1b9b6a44801590889f8ed4d72bb54"
+    },
+    {
+      "path": "policy_data/employee_benefits/pdfs/employee_benefits-2024-10-01-7c189e.pdf",
+      "size": 632808,
+      "sha256": "30dcf186e613717c37dbc72f394e6f934fa3f59bb142920d5d8ce339a51ea236"
+    },
+    {
+      "path": "policy_data/employee_benefits/pdfs/employee_benefits-2024-10-15-f63845.pdf",
+      "size": 673107,
+      "sha256": "1dd15d6cf2784d4ee825a68585a6679019c7fd2e3dac9b4cd37aa40acfc0a7cf"
+    },
+    {
+      "path": "policy_data/employee_benefits/pdfs/employee_benefits-2024-12-18-992efd.pdf",
+      "size": 764159,
+      "sha256": "b2bcb3d62d10a11cf0a89330173b4cea1bfd0fad6339eaf41ec78e6b242ed371"
+    },
+    {
+      "path": "policy_data/eps_corrections/pdfs/eps-2025-12-19.pdf",
+      "size": 242049,
+      "sha256": "9dedb9e0f93e702325c73e577b8d775ea04dba1bbd247fc32a7f4529837c11fd"
+    },
+    {
+      "path": "policy_data/higher_pension/pdfs/pohw-2023-06-01.pdf",
+      "size": 443236,
+      "sha256": "cf3ad7e6ff512a2b25188f61381c3bb56ada5d96b5d98d92d792afce665e0fe0"
+    },
+    {
+      "path": "policy_data/higher_pension/pdfs/pohw-2023-06-14.pdf",
+      "size": 1815425,
+      "sha256": "77302f9230a35065df0c449ea13ce0eb8625704846381c3c45295aaa33b52b81"
+    },
+    {
+      "path": "policy_data/higher_pension/pdfs/pohw-2025-07-25.pdf",
+      "size": 999923,
+      "sha256": "7c10a54927aaedeafcda27d2173b8758a8a6f4ef2696cce41f27107dbcf7090f"
+    },
+    {
+      "path": "policy_data/joint_declaration/pdfs/jd-2023-08-22.pdf",
+      "size": 642853,
+      "sha256": "809276740243d0b37a9ff859f94b51a50070df4a2f1f540305ca25dd5a994b4f"
+    },
+    {
+      "path": "policy_data/joint_declaration/pdfs/jd-2024-01-16.pdf",
+      "size": 1226072,
+      "sha256": "831da6b3ea227171dd381a10bb380426ad108dd737ff6efc22e02906745a4114"
+    },
+    {
+      "path": "policy_data/joint_declaration/pdfs/jd-2024-03-11.pdf",
+      "size": 1025699,
+      "sha256": "63e0b1e5bb4f4d69aa7eeb6c64cf6c61650cf4e8a0d32a2c18fc58e68e8407b5"
+    },
+    {
+      "path": "policy_data/joint_declaration/pdfs/jd-2024-03-26.pdf",
+      "size": 1954317,
+      "sha256": "b029969fc76369287ca3f428c13ec57648b741b9efe3f4b5a134a9707f0a8a70"
+    },
+    {
+      "path": "policy_data/joint_declaration/pdfs/jd-2024-07-31.pdf",
+      "size": 1835866,
+      "sha256": "952966bdf30f3b61332a7c75262fdab2d97382702fbc28c4b033c264df580d43"
+    },
+    {
+      "path": "policy_data/joint_declaration/pdfs/jd-2025-01-16.pdf",
+      "size": 2109818,
+      "sha256": "ea6aa7fca925c276e9bd10a81a50931bf1d1aa4a046ae62d2afdd1742d5d1bd1"
+    },
+    {
+      "path": "policy_data/joint_declaration/pdfs/jd-2025-08-13.pdf",
+      "size": 1373021,
+      "sha256": "847e5de6f2df6b49917ac3e658f6801b98d2335bdd0492f1750e91d4e3fb5343"
+    },
+    {
+      "path": "policy_data/member_profile_aadhaar/pdfs/aadhaar-2016-11-21.pdf",
+      "size": 293249,
+      "sha256": "8ea9b7d9ebb19361c5e9937393ce2938e5ab8cf8f278a5bf41158b30654f643e"
+    },
+    {
+      "path": "policy_data/mid_delinking/pdfs/mid-2025-01-17.pdf",
+      "size": 1556622,
+      "sha256": "88ce92a1b268f62fcd3bcd7853221aaec855f667997cded5c656d2d4caf65d9c"
+    },
+    {
+      "path": "policy_data/mid_delinking/pdfs/mid-2026-04-13.pdf",
+      "size": 12620036,
+      "sha256": "b7e96d5b0e0e75f5f9a7d0aac80fbf50b84c7a4e97cbc6c3a28df2a58046fda3"
+    },
+    {
+      "path": "policy_data/pension_payment/pdfs/cpps-2025-01-17.pdf",
+      "size": 764851,
+      "sha256": "48f4bef641fdc60ef8aa3f7bb1cff48e28cbc870294d40760757d7368f523ca2"
+    },
+    {
+      "path": "policy_data/transfer_claims/pdfs/transfer-2024-01-29.pdf",
+      "size": 653383,
+      "sha256": "a5f8d806a152ca966431b8c422b48890ead035cb4d3f83c3dfcc6f2a4388d202"
+    },
+    {
+      "path": "policy_data/transfer_claims/pdfs/transfer-2025-04-25.pdf",
+      "size": 786117,
+      "sha256": "7a4c8bbe7a586af8ccdde051fde54fb2f0debdb8436af4ca3b86bf0a3850f4c5"
+    },
+    {
+      "path": "policy_data/transfer_claims/pdfs/transfer-2025-05-20.pdf",
+      "size": 432351,
+      "sha256": "a5a905fa77861d42af78738ff3d705534e3dad22d62dea87836b098141d5eaf5"
+    },
+    {
+      "path": "policy_data/transfer_claims/pdfs/transfer-2025-09-18.pdf",
+      "size": 525848,
+      "sha256": "4a224f558944c26bcbed5ecfe61a52eece96da249a41dfb4e51b44a7bb3fa3b3"
+    },
+    {
+      "path": "vector_store/data_index/faiss_index.bm25.json.gz",
+      "size": 10905753,
+      "sha256": "0f0eea593c2b75abec3d13890c7aa2ade9308b09874d8e1cf4bc71f2f78496d1"
+    },
+    {
+      "path": "vector_store/data_index/faiss_index.index",
+      "size": 115969930,
+      "sha256": "4b8f9f3ea580779a906a5b49e29f70d14a29a7d9a86bc4b85bb9fc8fa3be62fc"
+    },
+    {
+      "path": "vector_store/data_index/faiss_index.passages.db",
+      "size": 112910336,
+      "sha256": "79674c900f7979656e1720948f88e8c921c9bc476e0391f25a1030e1154fd817"
+    }
+  ]
+}
