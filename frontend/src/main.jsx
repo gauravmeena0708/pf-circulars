@@ -173,7 +173,7 @@ function App() {
         }),
       );
       if (seq !== requestSeq.current) return;
-      setResult(r);
+      setResult({ ...r, selection_mode: mode });
       setSource(r.sources[0] || null);
       setRecent((v) =>
         [question, ...v.filter((x) => x !== question)].slice(0, 5),
@@ -533,49 +533,26 @@ function App() {
                     </button>
                   </div>
                   <div className="filters">
-                    <label>
-                      POLICY COLLECTION
-                      <select
-                        aria-label="Policy collection"
-                        value={policy}
-                        onChange={(e) => {
-                          setPolicy(e.target.value);
-                          setQueryTopic("");
-                        }}
-                      >
-                        <option value="auto">
-                          Automatic · all policy scopes
-                        </option>
-                        {policies.map((p) => (
-                          <option key={p.id} value={p.id}>
-                            {p.label}
-                          </option>
-                        ))}
-                        <option value="hybrid">Standard hybrid search</option>
-                      </select>
-                    </label>
-                    {(
-                      catalog?.policies.find((p) => p.id === policy)?.topics ||
-                      []
-                    ).length > 0 && (
-                      <label>
-                        MATTER
-                        <select
-                          aria-label="Research matter"
-                          value={queryTopic}
-                          onChange={(e) => setQueryTopic(e.target.value)}
+                    <div className="automatic-scope">
+                      <GitBranch size={15} />
+                      <span>
+                        {policy === "auto"
+                          ? "Policy and matter detected automatically"
+                          : `Scope: ${selected?.label || "Entire collection"}${selected?.topics?.find((t) => t.id === queryTopic) ? " · " + selected.topics.find((t) => t.id === queryTopic).label : ""}`}
+                      </span>
+                      {policy !== "auto" && (
+                        <button
+                          type="button"
+                          className="text-button"
+                          onClick={() => {
+                            setPolicy("auto");
+                            setQueryTopic("");
+                          }}
                         >
-                          <option value="">Detect from question</option>
-                          {catalog.policies
-                            .find((p) => p.id === policy)
-                            .topics.map((t) => (
-                              <option key={t.id} value={t.id}>
-                                {t.label}
-                              </option>
-                            ))}
-                        </select>
-                      </label>
-                    )}
+                          Use automatic
+                        </button>
+                      )}
+                    </div>
                     <div className="filter-divider" />
                     <label>
                       EVIDENCE AS OF
@@ -611,19 +588,76 @@ function App() {
                       It does not certify applicability.
                     </span>
                   </div>
+                  <details className="search-refinements">
+                    <summary>
+                      Refine search scope <span>Optional</span>
+                    </summary>
+                    <div className="refinement-fields">
+                      <label>
+                        POLICY COLLECTION (OPTIONAL)
+                        <select
+                          aria-label="Policy collection"
+                          value={policy}
+                          onChange={(e) => {
+                            setPolicy(e.target.value);
+                            setQueryTopic("");
+                          }}
+                        >
+                          <option value="auto">Detect from question</option>
+                          {policies.map((p) => (
+                            <option key={p.id} value={p.id}>
+                              {p.label}
+                            </option>
+                          ))}
+                          <option value="hybrid">
+                            Search entire collection
+                          </option>
+                        </select>
+                      </label>
+                      {(
+                        catalog?.policies.find((p) => p.id === policy)
+                          ?.topics || []
+                      ).length > 0 && (
+                        <label>
+                          MATTER
+                          <select
+                            aria-label="Research matter"
+                            value={queryTopic}
+                            onChange={(e) => setQueryTopic(e.target.value)}
+                          >
+                            <option value="">Detect from question</option>
+                            {catalog.policies
+                              .find((p) => p.id === policy)
+                              .topics.map((t) => (
+                                <option key={t.id} value={t.id}>
+                                  {t.label}
+                                </option>
+                              ))}
+                          </select>
+                        </label>
+                      )}
+                      <p>
+                        Use this for a short follow-up or to choose a different
+                        collection. Automatic search matches your question to a
+                        policy and searches the full collection when no curated
+                        policy matches.
+                      </p>
+                    </div>
+                  </details>
                 </form>
               </section>
               {!result && !busy && (
                 <>
                   <div className="suggestions">
                     <span>EXPLORE A QUESTION</span>
-                    {examples.map(([label, q, mode]) => (
+                    {examples.map(([label, q]) => (
                       <button
                         key={label}
                         onClick={(e) => {
                           setQuery(q);
-                          setPolicy(mode);
-                          search(e, q, mode);
+                          setPolicy("auto");
+                          setQueryTopic("");
+                          search(e, q, "auto");
                         }}
                       >
                         {label}
@@ -788,6 +822,23 @@ function App() {
                     <span>
                       {context ? (
                         <>
+                          {result.selection_mode === "auto"
+                            ? "Detected policy: "
+                            : "Selected policy: "}
+                          <strong>{context.policy_label}</strong>.
+                          {context.selected_topics?.length > 0 && (
+                            <>
+                              {" "}
+                              Matters:{" "}
+                              {context.topics
+                                .filter((t) =>
+                                  context.selected_topics.includes(t.id),
+                                )
+                                .map((t) => t.label)
+                                .join(", ")}
+                              .{" "}
+                            </>
+                          )}{" "}
                           Instructions issued by{" "}
                           <strong>{dateText(result.as_of)}</strong>. The
                           evidence inventory is incomplete; current
@@ -795,9 +846,11 @@ function App() {
                         </>
                       ) : (
                         <>
-                          Standard hybrid search. The history date cutoff is not
-                          applied; amendment and applicability remain
-                          unverified.
+                          {result.selection_mode === "auto"
+                            ? "No curated policy matched; searching the full collection. "
+                            : "Searching the full collection. "}
+                          The history date cutoff is not applied; amendment and
+                          applicability remain unverified.
                         </>
                       )}
                     </span>

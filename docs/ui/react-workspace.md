@@ -171,3 +171,17 @@ For a local data change, commit the assets and run
 local Docker build. CI refreshes the manifest automatically for the pushed commit.
 Builds need access to public GitHub LFS; a failed download or hash check fails the
 build and does not start an image with a mismatched corpus.
+
+
+## Automatic research scope
+
+Policy research defaults to automatic policy and matter matching. Manual collection
+and matter selectors are collapsed under **Refine search scope**. Date and answer
+language remain visible. Results identify the detected policy/matters or explicitly
+state when the full collection was searched. A manual scope remains visible above
+the question with **Use automatic** to reset it. Example questions use automatic
+routing so they do not leave later questions pinned to a different policy.
+Circular history and library selectors remain visible for deliberate browsing.
+
+Browser checks cover an actual automatically routed bank-KYC question, an optional
+newspaper override, reset to automatic, and narrow-screen layout.
