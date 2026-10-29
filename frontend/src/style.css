@@ -2359,3 +2359,29 @@ footer {
     padding-top: 30px;
   }
 }
+
+/* GFM tables keep columns readable while remaining inside the answer panel. */
+.markdown table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 16px 0 22px;
+  font-size: 12px;
+  line-height: 1.65;
+}
+.markdown th, .markdown td {
+  min-width: 110px;
+  max-width: 420px;
+  padding: 11px 14px;
+  border: 1px solid #dce5e8;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+.markdown th {
+  color: #173650;
+  background: #edf4f4;
+  font-weight: 600;
+}
+.markdown tr:nth-child(even) td { background: #f8fafb; }

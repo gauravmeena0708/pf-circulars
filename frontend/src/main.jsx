@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { createRoot } from "react-dom/client";
-import Markdown from "react-markdown";
+import Markdown from "./Markdown";
 import {
   Search,
   LibraryBig,
