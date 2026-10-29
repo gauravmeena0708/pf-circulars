@@ -17,7 +17,7 @@ private inference credentials. One Docker Space keeps these on the same origin.
 | --- | --- |
 | Research | Existing policy router and FAISS/BM25/RRF/reranking pipeline, date cutoff, policy selector, English/Hindi streaming answers |
 | Sources | Numbered citations, selectable excerpts, page provenance, archived PDF panel, original-source links |
-| Policy collection | Live index count, nine registered histories, dated timelines, scoped relationships, missing-source and commencement limitations |
+| Policy collection | Live index count, eleven registered histories, dated timelines, scoped relationships, missing-source and commencement limitations |
 | PDF assistant | Native extraction, lazy Tesseract OCR in English/Hindi, physical-page markers, file questions, formal office noting, text/Word/original downloads |
 | CSV assistant | Schema, null counts, summary statistics, first 100 rows, exact-term search, category distributions, file-grounded questions and notes |
 | PDF utilities | Merge/reorder, extract, split, rotate, lossless compression, images to PDF, PDF to images, searchable OCR |
@@ -131,3 +131,21 @@ Archived policy PDFs are explicitly tracked through LFS in both repositories.
 The GitHub sync preserves their LFS attributes so Docker receives actual PDF
 bytes. The API also rejects unresolved pointer files rather than serving them as
 PDFs. This was verified during hosted acceptance after the initial cutover.
+
+
+## Staff-policy extension
+
+Delegation of powers and EPFO employee benefits bring the collection count to 11.
+Their Matter controls work in research and Circular history; automatic detection
+can retain multiple named matters. Source-scoped fallback excludes unrelated
+matters and future issue dates. Invalid matter IDs fail explicitly.
+
+Twenty-one additional issuer-hosted PDFs supply 74 mapped pages and 226 passages.
+The aligned dense/SQLite/BM25 corpus now has 75,110 passages. Staged verification
+found zero changes to the original 74,884 passages. Medical originals and the
+reported 2026 publicity revision remain labelled unverified. Both October 2024
+briefcase tables were checked against their scans, with raw OCR retained.
+
+133 relevant Python checks pass, along with the frontend Markdown checks and the
+production build. The new development datasets each contain six source/page/date
+cases; these do not measure generated legal-answer accuracy.

@@ -448,6 +448,7 @@ main {
   border-color: #b4c7cd;
 }
 .filters {
+  flex-wrap: wrap;
   border-top: 1px solid #edf0f1;
   display: flex;
   gap: 20px;
@@ -1183,6 +1184,7 @@ footer {
 }
 .history-controls {
   display: flex;
+  flex-wrap: wrap;
   gap: 25px;
   background: #fff;
   border: 1px solid var(--line);
@@ -2371,7 +2373,8 @@ footer {
   font-size: 12px;
   line-height: 1.65;
 }
-.markdown th, .markdown td {
+.markdown th,
+.markdown td {
   min-width: 110px;
   max-width: 420px;
   padding: 11px 14px;
@@ -2384,4 +2387,6 @@ footer {
   background: #edf4f4;
   font-weight: 600;
 }
-.markdown tr:nth-child(even) td { background: #f8fafb; }
+.markdown tr:nth-child(even) td {
+  background: #f8fafb;
+}

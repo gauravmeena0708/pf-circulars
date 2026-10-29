@@ -89,6 +89,7 @@ function App() {
     [menu, setMenu] = useState(false),
     [query, setQuery] = useState(""),
     [policy, setPolicy] = useState("auto"),
+    [queryTopic, setQueryTopic] = useState(""),
     [day, setDay] = useState(new Date().toLocaleDateString("en-CA")),
     [language, setLanguage] = useState("English");
   const [busy, setBusy] = useState(false),
@@ -102,6 +103,7 @@ function App() {
     [recent, setRecent] = useState([]),
     [history, setHistory] = useState(null),
     [selectedHistory, setSelectedHistory] = useState("jd"),
+    [historyTopic, setHistoryTopic] = useState(""),
     [copied, setCopied] = useState(false),
     [hasToken, setHasToken] = useState(false);
   const requestSeq = useRef(0),
@@ -130,7 +132,9 @@ function App() {
     if (page !== "history") return;
     let live = true;
     setHistory(null);
-    api(`/api/policies/${selectedHistory}?as_of=${day}`)
+    api(
+      `/api/policies/${selectedHistory}?as_of=${day}${historyTopic ? "&topic=" + encodeURIComponent(historyTopic) : ""}`,
+    )
       .then((h) => {
         if (live) setHistory(h);
       })
@@ -140,7 +144,7 @@ function App() {
     return () => {
       live = false;
     };
-  }, [page, selectedHistory, day]);
+  }, [page, selectedHistory, historyTopic, day]);
   async function search(e, question = query, mode = policy) {
     e?.preventDefault();
     if (question.trim().length < 3) return;
@@ -157,7 +161,16 @@ function App() {
     try {
       const r = await api(
         "/api/search",
-        post({ question: question.trim(), policy: mode, as_of: day }),
+        post({
+          question: question.trim(),
+          policy: mode,
+          topic: (
+            catalog?.policies.find((p) => p.id === mode)?.topics || []
+          ).some((t) => t.id === queryTopic)
+            ? queryTopic
+            : null,
+          as_of: day,
+        }),
       );
       if (seq !== requestSeq.current) return;
       setResult(r);
@@ -525,7 +538,10 @@ function App() {
                       <select
                         aria-label="Policy collection"
                         value={policy}
-                        onChange={(e) => setPolicy(e.target.value)}
+                        onChange={(e) => {
+                          setPolicy(e.target.value);
+                          setQueryTopic("");
+                        }}
                       >
                         <option value="auto">
                           Automatic · all policy scopes
@@ -538,6 +554,28 @@ function App() {
                         <option value="hybrid">Standard hybrid search</option>
                       </select>
                     </label>
+                    {(
+                      catalog?.policies.find((p) => p.id === policy)?.topics ||
+                      []
+                    ).length > 0 && (
+                      <label>
+                        MATTER
+                        <select
+                          aria-label="Research matter"
+                          value={queryTopic}
+                          onChange={(e) => setQueryTopic(e.target.value)}
+                        >
+                          <option value="">Detect from question</option>
+                          {catalog.policies
+                            .find((p) => p.id === policy)
+                            .topics.map((t) => (
+                              <option key={t.id} value={t.id}>
+                                {t.label}
+                              </option>
+                            ))}
+                        </select>
+                      </label>
+                    )}
                     <div className="filter-divider" />
                     <label>
                       EVIDENCE AS OF
@@ -685,6 +723,7 @@ function App() {
                             className="topic-card"
                             onClick={() => {
                               setSelectedHistory(p.id);
+                              setHistoryTopic("");
                               setPage("history");
                             }}
                           >
@@ -1076,11 +1115,38 @@ function App() {
           {page === "history" && (
             <>
               <div className="history-controls">
+                {(
+                  catalog?.policies.find((p) => p.id === selectedHistory)
+                    ?.topics || []
+                ).length > 0 && (
+                  <label>
+                    MATTER
+                    <select
+                      aria-label="History matter"
+                      value={historyTopic}
+                      onChange={(e) => setHistoryTopic(e.target.value)}
+                    >
+                      <option value="">All matters</option>
+                      {catalog.policies
+                        .find((p) => p.id === selectedHistory)
+                        .topics.map((t) => (
+                          <option key={t.id} value={t.id}>
+                            {t.label}
+                          </option>
+                        ))}
+                    </select>
+                  </label>
+                )}
+
                 <label>
                   POLICY COLLECTION
                   <select
+                    aria-label="History policy collection"
                     value={selectedHistory}
-                    onChange={(e) => setSelectedHistory(e.target.value)}
+                    onChange={(e) => {
+                      setSelectedHistory(e.target.value);
+                      setHistoryTopic("");
+                    }}
                   >
                     {policies.map((p) => (
                       <option key={p.id} value={p.id}>
@@ -1104,6 +1170,7 @@ function App() {
                   className="primary"
                   onClick={() => {
                     setPolicy(selectedHistory);
+                    setQueryTopic(historyTopic);
                     setPage("research");
                     input.current?.focus();
                   }}
@@ -1198,6 +1265,7 @@ function App() {
                     key={p.id}
                     onClick={() => {
                       setSelectedHistory(p.id);
+                      setHistoryTopic("");
                       setPage("history");
                     }}
                   >

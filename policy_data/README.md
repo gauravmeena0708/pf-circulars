@@ -97,3 +97,22 @@ kept distinct.
 index, deduplicates source/page/offset hashes, preserves old rows and verifies
 alignment. Check its ingestion report before publishing all three artifacts.
 This command uses the existing cached MiniLM model and normalized embeddings.
+
+## Delegation and EPFO employee benefits
+
+Two further collections are registered: **Delegation of powers** and **EPFO employee
+benefits**. Each exposes a Matter selector in research and Circular history.
+Automatic routing detects one or more named matters; supplementary hybrid results
+stay within those matters and the issue-date cutoff. Selecting a collection/matter
+also supports short follow-up questions without repeating the matter name.
+
+See [delegation](delegation/README.md) and [employee benefits](employee_benefits/README.md)
+for source coverage, verified relationships and unresolved originals. Twenty-one
+new issuer-hosted PDFs supply 74 mapped physical pages and 226 new indexed passages.
+The final aligned index has 75,110 passages, with every original passage unchanged.
+The recovery/ingestion totals are in `staff_ingestion_report.json`.
+
+The 15 October 2024 briefcase original was recovered from EPFO's origin host after
+its CDN copy failed. Its two explicit supersession links and revised table are
+checked. Medical originals and the reported August 2026 publicity revision remain
+unverified. No allowance or financial ceiling is certified merely from chronology.

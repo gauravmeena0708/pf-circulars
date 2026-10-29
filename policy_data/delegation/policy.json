@@ -1,0 +1,1156 @@
+{
+  "schema_version": 1,
+  "id": "delegation",
+  "reviewed_on": "2026-10-29",
+  "topics": [
+    {
+      "id": "claims",
+      "label": "Claims / exceptional transactions",
+      "include": "claims? settlement|settlement of (?:EPF|PF|member|claims)|closed establishment|non.contribut|exceptional|\\bVDR\\b|Appendix[ -]?E|TDS|NCP|contribut|Section Supervisor"
+    },
+    {
+      "id": "infrastructure",
+      "label": "Physical infrastructure / works",
+      "include": "physical infrastructure|\\bPID\\b|construction|repair|civil works|Chief Engineer"
+    },
+    {
+      "id": "it",
+      "label": "IT / computerisation",
+      "include": "computer|\\bIS.?Division\\b|\\bIT\\b|laptop"
+    },
+    {
+      "id": "training",
+      "label": "PDNASS / ZTIs",
+      "include": "PDNASS|PDUNASS|NATRSS|\\bZTI"
+    },
+    {
+      "id": "medical",
+      "label": "Medical sanctions",
+      "include": "medical|CGHS|CS\\s*\\(?MA|\\bFMA\\b"
+    },
+    {
+      "id": "personnel",
+      "label": "Appointments / personnel",
+      "include": "compassionate|appoint|recruit|conduct rules"
+    },
+    {
+      "id": "foreign_visit",
+      "label": "Private foreign visits",
+      "include": "foreign|abroad"
+    },
+    {
+      "id": "honorarium",
+      "label": "Inquiry / presenting officer honorarium",
+      "include": "honorarium|inquiry officer|presenting officer"
+    },
+    {
+      "id": "housing",
+      "label": "HBA / staff quarters",
+      "include": "\\bHBA\\b|house building|staff quarter|retention.*quarter"
+    },
+    {
+      "id": "publicity",
+      "label": "Advertisement / publicity",
+      "include": "advertis|publicity|\\bC&PR\\b"
+    },
+    {
+      "id": "member_profile",
+      "label": "Member-profile correction",
+      "include": "name.*correct|correct.*name|member.?profile|joint declaration|\\bJD\\b"
+    },
+    {
+      "id": "general",
+      "label": "General administration / finance",
+      "include": "general.*(?:administrat|financ)|schedule|compendium|all matters"
+    }
+  ],
+  "documents": [
+    {
+      "id": "delegation-2008-08-06-345eb4",
+      "title": "Delegation of Powers under Head \"Computerisation\" and the items on which the fund allocated is to be utilised HO",
+      "circular_no": "HO No. IS-3(2)2003/Budget Delegation/26085",
+      "issued_on": "2008-08-06",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/Delegation_Comp.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/Delegation_Comp.pdf",
+      "topics": [
+        "it"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of Powers under Head \"Computerisation\" and the items on which the fund allocated is to be utilised HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2009-03-06-2601bc",
+      "title": "Delegation of powers under budget head \"Computerisation\" etc HO",
+      "circular_no": "HO No. IS-3(2)2003/Budget Delegation/101986",
+      "issued_on": "2009-03-06",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/Comp_DelePowerRPFC.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/Comp_DelePowerRPFC.pdf",
+      "topics": [
+        "it"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of powers under budget head \"Computerisation\" etc HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2009-03-20-e2b848",
+      "title": "Delegation of power to RPFC to purchase Servers etc - Technical Specifications of the equipment",
+      "circular_no": "No. IS-1(3)/2003/Norms/42136",
+      "issued_on": "2009-03-20",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/DelePower_IT.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/DelePower_IT.pdf",
+      "topics": [
+        "general"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of power to RPFC to purchase Servers etc - Technical Specifications of the equipment",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2009-05-08-ca3171",
+      "title": "Delegation of power in respect of Reimbursement of Medical Expenses in relaxation of CS (MA) Rules-1994 HO",
+      "circular_no": "HO No. HRM-V/9(46)2005/M.Reimb.Policy/5992",
+      "issued_on": "2009-05-08",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/HRM_delegation_of_power.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/HRM_delegation_of_power.pdf",
+      "topics": [
+        "medical"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of power in respect of Reimbursement of Medical Expenses in relaxation of CS (MA) Rules-1994 HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2009-05-18-dd97a3",
+      "title": "Delegation of Power to Addl. Central Provident Fund Commissioner (Zone) regarding retention of Staff Quarter HO",
+      "circular_no": "HO No. HRM-V/52/2/97/SQ/PB/7643-7843",
+      "issued_on": "2009-05-18",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/HRM_delegation_of_power_ACC.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/HRM_delegation_of_power_ACC.pdf",
+      "topics": [
+        "housing"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of Power to Addl. Central Provident Fund Commissioner (Zone) regarding retention of Staff Quarter HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2009-07-16-9c736e",
+      "title": "Delegation of power in respect of HBA HO",
+      "circular_no": "HO No. HRM-V/20(4)2004/HBA/PolicyFile/26350",
+      "issued_on": "2009-07-16",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/DelePowerHBA.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/DelePowerHBA.pdf",
+      "topics": [
+        "housing"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of power in respect of HBA HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2009-08-06-8c8b00",
+      "title": "Delegation of Financial/Administrative powers in case of retired employees of EPFO and/or their spouse/dependants HO",
+      "circular_no": "HO No. HRM-V/12(2)2004/32917",
+      "issued_on": "2009-08-06",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/DeleFP_RetEE.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/DeleFP_RetEE.pdf",
+      "topics": [
+        "general"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of Financial/Administrative powers in case of retired employees of EPFO and/or their spouse/dependants HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2009-08-17-443935",
+      "title": "Delegation of Financial/Administrative powers in case of indoor medical treatment taken by the retired employees of EPFO etc HO",
+      "circular_no": "HO No. HRM-V/12(2)2004/35849",
+      "issued_on": "2009-08-17",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/DeleFAPFMTRetiree.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/DeleFAPFMTRetiree.pdf",
+      "topics": [
+        "medical"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of Financial/Administrative powers in case of indoor medical treatment taken by the retired employees of EPFO etc HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2009-10-07-178b63",
+      "title": "Delegation of powers under budget head \"Computerisation\" and the items on which the fund allocated is to be utilised HO",
+      "circular_no": "HO No. IS-3(2)2003/Budget Dele/18929",
+      "issued_on": "2009-10-07",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/DelePowerComp.PDF",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/DelePowerComp.PDF",
+      "topics": [
+        "it"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of powers under budget head \"Computerisation\" and the items on which the fund allocated is to be utilised HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2011-09-28-719c2c",
+      "title": "Delegation of powers to the Regional Provident Fund Commissioner-II (ASD) of Head Office- HO",
+      "circular_no": "HO No. HRD/2(2)2011/ DOP/30019A",
+      "issued_on": "2011-09-28",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/HRD_DOP_30019A.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/HRD_DOP_30019A.pdf",
+      "topics": [
+        "general"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of powers to the Regional Provident Fund Commissioner-II (ASD) of Head Office- HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2012-03-05-b72a51",
+      "title": "Delegation of financial powers to the Section Supervisor (SS) for speedy settlement of claims - HO",
+      "circular_no": "HO No. WSU/28(1)2003/ Delegation/ Vol-II/49436",
+      "issued_on": "2012-03-05",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/WSU_Delegation_49436.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/WSU_Delegation_49436.pdf",
+      "topics": [
+        "claims"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of financial powers to the Section Supervisor (SS) for speedy settlement of claims - HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2012-03-06-e9f733",
+      "title": "Delegation of financial powers to APFCs and Accounts Officers (AO) for speedy Settlement of Claims and Updation of members' accounts - HO",
+      "circular_no": "HO No. WSU/28(1)2003/ Delegation/ Vol-II/ 26826",
+      "issued_on": "2012-03-06",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/WSU_DelegationOfPowers_26826-2.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/WSU_DelegationOfPowers_26826.pdf",
+      "topics": [
+        "claims"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of financial powers to APFCs and Accounts Officers (AO) for speedy Settlement of Claims and Updation of members' accounts - HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2012-03-06-e9f733.json",
+      "local_pdf": "pdfs/delegation-2012-03-06-e9f733.pdf"
+    },
+    {
+      "id": "delegation-2012-05-17-e05efb",
+      "title": "Delegation of Administrative and Financial Powers HO",
+      "circular_no": "HO No. HRD 2(1) 2002/Del. of Power/4077",
+      "issued_on": "2012-05-17",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/HRD_DoP_4077.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/HRD_DoP_4077.pdf",
+      "topics": [
+        "general"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of Administrative and Financial Powers HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2012-07-24-107691",
+      "title": "Withdrawal of power delegated to RPFCs In-charge of Regional/ Sub Regional Offices to grant relaxation under Para 79 of the Employees' Provident Funds Scheme, 1952 - HO",
+      "circular_no": "HO No. C-II/MISC/02/06/EX/VOL-I/11854",
+      "issued_on": "2012-07-24",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/C2_PowerDelCir_11854.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/C2_PowerDelCir_11854.pdf",
+      "topics": [
+        "general"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Withdrawal of power delegated to RPFCs In-charge of Regional/ Sub Regional Offices to grant relaxation under Para 79 of the Employees' Provident Funds Scheme, 1952 - HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2013-01-21-0d59ab",
+      "title": "Revised delegation of Financial Powers HO",
+      "circular_no": "HO No. IS-3(2)2003/Budget Delegation/29530",
+      "issued_on": "2013-01-21",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/IS_RevDelegation_29530.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/IS_RevDelegation_29530.pdf",
+      "topics": [
+        "general"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised delegation of Financial Powers HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2014-04-28-1a74fc",
+      "title": "मुख्य अभियंता को शक्तियों का प्रत्योजन (भौतिक सुविधा डिवीजन) \nDelegation of Powers to the Chief Engineer (Physical Facility Divison) HO",
+      "circular_no": "HO No. HRD/23(1)2011/DFPR/2481",
+      "issued_on": "2014-04-28",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/HRD_Delegation_CE_2481.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/HRD_Delegation_CE_2481.pdf",
+      "topics": [
+        "infrastructure"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "मुख्य अभियंता को शक्तियों का प्रत्योजन (भौतिक सुविधा डिवीजन) \nDelegation of Powers to the Chief Engineer (Physical Facility Divison) HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2014-10-21-a6b15a",
+      "title": "Delegation of Powers HO",
+      "circular_no": "HO No. HRD/23(1)2011/DFPR/207",
+      "issued_on": "2014-10-21",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/HRD_DelePower_Financial_207.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/HRD_DelePower_Financial_207.pdf",
+      "topics": [
+        "general"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of Powers HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2016-02-22-7c9993",
+      "title": "Delegation of Financial / Administrative Powers in case of indoor medical treatment taken by the retired employees of EPFO and / or their spouse / dependents under CS (MA) Rules, 1944 HO",
+      "circular_no": "HO No. HRM-8/9(25)2015/CAT/40374",
+      "issued_on": "2016-02-22",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/HRM8_IndoorTreatment_40374.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/HRM8_IndoorTreatment_40374.pdf",
+      "topics": [
+        "medical"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of Financial / Administrative Powers in case of indoor medical treatment taken by the retired employees of EPFO and / or their spouse / dependents under CS (MA) Rules, 1944 HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-foreign-2016-05-02",
+      "title": "Prior delegation for foreign visits (original unverified)",
+      "circular_no": "HRD/2(1)2013/Delegation of Powers/2092",
+      "issued_on": "2016-05-02",
+      "authority": "EPFO administrative circular; referenced original unavailable",
+      "source_url": "https://www.epfo.gov.in/circulars",
+      "topics": [
+        "foreign_visit"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null
+    },
+    {
+      "id": "delegation-2016-05-20-5e9ee8",
+      "title": "Consultation on revision of delegation (not an operative order)",
+      "circular_no": "HO No. HRD/Delegation of Adm/Fin. Powers/2016/3233",
+      "issued_on": "2016-05-20",
+      "authority": "EPFO consultation letter; not an operative delegation",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/HRD_DelgationOfAdm-FinPowers_3233.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/HRD_DelgationOfAdm-FinPowers_3233.pdf",
+      "topics": [
+        "general"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of Administrative & Financial Powers HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2016-05-20-5e9ee8.json",
+      "local_pdf": "pdfs/delegation-2016-05-20-5e9ee8.pdf",
+      "document_role": "consultation"
+    },
+    {
+      "id": "delegation-2016-11-16-1c3613",
+      "title": "भविष्य निधि सदस्य के नाम में परिवर्तन - शक्तियों का प्रत्यायोजन                                  Correction in name of PF members - Delegation of powers thereof HO",
+      "circular_no": "HO No. WSU/10(1)2013/Changes in MAP/21475",
+      "issued_on": "2016-11-16",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/WSU_ChangeMAP_21475-2.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/WSU_ChangeMAP_21475.pdf",
+      "topics": [
+        "member_profile"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "भविष्य निधि सदस्य के नाम में परिवर्तन - शक्तियों का प्रत्यायोजन                                  Correction in name of PF members - Delegation of powers thereof HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2016-11-16-1c3613.json",
+      "local_pdf": "pdfs/delegation-2016-11-16-1c3613.pdf"
+    },
+    {
+      "id": "delegation-2017-05-01-76cad8",
+      "title": "Revised delegation of financial powers for settlement of claims HO",
+      "circular_no": "HO No. Manual/Amendment/2011/Pt/1948",
+      "issued_on": "2017-05-01",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Manual_Delegation_FinancialPowers_1948.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Manual_Delegation_FinancialPowers_1948.pdf",
+      "topics": [
+        "claims"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised delegation of financial powers for settlement of claims HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2017-05-03-e1bf73",
+      "title": "Revised Delegation of Administrative and Financial Powers to the Central Provident Fund Commissioner and Disciplinary Authority (below the level of the CPFC) regarding payment of honorarium to Inquiry Officer / Presenting Officer HO",
+      "circular_no": "HO No. HRD/2(1)2013/Delegation of Power/2361",
+      "issued_on": "2017-05-03",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/HRD_IO_PO_PoweDelegation_2361-3.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_IO_PO_PoweDelegation_2361.pdf",
+      "topics": [
+        "honorarium"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised Delegation of Administrative and Financial Powers to the Central Provident Fund Commissioner and Disciplinary Authority (below the level of the CPFC) regarding payment of honorarium to Inquiry Officer / Presenting Officer HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2017-05-03-e1bf73.json",
+      "local_pdf": "pdfs/delegation-2017-05-03-e1bf73.pdf"
+    },
+    {
+      "id": "delegation-2017-05-19-af5ebd",
+      "title": "Delegation of Powers under Budget Head \"Computerization\" and the items on which the fund allocated is to be utilized HO",
+      "circular_no": "HO No. HRD/14/2017/DOP/Computerization/3961",
+      "issued_on": "2017-05-19",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_budget_Comp_3961.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_budget_Comp_3961.pdf",
+      "topics": [
+        "it"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of Powers under Budget Head \"Computerization\" and the items on which the fund allocated is to be utilized HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2017-05-24-4b762a",
+      "title": "Revised delegation of financial powers to Section Supervisors (SS) for settlement of claims HO",
+      "circular_no": "HO No. WSU/28(1)2003/Delegation/Vol.II/4107",
+      "issued_on": "2017-05-24",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/WSU_Revised_DelegationPower_4107-2.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/WSU_Revised_DelegationPower_4107.pdf",
+      "topics": [
+        "claims"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised delegation of financial powers to Section Supervisors (SS) for settlement of claims HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2017-05-24-4b762a.json",
+      "local_pdf": "pdfs/delegation-2017-05-24-4b762a.pdf"
+    },
+    {
+      "id": "delegation-2017-10-06-90b4ef",
+      "title": "Delegation of Powers for granting permission to visit foreign countries by officials of Central Board, Employees' Provident Fund HO",
+      "circular_no": "HO No. HRD/2(1)2013/Delegation of Power/14453",
+      "issued_on": "2017-10-06",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/HRD_PowerDelegation_ForeignVisit_14453-3.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_PowerDelegation_ForeignVisit_14453.pdf",
+      "topics": [
+        "foreign_visit"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of Powers for granting permission to visit foreign countries by officials of Central Board, Employees' Provident Fund HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2017-10-06-90b4ef.json",
+      "local_pdf": "pdfs/delegation-2017-10-06-90b4ef.pdf"
+    },
+    {
+      "id": "delegation-2017-10-31-e9d9bf",
+      "title": "Correction in the name of PF member - Re-delegation of powers thereof HO",
+      "circular_no": "WSU/10(1)2013/Changes in MAP/3949",
+      "issued_on": "2017-10-31",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/WSU_NameCorrection_PowerDele_3949-1.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/WSU_NameCorrection_PowerDele_3949.pdf",
+      "topics": [
+        "member_profile"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Correction in the name of PF member - Re-delegation of powers thereof HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2017-10-31-e9d9bf.json",
+      "local_pdf": "pdfs/delegation-2017-10-31-e9d9bf.pdf"
+    },
+    {
+      "id": "delegation-2020-01-17-f8b101",
+      "title": "Delegation of Financial Powers in relation to Physical Infrastructure Division (PID) HO",
+      "circular_no": "HRD/2(1)2013/Delegation of Powers/320",
+      "issued_on": "2020-01-17",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry.epfindia.gov.in/wp-content/uploads/2025/09/HRD_DOP_PID_320-2.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2019-2020/HRD_DOP_PID_320.pdf",
+      "topics": [
+        "infrastructure"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of Financial Powers in relation to Physical Infrastructure Division (PID) HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2020-01-17-f8b101.json",
+      "local_pdf": "pdfs/delegation-2020-01-17-f8b101.pdf"
+    },
+    {
+      "id": "delegation-2020-07-23-abdbd9",
+      "title": "Revised delegation of Administrative Powers to Central Provident Fund Commissioner and Additional Central Provident Fund Commissioner (Zone) for Appointment on Compassionate grounds HO",
+      "circular_no": "HO No. HRM-V/11(07)Compassionate Appointment/Policy Matter/2019/Vol. III/474/2020",
+      "issued_on": "2020-07-23",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/HRM5_CompassionateApptt_PM_474.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/HRM5_CompassionateApptt_PM_474.pdf",
+      "topics": [
+        "personnel"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised delegation of Administrative Powers to Central Provident Fund Commissioner and Additional Central Provident Fund Commissioner (Zone) for Appointment on Compassionate grounds HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2020-07-23-bcdda0",
+      "title": "Guidelines for Appointment on Compassionate grounds - Revised delegation of Administrative Powers HO",
+      "circular_no": "HO No. HRM-V/11(07)CompassionatAppointment/PolicyMatter/2019/Vol.III/478/2020",
+      "issued_on": "2020-07-23",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/HRM_Rev_Deli_power_478_23072020.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/HRM_Rev_Deli_power_478_23072020.pdf",
+      "topics": [
+        "personnel"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Guidelines for Appointment on Compassionate grounds - Revised delegation of Administrative Powers HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2021-11-24-327be5",
+      "title": "Delegation of Financial Powers for settlement of claims in respect of closed establishments and non contributing establishments HO",
+      "circular_no": "HO No. WSU/360/2021/Delegation_of_Financial_Powers/(e-40508)",
+      "issued_on": "2021-11-24",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/WSU_DelegationFP_SettlementClaims_24112021-5.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/WSU_DelegationFP_SettlementClaims_24112021.pdf",
+      "topics": [
+        "claims"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of Financial Powers for settlement of claims in respect of closed establishments and non contributing establishments HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2021-11-24-327be5.json",
+      "local_pdf": "pdfs/delegation-2021-11-24-327be5.pdf"
+    },
+    {
+      "id": "delegation-2022-01-28-f39ddd",
+      "title": "Delegation of Financial / administrative powers in case of retired employees of EPFO and / or their spouse /dependents HO",
+      "circular_no": "HO No. HRM-V/12(2)2004/3877",
+      "issued_on": "2022-01-28",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/HRM5_delegation_Medical_3877.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/HRM5_delegation_Medical_3877.pdf",
+      "topics": [
+        "medical"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of Financial / administrative powers in case of retired employees of EPFO and / or their spouse /dependents HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2022-06-09-34d1eb",
+      "title": "Clarification in respect of Delegation of Administrative and Financial Powers HO.",
+      "circular_no": "HO.No.HRD/15/2022/Financial Delegation of Powers/622",
+      "issued_on": "2022-06-09",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/clarification_in_respect_of_Administrative_and Financial_Powers_10062022.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/clarification_in_respect_of_Administrative_and Financial_Powers_10062022.pdf",
+      "topics": [
+        "general"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Clarification in respect of Delegation of Administrative and Financial Powers HO.",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "delegation-2022-07-08-dd9a9f",
+      "title": "Delegation of Financial Powers to CPFC in relation to Physical Infrastructure Division (PID) HO.",
+      "circular_no": "HRD/51/DelegationofPowers/PID/638",
+      "issued_on": "2022-07-08",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Circular_Delegation_of_Power_PID_08072022.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/Circular_Delegation_of_Power_PID_08072022.pdf",
+      "topics": [
+        "infrastructure"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of Financial Powers to CPFC in relation to Physical Infrastructure Division (PID) HO.",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2022-07-08-dd9a9f.json",
+      "local_pdf": "pdfs/delegation-2022-07-08-dd9a9f.pdf"
+    },
+    {
+      "id": "delegation-2022-07-14-5f0991",
+      "title": "Corrigendum on Delegation of Financial Powers to CPFC in relation to Physical Infrastructure Division (PID) HO.",
+      "circular_no": "HRD/51/DelegationofPowers/PID/640",
+      "issued_on": "2022-07-14",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/PID_Corrigendum_14072022-3.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/PID_Corrigendum_14072022.pdf",
+      "topics": [
+        "infrastructure"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Corrigendum on Delegation of Financial Powers to CPFC in relation to Physical Infrastructure Division (PID) HO.",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2022-07-14-5f0991.json",
+      "local_pdf": "pdfs/delegation-2022-07-14-5f0991.pdf"
+    },
+    {
+      "id": "delegation-2023-03-09-c6887a",
+      "title": "Office Order for Delegation of Administrative & Financial Powers to RPFC-I/RPFC-II of PDNASS & ZTIs HO",
+      "circular_no": "HRD/83/2022/Delegationofpowers_PDNASS/795",
+      "issued_on": "2023-03-09",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Office_order_Del_of_Power_795_09.03.2023_PDNASS-1.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/Office_order_Del_of_Power_795_09.03.2023_PDNASS.pdf",
+      "topics": [
+        "training"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Office Order for Delegation of Administrative & Financial Powers to RPFC-I/RPFC-II of PDNASS & ZTIs HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2023-03-09-c6887a.json",
+      "local_pdf": "pdfs/delegation-2023-03-09-c6887a.pdf"
+    },
+    {
+      "id": "delegation-2023-03-09-db238b",
+      "title": "Re-Delegation of Administrative and Financial Powers for expenditures related to Physical Infrastructure Division (PID) as delegated by CPFC to the Subordinate Officers of EPFO",
+      "circular_no": "HRD/51/DelegationofPowers/PID/796",
+      "issued_on": "2023-03-09",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/HRD_DelofPower_13032023.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/HRD_DelofPower_13032023.pdf",
+      "topics": [
+        "infrastructure"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Re-Delegation of Administrative and Financial Powers for expenditures related to Physical Infrastructure Division (PID) as delegated by CPFC to the Subordinate Officers of EPFO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2023-03-09-db238b.json",
+      "local_pdf": "pdfs/delegation-2023-03-09-db238b.pdf"
+    },
+    {
+      "id": "delegation-2023-07-31-616754",
+      "title": "Office Order regarding delegation of administrative and financial powers to the RPFC-I(IS Division)",
+      "circular_no": "ASD-I/Misc/PolicyMatters/2023/840",
+      "issued_on": "2023-07-31",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Officeorder_ASD_01082023.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/Officeorder_ASD_01082023.pdf",
+      "topics": [
+        "it"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Office Order regarding delegation of administrative and financial powers to the RPFC-I(IS Division)",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2023-07-31-616754.json",
+      "local_pdf": "pdfs/delegation-2023-07-31-616754.pdf"
+    },
+    {
+      "id": "jd-2023-08-22",
+      "title": "Joint Declaration SOP for member profile updation (2023)",
+      "circular_no": "WSU/2022/Rationalisation of work areas/Joint Declaration (E-54018)/3638",
+      "issued_on": "2023-08-22",
+      "authority": "EPFO WSU administrative circular / SOP",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/SOP_JointDeclarations_29082023-7.pdf",
+      "source_file": "../joint_declaration/sources/jd-2023-08-22.json",
+      "verification": "source_checked",
+      "effective_from": "2023-08-22",
+      "effective_date_evidence": {
+        "document_id": "jd-2023-08-22",
+        "page_number": 2,
+        "quote": "Effective Date: Date of issue",
+        "interpretation": "Document control page expressly specifies date of issue; cover supplies issue date."
+      },
+      "notes": [
+        "Cover dated 22.08.2023 and stamped 23 AUG 2023. March 2024 modification cites 23.08.2023 and the same circular /3638; retain both dates as provenance."
+      ],
+      "local_pdf": "../joint_declaration/pdfs/jd-2023-08-22.pdf",
+      "topics": [
+        "member_profile"
+      ]
+    },
+    {
+      "id": "delegation-2023-12-29-e0c383",
+      "title": "Office Order regarding Delegation of Financial Power in relation to Expenditure on Educative Publicity(C&PR)",
+      "circular_no": "No.HRD/25/2023/Delegation_C&PR/935",
+      "issued_on": "2023-12-29",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/OO_HRD_02012024.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/OO_HRD_02012024.pdf",
+      "topics": [
+        "publicity"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Office Order regarding Delegation of Financial Power in relation to Expenditure on Educative Publicity(C&PR)",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "jd-2024-01-16",
+      "title": "Removal of Aadhaar as date of birth proof",
+      "circular_no": "WSU/2024/1/UIDAI Matter/4090",
+      "issued_on": "2024-01-16",
+      "authority": "EPFO WSU administrative circular / SOP",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Circular_WSU_16012024.pdf",
+      "source_file": "../joint_declaration/sources/jd-2024-01-16.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "local_pdf": "../joint_declaration/pdfs/jd-2024-01-16.pdf",
+      "topics": [
+        "member_profile"
+      ]
+    },
+    {
+      "id": "jd-2024-03-11",
+      "title": "Partial modification: documents for correction in father or mother name",
+      "circular_no": "WSU/2022/Rationalisation of work areas/Joint Declaration/17",
+      "issued_on": "2024-03-11",
+      "authority": "EPFO WSU administrative circular / SOP",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Circualr_WSU_11032024-1.pdf",
+      "source_file": "../joint_declaration/sources/jd-2024-03-11.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "local_pdf": "../joint_declaration/pdfs/jd-2024-03-11.pdf",
+      "topics": [
+        "member_profile"
+      ]
+    },
+    {
+      "id": "jd-2024-03-26",
+      "title": "Joint Declaration SOP version 2.0",
+      "circular_no": "WSU/2022/Rationalisation of work areas/Joint Declaration/256",
+      "issued_on": "2024-03-26",
+      "authority": "EPFO WSU administrative circular / SOP",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/SOP_WSU_new-1.pdf",
+      "source_file": "../joint_declaration/sources/jd-2024-03-26.json",
+      "verification": "source_checked",
+      "effective_from": "2024-03-26",
+      "effective_date_evidence": {
+        "document_id": "jd-2024-03-26",
+        "page_number": 2,
+        "quote": "Effective Date: Date of issue",
+        "interpretation": "Document control page expressly specifies date of issue; cover supplies issue date."
+      },
+      "local_pdf": "../joint_declaration/pdfs/jd-2024-03-26.pdf",
+      "topics": [
+        "member_profile"
+      ]
+    },
+    {
+      "id": "jd-2024-07-31",
+      "title": "Joint Declaration SOP version 3.0",
+      "circular_no": "WSU/2022/(E-54018)/3931",
+      "issued_on": "2024-07-31",
+      "authority": "EPFO WSU administrative circular / SOP",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Circular_WSU_01082024-1.pdf",
+      "source_file": "../joint_declaration/sources/jd-2024-07-31.json",
+      "verification": "source_checked",
+      "effective_from": "2024-07-31",
+      "effective_date_evidence": {
+        "document_id": "jd-2024-07-31",
+        "page_number": 2,
+        "quote": "Effective Date: Date of issue",
+        "interpretation": "Document control page expressly specifies date of issue; cover supplies issue date."
+      },
+      "local_pdf": "../joint_declaration/pdfs/jd-2024-07-31.pdf",
+      "topics": [
+        "member_profile"
+      ]
+    },
+    {
+      "id": "jd-2025-01-16",
+      "title": "Simplification of Joint Declaration process",
+      "circular_no": "WSU/JointDeclaration/E-54018/2024-25/006",
+      "issued_on": "2025-01-16",
+      "authority": "EPFO WSU administrative circular / SOP",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/SimplificationOfJointDeclarationProcess_WSUCircular-10.pdf",
+      "source_file": "../joint_declaration/sources/jd-2025-01-16.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "local_pdf": "../joint_declaration/pdfs/jd-2025-01-16.pdf",
+      "topics": [
+        "member_profile"
+      ]
+    },
+    {
+      "id": "jd-2025-08-13",
+      "title": "Seeding or correcting Aadhaar in UAN: Joint Declaration functionality",
+      "circular_no": "WSU/MemberProfile/E-710137/2025-26/26",
+      "issued_on": "2025-08-13",
+      "authority": "EPFO WSU administrative circular / SOP",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Seeding_Correcting-AadhaarIn_UAN-2.pdf",
+      "source_file": "../joint_declaration/sources/jd-2025-08-13.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "local_pdf": "../joint_declaration/pdfs/jd-2025-08-13.pdf",
+      "topics": [
+        "member_profile"
+      ]
+    },
+    {
+      "id": "delegation-2025-09-18-6f1a4a",
+      "title": "Simplification/Revision of Delegation of Power for exceptional transactions – Regarding",
+      "circular_no": "Finance/Coord/Taskforce-Delegationofpowers/2024/34",
+      "issued_on": "2025-09-18",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/126.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_18092025_ DelegationOfPowers.pdf",
+      "topics": [
+        "claims"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Simplification/Revision of Delegation of Power for exceptional transactions – Regarding",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2025-09-18-6f1a4a.json",
+      "local_pdf": "pdfs/delegation-2025-09-18-6f1a4a.pdf"
+    },
+    {
+      "id": "jd-2025-12-26",
+      "title": "Acceptance of Transgender Identity Certificate/Card for change in name and gender",
+      "circular_no": "WSU/JointDeclaration/E-54018/2025-26/43",
+      "issued_on": "2025-12-26",
+      "authority": "EPFO WSU administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_SimplificationOfJointDeclarationProcess.pdf",
+      "source_file": null,
+      "verification": "catalogue_only",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "notes": [
+        "Repository catalogue and official web search identify this record. Original PDF fetch failed; no verified page or amendment edge is asserted."
+      ],
+      "topics": [
+        "member_profile"
+      ]
+    },
+    {
+      "id": "delegation-publicity-2026-08-07",
+      "title": "Reported revised advertisement/publicity delegation — original unverified",
+      "circular_no": "HRD/25/2023/Delegation_C&PR/1621",
+      "issued_on": "2026-08-07",
+      "authority": "Reported EPFO circular; original unverified",
+      "source_url": "https://www.epfo.gov.in/site_docs/PDFs/Circulars/Y2026-2027/Revised_delegation_of_financial_powers.pdf",
+      "discovery_url": "https://www.compliedai.com/updates/epfo/revised-delegation-of-financial-powers-under-the-budget-head-advertiseme-0k5kvn",
+      "topics": [
+        "publicity"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "notes": "Secondary discovery lead only. The identified official original returned 404 on 29 October 2026; date, amounts and applicability remain unverified."
+    }
+  ],
+  "relationships": [
+    {
+      "id": "jd-2024-01-16--jd-2023-08-22",
+      "source": "jd-2024-01-16",
+      "target": "jd-2023-08-22",
+      "type": "partially_modifies",
+      "scope": "Table B, Annexure I: acceptable proof for correction of date of birth",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "jd-2024-01-16",
+        "page_number": 1,
+        "quote": "the Aadhaar is being removed from the list of acceptable documents for correction in date of birth"
+      }
+    },
+    {
+      "id": "jd-2024-03-11--jd-2023-08-22",
+      "source": "jd-2024-03-11",
+      "target": "jd-2023-08-22",
+      "type": "partially_modifies",
+      "scope": "Table C, Annexure I: documents for correction of father/mother name",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "jd-2024-03-11",
+        "page_number": 1,
+        "quote": "In partial modification to the circular under reference"
+      },
+      "notes": [
+        "Reference uses 23.08.2023 rather than cover date 22.08.2023; /3638 identifies the target."
+      ]
+    },
+    {
+      "id": "jd-2024-03-26--jd-2023-08-22",
+      "source": "jd-2024-03-26",
+      "target": "jd-2023-08-22",
+      "type": "supersedes",
+      "scope": "Earlier Joint Declaration SOP; not an amendment of the EPF Act or Scheme",
+      "verification": "source_checked",
+      "effective_from": "2024-03-26",
+      "effective_date_evidence": {
+        "document_id": "jd-2024-03-26",
+        "page_number": 2,
+        "quote": "Effective Date: Date of issue",
+        "interpretation": "Document control page expressly specifies date of issue; cover supplies issue date."
+      },
+      "evidence": {
+        "document_id": "jd-2024-03-26",
+        "page_number": 1,
+        "quote": "In supersession of earlier SOP, competent authority has approved the SOP"
+      }
+    },
+    {
+      "id": "jd-2024-07-31--jd-2024-03-26",
+      "source": "jd-2024-07-31",
+      "target": "jd-2024-03-26",
+      "type": "supersedes",
+      "scope": "Earlier Joint Declaration SOP",
+      "verification": "target_unverified",
+      "effective_from": "2024-07-31",
+      "effective_date_evidence": {
+        "document_id": "jd-2024-07-31",
+        "page_number": 2,
+        "quote": "Effective Date: Date of issue",
+        "interpretation": "Document control page expressly specifies date of issue; cover supplies issue date."
+      },
+      "evidence": {
+        "document_id": "jd-2024-07-31",
+        "page_number": 1,
+        "quote": "In supersession of earlier SOP, the Competent Authority has approved the SOP"
+      },
+      "notes": [
+        "Cover does not name version 2.0. Target inferred from sequence; requires further source confirmation."
+      ]
+    },
+    {
+      "id": "jd-2025-01-16--jd-2024-07-31",
+      "source": "jd-2025-01-16",
+      "target": "jd-2024-07-31",
+      "type": "supersedes",
+      "scope": "Directions in JD SOP version 3.0, as stated in paragraph 1; do not infer repeal of statutory provisions",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "jd-2025-01-16",
+        "page_number": 1,
+        "quote": "In supersession of the directions contained in the Joint Declaration SOP Version 3.0"
+      }
+    },
+    {
+      "id": "jd-2025-08-13--jd-2025-01-16",
+      "source": "jd-2025-08-13",
+      "target": "jd-2025-01-16",
+      "type": "references",
+      "scope": "Paragraph 2 and reference 2 describe the January simplification; later paragraphs add Aadhaar functionality directions",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "jd-2025-08-13",
+        "page_number": 1,
+        "quote": "WSU/JointDeclaration/E-54018/2024-25/006 dt.16/01/2025"
+      }
+    },
+    {
+      "id": "delegation-2022-07-14-5f0991-clarifies-delegation-2022-07-08-dd9a9f",
+      "source": "delegation-2022-07-14-5f0991",
+      "target": "delegation-2022-07-08-dd9a9f",
+      "type": "clarifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "delegation-2022-07-14-5f0991",
+        "page_number": 1,
+        "quote": "circular of even number dated 08.07.2022"
+      },
+      "scope": "Corrects the table heading from proposed to revised financial powers; not a new whole-schedule delegation."
+    },
+    {
+      "id": "delegation-2023-03-09-db238b-references-delegation-2022-07-08-dd9a9f",
+      "source": "delegation-2023-03-09-db238b",
+      "target": "delegation-2022-07-08-dd9a9f",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "delegation-2023-03-09-db238b",
+        "page_number": 1,
+        "quote": "HRD/51/DelegationofPowers/PID/638\ndated 08.07.2022"
+      },
+      "scope": "The March 2023 CPFC-to-subordinate re-delegation cites the July 2022 CBT-to-CPFC powers. Distinct authority layers; no whole-document supersession inferred."
+    },
+    {
+      "id": "delegation-2017-10-06-90b4ef-supersedes-delegation-foreign-2016-05-02",
+      "source": "delegation-2017-10-06-90b4ef",
+      "target": "delegation-foreign-2016-05-02",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "delegation-2017-10-06-90b4ef",
+        "page_number": 1,
+        "quote": "in supersession of earlier delegations made vide letter no. HRD/2(1)2013/Delegation of\nPowers/2092 dated 02 May, 2016"
+      },
+      "scope": "Supersession is limited to permission for private foreign visits; the May 2016 original remains missing."
+    },
+    {
+      "id": "delegation-2017-10-31-e9d9bf-references-delegation-2016-11-16-1c3613",
+      "source": "delegation-2017-10-31-e9d9bf",
+      "target": "delegation-2016-11-16-1c3613",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "delegation-2017-10-31-e9d9bf",
+        "page_number": 1,
+        "quote": "16-11-2016"
+      },
+      "scope": "Express reference to the earlier member-name delegation; subsequent JD SOP/simplification evidence is included separately."
+    }
+  ],
+  "limitations": [
+    "Delegation is matter-specific. CBT-to-CPFC powers and CPFC-to-subordinate re-delegations are different authority layers; an infrastructure or claims circular does not replace the entire financial schedule.",
+    "The underlying 1993 schedule, several revisions and some originals are missing. References and chronological order alone do not establish supersession or a current monetary ceiling.",
+    "Website posting dates and receipt stamps are not substituted for dates printed in the issuing letter. The 2017 name-correction letter is dated 31 October despite its 1 November receipt stamp; the PID re-delegation is dated 9 March 2023.",
+    "The May 2016 general-delegation letter is a consultation, not an operative revision. It is visible in the inventory but excluded from answer evidence.",
+    "The reported 7 August 2026 advertisement/publicity revision remains original-unverified and cannot establish revised ceilings. Medical delegation originals also remain unresolved.",
+    "Member-profile delegation is accompanied by the existing JD history so historical 2016/2017 instructions are not silently treated as the latest procedure. No unsupported cross-document supersession is inferred."
+  ]
+}

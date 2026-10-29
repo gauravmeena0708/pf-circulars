@@ -1,0 +1,69 @@
+{
+  "dataset_status": "Development source/page checks; not a held-out legal accuracy benchmark",
+  "cases": [
+    {
+      "id": "pid-2020",
+      "question": "physical infrastructure PID powers",
+      "as_of": "2020-01-17",
+      "required_evidence": [
+        {
+          "document_id": "delegation-2020-01-17-f8b101",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "pid-2022",
+      "question": "physical infrastructure PID CPFC financial powers",
+      "as_of": "2022-07-08",
+      "required_evidence": [
+        {
+          "document_id": "delegation-2022-07-08-dd9a9f",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "pid-corrigendum",
+      "question": "physical infrastructure PID corrigendum",
+      "as_of": "2022-07-14",
+      "required_evidence": [
+        {
+          "document_id": "delegation-2022-07-14-5f0991",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "pid-2023",
+      "question": "physical infrastructure PID re-delegation",
+      "as_of": "2023-03-09",
+      "required_evidence": [
+        {
+          "document_id": "delegation-2023-03-09-db238b",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "foreign-visit",
+      "question": "foreign visit permission powers",
+      "as_of": "2017-10-06",
+      "required_evidence": [
+        {
+          "document_id": "delegation-2017-10-06-90b4ef",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "publicity-gap",
+      "question": "advertisement publicity delegation",
+      "as_of": "2026-08-07",
+      "document_status": {
+        "id": "delegation-publicity-2026-08-07",
+        "status": "source_unverified"
+      }
+    }
+  ]
+}

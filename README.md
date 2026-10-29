@@ -10,14 +10,14 @@ pinned: false
 
 # EPFO Circulars & Statutory Manuals RAG System
 
-An intelligent Retrieval-Augmented Generation (RAG) system for querying **8,800+ Employees' Provident Fund Organisation (EPFO) circulars (2006–2026)** and **16 official statutory manuals, schemes, and acts** (74,884 indexed passages).
+An intelligent Retrieval-Augmented Generation (RAG) system for querying **8,800+ Employees' Provident Fund Organisation (EPFO) circulars (2006–2026)** and **16 official statutory manuals, schemes, and acts** (75,110 indexed passages).
 
 ---
 
 ## React research and office workspace
 
 The hosted Hugging Face Space uses React + Vite and a FastAPI backend in one Docker
-Space. The interface provides policy research with source/PDF inspection, nine dated
+Space. The interface provides policy research with source/PDF inspection, eleven dated
 policy histories, PDF/CSV assistance, English/Hindi drafting, Word reports and
 transcripts, and eight PDF utilities. It retains the existing FAISS/BM25 retrieval
 and GPT-OSS configuration. Missing sources and unverified applicability remain

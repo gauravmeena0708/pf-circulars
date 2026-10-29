@@ -32,13 +32,24 @@ def _tokens(text):
     return re.findall(r"[a-z0-9]+", text.casefold())
 
 
+class UnknownPolicyMatter(ValueError):
+    pass
+
+
 class PolicyHistory:
     def __init__(self, path=DEFAULT_POLICY):
         path = Path(path)
         self.policy = json.loads(path.read_text(encoding="utf-8"))
+        topic_ids = [topic['id'] for topic in self.policy.get('topics', [])]
+        if len(set(topic_ids)) != len(topic_ids):
+            raise ValueError('Duplicate policy matter')
+        for topic in self.policy.get('topics', []):
+            re.compile(topic['include'])
         self.documents = {}
         self.pages = {}
         for document in self.policy["documents"]:
+            if set(document.get('topics', [])) - set(topic_ids):
+                raise ValueError('Document refers to an unknown matter')
             doc_id = document["id"]
             if doc_id in self.documents:
                 raise ValueError(f"Duplicate document: {doc_id}")
@@ -90,10 +101,20 @@ class PolicyHistory:
                 return page
         raise ValueError(f"No checked physical page {page_number} for {doc_id}")
 
-    def snapshot(self, as_of):
+    def matching_topics(self, query):
+        """Return every matching matter; multi-matter questions retain each scope."""
+        return [topic['id'] for topic in self.policy.get('topics', [])
+                if re.search(topic['include'], query, re.I)]
+
+    def snapshot(self, as_of, topics=None):
         cutoff = _date(as_of)
+        topics = topics or []
+        known = {t['id'] for t in self.policy.get('topics', [])}
+        if any(topic not in known for topic in topics):
+            raise UnknownPolicyMatter('Unknown matter in this policy collection')
         available = {
             k: v for k, v in self.documents.items() if _date(v["issued_on"]) <= cutoff
+            and (not topics or set(topics).intersection(v.get('topics', [])))
         }
         documents = []
         for doc in sorted(available.values(), key=lambda d: (d["issued_on"], d["id"])):
@@ -124,9 +145,10 @@ class PolicyHistory:
             "conclusion": "evidence_inventory_only",
             "documents": documents, "relationships": relationships,
             "limitations": self.policy["limitations"],
+            "topics": self.policy.get('topics', []), "selected_topics": topics,
         }
 
-    def search(self, query, as_of, max_characters=16000):
+    def search(self, query, as_of, max_characters=16000, topics=None):
         """Find small passages, then expand to exact physical parent pages.
 
         Lexical ranking is deliberately local to this pilot. Production callers
@@ -136,12 +158,14 @@ class PolicyHistory:
         """
         if max_characters < 1:
             raise ValueError("Context budget must be positive")
-        report = self.snapshot(as_of)
+        report = self.snapshot(as_of, topics=self.matching_topics(query) if topics is None else topics)
         allowed = {d["id"] for d in report["documents"]}
         terms = set(_tokens(query))
         candidates = []
         for doc_id in sorted(allowed):
             document = self.documents[doc_id]
+            if document.get('document_role') == 'consultation':
+                continue
             for page in self.pages.get(doc_id, []):
                 text = page["text"]
                 # Keep offsets into unmodified page text for citation auditing.

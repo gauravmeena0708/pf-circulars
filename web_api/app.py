@@ -53,6 +53,7 @@ _packets = {}
 class SearchRequest(BaseModel):
     question: str = Field(min_length=3, max_length=6000)
     policy: str = 'auto'
+    topic: str | None = Field(default=None, max_length=80)
     as_of: date = Field(default_factory=date.today)
 
 
@@ -140,16 +141,20 @@ def catalog():
         checked = [d for d in history.documents.values() if d.get('source_file')]
         policies.append(dict(id=policy.id, label=policy.label, scope=policy.scope,
                              document_count=len(history.documents), checked_count=len(checked),
+                             topics=history.policy.get('topics', []),
                              newest_checked=max((d['issued_on'] for d in checked), default=None)))
     return dict(policies=policies, passage_count=count, answer_enabled=bool(os.environ.get('HF_TOKEN')), today=date.today().isoformat())
 
 
 @app.get('/api/policies/{id}')
-def policy_snapshot(id: str, as_of: date | None = None):
+def policy_snapshot(id: str, as_of: date | None = None, topic: str | None = None):
     day = as_of or date.today()
     check_day(day)
     policy = policy_by_id(id)
-    report = history_for(id).snapshot(day.isoformat())
+    try:
+        report = history_for(id).snapshot(day.isoformat(), topics=[topic] if topic else None)
+    except ValueError as error:
+        raise HTTPException(422, str(error)) from None
     for doc in report['documents']:
         doc['pdf_url'] = f'/api/policies/{id}/documents/{doc["id"]}/pdf' if pdf_path(policy, doc) else None
     return dict(label=policy.label, scope=policy.scope, **report)
@@ -174,7 +179,7 @@ def search(request: SearchRequest, http_request: Request):
         raise HTTPException(422, 'Enter a question.')
     try:
         result = route_retrieval(request.question.strip(), request.as_of.isoformat(),
-                                 lambda: hybrid_search(request.question.strip()), mode=request.policy)
+                                 lambda: hybrid_search(request.question.strip()), mode=request.policy, topic=request.topic)
     except ValueError as error:
         raise HTTPException(422, str(error)) from None
     except Exception:

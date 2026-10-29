@@ -2,7 +2,7 @@
 
 from datetime import datetime
 
-from policy_history import PolicyHistory, _date
+from policy_history import PolicyHistory, UnknownPolicyMatter, _date
 from policy_registry import registered_policies, select_policy
 
 
@@ -23,7 +23,7 @@ def _issued_on(metadata):
     return None
 
 
-def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=None):
+def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=None, topic=None):
     """Return answer chunks plus a separate policy review report.
 
     ``hybrid_search`` is lazy so curated evidence works without embedding services.
@@ -35,13 +35,19 @@ def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=No
         raise ValueError("Unknown retrieval mode")
     policy = select_policy(query, mode, policies)
     if policy is None:
+        if topic:
+            raise ValueError('Choose a policy collection before selecting a matter')
         return {"route": "hybrid", "chunks": hybrid_search(), "policy_context": None, "report": None}
 
     warning = None
     try:
         history = history_factory() if history_factory else PolicyHistory(policy.path)
-        report = history.search(query, as_of)
-    except (OSError, ValueError, KeyError) as error:
+        if topic and topic not in {t['id'] for t in history.policy.get('topics', [])}:
+            raise UnknownPolicyMatter('Unknown matter in this policy collection')
+        report = history.search(query, as_of, topics=[topic] if topic else None)
+    except UnknownPolicyMatter:
+        raise
+    except (OSError, ValueError, KeyError):
         # Do not present a failed policy load as a successful verification pass.
         warning = f"Curated {policy.label} evidence could not be loaded; policy verification is unavailable."
         report = {"as_of": as_of, "documents": [], "relationships": [], "evidence": [],
@@ -99,6 +105,9 @@ def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=No
             title = meta.get("title") or ""
             if not policy.matches(title + " " + candidate.get("text", "")):
                 continue
+            selected_topics = report.get('selected_topics', [])
+            if selected_topics and not set(selected_topics).intersection(history.matching_topics(title + ' ' + candidate.get('text', ''))):
+                continue
             issued = _issued_on(meta)
             # Unknown dates cannot safely enter a historical evidence packet.
             if issued is None or issued > cutoff:
@@ -123,6 +132,7 @@ def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=No
         "documents": [{k: d.get(k) for k in ("id", "title", "version_label", "authority", "notes", "source_host_kind", "original_source_url", "circular_no", "issued_on", "effective_from", "status")} for d in documents.values()],
         "relationships": report["relationships"], "coverage": report["coverage"],
         "limitations": report["limitations"], "fallback_reason": fallback_reason,
+        "topics": report.get('topics', []), "selected_topics": report.get('selected_topics', []),
         "supporting_source_count": len(supporting),
     }
     return {"route": policy.route, "chunks": chunks, "policy_context": context, "report": report}

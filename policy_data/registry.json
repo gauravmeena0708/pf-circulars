@@ -2,6 +2,24 @@
   "schema_version": 1,
   "policies": [
     {
+      "id": "delegation",
+      "label": "Delegation of powers",
+      "scope": "Matter-specific EPFO administrative, financial and sanctioning powers; authority layers and historical changes",
+      "path": "delegation/policy.json",
+      "include": "delegat.*power|power.*delegat|sanctioning authorit|competent authorit.*(?:financial|expenditure|sanction)",
+      "exclude": "power of attorney",
+      "route": "delegation_policy"
+    },
+    {
+      "id": "employee_benefits",
+      "label": "EPFO employee benefits",
+      "scope": "EPFO staff benefits: briefcase, devices, communications, newspapers and medical reimbursement; not EPF member entitlements",
+      "path": "employee_benefits/policy.json",
+      "include": "briefcase|hand.?bag|office bag|ladies purse|laptop|notebook|newspaper|news paper|telephone.*(?:reimburs|benefit)|(?:reimburs|benefit).*telephone|mobile.*(?:reimburs|bill)|(?:reimburs|bill).*mobile|medical.*(?:reimburs|allowance)|(?:reimburs|fixed).*medical|staff.*benefit|EPFO.*employee.*benefit|\\bCGHS\\b|CS\\s*\\(MA\\)",
+      "exclude": "EPF member|EPS pension|insured person|Aadhaar|UAN",
+      "route": "employee_benefits_policy"
+    },
+    {
       "id": "bank_kyc",
       "label": "Bank KYC / cheque upload",
       "scope": "EPFO UAN bank seeding and cheque/passbook upload requirements",
