@@ -14,6 +14,8 @@ import tempfile
 import urllib.request
 from urllib.parse import urlsplit
 
+from official_links import official_url
+
 MAX_BYTES = 60 * 1024 * 1024
 TIMEOUT = 45
 USER_AGENT = 'EPFO-Workspace/1.0 (+https://huggingface.co/spaces/gauravmeena0708/epfo-circulars)'
@@ -103,4 +105,4 @@ def ensure_original(policy_dir, document):
     existing = cached_path(document.get('id'), sha256)
     if existing:
         return existing
-    return download(url, sha256, cache_dir() / f'{sha256}.pdf')
+    return download(official_url(url), sha256, cache_dir() / f'{sha256}.pdf')

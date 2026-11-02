@@ -87,3 +87,23 @@ def test_general_search_returns_currency_and_curated_search_does_not(monkeypatch
                                                'policy': 'bank_kyc', 'as_of': '2025-04-03'}).json()
     assert curated['currency'] is None
     assert client.get('/api/catalog').json()['corpus_as_of'] >= '2026-01-01'
+
+
+def test_old_site_links_are_shown_on_the_current_official_site():
+    from official_links import official_url, official_links
+    assert official_url('https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/a.pdf') == 'https://www.epfo.gov.in/site_docs/PDFs/Circulars/Y2024-2025/a.pdf'
+    assert official_url('http://epfindia.gov.in/x?y=1') == 'https://www.epfo.gov.in/x?y=1'
+    assert official_url('https://www.epfindia.nic.in/a.pdf') == 'https://www.epfo.gov.in/a.pdf'
+    # Other hosts, including the working file CDN, are untouched.
+    cdn = 'https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/a.pdf'
+    assert official_url(cdn) == cdn and official_url(None) is None
+    assert official_url('https://example.org/www.epfindia.gov.in/a.pdf') == 'https://example.org/www.epfindia.gov.in/a.pdf'
+    meta = {'title': 'www.epfindia.gov.in', 'english_pdf_link': 'https://www.epfindia.gov.in/a.pdf', 'hindi_pdf_link': None}
+    assert official_links(meta) == {'title': 'www.epfindia.gov.in', 'english_pdf_link': 'https://www.epfo.gov.in/a.pdf', 'hindi_pdf_link': None}
+
+
+def test_search_results_carry_links_on_the_current_site(monkeypatch):
+    client = TestClient(module.app, headers={'X-Workspace-Session': 'a' * 32})
+    monkeypatch.setattr(module, 'hybrid_search', lambda question, extra=0: [chunk('01/03/2019', 'A/1')] + [chunk('15/06/2022', 'B/2')])
+    result = client.post('/api/search', json={'question': 'Allowance for training travel?', 'policy': 'hybrid'}).json()
+    assert result['sources'][0]['metadata']['english_pdf_link'] == 'https://www.epfo.gov.in/A/1.pdf'

@@ -10,6 +10,8 @@ from functools import lru_cache
 import re
 import sqlite3
 
+from official_links import official_url
+
 # Number of extra ranked candidates inspected, beyond the answer sources, for newer circulars.
 EXTRA_CANDIDATES = 7
 MAX_NEWER = 3
@@ -54,7 +56,7 @@ def _human(day):
 def _summary(chunk, day):
     meta = chunk.get("metadata", {})
     return {"title": meta.get("title") or "EPFO circular", "circular_no": meta.get("circular_no"),
-            "date": day.isoformat(), "url": meta.get("english_pdf_link") or meta.get("source_pdf")}
+            "date": day.isoformat(), "url": official_url(meta.get("english_pdf_link") or meta.get("source_pdf"))}
 
 
 def build_currency(chunks, extras, question="", today=None, corpus_as_of=None):

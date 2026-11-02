@@ -20,6 +20,7 @@ from pydantic import BaseModel, Field
 
 from policy_registry import registered_policies
 import currency
+from official_links import official_links, official_url
 import policy_pdfs
 from policy_history import PolicyHistory
 from policy_router import route_retrieval
@@ -172,6 +173,7 @@ def policy_snapshot(id: str, as_of: date | None = None, topic: str | None = None
         raise HTTPException(422, str(error)) from None
     for doc in report['documents']:
         doc['pdf_url'] = f'/api/policies/{id}/documents/{doc["id"]}/pdf' if pdf_available(policy, doc) else None
+        doc.update(official_links({k: doc[k] for k in ('source_url', 'original_source_url') if k in doc}))
     return dict(label=policy.label, scope=policy.scope, **report)
 
 
@@ -188,7 +190,7 @@ def source_pdf(id: str, document_id: str):
         except Exception as error:
             LOG.warning('Public original unavailable for %s: %s', document_id, error)
             # The reader's own browser can usually reach the official site even when this server cannot.
-            return RedirectResponse(document['source_url'], status_code=302)
+            return RedirectResponse(official_url(document['source_url']), status_code=302)
     if path is None:
         raise HTTPException(404, 'No original is available for this document.')
     return FileResponse(path, media_type='application/pdf', headers={'Content-Disposition': 'inline'})
@@ -217,6 +219,11 @@ def search(request: SearchRequest, http_request: Request):
     except Exception:
         LOG.exception('Search failed')
         raise HTTPException(503, 'Search is unavailable. Please retry shortly.') from None
+    # The old epfindia.gov.in site now lives at epfo.gov.in: show readers (and the model) current links.
+    for chunk in result['chunks']:
+        chunk['metadata'] = official_links(chunk.get('metadata', {}))
+    for document in (result['policy_context'] or {}).get('documents', []):
+        document.update(official_links({k: document[k] for k in ('source_url', 'original_source_url') if k in document}))
     sources = []
     for number, chunk in enumerate(result['chunks'], 1):
         meta = dict(chunk.get('metadata', {}))
