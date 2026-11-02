@@ -76,7 +76,7 @@ limits without switching the configured GPT-OSS model or inference provider.
 ## Bank, MID and EPS correction histories
 
 Bank KYC / cheque upload, MID de-linking and EPS contribution corrections are
-registered separately. Original scans are archived under each policy's `pdfs/`.
+registered separately. Original PDFs are not committed; they are fetched from each document's `source_url` and verified against the recorded SHA-256 (see `policy_pdfs.py`, `scripts/verify_policy_pdfs.py`).
 Every checked source has physical page text, extraction method and a PDF hash.
 The April 2026 MID and December 2025 EPS PDFs were recovered as mirror copies
 when the original URLs failed; both retrieval and original URLs are retained.

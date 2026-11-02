@@ -33,8 +33,9 @@ def validate(manifest):
         path = PurePosixPath(entry['path'])
         if path.is_absolute() or '..' in path.parts or '\\' in entry['path'] or str(path) in seen:
             raise ValueError('Invalid or duplicate runtime asset path')
-        if not (entry['path'].startswith('vector_store/data_index/') or
-                entry['path'].startswith('policy_data/') and entry['path'].endswith('.pdf')):
+        # Only the search index is a build-time asset. Original policy PDFs are fetched
+        # on demand from their public URLs (see policy_pdfs.py) and are not stored in Git.
+        if not entry['path'].startswith('vector_store/data_index/'):
             raise ValueError('Unexpected runtime asset path')
         if not re.fullmatch('[a-f0-9]{64}', entry['sha256']) or not 0 < entry['size'] <= 500*1024*1024:
             raise ValueError('Invalid runtime asset hash or size')
@@ -76,9 +77,8 @@ def fetch(entry, revision, output):
 
 
 def record(revision, root=Path('.'), path=MANIFEST, preserve_revision=False):
-    files = sorted(list((root/'policy_data').glob('*/pdfs/*.pdf')) +
-                   [root/'vector_store/data_index'/name for name in
-                    ('faiss_index.index', 'faiss_index.passages.db', 'faiss_index.bm25.json.gz')])
+    files = sorted(root/'vector_store/data_index'/name for name in
+                   ('faiss_index.index', 'faiss_index.passages.db', 'faiss_index.bm25.json.gz'))
     manifest = dict(repo=REPO, revision=revision, files=[dict(path=p.relative_to(root).as_posix(), size=p.stat().st_size, sha256=digest(p)) for p in files])
     if preserve_revision and path.exists():
         previous = json.loads(path.read_text())

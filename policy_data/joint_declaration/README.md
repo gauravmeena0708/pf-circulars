@@ -26,7 +26,7 @@ Tesseract English language data. Neither CLI search nor evaluation calls an LLM.
 2025 candidate. Seven PDFs were downloaded from links in the current official
 [EPFO circular catalogue](https://www.epfo.gov.in/circulars). Each source JSON records
 the download URL, PDF SHA-256, total physical pages, extracted physical page numbers,
-and native/OCR extraction method. Recovered raw PDFs are archived under `pdfs/`. OCR text is retained
+and native/OCR extraction method. The raw PDFs are not stored in Git; they are re-fetched from the recorded URL and checked against the hash. OCR text is retained
 unchanged, including errors; metadata corrections are separately curated from the
 cover image. For example, January 2025 OCR reads the handwritten suffix as `004`,
 while the visually checked cover reads `006`.

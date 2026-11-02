@@ -21,15 +21,20 @@ def test_specific_correction_scopes(query, expected):
     assert select_policy(query).id == expected
 
 
-def test_original_pdf_hashes_and_physical_page_counts():
-    import hashlib
+def test_every_extracted_original_can_be_re_fetched_and_verified():
+    """PDFs are not in Git; each extracted source must name an HTTPS URL and a SHA-256.
+
+    ``scripts/verify_policy_pdfs.py`` re-downloads and compares them (needs network).
+    """
+    import policy_pdfs
     for policy in registered_policies():
         history = PolicyHistory(policy.path)
         for doc in history.documents.values():
             if not doc.get('source_file'): continue
             source = json.loads((policy.path.parent / doc['source_file']).read_text())
-            pdf = policy.path.parent / doc['local_pdf']
-            assert hashlib.sha256(pdf.read_bytes()).hexdigest() == source['pdf_sha256']
+            assert doc['source_url'].startswith('https://'), doc['id']
+            assert policy_pdfs.expected_sha256(policy.path.parent, doc) == source['pdf_sha256']
+            assert source['total_pdf_pages'] >= 1
 
 
 def test_bank_commencement_is_not_software_deployment_date():

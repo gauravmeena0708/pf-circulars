@@ -14,11 +14,13 @@ import time
 from uuid import uuid4
 
 from fastapi import FastAPI, HTTPException, UploadFile, File, Form, Request, Header
-from fastapi.responses import FileResponse, StreamingResponse, Response
+from fastapi.responses import FileResponse, RedirectResponse, StreamingResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from policy_registry import registered_policies
+import currency
+import policy_pdfs
 from policy_history import PolicyHistory
 from policy_router import route_retrieval
 
@@ -48,6 +50,7 @@ async def lifespan(app):
 app = FastAPI(title='EPFO Research Workspace', version='1.0.0', lifespan=lifespan)
 _lock = threading.RLock()
 _packets = {}
+_pdf_lock = threading.Lock()
 
 
 class SearchRequest(BaseModel):
@@ -95,14 +98,16 @@ def resources():
         return model, index, store, reranker, directory
 
 
-def hybrid_search(question):
+def hybrid_search(question, extra=0):
     import config
     from retriever import retrieve_relevant_chunks
     # Serialize CPU-heavy retrieval on a small Space; no shared question state.
     with _lock:
         model, index, store, reranker, directory = resources()
+        # ``extra`` ranks a few more candidates (same retrieval pass) so newer circulars can be flagged.
         return retrieve_relevant_chunks(question, index, store.texts, store.metadata, model,
                                         cross_encoder_model=reranker,
+                                        top_n_final=getattr(config, 'TOP_N_RETRIEVAL', 5) + extra if extra else None,
                                         bm25_cache_path=str(Path(directory) / 'faiss_index.bm25.json.gz'))
 
 
@@ -112,18 +117,27 @@ def history_for(id):
 
 
 def pdf_path(policy, document):
+    """A verified local copy of the original, if one is already on disk (no network)."""
     relative = document.get('local_pdf')
-    if not relative:
-        return None
-    path = (policy.path.parent / relative).resolve()
-    if not path.is_relative_to(ROOT / 'policy_data') or not path.is_file():
-        return None
-    # Hub uploads can be LFS-backed even when the original GitHub file was not.
-    # Never advertise or serve an unresolved pointer as an archived PDF.
-    with path.open('rb') as source:
-        if source.read(5) != b'%PDF-':
-            return None
-    return path
+    if relative:
+        path = (policy.path.parent / relative).resolve()
+        if path.is_relative_to(ROOT / 'policy_data') and path.is_file():
+            # Never serve an unresolved Git LFS pointer as an archived PDF.
+            with path.open('rb') as source:
+                if source.read(5) == b'%PDF-':
+                    return path
+    sha256 = policy_pdfs.expected_sha256(policy.path.parent, document)
+    return policy_pdfs.cached_path(document.get('id'), sha256) if sha256 else None
+
+
+def pdf_available(policy, document):
+    """Originals are no longer stored in Git; they are fetched from the public source URL."""
+    return bool(pdf_path(policy, document) or policy_pdfs.has_public_original(policy.path.parent, document))
+
+
+def corpus_date():
+    path = ROOT / 'vector_store/data_index/faiss_index.passages.db'
+    return currency.corpus_as_of(str(path)) if path.exists() else None
 
 
 @app.get('/api/catalog')
@@ -143,7 +157,8 @@ def catalog():
                              document_count=len(history.documents), checked_count=len(checked),
                              topics=history.policy.get('topics', []),
                              newest_checked=max((d['issued_on'] for d in checked), default=None)))
-    return dict(policies=policies, passage_count=count, answer_enabled=bool(os.environ.get('HF_TOKEN')), today=date.today().isoformat())
+    latest = corpus_date()
+    return dict(policies=policies, passage_count=count, corpus_as_of=latest.isoformat() if latest else None, answer_enabled=bool(os.environ.get('HF_TOKEN')), today=date.today().isoformat())
 
 
 @app.get('/api/policies/{id}')
@@ -156,17 +171,26 @@ def policy_snapshot(id: str, as_of: date | None = None, topic: str | None = None
     except ValueError as error:
         raise HTTPException(422, str(error)) from None
     for doc in report['documents']:
-        doc['pdf_url'] = f'/api/policies/{id}/documents/{doc["id"]}/pdf' if pdf_path(policy, doc) else None
+        doc['pdf_url'] = f'/api/policies/{id}/documents/{doc["id"]}/pdf' if pdf_available(policy, doc) else None
     return dict(label=policy.label, scope=policy.scope, **report)
 
 
 @app.get('/api/policies/{id}/documents/{document_id}/pdf')
 def source_pdf(id: str, document_id: str):
     policy = policy_by_id(id)
-    document = history_for(id).documents.get(document_id)
-    path = pdf_path(policy, document or {})
+    document = history_for(id).documents.get(document_id) or {}
+    path = pdf_path(policy, document)
+    if path is None and policy_pdfs.has_public_original(policy.path.parent, document):
+        try:
+            # Serialised so two viewers of the same file do not download it twice.
+            with _pdf_lock:
+                path = policy_pdfs.ensure_original(policy.path.parent, document)
+        except Exception as error:
+            LOG.warning('Public original unavailable for %s: %s', document_id, error)
+            # The reader's own browser can usually reach the official site even when this server cannot.
+            return RedirectResponse(document['source_url'], status_code=302)
     if path is None:
-        raise HTTPException(404, 'No archived original is available for this document.')
+        raise HTTPException(404, 'No original is available for this document.')
     return FileResponse(path, media_type='application/pdf', headers={'Content-Disposition': 'inline'})
 
 
@@ -177,9 +201,17 @@ def search(request: SearchRequest, http_request: Request):
     check_day(request.as_of)
     if not request.question.strip():
         raise HTTPException(422, 'Enter a question.')
+    import config
+    pool = []
+
+    def run_hybrid():
+        ranked = hybrid_search(request.question.strip(), extra=currency.EXTRA_CANDIDATES)
+        top = getattr(config, 'TOP_N_RETRIEVAL', 5)
+        pool[:] = ranked[top:]
+        return ranked[:top]
     try:
         result = route_retrieval(request.question.strip(), request.as_of.isoformat(),
-                                 lambda: hybrid_search(request.question.strip()), mode=request.policy, topic=request.topic)
+                                 run_hybrid, mode=request.policy, topic=request.topic)
     except ValueError as error:
         raise HTTPException(422, str(error)) from None
     except Exception:
@@ -194,9 +226,13 @@ def search(request: SearchRequest, http_request: Request):
             pid = result['policy_context']['policy_id']
             policy = policy_by_id(pid)
             doc = history_for(pid).documents.get(doc_id)
-            if pdf_path(policy, doc or {}):
+            if pdf_available(policy, doc or {}):
                 local = f'/api/policies/{pid}/documents/{doc_id}/pdf'
         sources.append(dict(id=number, text=chunk['text'], metadata=meta, document_id=doc_id, pdf_url=local))
+    # Curated histories carry their own supersession review; the general collection does not.
+    freshness = None
+    if result['route'] == 'hybrid':
+        freshness = currency.build_currency(result['chunks'], pool, request.question, corpus_as_of=corpus_date())
     packet_id = uuid4().hex
     with _lock:
         now = time.monotonic()
@@ -205,9 +241,9 @@ def search(request: SearchRequest, http_request: Request):
             del _packets[key]
         if len(_packets) >= 50:
             del _packets[next(iter(_packets))]
-        _packets[packet_id] = dict(created=now, owner=session, question=request.question, chunks=result['chunks'], context=result['policy_context'])
+        _packets[packet_id] = dict(created=now, owner=session, question=request.question, chunks=result['chunks'], context=result['policy_context'], currency=freshness)
     return dict(packet_id=packet_id, question=request.question, route=result['route'], sources=sources,
-                policy_context=result['policy_context'], as_of=request.as_of.isoformat())
+                policy_context=result['policy_context'], currency=freshness, as_of=request.as_of.isoformat())
 
 
 @lru_cache(maxsize=1)
@@ -240,7 +276,8 @@ def answer(packet_id: str, request: AnswerRequest, http_request: Request, x_hf_t
         try:
             model = initialize_llm(hf_token=x_hf_token) if x_hf_token else initialize_llm()
             stream = get_llm_answer(packet['question'], packet['chunks'], model, stream=True,
-                                    answer_language=request.language, policy_context=packet['context'])
+                                    answer_language=request.language, policy_context=packet['context'],
+                                    currency=packet.get('currency'))
             if isinstance(stream, str):
                 stream = [stream]
             for chunk in stream:

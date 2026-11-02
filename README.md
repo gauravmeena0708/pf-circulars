@@ -134,7 +134,7 @@ python main.py data --query "What are the duties of Recovery Officer under EPFO 
 | :--- | :--- | :--- |
 | **EPFO Circulars Archive** | 2006 – 2026 (8,820+ circulars) | **64,365 chunks** |
 | **Statutory Manuals & Schemes** | 16 Manuals (Acts, MAP Parts I-IV, SOPs) | **10,519 chunks** |
-| **Total Knowledge Base** | **Full EPFO Policy & Procedural Corpus** | **`74,884 vectors`** |
+| **Total Knowledge Base** | **Full EPFO Policy & Procedural Corpus** | **`75,110 vectors`** |
 
 
 ## Policy version and date histories

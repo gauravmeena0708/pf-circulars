@@ -5,3 +5,6 @@ data/
 processed_pdf_data/
 .venv/
 vector_store/*_backup/
+
+# Original policy PDFs are fetched from their public URLs (policy_pdfs.py), never committed
+policy_data/**/pdfs/

@@ -392,6 +392,9 @@ function App() {
               <small>
                 {catalog?.passage_count?.toLocaleString() || "Loading…"}{" "}
                 searchable passages
+                {catalog?.corpus_as_of && (
+                  <> · circulars to {dateText(catalog.corpus_as_of)}</>
+                )}
               </small>
             </div>
           </div>
@@ -855,6 +858,31 @@ function App() {
                       )}
                     </span>
                   </div>
+                  {result.currency && (
+                    <div
+                      className={`currency-notice ${result.currency.level}`}
+                      role="note"
+                    >
+                      <strong>Check whether this is still current.</strong>{" "}
+                      {result.currency.notice}
+                      {result.currency.newer_related.length > 0 && (
+                        <ul>
+                          {result.currency.newer_related.map((c) => (
+                            <li key={c.date + (c.circular_no || c.title)}>
+                              {c.url ? (
+                                <a href={c.url} target="_blank" rel="noreferrer">
+                                  {c.title}
+                                </a>
+                              ) : (
+                                c.title
+                              )}{" "}
+                              — {dateText(c.date)}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  )}
                   <div className="results-grid">
                     <section className="answer-card">
                       <div className="tabbar">

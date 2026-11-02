@@ -16,7 +16,7 @@ private inference credentials. One Docker Space keeps these on the same origin.
 | Area | Implementation |
 | --- | --- |
 | Research | Existing policy router and FAISS/BM25/RRF/reranking pipeline, date cutoff, policy selector, English/Hindi streaming answers |
-| Sources | Numbered citations, selectable excerpts, page provenance, archived PDF panel, original-source links |
+| Sources | Numbered citations, selectable excerpts, page provenance, original PDF panel (fetched from the official URL and hash-checked), original-source links |
 | Policy collection | Live index count, eleven registered histories, dated timelines, scoped relationships, missing-source and commencement limitations |
 | PDF assistant | Native extraction, lazy Tesseract OCR in English/Hindi, physical-page markers, file questions, formal office noting, text/Word/original downloads |
 | CSV assistant | Schema, null counts, summary statistics, first 100 rows, exact-term search, category distributions, file-grounded questions and notes |
@@ -32,8 +32,8 @@ file. Upload processing and PDF utilities do not call the language model.
 
 The existing GPT-OSS model/provider settings and bounded-prompt/HTTP-413 retry
 remain in `answer_generator.py`. No source PDFs, policy histories or vector indexes
-were changed by the interface migration. The corpus remains 74,884 passages and
-nine curated histories. The histories are incomplete evidence inventories;
+were changed by the interface migration. The corpus remains 75,110 passages and
+eleven curated histories. The histories are incomplete evidence inventories;
 issue-date filtering does not certify which law applies. Standard hybrid search
 explicitly states that it does not apply the history cutoff.
 
@@ -97,12 +97,12 @@ a named migration recipe; update both if runtime dependencies or serving change.
   originals, archive path allowlisting, source numbering, session isolation,
   custom-token handling, expiry, CSV search/counts, all eight PDF operations,
   OCR text positions, research/Word/transcript exports and invalid inputs.
-- Chromium checks against the local API cover research, all nine library cards,
+- Chromium checks against the local API cover research, all eleven library cards,
   history, actual bank-KYC retrieval, PDF inspection, CSV upload/search/distribution,
   Word downloads, document extraction, merged PDF page count, session-token storage
   and mobile navigation at 390 px. No JavaScript errors or horizontal overflow.
 - The production Docker image builds and runs as UID 1000. Its catalogue reports
-  74,884 passages and nine policies. Curated evidence, CSV upload, Word report and
+  75,110 passages and eleven policies. Curated evidence, CSV upload, Word report and
   actual hybrid retrieval work inside the container. A cold hybrid query took
   about 40 seconds, including model loading/downloads.
 - These checks verify migration behavior; they are not a legal-accuracy benchmark
@@ -127,10 +127,15 @@ For rollback, restore the README YAML to `sdk: streamlit`,
 `sdk_version: "1.45.1"`, `app_file: app.py`, remove `app_port`, and push through the
 same workflow. The original Streamlit code and dependency file remain available.
 
-Archived policy PDFs are explicitly tracked through LFS in both repositories.
-The GitHub sync preserves their LFS attributes so Docker receives actual PDF
-bytes. The API also rejects unresolved pointer files rather than serving them as
-PDFs. This was verified during hosted acceptance after the initial cutover.
+Original policy PDFs are no longer stored in Git or in the Docker image. Each
+curated document keeps its public `source_url` and the SHA-256 of the original in
+`sources/*.json`. The first time a reader opens an original, the API downloads it from
+that URL, accepts it only if it is a PDF with the recorded hash, and caches it on the
+server's temporary disk (`EPFO_PDF_CACHE` overrides the location). If the official
+site is unreachable from the server, or the file has changed, the viewer link
+redirects to the official URL instead of showing an unverified copy.
+`python scripts/verify_policy_pdfs.py` re-checks that every recorded original can
+still be reproduced from its public URL (all 63 were byte-identical on 2 Nov 2026).
 
 
 ## Staff-policy extension
@@ -142,7 +147,7 @@ matters and future issue dates. Invalid matter IDs fail explicitly.
 
 Twenty-one additional issuer-hosted PDFs supply 74 mapped pages and 226 passages.
 The aligned dense/SQLite/BM25 corpus now has 75,110 passages. Staged verification
-found zero changes to the original 74,884 passages. Medical originals and the
+found zero changes to the original 75,110 passages. Medical originals and the
 reported 2026 publicity revision remain labelled unverified. Both October 2024
 briefcase tables were checked against their scans, with raw OCR retained.
 
@@ -154,13 +159,13 @@ cases; these do not measure generated legal-answer accuracy.
 ## Runtime artifact storage
 
 The October 2026 staff-index upload reached the Space repository's 1 GB storage
-limit. The running Docker image now obtains its PDFs and three aligned index files
+limit. The running Docker image now obtains its three aligned index files
 from immutable public GitHub LFS URLs using `deploy/runtime-assets.json`. Each file
 must match its recorded byte size and SHA-256 before it enters the image. Downloads
 happen in a separate Docker build stage so unchanged data can use the build cache.
 No credential is sent to GitHub for these public files.
 
-The GitHub sync excludes index/PDF binaries from new Space commits and pins the
+The GitHub sync excludes index binaries from new Space commits and pins the
 Hub upload client. Before upload it refreshes the manifest against the checked-out
 LFS bytes, advancing its source commit only when data changed. Normal GitHub commits
 and pushes therefore still publish updated policy data automatically. The Space

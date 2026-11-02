@@ -101,7 +101,7 @@ def _sanitize_conversation_context(conversation_context):
     )
 
 
-def format_prompt(query, retrieved_chunks_data, conversation_context="", answer_language="English", policy_context=None):
+def format_prompt(query, retrieved_chunks_data, conversation_context="", answer_language="English", policy_context=None, currency=None):
     conversation_context = _sanitize_conversation_context(conversation_context)
     if not retrieved_chunks_data:
         context_str = "No relevant information found in the documents."
@@ -134,6 +134,18 @@ def format_prompt(query, retrieved_chunks_data, conversation_context="", answer_
             "Cite numbered source pages, never metadata alone.\n"
 
         )
+    currency_section = ""
+    if currency:
+        currency_section = (
+            "\nCURRENCY CHECK (search metadata, not a numbered source):\n"
+            + json.dumps({k: currency.get(k) for k in ("newest_cited", "oldest_cited", "undated_sources", "newer_related", "corpus_as_of")}, ensure_ascii=False)
+            + "\nBegin the answer with the issue date of the most recent circular you rely on. "
+            "Attribute every rule to its circular and date (for example 'As per circular dated ...'); "
+            "never say a provision is current, in force or still applicable. "
+            "State that a later circular not among the sources may have amended or replaced it. "
+            "If newer_related is not empty, tell the user these newer circulars exist and must be read before relying on the answer; "
+            "do not describe their content, because they are not numbered sources.\n"
+        )
     history_section = (
         f"\n--- PREVIOUS CONVERSATION (for follow-up context only; "
         f"ground every factual claim in the numbered sources above, not in "
@@ -157,14 +169,14 @@ Context from EPFO Documents:
 {context_str}
 -----------------------
 {history_section}
-{policy_section}
+{policy_section}{currency_section}
 Question: {query}
 
 Helpful & Grounded Answer:"""
     return prompt
 
 
-def bounded_prompt(query, chunks, conversation_context="", answer_language="English", policy_context=None, limit=18000):
+def bounded_prompt(query, chunks, conversation_context="", answer_language="English", policy_context=None, limit=18000, currency=None):
     """Bound the complete request, preserving original UI citation numbers.
 
     Omit whole source pages instead of cutting instructions out of context. The
@@ -210,7 +222,7 @@ def bounded_prompt(query, chunks, conversation_context="", answer_language="Engl
         }
     history = conversation_context[-1500:]
     while True:
-        prompt = format_prompt(query, selected, history, answer_language, context)
+        prompt = format_prompt(query, selected, history, answer_language, context, currency)
         if len(prompt.encode("utf-8")) <= limit:
             return prompt
         if history:
@@ -232,13 +244,13 @@ def bounded_prompt(query, chunks, conversation_context="", answer_language="Engl
             context = {"as_of": context.get("as_of"), "scope": context.get("scope"),
                        "conclusion": "complete_applicability_not_established",
                        "limitations": ["Policy inventory omitted to meet request limits; no complete applicability claim is supported."]}
-            if len(format_prompt(query, [], "", answer_language, context).encode("utf-8")) > limit:
+            if len(format_prompt(query, [], "", answer_language, context, currency).encode("utf-8")) > limit:
                 raise ValueError("The question is too long for the configured request limit.")
         else:
             raise ValueError("The question is too long for the configured request limit.")
 
 
-def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False, conversation_context="", answer_language="English", policy_context=None):
+def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False, conversation_context="", answer_language="English", policy_context=None, currency=None):
     if not query:
         logger.warning("Query is empty. Cannot generate answer.")
         return "No query provided."
@@ -249,9 +261,9 @@ def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False, con
     try:
         prompt_string = bounded_prompt(query, retrieved_chunks_data, conversation_context,
                                        answer_language, policy_context,
-                                       limit=int(os.environ.get("LLM_MAX_PROMPT_BYTES", "18000")))
+                                       limit=int(os.environ.get("LLM_MAX_PROMPT_BYTES", "18000")), currency=currency)
         retry_prompt = bounded_prompt(query, retrieved_chunks_data, "", answer_language,
-                                     policy_context, limit=9000)
+                                     policy_context, limit=9000, currency=currency)
     except ValueError as error:
         return str(error)
     logger.debug(f"Formatted Prompt String for Chat LLM:\n{prompt_string}")

@@ -2465,3 +2465,23 @@ footer {
     width: 100%;
   }
 }
+
+.currency-notice {
+  margin: 0 0 14px;
+  padding: 11px 14px;
+  border: 1px solid #d9c9a3;
+  border-left: 4px solid #b58c45;
+  background: #fbf6ea;
+  color: #3a3220;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.currency-notice.warning {
+  border-color: #d8b2a8;
+  border-left-color: #a8442f;
+  background: #fbefec;
+}
+.currency-notice ul {
+  margin: 6px 0 0;
+  padding-left: 18px;
+}

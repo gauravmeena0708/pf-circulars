@@ -6,4 +6,4 @@
 - December original URL is unavailable; mirror provenance is retained and issuer-hosted byte identity is unverified.
 - The 1998 original is missing; commencement of the checked circulars is not established.
 
-Original PDFs are retained under `pdfs/`; extracted physical pages, hashes and retrieval URLs under `sources/`. Mirror copies are explicitly labelled.
+Original PDFs are fetched from their public `source_url` and hash-verified, not stored in Git; extracted physical pages, hashes and retrieval URLs under `sources/`. Mirror copies are explicitly labelled.

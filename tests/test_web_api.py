@@ -22,8 +22,32 @@ def test_history_preserves_supersession_and_missing_originals():
     assert next(d for d in report['documents'] if d['id']=='jd-2025-12-26')['status']=='source_unverified'
 
 
+def test_original_pdf_is_fetched_from_public_url_verified_and_cached(tmp_path, monkeypatch):
+    monkeypatch.setenv('EPFO_PDF_CACHE', str(tmp_path))
+    calls = []
+    def fake_download(url, sha256, destination):
+        calls.append(url)
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_bytes(b'%PDF-1.4 fake')
+        return destination
+    monkeypatch.setattr(module.policy_pdfs, 'download', fake_download)
+    monkeypatch.setattr(module.policy_pdfs, '_is_valid', lambda path, sha: True)
+    url = '/api/policies/jd/documents/jd-2025-01-16/pdf'
+    first = client.get(url)
+    assert first.headers['content-type'] == 'application/pdf'
+    assert client.get(url).status_code == 200 and len(calls) == 1
+
+
+def test_unreachable_or_changed_public_original_redirects_to_the_official_url(tmp_path, monkeypatch):
+    monkeypatch.setenv('EPFO_PDF_CACHE', str(tmp_path))
+    def failing(url, sha256, destination):
+        raise ValueError('The public file no longer matches the archived SHA-256')
+    monkeypatch.setattr(module.policy_pdfs, 'download', failing)
+    response = client.get('/api/policies/jd/documents/jd-2025-01-16/pdf', follow_redirects=False)
+    assert response.status_code == 302 and response.headers['location'].startswith('https://')
+
+
 def test_archive_lookup_cannot_read_unregistered_files():
-    assert client.get('/api/policies/jd/documents/jd-2025-01-16/pdf').headers['content-type']=='application/pdf'
     assert client.get('/api/policies/jd/documents/not-a-document/pdf').status_code==404
     assert client.get('/api/policies/unknown/documents/example/pdf').status_code==404
 

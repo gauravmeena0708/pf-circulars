@@ -7,4 +7,4 @@
 - 2026 original URL is unavailable; a mirror copy is retained, with issuer-hosted byte identity unverified.
 - Issue-date filtering does not establish operational availability or legal commencement.
 
-Original PDFs are retained under `pdfs/`; extracted physical pages, hashes and retrieval URLs under `sources/`. Mirror copies are explicitly labelled.
+Original PDFs are fetched from their public `source_url` and hash-verified, not stored in Git; extracted physical pages, hashes and retrieval URLs under `sources/`. Mirror copies are explicitly labelled.
