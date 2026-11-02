@@ -78,7 +78,10 @@ def load_all_circular_metadata(pf_circular_data_dir):
                                     "circular_no": item.get("circular_no") or item.get("number"),
                                     "date": item.get("date"),
                                     "english_pdf_link": clean_link,
-                                    "hindi_pdf_link": item.get("hindi_pdf_link")
+                                    "hindi_pdf_link": item.get("hindi_pdf_link"),
+                                    "division": item.get("division"),
+                                    "sub_division": item.get("sub_division"),
+                                    "doc_type": item.get("doc_type")
                                 }
                                 url_to_meta[clean_link] = normalized_item
                                 filename = clean_link.split('/')[-1]
@@ -228,6 +231,9 @@ def run_import(
                     "date": item_meta.get("date"),
                     "english_pdf_link": pdf_url,
                     "hindi_pdf_link": item_meta.get("hindi_pdf_link"),
+                    "division": item_meta.get("division"),
+                    "sub_division": item_meta.get("sub_division"),
+                    "doc_type": item_meta.get("doc_type"),
                     "extraction_method": val.get("method", "ocr_import")
                 })
 
