@@ -1,0 +1,73 @@
+{
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
+  "cases": [
+    {
+      "id": "mts-2017",
+      "question": "Multi-Tasking Staff recruitment rules in supersession of the 2011 rules",
+      "as_of": "2017-12-31",
+      "required_evidence": [
+        {
+          "document_id": "rec-2017-12-07-88dea7",
+          "page_number": 6
+        }
+      ]
+    },
+    {
+      "id": "ss-2019",
+      "question": "recruitment rules Section Supervisor in supersession of 2017 regulations",
+      "as_of": "2019-12-31",
+      "required_evidence": [
+        {
+          "document_id": "rec-2019-02-04-cfd729",
+          "page_number": 4
+        }
+      ],
+      "relationship": {
+        "id": "rec-ss-2019-supersedes-2017",
+        "type": "supersedes",
+        "status": "effective_relationship"
+      }
+    },
+    {
+      "id": "macp-consolidated",
+      "question": "consolidated guidelines Modified Assured Career Progression Scheme",
+      "as_of": "2019-12-31",
+      "required_evidence": [
+        {
+          "document_id": "rec-2019-11-18-706dc1",
+          "page_number": 2
+        }
+      ]
+    },
+    {
+      "id": "dpc-calendar-2023",
+      "question": "model calendar for Departmental Promotion Committee adhere to timelines",
+      "as_of": "2023-12-01",
+      "required_evidence": [
+        {
+          "document_id": "rec-2023-12-01-3d7e41",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "refusal-promotion",
+      "question": "guidelines for refusal of promotion in group B and C cadre",
+      "as_of": "2023-12-31",
+      "required_evidence": [
+        {
+          "document_id": "rec-2023-12-21-ea3f1f",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "before-2019-ss",
+      "question": "recruitment rules Section Supervisor",
+      "as_of": "2019-02-03",
+      "absent_documents": [
+        "rec-2019-02-04-cfd729"
+      ]
+    }
+  ]
+}

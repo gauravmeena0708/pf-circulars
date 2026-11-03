@@ -2,7 +2,7 @@
 
 The hosted search supports **JD member profile**, **Member profile / Aadhaar**,
 **Transfer claims**, **Higher pension / PoHW**, **Pension payment / CPPS**,
-**Advances / auto-settlement**, **EPF interest rate**, **EPFO staff transfer policy**, **APAR / vigilance clearance**, **Dearness allowance / relief**, **Panel advocates**, **Claim settlement authority**, and **Foreign visit permissions**.
+**Advances / auto-settlement**, **EPF interest rate**, **EPFO staff transfer policy**, **APAR / vigilance clearance**, **Dearness allowance / relief**, **Panel advocates**, **Claim settlement authority**, **Foreign visit permissions**, and **Recruitment rules and promotion**.
 Choose a policy or Automatic, set **Evidence as of**, then submit a question.
 Automatic recognises registered scopes in registry order; the more specific Aadhaar
 scope precedes JD. Choose an explicit policy for short follow-up questions. Standard
@@ -151,3 +151,10 @@ authorise claims, inoperative accounts, MLC/CRO, SSO) and **Foreign visit permis
 [foreign_visit](foreign_visit/README.md). Documents marked `compiled_copy` were extracted from a
 compilation of circulars: the recorded hash names the compilation and no public download is offered.
 `delegation/screening_2026-11-03.csv` records how each circular in that compilation was classified.
+
+## Recruitment rules and promotion
+
+**Recruitment rules and promotion** covers recruitment rules/regulations by cadre (notified and draft),
+DPC procedure and model calendars, and MACP/NFU/NFSG guidance (see
+[recruitment_promotion](recruitment_promotion/README.md)). Drafts are consultation-only; only two
+supersessions are stated and both are verified.

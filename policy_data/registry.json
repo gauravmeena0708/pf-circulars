@@ -2,6 +2,15 @@
   "schema_version": 1,
   "policies": [
     {
+      "id": "recruitment_promotion",
+      "label": "Recruitment rules and promotion",
+      "scope": "EPFO staff recruitment rules/regulations (notified and draft), DPC procedure and model calendars, and MACP/NFU/NFSG guidance; not EPF members",
+      "path": "recruitment_promotion/policy.json",
+      "include": "recruitment\\s+(?:rules?|regulations?)|\\bRRs?\\b|\\bDPCs?\\b|departmental\\s+promotion|model\\s+calendar|\\bMACPS?\\b|assured\\s+career|\\bNFU\\b|\\bNFSG\\b|financial\\s+up-?gradation|promotion\\s+(?:criteria|guidelines|policy|norms|quota)|refusal\\s+of\\s+promotion|direct\\s+recruitment\\s+rules",
+      "exclude": "\\bUAN\\b|(?:EPF|PF)\\s+account|member\\s+(?:account|profile)|settlement\\s+of\\s+claim|claim\\s+settle|\\bEPS\\b|pension\\s+(?:payment|scheme)|interest|advance|inspection|\\bCPPS\\b",
+      "route": "recruitment_promotion_policy"
+    },
+    {
       "id": "claim_authority",
       "label": "Claim settlement authority",
       "scope": "Who may settle or authorise EPF claims and where claim work is processed: delegated limits, inoperative accounts, multi-location (MLC/CRO) and SSO settlement, name-correction powers; not how to file a claim",
