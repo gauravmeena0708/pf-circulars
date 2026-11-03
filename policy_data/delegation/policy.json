@@ -568,6 +568,30 @@
       "source_file": "sources/delegation-2022-01-28-f39ddd.json"
     },
     {
+      "id": "delegation-2022-02-04-0bacb6",
+      "title": "Draft compendium on the Schedule of Delegation of Administrative Powers (for suggestions/views)",
+      "circular_no": "HO No. HRD/7/2022/Delegation of Powers/555",
+      "issued_on": "2022-02-04",
+      "authority": "EPFO draft circulated for comments; not an operative delegation",
+      "topics": [
+        "general"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/HRD_Compedium_PowerDelegation_555.pdf",
+      "source_file": "sources/delegation-2022-02-04-0bacb6.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Draft compendium on the delegation schedule",
+      "source_host_kind": "compiled_copy",
+      "document_role": "consultation",
+      "subject_evidence": {
+        "document_id": "delegation-2022-02-04-0bacb6",
+        "page_number": 1,
+        "quote": "calling for suggestions / views"
+      },
+      "notes": "The compiled copy holds the covering letter and the draft compendium (130 pages). Only the first pages were extracted; the draft text is not treated as operative."
+    },
+    {
       "id": "delegation-2022-06-09-34d1eb",
       "title": "Clarification in respect of Delegation of Administrative and Financial Powers HO.",
       "circular_no": "HO.No.HRD/15/2022/Financial Delegation of Powers/622",
@@ -761,6 +785,7 @@
     "Claim settlement authority (including inoperative accounts and multi-location/CRO and SSO arrangements), PF member name-correction powers and foreign-visit permissions are in their own collections. This collection is the administrative and financial powers schedule and its revisions.",
     "The 16 August 2010 circular restates the revised financial powers (Annexures I-III); amounts are in the annexures. The 11 June 2019 draft on Rule 18 (CCS Conduct) is a consultation, not an operative delegation.",
     "PDFs for entries marked compiled_copy were read from a compilation of circulars (Delegation_Circulars_Combined.pdf); its hash identifies the compilation, not a public original, and the app does not offer a download for them. Scanned pages are OCR.",
-    "Dates follow the letter, not the website listing. Three circulars differ from the issuer listing: the revised financial powers (letter 20 July 2010, listed 16 August 2010), a 2009 medical-expenses letter (typed 13 August, listed 17 August) and the 2013 revised financial powers (typed 17 January, listed 21 January). The entries carry a date_note."
+    "Dates follow the letter, not the website listing. Three circulars differ from the issuer listing: the revised financial powers (letter 20 July 2010, listed 16 August 2010), a 2009 medical-expenses letter (typed 13 August, listed 17 August) and the 2013 revised financial powers (typed 17 January, listed 21 January). The entries carry a date_note.",
+    "The February 2022 draft compendium on the schedule of delegation is a consultation circulated for suggestions; it is visible in the inventory but is not operative evidence, and only its covering pages are extracted (the draft runs to 130 pages)."
   ]
 }

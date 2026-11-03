@@ -40,7 +40,7 @@ def test_each_document_lives_in_exactly_one_of_the_three_collections():
         for i in hist(n).documents:
             assert i not in seen, (i, n, seen.get(i))
             seen[i] = n
-    assert len(seen) == 35 + 12 + 5
+    assert len(seen) == 36 + 12 + 5
 
 
 def test_moved_topics_are_gone_from_delegation():
@@ -103,3 +103,12 @@ def test_foreign_visit_chain_and_no_invented_effective_dates():
     assert 'supersedes' in types.values() and types['foreignvisit-2026-cites-2017-delegation'] == 'references'
     for n in NAMES:
         assert all(d['effective_from'] is None for d in hist(n).documents.values())
+
+
+def test_draft_compendium_is_consultation_only_and_supplies_no_evidence():
+    h = hist('delegation')
+    doc = next(d for d in h.documents.values() if d['issued_on'] == '2022-02-04')
+    assert doc['document_role'] == 'consultation' and doc['effective_from'] is None
+    report = h.search('draft compendium schedule of delegation of administrative powers', '2022-12-31')
+    assert doc['id'] in {d['id'] for d in report['documents']}
+    assert doc['id'] not in {e['document_id'] for e in report['evidence']}
