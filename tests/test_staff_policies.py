@@ -101,13 +101,15 @@ def test_consultation_does_not_supply_operative_delegation_evidence():
     assert doc['id'] not in {e['document_id'] for e in report['evidence']}
 
 
-def test_delegation_collection_holds_name_correction_orders_but_no_jd_process_documents():
+def test_delegation_collection_has_no_jd_process_documents_and_name_correction_lives_in_claim_authority():
     h = history('delegation')
     assert not any(i.startswith('jd-') for i in h.documents)
     assert not any(r['source'].startswith('jd-') or r['target'].startswith('jd-') for r in h.relationships)
-    report = h.search('PF member name correction powers delegated', '2026-10-29', topics=['member_profile'])
+    assert 'member_profile' not in {t['id'] for t in h.policy['topics']}
+    claims = history('claim_authority')
+    report = claims.search('PF member name correction powers delegated', '2026-10-29', topics=['name_correction'])
     assert {d['issued_on'] for d in report['documents']} == {'2016-11-16', '2017-10-31'}
-    assert any('Joint Declaration' in l for l in h.policy['limitations'])
+    assert any('Joint Declaration' in l for l in claims.policy['limitations'])
 
 
 @pytest.mark.parametrize('query', ['Joint Declaration SOP', 'JD process for name correction', 'Aadhaar seeding in UAN powers'])

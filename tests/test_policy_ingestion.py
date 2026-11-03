@@ -33,7 +33,13 @@ def test_every_extracted_original_can_be_re_fetched_and_verified():
             if not doc.get('source_file'): continue
             source = json.loads((policy.path.parent / doc['source_file']).read_text())
             assert doc['source_url'].startswith('https://'), doc['id']
-            assert policy_pdfs.expected_sha256(policy.path.parent, doc) == source['pdf_sha256']
+            if source.get('compiled_copy'):
+                # Pages from a compilation: the hash names that file, so no public re-download is offered.
+                assert policy_pdfs.expected_sha256(policy.path.parent, doc) is None, doc['id']
+                assert source['compiled_from']['file'] and source['compiled_from']['combined_pdf_pages'], doc['id']
+                assert doc.get('source_host_kind') == 'compiled_copy', doc['id']
+            else:
+                assert policy_pdfs.expected_sha256(policy.path.parent, doc) == source['pdf_sha256']
             assert source['total_pdf_pages'] >= 1
 
 

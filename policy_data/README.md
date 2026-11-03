@@ -2,7 +2,7 @@
 
 The hosted search supports **JD member profile**, **Member profile / Aadhaar**,
 **Transfer claims**, **Higher pension / PoHW**, **Pension payment / CPPS**,
-**Advances / auto-settlement**, **EPF interest rate**, **EPFO staff transfer policy**, **APAR / vigilance clearance**, **Dearness allowance / relief**, and **Panel advocates**.
+**Advances / auto-settlement**, **EPF interest rate**, **EPFO staff transfer policy**, **APAR / vigilance clearance**, **Dearness allowance / relief**, **Panel advocates**, **Claim settlement authority**, and **Foreign visit permissions**.
 Choose a policy or Automatic, set **Evidence as of**, then submit a question.
 Automatic recognises registered scopes in registry order; the more specific Aadhaar
 scope precedes JD. Choose an explicit policy for short follow-up questions. Standard
@@ -141,3 +141,13 @@ It has a Matter selector; later revisions change only the dates they list.
 with the effective date stated in the circular (see [dearness](dearness/README.md)).
 **Panel advocates: fees and empanelment** covers fee revisions and empanelment circulars
 (see [legal_panel](legal_panel/README.md)). Both keep issue dates and effective dates distinct.
+
+## Delegation split: claim settlement authority and foreign visits
+
+The delegation history is now three collections by the question asked: **Delegation of powers**
+(administrative and financial powers schedule), **Claim settlement authority** (who may settle or
+authorise claims, inoperative accounts, MLC/CRO, SSO) and **Foreign visit permissions**. See
+[delegation](delegation/README.md), [claim_authority](claim_authority/README.md) and
+[foreign_visit](foreign_visit/README.md). Documents marked `compiled_copy` were extracted from a
+compilation of circulars: the recorded hash names the compilation and no public download is offered.
+`delegation/screening_2026-11-03.csv` records how each circular in that compilation was classified.

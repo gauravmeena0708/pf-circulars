@@ -1,0 +1,57 @@
+{
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
+  "cases": [
+    {
+      "id": "cpfc-only-2013",
+      "question": "only the CPFC has been delegated the powers to permit employees to go abroad",
+      "as_of": "2013-12-31",
+      "required_evidence": [
+        {
+          "document_id": "foreignvisit-2013-10-31-ff350f",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "group-c-2014",
+      "question": "authorities to accord permission to visit abroad on private visit Group C",
+      "as_of": "2014-12-31",
+      "required_evidence": [
+        {
+          "document_id": "foreignvisit-2014-10-10-f5d4c2",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "prior-permission-2016",
+      "question": "prior permission for leaving station for going abroad on private visit",
+      "as_of": "2016-12-31",
+      "required_evidence": [
+        {
+          "document_id": "delegation-foreign-2016-05-02",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "vigilance-2026",
+      "question": "vigilance clearance foreign visit Social Security Assistants Group C",
+      "as_of": "2026-12-31",
+      "required_evidence": [
+        {
+          "document_id": "foreignvisit-2026-04-08-65a5cd",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "before-2014",
+      "question": "authorities to accord permission to visit abroad on private visit Group C",
+      "as_of": "2014-10-09",
+      "absent_documents": [
+        "foreignvisit-2014-10-10-f5d4c2"
+      ]
+    }
+  ]
+}

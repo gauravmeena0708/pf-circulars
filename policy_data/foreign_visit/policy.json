@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "id": "foreign_visit",
+  "reviewed_on": "2026-11-03",
+  "topics": [
+    {
+      "id": "foreign_visit",
+      "label": "Foreign visit permission",
+      "include": "foreign|abroad|private\\s+visit|leaving\\s+station"
+    }
+  ],
+  "documents": [
+    {
+      "id": "foreignvisit-2013-10-31-ff350f",
+      "title": "Permission for foreign visits: only the CPFC holds the delegated power (information on permissions granted)",
+      "circular_no": "HO No. HRM/A-10(88)2008/Shimla/13843",
+      "issued_on": "2013-10-31",
+      "authority": "EPFO administrative circular",
+      "topics": [
+        "foreign_visit"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/HRM_ForeignVisit_13843.pdf",
+      "source_file": "sources/foreignvisit-2013-10-31-ff350f.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Permission for foreign visits: only the CPFC holds the delegated power (information on permissions granted)",
+      "source_host_kind": "compiled_copy",
+      "subject_evidence": {
+        "document_id": "foreignvisit-2013-10-31-ff350f",
+        "page_number": 1,
+        "quote": "Telephone: 26186512 Fax: 26100166 dare after FAR oF (a Fares"
+      },
+      "notes": "Pages extracted from a compiled copy of the issuer-listed circular (Delegation_Circulars_Combined.pdf); the recorded hash identifies that compilation, not a public original."
+    },
+    {
+      "id": "foreignvisit-2014-10-10-f5d4c2",
+      "title": "Authorities to accord permission to visit abroad on private visit (Group C: ACC (HQ)-HR)",
+      "circular_no": "HO No. HRD/2(1)/2013/Delegation of power/18488",
+      "issued_on": "2014-10-10",
+      "authority": "EPFO administrative circular",
+      "topics": [
+        "foreign_visit"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/HRD_SanctionAuth_ForeignVisit_18488.pdf",
+      "source_file": "sources/foreignvisit-2014-10-10-f5d4c2.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Authorities to accord permission to visit abroad on private visit (Group C: ACC (HQ)-HR)",
+      "source_host_kind": "compiled_copy",
+      "subject_evidence": {
+        "document_id": "foreignvisit-2014-10-10-f5d4c2",
+        "page_number": 1,
+        "quote": "Authorities to accord permission to visit abroad on private visit Sir, The"
+      },
+      "notes": "Pages extracted from a compiled copy of the issuer-listed circular (Delegation_Circulars_Combined.pdf); the recorded hash identifies that compilation, not a public original."
+    },
+    {
+      "id": "delegation-foreign-2016-05-02",
+      "title": "Prior delegation for foreign visits (original unverified)",
+      "circular_no": "HRD/2(1)2013/Delegation of Powers/2092",
+      "issued_on": "2016-05-02",
+      "authority": "EPFO administrative circular; referenced original unavailable",
+      "source_url": "https://www.epfo.gov.in/circulars",
+      "topics": [
+        "foreign_visit"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "source_file": "sources/delegation-foreign-2016-05-02.json",
+      "source_host_kind": "compiled_copy",
+      "notes": "Pages extracted from a compiled copy of the issuer-listed circular (Delegation_Circulars_Combined.pdf); the recorded hash identifies that compilation, not a public original. Checked against the bookmark date."
+    },
+    {
+      "id": "delegation-2017-10-06-90b4ef",
+      "title": "Delegation of Powers for granting permission to visit foreign countries by officials of Central Board, Employees' Provident Fund HO",
+      "circular_no": "HO No. HRD/2(1)2013/Delegation of Power/14453",
+      "issued_on": "2017-10-06",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/HRD_PowerDelegation_ForeignVisit_14453-3.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_PowerDelegation_ForeignVisit_14453.pdf",
+      "topics": [
+        "foreign_visit"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of Powers for granting permission to visit foreign countries by officials of Central Board, Employees' Provident Fund HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2017-10-06-90b4ef.json",
+      "local_pdf": "pdfs/delegation-2017-10-06-90b4ef.pdf"
+    },
+    {
+      "id": "foreignvisit-2026-04-08-65a5cd",
+      "title": "Permission for foreign visit: Social Security Assistants and other Group C cadres (vigilance clearance under the 2025 Regulations)",
+      "circular_no": "No. HRM-IV/2026/SSA/PFFVI/628",
+      "issued_on": "2026-04-08",
+      "authority": "EPFO administrative circular",
+      "topics": [
+        "foreign_visit"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2026-2027/Circular08042026_PermissionForeignVisit_GroupC&SSA.pdf",
+      "source_file": "sources/foreignvisit-2026-04-08-65a5cd.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Permission for foreign visit: Social Security Assistants and other Group C cadres (vigilance clearance under the 2025 Regulations)",
+      "source_host_kind": "compiled_copy",
+      "subject_evidence": {
+        "document_id": "foreignvisit-2026-04-08-65a5cd",
+        "page_number": 1,
+        "quote": "Permission for Foreign Visit in the cadre of Social Security Assistants"
+      },
+      "notes": "Pages extracted from a compiled copy of the issuer-listed circular (Delegation_Circulars_Combined.pdf); the recorded hash identifies that compilation, not a public original."
+    }
+  ],
+  "relationships": [
+    {
+      "id": "delegation-2017-10-06-90b4ef-supersedes-delegation-foreign-2016-05-02",
+      "source": "delegation-2017-10-06-90b4ef",
+      "target": "delegation-foreign-2016-05-02",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "delegation-2017-10-06-90b4ef",
+        "page_number": 1,
+        "quote": "in supersession of earlier delegations made vide letter no. HRD/2(1)2013/Delegation of\nPowers/2092 dated 02 May, 2016"
+      },
+      "scope": "Supersession is limited to permission for private foreign visits; the May 2016 original remains missing."
+    },
+    {
+      "id": "foreignvisit-2026-cites-2017-delegation",
+      "source": "foreignvisit-2026-04-08-65a5cd",
+      "target": "delegation-2017-10-06-90b4ef",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "foreignvisit-2026-04-08-65a5cd",
+        "page_number": 1,
+        "quote": "HRD/2(1)2013/Delegation of Power/14453 dated 06.10.2017"
+      },
+      "scope": "The 2026 circular concerns vigilance clearance for foreign-visit permission of Group C cadres under the 2025 Staff Regulations; it cites the October 2017 delegation and does not state that it replaces it."
+    }
+  ],
+  "limitations": [
+    "This concerns permission for EPFO staff to visit foreign countries on private visits and who may grant it; it is not about EPF members, international workers or social security agreements.",
+    "The 2013 circular says only the CPFC had been delegated the power and that permission was being granted at lower levels; the 2014 order delegates Group C permission to ACC (HQ)-HR. The 2016 circular (and the 2017 delegation that supersedes it) set the prior-permission requirement and the authorities. The 2026 circular concerns vigilance clearance under the 2025 Staff Regulations; whether it changes who grants permission is not stated.",
+    "Eligibility, conditions and the DoPT rules cited in these circulars are not restated here; check the circular and the DoPT OM for conditions.",
+    "No commencement dates are stated beyond issue dates; dates are the issue dates of the circulars.",
+    "PDFs for entries marked compiled_copy were read from a compilation of circulars (Delegation_Circulars_Combined.pdf); its hash identifies the compilation, not a public original, and the app does not offer a download for them. Scanned pages are OCR."
+  ]
+}

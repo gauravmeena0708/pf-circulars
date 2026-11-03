@@ -2,6 +2,24 @@
   "schema_version": 1,
   "policies": [
     {
+      "id": "claim_authority",
+      "label": "Claim settlement authority",
+      "scope": "Who may settle or authorise EPF claims and where claim work is processed: delegated limits, inoperative accounts, multi-location (MLC/CRO) and SSO settlement, name-correction powers; not how to file a claim",
+      "path": "claim_authority/policy.json",
+      "include": "inoperative\\s+account|multi[- ]?location|\\bMLC\\b|\\bCRO\\b|collaborating\\s+regional|special\\s+state\\s+office|\\bSSO\\b|(?:delegat\\w*|power|authori[sz]\\w*|sanction\\w*|limit|competent\\s+authority)\\W+(?:\\w+\\W+){0,6}(?:claim|settle\\w*)|(?:claim|settle\\w*)\\W+(?:\\w+\\W+){0,6}(?:delegat\\w*|power|authori[sz]\\w*|sanction\\w*|limit)|name\\s+(?:correction|change)\\W+(?:\\w+\\W+){0,4}(?:power|delegat\\w*)",
+      "exclude": "\\bUAN\\b|joint\\s+declaration|\\bJD\\b|aadhaar|aadhar|interest|higher\\s+pension|\\bPoHW\\b",
+      "route": "claim_authority_policy"
+    },
+    {
+      "id": "foreign_visit",
+      "label": "Foreign visit permissions",
+      "scope": "EPFO staff permission for private foreign visits and the authority that grants it; not EPF members, international workers or social security agreements",
+      "path": "foreign_visit/policy.json",
+      "include": "foreign\\s+visit|visit(?:ing)?\\s+abroad|abroad\\s+on\\s+private|private\\s+visit|(?:going|travel(?:ling)?|permission\\W+(?:\\w+\\W+){0,3}go(?:ing)?)\\s+abroad|leaving\\s+station",
+      "exclude": "international\\s+worker|social\\s+security\\s+agreement|\\bNRI\\b|overseas\\s+employment|\\bEPS\\b|member",
+      "route": "foreign_visit_policy"
+    },
+    {
       "id": "legal_panel",
       "label": "Panel advocates: fees and empanelment",
       "scope": "EPFO panel advocate fee revisions and empanelment circulars; not EPF members' legal remedies or RTI",
@@ -40,10 +58,10 @@
     {
       "id": "delegation",
       "label": "Delegation of powers",
-      "scope": "Matter-specific EPFO administrative, financial and sanctioning powers; authority layers and historical changes",
+      "scope": "Administrative and financial powers of the Board, CPFC and officers (general schedule, personnel, works, IT, medical, housing, training, honorarium, publicity); claim settlement, foreign visits and JD/Aadhaar have their own collections",
       "path": "delegation/policy.json",
       "include": "delegat.*power|power.*delegat|sanctioning authorit|competent authorit.*(?:financial|expenditure|sanction)",
-      "exclude": "power of attorney|joint\\s*declaration|\\bJD\\b|aadhaar|aadhar|member\\s+profile",
+      "exclude": "power of attorney|joint\\s*declaration|\\bJD\\b|aadhaar|aadhar|member\\s+profile|claim\\s+settle\\w*|settle\\w*\\s+of\\s+claim|inoperative|foreign\\s+visit|abroad|\\bMLC\\b|\\bCRO\\b|\\bSSO\\b",
       "route": "delegation_policy"
     },
     {

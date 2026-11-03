@@ -1,5 +1,5 @@
 {
-  "dataset_status": "Development source/page checks; not a held-out legal accuracy benchmark",
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
   "cases": [
     {
       "id": "pid-2020",
@@ -46,17 +46,6 @@
       ]
     },
     {
-      "id": "foreign-visit",
-      "question": "foreign visit permission powers",
-      "as_of": "2017-10-06",
-      "required_evidence": [
-        {
-          "document_id": "delegation-2017-10-06-90b4ef",
-          "page_number": 1
-        }
-      ]
-    },
-    {
       "id": "publicity-gap",
       "question": "advertisement publicity delegation",
       "as_of": "2026-08-07",
@@ -64,6 +53,28 @@
         "id": "delegation-publicity-2026-08-07",
         "status": "source_unverified"
       }
+    },
+    {
+      "id": "financial-powers-2010",
+      "question": "Revised delegation of financial powers annexures Central Provident Fund Commissioner",
+      "as_of": "2010-12-31",
+      "required_evidence": [
+        {
+          "document_id": "delegation-2010-07-20-5f9575",
+          "page_number": 3
+        }
+      ]
+    },
+    {
+      "id": "maintenance-2019",
+      "question": "maintenance and repairs of EPFO properties delegation to OIC and ACC Zone",
+      "as_of": "2019-12-31",
+      "required_evidence": [
+        {
+          "document_id": "delegation-2019-03-20-55c018",
+          "page_number": 1
+        }
+      ]
     }
   ]
 }

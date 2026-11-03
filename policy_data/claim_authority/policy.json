@@ -1,0 +1,332 @@
+{
+  "schema_version": 1,
+  "id": "claim_authority",
+  "reviewed_on": "2026-11-03",
+  "topics": [
+    {
+      "id": "claims_financial",
+      "label": "Claim settlement: financial powers",
+      "include": "claim|settle|sanction|exceptional|closed\\s+establishment|financial\\s+power"
+    },
+    {
+      "id": "inoperative_accounts",
+      "label": "Inoperative accounts",
+      "include": "inoperative"
+    },
+    {
+      "id": "processing_offices",
+      "label": "Multi-location settlement and SSO claim processing",
+      "include": "multi[- ]?location|\\bMLC\\b|\\bCRO\\b|collaborating|special\\s+state\\s+office|\\bSSO\\b"
+    },
+    {
+      "id": "name_correction",
+      "label": "Name-correction powers (2016-17)",
+      "include": "name.*correct|correct.*name|name.*change|change.*name|re-?delegation.*name"
+    }
+  ],
+  "documents": [
+    {
+      "id": "claimauth-2011-03-11-02d546",
+      "title": "Delegation of power to authorise claims out of inoperative accounts (AO up to a limit)",
+      "circular_no": "HO No. WSU/Inoperative Accounts/ Vol.-II/103415",
+      "issued_on": "2011-03-11",
+      "authority": "EPFO administrative circular",
+      "topics": [
+        "inoperative_accounts"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/InoprAcc_PaymentModalities_103415.pdf",
+      "source_file": "sources/claimauth-2011-03-11-02d546.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of power to authorise claims out of inoperative accounts (AO up to a limit)",
+      "source_host_kind": "compiled_copy",
+      "subject_evidence": {
+        "document_id": "claimauth-2011-03-11-02d546",
+        "page_number": 1,
+        "quote": "Inoperative Accounts - Modalities for payment out of Inoperative Accounts"
+      },
+      "notes": "Pages extracted from a compiled copy of the issuer-listed circular (Delegation_Circulars_Combined.pdf); the recorded hash identifies that compilation, not a public original."
+    },
+    {
+      "id": "delegation-2012-03-05-b72a51",
+      "title": "Delegation of financial powers to the Section Supervisor (SS) for speedy settlement of claims - HO",
+      "circular_no": "HO No. WSU/28(1)2003/ Delegation/ Vol-II/49436",
+      "issued_on": "2012-03-05",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/WSU_Delegation_49436.pdf",
+      "topics": [
+        "claims_financial"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of financial powers to the Section Supervisor (SS) for speedy settlement of claims - HO",
+      "source_host_kind": "compiled_copy",
+      "notes": "Pages extracted from a compiled copy of the issuer-listed circular (Delegation_Circulars_Combined.pdf); the recorded hash identifies that compilation, not a public original. Checked against the bookmark date.",
+      "source_file": "sources/delegation-2012-03-05-b72a51.json"
+    },
+    {
+      "id": "delegation-2012-03-06-e9f733",
+      "title": "Delegation of financial powers to APFCs and Accounts Officers (AO) for speedy Settlement of Claims and Updation of members' accounts - HO",
+      "circular_no": "HO No. WSU/28(1)2003/ Delegation/ Vol-II/ 26826",
+      "issued_on": "2012-03-06",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/WSU_DelegationOfPowers_26826-2.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/WSU_DelegationOfPowers_26826.pdf",
+      "topics": [
+        "claims_financial"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of financial powers to APFCs and Accounts Officers (AO) for speedy Settlement of Claims and Updation of members' accounts - HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2012-03-06-e9f733.json",
+      "local_pdf": "pdfs/delegation-2012-03-06-e9f733.pdf"
+    },
+    {
+      "id": "claimauth-2014-07-28-8e696b",
+      "title": "Revised modalities and limits for settling claims out of inoperative accounts",
+      "circular_no": "HO No. WSU/Inoperative Accounts/6184",
+      "issued_on": "2014-07-28",
+      "authority": "EPFO administrative circular",
+      "topics": [
+        "inoperative_accounts"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/WSU_InoperativeAccounts_Payment_6184.pdf",
+      "source_file": "sources/claimauth-2014-07-28-8e696b.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised modalities and limits for settling claims out of inoperative accounts",
+      "source_host_kind": "compiled_copy",
+      "subject_evidence": {
+        "document_id": "claimauth-2014-07-28-8e696b",
+        "page_number": 1,
+        "quote": "Modalities for payments out of Inoperative Accounts. Ref: 1) HO circular"
+      },
+      "notes": "Pages extracted from a compiled copy of the issuer-listed circular (Delegation_Circulars_Combined.pdf); the recorded hash identifies that compilation, not a public original."
+    },
+    {
+      "id": "delegation-2016-11-16-1c3613",
+      "title": "भविष्य निधि सदस्य के नाम में परिवर्तन - शक्तियों का प्रत्यायोजन                                  Correction in name of PF members - Delegation of powers thereof HO",
+      "circular_no": "HO No. WSU/10(1)2013/Changes in MAP/21475",
+      "issued_on": "2016-11-16",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/WSU_ChangeMAP_21475-2.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/WSU_ChangeMAP_21475.pdf",
+      "topics": [
+        "name_correction"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "भविष्य निधि सदस्य के नाम में परिवर्तन - शक्तियों का प्रत्यायोजन                                  Correction in name of PF members - Delegation of powers thereof HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2016-11-16-1c3613.json",
+      "local_pdf": "pdfs/delegation-2016-11-16-1c3613.pdf"
+    },
+    {
+      "id": "delegation-2017-05-01-76cad8",
+      "title": "Revised delegation of financial powers for settlement of claims HO",
+      "circular_no": "HO No. Manual/Amendment/2011/Pt/1948",
+      "issued_on": "2017-05-01",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Manual_Delegation_FinancialPowers_1948.pdf",
+      "topics": [
+        "claims_financial"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised delegation of financial powers for settlement of claims HO",
+      "source_host_kind": "compiled_copy",
+      "notes": "Pages extracted from a compiled copy of the issuer-listed circular (Delegation_Circulars_Combined.pdf); the recorded hash identifies that compilation, not a public original. Checked against the bookmark date.",
+      "source_file": "sources/delegation-2017-05-01-76cad8.json"
+    },
+    {
+      "id": "delegation-2017-05-24-4b762a",
+      "title": "Revised delegation of financial powers to Section Supervisors (SS) for settlement of claims HO",
+      "circular_no": "HO No. WSU/28(1)2003/Delegation/Vol.II/4107",
+      "issued_on": "2017-05-24",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/WSU_Revised_DelegationPower_4107-2.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/WSU_Revised_DelegationPower_4107.pdf",
+      "topics": [
+        "claims_financial"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised delegation of financial powers to Section Supervisors (SS) for settlement of claims HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2017-05-24-4b762a.json",
+      "local_pdf": "pdfs/delegation-2017-05-24-4b762a.pdf"
+    },
+    {
+      "id": "delegation-2017-10-31-e9d9bf",
+      "title": "Correction in the name of PF member - Re-delegation of powers thereof HO",
+      "circular_no": "WSU/10(1)2013/Changes in MAP/3949",
+      "issued_on": "2017-10-31",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/WSU_NameCorrection_PowerDele_3949-1.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/WSU_NameCorrection_PowerDele_3949.pdf",
+      "topics": [
+        "name_correction"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Correction in the name of PF member - Re-delegation of powers thereof HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2017-10-31-e9d9bf.json",
+      "local_pdf": "pdfs/delegation-2017-10-31-e9d9bf.pdf"
+    },
+    {
+      "id": "claimauth-2021-07-13-511f5a",
+      "title": "Delegation of role to assign Collaborating Regional Office (CRO) under Multi-Location Claim Settlement (MLC) to Zonal ACCs",
+      "circular_no": "HO No. WSU/2020/Multi-location settlement of claims",
+      "issued_on": "2021-07-13",
+      "authority": "EPFO administrative circular",
+      "topics": [
+        "processing_offices"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/WSU_CRO_MLC_13072021.pdf",
+      "source_file": "sources/claimauth-2021-07-13-511f5a.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of role to assign Collaborating Regional Office (CRO) under Multi-Location Claim Settlement (MLC) to Zonal ACCs",
+      "source_host_kind": "compiled_copy",
+      "subject_evidence": {
+        "document_id": "claimauth-2021-07-13-511f5a",
+        "page_number": 1,
+        "quote": "Delegation of role to assign CRO under MLC to Zonal ACCs — Reg. Madam"
+      },
+      "notes": "Pages extracted from a compiled copy of the issuer-listed circular (Delegation_Circulars_Combined.pdf); the recorded hash identifies that compilation, not a public original."
+    },
+    {
+      "id": "delegation-2021-11-24-327be5",
+      "title": "Delegation of Financial Powers for settlement of claims in respect of closed establishments and non contributing establishments HO",
+      "circular_no": "HO No. WSU/360/2021/Delegation_of_Financial_Powers/(e-40508)",
+      "issued_on": "2021-11-24",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/WSU_DelegationFP_SettlementClaims_24112021-5.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/WSU_DelegationFP_SettlementClaims_24112021.pdf",
+      "topics": [
+        "claims_financial"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of Financial Powers for settlement of claims in respect of closed establishments and non contributing establishments HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2021-11-24-327be5.json",
+      "local_pdf": "pdfs/delegation-2021-11-24-327be5.pdf"
+    },
+    {
+      "id": "claimauth-2023-10-06-0938bd",
+      "title": "Delegation of claim settlement facility to Special State Offices (SSOs): revised sanctioned strength",
+      "circular_no": "No.HRD/16/2022/dELEGATIONOFcLAIMsETTLEMENT/Part(1)/890",
+      "issued_on": "2023-10-06",
+      "authority": "EPFO administrative circular",
+      "topics": [
+        "processing_offices"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/OO_HRD_09102023.pdf",
+      "source_file": "sources/claimauth-2023-10-06-0938bd.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of claim settlement facility to Special State Offices (SSOs): revised sanctioned strength",
+      "source_host_kind": "compiled_copy",
+      "subject_evidence": {
+        "document_id": "claimauth-2023-10-06-0938bd",
+        "page_number": 1,
+        "quote": "Delegation of Claim Settlement facility to Special State Offices (SSOs)"
+      },
+      "notes": "Pages extracted from a compiled copy of the issuer-listed circular (Delegation_Circulars_Combined.pdf); the recorded hash identifies that compilation, not a public original."
+    },
+    {
+      "id": "delegation-2025-09-18-6f1a4a",
+      "title": "Simplification/Revision of Delegation of Power for exceptional transactions – Regarding",
+      "circular_no": "Finance/Coord/Taskforce-Delegationofpowers/2024/34",
+      "issued_on": "2025-09-18",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/126.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_18092025_ DelegationOfPowers.pdf",
+      "topics": [
+        "claims_financial"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Simplification/Revision of Delegation of Power for exceptional transactions – Regarding",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/delegation-2025-09-18-6f1a4a.json",
+      "local_pdf": "pdfs/delegation-2025-09-18-6f1a4a.pdf"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "delegation-2017-10-31-e9d9bf-references-delegation-2016-11-16-1c3613",
+      "source": "delegation-2017-10-31-e9d9bf",
+      "target": "delegation-2016-11-16-1c3613",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "delegation-2017-10-31-e9d9bf",
+        "page_number": 1,
+        "quote": "16-11-2016"
+      },
+      "scope": "Express reference to the earlier member-name delegation; subsequent JD SOP/simplification evidence is included separately."
+    },
+    {
+      "id": "claimauth-2014-modifies-2011-inoperative",
+      "source": "claimauth-2014-07-28-8e696b",
+      "target": "claimauth-2011-03-11-02d546",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "claimauth-2014-07-28-8e696b",
+        "page_number": 1,
+        "quote": "following changes have been done for settlement of claims out of inoperative accounts"
+      },
+      "scope": "Changes who may settle claims out of inoperative accounts and the amount limits after the Section Supervisor delegation; the 2011 Account Officer limit is not stated to be withdrawn for other cases. Amounts are in the original text."
+    },
+    {
+      "id": "claimauth-2014-cites-ss-delegation-2012",
+      "source": "claimauth-2014-07-28-8e696b",
+      "target": "delegation-2012-03-05-b72a51",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "claimauth-2014-07-28-8e696b",
+        "page_number": 1,
+        "quote": "Vol-II/49436 dated 05.03.2012"
+      },
+      "scope": "The 2014 circular builds on the 5 March 2012 delegation of financial powers to Section Supervisors; it does not replace that delegation."
+    }
+  ],
+  "limitations": [
+    "This collection concerns who may settle or authorise EPF claims and where claim work is processed (delegated powers, limits, designated offices). It is not the procedure for filing a claim and not about claim rejection reasons.",
+    "Rupee limits are in the original circulars and have changed over time; a later circular for the same matter is not assumed to withdraw an earlier one unless it says so. The 2014 inoperative-accounts circular changes the limits for settlement out of inoperative accounts without stating that the 2011 delegation is withdrawn.",
+    "Multi-Location Claim Settlement (MLC) lets claims be settled by a Collaborating Regional Office (CRO). The 2021 circular delegates the role of assigning CRO under MLC to Zonal ACCs within their jurisdictions; it does not state when the arrangement ends. The 2023 circular records Executive Committee approval (10 March 2023) for claim settlement by Special State Offices; the date shown is the issue date, not the commencement.",
+    "The 2016 and 2017 PF member name-correction delegations are included here as member-data powers (the 2017 letter is dated 31 October although its receipt stamp is 1 November). The Joint Declaration and Aadhaar process documents that later governed name correction live in the JD and Member profile / Aadhaar policies; no supersession is inferred.",
+    "Delegation of financial powers for the settlement of claims in closed establishments and for exceptional transactions (2012, 2017, 2021, 2025) was moved here from the administrative and financial powers collection; those documents are unchanged.",
+    "PDFs for entries marked compiled_copy were read from a compilation of circulars (Delegation_Circulars_Combined.pdf); its hash identifies the compilation, not a public original, and the app does not offer a download for them. Scanned pages are OCR."
+  ]
+}

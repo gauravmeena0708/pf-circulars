@@ -31,6 +31,10 @@ def _recorded_sha256(path):
         record = json.loads(Path(path).read_text(encoding='utf-8'))
     except (OSError, ValueError):
         return None
+    if record.get('compiled_copy'):
+        # Pages taken from a compilation: the hash identifies that file, not a public original,
+        # so it must never be used to verify (or offer) a download.
+        return None
     value = str(record.get('pdf_sha256', ''))
     return value if len(value) == 64 and all(c in '0123456789abcdef' for c in value) else None
 
