@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "id": "legal_panel",
+  "reviewed_on": "2026-11-03",
+  "topics": [
+    {
+      "id": "legal_fee",
+      "label": "Panel advocate fees",
+      "include": "fee|honorarium|remuneration"
+    },
+    {
+      "id": "empanelment",
+      "label": "Empanelment of advocates",
+      "include": "empanel|panel\\s+of\\s+advocate|eligib|tribunal"
+    }
+  ],
+  "documents": [
+    {
+      "id": "lf-2012-01-24",
+      "title": "Panel advocate fee: Law Ministry revised rates (OM of 18.09.2011)",
+      "circular_no": "HO No. LC/2/ Information/ 2006/45104",
+      "issued_on": "2012-01-24",
+      "authority": "EPFO Head Office (Legal) circular",
+      "topics": [
+        "legal_fee"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/LC_FeeRevision_45104.pdf",
+      "source_file": "sources/lf-2012-01-24.json",
+      "verification": "source_checked",
+      "effective_from": "2011-09-01",
+      "effective_date_evidence": {
+        "document_id": "lf-2012-01-24",
+        "page_number": 1,
+        "quote": "with effect from 1.9.2011"
+      },
+      "version_label": "Panel advocate fee: Law Ministry revised rates (OM of 18.09.2011)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "lf-2012-01-24",
+        "page_number": 1,
+        "quote": "Revision of legal fee payable to Panel Advocates"
+      }
+    },
+    {
+      "id": "lf-2012-07-25",
+      "title": "Clarification on legal fees payable to panel counsel of EPFAT, High Courts and CAT",
+      "circular_no": "HO No. LC/2/ Information/ 2006/12397",
+      "issued_on": "2012-07-25",
+      "authority": "EPFO Head Office (Legal) circular",
+      "topics": [
+        "legal_fee"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/LC_Fees_12397.pdf",
+      "source_file": "sources/lf-2012-07-25.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Clarification on legal fees payable to panel counsel of EPFAT, High Courts and CAT",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "lf-2012-07-25",
+        "page_number": 1,
+        "quote": "Clarification regarding legal fees payable to panel counsel"
+      }
+    },
+    {
+      "id": "lf-2017-01-25",
+      "title": "Revised fee structure for panel advocates and legal practitioners (Tables A-D)",
+      "circular_no": "HO No. LC-4(1)2016/18332",
+      "issued_on": "2017-01-25",
+      "authority": "EPFO Head Office (Legal) circular",
+      "topics": [
+        "legal_fee"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/LC_FeeAdvocate_18332.pdf",
+      "source_file": "sources/lf-2017-01-25.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised fee structure for panel advocates and legal practitioners (Tables A-D)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "lf-2017-01-25",
+        "page_number": 1,
+        "quote": "Revision of fee payable to advocates on the panel of the Central Board/EPFO"
+      }
+    },
+    {
+      "id": "lf-2017-05-03",
+      "title": "Fresh panel of advocates; eligibility raised to ten years",
+      "circular_no": "HO No. LC-3(14)2010/EPFAT/Vol.V/1264",
+      "issued_on": "2017-05-03",
+      "authority": "EPFO Head Office (Legal) circular",
+      "topics": [
+        "empanelment"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/LC_PanelAdvocate_1264.pdf",
+      "source_file": "sources/lf-2017-05-03.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Fresh panel of advocates; eligibility raised to ten years",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "lf-2017-05-03",
+        "page_number": 1,
+        "quote": "revised to Ten Years"
+      }
+    },
+    {
+      "id": "lf-2017-09-07",
+      "title": "Empanelment of advocates for Central Government Industrial Tribunals after the EPFAT merger",
+      "circular_no": "HO No. LC-7(72)2017/merger/12019",
+      "issued_on": "2017-09-07",
+      "authority": "EPFO Head Office (Legal) circular",
+      "topics": [
+        "empanelment"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/LC_EmpanelmentAdvocate_CGIT_12019.pdf",
+      "source_file": "sources/lf-2017-09-07.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Empanelment of advocates for Central Government Industrial Tribunals after the EPFAT merger",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "lf-2017-09-07",
+        "page_number": 1,
+        "quote": "Employees Provident Fund Appellate Tribunals have been merged with Central Government Industrial Tribunals"
+      }
+    },
+    {
+      "id": "lf-2017-10-25",
+      "title": "Empanelment of advocates: CGIT approach extended to CAT, consumer fora and lower courts",
+      "circular_no": "HO No. LC-3(1)2017/Empanelment/12296",
+      "issued_on": "2017-10-25",
+      "authority": "EPFO Head Office (Legal) circular",
+      "topics": [
+        "empanelment"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/LC_Empanelment_Advocate_12296.pdf",
+      "source_file": "sources/lf-2017-10-25.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Empanelment of advocates: CGIT approach extended to CAT, consumer fora and lower courts",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "lf-2017-10-25",
+        "page_number": 1,
+        "quote": "the same analogy may be followed for CAT"
+      }
+    },
+    {
+      "id": "lf-2026-07-08",
+      "title": "Revised fee for panel advocates per Law Ministry OM of 05.02.2026",
+      "circular_no": "No. Legal Consultation-Part (1)Circular/E50586/2759",
+      "issued_on": "2026-07-08",
+      "authority": "EPFO Head Office (Legal) circular",
+      "topics": [
+        "legal_fee"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2026-2027/Circular_RevisionOfAdvocateFee_08072026.pdf",
+      "source_file": "sources/lf-2026-07-08.json",
+      "verification": "source_checked",
+      "effective_from": "2026-07-08",
+      "effective_date_evidence": {
+        "document_id": "lf-2026-07-08",
+        "page_number": 9,
+        "quote": "The revised rates of fee shall be applicable from the date of issue of this circular"
+      },
+      "version_label": "Revised fee for panel advocates per Law Ministry OM of 05.02.2026",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "lf-2026-07-08",
+        "page_number": 1,
+        "quote": "Revision of fee payable to panel advocates of the Central Board/EPFO"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "lf-2017-fee-tables-replace-earlier",
+      "source": "lf-2017-01-25",
+      "target": "lf-2012-01-24",
+      "type": "partially_modifies",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "lf-2017-01-25",
+        "page_number": 1,
+        "quote": "convey the approval of competent authority on revision of the structure of fee"
+      },
+      "scope": "Candidate link: the 2017 circular sets new fee tables A-D for panel advocates and legal practitioners without naming the 2012 circular. Fee amounts and the commencement of the new fees are not stated in the circular text."
+    },
+    {
+      "id": "lf-2026-fee-revision",
+      "source": "lf-2026-07-08",
+      "target": "lf-2017-01-25",
+      "type": "partially_modifies",
+      "verification": "target_unverified",
+      "effective_from": "2026-07-08",
+      "effective_date_evidence": {
+        "document_id": "lf-2026-07-08",
+        "page_number": 9,
+        "quote": "The revised rates of fee shall be applicable from the date of issue of this circular"
+      },
+      "evidence": {
+        "document_id": "lf-2026-07-08",
+        "page_number": 1,
+        "quote": "revision of the fee structure payable to panel advocates engaged by the Central Board/EPFO"
+      },
+      "scope": "Candidate link: the July 2026 revised fee tables (A-D) follow the Law Ministry OM of 05.02.2026. The circular does not name the 2017 EPFO circular; it says the earlier OMs' other terms remain applicable and that the rates apply from its date of issue."
+    },
+    {
+      "id": "lf-2017-10-25-extends-2017-09-07",
+      "source": "lf-2017-10-25",
+      "target": "lf-2017-09-07",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "lf-2017-10-25",
+        "page_number": 1,
+        "quote": "Head office letter No. LC-7(72)2017/Merger/ 12019 dated 7.9.2017"
+      },
+      "scope": "Extends the September 2017 approach (select from the High Court panel where the court/tribunal is in the same place, otherwise a fresh local panel) to CAT, consumer fora and lower courts."
+    }
+  ],
+  "limitations": [
+    "This concerns EPFO's own panel advocates and legal practitioners, not EPF members' legal remedies. Fee amounts are in tables in the originals and are not summarised here; read the tables for the court and type of work.",
+    "The January 2012 circular tells offices to regulate fees under the Law Ministry's revised structure \"with effect from 1.9.2011\", while the enclosed Law Ministry OM is dated 18 September 2011 and says \"immediate effect\". The EPFO circular's own wording is recorded as the effective date; the difference is not resolved here.",
+    "The 2017 circular states no commencement date, so none is recorded. The 2017 and 2026 fee links are candidate links (target unverified) because neither names the earlier EPFO circular.",
+    "The 7 September 2017 circular follows the Gazette notification of 26 May 2017 merging EPF Appellate Tribunals into Central Government Industrial Tribunals; the policy on empanelment for the Supreme Court and CAT Principal Bench panel year 2026-29 (order of 29 July 2026) is not included because it is a list of named advocates.",
+    "The 2017 fee circular is listed twice on the issuer's site under the same number and date (two file names); one copy is used. The 16 May 2014 guidelines and earlier fee circulars (1999, 2008, 2011 OMs) are not in this collection except as enclosed texts.",
+    "Zonal empanelment notices and RTI replies naming advocates are not covered.",
+    "PDFs were read from the issuer mirror on 3 November 2026 because the public site returned 404 for these paths that day; recorded SHA-256 values apply to those files. Scanned pages are OCR."
+  ]
+}

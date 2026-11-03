@@ -2,6 +2,24 @@
   "schema_version": 1,
   "policies": [
     {
+      "id": "legal_panel",
+      "label": "Panel advocates: fees and empanelment",
+      "scope": "EPFO panel advocate fee revisions and empanelment circulars; not EPF members' legal remedies or RTI",
+      "path": "legal_panel/policy.json",
+      "include": "panel\\s+(?:advocate|counsel)s?|legal\\s+fee|empanel\\w*\\s+(?:of\\s+)?(?:advocate|counsel)|(?:advocate|counsel)s?\\s+fee|fee\\s+(?:payable\\s+)?to\\s+(?:panel\\s+)?(?:advocate|counsel)",
+      "exclude": "\\bRTI\\b|right\\s+to\\s+information|\\bUAN\\b|(?:EPF|PF)\\s+(?:account|member)|settlement\\s+of\\s+claim",
+      "route": "legal_panel_policy"
+    },
+    {
+      "id": "dearness",
+      "label": "Dearness allowance / relief (staff)",
+      "scope": "Central Government dearness allowance for EPFO staff and dearness relief for staff pensioners, 2016 onward; not EPF member benefits or EPS pensions",
+      "path": "dearness/policy.json",
+      "include": "dearness\\s+(?:allowance|relief)|महंगाई\\s+(?:भत्ता|राहत)|\\bDA\\b\\s+(?:rate|hike|increase|revision|instal)|\\bDR\\b\\s+(?:rate|hike|increase|revision|instal)",
+      "exclude": "\\bUAN\\b|(?:EPF|PF)\\s+(?:account|member)|member\\s+(?:account|profile)|bonus|\\bCGHS\\b|gratuity|daily\\s+allowance|\\bTA\\s*/\\s*DA\\b|travel",
+      "route": "dearness_policy"
+    },
+    {
       "id": "apar_sparrow",
       "label": "APAR / vigilance clearance",
       "scope": "EPFO staff APAR (SPARROW) timelines and revisions, and vigilance clearance certificate guidelines; not EPF member services",

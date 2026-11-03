@@ -2,7 +2,7 @@
 
 The hosted search supports **JD member profile**, **Member profile / Aadhaar**,
 **Transfer claims**, **Higher pension / PoHW**, **Pension payment / CPPS**,
-**Advances / auto-settlement**, **EPF interest rate**, **EPFO staff transfer policy**, and **APAR / vigilance clearance**.
+**Advances / auto-settlement**, **EPF interest rate**, **EPFO staff transfer policy**, **APAR / vigilance clearance**, **Dearness allowance / relief**, and **Panel advocates**.
 Choose a policy or Automatic, set **Evidence as of**, then submit a question.
 Automatic recognises registered scopes in registry order; the more specific Aadhaar
 scope precedes JD. Choose an explicit policy for short follow-up questions. Standard
@@ -134,3 +134,10 @@ Matter selector like delegation and employee benefits; drafts are consultation-o
 **APAR / vigilance clearance** covers SPARROW appraisal timelines (2024-25 and 2025-26 cycles,
 with every revision) and vigilance clearance guidelines (see [apar_sparrow](apar_sparrow/README.md)).
 It has a Matter selector; later revisions change only the dates they list.
+
+## Dearness allowance / relief and panel advocates
+
+**Dearness allowance / relief (staff)** records each Central Government DA/DR step from 2016,
+with the effective date stated in the circular (see [dearness](dearness/README.md)).
+**Panel advocates: fees and empanelment** covers fee revisions and empanelment circulars
+(see [legal_panel](legal_panel/README.md)). Both keep issue dates and effective dates distinct.
