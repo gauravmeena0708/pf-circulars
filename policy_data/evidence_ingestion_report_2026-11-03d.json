@@ -1,0 +1,27 @@
+{
+  "original_passages": 77537,
+  "added_passages": 1160,
+  "final_passages": 78697,
+  "original_passages_changed": 0,
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "dimension": 384,
+  "source_documents": 52,
+  "new_page_count": 331,
+  "extraction_methods": [
+    "native",
+    "tesseract_eng_170dpi",
+    "tesseract_eng_180dpi"
+  ],
+  "sparse_cache_written": true,
+  "complete_applicability_established": false,
+  "checked_on": "2026-11-03",
+  "original_vectors_unchanged": true,
+  "id_map_aligned": true,
+  "new_vectors_unit_norm": true,
+  "date_corrections_preserved": true,
+  "groups_added": [
+    "recruitment_promotion (51 documents)",
+    "delegation: February 2022 draft compendium covering pages (consultation-only)"
+  ],
+  "note": "1,160 new passages from 52 source documents (49 issuer-hosted originals with real hashes, plus the compendium covering pages from the compiled copy). 15 documents are consultation drafts; the router no longer lets their passages in through the supplementary hybrid path."
+}
