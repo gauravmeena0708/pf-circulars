@@ -99,6 +99,15 @@
       "include": "joint\\s*declaration|\\bjd\\b|member\\s+profile|संयुक्त घोषणा|जॉइंट डिक्लेरेशन",
       "exclude": "higher[ -]?pension|joint option|26\\s*\\(6\\)|उच्च पेंशन|(?:aadhaar|aadhar).*(?:address|mobile).*(?:update|correct|change)|(?:update|correct|change).*(?:aadhaar|aadhar).*(?:address|mobile)",
       "route": "jd_policy"
+    },
+    {
+      "id": "epf_interest_rate",
+      "label": "EPF interest rate",
+      "scope": "Annual declared rate of interest on EPF member accounts and the interim settlement rate; excludes staff provident fund, NPS, 14B/7Q damages and tax on interest",
+      "path": "epf_interest_rate/policy.json",
+      "include": "(?:rate\\s+of\\s+interest|interest\\s+rate|\\bROI\\b|interest\\s+(?:declar|credit|@)).*(?:EPF|\\bPF\\b|provident|member|subscriber|accumulation)|(?:EPF|\\bPF\\b|provident|member|subscriber).*(?:rate\\s+of\\s+interest|interest\\s+rate|\\bROI\\b)|(?:interest|ब्याज\\s*दर).*(?:for|in)\\s+(?:the\\s+)?(?:f\\.?y\\.?\\s*)?(?:19|20)\\d\\d|ब्याज\\s*दर",
+      "exclude": "advance|conveyance|staff|\\bSPF\\b|\\bGPF\\b|\\bNPS\\b|14\\s*B|7\\s*Q|damages|belated|overdraft|\\bTDS\\b|taxable|income\\s*tax|exempt",
+      "route": "epf_interest_rate_policy"
     }
   ]
 }

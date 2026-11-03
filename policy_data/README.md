@@ -1,8 +1,8 @@
 # Registered policy version and date histories
 
 The hosted search supports **JD member profile**, **Member profile / Aadhaar**,
-**Transfer claims**, **Higher pension / PoHW**, **Pension payment / CPPS**, and
-**Advances / auto-settlement**.
+**Transfer claims**, **Higher pension / PoHW**, **Pension payment / CPPS**,
+**Advances / auto-settlement**, and **EPF interest rate**.
 Choose a policy or Automatic, set **Evidence as of**, then submit a question.
 Automatic recognises registered scopes in registry order; the more specific Aadhaar
 scope precedes JD. Choose an explicit policy for short follow-up questions. Standard
@@ -116,3 +116,9 @@ The 15 October 2024 briefcase original was recovered from EPFO's origin host aft
 its CDN copy failed. Its two explicit supersession links and revised table are
 checked. Medical originals and the reported August 2026 publicity revision remain
 unverified. No allowance or financial ceiling is certified merely from chronology.
+
+## EPF interest rate
+
+**EPF interest rate** records the yearly declaration circulars for 2010-11 to 2025-26
+(19 documents; see [epf_interest_rate](epf_interest_rate/README.md)). Each year's rate stands
+on its own; the only modification chain is the 2011 interim settlement rate.
