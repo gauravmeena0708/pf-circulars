@@ -43,7 +43,7 @@
       "scope": "Matter-specific EPFO administrative, financial and sanctioning powers; authority layers and historical changes",
       "path": "delegation/policy.json",
       "include": "delegat.*power|power.*delegat|sanctioning authorit|competent authorit.*(?:financial|expenditure|sanction)",
-      "exclude": "power of attorney",
+      "exclude": "power of attorney|joint\\s*declaration|\\bJD\\b|aadhaar|aadhar|member\\s+profile",
       "route": "delegation_policy"
     },
     {

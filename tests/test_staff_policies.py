@@ -101,11 +101,19 @@ def test_consultation_does_not_supply_operative_delegation_evidence():
     assert doc['id'] not in {e['document_id'] for e in report['evidence']}
 
 
-def test_member_profile_delegation_retains_later_jd_evidence():
-    report = history('delegation').search('member profile name correction powers', '2026-10-29')
-    assert any(d['issued_on'] == '2017-10-31' for d in report['documents'])
-    assert any(d['id'] == 'jd-2025-01-16' for d in report['documents'])
-    assert any(d['id'] == 'jd-2025-08-13' for d in report['documents'])
+def test_delegation_collection_holds_name_correction_orders_but_no_jd_process_documents():
+    h = history('delegation')
+    assert not any(i.startswith('jd-') for i in h.documents)
+    assert not any(r['source'].startswith('jd-') or r['target'].startswith('jd-') for r in h.relationships)
+    report = h.search('PF member name correction powers delegated', '2026-10-29', topics=['member_profile'])
+    assert {d['issued_on'] for d in report['documents']} == {'2016-11-16', '2017-10-31'}
+    assert any('Joint Declaration' in l for l in h.policy['limitations'])
+
+
+@pytest.mark.parametrize('query', ['Joint Declaration SOP', 'JD process for name correction', 'Aadhaar seeding in UAN powers'])
+def test_jd_and_aadhaar_questions_do_not_route_to_delegation(query):
+    policy = select_policy(query)
+    assert policy is not None and policy.id in {'jd', 'aadhaar'}
 
 
 def test_api_matter_controls_filter_inventory_and_explicit_evidence():

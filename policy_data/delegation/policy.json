@@ -55,8 +55,8 @@
     },
     {
       "id": "member_profile",
-      "label": "Member-profile correction",
-      "include": "name.*correct|correct.*name|member.?profile|joint declaration|\\bJD\\b"
+      "label": "Name-correction powers (2016-17)",
+      "include": "name.*correct|correct.*name|name.*change|change.*name|re-?delegation.*name"
     },
     {
       "id": "general",
@@ -775,30 +775,6 @@
       "local_pdf": "pdfs/delegation-2023-07-31-616754.pdf"
     },
     {
-      "id": "jd-2023-08-22",
-      "title": "Joint Declaration SOP for member profile updation (2023)",
-      "circular_no": "WSU/2022/Rationalisation of work areas/Joint Declaration (E-54018)/3638",
-      "issued_on": "2023-08-22",
-      "authority": "EPFO WSU administrative circular / SOP",
-      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/SOP_JointDeclarations_29082023-7.pdf",
-      "source_file": "../joint_declaration/sources/jd-2023-08-22.json",
-      "verification": "source_checked",
-      "effective_from": "2023-08-22",
-      "effective_date_evidence": {
-        "document_id": "jd-2023-08-22",
-        "page_number": 2,
-        "quote": "Effective Date: Date of issue",
-        "interpretation": "Document control page expressly specifies date of issue; cover supplies issue date."
-      },
-      "notes": [
-        "Cover dated 22.08.2023 and stamped 23 AUG 2023. March 2024 modification cites 23.08.2023 and the same circular /3638; retain both dates as provenance."
-      ],
-      "local_pdf": "../joint_declaration/pdfs/jd-2023-08-22.pdf",
-      "topics": [
-        "member_profile"
-      ]
-    },
-    {
       "id": "delegation-2023-12-29-e0c383",
       "title": "Office Order regarding Delegation of Financial Power in relation to Expenditure on Educative Publicity(C&PR)",
       "circular_no": "No.HRD/25/2023/Delegation_C&PR/935",
@@ -815,112 +791,6 @@
       "version_label": "Office Order regarding Delegation of Financial Power in relation to Expenditure on Educative Publicity(C&PR)",
       "source_host_kind": "issuer_hosted",
       "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
-    },
-    {
-      "id": "jd-2024-01-16",
-      "title": "Removal of Aadhaar as date of birth proof",
-      "circular_no": "WSU/2024/1/UIDAI Matter/4090",
-      "issued_on": "2024-01-16",
-      "authority": "EPFO WSU administrative circular / SOP",
-      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Circular_WSU_16012024.pdf",
-      "source_file": "../joint_declaration/sources/jd-2024-01-16.json",
-      "verification": "source_checked",
-      "effective_from": null,
-      "effective_date_evidence": null,
-      "local_pdf": "../joint_declaration/pdfs/jd-2024-01-16.pdf",
-      "topics": [
-        "member_profile"
-      ]
-    },
-    {
-      "id": "jd-2024-03-11",
-      "title": "Partial modification: documents for correction in father or mother name",
-      "circular_no": "WSU/2022/Rationalisation of work areas/Joint Declaration/17",
-      "issued_on": "2024-03-11",
-      "authority": "EPFO WSU administrative circular / SOP",
-      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Circualr_WSU_11032024-1.pdf",
-      "source_file": "../joint_declaration/sources/jd-2024-03-11.json",
-      "verification": "source_checked",
-      "effective_from": null,
-      "effective_date_evidence": null,
-      "local_pdf": "../joint_declaration/pdfs/jd-2024-03-11.pdf",
-      "topics": [
-        "member_profile"
-      ]
-    },
-    {
-      "id": "jd-2024-03-26",
-      "title": "Joint Declaration SOP version 2.0",
-      "circular_no": "WSU/2022/Rationalisation of work areas/Joint Declaration/256",
-      "issued_on": "2024-03-26",
-      "authority": "EPFO WSU administrative circular / SOP",
-      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/SOP_WSU_new-1.pdf",
-      "source_file": "../joint_declaration/sources/jd-2024-03-26.json",
-      "verification": "source_checked",
-      "effective_from": "2024-03-26",
-      "effective_date_evidence": {
-        "document_id": "jd-2024-03-26",
-        "page_number": 2,
-        "quote": "Effective Date: Date of issue",
-        "interpretation": "Document control page expressly specifies date of issue; cover supplies issue date."
-      },
-      "local_pdf": "../joint_declaration/pdfs/jd-2024-03-26.pdf",
-      "topics": [
-        "member_profile"
-      ]
-    },
-    {
-      "id": "jd-2024-07-31",
-      "title": "Joint Declaration SOP version 3.0",
-      "circular_no": "WSU/2022/(E-54018)/3931",
-      "issued_on": "2024-07-31",
-      "authority": "EPFO WSU administrative circular / SOP",
-      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Circular_WSU_01082024-1.pdf",
-      "source_file": "../joint_declaration/sources/jd-2024-07-31.json",
-      "verification": "source_checked",
-      "effective_from": "2024-07-31",
-      "effective_date_evidence": {
-        "document_id": "jd-2024-07-31",
-        "page_number": 2,
-        "quote": "Effective Date: Date of issue",
-        "interpretation": "Document control page expressly specifies date of issue; cover supplies issue date."
-      },
-      "local_pdf": "../joint_declaration/pdfs/jd-2024-07-31.pdf",
-      "topics": [
-        "member_profile"
-      ]
-    },
-    {
-      "id": "jd-2025-01-16",
-      "title": "Simplification of Joint Declaration process",
-      "circular_no": "WSU/JointDeclaration/E-54018/2024-25/006",
-      "issued_on": "2025-01-16",
-      "authority": "EPFO WSU administrative circular / SOP",
-      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/SimplificationOfJointDeclarationProcess_WSUCircular-10.pdf",
-      "source_file": "../joint_declaration/sources/jd-2025-01-16.json",
-      "verification": "source_checked",
-      "effective_from": null,
-      "effective_date_evidence": null,
-      "local_pdf": "../joint_declaration/pdfs/jd-2025-01-16.pdf",
-      "topics": [
-        "member_profile"
-      ]
-    },
-    {
-      "id": "jd-2025-08-13",
-      "title": "Seeding or correcting Aadhaar in UAN: Joint Declaration functionality",
-      "circular_no": "WSU/MemberProfile/E-710137/2025-26/26",
-      "issued_on": "2025-08-13",
-      "authority": "EPFO WSU administrative circular / SOP",
-      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Seeding_Correcting-AadhaarIn_UAN-2.pdf",
-      "source_file": "../joint_declaration/sources/jd-2025-08-13.json",
-      "verification": "source_checked",
-      "effective_from": null,
-      "effective_date_evidence": null,
-      "local_pdf": "../joint_declaration/pdfs/jd-2025-08-13.pdf",
-      "topics": [
-        "member_profile"
-      ]
     },
     {
       "id": "delegation-2025-09-18-6f1a4a",
@@ -943,24 +813,6 @@
       "local_pdf": "pdfs/delegation-2025-09-18-6f1a4a.pdf"
     },
     {
-      "id": "jd-2025-12-26",
-      "title": "Acceptance of Transgender Identity Certificate/Card for change in name and gender",
-      "circular_no": "WSU/JointDeclaration/E-54018/2025-26/43",
-      "issued_on": "2025-12-26",
-      "authority": "EPFO WSU administrative circular",
-      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_SimplificationOfJointDeclarationProcess.pdf",
-      "source_file": null,
-      "verification": "catalogue_only",
-      "effective_from": null,
-      "effective_date_evidence": null,
-      "notes": [
-        "Repository catalogue and official web search identify this record. Original PDF fetch failed; no verified page or amendment edge is asserted."
-      ],
-      "topics": [
-        "member_profile"
-      ]
-    },
-    {
       "id": "delegation-publicity-2026-08-07",
       "title": "Reported revised advertisement/publicity delegation — original unverified",
       "circular_no": "HRD/25/2023/Delegation_C&PR/1621",
@@ -978,112 +830,6 @@
     }
   ],
   "relationships": [
-    {
-      "id": "jd-2024-01-16--jd-2023-08-22",
-      "source": "jd-2024-01-16",
-      "target": "jd-2023-08-22",
-      "type": "partially_modifies",
-      "scope": "Table B, Annexure I: acceptable proof for correction of date of birth",
-      "verification": "source_checked",
-      "effective_from": null,
-      "effective_date_evidence": null,
-      "evidence": {
-        "document_id": "jd-2024-01-16",
-        "page_number": 1,
-        "quote": "the Aadhaar is being removed from the list of acceptable documents for correction in date of birth"
-      }
-    },
-    {
-      "id": "jd-2024-03-11--jd-2023-08-22",
-      "source": "jd-2024-03-11",
-      "target": "jd-2023-08-22",
-      "type": "partially_modifies",
-      "scope": "Table C, Annexure I: documents for correction of father/mother name",
-      "verification": "source_checked",
-      "effective_from": null,
-      "effective_date_evidence": null,
-      "evidence": {
-        "document_id": "jd-2024-03-11",
-        "page_number": 1,
-        "quote": "In partial modification to the circular under reference"
-      },
-      "notes": [
-        "Reference uses 23.08.2023 rather than cover date 22.08.2023; /3638 identifies the target."
-      ]
-    },
-    {
-      "id": "jd-2024-03-26--jd-2023-08-22",
-      "source": "jd-2024-03-26",
-      "target": "jd-2023-08-22",
-      "type": "supersedes",
-      "scope": "Earlier Joint Declaration SOP; not an amendment of the EPF Act or Scheme",
-      "verification": "source_checked",
-      "effective_from": "2024-03-26",
-      "effective_date_evidence": {
-        "document_id": "jd-2024-03-26",
-        "page_number": 2,
-        "quote": "Effective Date: Date of issue",
-        "interpretation": "Document control page expressly specifies date of issue; cover supplies issue date."
-      },
-      "evidence": {
-        "document_id": "jd-2024-03-26",
-        "page_number": 1,
-        "quote": "In supersession of earlier SOP, competent authority has approved the SOP"
-      }
-    },
-    {
-      "id": "jd-2024-07-31--jd-2024-03-26",
-      "source": "jd-2024-07-31",
-      "target": "jd-2024-03-26",
-      "type": "supersedes",
-      "scope": "Earlier Joint Declaration SOP",
-      "verification": "target_unverified",
-      "effective_from": "2024-07-31",
-      "effective_date_evidence": {
-        "document_id": "jd-2024-07-31",
-        "page_number": 2,
-        "quote": "Effective Date: Date of issue",
-        "interpretation": "Document control page expressly specifies date of issue; cover supplies issue date."
-      },
-      "evidence": {
-        "document_id": "jd-2024-07-31",
-        "page_number": 1,
-        "quote": "In supersession of earlier SOP, the Competent Authority has approved the SOP"
-      },
-      "notes": [
-        "Cover does not name version 2.0. Target inferred from sequence; requires further source confirmation."
-      ]
-    },
-    {
-      "id": "jd-2025-01-16--jd-2024-07-31",
-      "source": "jd-2025-01-16",
-      "target": "jd-2024-07-31",
-      "type": "supersedes",
-      "scope": "Directions in JD SOP version 3.0, as stated in paragraph 1; do not infer repeal of statutory provisions",
-      "verification": "source_checked",
-      "effective_from": null,
-      "effective_date_evidence": null,
-      "evidence": {
-        "document_id": "jd-2025-01-16",
-        "page_number": 1,
-        "quote": "In supersession of the directions contained in the Joint Declaration SOP Version 3.0"
-      }
-    },
-    {
-      "id": "jd-2025-08-13--jd-2025-01-16",
-      "source": "jd-2025-08-13",
-      "target": "jd-2025-01-16",
-      "type": "references",
-      "scope": "Paragraph 2 and reference 2 describe the January simplification; later paragraphs add Aadhaar functionality directions",
-      "verification": "source_checked",
-      "effective_from": null,
-      "effective_date_evidence": null,
-      "evidence": {
-        "document_id": "jd-2025-08-13",
-        "page_number": 1,
-        "quote": "WSU/JointDeclaration/E-54018/2024-25/006 dt.16/01/2025"
-      }
-    },
     {
       "id": "delegation-2022-07-14-5f0991-clarifies-delegation-2022-07-08-dd9a9f",
       "source": "delegation-2022-07-14-5f0991",
@@ -1151,6 +897,6 @@
     "Website posting dates and receipt stamps are not substituted for dates printed in the issuing letter. The 2017 name-correction letter is dated 31 October despite its 1 November receipt stamp; the PID re-delegation is dated 9 March 2023.",
     "The May 2016 general-delegation letter is a consultation, not an operative revision. It is visible in the inventory but excluded from answer evidence.",
     "The reported 7 August 2026 advertisement/publicity revision remains original-unverified and cannot establish revised ceilings. Medical delegation originals also remain unresolved.",
-    "Member-profile delegation is accompanied by the existing JD history so historical 2016/2017 instructions are not silently treated as the latest procedure. No unsupported cross-document supersession is inferred."
+    "Only the 2016 and 2017 delegations of power to approve PF member name corrections are in this collection. The Joint Declaration and Aadhaar-in-UAN process documents (2023-2025) are not delegation orders and live in the JD and Member profile / Aadhaar policies; those later procedures may have overtaken these instructions, and no supersession is inferred here."
   ]
 }

@@ -4,18 +4,17 @@ Choose **Delegation of powers** and a matter in research or Circular history.
 Automatic routing recognises explicit delegation/sanctioning-authority questions;
 member entitlements and staff allowances retain their separate collections.
 
-49 entries cover claims/exceptional transactions, infrastructure, IT,
+41 entries cover claims/exceptional transactions, infrastructure, IT,
 PDNASS/ZTIs, medical sanctions, personnel/appointments, foreign visits,
-inquiry/presenting-officer honoraria, staff housing, publicity and member-profile
-correction. 22 entries have checked physical-page sources, including reused JD
-history. Missing originals remain visible. More recent does not mean applicable.
+inquiry/presenting-officer honoraria, staff housing, publicity and member-name
+correction powers. 15 entries have checked physical-page sources. Missing originals remain visible. More recent does not mean applicable.
 
 The 14 July 2022 PID corrigendum corrects the heading of the 8 July table.
 The 9 March 2023 CPFC-to-subordinate re-delegation cites the earlier CBT-to-CPFC
 powers; these are distinct authority layers and no whole-schedule replacement is
 inferred. The March date comes from the signed letter, rather than erroneous older
 catalogue metadata. The 2017 name-correction letter is dated 31 October and bears a
-1 November receipt stamp. Later JD sources are retained for member-profile matters.
+1 November receipt stamp. Joint Declaration process documents are not part of this collection; see the JD and Member profile / Aadhaar policies.
 
 The May 2016 consultation letter is excluded from answer evidence. The 1993
 schedule, several later revisions and medical delegation originals remain gaps.
