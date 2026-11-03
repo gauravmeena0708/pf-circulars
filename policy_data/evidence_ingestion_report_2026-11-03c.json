@@ -1,0 +1,31 @@
+{
+  "original_passages": 77096,
+  "added_passages": 441,
+  "final_passages": 77537,
+  "original_passages_changed": 0,
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "dimension": 384,
+  "source_documents": 35,
+  "new_page_count": 12,
+  "extraction_methods": [
+    "native",
+    "tesseract_eng_170dpi"
+  ],
+  "sparse_cache_written": true,
+  "complete_applicability_established": false,
+  "checked_on": "2026-11-03",
+  "original_vectors_unchanged": true,
+  "id_map_aligned": true,
+  "new_vectors_unit_norm": true,
+  "groups_added": [
+    "claim_authority",
+    "foreign_visit",
+    "delegation (24 entries upgraded, 4 added)"
+  ],
+  "date_fixes_in_this_build": [
+    "InstructionCircular.pdf 16/08/2010 -> 20/07/2010",
+    "DeleFAPFMTRetiree.pdf 17/08/2009 -> 13/08/2009",
+    "IS_RevDelegation_29530.pdf 21/01/2013 -> 17/01/2013 (legacy passages)"
+  ],
+  "note": "441 new passages from 35 source documents taken from a compiled copy of circulars; new_page_count is understated because the compiled documents share one file hash."
+}
