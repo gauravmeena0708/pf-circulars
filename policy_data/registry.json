@@ -2,6 +2,15 @@
   "schema_version": 1,
   "policies": [
     {
+      "id": "apar_sparrow",
+      "label": "APAR / vigilance clearance",
+      "scope": "EPFO staff APAR (SPARROW) timelines and revisions, and vigilance clearance certificate guidelines; not EPF member services",
+      "path": "apar_sparrow/policy.json",
+      "include": "\\bAPARs?\\b|\\bSPARROW\\b|annual\\s+performance\\s+(?:assessment|appraisal)|vigilance\\s+clearance|\\bVCC\\b",
+      "exclude": "\\bUAN\\b|(?:EPF|PF)\\s+account|member\\s+(?:account|profile)|settlement\\s+of\\s+claim|employer|establishment",
+      "route": "apar_sparrow_policy"
+    },
+    {
       "id": "staff_transfer",
       "label": "EPFO staff transfer policy",
       "scope": "EPFO staff transfer policies by cadre (Commissioners, Group B, Group C/SSA) and their amendments; not EPF member account transfers or yearly option notices",

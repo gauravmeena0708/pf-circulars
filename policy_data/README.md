@@ -2,7 +2,7 @@
 
 The hosted search supports **JD member profile**, **Member profile / Aadhaar**,
 **Transfer claims**, **Higher pension / PoHW**, **Pension payment / CPPS**,
-**Advances / auto-settlement**, **EPF interest rate**, and **EPFO staff transfer policy**.
+**Advances / auto-settlement**, **EPF interest rate**, **EPFO staff transfer policy**, and **APAR / vigilance clearance**.
 Choose a policy or Automatic, set **Evidence as of**, then submit a question.
 Automatic recognises registered scopes in registry order; the more specific Aadhaar
 scope precedes JD. Choose an explicit policy for short follow-up questions. Standard
@@ -128,3 +128,9 @@ on its own; the only modification chain is the 2011 interim settlement rate.
 **EPFO staff transfer policy** covers the Commissioners' cadre, Group B and Group C/SSA
 transfer policies and amendments (see [staff_transfer](staff_transfer/README.md)). It has a
 Matter selector like delegation and employee benefits; drafts are consultation-only.
+
+## APAR / vigilance clearance
+
+**APAR / vigilance clearance** covers SPARROW appraisal timelines (2024-25 and 2025-26 cycles,
+with every revision) and vigilance clearance guidelines (see [apar_sparrow](apar_sparrow/README.md)).
+It has a Matter selector; later revisions change only the dates they list.

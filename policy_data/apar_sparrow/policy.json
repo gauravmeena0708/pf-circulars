@@ -1,0 +1,765 @@
+{
+  "schema_version": 1,
+  "id": "apar_sparrow",
+  "reviewed_on": "2026-11-03",
+  "topics": [
+    {
+      "id": "apar_framework",
+      "label": "APAR system (SPARROW / HR-Soft)",
+      "include": "SPARROW|HR-?Soft|Smart Performance|APAR\\s+(?:module|system|portal)"
+    },
+    {
+      "id": "apar_2024_25",
+      "label": "APAR 2024-25 timelines",
+      "include": "2024\\s*-\\s*(?:20)?25"
+    },
+    {
+      "id": "apar_2025_26",
+      "label": "APAR 2025-26 timelines",
+      "include": "2025\\s*-\\s*(?:20)?26"
+    },
+    {
+      "id": "vigilance_clearance",
+      "label": "Vigilance clearance (VCC)",
+      "include": "vigilance|\\bVCC\\b|clearance"
+    }
+  ],
+  "documents": [
+    {
+      "id": "apar-2017-01-24",
+      "title": "APAR to be submitted electronically through SPARROW (officers)",
+      "circular_no": "HO No. APAR-12/2015-16/SPARROW/27575",
+      "issued_on": "2017-01-24",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "apar_framework"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/APAR_SPARROW_27575.pdf",
+      "source_file": "sources/apar-2017-01-24.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "APAR to be submitted electronically through SPARROW (officers)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2017-01-24",
+        "page_number": 1,
+        "quote": "mandatorily through SPARROW software"
+      }
+    },
+    {
+      "id": "apar-2021-05-28",
+      "title": "APAR 2020-21 timelines; HR-Soft APAR module for officers",
+      "circular_no": "HO No. APAR-12/2015-16/SPARROW/565",
+      "issued_on": "2021-05-28",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "apar_framework"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/APAR_Submission_565.pdf",
+      "source_file": "sources/apar-2021-05-28.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "APAR 2020-21 timelines; HR-Soft APAR module for officers",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2021-05-28",
+        "page_number": 1,
+        "quote": "Time lines for submission of Annual Performance Assessment Report"
+      }
+    },
+    {
+      "id": "apar-2025-08-26",
+      "title": "APAR 2024-25 through SPARROW: initial timelines",
+      "circular_no": "File No.HRD-I/65/2025/APAR/2024/1407",
+      "issued_on": "2025-08-26",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "apar_2024_25"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_Sparrow_26082025.pdf",
+      "source_file": "sources/apar-2025-08-26.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "APAR 2024-25 through SPARROW: initial timelines",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2025-08-26",
+        "page_number": 1,
+        "quote": "mandatorily filed through Smart Performance Appraisal Report Recording Online Window"
+      }
+    },
+    {
+      "id": "apar-2025-09-22",
+      "title": "APAR 2024-25: first revision of timelines",
+      "circular_no": "File No: HRD-II/65/2025/APAR/2024-225",
+      "issued_on": "2025-09-22",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "apar_2024_25"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_APAR_22092025.pdf",
+      "source_file": "sources/apar-2025-09-22.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "APAR 2024-25: first revision of timelines",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2025-09-22",
+        "page_number": 1,
+        "quote": "Revision of timelines for Preparation"
+      }
+    },
+    {
+      "id": "apar-2025-10-01",
+      "title": "APAR 2024-25: corrigendum (year typed 2025 for 2026)",
+      "circular_no": "File No.HRD-II/65/2025/APAR/2024-25/1431",
+      "issued_on": "2025-10-01",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "apar_2024_25"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Corrigendum_APAR_01102025.pdf",
+      "source_file": "sources/apar-2025-10-01.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "APAR 2024-25: corrigendum (year typed 2025 for 2026)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2025-10-01",
+        "page_number": 1,
+        "quote": "CORRIGENDUM"
+      }
+    },
+    {
+      "id": "apar-2025-11-06",
+      "title": "APAR 2024-25: revision of timelines (6 Nov 2025)",
+      "circular_no": "FileNo.HRD-II/65/2025/APAR/2024-2025/13517",
+      "issued_on": "2025-11-06",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "apar_2024_25"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_APARSPARROW_06112025Rectified.pdf",
+      "source_file": "sources/apar-2025-11-06.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "APAR 2024-25: revision of timelines (6 Nov 2025)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2025-11-06",
+        "page_number": 1,
+        "quote": "Revision of timelines for preparation"
+      }
+    },
+    {
+      "id": "apar-2025-11-28",
+      "title": "APAR 2024-25: revision of timelines (28 Nov 2025)",
+      "circular_no": "File No: HRD-II/65/2025/APAR/2024-25/14031",
+      "issued_on": "2025-11-28",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "apar_2024_25"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_RevisedAPAR_28112025.pdf",
+      "source_file": "sources/apar-2025-11-28.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "APAR 2024-25: revision of timelines (28 Nov 2025)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2025-11-28",
+        "page_number": 1,
+        "quote": "Revision of timelines for preparation"
+      }
+    },
+    {
+      "id": "apar-2025-12-17",
+      "title": "APAR 2024-25: revision of timelines (17 Dec 2025)",
+      "circular_no": "File No.HRD-II/65/2025/APAR/2024-25/14469",
+      "issued_on": "2025-12-17",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "apar_2024_25"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_AparTimeline_17122025.pdf",
+      "source_file": "sources/apar-2025-12-17.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "APAR 2024-25: revision of timelines (17 Dec 2025)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2025-12-17",
+        "page_number": 1,
+        "quote": "Revision of timelines for preparation"
+      }
+    },
+    {
+      "id": "apar-2026-01-06",
+      "title": "APAR 2024-25: revision of timelines (6 Jan 2026)",
+      "circular_no": "File No: HRD-II/65/2025/APAR/2024-25/1477",
+      "issued_on": "2026-01-06",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "apar_2024_25"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_Apar_06012026.pdf",
+      "source_file": "sources/apar-2026-01-06.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "APAR 2024-25: revision of timelines (6 Jan 2026)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2026-01-06",
+        "page_number": 1,
+        "quote": "Revision of timelines for preparation"
+      }
+    },
+    {
+      "id": "apar-2026-01-19",
+      "title": "APAR 2024-25: revision of timelines (19 Jan 2026)",
+      "circular_no": "FileNo:HRD-II/l65/2025/APAR/2024-25/1486",
+      "issued_on": "2026-01-19",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "apar_2024_25"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_Apardated_19012026.pdf",
+      "source_file": "sources/apar-2026-01-19.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "APAR 2024-25: revision of timelines (19 Jan 2026)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2026-01-19",
+        "page_number": 1,
+        "quote": "Revision of timelines for preparation"
+      }
+    },
+    {
+      "id": "apar-2026-01-28",
+      "title": "APAR 2024-25: revision of timelines (28 Jan 2026)",
+      "circular_no": "File No: HRD-II/65/2025/APAR/2024-25/1492",
+      "issued_on": "2026-01-28",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "apar_2024_25"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_Apar_28012026.pdf",
+      "source_file": "sources/apar-2026-01-28.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "APAR 2024-25: revision of timelines (28 Jan 2026)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2026-01-28",
+        "page_number": 1,
+        "quote": "Revision of timelines for preparation"
+      }
+    },
+    {
+      "id": "apar-2026-02-12",
+      "title": "APAR 2024-25: revision of timelines (12 Feb 2026)",
+      "circular_no": "File No: HRD-11/65/2025/APAR/2024-25/1504",
+      "issued_on": "2026-02-12",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "apar_2024_25"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_APAR_12022026.pdf",
+      "source_file": "sources/apar-2026-02-12.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "APAR 2024-25: revision of timelines (12 Feb 2026)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2026-02-12",
+        "page_number": 1,
+        "quote": "Revision of timelines for preparation"
+      }
+    },
+    {
+      "id": "apar-2026-02-18",
+      "title": "APAR 2024-25: revision of timelines (18 Feb 2026)",
+      "circular_no": "File No: HRD-II/65/2025/APAR/2024-25/1505",
+      "issued_on": "2026-02-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "apar_2024_25"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_APAR_18022026.pdf",
+      "source_file": "sources/apar-2026-02-18.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "APAR 2024-25: revision of timelines (18 Feb 2026)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2026-02-18",
+        "page_number": 1,
+        "quote": "Revision of timelines for preparation"
+      }
+    },
+    {
+      "id": "apar-2026-03-25",
+      "title": "APAR 2024-25: revision of timelines (25 Mar 2026)",
+      "circular_no": "File No: HRD-II/65/2025/APAR/2024-25/1531",
+      "issued_on": "2026-03-25",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "apar_2024_25"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_RevisionOfAPAR_25032026.pdf",
+      "source_file": "sources/apar-2026-03-25.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "APAR 2024-25: revision of timelines (25 Mar 2026)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2026-03-25",
+        "page_number": 1,
+        "quote": "Revision of timelines for preparation"
+      }
+    },
+    {
+      "id": "apar-2026-06-02",
+      "title": "APAR 2024-25: representation timelines (2 Jun 2026)",
+      "circular_no": "File No: HRD-II/65/2025/APAR/2024-25/1569",
+      "issued_on": "2026-06-02",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "apar_2024_25"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2026-2027/Circular _APAR 202425_02062026.pdf",
+      "source_file": "sources/apar-2026-06-02.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "APAR 2024-25: representation timelines (2 Jun 2026)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2026-06-02",
+        "page_number": 1,
+        "quote": "Revision of timelines for preparation"
+      }
+    },
+    {
+      "id": "apar-2026-04-20",
+      "title": "APAR 2025-26 through SPARROW: initial timelines",
+      "circular_no": "File No:HRD-II/65/2025/APAR/2024-2025/1542",
+      "issued_on": "2026-04-20",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "apar_2025_26"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2026-2027/Circular_APAR2025_26_20042026.pdf",
+      "source_file": "sources/apar-2026-04-20.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "APAR 2025-26 through SPARROW: initial timelines",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2026-04-20",
+        "page_number": 1,
+        "quote": "to be mandatorily filed through Smart Performance Appraisal Report Recording Online Window"
+      }
+    },
+    {
+      "id": "apar-2026-06-16",
+      "title": "APAR 2025-26: revision of timelines (16 Jun 2026)",
+      "circular_no": "File No:HRD-II/65/2025/APAR/2024-25/1581",
+      "issued_on": "2026-06-16",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "apar_2025_26"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2026-2027/Circular_RevisionOfAPARTimeline_16062026.pdf",
+      "source_file": "sources/apar-2026-06-16.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "APAR 2025-26: revision of timelines (16 Jun 2026)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2026-06-16",
+        "page_number": 1,
+        "quote": "Revision of timelines for preparation"
+      }
+    },
+    {
+      "id": "apar-2026-07-16",
+      "title": "APAR 2025-26: revision of timelines (16 Jul 2026)",
+      "circular_no": "File No: HRD-II/65/2025/APAR/2025-26/1593",
+      "issued_on": "2026-07-16",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "apar_2025_26"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2026-2027/Circular_APARTimelineRevision_16072026.pdf",
+      "source_file": "sources/apar-2026-07-16.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "APAR 2025-26: revision of timelines (16 Jul 2026)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2026-07-16",
+        "page_number": 1,
+        "quote": "Revision of timelines for the Annual Performance Assessment Report"
+      }
+    },
+    {
+      "id": "apar-2026-08-13",
+      "title": "APAR 2025-26: revision of timelines (13 Aug 2026)",
+      "circular_no": "File No. HRD-I1/65/2025/APAR/2025-26/1624",
+      "issued_on": "2026-08-13",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "apar_2025_26"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2026-2027/Circular_APAR_13082026.pdf",
+      "source_file": "sources/apar-2026-08-13.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "APAR 2025-26: revision of timelines (13 Aug 2026)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2026-08-13",
+        "page_number": 1,
+        "quote": "Revision of timelines for preparation"
+      }
+    },
+    {
+      "id": "apar-2017-01-23",
+      "title": "Vigilance clearance for Group C and D employees: issued by RPFC-I",
+      "circular_no": "HO No. Vig.XIX(1)2014/Gen/173",
+      "issued_on": "2017-01-23",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "vigilance_clearance"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/Vig_Gen_173.pdf",
+      "source_file": "sources/apar-2017-01-23.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Vigilance clearance for Group C and D employees: issued by RPFC-I",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2017-01-23",
+        "page_number": 1,
+        "quote": "Guidelines regarding issue of Vigilance Clearance"
+      }
+    },
+    {
+      "id": "apar-2017-09-07",
+      "title": "Vigilance clearance for Group B, C and D officials in RPFC-II-headed offices",
+      "circular_no": "HO No. HRM-VII/IV/Misc/2016/11844",
+      "issued_on": "2017-09-07",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "vigilance_clearance"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRM7_Guidelines_VCC_11844.pdf",
+      "source_file": "sources/apar-2017-09-07.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Vigilance clearance for Group B, C and D officials in RPFC-II-headed offices",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2017-09-07",
+        "page_number": 1,
+        "quote": "Guidelines regarding issue of Vigilance Clearance"
+      }
+    },
+    {
+      "id": "apar-2022-10-06",
+      "title": "Revised proforma for seeking Vigilance Clearance Certificate",
+      "circular_no": "HO No. A-45011/134/2022-HRM-VIII/11197",
+      "issued_on": "2022-10-06",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "vigilance_clearance"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/Vigilance_Clearance_Certificate_06102022.pdf",
+      "source_file": "sources/apar-2022-10-06.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised proforma for seeking Vigilance Clearance Certificate",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "apar-2022-10-06",
+        "page_number": 1,
+        "quote": "revised proforma for seeking Vigilance Clearance Certificate"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "apar-2025-09-22-revises-2025-08-26",
+      "source": "apar-2025-09-22",
+      "target": "apar-2025-08-26",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "apar-2025-09-22",
+        "page_number": 1,
+        "quote": "This is in continuation to the circular No.HRD-II/65/2025/APAR/2024-25 dated 26.08.2025"
+      },
+      "scope": "Revises the dates for the listed APAR activities of the earlier circular; other content of the earlier circular (access, cadre arrangements, instructions) is not restated or withdrawn."
+    },
+    {
+      "id": "apar-2025-10-01-revises-2025-09-22",
+      "source": "apar-2025-10-01",
+      "target": "apar-2025-09-22",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "apar-2025-10-01",
+        "page_number": 1,
+        "quote": "the year was inadvertently mentioned as 2025 instead of 2026"
+      },
+      "scope": "Corrects only Sl. Nos. 8 and 10 of the 22 Sep 2025 table: 21 January and 31 January were typed as 2025 and are 2026. Later revisions supersede those dates in turn."
+    },
+    {
+      "id": "apar-2025-11-06-revises-2025-10-01",
+      "source": "apar-2025-11-06",
+      "target": "apar-2025-10-01",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "apar-2025-11-06",
+        "page_number": 1,
+        "quote": "dated 01.10.2025 regarding submission"
+      },
+      "scope": "Revises the dates for the listed APAR activities of the earlier circular; other content of the earlier circular (access, cadre arrangements, instructions) is not restated or withdrawn."
+    },
+    {
+      "id": "apar-2025-11-28-revises-2025-11-06",
+      "source": "apar-2025-11-28",
+      "target": "apar-2025-11-06",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "apar-2025-11-28",
+        "page_number": 1,
+        "quote": "This is in continuation to the circular dated 06.11.2025"
+      },
+      "scope": "Revises the dates for the listed APAR activities of the earlier circular; other content of the earlier circular (access, cadre arrangements, instructions) is not restated or withdrawn."
+    },
+    {
+      "id": "apar-2025-12-17-revises-2025-11-28",
+      "source": "apar-2025-12-17",
+      "target": "apar-2025-11-28",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "apar-2025-12-17",
+        "page_number": 1,
+        "quote": "This is in continuation to the circular dated 28.11.2025"
+      },
+      "scope": "Revises the dates for the listed APAR activities of the earlier circular; other content of the earlier circular (access, cadre arrangements, instructions) is not restated or withdrawn."
+    },
+    {
+      "id": "apar-2026-01-06-revises-2025-12-17",
+      "source": "apar-2026-01-06",
+      "target": "apar-2025-12-17",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "apar-2026-01-06",
+        "page_number": 1,
+        "quote": "This is in continuation to the circular dated 17.12.2025"
+      },
+      "scope": "Revises the dates for the listed APAR activities of the earlier circular; other content of the earlier circular (access, cadre arrangements, instructions) is not restated or withdrawn."
+    },
+    {
+      "id": "apar-2026-01-19-revises-2026-01-06",
+      "source": "apar-2026-01-19",
+      "target": "apar-2026-01-06",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "apar-2026-01-19",
+        "page_number": 1,
+        "quote": "This is in continuation to the circular dated 06.01.2026"
+      },
+      "scope": "Revises the dates for the listed APAR activities of the earlier circular; other content of the earlier circular (access, cadre arrangements, instructions) is not restated or withdrawn."
+    },
+    {
+      "id": "apar-2026-01-28-revises-2026-01-19",
+      "source": "apar-2026-01-28",
+      "target": "apar-2026-01-19",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "apar-2026-01-28",
+        "page_number": 1,
+        "quote": "This is in continuation to the circular dated 19.01.2026"
+      },
+      "scope": "Revises the dates for the listed APAR activities of the earlier circular; other content of the earlier circular (access, cadre arrangements, instructions) is not restated or withdrawn."
+    },
+    {
+      "id": "apar-2026-02-12-revises-2026-01-28",
+      "source": "apar-2026-02-12",
+      "target": "apar-2026-01-28",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "apar-2026-02-12",
+        "page_number": 1,
+        "quote": "This is in continuation to the circular dated 28.01.2026"
+      },
+      "scope": "Revises the dates for the listed APAR activities of the earlier circular; other content of the earlier circular (access, cadre arrangements, instructions) is not restated or withdrawn."
+    },
+    {
+      "id": "apar-2026-02-18-revises-2026-02-12",
+      "source": "apar-2026-02-18",
+      "target": "apar-2026-02-12",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "apar-2026-02-18",
+        "page_number": 1,
+        "quote": "This is in continuation to the circular dated 12.02.2026"
+      },
+      "scope": "Revises the dates for the listed APAR activities of the earlier circular; other content of the earlier circular (access, cadre arrangements, instructions) is not restated or withdrawn."
+    },
+    {
+      "id": "apar-2026-03-25-revises-2026-02-18",
+      "source": "apar-2026-03-25",
+      "target": "apar-2026-02-18",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "apar-2026-03-25",
+        "page_number": 1,
+        "quote": "This is in continuation to the circular dated 18.02.2026"
+      },
+      "scope": "Revises the dates for the listed APAR activities of the earlier circular; other content of the earlier circular (access, cadre arrangements, instructions) is not restated or withdrawn."
+    },
+    {
+      "id": "apar-2026-06-02-revises-2026-03-25",
+      "source": "apar-2026-06-02",
+      "target": "apar-2026-03-25",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "apar-2026-06-02",
+        "page_number": 1,
+        "quote": "HRD-II/65/2025/APAR/2024-25/1531 dated 25.03.2026"
+      },
+      "scope": "Revises only the representation-disposal, communication and completion dates for 2024-25; earlier stages (reporting, reviewing, disclosure) are not restated."
+    },
+    {
+      "id": "apar-2026-06-16-revises-2026-04-20",
+      "source": "apar-2026-06-16",
+      "target": "apar-2026-04-20",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "apar-2026-06-16",
+        "page_number": 1,
+        "quote": "This is in continuation to the circular dated 20.04.2026"
+      },
+      "scope": "Revises the dates for the listed APAR activities of the earlier circular; other content of the earlier circular (access, cadre arrangements, instructions) is not restated or withdrawn."
+    },
+    {
+      "id": "apar-2026-07-16-revises-2026-06-16",
+      "source": "apar-2026-07-16",
+      "target": "apar-2026-06-16",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "apar-2026-07-16",
+        "page_number": 1,
+        "quote": "dated 16.06.2026"
+      },
+      "scope": "Revises the dates for the listed APAR activities of the earlier circular; other content of the earlier circular (access, cadre arrangements, instructions) is not restated or withdrawn."
+    },
+    {
+      "id": "apar-2026-08-13-revises-2026-07-16",
+      "source": "apar-2026-08-13",
+      "target": "apar-2026-07-16",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "apar-2026-08-13",
+        "page_number": 1,
+        "quote": "dated 16.07.2026"
+      },
+      "scope": "Revises the dates for the listed APAR activities of the earlier circular; other content of the earlier circular (access, cadre arrangements, instructions) is not restated or withdrawn."
+    },
+    {
+      "id": "apar-2017-09-07-clarifies-2017-01-23",
+      "source": "apar-2017-09-07",
+      "target": "apar-2017-01-23",
+      "type": "clarifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "apar-2017-09-07",
+        "page_number": 1,
+        "quote": "HO Circular No. Vig. XIX (1)2014/Gen/173 dated 23.01.2017"
+      },
+      "scope": "Until further orders ACC (Zone) issues Vigilance Clearance for Group B, C and D officials of offices headed by RPFC-II-level officers after cadre restructuring; does not change the January 2017 rule for offices headed by RPFC-I."
+    }
+  ],
+  "limitations": [
+    "This concerns EPFO staff appraisal (APAR) and vigilance clearance, not EPF member services. Cadre, level and the officer's own position must be checked in the circular and its annexures.",
+    "Each revised-timeline circular lists maximum dates for the stated activities; later circulars revise earlier dates. As of a given date, the most recent circular issued on or before it states the operative timeline for the activities it lists; this history does not compute deadlines or auto-forward dates.",
+    "The 26 Aug 2025 and 20 Apr 2026 circulars are 87-page files that include a SPARROW user manual; only the circular pages and the timeline tables are relied on.",
+    "The 22 Sep 2025 circular moves MTS, electrician, lift operator, driver and similar cadres to the EPFO HR Portal for 2024-25. The 20 Apr 2026 circular excludes those cadres from SPARROW for 2025-26.",
+    "No commencement date is stated, so issue date is not treated as commencement. Missing or unread earlier circulars (for example the 2014 office order and 2015 and April 2017 vigilance letters cited in the checked documents, and the March 2021 HR-Soft circular) are not in this collection.",
+    "APAR cycles before 2020-21 and between 2021-22 and 2023-24, individual vigilance clearance requests (for example on superannuation) and DoPT rules are not covered.",
+    "Header dates on some scans are partly illegible. Issue dates follow the issuer listing and agree with the dates cited in later circulars of the same chain. The issuer table lists one 25 March 2026 circular twice (also as 25 March 2025); 25 March 2026 is correct.",
+    "PDFs were read from the issuer mirror on 3 November 2026 because the public site returned 404 for these paths that day; recorded SHA-256 values apply to those files. Scanned pages are OCR."
+  ]
+}
