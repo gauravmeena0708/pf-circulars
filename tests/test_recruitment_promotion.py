@@ -92,3 +92,19 @@ def test_matter_filter_and_issue_date_cutoff():
     ids = h.search('MACP guidelines', '2016-12-31', topics=['macp'])['documents']
     assert ids and all(d['topics'] == ['macp'] and d['issued_on'] <= '2016-12-31' for d in ids)
     assert not any(d['issued_on'] > '2016-12-31' for d in h.snapshot('2016-12-31')['documents'])
+
+
+def test_consultation_passages_do_not_return_through_the_supplementary_hybrid_path():
+    from policy_router import route_retrieval
+    h = history()
+    draft = next(d for d in h.documents.values() if d.get('document_role') == 'consultation')
+    live = next(d for d in h.documents.values() if d.get('document_role') != 'consultation' and d['topics'] == ['recruitment_rules'])
+
+    def chunk(doc):
+        return {'text': 'Recruitment Rules for the post', 'metadata': {
+            'title': doc['title'], 'circular_no': doc['circular_no'], 'date': doc['issued_on'], 'policy_document_id': doc['id'],
+            'page_number': 1, 'page_provenance': 'physical_pdf_page'}}
+
+    result = route_retrieval('xqzvk', '2026-12-31', lambda: [chunk(draft), chunk(live)], mode='recruitment_promotion')
+    used = {c['metadata'].get('policy_document_id') for c in result['chunks']}
+    assert draft['id'] not in used and live['id'] in used

@@ -108,6 +108,11 @@ def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=No
             selected_topics = report.get('selected_topics', [])
             if selected_topics and not set(selected_topics).intersection(history.matching_topics(title + ' ' + candidate.get('text', ''))):
                 continue
+            # A consultation (draft, call for comments) is never operative evidence, so its indexed
+            # passages must not return through the supplementary hybrid path either.
+            own = documents.get(meta.get("policy_document_id"))
+            if own and own.get("document_role") == "consultation":
+                continue
             issued = _issued_on(meta)
             # Unknown dates cannot safely enter a historical evidence packet.
             if issued is None or issued > cutoff:
