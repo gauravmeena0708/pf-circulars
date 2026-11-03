@@ -1,0 +1,555 @@
+{
+  "schema_version": 1,
+  "id": "staff_transfer",
+  "reviewed_on": "2026-11-03",
+  "topics": [
+    {
+      "id": "commissioners",
+      "label": "Commissioners' cadre",
+      "include": "commissioner|\\bRPFC\\b|\\bAPFC\\b|\\bCPFC\\b|\\bTP-CC\\b|\\bCTC\\b"
+    },
+    {
+      "id": "group_b",
+      "label": "Group B (EO/AO, SS, SO/ASO/PS, JTO/STO)",
+      "include": "group\\s*['\\u2018\\u2019]?\\s*B\\b|\\bEO\\b|\\bAO\\b|enforcement officer|accounts officer|section supervisor|\\bTP-GB\\b|\\bJTO\\b|\\bSTO\\b|translation officer|\\bSO\\b|\\bASO\\b"
+    },
+    {
+      "id": "group_c",
+      "label": "Group C (SSA, LDC/UDC, MTS)",
+      "include": "group\\s*['\\u2018\\u2019]?\\s*C\\b|\\bSSA\\b|social security assistant|\\bLDC\\b|\\bUDC\\b|\\bMTS\\b|\\bTP-GC\\b|\\bTP-SSA\\b|inter[- ]?state"
+    }
+  ],
+  "documents": [
+    {
+      "id": "tp-comm-2022-02-24",
+      "title": "Draft Transfer Policy for Commissioners' cadre, 2022 (for comments)",
+      "circular_no": "HO No. HRD/3/2015/Transfer Policy/566",
+      "issued_on": "2022-02-24",
+      "authority": "EPFO draft circulated for comments; not an operative policy",
+      "topics": [
+        "commissioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/HRD_TfrPolicy_Commissioner_566.pdf",
+      "source_file": "sources/tp-comm-2022-02-24.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Draft Transfer Policy for Commissioners' cadre, 2022 (for comments)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "tp-comm-2022-02-24",
+        "page_number": 1,
+        "quote": "revised draft policy"
+      },
+      "document_role": "consultation"
+    },
+    {
+      "id": "tp-comm-2022-03-30",
+      "title": "Transfer Policy for Commissioners' Cadre, 2022",
+      "circular_no": "HO No. HRD/3/2015/Transfer Policy/584",
+      "issued_on": "2022-03-30",
+      "authority": "EPFO Head Office HRD circular",
+      "topics": [
+        "commissioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/HRD_TransferPolicy_Comm_584.pdf",
+      "source_file": "sources/tp-comm-2022-03-30.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Transfer Policy for Commissioners' Cadre, 2022",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "tp-comm-2022-03-30",
+        "page_number": 1,
+        "quote": "is hereby placed on public domain and thus notified for information of all"
+      }
+    },
+    {
+      "id": "tp-comm-2022-05-30",
+      "title": "Amendment to the Transfer Policy of Commissioners' Cadre, 2022 (competent authority, CTC)",
+      "circular_no": "HO No. HRD/3/2015/TransferPolicy/616",
+      "issued_on": "2022-05-30",
+      "authority": "EPFO Head Office HRD circular",
+      "topics": [
+        "commissioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/HRD_TransferPolicy_Commissioner_616.pdf",
+      "source_file": "sources/tp-comm-2022-05-30.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Amendment to the Transfer Policy of Commissioners' Cadre, 2022 (competent authority, CTC)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "tp-comm-2022-05-30",
+        "page_number": 1,
+        "quote": "the following amendments are notified as under"
+      }
+    },
+    {
+      "id": "tp-comm-2024-01-25",
+      "title": "Amendment to the Transfer Policy of Commissioners' Cadre, 2022 (transfers on promotion)",
+      "circular_no": "No.HRD/3/2015/TransferPolicy/953",
+      "issued_on": "2024-01-25",
+      "authority": "EPFO Head Office HRD circular",
+      "topics": [
+        "commissioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/Circular_HRD_25012024.pdf",
+      "source_file": "sources/tp-comm-2024-01-25.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Amendment to the Transfer Policy of Commissioners' Cadre, 2022 (transfers on promotion)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "tp-comm-2024-01-25",
+        "page_number": 1,
+        "quote": "the following amendment is notified as under"
+      }
+    },
+    {
+      "id": "tp-comm-2025-01-30",
+      "title": "Transfer Policy for Commissioners' Cadre in EPFO, 2025",
+      "circular_no": "No.HRD-I/87/2024/TransferPolicyReview/Misc/1225",
+      "issued_on": "2025-01-30",
+      "authority": "EPFO Head Office HRD circular",
+      "topics": [
+        "commissioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/TransferPolicy_CommissionerCadreFinal.pdf",
+      "source_file": "sources/tp-comm-2025-01-30.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Transfer Policy for Commissioners' Cadre in EPFO, 2025",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "tp-comm-2025-01-30",
+        "page_number": 1,
+        "quote": "is hereby placed in public domain and thus notified for information of all"
+      }
+    },
+    {
+      "id": "tp-comm-2025-02-21",
+      "title": "Corrigendum to the Transfer Policy for Commissioners' Cadre, 2025",
+      "circular_no": "No. HRD-I/87/2024/TransferPolicyReview/Misc/1236",
+      "issued_on": "2025-02-21",
+      "authority": "EPFO Head Office HRD circular",
+      "topics": [
+        "commissioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/Corrigendum_TPCC_21022025.pdf",
+      "source_file": "sources/tp-comm-2025-02-21.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Corrigendum to the Transfer Policy for Commissioners' Cadre, 2025",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "tp-comm-2025-02-21",
+        "page_number": 1,
+        "quote": "Corrigendum to the Transfer Policy for Commissioners"
+      }
+    },
+    {
+      "id": "tp-gb-2022-02-24",
+      "title": "Draft Transfer Policy for Group B Officers in EPFO (for comments)",
+      "circular_no": "HO No. HRD/17/2021/Transfer Policy/Group B/568",
+      "issued_on": "2022-02-24",
+      "authority": "EPFO draft circulated for comments; not an operative policy",
+      "topics": [
+        "group_b"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/HRD_TfrPolicy_GroupB_568.pdf",
+      "source_file": "sources/tp-gb-2022-02-24.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Draft Transfer Policy for Group B Officers in EPFO (for comments)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "tp-gb-2022-02-24",
+        "page_number": 1,
+        "quote": "revised draft policy"
+      },
+      "document_role": "consultation"
+    },
+    {
+      "id": "tp-gb-2022-06-14",
+      "title": "Transfer Policy for Group B Officers in EPFO, 2022",
+      "circular_no": "HO.No. HRD/17/2021/TransferPolicy/GroupB/620",
+      "issued_on": "2022-06-14",
+      "authority": "EPFO Head Office HRD circular",
+      "topics": [
+        "group_b"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/TP_GB Final_14062022.pdf",
+      "source_file": "sources/tp-gb-2022-06-14.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Transfer Policy for Group B Officers in EPFO, 2022",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "tp-gb-2022-06-14",
+        "page_number": 1,
+        "quote": "is hereby placed on public domain and thus notified for information of all"
+      }
+    },
+    {
+      "id": "tp-gb-2022-12-23",
+      "title": "Amendment to the Transfer Policy for Group B Officers (intra-state tenure)",
+      "circular_no": "NO.HRD/93/2022/TP-GB/Misc./720",
+      "issued_on": "2022-12-23",
+      "authority": "EPFO Head Office HRD circular",
+      "topics": [
+        "group_b"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/Revision_TP_23122022.pdf",
+      "source_file": "sources/tp-gb-2022-12-23.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Amendment to the Transfer Policy for Group B Officers (intra-state tenure)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "tp-gb-2022-12-23",
+        "page_number": 1,
+        "quote": "the following amendments are notified as under"
+      }
+    },
+    {
+      "id": "tp-gb-2023-01-31",
+      "title": "Clarification to the Transfer Policy for Group B Officers (GB-TC composition)",
+      "circular_no": "No.HRD/93/2022/TP-GB/Misc./732",
+      "issued_on": "2023-01-31",
+      "authority": "EPFO Head Office HRD circular",
+      "topics": [
+        "group_b"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/TP_GB_Clarification_0102202.pdf",
+      "source_file": "sources/tp-gb-2023-01-31.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Clarification to the Transfer Policy for Group B Officers (GB-TC composition)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "tp-gb-2023-01-31",
+        "page_number": 1,
+        "quote": "it is clarified that"
+      }
+    },
+    {
+      "id": "tp-gb-2025-01-30",
+      "title": "Transfer Policy for Group B Cadres in EPFO, 2025",
+      "circular_no": "HRD-I/87/2024/TransferPolicyReview/Misc/1226",
+      "issued_on": "2025-01-30",
+      "authority": "EPFO Head Office HRD circular",
+      "topics": [
+        "group_b"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/TransferPolicy_ Group_BFinal.pdf",
+      "source_file": "sources/tp-gb-2025-01-30.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Transfer Policy for Group B Cadres in EPFO, 2025",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "tp-gb-2025-01-30",
+        "page_number": 1,
+        "quote": "is hereby placed in public domain and thus notified for information of all"
+      }
+    },
+    {
+      "id": "tp-gc-2022-05-17",
+      "title": "Draft Transfer Policy for the Social Security Assistant cadre, 2022 (for comments)",
+      "circular_no": "HO No. HRD/30/2022/TransferPolicy/SSA/605",
+      "issued_on": "2022-05-17",
+      "authority": "EPFO draft circulated for comments; not an operative policy",
+      "topics": [
+        "group_c"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/HRD_TransferPolicy_SSA_605.pdf",
+      "source_file": "sources/tp-gc-2022-05-17.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Draft Transfer Policy for the Social Security Assistant cadre, 2022 (for comments)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "tp-gc-2022-05-17",
+        "page_number": 1,
+        "quote": "the draft Transfer Policy for Cadre of Social Security Assistants"
+      },
+      "document_role": "consultation"
+    },
+    {
+      "id": "tp-gc-2022-12-12",
+      "title": "Transfer Policy for the Social Security Assistant cadre, 2022",
+      "circular_no": "HO No. HRD/30/2022/TransferPolicy/SSA-Part(2)/709",
+      "issued_on": "2022-12-12",
+      "authority": "EPFO Head Office HRD circular",
+      "topics": [
+        "group_c"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/HRD302022TransferPolicySSA-Part2-709.pdf",
+      "source_file": "sources/tp-gc-2022-12-12.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Transfer Policy for the Social Security Assistant cadre, 2022",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "tp-gc-2022-12-12",
+        "page_number": 1,
+        "quote": "is hereby placed on public domain and thus notified for information of all"
+      }
+    },
+    {
+      "id": "tp-gc-2024-01-29",
+      "title": "Implementation of the SSA Transfer Policy: CAT stay orders",
+      "circular_no": "HO No. HRD/09/2023/TP-SSA/CATCases/955",
+      "issued_on": "2024-01-29",
+      "authority": "EPFO Head Office HRD circular",
+      "topics": [
+        "group_c"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/Transfer_Policy_SSA_29.01.2024.pdf",
+      "source_file": "sources/tp-gc-2024-01-29.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Implementation of the SSA Transfer Policy: CAT stay orders",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "tp-gc-2024-01-29",
+        "page_number": 1,
+        "quote": "stay against the implementation of the policy has been granted in various cases"
+      }
+    },
+    {
+      "id": "tp-gc-2025-01-30",
+      "title": "Transfer Policy for Group C Cadres in EPFO, 2025",
+      "circular_no": "HRD-I/87/2024/TransferPolicyReview/Misc/1227",
+      "issued_on": "2025-01-30",
+      "authority": "EPFO Head Office HRD circular",
+      "topics": [
+        "group_c"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/TransferPolicy_ Group_CFinal.pdf",
+      "source_file": "sources/tp-gc-2025-01-30.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Transfer Policy for Group C Cadres in EPFO, 2025",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "tp-gc-2025-01-30",
+        "page_number": 1,
+        "quote": "is hereby placed in public domain and thus notified for information of all"
+      }
+    },
+    {
+      "id": "tp-gc-2025-11-25",
+      "title": "Clarifications and modifications to the Group C Transfer Policy, 2025",
+      "circular_no": "HRD/30/2022/TransferPolicy/SSA/1466",
+      "issued_on": "2025-11-25",
+      "authority": "EPFO Head Office HRD circular",
+      "topics": [
+        "group_c"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/TransferPolicyGroupC_Cadres2025_Clarification.pdf",
+      "source_file": "sources/tp-gc-2025-11-25.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Clarifications and modifications to the Group C Transfer Policy, 2025",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "tp-gc-2025-11-25",
+        "page_number": 1,
+        "quote": "Certain clarifications/modifications are being made in the Transfer Policy"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "comm-2022-05-30-amends-2022",
+      "source": "tp-comm-2022-05-30",
+      "target": "tp-comm-2022-03-30",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "tp-comm-2022-05-30",
+        "page_number": 1,
+        "quote": "circulated vide circular of even number dated 30.3.2022"
+      },
+      "scope": "Only the Competent Authority table in Para 3 and the composition of the Commissioners' Transfer Committee in Para 3.3. All other provisions are stated to remain the same."
+    },
+    {
+      "id": "comm-2024-01-25-amends-2022",
+      "source": "tp-comm-2024-01-25",
+      "target": "tp-comm-2022-03-30",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "tp-comm-2024-01-25",
+        "page_number": 1,
+        "quote": "Amendment to the Transfer Policy of Commissioners"
+      },
+      "scope": "Only Para 5.18(iv): transfers on promotion are made by the Competent Authority defined in Para 3 as amended on 30.05.2022, instead of by the CPFC. All other provisions remain the same."
+    },
+    {
+      "id": "comm-2024-01-25-cites-2022-05-30",
+      "source": "tp-comm-2024-01-25",
+      "target": "tp-comm-2022-05-30",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "tp-comm-2024-01-25",
+        "page_number": 1,
+        "quote": "by Circular No. HRD/3/2015/Transfer Policy/616 dated 30.05.2022"
+      },
+      "scope": "The January 2024 amendment relies on the Competent Authority as amended by the May 2022 circular."
+    },
+    {
+      "id": "comm-2025-supersession-generic",
+      "source": "tp-comm-2025-01-30",
+      "target": "tp-comm-2022-03-30",
+      "type": "supersedes",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "tp-comm-2025-01-30",
+        "page_number": 2,
+        "quote": "This policy supersedes all earlier policies in this regard."
+      },
+      "scope": "Candidate link: the 2025 policy supersedes \"all earlier policies in this regard\" without naming the 2022 policy or its amendments. The 2022 policy falls within that class but is not identified by number; no named supersession is asserted."
+    },
+    {
+      "id": "comm-2025-02-21-corrects-2025",
+      "source": "tp-comm-2025-02-21",
+      "target": "tp-comm-2025-01-30",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "tp-comm-2025-02-21",
+        "page_number": 1,
+        "quote": "Corrigendum to the Transfer Policy for Commissioners"
+      },
+      "scope": "Corrects clause 2.2(ii), the composition of the committee for Commissioners at RPFC-II level and below. Other clauses are not addressed."
+    },
+    {
+      "id": "gb-2022-12-23-amends-2022",
+      "source": "tp-gb-2022-12-23",
+      "target": "tp-gb-2022-06-14",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "tp-gb-2022-12-23",
+        "page_number": 1,
+        "quote": "Please refer to the Transfer Policy for Group B Officers in EPFO (TP-GB) circulated vide HRD/17/2021/TransferPolicy/GroupB/620 dated 14.06.2022"
+      },
+      "scope": "Paras 4.2(iii) and 4.2(iv) tenure wording to ensure intra-state transfers, and a fixed-period rule for inter-state transfer requests of EO/AO and Section Supervisors."
+    },
+    {
+      "id": "gb-2023-01-31-clarifies-2022",
+      "source": "tp-gb-2023-01-31",
+      "target": "tp-gb-2022-06-14",
+      "type": "clarifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "tp-gb-2023-01-31",
+        "page_number": 1,
+        "quote": "it is clarified that, in r/o multi Zone States"
+      },
+      "scope": "Composition of the Zonal Level GB-TC in multi-Zone and multi-State Zones; does not change tenure or eligibility rules."
+    },
+    {
+      "id": "gb-2025-supersession-generic",
+      "source": "tp-gb-2025-01-30",
+      "target": "tp-gb-2022-06-14",
+      "type": "supersedes",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "tp-gb-2025-01-30",
+        "page_number": 2,
+        "quote": "This policy supersedes the existing guidelines for transfer or rotation of officials of Group B Cadres"
+      },
+      "scope": "Candidate link: the 2025 policy supersedes \"existing guidelines\" for Group B cadres without naming the 2022 policy or its amendment/clarification; no named supersession is asserted."
+    },
+    {
+      "id": "gc-2024-01-29-records-stay",
+      "source": "tp-gc-2024-01-29",
+      "target": "tp-gc-2022-12-12",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "tp-gc-2024-01-29",
+        "page_number": 1,
+        "quote": "the same has been challenged by employees in various benches of Hon"
+      },
+      "scope": "Records that CAT benches granted stays against implementing the 2022 SSA policy and that no option process was started. This is neither a withdrawal nor a supersession of the policy; the legal outcome of the challenge is not in these documents."
+    },
+    {
+      "id": "gc-2025-supersession-generic",
+      "source": "tp-gc-2025-01-30",
+      "target": "tp-gc-2022-12-12",
+      "type": "supersedes",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "tp-gc-2025-01-30",
+        "page_number": 2,
+        "quote": "This policy supersedes the existing guidelines for transfer or rotation or Inter Regional (State) Transfer for the cadre of SSA and other Group C"
+      },
+      "scope": "Candidate link: the 2025 policy supersedes the \"existing guidelines\" for SSA and other Group C cadres without naming the 2022 SSA policy; no named supersession is asserted."
+    },
+    {
+      "id": "gc-2025-11-25-modifies-2025",
+      "source": "tp-gc-2025-11-25",
+      "target": "tp-gc-2025-01-30",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "tp-gc-2025-11-25",
+        "page_number": 1,
+        "quote": "Certain clarifications/modifications are being made in the Transfer Policy"
+      },
+      "scope": "Applies the policy to all Group C employees, says 10-year SSA rotation is not mandatory, revises the inter-state transfer schedule in clause 3.1 and sets up zonal grievance committees. Other provisions are not addressed."
+    }
+  ],
+  "limitations": [
+    "This collection concerns transfer policies for EPFO staff, not transfer of EPF member accounts. It covers the cadre policy documents and their amendments, not each year's Annual General Transfer option notices, vacancy lists, block-post circulars or individual orders.",
+    "Only the Commissioners' cadre, Group B and Group C/SSA policies from 2022 onward are checked here. Earlier Group A, Commissioner and SSA inter-regional policies (2015-2020) and the Official Language, Ministry and other cadre policies are not included, so the targets of \"supersedes existing guidelines\" wording are unverified.",
+    "Each 2025 policy says it supersedes earlier policies or guidelines generically. These links stay target_unverified; chronology is not treated as a named supersession.",
+    "Drafts circulated for comments (marked consultation) are not operative policy. The 12 December 2022 SSA policy was challenged before the CAT and the January 2024 circular reports stays against implementing it; the outcome of those proceedings is not in these documents.",
+    "No commencement date is stated in the checked circulars, so effective dates are left unset and issue date is not treated as commencement. Cadre, level, posting, sensitivity and exemptions must be checked in the policy text.",
+    "The Group C clarification circular is dated 25 November 2025 on the document itself; the issuer's website listing shows 25 April 2025, which is treated as a listing error.",
+    "PDFs were read from the issuer mirror on 3 November 2026 because the public site returned 404 for these paths that day; recorded SHA-256 values apply to those files. Several scanned pages are OCR; policy paragraph numbers and clause references should be checked against the original."
+  ]
+}

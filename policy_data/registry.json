@@ -2,6 +2,15 @@
   "schema_version": 1,
   "policies": [
     {
+      "id": "staff_transfer",
+      "label": "EPFO staff transfer policy",
+      "scope": "EPFO staff transfer policies by cadre (Commissioners, Group B, Group C/SSA) and their amendments; not EPF member account transfers or yearly option notices",
+      "path": "staff_transfer/policy.json",
+      "include": "annual\\s+general\\s+transfer|\\bAGT\\b|transfer\\s+polic(?:y|ies)|rotational\\s+transfer|mutual\\s+transfer|request\\s+transfer|inter[- ]?(?:state|regional)\\s+transfer|\\bIRT\\b|\\bTP-(?:CC|GB|GC|SSA)\\b",
+      "exclude": "transfer\\s+claim|form\\s*13|annexure\\s*[ -]?k|(?:EPF|PF)\\s+account|EPS\\s+service|member\\s+account|\\bUAN\\b|overlap|settlement\\s+of\\s+claim",
+      "route": "staff_transfer_policy"
+    },
+    {
       "id": "delegation",
       "label": "Delegation of powers",
       "scope": "Matter-specific EPFO administrative, financial and sanctioning powers; authority layers and historical changes",

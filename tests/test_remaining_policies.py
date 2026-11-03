@@ -20,7 +20,7 @@ def test_policy_scope_routes(query, policy):
     assert select_policy(query).id == policy
 
 
-@pytest.mark.parametrize('query', ['SSA cadre transfer policy', 'staff transfer', 'staff pension CPPC',
+@pytest.mark.parametrize('query', ['staff transfer', 'staff pension CPPC',
                                   'payment of advance against PLB bonus', 'LTC staff advance'])
 def test_member_policy_routes_exclude_staff_matters(query):
     assert select_policy(query) is None

@@ -1,0 +1,18 @@
+{
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
+  "cases": [
+    {"id": "tp-cc-competent-authority", "question": "Who is the competent authority for transfers in the Commissioners cadre and how is the CTC constituted?", "as_of": "2022-05-30",
+     "required_evidence": [{"document_id": "tp-comm-2022-05-30", "page_number": 1}],
+     "relationship": {"id": "comm-2022-05-30-amends-2022", "type": "partially_modifies"}},
+    {"id": "tp-cc-promotion", "question": "Who makes transfers on promotion under the Commissioners cadre transfer policy?", "as_of": "2024-01-25",
+     "required_evidence": [{"document_id": "tp-comm-2024-01-25", "page_number": 1}]},
+    {"id": "tp-gb-intrastate", "question": "Group B transfer policy intra state tenure amendment for EO/AO and Section Supervisor", "as_of": "2022-12-23",
+     "required_evidence": [{"document_id": "tp-gb-2022-12-23", "page_number": 1}]},
+    {"id": "tp-gb-gbtc", "question": "Composition of the GB-TC in multi Zone States", "as_of": "2023-01-31",
+     "required_evidence": [{"document_id": "tp-gb-2023-01-31", "page_number": 1}]},
+    {"id": "tp-ssa-stay", "question": "Has the SSA transfer policy been stayed by the CAT?", "as_of": "2024-01-29",
+     "required_evidence": [{"document_id": "tp-gc-2024-01-29", "page_number": 1}]},
+    {"id": "tp-gc-before-clarification", "question": "Group C transfer policy 2025 clarification inter state transfer schedule", "as_of": "2025-04-25",
+     "absent_documents": ["tp-gc-2025-11-25"]}
+  ]
+}

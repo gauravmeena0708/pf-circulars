@@ -2,7 +2,7 @@
 
 The hosted search supports **JD member profile**, **Member profile / Aadhaar**,
 **Transfer claims**, **Higher pension / PoHW**, **Pension payment / CPPS**,
-**Advances / auto-settlement**, and **EPF interest rate**.
+**Advances / auto-settlement**, **EPF interest rate**, and **EPFO staff transfer policy**.
 Choose a policy or Automatic, set **Evidence as of**, then submit a question.
 Automatic recognises registered scopes in registry order; the more specific Aadhaar
 scope precedes JD. Choose an explicit policy for short follow-up questions. Standard
@@ -122,3 +122,9 @@ unverified. No allowance or financial ceiling is certified merely from chronolog
 **EPF interest rate** records the yearly declaration circulars for 2010-11 to 2025-26
 (19 documents; see [epf_interest_rate](epf_interest_rate/README.md)). Each year's rate stands
 on its own; the only modification chain is the 2011 interim settlement rate.
+
+## EPFO staff transfer policy
+
+**EPFO staff transfer policy** covers the Commissioners' cadre, Group B and Group C/SSA
+transfer policies and amendments (see [staff_transfer](staff_transfer/README.md)). It has a
+Matter selector like delegation and employee benefits; drafts are consultation-only.
