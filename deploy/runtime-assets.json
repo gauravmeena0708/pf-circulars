@@ -1,21 +1,21 @@
 {
   "repo": "gauravmeena0708/pf-circulars",
-  "revision": "08c8ea392d3e27e36216a472128d320bf5ff34c7",
+  "revision": "a7958bf10fb716f0f9517b53ed2cdd6c8d1ac6c4",
   "files": [
     {
       "path": "vector_store/data_index/faiss_index.bm25.json.gz",
-      "size": 11013026,
-      "sha256": "c8f7112176b18b66d58334345f906a3909a9f737950b467e95115a0d72f5684d"
+      "size": 11141788,
+      "sha256": "ff8435b715fa8ba2407ef6a18b49b3cf1b74866ff39455d39bd99a88b62f473e"
     },
     {
       "path": "vector_store/data_index/faiss_index.index",
-      "size": 117157266,
-      "sha256": "ecbf1fe7ea75d46c1205e022ffc9e2145659864f8486bbe9800562eb744e4636"
+      "size": 118319898,
+      "sha256": "4e7793dc5921201c0fa63ef571d40e2cf99cfaef0756b70fc9062b515ffd6645"
     },
     {
       "path": "vector_store/data_index/faiss_index.passages.db",
-      "size": 114397184,
-      "sha256": "d33ac12e86a0d76299c0c4db77cf59e358211f12c42135d8a2091744b78a1f50"
+      "size": 117567488,
+      "sha256": "101d15802f2e1bc0d26c47460917d7fa0d685b406051439d87e6a2a03d5a1ab7"
     }
   ]
 }
