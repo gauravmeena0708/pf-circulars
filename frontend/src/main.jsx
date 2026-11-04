@@ -4,6 +4,7 @@ import Markdown from "./Markdown";
 import {
   Search,
   LibraryBig,
+  Building2,
   GitBranch,
   Files,
   ArrowUpRight,
@@ -30,6 +31,7 @@ import {
 } from "lucide-react";
 import "./style.css";
 import { Assistant, PdfTools, SessionSettings } from "./Workspace";
+import Divisions from "./Divisions";
 import { headers, request as fetchWorkspace, saveResponse } from "./client";
 
 const dateText = (v) => {
@@ -326,6 +328,16 @@ function App() {
           >
             <LibraryBig size={18} />
             Policy library
+          </button>
+          <button
+            className={page === "divisions" ? "active" : ""}
+            onClick={() => {
+              setPage("divisions");
+              setMenu(false);
+            }}
+          >
+            <Building2 size={18} />
+            Policies by division
           </button>
           <button
             className={page === "assistant" ? "active" : ""}
@@ -1368,6 +1380,15 @@ function App() {
                 ))}
               </div>
             </>
+          )}
+          {page === "divisions" && (
+            <Divisions
+              onOpenPolicy={(id) => {
+                setSelectedHistory(id);
+                setHistoryTopic("");
+                setPage("history");
+              }}
+            />
           )}
           <div hidden={page !== "assistant"}>
             <Assistant

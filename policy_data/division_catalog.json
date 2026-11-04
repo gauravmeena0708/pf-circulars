@@ -1,0 +1,1987 @@
+{
+ "schema_version": 1,
+ "generated_from": "docs/division_policies",
+ "divisions": [
+  {
+   "id": "information_services",
+   "name": "Information Services",
+   "title": "Information Services (IS) division: policies and status",
+   "source_file": "docs/division_policies/information_services.md",
+   "intro": "Source: the issuer's circulars table (`division = INFORMATION SERVICES`, 486 circulars, 2007-2026), with the circulars named below read in full. \"Managed by\" means \"issued by this division\". Status is stated only where a circular says it; otherwise the last circular found is given and the policy is **not** called inactive.",
+   "notes": "Not assessed: about 105 circulars that match none of the topics above (mostly one-off notices); see the work file. Cross-division items filed under IS: the 2013-01-21 \"Revised delegation of Financial Powers\" belongs to the HRD delegation history.",
+   "sections": [
+    {
+     "heading": "",
+     "columns": [
+      "#",
+      "Policy / topic",
+      "Key circulars",
+      "Status",
+      "Evidence"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "1",
+        "Issue Tracker (issue logging, escalation)",
+        "2008 call logging and escalation matrix; 2012-11-27 and 2015-06-23 J-Track procedure orders; 2020-01-17 raising issues in the Issue Tracker",
+        "**Discontinued 23 Jul 2026**, replaced by the Samadhan Setu web application",
+        "NDC/e-1320153: \"The existing Issue Tracker Portal is discontinued\". J-Track orders: no later circular"
+       ],
+       "status_kind": "ended",
+       "collections": []
+      },
+      {
+       "cells": [
+        "2",
+        "Laptop / desktop / tablet specifications",
+        "2019-01-08 (laptop, desktop, thin client, printer, UPS, virus scanner, MS Office); 2021-10-25 specification (cited only); 2025-12-11 revised model technical specifications",
+        "**Active: 11 Dec 2025.** The 2019 and 2021 specifications are superseded",
+        "2025 circular \"supersedes the previous specifications ... circular dated 25/10/2021\"; 2019 circular \"supersedes all previous circulars\" on these items"
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "3",
+        "Laptop purchase for eligible officers",
+        "2018-05-09 revised guidelines",
+        "Revised later (2024-12-18 instructions; see the Employee benefits collection)",
+        "Title of the 2024 circular only"
+       ],
+       "status_kind": "other",
+       "collections": [
+        "employee_benefits"
+       ]
+      },
+      {
+       "cells": [
+        "4",
+        "IT equipment norms for offices",
+        "2009-03-06 basic norms; 2009-10-07 supplemental norms (HO, zones); 2014-09-17 supplementary norm; 2016-02-12 revised and supplementary norms; 2018-12-13 IT infrastructure enhancement guidelines",
+        "Layered. Laptop/desktop/printer/UPS parts superseded by 2019-01-08; other items (servers, networking) have no stated replacement. Last circular 2018-12",
+        "2009 \"in addition to the norms communicated earlier\"; 2014 \"all instructions remain same\""
+       ],
+       "status_kind": "ended",
+       "collections": []
+      },
+      {
+       "cells": [
+        "5",
+        "Obsolescence policy for hardware",
+        "2008-11-05",
+        "Still cited as \"must be strictly followed\" in Dec 2018 and Jan 2019. No later circular found",
+        "2018-12-13 and 2019-01-08 circulars"
+       ],
+       "status_kind": "other",
+       "collections": []
+      },
+      {
+       "cells": [
+        "6",
+        "Thin clients, servers, peripherals, AMC and warranty",
+        "2008-05-19 policy decision; 2016-01-19 revised thin-client rate-contract specification; 2012-2016 AMC and warranty extensions (about 13); 2017-08-10 BSOD guidelines",
+        "Thin-client specification now covered by the 2019 circular. AMC/warranty: no activity since 2016",
+        "2019-01-08 circular lists thin client"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "7",
+        "Mobile devices and apps",
+        "2017-11-09 supplementary norms for mobile devices (Digital Life Certificate registration; biometric/IRIS device software); 2015-09-22 mobile app and SMS UAN activation; 2019-09-03 dashboard mobile app 2.0; 2022-07-01 mobile malware advisory",
+        "No handset specification found under IS. Last circular 2022",
+        ""
+       ],
+       "status_kind": "other",
+       "collections": []
+      },
+      {
+       "cells": [
+        "8",
+        "Network: MPLS, WAN, broadband, VPN",
+        "2022-02-21 revised MPLS bandwidth; 2024-11-13 web-based VPN with MFA (migration SOP); 2025-06-25 e-Office VPN password change",
+        "**Active (latest 2025-06).** 2022 bandwidth revised the earlier allocation",
+        "Titles; 2024 circular describes the migration"
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "9",
+        "Authentication and cyber security",
+        "2020-12-09 mandatory 2FA for email; 2021-12-17 mandatory MFA; 2022 advisories 2022/01-03 and the e-Office classified-documents advisory; 2016-12-19 cyber-incident reporting; 2016-04-05 anti-piracy (revised); 2015 Government e-mail and IT-resource policies forwarded",
+        "**Active (latest 2024-25).** Advisories are time-bound alerts, not standing rules",
+        ""
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "10",
+        "e-Office",
+        "2022-11-14 digitisation instructions; 2026-08-03 scheduled downtime for upgrade",
+        "**Active (2026)**",
+        ""
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "11",
+        "Computerisation budget and purchase powers",
+        "about 49 circulars 2008-2019 (revised and budget estimates, allocations, delegation under the Computerisation head)",
+        "Annual notices; last 2019-10-14. Delegation text is in the Delegation collection (IT matter, 2008-2023)",
+        ""
+       ],
+       "status_kind": "routine",
+       "collections": [
+        "delegation"
+       ]
+      },
+      {
+       "cells": [
+        "12",
+        "Application software releases and instructions",
+        "about 120 circulars 2008-2026: CCPS/CEPS/DMCC/SAMA versions (2008-2010), ECR launch (2012), Unified Portal (2016-17), auto-transfer of accounts",
+        "Pre-2011 stand-alone releases not mentioned after 2010; no stated discontinuation. Later items not individually assessed",
+        ""
+       ],
+       "status_kind": "ended",
+       "collections": []
+      },
+      {
+       "cells": [
+        "13",
+        "UAN and member-service features",
+        "about 77 circulars 2008-2022 (UAN allotment 2015, KYC seeding protocol 2015-01-20, Jeevan Pramaan upload 2017-11-13)",
+        "Not assessed; many are overtaken by later circulars from other divisions",
+        ""
+       ],
+       "status_kind": "other",
+       "collections": []
+      },
+      {
+       "cells": [
+        "14",
+        "Employer ECR and challan features",
+        "about 35 circulars 2010-2020",
+        "Not assessed",
+        ""
+       ],
+       "status_kind": "other",
+       "collections": []
+      },
+      {
+       "cells": [
+        "15",
+        "MIS and dashboards",
+        "about 20 circulars 2009-2019 (MIS launch 2014-07-02)",
+        "Not assessed",
+        ""
+       ],
+       "status_kind": "other",
+       "collections": []
+      },
+      {
+       "cells": [
+        "16",
+        "IT projects, tenders, e-procurement",
+        "7 circulars 2010-2016; 2012-03-30 e-procurement quality guidelines; 2015-11-09 mandatory publication on CPPP; 2016-11-01 g-NOC tender cancelled",
+        "The 2016 g-NOC tender is **cancelled** (stated)",
+        "Title of 2016-11-01 circular"
+       ],
+       "status_kind": "ended",
+       "collections": []
+      },
+      {
+       "cells": [
+        "17",
+        "Outsourced technical manpower, data entry",
+        "about 25 circulars to 2016-07",
+        "No activity since 2016-07",
+        ""
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "18",
+        "IS Division notes (contact list, work distribution, pending cases)",
+        "about 19 circulars 2013-2019",
+        "Administrative; not policy",
+        ""
+       ],
+       "status_kind": "routine",
+       "collections": []
+      }
+     ],
+     "text": ""
+    }
+   ],
+   "row_count": 18
+  },
+  {
+   "id": "hrm_hrd",
+   "name": "HRM and HRD",
+   "title": "HRM and HRD divisions: policies and status",
+   "source_file": "docs/division_policies/hrm_hrd.md",
+   "intro": "Source: issuer's circulars table (`division` HRM 3,175 and HRD 726 circulars, 2007-2026; the two overlap and HRD circulars also sit under HRM sub-divisions, so they are profiled together). \"Managed by\" means \"issued by\". Status is given only where a circular says it; otherwise the last circular found is shown and the policy is **not** called inactive. The last column links to the repo collection that already holds the topic.",
+   "notes": "Notes: titles are the evidence for the table above; the full circular text was not read for each.",
+   "sections": [
+    {
+     "heading": "",
+     "columns": [
+      "#",
+      "Policy / topic",
+      "Circulars (approx.) and span",
+      "Status",
+      "Repo collection"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "1",
+        "Transfer policy and Annual General Transfer (Group A/B/C, Commissioners, SSA)",
+        "about 105, 2009-2026",
+        "**Active.** Cadre policies replaced in 2025 (each states it supersedes earlier ones; targets unverified). Last 2026-01-12",
+        "Staff transfer policy"
+       ],
+       "status_kind": "active",
+       "collections": [
+        "staff_transfer"
+       ]
+      },
+      {
+       "cells": [
+        "2",
+        "APAR (SPARROW) timelines; vigilance clearance",
+        "about 57 APAR, 2010-2026",
+        "**Active.** Last 2026-08-13",
+        "APAR / vigilance clearance"
+       ],
+       "status_kind": "active",
+       "collections": [
+        "apar_sparrow"
+       ]
+      },
+      {
+       "cells": [
+        "3",
+        "Recruitment rules, DPC procedure, MACP/NFU",
+        "rules and scheme guidance, 2009-2026",
+        "**Active.** MTS rules 2017 supersede 2011; Section Supervisor 2019 supersede 2017",
+        "Recruitment rules and promotion"
+       ],
+       "status_kind": "active",
+       "collections": [
+        "recruitment_promotion"
+       ]
+      },
+      {
+       "cells": [
+        "4",
+        "Dearness allowance and relief (staff and pensioners) and 7th CPC implementation",
+        "about 40 CPC circulars to 2019; DA/DR to 2026",
+        "**Active.** Latest rate 60% from 1 Jan 2026. 5th-7th CPC implementation circulars are closed history",
+        "Dearness allowance / relief"
+       ],
+       "status_kind": "active",
+       "collections": [
+        "dearness"
+       ]
+      },
+      {
+       "cells": [
+        "5",
+        "Delegation of administrative powers (personnel, honorarium, compassionate appointment)",
+        "from 2017",
+        "**Active.** See the Delegation collection for the chain",
+        "Delegation of powers"
+       ],
+       "status_kind": "active",
+       "collections": [
+        "delegation"
+       ]
+      },
+      {
+       "cells": [
+        "6",
+        "Foreign visits (private)",
+        "2013-2026",
+        "**Active.** 2017 delegation supersedes 2016; 2026 circular on vigilance clearance",
+        "Foreign visit permissions"
+       ],
+       "status_kind": "active",
+       "collections": [
+        "foreign_visit"
+       ]
+      },
+      {
+       "cells": [
+        "7",
+        "Staff benefits (laptop, newspaper, medical, briefcase, telephone)",
+        "scattered, 2008-2025",
+        "Per item; laptop instructions revised 2024-12",
+        "Employee benefits"
+       ],
+       "status_kind": "other",
+       "collections": [
+        "employee_benefits"
+       ]
+      },
+      {
+       "cells": [
+        "8",
+        "Seniority lists (draft and final by cadre)",
+        "about 236, 2008-2026",
+        "**Recurring operational notices.** Latest 2026-07-27 (Section Officer, as on 31.08.2024). Not a standing policy",
+        "not in a collection"
+       ],
+       "status_kind": "routine",
+       "collections": []
+      },
+      {
+       "cells": [
+        "9",
+        "Departmental examinations (LDCE, Hindi translator exams, EO/AO departmental)",
+        "about 320, 2010-2026",
+        "**Active.** LDCE result 2026-06-19. Hindi translator exam series ends 2020-09-14, when the posts were renamed (Senior and Junior Translation Officers)",
+        "not in a collection"
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "10",
+        "Probation, confirmation, probationary examination schemes (APFC, EO/AO, ASO)",
+        "about 40, 2007-2026",
+        "**Active.** APFC Probationers Examination Scheme 2025",
+        "not in a collection"
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "11",
+        "Annual Immovable Property Return (AIPR) and Rule 18 conduct permissions",
+        "annual, 2015-2026",
+        "**Active.** Latest 2026-01-07. Rule 18 delegation draft 2019-06 is consultation-only",
+        "Delegation (draft)"
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "12",
+        "Staff Provident Fund interest rate",
+        "quarterly, 2012-2026",
+        "**Active, revised quarterly.** Latest: Q1 of FY 2026-27 (2026-05-05)",
+        "not in a collection"
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "13",
+        "Welfare activities budget and sports",
+        "about 90, 2012-2026",
+        "**Active, annual.** Latest additional fund release 2026-03-30. The 2012 All India Games tournament was cancelled (title)",
+        "not in a collection"
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "14",
+        "Pension rules for EPFO staff (CCS Pension, VRS, provisional pension)",
+        "about 36, 2016-2026",
+        "**Active.** Latest 2026-08-20",
+        "not in a collection"
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "15",
+        "Outsourced data entry operators",
+        "about 31, 2009-2019",
+        "No activity since 2019-04-01",
+        "not in a collection"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "16",
+        "Deputation and filling of posts; additional charge",
+        "about 115, 2010-2025",
+        "Operational notices; latest 2025-05",
+        "not in a collection"
+       ],
+       "status_kind": "routine",
+       "collections": []
+      },
+      {
+       "cells": [
+        "17",
+        "RTI replies (staff matters)",
+        "about 230, 2010-2026",
+        "Operational, one per applicant; not policy",
+        "not in a collection"
+       ],
+       "status_kind": "routine",
+       "collections": []
+      },
+      {
+       "cells": [
+        "18",
+        "Establishment returns and vacancy position",
+        "about 25, 2010-2025",
+        "Periodic reports",
+        "not in a collection"
+       ],
+       "status_kind": "routine",
+       "collections": []
+      }
+     ],
+     "text": ""
+    },
+    {
+     "heading": "Explicit status changes in HRM/HRD titles",
+     "columns": [
+      "Date",
+      "Circular",
+      "Status stated"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "2017-07-26",
+        "Discontinuance of Family Planning Allowance (7th CPC)",
+        "**Discontinued**"
+       ],
+       "status_kind": "ended",
+       "collections": []
+      },
+      {
+       "cells": [
+        "2017-08-08",
+        "Abolishment of Sumptuary Allowance (7th CPC)",
+        "**Abolished**"
+       ],
+       "status_kind": "ended",
+       "collections": []
+      },
+      {
+       "cells": [
+        "2024-06-21",
+        "Discontinuing of Deductions under GIS",
+        "**Deductions discontinued**"
+       ],
+       "status_kind": "ended",
+       "collections": []
+      },
+      {
+       "cells": [
+        "2023-09-25",
+        "\"Circular Withdrawn\"",
+        "A circular withdrawn (the withdrawn item is in the PDF, not the title)"
+       ],
+       "status_kind": "ended",
+       "collections": []
+      },
+      {
+       "cells": [
+        "2025-07-15",
+        "Withdrawal of HO circular dated 29.04.2025 (calling options for posting at Regional Offices)",
+        "**29 Apr 2025 circular withdrawn**"
+       ],
+       "status_kind": "ended",
+       "collections": []
+      },
+      {
+       "cells": [
+        "2025-11-17",
+        "Instructions on cancellation of appointments of Social Security Assistants (DR 2024 batch)",
+        "Specific appointments cancelled"
+       ],
+       "status_kind": "ended",
+       "collections": []
+      },
+      {
+       "cells": [
+        "2017-04-07",
+        "Amendment to GPF (Central Services) Rules, 1960",
+        "Rules amended"
+       ],
+       "status_kind": "other",
+       "collections": []
+      }
+     ],
+     "text": ""
+    }
+   ],
+   "row_count": 25
+  },
+  {
+   "id": "compliance",
+   "name": "Compliance",
+   "title": "Compliance division: policies and status",
+   "source_file": "docs/division_policies/compliance.md",
+   "intro": "Source: issuer's circulars table (`division = COMPLIANCE`, 1,122 circulars, 2006-2026; sub-divisions include Conference 296, Compliance 255, MIS 147, Legal 141, Coordination 110, Exemption). \"Managed by\" means \"issued by\". Status is stated only where a circular title says it; otherwise the last circular found is shown and the policy is **not** called inactive. Counts are approximate and topics overlap.",
+   "notes": "Repo collections touching this division: Panel advocates (fees and empanelment). Exemption, damages, recovery and returns circulars are not yet in a collection.",
+   "sections": [
+    {
+     "heading": "",
+     "columns": [
+      "#",
+      "Policy / topic",
+      "Circulars and span",
+      "Status",
+      "Evidence / note"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "1",
+        "Exemption of establishments (grant, cancellation, relaxation, trusts, surcharge, past accumulations)",
+        "about 156, 2006-2026",
+        "**Active.** SOP for grant of exemption 2023-08-22; \"AMNESTY, 2026\" for regularising exemption status launched 2026-07-11 (time-bound); credit of past accumulations of non-UAN members of exempted establishments 2025-06-17",
+        "Procedure for cancellation (2015-02-23) and transfer of past accumulation on cancellation (2014, 2016) are earlier steps; no circular says they were withdrawn"
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "2",
+        "Damages (14B) and interest (7Q)",
+        "about 44, 2007-2026",
+        "**Active.** Latest 2026-07-31 (notification of authorised officers competent to levy)",
+        "**2009-02-13 withdrew the 17/06/2004 circular** on damages for the pre-discovery period"
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "3",
+        "Quasi-judicial proceedings (Section 7A) and Departmental Representatives",
+        "about 22, 2012-2022",
+        "**Active.** Guidelines 2012-11-30; Departmental Representative circular 2022-08-16",
+        ""
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "4",
+        "Inspection, enforcement, recovery",
+        "about 59, 2009-2024",
+        "**Active.** Special recovery drives run seasonally (2010-2023); recovery manual module on iGOT 2024-07-18",
+        ""
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "5",
+        "Returns, ECR, KYC, Aadhaar seeding",
+        "about 100, 2009-2026",
+        "**Active.** Due-date extension for ECR 2026-01-22. **2025-12-01: extension of the Aadhaar-seeding timeline for ECR filing discontinued**",
+        "**2022-09-26 withdrew prosecutions** for non-submission of KYC"
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "6",
+        "MIS, ABP and dashboard returns",
+        "about 150, 2010-2022",
+        "Paper returns **discontinued**: annual statement of ABP returns (2011-11-03), DO narrative (2013-02-15), paper ABP/MIS returns (2016-03-02, dashboard finalised)",
+        "Titles"
+       ],
+       "status_kind": "ended",
+       "collections": []
+      },
+      {
+       "cells": [
+        "7",
+        "Results Framework Document (RFD)",
+        "about 9, 2010-2013",
+        "No circular since 2013-02",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "8",
+        "Central Board, Executive Committee and Regional Committees (reconstitution, meetings, gazette notifications)",
+        "about 168, 2008-2022",
+        "**Active as notices** at each reconstitution; latest Regional Committee gazette 2022-12-12; latest CBT circular 2021-11-16",
+        ""
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "9",
+        "Review meetings of Zonal ACCs and RPFCs",
+        "about 60, 2009-2017",
+        "No circular since 2017-01-18",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "10",
+        "Legal case handling (courts, SLPs, panel of advocates, e-Court)",
+        "about 107, 2008-2020",
+        "Last circular 2020-02-17 (inquiries through e-Court software). Panel advocate fees: see the Panel advocates collection",
+        ""
+       ],
+       "status_kind": "dormant",
+       "collections": [
+        "legal_panel"
+       ]
+      },
+      {
+       "cells": [
+        "11",
+        "Annual report preparation",
+        "about 22, 2009-2022",
+        "**Annual.** Calendar of events 2022-03-28",
+        ""
+       ],
+       "status_kind": "routine",
+       "collections": []
+      },
+      {
+       "cells": [
+        "12",
+        "RTI replies and transfers; Lok Sabha question circulars",
+        "about 80, 2010-2025",
+        "Operational, one per applicant or question; not policy",
+        ""
+       ],
+       "status_kind": "routine",
+       "collections": []
+      }
+     ],
+     "text": ""
+    }
+   ],
+   "row_count": 12
+  },
+  {
+   "id": "finance",
+   "name": "Finance, Budget, Audit",
+   "title": "Finance division (with Budget, Audit and IFD): policies and status",
+   "source_file": "docs/division_policies/finance.md",
+   "intro": "Source: issuer's circulars table (`division` FINANCE 823, BUDGET 9, AUDIT 27, IFD 3; 2006-2026). Sub-divisions: Banking 286, WSU 225, Budget 89, Audit 84, Balance Sheet 81, Investment 52. \"Managed by\" means \"issued by\". Status is stated only where a circular title says it; otherwise the last circular found is shown and the policy is **not** called inactive.",
+   "notes": "Notes: titles are the evidence for statuses above. Banking, WSU and Finance sub-divisions mix member-facing payment processes and internal accounts; the pre-2019 payment-process circulars have not been compared with later circulars.",
+   "sections": [
+    {
+     "heading": "",
+     "columns": [
+      "#",
+      "Policy / topic",
+      "Circulars and span",
+      "Status",
+      "Evidence / note"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "1",
+        "Declaration of the EPF interest rate (yearly)",
+        "17, 2007-2026",
+        "**Active, yearly.** Latest 2026-07-01 (2025-26 rate 8.25%)",
+        "EPF interest rate collection"
+       ],
+       "status_kind": "active",
+       "collections": [
+        "epf_interest_rate"
+       ]
+      },
+      {
+       "cells": [
+        "2",
+        "Budget circulars (revised and budget estimates; allocations)",
+        "about 120, 2008-2026",
+        "**Active, yearly.** Latest 2026-07-13 (RE 2026-27, BE 2027-28)",
+        ""
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "3",
+        "Internal audit (core areas, tour programmes, replies to audit reports)",
+        "about 55, 2009-2026",
+        "**Active.** Core areas for internal audit of Regional Offices 2026-07-14",
+        ""
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "4",
+        "Balance sheet and annual accounts",
+        "about 95, 2008-2022",
+        "**Annual.** Last balance sheet 2020-21 (2021-03-26); annual accounts instruction 2022-03-17",
+        ""
+       ],
+       "status_kind": "routine",
+       "collections": []
+      },
+      {
+       "cells": [
+        "5",
+        "Banking: link branches, IFSC, interest on debit balances, belated-credit interest",
+        "about 100, 2008-2018",
+        "Last circular 2018-12-21 (SBI link-branch interest). No later circular found",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "6",
+        "E-payment, NEFT, VDR cheques",
+        "about 50, 2010-2017",
+        "Physical transfer of remittance by cheque **discontinued** 2017-09-08; VDR cheque deposits in the single collection account (2017-08-03, repeated 2017-11-08) with a **discontinuation** of deposits elsewhere (title truncated)",
+        "Titles"
+       ],
+       "status_kind": "ended",
+       "collections": []
+      },
+      {
+       "cells": [
+        "7",
+        "Claim forms",
+        "2016-2020",
+        "**Replaced:** new Form 11 replaces the existing form (2016-09-23); composite claim forms (Aadhaar and non-Aadhaar) replace the existing forms (2017-02-20); death-case composite form replaces Forms 20, 10-D and 5-IF (2017-03-03, 2017-08-21); **physical Form-9 discontinued** (2017-09-18)",
+        "Titles"
+       ],
+       "status_kind": "ended",
+       "collections": []
+      },
+      {
+       "cells": [
+        "8",
+        "Claim settlement SOP and financial powers",
+        "29, 2010-2021",
+        "SOP for settlement (original documents) 2017-12-13; powers for closed establishments 2021-11-24",
+        "Claim settlement authority collection (financial powers)"
+       ],
+       "status_kind": "other",
+       "collections": [
+        "claim_authority"
+       ]
+      },
+      {
+       "cells": [
+        "9",
+        "Withdrawals: housing (68-BD), partial withdrawals for illness, TDS on withdrawal",
+        "2016-2020",
+        "68-BD housing withdrawal gazetted 2017-04-21 and reissued through 2017; COVID-19 partial withdrawals 2020-05-04; TDS instructions 2016-08-23",
+        ""
+       ],
+       "status_kind": "ended",
+       "collections": []
+      },
+      {
+       "cells": [
+        "10",
+        "NEFT payments for EDLI",
+        "2015",
+        "**Replaced:** \"Payments through NEFT for EDLI benefits (Replaced by circular at Sl. No. 360)\" (2015-09-04)",
+        "Title note"
+       ],
+       "status_kind": "ended",
+       "collections": []
+      },
+      {
+       "cells": [
+        "11",
+        "Exempted establishments: transfer of securities and past accumulation on cancellation",
+        "2018-2025",
+        "**Active.** Latest 2025-09-16 (transfer of securities/SDS on cancellation or surrender of exemption)",
+        ""
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "12",
+        "Productivity Linked Bonus (Central Government and EPFO staff)",
+        "26, 2008-2022",
+        "Annual declarations; last circular 2022-10-19 (advance against PLB)",
+        ""
+       ],
+       "status_kind": "routine",
+       "collections": []
+      },
+      {
+       "cells": [
+        "13",
+        "Dearness allowance for Central Government staff (Finance-issued, 2008-2017)",
+        "11",
+        "HRD also issued DA circulars from 2016-04; the last Finance-issued one is 2017-09-22",
+        "Dearness allowance / relief collection"
+       ],
+       "status_kind": "other",
+       "collections": [
+        "dearness"
+       ]
+      },
+      {
+       "cells": [
+        "14",
+        "Quarterly returns: disability employment, income and expenditure",
+        "about 40, 2009-2018",
+        "Last 2018-06-19 (monthly expenditure return)",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "15",
+        "CCPAP module, current accounts",
+        "13, 2013-2016",
+        "No circular since 2016-02-19",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "16",
+        "Investment pattern",
+        "about 50, 2009-2021",
+        "Pattern amended by Ministry notification of 30 Dec 2020 (IMC circulars 2021-01-27)",
+        ""
+       ],
+       "status_kind": "other",
+       "collections": []
+      }
+     ],
+     "text": ""
+    }
+   ],
+   "row_count": 16
+  },
+  {
+   "id": "natrss_zti",
+   "name": "NATRSS / PDUNASS and ZTIs",
+   "title": "NATRSS / PDUNASS and Zonal Training Institutes (ZTI): policies and status",
+   "source_file": "docs/division_policies/natrss_zti.md",
+   "intro": "Source: issuer's circulars table (`division` NATRSS 976, ZTI 94, PDU 1; 2009-2026). \"Managed by\" means \"issued by\". The institute appears as NATRSS in circulars to 2016 and as PDUNASS in distribution lists from April 2017 (the interest-rate circulars of 2016-05-25 and 2017-04-27 show the change); the rename itself was not found as a circular. Status is stated only where a circular title says it; otherwise the last circular found is shown.",
+   "notes": "Not policy: the ZTI divisions mostly circulate nominations and schedules; no policy document (training policy, nomination norms) was identified in the titles.",
+   "sections": [
+    {
+     "heading": "",
+     "columns": [
+      "#",
+      "Policy / topic",
+      "Circulars and span",
+      "Status",
+      "Evidence / note"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "1",
+        "Training programmes and calendars (NATRSS, ZTIs: Northern, Western, Southern, Eastern)",
+        "about 650, 2009-2026",
+        "**Active.** Latest programme 2026-04-20 (\"Legal and Recovery Management\"); nominations 2026-08-19",
+        ""
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "2",
+        "Cancellation and rescheduling of individual programmes",
+        "about 24, 2010-2016",
+        "Individual **cancellations** (for example Compliance Management and Financial Management 2010; Induction Course and Refresher Course for EOs 2013). Events, not a change of policy",
+        "Titles"
+       ],
+       "status_kind": "ended",
+       "collections": []
+      },
+      {
+       "cells": [
+        "3",
+        "Workshops for employers, members and exempted/un-exempted establishments",
+        "about 40, 2010-2024",
+        "**Active.** Workshop for employers of exempted establishments 2024-07-18. Several national workshops were cancelled (2011-03-04, 2012-03-06, 2016-11-09)",
+        "Titles"
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "4",
+        "Probationary examinations (EO/AO, SSA, APFC probationers)",
+        "about 80, 2013-2026",
+        "**Active.** APFC probationers' examination 2026-08-20; SSA probationers 2026-06-10",
+        "Recruitment and promotion collection covers the related recruitment rules"
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "5",
+        "Induction and orientation training (DR batches, newly promoted officers)",
+        "2013-2026",
+        "**Active.** Induction for the 2025 DR Personal Assistant batch 2026-06-12; orientation for newly promoted APFCs 2025-11-14",
+        ""
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "6",
+        "Self-learning on iGOT Karmayogi",
+        "from 2023",
+        "**Active.** Latest 2023-07-27",
+        ""
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "7",
+        "International (ISSA) webinars",
+        "about 12, 2020-2023",
+        "Latest 2023-08-17; no circular since",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "8",
+        "ZTI deputation staffing and training calendars",
+        "about 30, 2009-2017",
+        "Last circular 2017-05-04 (revised calendar 2017-18, ZTI WZ)",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      }
+     ],
+     "text": ""
+    }
+   ],
+   "row_count": 8
+  },
+  {
+   "id": "official_language",
+   "name": "Official Language",
+   "title": "Official Language (OL) division: policies and status",
+   "source_file": "docs/division_policies/official_language.md",
+   "intro": "Source: issuer's circulars table (`division = OFFICIAL LANGUAGE`, 469 circulars, 2009-2026). About 370 titles are Hindi-only, so topics were assigned with Hindi and English keywords on the titles (393 of 469 matched; topics overlap). Subjects are as in the titles; the circulars were not read in full. \"Managed by\" means \"issued by\". Topics 1-7 each have a circular in 2025-2026, so none of them is shown as inactive.",
+   "notes": "Not assessed: 76 circulars that match none of the topics.",
+   "sections": [
+    {
+     "heading": "",
+     "columns": [
+      "#",
+      "Policy / topic",
+      "Circulars and span",
+      "Status",
+      "Latest circular"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "1",
+        "Quarterly progress reports on Hindi use (offices report to OL division)",
+        "about 105, 2011-2026",
+        "**Active, quarterly**",
+        "2026-06-08 (quarter ended 31 Dec 2025)"
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "2",
+        "Parliamentary Committee on Official Language, OLIC and Hindi Advisory Committee meetings and follow-up",
+        "about 61, 2011-2026",
+        "**Active**",
+        "2026-02-25 (Parliamentary Committee)"
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "3",
+        "Official Language policy: Hindi teaching scheme, inspections, rules and orders, check-points",
+        "about 61, 2010-2026",
+        "**Active.** Check-points issued 2013-05-22 and 2019-05-22",
+        "2026-06-03 (Hindi teaching scheme and Rajbhasha)"
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "4",
+        "Workshops, training, competitions, Hindi Divas and all-India Rajbhasha conference",
+        "about 60, 2012-2026",
+        "**Active**",
+        "2026-06-22 (Hindi Divas 14 Sept 2026 and the sixth all-India conference)"
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "5",
+        "Incentive schemes, awards, books and journals; original noting and drafting in Hindi",
+        "about 50, 2011-2026",
+        "**Active**",
+        "2026-08-14 (noting and drafting originally in Hindi)"
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "6",
+        "Hindi Fortnight / Hindi Pakhwada",
+        "about 43, 2010-2026",
+        "**Annual**",
+        "2026-07-23 (14-29 Sept 2026)"
+       ],
+       "status_kind": "routine",
+       "collections": []
+      },
+      {
+       "cells": [
+        "7",
+        "Translation, bilingual forms and website content",
+        "about 12, 2010-2025",
+        "**Active**",
+        "2025-04-11 (translators' weekly reports)"
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "8",
+        "Hindi books purchase",
+        "3, 2012-2013",
+        "Last circular 2013-05-16",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "9",
+        "OL cadre: recruitment rules and renaming of translator posts",
+        "2017-2020",
+        "Director (OL) and Dy. Director (OL) rules amended 2017-12-08; the posts of Senior and Junior Hindi Translator were **renamed** (change of nomenclature 2020-09-14, HRM/HRD)",
+        "See the Recruitment rules and promotion collection (the AD (OL) and JHT draft rules are consultation-only)"
+       ],
+       "status_kind": "ended",
+       "collections": [
+        "recruitment_promotion"
+       ]
+      }
+     ],
+     "text": ""
+    }
+   ],
+   "row_count": 9
+  },
+  {
+   "id": "pension",
+   "name": "Pension",
+   "title": "Pension division (with Actuarial and IWU sub-divisions): policies and status",
+   "source_file": "docs/division_policies/pension.md",
+   "intro": "Source: issuer's circulars table (`division = PENSION`, 416 circulars, 2006-2026; sub-divisions Pension 350, Actuarial 40, IWU 17). \"Managed by\" means \"issued by\". Status is stated only where a circular title says it; otherwise the last circular found is shown. Titles are the evidence; circulars were not read in full.",
+   "notes": "Repo collections touching this division: Pension payment / CPPS; Higher pension / PoHW; Transfer claims (EPS service).",
+   "sections": [
+    {
+     "heading": "",
+     "columns": [
+      "#",
+      "Policy / topic",
+      "Circulars and span",
+      "Status",
+      "Evidence / note"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "1",
+        "Pension payment: disbursement through banks, Centralised Pension Payment System (CPPS)",
+        "about 20, 2008-2025",
+        "**Active.** CPPS implementation circular 2025-01-17; timely disbursement reminder 2024-10-25. **Composite Pension Payment Order form replaced the existing forms** (2017-09-15)",
+        "Pension payment / CPPS collection"
+       ],
+       "status_kind": "active",
+       "collections": [
+        "cpps"
+       ]
+      },
+      {
+       "cells": [
+        "2",
+        "Life certificate (Jeevan Pramaan, Digital Life Certificate)",
+        "about 22, 2014-2026",
+        "**Active.** Free doorstep DLC service rollout 2026-01-09; Jeevan Pramaan circulars 2016-2019",
+        "Pension payment / CPPS collection (DLC)"
+       ],
+       "status_kind": "active",
+       "collections": [
+        "cpps"
+       ]
+      },
+      {
+       "cells": [
+        "3",
+        "EPS-95 pension on actual salary (higher pension), Supreme Court judgment and FAQs",
+        "about 15, 2012-2023",
+        "**2019-02-07 withdrew** the circular allowing pension on actual salary (title). FAQs for implementing the Supreme Court judgment 2023-12-13",
+        "Higher pension / PoHW collection"
+       ],
+       "status_kind": "ended",
+       "collections": [
+        "higher_pension"
+       ]
+      },
+      {
+       "cells": [
+        "4",
+        "Contribution above the statutory limit (Para 11(3)) and the 1.16% employer share",
+        "about 8, to 2023",
+        "**Active.** Latest 2023-05-04 (1.16% increased contribution from employer's share into the Pension Fund)",
+        ""
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "5",
+        "Gazette notifications amending EPS and EDLI schemes",
+        "14, 2014-2021",
+        "Amendments notified: EDLI (Amendment) Scheme 2014 (GSR 610(E)); GSR 132(E) of 20.02.2020 (title: \"providing for restoration of norma...\", truncated); GSR 299(E) of 28.04.2021",
+        "Titles"
+       ],
+       "status_kind": "other",
+       "collections": []
+      },
+      {
+       "cells": [
+        "6",
+        "Pension calculation (Para 12(2) new entrants; weightage of service)",
+        "about 6, 2006-2017",
+        "Last 2017-05-08 (two years' weightage for members with 20 or more years of service)",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "7",
+        "Change of date of birth of pension fund members",
+        "5, 2006-2017",
+        "Last 2017-12-12",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "8",
+        "Aadhaar as identity document for pensioners and members",
+        "5, 2017-2018",
+        "Last 2018-03-06",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "9",
+        "International workers and Certificate of Coverage (social security agreements)",
+        "about 18, 2009-2023",
+        "**Active.** Clarification on final withdrawal of PF for International Workers 2022-04-27; Code on Social Security provisions 2023-05-04",
+        ""
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "10",
+        "Actuarial valuation: data collection from employers and members",
+        "about 40, 2009-2013",
+        "No circular since 2013-05-27",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "11",
+        "Consolidated monthly returns from Regional Offices",
+        "5, 2009-2014",
+        "No circular since 2014-04-29",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "12",
+        "RTI replies",
+        "about 100, 2011-2023",
+        "Operational",
+        ""
+       ],
+       "status_kind": "routine",
+       "collections": []
+      }
+     ],
+     "text": ""
+    }
+   ],
+   "row_count": 12
+  },
+  {
+   "id": "csd_publicity",
+   "name": "CSD, Publicity, C & PR",
+   "title": "CSD, Publicity and C & PR: policies and status",
+   "source_file": "docs/division_policies/csd_publicity.md",
+   "intro": "Source: issuer's circulars table (`division` CSD 208, C & PR 10; sub-division Publicity 46; 2007-2026). \"Managed by\" means \"issued by\". Status is stated only where a circular title says it; otherwise the last circular found is shown. Titles are the evidence.",
+   "notes": "Not assessed: about 100 circulars matching none of the topics (RTI, parliamentary questions, annual returns).",
+   "sections": [
+    {
+     "heading": "",
+     "columns": [
+      "#",
+      "Policy / topic",
+      "Circulars and span",
+      "Status",
+      "Note"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "1",
+        "Public grievance redressal: EPFiGMS and CPGRAMS pendency, targets, PRAGATI, redressal camps",
+        "about 90, 2009-2023",
+        "Pendency and target circulars: last 2018-03-15 (targets for EPFiGMS and CPGRAMS); monthly review of public grievances with the Ministry continued to 2023-05-08; Grievance camp during Vigilance Awareness Week 2017-10-10",
+        "Issue tracking for IS tools: the IS Issue Tracker portal was discontinued 2026-07-23 (see Information Services)"
+       ],
+       "status_kind": "other",
+       "collections": []
+      },
+      {
+       "cells": [
+        "2",
+        "Nidhi Aapke Nikat (outreach programme), reporting",
+        "about 8, 2015-2024",
+        "**Active.** \"Nidhi Aapke Nikat 2.0\" reporting 2024-03-26",
+        ""
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "3",
+        "Publicity: advisories in official publications, advertisement and publicity expenditure",
+        "about 54, 2009-2026",
+        "Publicity advisory on public grievance in publications 2016-07-15. Advertisement/publicity delegation: see the Delegation collection (2023-12-29 order; a reported 2026 revision is unverified)",
+        "Delegation of powers"
+       ],
+       "status_kind": "other",
+       "collections": [
+        "delegation"
+       ]
+      },
+      {
+       "cells": [
+        "4",
+        "Action points from CPFC review meetings",
+        "few, 2018",
+        "Last 2018-07-23",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      }
+     ],
+     "text": ""
+    }
+   ],
+   "row_count": 4
+  },
+  {
+   "id": "pfd_pid",
+   "name": "PFD and PID",
+   "title": "PFD and PID (physical facility / infrastructure): policies and status",
+   "source_file": "docs/division_policies/pfd_pid.md",
+   "intro": "Source: issuer's circulars table (`division` PFD 163 and PID 144; 2008-2023). The two tags overlap in subject (buildings, works, furniture, CPWD coordination); PID appears 2008-2021 and PFD 2009-2023, and the 2022-2023 delegation orders refer to the Physical Infrastructure Division. \"Managed by\" means \"issued by\". Status is stated only where a circular says it.",
+   "notes": "Not policy: about 60 RTI replies.",
+   "sections": [
+    {
+     "heading": "",
+     "columns": [
+      "#",
+      "Policy / topic",
+      "Circulars and span",
+      "Status",
+      "Note"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "1",
+        "Delegation of financial powers for physical infrastructure (CPFC, ACC Zones, RPFCs, Chief Engineer)",
+        "2014-2023",
+        "**Active.** CBT-to-CPFC powers of 2022-07-08 (corrigendum 2022-07-14) and the CPFC re-delegation of 2023-03-09",
+        "Delegation of powers collection (infrastructure matter)"
+       ],
+       "status_kind": "active",
+       "collections": [
+        "delegation"
+       ]
+      },
+      {
+       "cells": [
+        "2",
+        "Maintenance and repairs of EPFO properties",
+        "2016, 2019",
+        "2019-03-20 revised circular: maintenance of office buildings and staff quarters delegated to the OIC; works beyond that go to CPWD within the powers of ACC Zones",
+        "Delegation of powers"
+       ],
+       "status_kind": "other",
+       "collections": [
+        "delegation"
+       ]
+      },
+      {
+       "cells": [
+        "3",
+        "Modular furniture, DG sets and lifts for offices",
+        "about 13, 2009-2016",
+        "Last circular 2016-11-23",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "4",
+        "Civil, electrical and horticulture works: quarterly progress reports",
+        "about 10, 2015-2018",
+        "Last 2018-01-04",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "5",
+        "Rental buildings and capital expenditure proposals; budget estimates",
+        "about 11, 2010-2019",
+        "Last 2019-10-01 (revised estimate proposals 2019-20)",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "6",
+        "CPWD coordination: minutes of meetings",
+        "about 15, 2014-2019",
+        "Last 2019-09-27 (meeting with CPWD)",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "7",
+        "Quarterly and annual returns on works and RTI",
+        "about 30, 2010-2018",
+        "Last quarterly return 2018-03-23",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "8",
+        "Appellate authority arrangement (RTI)",
+        "about 10, 2009-2019",
+        "Last 2019-09-03",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      }
+     ],
+     "text": ""
+    }
+   ],
+   "row_count": 8
+  },
+  {
+   "id": "asd_vigilance",
+   "name": "ASD and Vigilance",
+   "title": "ASD (administration) and Vigilance divisions: policies and status",
+   "source_file": "docs/division_policies/asd_vigilance.md",
+   "intro": "Source: issuer's circulars table (`division` ASD 151, 2014-2024; VIGILANCE 106, 2009-2026). \"Managed by\" means \"issued by\". Status is stated only where a circular title says it; otherwise the last circular found is shown.",
+   "notes": "",
+   "sections": [
+    {
+     "heading": "ASD",
+     "columns": [
+      "#",
+      "Policy / topic",
+      "Circulars and span",
+      "Status",
+      "Note"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "1",
+        "Work allocation among officers and divisions (office orders)",
+        "about 22, 2015-2024",
+        "**Active.** Latest 2024-05-15 (work allocation in the Official Language Division)",
+        ""
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "2",
+        "Link arrangements for Additional CPFCs and RPFCs",
+        "about 11, 2017-2019",
+        "Last 2019-09-19",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "3",
+        "Seniority lists (Senior Secretariat Assistants and other cadres)",
+        "about 10, 2016-2019",
+        "Operational. Last 2019-11-26",
+        ""
+       ],
+       "status_kind": "routine",
+       "collections": []
+      },
+      {
+       "cells": [
+        "4",
+        "Honorarium to Inquiry/Presenting Officers (office orders)",
+        "5, 2017-2018",
+        "Last 2018-07-24",
+        "See the Delegation collection (honorarium matter)"
+       ],
+       "status_kind": "dormant",
+       "collections": [
+        "delegation"
+       ]
+      },
+      {
+       "cells": [
+        "5",
+        "Probationary examination results (APFC, EO/AO)",
+        "2019",
+        "Operational",
+        ""
+       ],
+       "status_kind": "routine",
+       "collections": []
+      },
+      {
+       "cells": [
+        "6",
+        "Mandatory e-procurement and e-auction through the Central Public Procurement Portal",
+        "2019-08-23",
+        "Last circular",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      }
+     ],
+     "text": ""
+    },
+    {
+     "heading": "Vigilance",
+     "columns": [
+      "#",
+      "Policy / topic",
+      "Circulars and span",
+      "Status",
+      "Note"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "1",
+        "Vigilance Awareness Week (annual observance)",
+        "about 27, 2009-2026",
+        "**Annual.** Latest 2026-08-11",
+        ""
+       ],
+       "status_kind": "routine",
+       "collections": []
+      },
+      {
+       "cells": [
+        "2",
+        "Vigilance clearance certificates",
+        "2015-2018 (and HRM 2017, 2022)",
+        "**Active.** Guidelines 2017-01-23, clarification 2017-09-07, revised proforma 2022-10-06 (HRM); clearance on superannuation of EO/AO 2018-11-30",
+        "APAR / vigilance clearance collection"
+       ],
+       "status_kind": "active",
+       "collections": [
+        "apar_sparrow"
+       ]
+      },
+      {
+       "cells": [
+        "3",
+        "Timely finalisation of departmental inquiries and disciplinary proceedings",
+        "about 9, 2016-2024",
+        "**Active.** Latest 2024-02-23",
+        ""
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "4",
+        "Complaints under the Public Interest Disclosure resolution; fraudulent withdrawal",
+        "2012, 2013",
+        "Procedure circular 2012-07-10; fraud circular 2013-10-07",
+        "Not called inactive"
+       ],
+       "status_kind": "other",
+       "collections": []
+      },
+      {
+       "cells": [
+        "5",
+        "Vigilance ID numbers",
+        "8, 2012-2013",
+        "Last 2013-02-15",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "6",
+        "Annual report to the CVC",
+        "2015-2016",
+        "Last 2016-12-15",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "7",
+        "Suggestions for improving vigilance administration",
+        "2019-10-11",
+        "Single circular",
+        ""
+       ],
+       "status_kind": "routine",
+       "collections": []
+      }
+     ],
+     "text": ""
+    }
+   ],
+   "row_count": 13
+  },
+  {
+   "id": "other_divisions",
+   "name": "Other divisions",
+   "title": "Smaller divisions: policies and status",
+   "source_file": "docs/division_policies/other_divisions.md",
+   "intro": "Source: issuer's circulars table. \"Managed by\" means \"issued by\". Status is stated only where a circular title says it; otherwise the last circular found is shown and the topic is **not** called inactive. Titles are the evidence; circulars were not read in full.",
+   "notes": "RTI: replies to individual applicants (operational). Manual: construction works procedure (2011), pending Annexure K (2015), change of date of birth (2020), employees' and employers' guides (2023). MoL&E: letters from the Ministry (EPF interest rate 2010-11; additional charge of CPFC 2012-2013; GSR 225(E) of 27.03.2020, 2020-03-28). Conference: CBT reconstitution 2024-04-25, annual report calendar 2026-05-13. EPFAT: cases before the Appellate Tribunal (2011-01-14); the EPFAT was merged into the CGITs in 2017 (see Panel advocates collection). Blank division (45): office orders, e-mail lists, and entries the issuer **removed** (titles say \"Circular removed as per the email ...\", for example 2024-12-11).",
+   "sections": [
+    {
+     "heading": "Legal (70 circulars, 2015-2026)",
+     "columns": [
+      "Policy / topic",
+      "Span",
+      "Status",
+      "Note"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "Handling of legal cases in field offices (guidelines, legal dashboard)",
+        "2015-2017",
+        "Dashboard duplicate-entry circular 2016-01-15; proper handling 2017-02-03; no later circular",
+        "Not called inactive"
+       ],
+       "status_kind": "other",
+       "collections": []
+      },
+      {
+       "cells": [
+        "Forwarding important judgments",
+        "2016-2023",
+        "Last 2023-02-21",
+        ""
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "Panel advocates: fees and empanelment",
+        "2016-2026",
+        "**Active.** Fee revision 2026-07-08; Supreme Court and CAT (Principal Bench) panel 2026-07-29",
+        "Panel advocates collection (the named-advocate order is not included)"
+       ],
+       "status_kind": "active",
+       "collections": [
+        "legal_panel"
+       ]
+      }
+     ],
+     "text": ""
+    },
+    {
+     "heading": "PQ (Parliament questions, 60 circulars, 2010-2026)",
+     "columns": [
+      "Policy / topic",
+      "Span",
+      "Status"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "Calendars and instructions for answering questions in Lok Sabha and Rajya Sabha sessions",
+        "2010-2026",
+        "**Active, each session.** Latest 2026-07-09 (Monsoon Session 2026). Individual sittings were cancelled or extended in 2011 (titles)"
+       ],
+       "status_kind": "active",
+       "collections": []
+      }
+     ],
+     "text": ""
+    },
+    {
+     "heading": "IWU (International Workers Unit, 55 circulars, 2012-2026)",
+     "columns": [
+      "Policy / topic",
+      "Span",
+      "Status",
+      "Note"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "Social security agreements, Certificate of Coverage, international training",
+        "2012-2026",
+        "**Active.** Latest 2026-08-07 (ITCILO-EPFO executive course participants); online Certificate of Coverage system 2017-08-24",
+        ""
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "Payments to international workers (overseas bank accounts, withdrawal on leaving service)",
+        "2012-2026",
+        "**Active.** Overseas bank payments 2026-03-18; withdrawal on date of leaving 2017-03-23",
+        ""
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "Competent authorities for cancellation or modification of certificates",
+        "2018-11-20",
+        "Single circular",
+        ""
+       ],
+       "status_kind": "routine",
+       "collections": []
+      }
+     ],
+     "text": ""
+    },
+    {
+     "heading": "CAIU (81 circulars, 2014-2024)",
+     "columns": [
+      "Policy / topic",
+      "Span",
+      "Status",
+      "Note"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "Shram Suvidha portal logins and nodal officers",
+        "2016-2023",
+        "Latest 2023-10-06 (portal login for District Offices)",
+        ""
+       ],
+       "status_kind": "other",
+       "collections": []
+      },
+      {
+       "cells": [
+        "Coverage of contract and casual workers (Indian Railways)",
+        "2016-2018",
+        "Last 2018-05-24",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "Defaulting establishments",
+        "2018-2019",
+        "Last 2019-01-31",
+        "Not called inactive"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "Registration: scanned PAN upload",
+        "2018-01-08",
+        "**Abolished** (title: \"Abolishing of uploading of scanned copy of PAN Card at the time of registration\")",
+        ""
+       ],
+       "status_kind": "ended",
+       "collections": []
+      }
+     ],
+     "text": ""
+    },
+    {
+     "heading": "WSU (40 circulars, 2023-2026; new division tag)",
+     "columns": [
+      "Policy / topic",
+      "Span",
+      "Status",
+      "Note"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "Productivity Linked Bonus (declaration; advance)",
+        "2023-2025",
+        "**Active, annual.** Declaration for 2024-25 on 2025-10-08",
+        ""
+       ],
+       "status_kind": "active",
+       "collections": []
+      },
+      {
+       "cells": [
+        "Joint Declaration simplification",
+        "2024-2025",
+        "**Active.** Latest 2025-12-26 (transgender identity certificate)",
+        "Joint Declaration and Member profile collections"
+       ],
+       "status_kind": "active",
+       "collections": [
+        "aadhaar",
+        "jd"
+       ]
+      },
+      {
+       "cells": [
+        "Inoperative and transaction-less accounts: SOP and prompt settlement",
+        "2024-2025",
+        "**Active.** SOP 2024-08-02; prompt settlement 2025-03-27",
+        "Claim settlement authority collection covers the earlier delegation"
+       ],
+       "status_kind": "active",
+       "collections": [
+        "claim_authority"
+       ]
+      },
+      {
+       "cells": [
+        "Simplification of transfer claims (overlapping service)",
+        "2025-05-20",
+        "**Active**",
+        "Transfer claims collection"
+       ],
+       "status_kind": "active",
+       "collections": [
+        "transfers"
+       ]
+      },
+      {
+       "cells": [
+        "Advances: COVID-19 advance under Para 68L(3)",
+        "2024-06-12",
+        "**Discontinued** (title)",
+        "Advances collection"
+       ],
+       "status_kind": "ended",
+       "collections": [
+        "advances"
+       ]
+      }
+     ],
+     "text": ""
+    },
+    {
+     "heading": "MIS (32 circulars, 2011-2020)",
+     "columns": [
+      "Policy / topic",
+      "Span",
+      "Status",
+      "Note"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "MIS returns and verification of MIS figures",
+        "2011-2017",
+        "Last 2017-07-19",
+        "Not called inactive; Compliance division later discontinued paper ABP/MIS returns (2016-03-02)"
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "ISO 9001 certification for field offices",
+        "2012-2015",
+        "Last 2015-01-23",
+        ""
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      },
+      {
+       "cells": [
+        "Annual report information; Regional Committee gazette notifications",
+        "2016-2020",
+        "Last 2020-02-27",
+        ""
+       ],
+       "status_kind": "dormant",
+       "collections": []
+      }
+     ],
+     "text": ""
+    },
+    {
+     "heading": "APAR division (30 circulars, 2015-2024)",
+     "columns": [
+      "Policy / topic",
+      "Span",
+      "Status",
+      "Note"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "Electronic submission and timelines of APAR; disclosure and representations",
+        "2015-2024",
+        "Last APAR-division circular 2024-02-21; the 2025 and 2026 SPARROW cycles were issued by HRD",
+        "APAR / vigilance clearance collection"
+       ],
+       "status_kind": "dormant",
+       "collections": [
+        "apar_sparrow"
+       ]
+      }
+     ],
+     "text": ""
+    },
+    {
+     "heading": "RTI (19, 2023-2025), Manual (12, 2011-2023), MoL&E (8), Conference (3), EPFAT (1), PDU (1), blank (45)",
+     "columns": [],
+     "rows": [],
+     "text": "RTI: replies to individual applicants (operational). Manual: construction works procedure (2011), pending Annexure K (2015), change of date of birth (2020), employees' and employers' guides (2023). MoL&E: letters from the Ministry (EPF interest rate 2010-11; additional charge of CPFC 2012-2013; GSR 225(E) of 27.03.2020, 2020-03-28). Conference: CBT reconstitution 2024-04-25, annual report calendar 2026-05-13. EPFAT: cases before the Appellate Tribunal (2011-01-14); the EPFAT was merged into the CGITs in 2017 (see Panel advocates collection). Blank division (45): office orders, e-mail lists, and entries the issuer **removed** (titles say \"Circular removed as per the email ...\", for example 2024-12-11)."
+    }
+   ],
+   "row_count": 20
+  }
+ ]
+}

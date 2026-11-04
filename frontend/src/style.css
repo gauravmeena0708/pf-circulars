@@ -2485,3 +2485,169 @@ footer {
   margin: 6px 0 0;
   padding-left: 18px;
 }
+
+/* Policies by division */
+.division-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+.division-chips button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: #fff;
+  color: #3d5a6b;
+}
+.division-chips button span {
+  font-size: 10px;
+  color: #8b9ba4;
+}
+.division-chips button.active {
+  background: #173650;
+  border-color: #173650;
+  color: #fff;
+}
+.division-chips button.active span {
+  color: #c9d6de;
+}
+.division-intro {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #6a7f8b;
+  margin: 0 0 18px;
+  max-width: 980px;
+}
+.division-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.division-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  padding: 7px 10px;
+  border-radius: 3px;
+  background: #fff;
+  color: #8b9ba4;
+  flex: 1 1 260px;
+  max-width: 420px;
+}
+.division-search input {
+  border: 0;
+  outline: 0;
+  font-size: 12px;
+  width: 100%;
+  background: transparent;
+}
+.division-controls select {
+  font-size: 12px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: #fff;
+}
+.division-count {
+  font-size: 11px;
+  color: #8b9ba4;
+}
+.division-section h3 {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 450;
+  color: #2a4a5d;
+  margin: 26px 0 12px;
+}
+.division-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  line-height: 1.65;
+}
+.division-table th {
+  text-align: left;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8b9ba4;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+.division-table td {
+  vertical-align: top;
+  padding: 12px;
+  border-bottom: 1px solid #edf1f3;
+  color: #4a6372;
+}
+.division-table td:first-child {
+  min-width: 190px;
+  color: #2a4a5d;
+  font-weight: 500;
+}
+.division-table .kind {
+  display: inline-block;
+  font-style: normal;
+  font-size: 9px;
+  padding: 3px 7px;
+  margin: 0 8px 6px 0;
+  border-radius: 3px;
+  border: 1px solid #dce3e6;
+  color: #657e8d;
+}
+.division-table .kind.active {
+  background: #eff6f3;
+  color: #3f7a68;
+  border-color: #d8e7df;
+}
+.division-table .kind.ended {
+  background: #fbf2ee;
+  color: #a2573a;
+  border-color: #efd8cd;
+}
+.division-table .kind.dormant {
+  background: #fbf6e9;
+  color: #9b7a35;
+  border-color: #e8ddbe;
+}
+.division-links {
+  min-width: 150px;
+}
+.division-links button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  color: #217b7c;
+  border: 1px solid #cfe2e0;
+  border-radius: 3px;
+  padding: 4px 7px;
+  margin: 0 6px 6px 0;
+  background: #f6fbfa;
+  text-align: left;
+}
+.division-note {
+  font-size: 12px;
+  color: #8b9ba4;
+  padding: 18px 0;
+}
+.division-note.error {
+  color: #a2573a;
+}
+.division-foot {
+  font-size: 11px;
+  color: #8b9ba4;
+  line-height: 1.8;
+  margin-top: 18px;
+  max-width: 980px;
+}

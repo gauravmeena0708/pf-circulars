@@ -162,6 +162,24 @@ def catalog():
     return dict(policies=policies, passage_count=count, corpus_as_of=latest.isoformat() if latest else None, answer_enabled=bool(os.environ.get('HF_TOKEN')), today=date.today().isoformat())
 
 
+@lru_cache(maxsize=1)
+def _division_catalog(mtime):
+    return json.loads((ROOT / 'policy_data/division_catalog.json').read_text(encoding='utf-8'))
+
+
+@app.get('/api/divisions')
+def divisions():
+    """Policy topics by issuing division, with status where a circular states it (built by scripts/build_division_catalog.py)."""
+    path = ROOT / 'policy_data/division_catalog.json'
+    if not path.is_file():
+        raise HTTPException(404, 'The division catalog is not available.')
+    catalog = dict(_division_catalog(path.stat().st_mtime_ns))
+    known = {p.id: p.label for p in registered_policies()}
+    # Only link collections that are registered here, so a stale catalog cannot point at a missing one.
+    catalog['collections'] = known
+    return catalog
+
+
 @app.get('/api/policies/{id}')
 def policy_snapshot(id: str, as_of: date | None = None, topic: str | None = None):
     day = as_of or date.today()

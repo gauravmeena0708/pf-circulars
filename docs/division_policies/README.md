@@ -25,3 +25,6 @@ Limits: topics come from circular titles (the Information Services file also rea
 not claim to have read every circular. Divisions overlap (HRM/HRD, PFD/PID, NATRSS/PDUNASS, CSD/C & PR), and the division tag is the
 issuing division, not a record of who owns a policy. Where a topic already has a verified history, the table names the repo
 collection (for example Transfer, APAR, Dearness, Recruitment, Delegation, Claim settlement authority, Panel advocates).
+
+The web UI page "Policies by division" is generated from these files: after editing any of them run
+`python scripts/build_division_catalog.py` and commit `policy_data/division_catalog.json` (a test fails if it is out of date).

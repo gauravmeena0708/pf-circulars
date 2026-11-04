@@ -112,3 +112,17 @@ def test_answer_stream_uses_the_selected_evidence_packet(monkeypatch):
     assert calls['context']['as_of']=='2025-04-03'
     assert calls['language']=='Hindi'
     assert len(calls['chunks'])==len(packet['sources'])
+
+
+def test_divisions_endpoint_serves_the_catalog_with_registered_collection_links():
+    from web_api.app import app
+    from fastapi.testclient import TestClient
+    body = TestClient(app).get('/api/divisions').json()
+    names = [d['name'] for d in body['divisions']]
+    assert names[0] == 'Information Services' and 'HRM and HRD' in names and len(names) == 11
+    assert sum(d['row_count'] for d in body['divisions']) >= 140
+    linked = {c for d in body['divisions'] for s in d['sections'] for r in s['rows'] for c in r['collections']}
+    assert linked and linked <= set(body['collections'])
+    issue = next(r for s in body['divisions'][0]['sections'] for r in s['rows'] if 'Issue Tracker' in r['cells'][1])
+    assert issue['status_kind'] == 'ended' and 'discontinued' in ' '.join(issue['cells']).lower()
+    assert {r['status_kind'] for d in body['divisions'] for s in d['sections'] for r in s['rows']} >= {'active', 'ended', 'dormant', 'routine'}
