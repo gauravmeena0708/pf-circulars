@@ -19,7 +19,10 @@ last circular found is old but nothing says the policy ended. Counts are approxi
 | CSD, Publicity, C & PR | [csd_publicity.md](csd_publicity.md) |
 | PFD, PID | [pfd_pid.md](pfd_pid.md) |
 | ASD, Vigilance | [asd_vigilance.md](asd_vigilance.md) |
-| Legal, PQ, IWU, CAIU, WSU, MIS, APAR, RTI, Manual, MoL&E, Conference, EPFAT, PDU, blank | [other_divisions.md](other_divisions.md) |
+| IWU | [iwu.md](iwu.md) |
+| CAIU | [caiu.md](caiu.md) |
+| WSU | [wsu.md](wsu.md) |
+| Legal, PQ, MIS, APAR, RTI, Manual, MoL&E, Conference, EPFAT, PDU, blank | [other_divisions.md](other_divisions.md) |
 
 Limits: topics come from circular titles (the Information Services file also reads the key circulars in full); the other files do
 not claim to have read every circular. Divisions overlap (HRM/HRD, PFD/PID, NATRSS/PDUNASS, CSD/C & PR), and the division tag is the

@@ -2621,105 +2621,13 @@
    }
   },
   {
-   "id": "other_divisions",
-   "name": "Other divisions",
-   "title": "Smaller divisions: policies and status",
-   "source_file": "docs/division_policies/other_divisions.md",
+   "id": "iwu",
+   "name": "IWU",
+   "title": "International Workers Unit (IWU): policies and status",
+   "source_file": "docs/division_policies/iwu.md",
    "intro": "Source: issuer's circulars table. \"Managed by\" means \"issued by\". Status is stated only where a circular title says it; otherwise the last circular found is shown and the topic is **not** called inactive. Titles are the evidence; circulars were not read in full.",
-   "notes": "RTI: replies to individual applicants (operational). Manual: construction works procedure (2011), pending Annexure K (2015), change of date of birth (2020), employees' and employers' guides (2023). MoL&E: letters from the Ministry (EPF interest rate 2010-11; additional charge of CPFC 2012-2013; GSR 225(E) of 27.03.2020, 2020-03-28). Conference: CBT reconstitution 2024-04-25, annual report calendar 2026-05-13. EPFAT: cases before the Appellate Tribunal (2011-01-14); the EPFAT was merged into the CGITs in 2017 (see Panel advocates collection). Blank division (45): office orders, e-mail lists, and entries the issuer **removed** (titles say \"Circular removed as per the email ...\", for example 2024-12-11).",
+   "notes": "",
    "sections": [
-    {
-     "heading": "Legal (70 circulars, 2015-2026)",
-     "columns": [
-      "Policy / topic",
-      "Span",
-      "Status",
-      "Note"
-     ],
-     "rows": [
-      {
-       "cells": [
-        "Handling of legal cases in field offices (guidelines, legal dashboard)",
-        "2015-2017",
-        "Dashboard duplicate-entry circular 2016-01-15; proper handling 2017-02-03; no later circular",
-        "Not called inactive"
-       ],
-       "status_kind": "other",
-       "collections": [
-        "legal_case_handling"
-       ],
-       "span": [
-        2015,
-        2017
-       ],
-       "nature": "rule",
-       "also": []
-      },
-      {
-       "cells": [
-        "Forwarding important judgments",
-        "2016-2023",
-        "Last 2023-02-21",
-        ""
-       ],
-       "status_kind": "dormant",
-       "collections": [],
-       "span": [
-        2016,
-        2023
-       ],
-       "nature": "communication",
-       "also": []
-      },
-      {
-       "cells": [
-        "Panel advocates: fees and empanelment",
-        "2016-2026",
-        "**Active.** Fee revision 2026-07-08; Supreme Court and CAT (Principal Bench) panel 2026-07-29",
-        "Panel advocates collection (the named-advocate order is not included)"
-       ],
-       "status_kind": "active",
-       "collections": [
-        "legal_panel"
-       ],
-       "span": [
-        2016,
-        2026
-       ],
-       "nature": "rule",
-       "also": []
-      }
-     ],
-     "text": ""
-    },
-    {
-     "heading": "PQ (Parliament questions, 60 circulars, 2010-2026)",
-     "columns": [
-      "Policy / topic",
-      "Span",
-      "Status"
-     ],
-     "rows": [
-      {
-       "cells": [
-        "Calendars and instructions for answering questions in Lok Sabha and Rajya Sabha sessions",
-        "2010-2026",
-        "**Active, each session.** Latest 2026-07-09 (Monsoon Session 2026). Individual sittings were cancelled or extended in 2011 (titles)"
-       ],
-       "status_kind": "active",
-       "collections": [],
-       "span": [
-        2010,
-        2026
-       ],
-       "nature": "dissemination",
-       "also": [
-        "communication"
-       ]
-      }
-     ],
-     "text": ""
-    },
     {
      "heading": "IWU (International Workers Unit, 55 circulars, 2012-2026)",
      "columns": [
@@ -2785,7 +2693,26 @@
       }
      ],
      "text": ""
-    },
+    }
+   ],
+   "row_count": 3,
+   "mix": {
+    "routine": 29,
+    "communication": 6,
+    "forwarded": 5,
+    "data_request": 3,
+    "dissemination": 7,
+    "rule": 5
+   }
+  },
+  {
+   "id": "caiu",
+   "name": "CAIU",
+   "title": "Coverage and Area Intelligence Unit (CAIU): policies and status",
+   "source_file": "docs/division_policies/caiu.md",
+   "intro": "Source: issuer's circulars table. \"Managed by\" means \"issued by\". Status is stated only where a circular title says it; otherwise the last circular found is shown and the topic is **not** called inactive. Titles are the evidence; circulars were not read in full.",
+   "notes": "",
+   "sections": [
     {
      "heading": "CAIU (81 circulars, 2014-2024)",
      "columns": [
@@ -2863,7 +2790,26 @@
       }
      ],
      "text": ""
-    },
+    }
+   ],
+   "row_count": 4,
+   "mix": {
+    "routine": 46,
+    "data_request": 8,
+    "forwarded": 2,
+    "dissemination": 11,
+    "communication": 3,
+    "rule": 11
+   }
+  },
+  {
+   "id": "wsu",
+   "name": "WSU",
+   "title": "WSU: policies and status",
+   "source_file": "docs/division_policies/wsu.md",
+   "intro": "Source: issuer's circulars table. \"Managed by\" means \"issued by\". Status is stated only where a circular title says it; otherwise the last circular found is shown and the topic is **not** called inactive. Titles are the evidence; circulars were not read in full.",
+   "notes": "",
+   "sections": [
     {
      "heading": "WSU (40 circulars, 2023-2026; new division tag)",
      "columns": [
@@ -2961,6 +2907,115 @@
        ],
        "nature": "rule",
        "also": []
+      }
+     ],
+     "text": ""
+    }
+   ],
+   "row_count": 5,
+   "mix": {
+    "routine": 28,
+    "forwarded": 1,
+    "rule": 7,
+    "communication": 4
+   }
+  },
+  {
+   "id": "other_divisions",
+   "name": "Other divisions",
+   "title": "Smaller divisions: policies and status",
+   "source_file": "docs/division_policies/other_divisions.md",
+   "intro": "Source: issuer's circulars table. \"Managed by\" means \"issued by\". Status is stated only where a circular title says it; otherwise the last circular found is shown and the topic is **not** called inactive. Titles are the evidence; circulars were not read in full.",
+   "notes": "RTI: replies to individual applicants (operational). Manual: construction works procedure (2011), pending Annexure K (2015), change of date of birth (2020), employees' and employers' guides (2023). MoL&E: letters from the Ministry (EPF interest rate 2010-11; additional charge of CPFC 2012-2013; GSR 225(E) of 27.03.2020, 2020-03-28). Conference: CBT reconstitution 2024-04-25, annual report calendar 2026-05-13. EPFAT: cases before the Appellate Tribunal (2011-01-14); the EPFAT was merged into the CGITs in 2017 (see Panel advocates collection). Blank division (45): office orders, e-mail lists, and entries the issuer **removed** (titles say \"Circular removed as per the email ...\", for example 2024-12-11).",
+   "sections": [
+    {
+     "heading": "Legal (70 circulars, 2015-2026)",
+     "columns": [
+      "Policy / topic",
+      "Span",
+      "Status",
+      "Note"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "Handling of legal cases in field offices (guidelines, legal dashboard)",
+        "2015-2017",
+        "Dashboard duplicate-entry circular 2016-01-15; proper handling 2017-02-03; no later circular",
+        "Not called inactive"
+       ],
+       "status_kind": "other",
+       "collections": [
+        "legal_case_handling"
+       ],
+       "span": [
+        2015,
+        2017
+       ],
+       "nature": "rule",
+       "also": []
+      },
+      {
+       "cells": [
+        "Forwarding important judgments",
+        "2016-2023",
+        "Last 2023-02-21",
+        ""
+       ],
+       "status_kind": "dormant",
+       "collections": [],
+       "span": [
+        2016,
+        2023
+       ],
+       "nature": "communication",
+       "also": []
+      },
+      {
+       "cells": [
+        "Panel advocates: fees and empanelment",
+        "2016-2026",
+        "**Active.** Fee revision 2026-07-08; Supreme Court and CAT (Principal Bench) panel 2026-07-29",
+        "Panel advocates collection (the named-advocate order is not included)"
+       ],
+       "status_kind": "active",
+       "collections": [
+        "legal_panel"
+       ],
+       "span": [
+        2016,
+        2026
+       ],
+       "nature": "rule",
+       "also": []
+      }
+     ],
+     "text": ""
+    },
+    {
+     "heading": "PQ (Parliament questions, 60 circulars, 2010-2026)",
+     "columns": [
+      "Policy / topic",
+      "Span",
+      "Status"
+     ],
+     "rows": [
+      {
+       "cells": [
+        "Calendars and instructions for answering questions in Lok Sabha and Rajya Sabha sessions",
+        "2010-2026",
+        "**Active, each session.** Latest 2026-07-09 (Monsoon Session 2026). Individual sittings were cancelled or extended in 2011 (titles)"
+       ],
+       "status_kind": "active",
+       "collections": [],
+       "span": [
+        2010,
+        2026
+       ],
+       "nature": "dissemination",
+       "also": [
+        "communication"
+       ]
       }
      ],
      "text": ""
@@ -3066,14 +3121,14 @@
      "text": "RTI: replies to individual applicants (operational). Manual: construction works procedure (2011), pending Annexure K (2015), change of date of birth (2020), employees' and employers' guides (2023). MoL&E: letters from the Ministry (EPF interest rate 2010-11; additional charge of CPFC 2012-2013; GSR 225(E) of 27.03.2020, 2020-03-28). Conference: CBT reconstitution 2024-04-25, annual report calendar 2026-05-13. EPFAT: cases before the Appellate Tribunal (2011-01-14); the EPFAT was merged into the CGITs in 2017 (see Panel advocates collection). Blank division (45): office orders, e-mail lists, and entries the issuer **removed** (titles say \"Circular removed as per the email ...\", for example 2024-12-11)."
     }
    ],
-   "row_count": 20,
+   "row_count": 8,
    "mix": {
-    "routine": 188,
-    "communication": 46,
-    "rule": 41,
-    "data_request": 56,
-    "dissemination": 105,
-    "forwarded": 20
+    "routine": 85,
+    "communication": 33,
+    "rule": 18,
+    "data_request": 45,
+    "dissemination": 87,
+    "forwarded": 12
    }
   }
  ]

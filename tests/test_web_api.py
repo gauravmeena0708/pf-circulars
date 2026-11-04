@@ -119,7 +119,7 @@ def test_divisions_endpoint_serves_the_catalog_with_registered_collection_links(
     from fastapi.testclient import TestClient
     body = TestClient(app).get('/api/divisions').json()
     names = [d['name'] for d in body['divisions']]
-    assert names[0] == 'Information Services' and 'HRM and HRD' in names and len(names) == 11
+    assert names[0] == 'Information Services' and 'HRM and HRD' in names and {'IWU', 'CAIU', 'WSU'} <= set(names) and len(names) == 14
     assert sum(d['row_count'] for d in body['divisions']) >= 140
     linked = {c for d in body['divisions'] for s in d['sections'] for r in s['rows'] for c in r['collections']}
     assert linked and linked <= set(body['collections'])

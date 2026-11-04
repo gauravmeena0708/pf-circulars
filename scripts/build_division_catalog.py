@@ -27,6 +27,9 @@ FILES = [
     ('csd_publicity.md', 'CSD, Publicity, C & PR'),
     ('pfd_pid.md', 'PFD and PID'),
     ('asd_vigilance.md', 'ASD and Vigilance'),
+    ('iwu.md', 'IWU'),
+    ('caiu.md', 'CAIU'),
+    ('wsu.md', 'WSU'),
     ('other_divisions.md', 'Other divisions'),
 ]
 

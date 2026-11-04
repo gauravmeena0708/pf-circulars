@@ -661,6 +661,30 @@
    ],
    "s2": [
     {
+     "nature": "data_request",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "data_request",
+     "also": []
+    }
+   ],
+   "s3": [
+    {
+     "nature": "rule",
+     "also": [
+      "routine"
+     ]
+    }
+   ]
+  },
+  "iwu.md": {
+   "s0": [
+    {
      "nature": "rule",
      "also": []
     },
@@ -672,8 +696,10 @@
      "nature": "rule",
      "also": []
     }
-   ],
-   "s3": [
+   ]
+  },
+  "caiu.md": {
+   "s0": [
     {
      "nature": "communication",
      "also": []
@@ -690,8 +716,10 @@
      "nature": "rule",
      "also": []
     }
-   ],
-   "s4": [
+   ]
+  },
+  "wsu.md": {
+   "s0": [
     {
      "nature": "forwarded",
      "also": []
@@ -711,28 +739,6 @@
     {
      "nature": "rule",
      "also": []
-    }
-   ],
-   "s5": [
-    {
-     "nature": "data_request",
-     "also": []
-    },
-    {
-     "nature": "rule",
-     "also": []
-    },
-    {
-     "nature": "data_request",
-     "also": []
-    }
-   ],
-   "s6": [
-    {
-     "nature": "rule",
-     "also": [
-      "routine"
-     ]
     }
    ]
   }
@@ -763,12 +769,12 @@
    "forwarded": 3
   },
   "other_divisions": {
-   "routine": 188,
-   "communication": 46,
-   "rule": 41,
-   "data_request": 56,
-   "dissemination": 105,
-   "forwarded": 20
+   "routine": 85,
+   "communication": 33,
+   "rule": 18,
+   "data_request": 45,
+   "dissemination": 87,
+   "forwarded": 12
   },
   "csd_publicity": {
    "communication": 16,
@@ -825,6 +831,28 @@
    "rule": 58,
    "dissemination": 23,
    "forwarded": 2
+  },
+  "iwu": {
+   "routine": 29,
+   "communication": 6,
+   "forwarded": 5,
+   "data_request": 3,
+   "dissemination": 7,
+   "rule": 5
+  },
+  "caiu": {
+   "routine": 46,
+   "data_request": 8,
+   "forwarded": 2,
+   "dissemination": 11,
+   "communication": 3,
+   "rule": 11
+  },
+  "wsu": {
+   "routine": 28,
+   "forwarded": 1,
+   "rule": 7,
+   "communication": 4
   }
  }
 }

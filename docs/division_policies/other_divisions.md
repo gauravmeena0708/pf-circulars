@@ -15,30 +15,6 @@ circular found is shown and the topic is **not** called inactive. Titles are the
 |---|---|---|
 | Calendars and instructions for answering questions in Lok Sabha and Rajya Sabha sessions | 2010-2026 | **Active, each session.** Latest 2026-07-09 (Monsoon Session 2026). Individual sittings were cancelled or extended in 2011 (titles) |
 
-## IWU (International Workers Unit, 55 circulars, 2012-2026)
-| Policy / topic | Span | Status | Note |
-|---|---|---|---|
-| Social security agreements, Certificate of Coverage, international training | 2012-2026 | **Active.** Latest 2026-08-07 (ITCILO-EPFO executive course participants); online Certificate of Coverage system 2017-08-24 | |
-| Payments to international workers (overseas bank accounts, withdrawal on leaving service) | 2012-2026 | **Active.** Overseas bank payments 2026-03-18; withdrawal on date of leaving 2017-03-23 | |
-| Competent authorities for cancellation or modification of certificates | 2018-11-20 | Single circular | |
-
-## CAIU (81 circulars, 2014-2024)
-| Policy / topic | Span | Status | Note |
-|---|---|---|---|
-| Shram Suvidha portal logins and nodal officers | 2016-2023 | Latest 2023-10-06 (portal login for District Offices) | |
-| Coverage of contract and casual workers (Indian Railways) | 2016-2018 | Last 2018-05-24 | Not called inactive |
-| Defaulting establishments | 2018-2019 | Last 2019-01-31 | Not called inactive |
-| Registration: scanned PAN upload | 2018-01-08 | **Abolished** (title: "Abolishing of uploading of scanned copy of PAN Card at the time of registration") | |
-
-## WSU (40 circulars, 2023-2026; new division tag)
-| Policy / topic | Span | Status | Note |
-|---|---|---|---|
-| Productivity Linked Bonus (declaration; advance) | 2023-2025 | **Active, annual.** Declaration for 2024-25 on 2025-10-08 | |
-| Joint Declaration simplification | 2024-2025 | **Active.** Latest 2025-12-26 (transgender identity certificate) | Joint Declaration and Member profile collections |
-| Inoperative and transaction-less accounts: SOP and prompt settlement | 2024-2025 | **Active.** SOP 2024-08-02; prompt settlement 2025-03-27 | Claim settlement authority collection covers the earlier delegation |
-| Simplification of transfer claims (overlapping service) | 2025-05-20 | **Active** | Transfer claims collection |
-| Advances: COVID-19 advance under Para 68L(3) | 2024-06-12 | **Discontinued** (title) | Advances collection |
-
 ## MIS (32 circulars, 2011-2020)
 | Policy / topic | Span | Status | Note |
 |---|---|---|---|
