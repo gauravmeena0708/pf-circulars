@@ -1,0 +1,20 @@
+{
+  "document_id": "exemption-2018-05-01-4e9b44",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/EDLI_Exemption_2181.pdf",
+  "pdf_sha256": "cf3bbfe17560bf7a52101a0730e3735c2475476497d9b6aa6ff67d40f8928671",
+  "total_pdf_pages": 2,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "ct>a:f\"Q I.fl 1ffcnzi ~ \n'fl •i c;.:J \nEmployees' Provident Fund Organisation \nJJf1J ~ \n~ ul •i i '( q :'O cl q, \"1«J 'fl '(cf>I '( \nMinistry of Labour & Employment, Government of India \n~ \nf.rRl- ~ \n/ Bhavishya Nidhi Bhawan \n14, ~ \ncITT1ff ~\n. ~ ~ \n110066 \nBh1ka1ji Cama Place, New Delhi 110066 \nwww.epfindia.gov.in \nNo. EDU /3(25)/ Relaxation order/201% \\'t>\\ \nTo, \nDated \n8 1 MAY 1018 \nAll Addi.PF Commissioners, Zones/ Regional PF Commissioners, R.O \nSub: - Grant of Exemption from the provisions of EDLI Scheme, 1976 under \nSection 17{2A} & 17(28} of the EPF & MP Act, 1952-regarding. \nSir, \nPlease refer to the subject cited above. \nThe Head Office is in process of Compilation of data in respect of \nestablishments granted exemption from \nEDU Scheme, \n1976 for effective \nimplementation of EDU Scheme. Therefore it is requested to forward region-wise/ \noffice -wise list of establishments where EDU exemptions have been granted in the \nenclosed format within 15 days. The information in soft copy may be sent to RC \n(Pension) [rc.pension@epfindia.gov.in]. \nEncl: As above \n(R. \nma} \nAddi. Central P F Commissioner (Pension}",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 2,
+      "text": "\\ \nAnnexure \nS.NO \nR.O \nName of the \nGrant of \nNotification \nNoof \nName of the \nEstablishment & Code No \nExemption \nno & Date \nmembers \nIssuing \nExemption granted \ndate \nCovered \nInsurance \nUnder para \nUnder para \nagency \n17 (2A) \n17 (28) \n'",
+      "extraction_method": "native"
+    }
+  ]
+}

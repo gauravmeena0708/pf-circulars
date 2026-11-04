@@ -1,0 +1,863 @@
+{
+  "schema_version": 1,
+  "id": "spf_interest",
+  "reviewed_on": "2026-11-04",
+  "topics": [
+    {
+      "id": "spf_rate",
+      "label": "Staff Provident Fund interest rate",
+      "include": "staff provident|SPF|interest"
+    }
+  ],
+  "documents": [
+    {
+      "id": "spf_interest-2012-04-26-25d2a5",
+      "title": "Revised rate if interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2) 2012/SPF/1872",
+      "issued_on": "2012-04-26",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/HRD_SPF_1872.pdf",
+      "source_file": "sources/spf_interest-2012-04-26-25d2a5.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate if interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2012-04-26-25d2a5",
+        "page_number": 1,
+        "quote": "Revised rate of interest - with regard to Staff Provident Fund in"
+      }
+    },
+    {
+      "id": "spf_interest-2012-07-24-9ebe74",
+      "title": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2) 2012/SPF/11855",
+      "issued_on": "2012-07-24",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/HRD_SPF_11855.pdf",
+      "source_file": "sources/spf_interest-2012-07-24-9ebe74.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2012-07-24-9ebe74",
+        "page_number": 1,
+        "quote": "Revised rate of interest - with regard to Staff Provident Fund in"
+      }
+    },
+    {
+      "id": "spf_interest-2013-05-16-a660ee",
+      "title": "nRevised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/4677",
+      "issued_on": "2013-05-16",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/HRD_SPF_4677.pdf",
+      "source_file": "sources/spf_interest-2013-05-16-a660ee.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "nRevised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2013-05-16-a660ee",
+        "page_number": 1,
+        "quote": "Revised rate of interest - with regard to Staff Provident Fund in"
+      }
+    },
+    {
+      "id": "spf_interest-2016-07-01-dedbe4",
+      "title": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/349",
+      "issued_on": "2016-07-01",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/HRD_SPF_Int_349.pdf",
+      "source_file": "sources/spf_interest-2016-07-01-dedbe4.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2016-07-01-dedbe4",
+        "page_number": 1,
+        "quote": "Revised rate of interest - with regard to Staff Provident Fund in"
+      }
+    },
+    {
+      "id": "spf_interest-2016-07-29-2c8add",
+      "title": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/414",
+      "issued_on": "2016-07-29",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/HRD_ROI_SPF_414.pdf",
+      "source_file": "sources/spf_interest-2016-07-29-2c8add.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2016-07-29-2c8add",
+        "page_number": 1,
+        "quote": "Revised rate of interest - with regard to Staff Provident Fund in"
+      }
+    },
+    {
+      "id": "spf_interest-2016-11-08-92d0a1",
+      "title": "Revised rate of interest with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/472",
+      "issued_on": "2016-11-08",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/HRD_Interest_SPF_472.pdf",
+      "source_file": "sources/spf_interest-2016-11-08-92d0a1.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2016-11-08-92d0a1",
+        "page_number": 1,
+        "quote": "Revised rate of Interest with regard to Staff Provident Fund in EPFO"
+      }
+    },
+    {
+      "id": "spf_interest-2016-11-25-856399",
+      "title": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/477",
+      "issued_on": "2016-11-25",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/HRD_SPF_Interest_477.pdf",
+      "source_file": "sources/spf_interest-2016-11-25-856399.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2016-11-25-856399",
+        "page_number": 1,
+        "quote": "Revised rate of interest — with regard to Staff Provident Fund in"
+      }
+    },
+    {
+      "id": "spf_interest-2017-02-17-1d705f",
+      "title": "Revised Rate of Interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/55",
+      "issued_on": "2017-02-17",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/RevisedROI_SPF_55.pdf",
+      "source_file": "sources/spf_interest-2017-02-17-1d705f.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised Rate of Interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2017-02-17-1d705f",
+        "page_number": 1,
+        "quote": "Revised rate of interest — with regard to Staff Provident Fund in"
+      }
+    },
+    {
+      "id": "spf_interest-2017-05-09-e2578e",
+      "title": "r\\nRevised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/71",
+      "issued_on": "2017-05-09",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_SPF_RevisedRate_71.pdf",
+      "source_file": "sources/spf_interest-2017-05-09-e2578e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "r\\nRevised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2017-05-09-e2578e",
+        "page_number": 1,
+        "quote": "Revised rate of interest - with regard to Staff Provident Fund in"
+      }
+    },
+    {
+      "id": "spf_interest-2017-08-08-fe26d2",
+      "title": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/91",
+      "issued_on": "2017-08-08",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_Interest_SPF_91.pdf",
+      "source_file": "sources/spf_interest-2017-08-08-fe26d2.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2017-08-08-fe26d2",
+        "page_number": 1,
+        "quote": "Email: rc2.hrd@epfindia.gov.in 4>4il1{l ~ ~ fi,1a-1 (w:r Vl'"
+      }
+    },
+    {
+      "id": "spf_interest-2017-11-03-80d3ef",
+      "title": "Revised Rate of Interest - with regard to Staff Provident Fund in EPFO - regarding",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/146",
+      "issued_on": "2017-11-03",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_ROIrevised_SPF_146.pdf",
+      "source_file": "sources/spf_interest-2017-11-03-80d3ef.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised Rate of Interest - with regard to Staff Provident Fund in EPFO - regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2017-11-03-80d3ef",
+        "page_number": 1,
+        "quote": "Email: rc2.hrd@epfindia.gov.in ota afar Fe deq (FF Ua Tor Fa"
+      },
+      "date_note": "The circular is typed 'दिनांक: 03.11.2017' (stamp 15 November 2017); the issuer listing shows 15 November 2017."
+    },
+    {
+      "id": "spf_interest-2018-01-08-aa4388",
+      "title": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/21",
+      "issued_on": "2018-01-08",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_Revised_ROI_SPF_21.pdf",
+      "source_file": "sources/spf_interest-2018-01-08-aa4388.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2018-01-08-aa4388",
+        "page_number": 1,
+        "quote": "[Web Circulation] Email: rc2.hrd@epfindia.gov.in ct>4if1:fl "
+      }
+    },
+    {
+      "id": "spf_interest-2018-04-20-3eaa3b",
+      "title": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/34",
+      "issued_on": "2018-04-20",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/HRD_RevisedRate_SPF_34.pdf",
+      "source_file": "sources/spf_interest-2018-04-20-3eaa3b.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2018-04-20-3eaa3b",
+        "page_number": 1,
+        "quote": "(Through Web Circulation) Email: rc2.hrd@epfindia.gov.in cti"
+      }
+    },
+    {
+      "id": "spf_interest-2018-10-10-a85885",
+      "title": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/63",
+      "issued_on": "2018-10-10",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/HRD_Interest_SPF_63.pdf",
+      "source_file": "sources/spf_interest-2018-10-10-a85885.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2018-10-10-a85885",
+        "page_number": 1,
+        "quote": "Email: rc2.hrd@epfindia.gov.in ctiAil1tl ~ filfu ;aa1ocr1 (\""
+      }
+    },
+    {
+      "id": "spf_interest-2019-01-11-af427c",
+      "title": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/73",
+      "issued_on": "2019-01-11",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/HRD_SPF_ROI_73.pdf",
+      "source_file": "sources/spf_interest-2019-01-11-af427c.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2019-01-11-af427c",
+        "page_number": 1,
+        "quote": "(Through Web Circulation) Email: rc2.hrd@epfindia.gov.in aer"
+      }
+    },
+    {
+      "id": "spf_interest-2019-07-22-c4e72d",
+      "title": "Revised rate of interest -with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO.No.HRD/3(2)2012/SPF/96",
+      "issued_on": "2019-07-22",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2019-2020/HRD_SPF_Interest_96.pdf",
+      "source_file": "sources/spf_interest-2019-07-22-c4e72d.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest -with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2019-07-22-c4e72d",
+        "page_number": 1,
+        "quote": "(Through Web Circulation) Email: rc2,hrd@epfindia.gov.in Har"
+      }
+    },
+    {
+      "id": "spf_interest-2020-04-09-f4c124",
+      "title": "Revised rate of interest-with regard to Staff Provident Fund in EPFO - regarding",
+      "circular_no": "HRD/3(2)2012/SPF",
+      "issued_on": "2020-04-09",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/SPF_interest_rate1104.pdf",
+      "source_file": "sources/spf_interest-2020-04-09-f4c124.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest-with regard to Staff Provident Fund in EPFO - regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2020-04-09-f4c124",
+        "page_number": 1,
+        "quote": "Email: rcZ.hrd@epfindia.gov.in : me (RT Wa THAR FA, ART GE} "
+      },
+      "date_note": "The circular is typed 'दिनांक: 09.04.2020' (stamp 10 April 2020); the issuer listing shows 10 April 2020."
+    },
+    {
+      "id": "spf_interest-2020-09-18-379f23",
+      "title": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/422",
+      "issued_on": "2020-09-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/HRD_RoI_SPF_422.pdf",
+      "source_file": "sources/spf_interest-2020-09-18-379f23.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2020-09-18-379f23",
+        "page_number": 1,
+        "quote": "Email: rc2.hrd@epfindia.gov.in werent aieeg iY ars Employees"
+      }
+    },
+    {
+      "id": "spf_interest-2020-11-06-469764",
+      "title": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/432",
+      "issued_on": "2020-11-06",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/HRD_RI_SPF_432.pdf",
+      "source_file": "sources/spf_interest-2020-11-06-469764.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2020-11-06-469764",
+        "page_number": 1,
+        "quote": "mere sftey GR sors (aa ed tiseme saree ae WAR) Employees’ Pr"
+      }
+    },
+    {
+      "id": "spf_interest-2021-01-15-8d05ce",
+      "title": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/447",
+      "issued_on": "2021-01-15",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/HRD_SPF_RevisedRate_447.pdf",
+      "source_file": "sources/spf_interest-2021-01-15-8d05ce.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2021-01-15-8d05ce",
+        "page_number": 1,
+        "quote": "Email: rc2.hrd@epfindia.gov.in waran) sifase feriey Pearse ("
+      }
+    },
+    {
+      "id": "spf_interest-2021-05-31-79917b",
+      "title": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/463",
+      "issued_on": "2021-05-31",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/HRD_ROI_SPF_463.pdf",
+      "source_file": "sources/spf_interest-2021-05-31-79917b.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2021-05-31-79917b",
+        "page_number": 3,
+        "quote": "Rate of Interest on General Provident Fund (GPF) and other similar"
+      }
+    },
+    {
+      "id": "spf_interest-2021-07-22-134abf",
+      "title": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/470",
+      "issued_on": "2021-07-22",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/HRD_ROI_SPF_470.pdf",
+      "source_file": "sources/spf_interest-2021-07-22-134abf.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2021-07-22-134abf",
+        "page_number": 1,
+        "quote": "File No.HRD/3(2)2012/SPF adadt afaca fafa dra EMPLOYEES’ PRO"
+      }
+    },
+    {
+      "id": "spf_interest-2021-11-17-ba9b37",
+      "title": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/514",
+      "issued_on": "2021-11-17",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/HRD_ROI_SPF_514.pdf",
+      "source_file": "sources/spf_interest-2021-11-17-ba9b37.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2021-11-17-ba9b37",
+        "page_number": 1,
+        "quote": "giewei, wer wrafaa oF Ud USM Fa, URG AER sufer PAY 1149, 14,"
+      }
+    },
+    {
+      "id": "spf_interest-2022-01-13-cf54d9",
+      "title": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/537",
+      "issued_on": "2022-01-13",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/HRD_SPR_ROI_537.pdf",
+      "source_file": "sources/spf_interest-2022-01-13-cf54d9.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2022-01-13-cf54d9",
+        "page_number": 1,
+        "quote": "uw after PRY 21a, 14, esr orn he, ag facet 110066 EPFO, HEAD"
+      }
+    },
+    {
+      "id": "spf_interest-2022-04-12-06d383",
+      "title": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/596",
+      "issued_on": "2022-04-12",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/HRD_RevisedROI_SPF_596.pdf",
+      "source_file": "sources/spf_interest-2022-04-12-06d383.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2022-04-12-06d383",
+        "page_number": 1,
+        "quote": "Stine, ger erates 3H Ug tise t Hae, UNG IRR ute FRY 4a, 14, "
+      }
+    },
+    {
+      "id": "spf_interest-2022-07-28-1439bb",
+      "title": "Revised rate of interest – with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO.No.HRD/3(2)2012/SPF/642",
+      "issued_on": "2022-07-28",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/Circular_GPF_Resolution_2022-23.pdf",
+      "source_file": "sources/spf_interest-2022-07-28-1439bb.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest – with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2022-07-28-1439bb",
+        "page_number": 1,
+        "quote": "$lllQq,'3fT, ~ cplQfi:'lQ sr Ji ?t#I+ia, +4aal ~f.m/ 'l-fcR1"
+      }
+    },
+    {
+      "id": "spf_interest-2022-10-13-86199e",
+      "title": "Revised rate of interest – with regard to staff Provident Fund in EPFO",
+      "circular_no": "HO No. HRD/3(2)2012/SPF/687",
+      "issued_on": "2022-10-13",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/GPF_Interest_Rate_revised_687.pdf",
+      "source_file": "sources/spf_interest-2022-10-13-86199e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest – with regard to staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2022-10-13-86199e",
+        "page_number": 1,
+        "quote": "~·<fl~lf>Jfl',~ ct>l<tfctq sqviln rial, +4a wzal ~·f.:tfu t/"
+      }
+    },
+    {
+      "id": "spf_interest-2022-10-13-c4e58d",
+      "title": "Revised rate of interest – with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO.No.HRD/3(2)2012/SPF/687",
+      "issued_on": "2022-10-13",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/GPF_Interest_Rate_14102022.pdf",
+      "source_file": "sources/spf_interest-2022-10-13-c4e58d.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest – with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2022-10-13-c4e58d",
+        "page_number": 1,
+        "quote": "~·<fl~lf>Jfl',~ ct>l<tfctq sqviln rial, +4a wzal ~·f.:tfu t/"
+      }
+    },
+    {
+      "id": "spf_interest-2023-01-10-95ef19",
+      "title": "Revised rate of interest with regard to Staff Provident Fund in EPFO",
+      "circular_no": "No.HRD/3(2)2012/SPF/726",
+      "issued_on": "2023-01-10",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/SPF_Interest_Jan.pdf",
+      "source_file": "sources/spf_interest-2023-01-10-95ef19.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2023-01-10-95ef19",
+        "page_number": 1,
+        "quote": "Steet, yer raters ay ud th a Pr rete ufos Fafa yas, 14, die "
+      }
+    },
+    {
+      "id": "spf_interest-2023-04-11-c5b95a",
+      "title": "Circular regarding revised rate of interest – with regard to Staff Provident Fund in EPFO",
+      "circular_no": "HO.No.HRD/3(2)2012/SPF/805",
+      "issued_on": "2023-04-11",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/Circular_GPFInterest_Rate_11042023.pdf",
+      "source_file": "sources/spf_interest-2023-04-11-c5b95a.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Circular regarding revised rate of interest – with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2023-04-11-c5b95a",
+        "page_number": 1,
+        "quote": "evar? whaaa frig anas EMPLOYEE Ss PROVIDE NT FU ND ORG ANISA"
+      }
+    },
+    {
+      "id": "spf_interest-2023-07-12-9bd505",
+      "title": "Revised rate of interest – with regard to Staff Provident Fund in EPFO",
+      "circular_no": "No.HRD/3(2)2012/SPF/828",
+      "issued_on": "2023-07-12",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/SPF_Circular_HRD_12072023.pdf",
+      "source_file": "sources/spf_interest-2023-07-12-9bd505.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest – with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2023-07-12-9bd505",
+        "page_number": 1,
+        "quote": "— avanti wfaua fata aasa EMPLOYEES’ PROVIDENT FUND ORGANISAT"
+      }
+    },
+    {
+      "id": "spf_interest-2024-02-16-3a7a95",
+      "title": "Revised rate of interest for Q3 and Q4 – with regard to Staff Provident Fund in EPFO",
+      "circular_no": "No.HRD/3(2)2012/SPF/962",
+      "issued_on": "2024-02-16",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/Circular_HRD_16022024.pdf",
+      "source_file": "sources/spf_interest-2024-02-16-3a7a95.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest for Q3 and Q4 – with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2024-02-16-3a7a95",
+        "page_number": 1,
+        "quote": "y me G2e sia wags ffs area ie EMPLOYEES’ PROVIDENT FUND ORGA"
+      }
+    },
+    {
+      "id": "spf_interest-2024-07-25-058190",
+      "title": "Revised rate of interest for Q1 and Q2 – with regard to Staff Provident Fund in EPFO",
+      "circular_no": "No.HRD/3(2)2012/SPF/3790",
+      "issued_on": "2024-07-25",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/Circular_HRD_SPF_25072024.pdf",
+      "source_file": "sources/spf_interest-2024-07-25-058190.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest for Q1 and Q2 – with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2024-07-25-058190",
+        "page_number": 1,
+        "quote": "arardt afaor fae aot Employees Provident Fund Organisation M"
+      }
+    },
+    {
+      "id": "spf_interest-2024-10-23-56ec36",
+      "title": "Revised rate of interest Q3 with regard to Staff Provident Fund in EPFO",
+      "circular_no": "No: HRD/3(2)2012/SPF/1139",
+      "issued_on": "2024-10-23",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/RevisedSPFrateofInterestforQ3for_2024_25.pdf",
+      "source_file": "sources/spf_interest-2024-10-23-56ec36.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest Q3 with regard to Staff Provident Fund in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2024-10-23-56ec36",
+        "page_number": 1,
+        "quote": "Employees Provident Fund Organisation TAY. 7 \\ (970 4 TTR Ba"
+      },
+      "date_note": "The circular is typed '23 OCT 2024'; the issuer listing shows 29 October 2024."
+    },
+    {
+      "id": "spf_interest-2025-01-23-bc45cd",
+      "title": "Revised rate of interest for Q4 of 2024-25 with regard to Staff Provident Fund in EPFO – regarding",
+      "circular_no": "HRD/3(2)2012/SPF/1218",
+      "issued_on": "2025-01-23",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/RevisedSPFRateOfInterestFor_Q4Of2024-25.pdf",
+      "source_file": "sources/spf_interest-2025-01-23-bc45cd.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest for Q4 of 2024-25 with regard to Staff Provident Fund in EPFO – regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2025-01-23-bc45cd",
+        "page_number": 1,
+        "quote": "oda ufte A a4 Employees Provident Fund Organisation (998 Vor"
+      }
+    },
+    {
+      "id": "spf_interest-2025-07-21-408284",
+      "title": "Revised rate of interest for Q1 & Q2 with regard to Staff Provident Fund in EPFO – Regarding",
+      "circular_no": "संख्या: HRD/3 (2)2012/SPF/1396",
+      "issued_on": "2025-07-21",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Revised_SPFROI_Q1andQ2_2024-25.pdf",
+      "source_file": "sources/spf_interest-2025-07-21-408284.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest for Q1 & Q2 with regard to Staff Provident Fund in EPFO – Regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2025-07-21-408284",
+        "page_number": 1,
+        "quote": "ofan fee Aft wo Employees Provident Fund Organisation (90 Ua"
+      }
+    },
+    {
+      "id": "spf_interest-2025-10-27-51da9e",
+      "title": "Revised rate of interest for Q3 with regard to Staff Provident Fund for the year 2025-26 in EPFO - Regarding",
+      "circular_no": "संख्या: एच. आर. डी./3 (2) 2012/एसपीएफ/1448",
+      "issued_on": "2025-10-27",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/RevisedSPF_ROIforQ3Of2025-26_English.pdf",
+      "source_file": "sources/spf_interest-2025-10-27-51da9e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest for Q3 with regard to Staff Provident Fund for the year 2025-26 in EPFO - Regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2025-10-27-51da9e",
+        "page_number": 1,
+        "quote": "(90 wd dorm darey, ued BER) wet (MINISTRY OF LABOUR & EMPLOY"
+      }
+    },
+    {
+      "id": "spf_interest-2026-05-05-af24d9",
+      "title": "Revised rate of interest of Q1 for financial year 2026-2027 with regard to Staff Provident Fund in EPFO-regarding",
+      "circular_no": "संख्या : एच.आर. डी. 3(2) 2012/ एसपीएफ/1551",
+      "issued_on": "2026-05-05",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "spf_rate"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2026-2027/Revised_SPFInterestRate_Q1Of2026_2027.pdf",
+      "source_file": "sources/spf_interest-2026-05-05-af24d9.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised rate of interest of Q1 for financial year 2026-2027 with regard to Staff Provident Fund in EPFO-regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "spf_interest-2026-05-05-af24d9",
+        "page_number": 1,
+        "quote": "ota uf Fie a3 Employees Provident Fund Organisation (90 Ua T"
+      }
+    }
+  ],
+  "relationships": [],
+  "limitations": [
+    "This collection holds the HRD circulars announcing the Staff Provident Fund interest rate to EPFO employees (2012 onward). Notices before 2012, and any not listed in the issuer's circulars table, are not included; the gaps (for example 2013-14 to 2016, and 2023-24 Q2) mean the series is not complete.",
+    "Each notice states the rate for a financial year or quarter, usually by reproducing the Government of India Budget Division resolution on the General Provident Fund. A later notice revises the rate for its own period; it does not withdraw earlier periods, so no supersession between notices is asserted.",
+    "Several circulars are scanned with the Hindi text first; the English subject line and rate sentence are read from the scan and checked on the page, but numeric tables in some scans were not transcribed. Check the rate against the page image.",
+    "Three circulars carry their typed letter date instead of the issuer listing date (see the date notes). The rate period each notice applies to is stated in its text, not in its issue date.",
+    "The EPF member interest rate is in the EPF interest rate collection, not here.",
+    "Dates follow the letter, not the issuer listing; entries whose letter date differs carry a date_note.",
+    "PDFs were read from the issuer mirror on 4 November 2026 because the public site returned 404 for these paths; recorded SHA-256 values apply to those files. Scanned pages are OCR. Issue dates were checked against the document headers."
+  ]
+}

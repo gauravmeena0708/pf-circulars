@@ -1,0 +1,79 @@
+{
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
+  "cases": [
+    {
+      "id": "pension_member_rules-2006-03-29",
+      "question": "Calculation of Pension for new entrants governed by Para 12(2) of Employees Pension Scheme '95",
+      "as_of": "2006-03-29",
+      "required_evidence": [
+        {
+          "document_id": "pension_member_rules-2006-03-29-4f237a",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "pension_member_rules-2013-11-08",
+      "question": "nContribution on salary exceeding the statutory limit under Para 11(3) of the EPS' 95",
+      "as_of": "2013-11-08",
+      "required_evidence": [
+        {
+          "document_id": "pension_member_rules-2013-11-08-2e7edc",
+          "page_number": 2
+        }
+      ]
+    },
+    {
+      "id": "pension_member_rules-2016-07-22",
+      "question": "Benefit of two years weightage of service to the members with 20 or more years of Pensionable Service under Employees' Pension Scheme, 1995",
+      "as_of": "2016-07-22",
+      "required_evidence": [
+        {
+          "document_id": "pension_member_rules-2016-07-22-9a4423",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "pension_member_rules-2017-03-03",
+      "question": "Introduction of Pension Claim Form (Aadhaar)",
+      "as_of": "2017-03-03",
+      "required_evidence": [
+        {
+          "document_id": "pension_member_rules-2017-03-03-9b9fbc",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "pension_member_rules-2017-06-21",
+      "question": "Benefit of two years weightage of service to the members with 20 or more years of Pensionable Service under Employees' Pension Scheme, 1995",
+      "as_of": "2017-06-21",
+      "required_evidence": [
+        {
+          "document_id": "pension_member_rules-2017-06-21-2d11a8",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "pension_member_rules-2024-06-24",
+      "question": "Modification in Table B under EPS’95 for the purpose of calculation of past service benefit under Para 12(3)(i)(b) of the scheme",
+      "as_of": "2024-06-24",
+      "required_evidence": [
+        {
+          "document_id": "pension_member_rules-2024-06-24-f1ce9d",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "pension_member_rules-before-latest",
+      "question": "Modification in Table B under EPS’95 for the purpose of calculation of past service benefit under Para 12(3)(i)(b) of the scheme",
+      "as_of": "2024-06-23",
+      "absent_documents": [
+        "pension_member_rules-2024-06-24-f1ce9d"
+      ]
+    }
+  ]
+}

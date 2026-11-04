@@ -1,0 +1,20 @@
+{
+  "document_id": "ecr_returns-2024-11-22-9c84d4",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/CircularUAN Activation_22112024.pdf",
+  "pdf_sha256": "97d8f15fb7e625b198d4445b585d0f0774a252d1660ecb56a8f07f7372ea8556",
+  "total_pdf_pages": 2,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "orant after Fit dor\nEmployees’ Provident Fund Organisation\n9 Ud TOMI Bae, URd AHR\nMinistry of Labour and Employment, Government of India\nweata WGI Hrafea/Head Office\nWotottoto Sex, wH-2, mds-4\" ui, He fang ane, aE Peet-110023\nNBCC Centre, Block-2, Ground-4\"\" Floor, East Kidwai Nagar, New Delhi-110023\nNo: ELI/UANActivation/2024 Date: 22.11.2024\n\nTo,\n\nEmployers of all establishments covered under EPFO\n\nSubject: UAN Activation and seeding Bank Account with AADHAAR for availing the benefits under ELI\nScheme- regarding.\n\nRef: Press brief released by Ministry of Labour & Employment through PIB on 21.11.2024\n\nMadam/Sir,\n\nIn the light of directions received from the Ministry of Labour & Employment, to ensure that all eligible\nemployees benefit from the Employment Linked Incentive (ELI) Scheme announced in Union Budget 2024-25, UAN\nactivation and AADHAAR seeding in Bank Account of each employee are mandatory.\n\n2. _ Every subscriber of EPFO is required to have an AADHAAR linked Universal Account Number (UAN), which\nneeds to be activated by creating login on the Member Portal, for availing a number of facilities through a single\nwindow. Such facilities include the ability to view and download PF passbooks; submit online claims for withdrawals,\nadvances, or transfers; update personal details and track the status of claims in real time.\n\n3. The activation process is straightforward and can be completed using an Aadhaar-based OTP (One-Time\nPassword) by following the steps given in Annexure A. (attached)\n\n4. Further, for availing the benefits of any Direct Benefit Transfer (DBT) Scheme, the Bank Account number of\nthe beneficiary is required to be seeded with AADHAAR s0 as to credit the benefits directly into the beneficiary’s\nbank account.\n\n5. ince, the benefits under ELI Scheme, will be disbursed through DBT to eligible employees, Employers are\nurged to ensure UAN activation and AADHAAR seeding in Bank Account by 30\" November 2024, in respect o,\nall their employees who have joined in the current financial year, starting with the latest foinees. The concerned\nEPFO offices may kindly be contacted for necessary guidance in this matter, if required.\n\n6. EPFO remains committed to provide social security and retirement benefits to millions of employees across\nIndia. By enhancing accessibility through its online service portal, EPFO continues to improve ease of use and\noperational efficiency.\n\n[This issues with the approval of CPFC]\n\n22/1 24\n(Abhay Ranjan)\nAddl. Central PF Commissioner (Compliance)\nCopy to:\n\nPS to CPFC for information.\n\nPS to FA&CAO for information.\n\nAll Zonal Heads to facilitate employers (through EPFO website)\n\nAll Other Officers of EPFO for information (through EPFO website)\n\nACC HQ(IS) to place the PDF of this communication in the Employer and Member Portal\nWeb-admin for uploading on EPFO website\n\nmpeaosp",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 2,
+      "text": "Viii.\n\nAnnexure- A\n\nGo to EPFO Member Portal.\n\nClick on the \"Activate UAN\" link under \"Important Links\".\n\nEnter your UAN, Aadhaar number, name, DOB, and Aadhaar-linked mobile number.\nEmployees should ensure their mobile number is Aadhaar-linked to access the full range of\nEPFO’s digital services.\n\nAgree to Aadhaar OTP verification.\n\nClick \"Get Authorization PIN\" to receive an OTP on your Aadhaar-linked mobile number.\nEnter the OTP to complete the activation.\n\nA password will be sent to your registered mobile number upon successful activation.",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

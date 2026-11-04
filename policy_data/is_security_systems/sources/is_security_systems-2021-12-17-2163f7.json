@@ -1,0 +1,75 @@
+{
+  "document_id": "is_security_systems-2021-12-17-2163f7",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/NDC_KAVACH_873.pdf",
+  "pdf_sha256": "03e4742747cb0851e243be27a262ba46a1867e5f99606242c33a8c5eacc4631c",
+  "total_pdf_pages": 13,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "a8 Ud SIR Hae, UR BRR\nsaferog Pte sre, 14, sflaprsit ara whe, aE feeit 110066\nEPFO, HEAD OFFICE\nMINISTRY OF LABOUR & EMPLOYMENT, GOVERNMENT OF INDIA\nBHAVISHYA NIDHI BHAWAN, 14, BHIKAIJI CAMA PLACE, NEW DELHI 110066\n\nwww.epfindia.gov.in\n\nHO No.: NDC/IS/SW/72/email/chargeable/2020/ 3 72 Date:17.12.2021\nTo,\n\nOICs,\nAll Divisions Head Office/NDC/\nAll ZOs/ROs/ NATRSS /ZTIs/DOs/Vigilance Directorate/Audit Wings.\n\nSir/Madam,\n\nIt is informed that, with immediate effect, installation of 2 Factor Authentication (2FA)\nhas been made mandatory by NIC for using the email id on “@epfindia.gov.in” domain.\n\nAll users availing the email services from NIC (i.e. @epfindia.gov.in) need to use 2\nFactor Authentication (2FA) to access their email account. Users will not be able to access their\nemail through the Web Interface w.e.f. Thursday, 23 Dec 2021 unless “Kavach App” is\ninstalled.\n\nTherefore, all users are requested to install “Kavach App” on their access devices\n(phone/laptop/desktop) immediately.\n\nPlease ensure that the device in which the “Kavach Application” is installed should\nalways be available with the user, as the user has to accept the notification received on the\n“Kavach Application” for enabling access to the email account.\n\nSteps to download and install 2FA application “Kavach” is attached. The attached document\ngives the detailed step wise process for installing the Kavach”Application” on mobile/laptop and\ndesktop.\n\nThis makes it very important that correct mobile number is linked with your email Id. For\nchanging the mobile number, you have to send an email from official email Id to webadmin-\nepfo@nic.in intimating your email Id, name, designation, date of retirement, and new mobile\nnumber. This mobile number should not be already linked with 2 email Ids.",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 2,
+      "text": "A process for allowing your PA/PS to access your email is also given in the attached\ndocument. However, the PA/PS should be having email ID on @epfindia.gov.in domain which\nmeans that he/she should be an employee of the organizations.\n\nImportant points:-\n\n. Link correct mobile number with your email Id.\n\n. You can allow maximum two employee to access your email.\nWith one mobile number maximum two email IDs are permitted.\nWith one email Ids maximum three devices may be added.\n\nSwUNe\n\nYours’ Faithfully,\n\ni\n\n(SANJAY KESARI)\nREGIONAL P F COMMISSIONER (IS)",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 3,
+      "text": "Configuration steps for installing Kavach \n \n \n1. Please note that NIC does not send any mails under any situation \nthat \nrequires \nyou \nto \nsubmit \nyour \nlogin \ncredentials \n(login/password) hence do not take any action on a mail that \nasks for your login and password as it could be a fake mail and \nmay carry malicious malware to infect your devices. \n \n2. If you receive any email with a link, please verify its authenticity \nbefore clicking. It could be a phishing link. \n \nWith immediate effect installation of 2FA has been made mandatory as per \ndirective from Competent Authority. All users availing the email services from \nNIC need to use 2FA to access their account. \n \n \n \n \n \n \n \nUsers \nare \nadvised \nto \ninstall \nthe \nsame \non \ntheir \naccess \ndevices \n(phone/laptop/desktop) immediately. Please note that if you choose to install \nkavach only one device then please ensure that the device (for instance if you \nchoose to install on the phone ) is always available with you as you will need \nto accept the notification for the access to email to be enabled. \n Note: \n1. The ID of a user needs to be activated for Kavach in the mail server \nprior to activation by the users. Hence , this procedure needs to be \nfollowed by ONLY those users who receive a mail from \n mailservices@nic.in. This mail is sent after the id has been enabled for \nKavach. \nIf \na \nuser \nreceives \na \nmail \nforwarded \nby \na \ncolleague/acquaintance, please do not try and activate as it will give an \nerror. User needs to wait to receive a direct mail. \n2. Ensure the correct mobile no is mapped with your id as you will receive \na OTP for registration. \n3. Contact your respective NIC coordinator / delegated administrator for \nupdation of your mobile no or any other assistance required in this \nregard.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 4,
+      "text": "Video tutorial is available on https://email.gov.in (after logging in) under the \nheading How to Install Kavach App on Android and iPhone. \n \nPlease find below the steps for installing Kavach \n \n(A) For Self: \n \nHow to Install Kavach on Mobile (Android or iPhone) & Desktop. \n \n1. Desktop \n \nDownload the Desktop App from https://kavach.mail.gov.in \n \nMinimum requirement for Desktop App \n \nWindows 7 \n \nMAC 10.11 \n \nUbuntu 19.04 \n \nCentOS/RedHat 6.9 \n \n2. Mobile \n \n \nDownload \nthe \nIOS \nand \nAndroid \napp \nfrom \nApple App \nStore and Google play store respectively. \n \nPlease search App for “Kavach Authentication” in the store. \nScreenshot of the correct App is shown below. \nMinimum requirement for Mobile App \n \nAndroid OS: 8.0 and above \n \niOS: 9.1 and above    \n \n             App Store                                       Google Play Store \n4. Notification will be sent to all devices on which the app is installed hence \nfor ease of use please install on all (max 3) devices that are used for \naccessing email services.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 5,
+      "text": "You can also download from the URL : https://kavach.mail.gov.in. \n \n1.After Downloading, Install the same and accept the terms and conditions. \n2. Authenticate by giving your username & password \n3. You will receive a 6 digit code OTP (One time password) via SMS on your \nregistered Mobile. \n4. Please insert the OTP and click on Submit to complete the enrolment. \n \n(B) \n ADD A USER WITH YOUR ACCOUNT (PROVISIONED TO \n ALLOW PS /GROUP MEMBER TO ACCESS YOUR ACCOUNT ) \n \nThe person to whom you want to give access to your \naccount needs to follow these steps. \n \n1. Please ensure that the user being added to the app also has \nkavach enabled. Please ensure the same by asking your \nrespective Delegated Administrator/NIC Coordinator or send a \nmail to mailservices@nic.in \n2. The person (for instance your PS) will install the kavach app for \nhis/her own email address by following the steps mentioned under \n“SELF” above. \n3. After installing and enabling the app for self, he/she will Click on \n“ADD NEW ACCOUNT” in the app . \n4. Enter the ID and Password details of the user whose account \nhe/she wants to take access for ( in this instance YOU ). \n5. Enter the OTP sent on the registered mobile number of the person \n(in this case YOU and you will need to share the OTP received \non your phone as this needs to be a informed decision on the part of the \nuser). \n6. Enrolment will be complete and now Your PS /anyone else you \ngive this authorization & will be able to access your account. \n7. Max 2 delegations are allowed.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 6,
+      "text": "(C) \n HOW TO USE THE MOBILE APP \n \nAfter successful installation follow these steps: \n \n1. Login with your username /password and press enter. \n2. You  will get a notification from the kavach mobile app \nasking \nyou to “Accept”/” Deny”. \n3. Pls “Accept” immediately. Any delay will result in “timeout” \n4. Please note that you need to be in strong network signal zone for the \nnotification. If for any reason you are in a weak signal zone, then you \nmay not get the notification immediately. Please use the following two \noption in such a scenario: \na) Use the “PULL” option to get the notification OR \nb) Use the OTP and suffix it with your password and then press “enter. \nOTP is the number that you see on the main screen of your kavach \nApp as shown below: \n \n  \n5. You can also apply the country policy using the kavach app. \n6. IMAP as a service can be enabled/disabled using the app. \n7. As informed user, it is recommended to check your logs for access \nactivity. \n8. You are advised to please go through all the options available on the \napp for using it effectively. \n \n For any issues please call the 24x7 NIC Helpdesk 1800-111-555 \n or Contact the NIC Officers /Delegated Administrator in your \n respective Ministry/Department .",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 7,
+      "text": "(d). HOW TO USE THE DESKTOP APP \n \n1. Open the app. \n2. You will see a code with 6 numbers. This is the OTP. It will change \nevery 30 seconds. \n3. Suffix (Add) the numbers with your password, without any gap and \nclick on “Sign In”. \n \n \n           \n \n \n \n \n \n \n \n \n \n \n          NOTE:- \n         In case you are not able to login using the given OTP, use “Clock Sync” \noption under “Settings” button on the desktop App and try again. Refer below \nimage to find “Clock Sync”.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 8,
+      "text": "Three ways to Delete/De-register a registered Device \n \n1. Using kavach.mail.gov.in :- \n \n \n1. Go to the Url https://kavach.mail.gov.in  \n2. Login with your email id and password. \n \n \n \n \n3. OTP will be sent to user’s registered mobile number. \n4. Enter the OTP & click on Login.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 9,
+      "text": "5. A dashboard will be opened for kavach.mail.gov.in. \n \n \n \n \n6. Click on Manage Activated Devices and then select the Device you want to \nDelete and click on De-register.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 10,
+      "text": "‘Digital India @ g ov.In\n\nPower To Empower\n\n7. You have successfully deleted the Device.\n\nCe webmal ~ user © 2021-08-10 13:17:34\n\nge Activated Devices\nUser Manage Actvated Devices\n‘Manage Activated Devices\n\nO  SrNo Device Name Device ld Activation Time\n\nio a Android OPP\n\nAndroid Client\n\n2. Using Desktop Application: -\n\n1. Open the kavach application on your Desktop/Laptop.",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 11,
+      "text": "2. Click on the Manage Policy Tab on the sidebar. \n \n \n \n \n3. Go to Manage Activated Devices section. \n4. Click on the delete icon present on the right corner to delete the required \ndevice same.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 12,
+      "text": "Deven @gov.in\n\n5. You have successfully deleted the device.\n\nMANAGE ACTIVATED DEVICES\n\n~\nlat\n2 Device Name: Desktop Token tu)\nBEER |Device ID Dc5360050A6D_162858.\nME 2\" Time = 2021-08-10 15:26:13\n\nfs\nwr\n\ng\n\neo a\n\n3.Using Mobile Application:\n\n1. Open the kavach application on your Android/IOS mobile device.\n\nNIC i\n\n877566,\n\n5 secs\n\na@nic.in\nit\n\nNIC\n\n598084,\n\n5 secs",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 13,
+      "text": "2. Click on the Manage Policy Tab on the sidebar. \n                  \n \n                                    \n \n3. Go to Manage Activated Devices section. \n4. Click on the delete icon present on the right corner to delete the required \ndevice. \n \n                     \n                      \n \n \n \n                                                   \n5. You have successfully deleted the device.",
+      "extraction_method": "native"
+    }
+  ]
+}

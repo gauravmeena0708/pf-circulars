@@ -136,6 +136,6 @@ def test_new_archive_hashes_and_physical_page_maps_match_extracted_sources():
         h = PolicyHistory(policy.path)
         for doc in h.documents.values():
             if not doc.get('source_file'): continue
-            source = json.loads((policy.path.parent/doc['source_file']).read_text())
+            source = json.loads((policy.path.parent/doc['source_file']).read_text(encoding='utf-8'))
             assert len(source['pdf_sha256']) == 64 and doc['source_url'].startswith('https://')
             assert all(1 <= p['page_number'] <= source['total_pdf_pages'] for p in source['pages'])

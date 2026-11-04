@@ -17,7 +17,7 @@ def test_aadhaar_scope_detected(query):
 
 
 @pytest.mark.parametrize("query", [
-    "Mandatory Aadhaar seeding for ECR filing", "EPS pension eligibility",
+    "EPS pension eligibility",
     "UIDAI address update", "How can I correct Aadhaar address?",
 ])
 def test_unregistered_scopes_keep_hybrid_fallback(query):
@@ -30,7 +30,7 @@ def test_unregistered_scopes_keep_hybrid_fallback(query):
 
 def test_registered_paths_and_explicit_followups():
     policies = registered_policies()
-    assert {p.id for p in policies} == {"jd", "aadhaar", "transfers", "higher_pension", "cpps", "advances", "bank_kyc", "mid_delinking", "eps_corrections", "delegation", "employee_benefits", "epf_interest_rate", "staff_transfer", "apar_sparrow", "dearness", "legal_panel", "claim_authority", "foreign_visit", "recruitment_promotion"}
+    assert {p.id for p in policies} == {"jd", "aadhaar", "transfers", "higher_pension", "cpps", "advances", "bank_kyc", "mid_delinking", "eps_corrections", "delegation", "employee_benefits", "epf_interest_rate", "staff_transfer", "apar_sparrow", "dearness", "legal_panel", "claim_authority", "foreign_visit", "recruitment_promotion", "is_hardware_norms", "is_security_systems", "spf_interest", "exemption", "damages_7a", "ecr_returns", "claim_forms_payments", "official_language", "pension_member_rules", "international_workers", "legal_case_handling", "quality_complaints"}
     for policy in policies:
         assert policy.path.is_file()
         PolicyHistory(policy.path)

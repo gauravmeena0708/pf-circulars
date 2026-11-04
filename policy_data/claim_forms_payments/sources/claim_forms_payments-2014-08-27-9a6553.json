@@ -1,0 +1,15 @@
+{
+  "document_id": "claim_forms_payments-2014-08-27-9a6553",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Bkg_ModuleCCPAP_276.pdf",
+  "pdf_sha256": "b482988a91388de9bde9e067b31c8e4258acffda0793a2f27f3e64b7afdb7ad7",
+  "total_pdf_pages": 1,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "ara afaer Pre eros Fax: 011-26173022\nEmployees’ Provident Fund Organisation Telephone: 26172685\n(34 AAlea ART EGR)\n(Ministry of Labour, Govt. Of India)\nwa / Head Office\nafesy FR wa, 14—Aepreh ara were, Ag feeci-110066\n\nBhavishya Nidhi Bhawan, 14- Bhikaji Cama Place, New Delhi — 110066\n\nZ WEB CIRCULATION\nNo. Bkg.1(11)10/New Process/Vol.IL 4 G Date 2 +| ¥{\\4.\nTo 9 Al\nAdditional CPFCs (Zones) de I vb 2014\nRegional P.F. Commissioners/In-charge of\nRO- Chandigarh, Ludhiana, Shimla, Guntur, Mangalore, Goa,\nTrivendrum, Nagpur, Raipur, Ahmedabad, Kanpur\nSRO- Karnal, Rohtak, Bhatinda, Amritsar, Jalandhar, Agra, Cuddupa,\nRajamundary, Vishkhapatnam, Patancheru, Chikmanglore,\nMysore, Shimoga, Udupi, Hubli, Trichy, Pondicherry, Calicut,\nCochi, Kannur, Kollam, Kottayam, Durgapur, Aurangabad,\nAkola, Kolhapur, Vashi, Vatva, Rajkot, Vapi, Gorakhpur,\nLucknow, Varanasi\n\nSubject Implementation of CCPAP Module of Payment from 5\" September,\n2014.\n\nSir/Madam,\n\nCCPAP Module in the above said offices may be rolled out from\n05.09.2014.\n\n2. The above offices may generate digitally signed CCPAP advice file and\nupload the same to SBI SFTP server on 04.09.2014. The file of 04.09.2014 should\ncontain the details of cheques issued from A/c No. 1 & 10 on 04.09.2014 and also for\nthe period preceding three months prior to 04.09.2014. Thereafter, the file may be\nuploaded on a daily basis in respect of cheques issued in A/c No. 1 & 10.\n\n3. After uploading the file SBI will fetch the file available in designated\nfolder of SFTP server and perform further activities. Any technical issue for roll out\nof CCPAP may be taken with Shri D.K. Pandey, AGM, SBI & Nodal Officer for\nEPFO and Shri S. K. Panda, DD(IS).\n\n4. The concerned officials may be in readiness for sending the details of\ncheques issued during the preceding three months prior to 05.09.2014 and thereafter\non a daily basis. All RPFCs may ascertain that the digital signatures are functional.\nA trial run may also be conducted by respective RPFCs before the scheduled date.\n\nYours faithfully,\n\nA\n\n(Sanjay Kumar)\nRegional P.F. Commissioner-I(F&A)",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

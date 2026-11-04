@@ -1,0 +1,20 @@
+{
+  "document_id": "is_security_systems-2016-12-22-2bdbad",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/NDC_CyberIncidents_655.pdf",
+  "pdf_sha256": "bc87c1a67da63e6ac00e2633fe2627c52f1cbfc2b99a74ea670694069b42db64",
+  "total_pdf_pages": 2,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "oe\n\nEMPLOYEES’ PROVIDENT FUND ORGANISATION\n\n(MINISTRY OF LABOUR & EMPLOYMENT, GOVT. OF INDIA)\n\n157 Floor, Bhavishya Nidhi Bhawan, Plot No.23, Sector-23,\nOwarka, New Delhi - 110075.\n\nThrough Web Circulation\n\nNo.NDC/1(12)2016/Cyber eae Dated: 22-12-2016\n\nlo\nAll ACCs (Zones)\nAll RPFCs-Incharge of ROS/SROs\n\nSub: Reporting of cyber incidents to GNOC, National Data Centre - regarding\n\nSir/Madam,\n\nDirections by Cert-In, (Ministry of Electronics and Information ‘| echnology, Government\nof India) Guidelines on Reporting and Contributing to a Secure and safe digital India are\nenclosed for kind information.\n\nIn this context incidents in the following Categories are to be reported immediately to\nGNOC at Shoe-security @ epfindia.gov.in with subject “Reporting of Cyber Security\nIncident” for nec ry action:\n\n© Probing of Critical Networks\n\n° Attacks on Server and network devices.\n\n¢ Unauthorised access Of TT systems/data\n\n. Identity theft, spoofing & Phishing attacks,\n\n* Detacement of websites\n\n° Attacks on critical infrastructure & w ircless network,\n¢ Malicious code attack\n\nYours faithfully\n\nn_\n\n(JAG MOHAN)\nAdditional Central P.F Commissioner-I(1S)\n\nCopy to: RPEC (NDC) Vor placing the circular in the EPFO Website.\n\nFile NoNDO/12 2016/Cy ber Security",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 2,
+      "text": "Ministry of rpetranies 5 and Information Technology en ec go ty mp\n\nCB overs iment of it\n\n@® Probing of critical networks\n\n® Unauthorised access of IT\nsystems/data\n\n%-Defacement of websites Attacks on critical infrastructure\n) Wireless network\n\n® Malicious: code attacks > Attacks on i abplicutions such Re\nMets : Wiel oun SeConimatte, ate:\n\nTherefore if you are a Service Provider, Data Centre, Body Corporate or intermedia:\n\nReport any cyber incident without delay to incident@cert-in.org.in\n\nlinformation Technole ogy (The Indion Computer Emergency Response Team\nt Manner of Performing Function and Dut jes) Rules 2013.\n\nr @ 9",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

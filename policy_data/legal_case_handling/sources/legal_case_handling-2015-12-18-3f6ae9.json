@@ -1,0 +1,20 @@
+{
+  "document_id": "legal_case_handling-2015-12-18-3f6ae9",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/LC_LegalDashboard_DataEntry_33418.pdf",
+  "pdf_sha256": "0782638a9c24dda57d417709a5bd0f86b0510d54114e4cbfefcb44f5b0e7152d",
+  "total_pdf_pages": 2,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "Through Web Circulation\n\naatent wien fafir aot\n(am wea THR Ha, HRT ATH)\nEMPLOYEES’ PROVIDENT FUND ORGANISATION\n\na\nveer Fai rary, 14-sfemreit sare tate, e Ferett-1 10 066.\nBhavishva Nidhi Bhawan, 14, Bhikaiti Cama Pace, New Delhi ~ 110 066,\n\nLC-9(15)Review of Legal Dash Board Date:- 18.12.2015\n\\8\nee Zan 18 DEC 205\n\nAddl. Central P.F Commissioner (AP-TG-OR)\nAddl. Central P.F Commissioner (TN-KR)\nAddl. Central P.F Commissioner (WB-NER-JH)\nAddl. Central P.F Commissioner (GJ-MP)\n\nSubject: Quality of data entered in Legal Dashboard - regarding\n\nRef: Head Office Letters of even No. LC/9(13)2013/ACC Pending\nRef./16074, both dated 13.07.2015 on the subjects of: (i) Role &\nResponsibility of Nodal Officer in updating the Legal Dashboard; (ii)\nQuality of data entry in Legal Dashboard in view of the forthcoming\nMonsoon Session of the Parliament (copies attached)\n\nSir\n\nWhile reviewing the data entered by the offices under your jurisdiction, it is\nseen that the quality of data entered is not up to the mark. The following\nshortcomings have been noted in the data downloaded from Legal Dashboard on\n30.11.2015:-\n\nS.No. | Source Data Field 7% of  missing/\npoor data\n\ni. Latest Date of Hearing 34% *\n\n23 Counter Reply not filed where | 31%\nCBT/UoI/EPFO or its officers are\nRespondent\n\n3 Counter Reply filed but date of filing of | ( 08%\nReply is missing or wrong\n\n4. Subject Matter of the case is wrong or | 19% |\nmissing",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 2,
+      "text": "* In addition, it is seen from the data entered by your offices that in 08.7%\ncases no hearing has taken place after 2010, i.e, the last date of hearing was\nbetween 1980-2010. This also needs to be checked.\n\n2. Besides above, the quantity and quality of data with respect to “Disposed”\n\ncases is also poor and needs substantial improvement.\n\n33 Hence, you are once again requested to pay personal attention in ensuring\nthat the offices under your jurisdiction enter complete and correct data in Legal\n\nDashboard within the time specified in the Circulars under reference.\n\n4. I reiterate the directions of CPFC that all ACCs and OICs should log-in to\nthe Legal Dashboard at least once a day to check the progress of data entry in\nLegal Dashboard by the Nodal Officers and other concerned officials.\n\nYoufs faithfully,\n\n(M. Varghese)\nAddl. Central P. F. Commissioner-I (Legal)\nCopy, for information, to:\n\n1 PS to CPFC\n\n2 PS to ACC (HQ), RB\n3 ACC (IS)\n\n4 Director, NATRSS\n\nW\\",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

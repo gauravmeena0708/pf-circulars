@@ -127,6 +127,12 @@ export function LibraryRules({ sort, onOpenDivision }) {
   }, [data, sort]);
   if (error) return <p className="division-note error">{error}</p>;
   if (!data) return null;
+  if (!items.length)
+    return (
+      <p className="division-note">
+        Every rule topic in the division catalog now has a verified history above.
+      </p>
+    );
   return (
     <>
       <div className="library-heading rules-heading">

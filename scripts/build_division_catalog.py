@@ -50,6 +50,23 @@ COLLECTIONS = [
     (r'member profile', 'aadhaar'),
 ]
 
+# Verified histories built from the issuer's circulars table, linked by the row's topic text (first two cells).
+ROW_LINKS = [
+    (r'^Issue Tracker', 'is_security_systems'),
+    (r'^Authentication and cyber security', 'is_security_systems'),
+    (r'^Laptop / desktop / tablet specifications|^IT equipment norms|^Obsolescence policy|^Mobile devices and apps', 'is_hardware_norms'),
+    (r'^Staff Provident Fund interest rate', 'spf_interest'),
+    (r'^Exemption of establishments|^Exempted establishments: transfer of securities', 'exemption'),
+    (r'^Damages \(14B\)|^Quasi-judicial proceedings \(Section 7A\)', 'damages_7a'),
+    (r'^Returns, ECR, KYC|^Registration: scanned PAN upload', 'ecr_returns'),
+    (r'^E-payment, NEFT|^Claim forms$|^NEFT payments for EDLI', 'claim_forms_payments'),
+    (r'^Official Language policy|^Incentive schemes, awards', 'official_language'),
+    (r'^Contribution above the statutory limit|^Pension calculation|^Change of date of birth of pension|^Aadhaar as identity document for pensioners', 'pension_member_rules'),
+    (r'^International workers and Certificate|^Social security agreements|^Payments to international workers|^Competent authorities for cancellation', 'international_workers'),
+    (r'^Handling of legal cases in field offices', 'legal_case_handling'),
+    (r'^Complaints under the Public Interest Disclosure|^ISO 9001 certification', 'quality_complaints'),
+]
+
 ENDED = re.compile(r'discontinu|abolish|withdr(?:ew|awn|awal)|replaced|superseded|cancelled|cancellation|renamed|removed', re.I)
 DORMANT = re.compile(r'not called inactive|no circular since|no activity since|^last circular|^last\b', re.I)
 ROUTINE = re.compile(r'annual|quarterly|recurring|operational|periodic|each session|seasonal|administrative|single circular', re.I)
@@ -104,7 +121,9 @@ def parse(path):
                 cells = (cells + [''] * len(header))[:len(header)]
                 text = ' '.join(cells)
                 kind = status_kind(cells[status_col]) if status_col is not None else 'other'
-                links = sorted({cid for pattern, cid in COLLECTIONS if re.search(pattern, text, re.I)})
+                topic_cells = [re.sub(r'\*', '', c).strip() for c in cells[:2]]
+                links = sorted({cid for pattern, cid in COLLECTIONS if re.search(pattern, text, re.I)}
+                               | {cid for pattern, cid in ROW_LINKS if any(re.search(pattern, c, re.I) for c in topic_cells)})
                 year_cells = [cells[c] for c in (span_col, status_col) if c is not None]
                 years = [int(y) for cell in year_cells for y in re.findall(r'\b(?:19|20)\d{2}\b', cell) if int(y) <= 2026]
                 span = [min(years), max(years)] if years else None

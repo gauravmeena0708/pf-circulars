@@ -62,7 +62,9 @@
         "NDC/e-1320153: \"The existing Issue Tracker Portal is discontinued\". J-Track orders: no later circular"
        ],
        "status_kind": "ended",
-       "collections": [],
+       "collections": [
+        "is_security_systems"
+       ],
        "span": [
         2008,
         2026
@@ -79,7 +81,9 @@
         "2025 circular \"supersedes the previous specifications ... circular dated 25/10/2021\"; 2019 circular \"supersedes all previous circulars\" on these items"
        ],
        "status_kind": "active",
-       "collections": [],
+       "collections": [
+        "is_hardware_norms"
+       ],
        "span": [
         2019,
         2025
@@ -115,7 +119,9 @@
         "2009 \"in addition to the norms communicated earlier\"; 2014 \"all instructions remain same\""
        ],
        "status_kind": "ended",
-       "collections": [],
+       "collections": [
+        "is_hardware_norms"
+       ],
        "span": [
         2009,
         2019
@@ -132,7 +138,9 @@
         "2018-12-13 and 2019-01-08 circulars"
        ],
        "status_kind": "other",
-       "collections": [],
+       "collections": [
+        "is_hardware_norms"
+       ],
        "span": [
         2008,
         2019
@@ -168,7 +176,9 @@
         ""
        ],
        "status_kind": "other",
-       "collections": [],
+       "collections": [
+        "is_hardware_norms"
+       ],
        "span": [
         2015,
         2022
@@ -206,7 +216,9 @@
         ""
        ],
        "status_kind": "active",
-       "collections": [],
+       "collections": [
+        "is_security_systems"
+       ],
        "span": [
         2015,
         2024
@@ -625,7 +637,9 @@
         "not in a collection"
        ],
        "status_kind": "active",
-       "collections": [],
+       "collections": [
+        "spf_interest"
+       ],
        "span": [
         2012,
         2026
@@ -876,7 +890,9 @@
         "Procedure for cancellation (2015-02-23) and transfer of past accumulation on cancellation (2014, 2016) are earlier steps; no circular says they were withdrawn"
        ],
        "status_kind": "active",
-       "collections": [],
+       "collections": [
+        "exemption"
+       ],
        "span": [
         2006,
         2026
@@ -893,7 +909,9 @@
         "**2009-02-13 withdrew the 17/06/2004 circular** on damages for the pre-discovery period"
        ],
        "status_kind": "active",
-       "collections": [],
+       "collections": [
+        "damages_7a"
+       ],
        "span": [
         2007,
         2026
@@ -910,7 +928,9 @@
         ""
        ],
        "status_kind": "active",
-       "collections": [],
+       "collections": [
+        "damages_7a"
+       ],
        "span": [
         2012,
         2022
@@ -946,7 +966,9 @@
         "**2022-09-26 withdrew prosecutions** for non-submission of KYC"
        ],
        "status_kind": "active",
-       "collections": [],
+       "collections": [
+        "ecr_returns"
+       ],
        "span": [
         2009,
         2026
@@ -1213,7 +1235,9 @@
         "Titles"
        ],
        "status_kind": "ended",
-       "collections": [],
+       "collections": [
+        "claim_forms_payments"
+       ],
        "span": [
         2010,
         2017
@@ -1232,7 +1256,9 @@
         "Titles"
        ],
        "status_kind": "ended",
-       "collections": [],
+       "collections": [
+        "claim_forms_payments"
+       ],
        "span": [
         2016,
         2020
@@ -1287,7 +1313,9 @@
         "Title note"
        ],
        "status_kind": "ended",
-       "collections": [],
+       "collections": [
+        "claim_forms_payments"
+       ],
        "span": [
         2015,
         2015
@@ -1304,7 +1332,9 @@
         ""
        ],
        "status_kind": "active",
-       "collections": [],
+       "collections": [
+        "exemption"
+       ],
        "span": [
         2018,
         2025
@@ -1646,7 +1676,9 @@
         "2026-06-03 (Hindi teaching scheme and Rajbhasha)"
        ],
        "status_kind": "active",
-       "collections": [],
+       "collections": [
+        "official_language"
+       ],
        "span": [
         2010,
         2026
@@ -1684,7 +1716,9 @@
         "2026-08-14 (noting and drafting originally in Hindi)"
        ],
        "status_kind": "active",
-       "collections": [],
+       "collections": [
+        "official_language"
+       ],
        "span": [
         2011,
         2026
@@ -1864,7 +1898,9 @@
         ""
        ],
        "status_kind": "active",
-       "collections": [],
+       "collections": [
+        "pension_member_rules"
+       ],
        "span": [
         2023,
         2023
@@ -1900,7 +1936,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": [],
+       "collections": [
+        "pension_member_rules"
+       ],
        "span": [
         2006,
         2017
@@ -1917,7 +1955,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": [],
+       "collections": [
+        "pension_member_rules"
+       ],
        "span": [
         2006,
         2017
@@ -1934,7 +1974,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": [],
+       "collections": [
+        "pension_member_rules"
+       ],
        "span": [
         2017,
         2018
@@ -1951,7 +1993,9 @@
         ""
        ],
        "status_kind": "active",
-       "collections": [],
+       "collections": [
+        "international_workers"
+       ],
        "span": [
         2009,
         2023
@@ -2501,7 +2545,9 @@
         "Not called inactive"
        ],
        "status_kind": "other",
-       "collections": [],
+       "collections": [
+        "quality_complaints"
+       ],
        "span": [
         2012,
         2013
@@ -2599,7 +2645,9 @@
         "Not called inactive"
        ],
        "status_kind": "other",
-       "collections": [],
+       "collections": [
+        "legal_case_handling"
+       ],
        "span": [
         2015,
         2017
@@ -2689,7 +2737,9 @@
         ""
        ],
        "status_kind": "active",
-       "collections": [],
+       "collections": [
+        "international_workers"
+       ],
        "span": [
         2012,
         2026
@@ -2705,7 +2755,9 @@
         ""
        ],
        "status_kind": "active",
-       "collections": [],
+       "collections": [
+        "international_workers"
+       ],
        "span": [
         2012,
         2026
@@ -2721,7 +2773,9 @@
         ""
        ],
        "status_kind": "routine",
-       "collections": [],
+       "collections": [
+        "international_workers"
+       ],
        "span": [
         2018,
         2018
@@ -2797,7 +2851,9 @@
         ""
        ],
        "status_kind": "ended",
-       "collections": [],
+       "collections": [
+        "ecr_returns"
+       ],
        "span": [
         2018,
         2018
@@ -2942,7 +2998,9 @@
         ""
        ],
        "status_kind": "dormant",
-       "collections": [],
+       "collections": [
+        "quality_complaints"
+       ],
        "span": [
         2012,
         2015

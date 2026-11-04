@@ -1,0 +1,79 @@
+{
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
+  "cases": [
+    {
+      "id": "official_language-2010-06-14",
+      "question": "Uploading of material in Bilingual form on Website",
+      "as_of": "2010-06-14",
+      "required_evidence": [
+        {
+          "document_id": "official_language-2010-06-14-99fee6",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "official_language-2011-04-21",
+      "question": "Compliance of Annual Hindi Programme- Year 2011-12",
+      "as_of": "2011-04-21",
+      "required_evidence": [
+        {
+          "document_id": "official_language-2011-04-21-8e5550",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "official_language-2012-02-02",
+      "question": "Organizing meetings of O.L.I.C regularly",
+      "as_of": "2012-02-02",
+      "required_evidence": [
+        {
+          "document_id": "official_language-2012-02-02-25d71f",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "official_language-2012-04-19",
+      "question": "Issuance of check points in compliance with Official Language Policy of the Union",
+      "as_of": "2012-04-19",
+      "required_evidence": [
+        {
+          "document_id": "official_language-2012-04-19-fd0c10",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "official_language-2012-11-06",
+      "question": "Inspection regarding Official Language of various offices of the organisation",
+      "as_of": "2012-11-06",
+      "required_evidence": [
+        {
+          "document_id": "official_language-2012-11-06-5c53b1",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "official_language-2019-05-22",
+      "question": "r\\nIssuance of Check-Points for implementation of Official Language Policy of the Union",
+      "as_of": "2019-05-22",
+      "required_evidence": [
+        {
+          "document_id": "official_language-2019-05-22-ac259e",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "official_language-before-latest",
+      "question": "r\\nIssuance of Check-Points for implementation of Official Language Policy of the Union",
+      "as_of": "2019-05-21",
+      "absent_documents": [
+        "official_language-2019-05-22-ac259e"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "document_id": "claim_forms_payments-2016-01-04-0277f7",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/Manual_Reconciliation_TransIn_34529.pdf",
+  "pdf_sha256": "578612236ad88c09faa66a0388955de9a9378cc806ad7141c3542da3cfc86aa5",
+  "total_pdf_pages": 2,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "For Web Circulation Only\n\neran sfasa fae daeet\n\nEmployees’ Provident Fund Organisation\n(at Ue Vo Aa, HITT ELAR)\n(Ministry of Labour & Employment, Govt. Of India)\nAware / Head Office\nsrferwa ferfty sreret, 14 sflereait arar coe, ag feet - 110066.\nBhavishya Nidhi Bhawan, | 4-Bhikaiji Cama Place, New Delhi-110066\n\nwww.epfindia.gov.in www.epfindia.nic.in\nNo.: Manval/Amendmenti2048 ~” 9d Date: 04.01.2016\nTo AN) 04 JAN 2016\n\nAll ACC (Zones)\nAll Regional P.F. Commissioners\nIn-charge of Regional/Sub Regional Offices.\n\nSub: Reconciliation of Transfer-in cases received through NEFT.\n\nSir/Madam,\n\nA number of references have been received from the field offices wherein the\n‘Annexure-K’ number was not reflected in the bank statement and the receipts were\nreflected as ‘bulk posting of salary’. This required manual intervention at field offices to\nreconcile the amount received against ‘Annexure-K’.\n\n2 The matter has been taken up with the State Bank of India. The State Bank of\nIndia, in this regard, has provided a solution through its new trickle feed file mechanism.\nThe copy of the SBI letter dated 31.12.2015 is enclosed for information.\n\n3) All the field offices are requested to pursue the matter with their link branches of\nSBI, if the problem persists.\n\n4. This has approval of RPFC-I (F&A)\n\nYours faithfully,\n\nEncl: As above M:\n\n.S. Arya\nRPFC-II (WSU)",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 2,
+      "text": "| aye tam guy arena fawn, araite Sy, Hen 5\n\nState Bank of India SME Business Unit, Corporate Centre Floor - 5\n\nState Bank Bhavan Madame Cama Road. Mumoa'- 400 021\n\n+7 «002 - 22740527 | 22842192 / 22838669\n40506 / 40592 / 40691 / 40526 (405 49. 40517 | Fax : 022 - 22740527 / 22842192 / 22838669\n\nDate\n\nRef No\n\nThe Chief General Manager\n\nState Bank of India\n\nLocal Head Office j .\nSME/L&TP/ => - >\nDate’ 31/12/2015\n\nDear Sir.\n\nEMPLOYEES PROVIDENT FUND ORGANISATION (EPFO)\nNEW TRICKLE FEED FILE MECHANISM\n\nSINGLE DEBIT-MULTIPLE CREDITS(SMC)\nFOR UPLOADING SALARY/PENSION FILES\n\nWe refer to the captioned topic and advise that we have been receiving complaints from\nEPFO stating that some branches are still not uploading credit files through Single debit-\nMultiple Credit (SMC) as per the new trickle feed mechanism.\n\n2 In this connection, please advise Branches under your control to abide by instructions\ncontained in e-Circular No NBG/CIIBR-ACC EXCEL/2/2014-15 dated 19/11/2014 detailing the\nnew trickle feed file mechanism . Please also instruct branches to stop using SAL /PNS for\nSalary/ pension upload as they can be posted without credit validation.\n\n3, Please arrange accordingly\n\nYours faithfully,\n\nee ~\n\n(G K. Kansal)\nChief General Manager (SME)",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

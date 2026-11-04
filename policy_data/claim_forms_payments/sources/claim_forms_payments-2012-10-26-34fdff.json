@@ -1,0 +1,20 @@
+{
+  "document_id": "claim_forms_payments-2012-10-26-34fdff",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/R1_NEFT_23371.pdf",
+  "pdf_sha256": "5f76c1bf6f6d626f30034136dedd9f168bd9bc61c0531a28b041cfa16498817b",
+  "total_pdf_pages": 2,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "WEB CIRCULATION ONLY\nTelephone: 011-26172680\nFAX: Q11- 26175913\n\naera sfasa far detSet\nEmployees’ Provident Fund Organisation\naA Ue VIN ATT aN WAT\nMinistry of Labour & Employment, Govt. Of India\naeEraricr/Head Office\nstfasa fafer etaet,14-sfearait Har core, aS feral -110066\n\nBhavishya Nidhi Bhawan, 14-Bhikaji Cama Place, New Delhi-110066\nE-mail: acc.is@epfindia.gov.in\n\nNo reunert/2010/186/.2.2°2 7 Dated: 26.10.2012\n\noo '99 oct 2012\n\nAll Regional P.F. commissioner-I/Officer-incharge\nRegional Office/Sub-Regional Office\n\nSub: Payment through NEFT - Reg.\nSir,\n\nPlease refer to this office letter No. ACC (IS)/PS/Misc/SMS/2010/126 dated\n07.06.2011 (placed on website at office order and circulars 2011-2012 at SI. No. 136),\n\nwherein it was requested that all offices to work towards a target of 100% of claim\nsettlement using NEFT mode of payment.\n\n2. However, as per the information available at EPFO Dashboard of claim settlement,\nit is found that since April 2012, payment to members through NEFT is only 76.22%.\nOffices where NEFT payment is below 75% are enclosed as Annexure ‘A’\n\n3. It is reiterated that NEFT payment mode has been introduced with the intention of\n\nspeedy payment and easy reconciliation.\n\n4. You are therefore, once again requested to pay personal attention and ensure that\nthe claims are settled through NEFT payments only.\n\nYours faithfully,\n\n(e=reete\n\n(B.K. Panda)\nAddl. Central Commissioner (IS)\nCopy to:\n\n1. All Addl. CPFCs (Zones) for information and necessary action\n2. RPFC (NDC) for web upload",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 2,
+      "text": "ANNEXURE A\n\n% of Payment\nThrough NEFY\nSI. No. Office name (Ciaim Settlement)\n1 PORT BLAIR 21.11%\n2 DARJEELING 32.37%\n3 KANNUR 33.87%\n4 JANGIPUR 37.10%\nE} NIZAMABAD 41.31%\nG JALPAIGURI 41.38%\n? KOLLAM 47.82%\n8 SOLHAPUR 48.65%\n9 KOTTAYAM 49.78%\n10 SAGAR* 49.79%\n1 NAGPUR 50.01%\n12 KOLHAPUR 50.57%\n13 AKOLA 51.51%\n14 |MYSORE 52.94%\n15 AGARTALA 53.30%\n16 RAIPUR (CHATTISGARH) 53.78%\n17 TIRUNELVELI 54.70%\n18 |GUWAHATI 54.81%\n19 JAMSHEDPUR 54.99%\n20 GULBARGA 56.41%\n21 KANPUR 58.12%\n22 TINSUKIA 58.23%\n23 ROURKELA 58.68%\n24 SILIGURI 58.75%\n25 AURANGABAD 58.90%\n26 MANGALORE 59.52%\n27 DURGAPUR 59.71%\n28 KOZHIKODE (CALICUT) 60.54%\n29 |BARELLLY 60.54%\n30__ [MADURAI 60.98%\n31___ [NASIK 62.08%\n32 GOA 62.39%\n33 | TRICHY 63.39%\n34 UJJAIN 63.59%\n35 LUCKNOW 63.94%\n36___|RANCHI 64.14%\n37 KARIMNAGAR 64.92%\n38 HUBLI 66.00%\n39 MUZAFFARPUR 66.34%\n40 HALDWANL 66.78%\n41 JABALPUR 67.20%\n42__ |KOTA 67.80%\n43 |CUDAPA\n44 |PEENYA\n45 NAGERCOIL\n46 HOWRAH 70.06%\n47 GORAKHPUR 70.88%\n48 VELLORE 70.95%\n49 THIRUVANANTHAPURAM 71.56%\n50 [BELLARY 71.72%\n51 BARRACKPORE 71.91%\n52 PONDICHERRY 71.93%\n53 NOIDA 72.\n= 54 |BERHAMPUR 72.31%\n55 TAMBARAM 72.76%\n56 NARODA 72.91%\n= 57 _ |SHIMOGA 73.21%\n58 |WARANGAL 73.43%\n59 [PATNA 73.59%\n60__|PATANCHERU 73.86%\n61 _|RAICHUR 73.92%\n62__|SHILLONG 74.04%\n63 SIDDIPET\n64 [BHARUCH\n65 _|FARIDABAD\n66 MEERUT\n67 BHATINDA",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

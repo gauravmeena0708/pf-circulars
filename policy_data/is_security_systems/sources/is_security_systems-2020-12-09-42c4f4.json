@@ -1,0 +1,35 @@
+{
+  "document_id": "is_security_systems-2020-12-09-42c4f4",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/Email_KAVACH_137.pdf",
+  "pdf_sha256": "ef6eaec63a9d377feaaa9e2c244a8b82a794d605e9bacc59e9a1cf9411da0b31",
+  "total_pdf_pages": 5,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "No. NDC/IS/SW/72/email/Chargeable/2020-Part(1)/381     Date:09/12/2020\n \nTo \n \nAll Offers/Staf of EPFO\nHead Offe/ PDNASS/ITI/NDC/Iolal Offe//egiolal Offe /  \nDistrift Offes \n \nSubjeft:        Mandatory Installation of 2 Factor Authentication (2FA) \n                     for accessing email services (Kavach) – reg.\n \nSir/Madam,\n \n               It is ilformed that, with immediate efeft, ilstallatiol of 2 Factor\nAuthentication (2FA)  has been made mandatory by NIC for usilg the\nemail id ol “@ep%ndia. v..in” domail. All users availilg the email servifes\nfrom NIC (i.e. ol @epfldia.gov.il) leed to use 2 Faftor Autheltifatiol (2FA)\n  to affess their email affoult. Users will not be able to access their\nemail through the Web Interface w.e.f Saturday i.e.\n12th Dec 2020 unless “Kavach App” is installed.\n \n2.         Therefore, all users are requested to ilstall “Kavach App”  ol their\naffess devifes (phole/laptop/desktop) immediately. \n \n3.         Please lote that if “Kavach App” is ilstalled olly il ole devife by\nthe user, please elsure that the devife is always available with the user as\nthe user has to affept the lotiffatiol refeived ol the Kavafh App. for\nelablilg affess to the email affoult. As lotiffatiol will be selt to all\ndevifes ol whifh the App is ilstalled,  for ease of use,  please ilstall the\nKavafh App ol all devifes that are used for affessilg email servifes.\n \n4.         Steps to dowlload ald ilstall 2FA applifatiol “Kavafh” is givel il\nthe elflosed Allexure – A .\n \n(This issues with the approval of ACC-IS)\n \nYours’ faithfully\n \n \n \n(K. /UPESHO/ SINGH)\n/EGIONAL P F COMMISSIONE/ – I (IS)\nSIGN",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 2,
+      "text": "Please find below the steps for installing Kavach. \n \n(A) For Self: \n1. How to Install Kavach on Mobile (Android or iPhone) & Desktop. \n \nDesktop \nx \nDownload the Desktop App from https://kavach.mail.gov.in \nx \nMinimum requirement for Desktop App \nx \nWindows 7 \nx \nMAC 10.11 \nx \nUbuntu 19.04 \nx \nCentOS/RedHat 6.9 \n \nMobile \n \nx \nDownload \nthe \nIOS \nand \nAndroid \napp \nfrom \nApple App \nStore and Google play store respectively. \n \nx \nPlease \nsearch for “Kavach Authentication” \nin the store \nScreenshot of the correct App is shown below . \nx Minimum requirement for Mobile App \nx \nAndroid OS: 2.3 and above \nx \niOS: 7.0 and above \n \nApp Store \n \n \nGoogle Play Store",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 3,
+      "text": "You can also download from the URL : https://kavach.mail.gov.in. \n \n \n2. After Downloading, Install the same and accept the terms and \nconditions. \n3. Authenticate by giving your username & password \n \n4. You will receive a 6 digit code OTP (One time password) via SMS on your \nregistered Mobile . Please insert the OTP and click on Submit to \ncomplete the enrolment",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 4,
+      "text": "(B) ADD A USER WITH YOUR ACCOUNT (PROVISIONED TO ALLOW \nPS /GROUP MEMBER TO ACCESS YOUR ACCOUNT ) \n \nThe person to whom you want to give access to your \naccount needs to follow these steps. \n \n1. Please ensure that the user being added to the app also has \nkavach enabled. Please ensure the same by asking your \nrespective DA or send a mail to mailservices@nic.in \n2.  The person (for instance your PS) will install the kavach app for \nhis/her own email address by following the steps mentioned \nunder “SELF” above. \n \n3. After installing and enabling the app for self, he/she will Click on \n“ADD NEW ACCOUNT” in the app . \n \n4. Enter the ID and Password details of the user whose account \nhe/she wants to take access for ( in this instance YOU ). \n \n5. Enter the OTP sent on the registered mobile number of the \nperson (in this case YOU and you will need to share the OTP \nreceived on your phone as this needs to be a informed decision \non the part of the user). \n \n6. Enrolment will be complete and now Your PS /anyone else you \ngive this authorization to will be able to access your account . \n \n7. Max 2 delegations are allowed. \n \n(C) \nHOW TO USE THE APP \n \n \nAfter successful installation follow these steps: \n \n1. Login with your username /password and press enter \n2. You will get a notification from the kavach app asking you to \n“Accept”/” Deny”. \n \n3. Pls “Accept” immediately. Any delay will result in “timeout” \n \n4. Please note that you need to be in strong network signal zone for the \nnotification. If for any reason you are in a weak signal zone, then you \nmay not get the notification immediately . Please use the following two \noption in such a scenario:",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 5,
+      "text": "a) Use the “PULL” option to get the notification OR \nb) Use the OTP and suffix it with your password and then press \n“enter. OTP is the number that you see on the main screen of your \nkavach App as shown below. \n \n \n \n5. You can also apply the country policy using the \nkavach app \n6. IMAP as a service can also be enabled/disabled using the app \n \n7. As informed user, it is recommended to check your logs for access \nactivity \n \n8. You are advised to please go through all the options available on the \napp for using it effectively \n \n \nFor any issues send a mail to mailservices@nic.in.",
+      "extraction_method": "native"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "document_id": "claim_forms_payments-2015-12-01-0c10ab",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/WSU_Changes_MAP_31406.pdf",
+  "pdf_sha256": "a9c8046a27aa3aef0a7faa7b6de37aff4f07d8dfd74f5989ae1b6b9573e127e1",
+  "total_pdf_pages": 4,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "FoR 'WGB URGLATION\n\nHAIN sfaey Ferl Hast\n\nEMPLOYEES’ PROVIDENT FUND ORGANISATION\nMinistry of Labour & Employment, Govt. of India\n14-sfenreft ara ceeats feet -110066.\nNo.14, Bhavishya Nidhi Bhavan, Bhikaiji Cama Place, New Delhi 110 066\n\nNo. WSU/10(1)2011/Changes in maP/ 2/406 Date: 01 DEC 2015\nORDER\n\nIn Exercise of powers conferred under para 78 of Employees’ Provident Funds Scheme\n\n1952, the Central Govt. has directed the following:\n\n“a. The employees whose details like AADHAR Number and Bank Account Number\nhave been seeded in their UAN and who UAN have been activated, may submit\nclaims in Form-19, Form-10C and Form 31 directly to the Commissioner without\nattestation of their employers, in such form and manner as may be specified by\n\nthe Central Provident Fund Commissioner, for fast settlement of claims.\nb. The above direction be made operational with immediate effect.”\n\n2; Pursuant to the said direction and notwithstanding the provisions of para 72(5) of the\nEmployees’ Provident Funds Scheme 1952, Central Provident Fund Commissioner, hereby\nprescribe the new forms 19 UAN, 10C UAN and 31 UAN for all employees whose AADHAR\nNumber and Bank details have been seeded as KYC and have been duly verified by the\n\nemployer using digital signature and the details in form No. 11 new have been completed.\n\n3: All other employees not fulfilling the above conditions shall continue to make their\n\nclaims of withdrawal in existing form No. 19, 10C & 31, as the case may be.\n\n4. It is reiterated that form No. 19 UAN, form No. 10C UAN and form No. 31 UAN need\nnot be attested by employer and should be submitted by the employee directly to the\n\nrespective jurisdictional EPF Office.\n\n(K.K. JALAN)\nCentral Provident Fund Commissioner",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 2,
+      "text": "www.epfindia.gov.in\n\nEmployees’ Provident Fund Scheme, 1952\nForm — 19 (UAN)\n\n(Applicable in cases where employee’s complete details in Form 11(New), Aadhaar Number and\nBank Accounts details are available on UAN Portal and UAN has been activated)\n\nMobile Number\n\nUniversal Account Number (UAN)\n\nName (In capital letters)\n\nDate of Leaving\n\nReason of Leaving Service\n(Tick the appropriate for TDS purposes)\n\n(a) Superannuation\n(b) Cessation\n(c) Resignation\n(d) Disablement\n(e) Termination\na. Ill health\nb. Contraction /\nDiscontinuation of\nemployer's business\nc. Causes beyond the control\nof employee\nd. Personal reasons\n(f) Marriage\n(g) Permanent settlement abroad\n\n6.\n\n*Permanent Account Number (PAN)\n\nWhether submitting Form 15G/15H, if\napplicable (YES/NO)\n\nPlease enclosed two copies of Form\nNo.15G/15H, if applicable\n\n*Only in case of service less than 5 years\n\nEE eS |\n\nFull postal address\n\nPincode:\n\n* | certify that | have gone through the data seeded in UAN Portal and found all data including Form\nNo.11(New), bank account details and Aadhar number.\n\n* Please make payment in the bank account mentioned in the UAN portal. A cancelled cheque\n(containing member's name, bank account number and IFS Code) is attached herewith.\n\nSignature of the Member",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 3,
+      "text": "www.epfindia.gov.in\n\nEmployees’ Provident Fund Scheme, 1952\nForm — 10C (UAN)\n\n(Applicable in cases where employee’s complete details in Form 11(New), Aadhaar Number and\nBank Accounts details are available on UAN Portal and UAN has been activated)\n\n[To be filled only if Withdrawal Benefit is applied for]\n\nMobile Number\n\n4, Universal Account Number (UAN) |\n\nxX Name (In capital letters)\na Date of Joining\n\n4. Date of Leaving\n\n5; Full postal address\n\nPincode:\n\n* | certify that | have gone through the data seeded in UAN Portal and found all data including Form\nNo.11(New), bank account details and Aadhar number.\n\n* Please make payment in the bank account mentioned in the UAN portal. A cancelled cheque\n(containing member's name, bank account number and IFS Code) is attached herewith.,\n\nSignature of the Member",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 4,
+      "text": "www.epfindia.gov.in\n\nEmployees’ Provident Fund Scheme, 1952\nForm — 31 (UAN)\n\n(Applicable in cases where employee’s complete details in Form 11(New), Aadhaar Number and\nBank Accounts details are available on UAN Portal and UAN has been activated)\n\nmobile number [—[ [TTT TTT)\n\nLETT TT\n\nUniversal Account Number (UAN)\n\nName (In capital letters)\n\n*Purpose for which advance is required\n\nAmount of Advance required (in Rs.)\n\nIn case of Advance for purpose of Site/House/Flat or Construction through an “Agency” ‘or’\nRepayment of housing loan, indicate\n\n5a. Cheque to be drawn ‘ in favour of’\n\n5b. 7 |\n\null address of “Agency”\n\nPincode:\n\n6. Full Postal Address of Member\n\nPincode:\n* | certify that | have gone through the data seeded in UAN Portal and found all data including Form\nNo.11(New), bank account details and Aadhar number, to be correct.\n\n* Please make payment in the bank account mentioned in the UAN portal. A cancelled cheque\n(containing member's name, bank account number and IFS Code) is attached herewith.\n\nSignature of the Member",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

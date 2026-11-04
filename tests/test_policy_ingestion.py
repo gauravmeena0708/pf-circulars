@@ -31,7 +31,7 @@ def test_every_extracted_original_can_be_re_fetched_and_verified():
         history = PolicyHistory(policy.path)
         for doc in history.documents.values():
             if not doc.get('source_file'): continue
-            source = json.loads((policy.path.parent / doc['source_file']).read_text())
+            source = json.loads((policy.path.parent / doc['source_file']).read_text(encoding='utf-8'))
             assert doc['source_url'].startswith('https://'), doc['id']
             if source.get('compiled_copy'):
                 # Pages from a compilation: the hash names that file, so no public re-download is offered.

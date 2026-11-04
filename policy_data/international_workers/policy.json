@@ -1,0 +1,862 @@
+{
+  "schema_version": 1,
+  "id": "international_workers",
+  "reviewed_on": "2026-11-04",
+  "topics": [
+    {
+      "id": "international_workers",
+      "label": "International workers and Social Security Agreements",
+      "include": "international worker|certificate of coverage|social security|COC|overseas|IW"
+    }
+  ],
+  "documents": [
+    {
+      "id": "international_workers-2008-11-14-8385fe",
+      "title": "Notification in two schemes of Employees Provident Fund & Misc. Provision Act, 1952 for (i) Employees' Pension (Third Amendment Scheme 2008) for international workers (ii) Employees' Provident Fund (Third Amendment Scheme 2008) for international workers",
+      "circular_no": "HO No. Coord./2(27)Amend/Scheme/Part/59817",
+      "issued_on": "2008-11-14",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/notification_schemes.pdf",
+      "source_file": "sources/international_workers-2008-11-14-8385fe.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Notification in two schemes of Employees Provident Fund & Misc. Provision Act, 1952 for (i) Employees' Pension (Third Amendment Scheme 2008) for international workers (ii) Employees' Provident Fund (Third Amendment Scheme 2008) for international workers",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2008-11-14-8385fe",
+        "page_number": 1,
+        "quote": "Notification in two schemes of Employees Provident Fund & Misc"
+      }
+    },
+    {
+      "id": "international_workers-2009-01-07-db58d3",
+      "title": "Special Provisions in respect of International Workers - Guidelines for Implementation",
+      "circular_no": "HO No. Actuarial/7(9)2008/75683",
+      "issued_on": "2009-01-07",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/IntWorker.pdf",
+      "source_file": "sources/international_workers-2009-01-07-db58d3.json",
+      "verification": "source_checked",
+      "effective_from": "2008-11-01",
+      "effective_date_evidence": {
+        "document_id": "international_workers-2009-01-07-db58d3",
+        "page_number": 1,
+        "quote": "shall be enrolled with effect from 1* November 2008"
+      },
+      "version_label": "Special Provisions in respect of International Workers - Guidelines for Implementation",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2009-01-07-db58d3",
+        "page_number": 1,
+        "quote": "Special provisions in respect of International workers — Guidelines"
+      }
+    },
+    {
+      "id": "international_workers-2010-04-21-2e8003",
+      "title": "Forwarding of details in respect of International Workers deployed in India",
+      "circular_no": "HO No. IWU/7(16)2009/3299",
+      "issued_on": "2010-04-21",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/DetailsIWs.PDF",
+      "source_file": "sources/international_workers-2010-04-21-2e8003.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Forwarding of details in respect of International Workers deployed in India",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2010-04-21-2e8003",
+        "page_number": 1,
+        "quote": "Regional Offices Sub: Forwarding of details in respect of"
+      }
+    },
+    {
+      "id": "international_workers-2010-11-25-e63bb0",
+      "title": "Amendment in the Employees' Provident Fund Scheme, 1952 and Employees' Pension Scheme, 1995- Special Provisions for International Workers suggested by the Ministry of Overseas Indian Affairs",
+      "circular_no": "HO No. Coord./5(15) 2009/International Worker/07733",
+      "issued_on": "2010-11-25",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/Coord_AmendmentEPFSch_PenSch.pdf",
+      "source_file": "sources/international_workers-2010-11-25-e63bb0.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Amendment in the Employees' Provident Fund Scheme, 1952 and Employees' Pension Scheme, 1995- Special Provisions for International Workers suggested by the Ministry of Overseas Indian Affairs",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2010-11-25-e63bb0",
+        "page_number": 1,
+        "quote": "No. Coord ./ 5(15)2009/Internat!onal Worke Dat~~2ZL11.2Q10 S"
+      },
+      "date_note": "The letter is typed 'Dated: 25.11.2010' (stamp 26 November 2010); the issuer listing shows 26 November 2010. Later circulars cite it as dated 25/26 November 2010."
+    },
+    {
+      "id": "international_workers-2011-02-11-c80f80",
+      "title": "Notification in two schemes of EPF & MP Act, 1952 for (i) Employees' Pension (Third Amendment Scheme, 2005) for international workers' (ii) EPF (Third Amendment) Scheme, 2008 for international workers",
+      "circular_no": "HO No. C-Ex/Misc/Comp. Audit/2009/9676",
+      "issued_on": "2011-02-11",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/Ex_CompAudit_9676.pdf",
+      "source_file": "sources/international_workers-2011-02-11-c80f80.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Notification in two schemes of EPF & MP Act, 1952 for (i) Employees' Pension (Third Amendment Scheme, 2005) for international workers' (ii) EPF (Third Amendment) Scheme, 2008 for international workers",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2011-02-11-c80f80",
+        "page_number": 1,
+        "quote": "' Notification in two schemes of EPF & MP Act, 1952 for (i)"
+      }
+    },
+    {
+      "id": "international_workers-2011-04-04-ed7024",
+      "title": "Implementation of Social Security Agreement with Swiss Confederation with effect from 29th January, 2011",
+      "circular_no": "HO No. IWU/7(5)2008/Switzerland/254",
+      "issued_on": "2011-04-04",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/IWU_SwissConf_254.pdf",
+      "source_file": "sources/international_workers-2011-04-04-ed7024.json",
+      "verification": "source_checked",
+      "effective_from": "2011-01-29",
+      "effective_date_evidence": {
+        "document_id": "international_workers-2011-04-04-ed7024",
+        "page_number": 1,
+        "quote": "Implementation of Social Security Agreement with Swiss Confederation with effect from 29th January, 2011"
+      },
+      "version_label": "Implementation of Social Security Agreement with Swiss Confederation with effect from 29th January, 2011",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2011-04-04-ed7024",
+        "page_number": 1,
+        "quote": "Implementation of Social Security Agreement with Swiss Confederation"
+      }
+    },
+    {
+      "id": "international_workers-2011-08-30-8cf165",
+      "title": "Compliance in respect of International Workers",
+      "circular_no": "HO No. IWU/7(1)2011/Compliance/10235",
+      "issued_on": "2011-08-30",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/Compliance10235.PDF",
+      "source_file": "sources/international_workers-2011-08-30-8cf165.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Compliance in respect of International Workers",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2011-08-30-8cf165",
+        "page_number": 1,
+        "quote": "Compliance in respect of International Workers — regarding. Sir"
+      }
+    },
+    {
+      "id": "international_workers-2011-09-23-b50976",
+      "title": "Banking Arrangement regarding payment to International Workers",
+      "circular_no": "HO No. IWU/8(2)Bnkg Arrangement/2009/28871",
+      "issued_on": "2011-09-23",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/IWU_BnkgArrg_28871.pdf",
+      "source_file": "sources/international_workers-2011-09-23-b50976.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Banking Arrangement regarding payment to International Workers",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2011-09-23-b50976",
+        "page_number": 1,
+        "quote": "Banking Arrangement regarding payment to International Workers. Sir"
+      }
+    },
+    {
+      "id": "international_workers-2012-05-25-b03847",
+      "title": "Compliance in respect of International Workers",
+      "circular_no": "HO No. IWU/ 7(17)2009/2816",
+      "issued_on": "2012-05-25",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/IWU_CompofIW_2816.pdf",
+      "source_file": "sources/international_workers-2012-05-25-b03847.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Compliance in respect of International Workers",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2012-05-25-b03847",
+        "page_number": 1,
+        "quote": "Compliance in respect of International Workers — regarding. Sir"
+      }
+    },
+    {
+      "id": "international_workers-2012-06-28-20909e",
+      "title": "Amendment in Employees' Provident Fund Scheme, 1952 - Regarding (International Workers)",
+      "circular_no": "HO No. Coord/5(15) 2009/ International Worker/3927",
+      "issued_on": "2012-06-28",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/Coord_EPFSch_IW_3927.pdf",
+      "source_file": "sources/international_workers-2012-06-28-20909e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Amendment in Employees' Provident Fund Scheme, 1952 - Regarding (International Workers)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2012-06-28-20909e",
+        "page_number": 3,
+        "quote": "section (1) of section 7 of thé Employees’ Provident Funds and"
+      },
+      "date_note": "The circular is typed with the date 28.06.2012 (stamp 2 July 2012); the issuer listing shows 2 July 2012."
+    },
+    {
+      "id": "international_workers-2012-08-31-a225ad",
+      "title": "Clarification in respect of International Workers (IWs) - refund / readjustment of excess amount in pension fund",
+      "circular_no": "HO No. IWU/7(29)/2012/Review/16266",
+      "issued_on": "2012-08-31",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/IWU_16266.pdf",
+      "source_file": "sources/international_workers-2012-08-31-a225ad.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Clarification in respect of International Workers (IWs) - refund / readjustment of excess amount in pension fund",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2012-08-31-a225ad",
+        "page_number": 1,
+        "quote": "Clarification in respect of International Workers (IWs) - refund /"
+      }
+    },
+    {
+      "id": "international_workers-2012-10-15-9eb812",
+      "title": "Amendment in Form-11 for identification of Indian International Workers",
+      "circular_no": "HO No. IWU/7(29)/2012/Review IW/22134",
+      "issued_on": "2012-10-15",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/IWU_22134.pdf",
+      "source_file": "sources/international_workers-2012-10-15-9eb812.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Amendment in Form-11 for identification of Indian International Workers",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2012-10-15-9eb812",
+        "page_number": 1,
+        "quote": "Amendment in Form-11 for identification of Indian International"
+      },
+      "date_note": "The circular is typed 'Date: 15.10.2012' (stamp 17 October 2012); the issuer listing shows 17 October 2012."
+    },
+    {
+      "id": "international_workers-2012-11-27-c6eff7",
+      "title": "Settlement of claims in respect of International Workers",
+      "circular_no": "HO No. IWU/7 (5) 2002/ Korea/Vol.I/25713",
+      "issued_on": "2012-11-27",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/IWU_Korea_25713.pdf",
+      "source_file": "sources/international_workers-2012-11-27-c6eff7.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Settlement of claims in respect of International Workers",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2012-11-27-c6eff7",
+        "page_number": 1,
+        "quote": "Settlement of claims in -pod of International Workers - regarding"
+      }
+    },
+    {
+      "id": "international_workers-2014-03-31-e0d472",
+      "title": "Securing compliance in respect of International Workers - reconciliation of International Workers data with the office of Foreign Residents Registration Office (FRRO)",
+      "circular_no": "HO No. IWU/7(15)2011/General Software/",
+      "issued_on": "2014-03-31",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/IWU_FRRO_IntlWorkers.pdf",
+      "source_file": "sources/international_workers-2014-03-31-e0d472.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Securing compliance in respect of International Workers - reconciliation of International Workers data with the office of Foreign Residents Registration Office (FRRO)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2014-03-31-e0d472",
+        "page_number": 1,
+        "quote": "Securing compliance in respect of International Workers"
+      }
+    },
+    {
+      "id": "international_workers-2014-04-01-2f37ae",
+      "title": "Securing compliance in resepct of International Workers - reconciliation of International Workers data with the office of Foreigner Regional Registration Office (FRRO)",
+      "circular_no": "HO No. IWU/7(15)2011/Compliance/23",
+      "issued_on": "2014-04-01",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/IWU_FRRO_IntlWorker_23.pdf",
+      "source_file": "sources/international_workers-2014-04-01-2f37ae.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Securing compliance in resepct of International Workers - reconciliation of International Workers data with the office of Foreigner Regional Registration Office (FRRO)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2014-04-01-2f37ae",
+        "page_number": 1,
+        "quote": "Securing compliance in respect of International Workers"
+      }
+    },
+    {
+      "id": "international_workers-2014-05-13-a50719",
+      "title": "Settlement of Claims in resepct of International Workers",
+      "circular_no": "HO No. IWU/7(7)2011/Misc./3437",
+      "issued_on": "2014-05-13",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/IWU_ClaimSettlement_IW.pdf",
+      "source_file": "sources/international_workers-2014-05-13-a50719.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Settlement of Claims in resepct of International Workers",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2014-05-13-a50719",
+        "page_number": 1,
+        "quote": "Settlement of Claims in respect of International Workers-reg. Sir"
+      }
+    },
+    {
+      "id": "international_workers-2014-07-31-592bb3",
+      "title": "Social Security Agreement between Republic of India and the Kingdom of Sweden",
+      "circular_no": "HO No. IWU/7(5)/2007/Sweden/10438",
+      "issued_on": "2014-07-31",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/IWU_SSAgreement_Sweden_10438.pdf",
+      "source_file": "sources/international_workers-2014-07-31-592bb3.json",
+      "verification": "source_checked",
+      "effective_from": "2014-08-01",
+      "effective_date_evidence": {
+        "document_id": "international_workers-2014-07-31-592bb3",
+        "page_number": 1,
+        "quote": "August, 2014. The text of the Agreement is available on the official website of EPFO"
+      },
+      "version_label": "Social Security Agreement between Republic of India and the Kingdom of Sweden",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2014-07-31-592bb3",
+        "page_number": 1,
+        "quote": "Social Security Agreement between Republic of India and the Kingdom"
+      }
+    },
+    {
+      "id": "international_workers-2014-10-20-9fc883",
+      "title": "nBanking Agreement for Payment to the Overseas Bank Accounts of International Workers and their beneficiaries",
+      "circular_no": "HO No. IWU/8(2)2009/Banking Agreement/19453",
+      "issued_on": "2014-10-20",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/IWU_BankingAgree_IW_19453.pdf",
+      "source_file": "sources/international_workers-2014-10-20-9fc883.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "nBanking Agreement for Payment to the Overseas Bank Accounts of International Workers and their beneficiaries",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2014-10-20-9fc883",
+        "page_number": 1,
+        "quote": "Banking Agreement for Payment to the Overseas Bank Accounts of"
+      }
+    },
+    {
+      "id": "international_workers-2015-02-03-ce80f0",
+      "title": "Social Security Agreement between Republic of India and the Kingdom of Norway",
+      "circular_no": "HO No. IWU/7(7)2007/Norway/36198",
+      "issued_on": "2015-02-03",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/IWU_SSA_Norway_36198.pdf",
+      "source_file": "sources/international_workers-2015-02-03-ce80f0.json",
+      "verification": "source_checked",
+      "effective_from": "2015-01-01",
+      "effective_date_evidence": {
+        "document_id": "international_workers-2015-02-03-ce80f0",
+        "page_number": 1,
+        "quote": "the above Agreement has come into force with effect from I* January, 2015"
+      },
+      "version_label": "Social Security Agreement between Republic of India and the Kingdom of Norway",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2015-02-03-ce80f0",
+        "page_number": 1,
+        "quote": "Social Security Agreement between Republic of India and the Kingdom"
+      }
+    },
+    {
+      "id": "international_workers-2015-07-06-28714a",
+      "title": "Social Security Agreement between Republic of India and the Republic of Austria",
+      "circular_no": "HO No. IWU/7(7)2010/Austria/15280",
+      "issued_on": "2015-07-06",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/IWU_SSA_Austria_15280.pdf",
+      "source_file": "sources/international_workers-2015-07-06-28714a.json",
+      "verification": "source_checked",
+      "effective_from": "2015-07-01",
+      "effective_date_evidence": {
+        "document_id": "international_workers-2015-07-06-28714a",
+        "page_number": 1,
+        "quote": "the above Agreement has come into force with effect from 1* July, 2015"
+      },
+      "version_label": "Social Security Agreement between Republic of India and the Republic of Austria",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2015-07-06-28714a",
+        "page_number": 1,
+        "quote": "Social Security Agreement between Republic of India and the Republic"
+      }
+    },
+    {
+      "id": "international_workers-2015-07-31-3ee9a9",
+      "title": "Implementation of Social Security Agreement between India and Canada with effect from 1st August, 2015",
+      "circular_no": "HO No. IWU/7(3)2009/Canada/Quebec/19865",
+      "issued_on": "2015-07-31",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/IWU_SSA_Canada_19865.pdf",
+      "source_file": "sources/international_workers-2015-07-31-3ee9a9.json",
+      "verification": "source_checked",
+      "effective_from": "2015-08-01",
+      "effective_date_evidence": {
+        "document_id": "international_workers-2015-07-31-3ee9a9",
+        "page_number": 1,
+        "quote": "the above Agreement has come into force with effect from 1 August, 2015"
+      },
+      "version_label": "Implementation of Social Security Agreement between India and Canada with effect from 1st August, 2015",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2015-07-31-3ee9a9",
+        "page_number": 1,
+        "quote": "Implementation of Social Security Agreement between India and Canada"
+      }
+    },
+    {
+      "id": "international_workers-2016-03-16-c947db",
+      "title": "Social Security Agreement between the Republic of India and Australia",
+      "circular_no": "HO No. IWU/7(2)2009/Australia/Vol-I/24955",
+      "issued_on": "2016-03-16",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/IWU_AustraliaAgrement_24955.pdf",
+      "source_file": "sources/international_workers-2016-03-16-c947db.json",
+      "verification": "source_checked",
+      "effective_from": "2016-01-01",
+      "effective_date_evidence": {
+        "document_id": "international_workers-2016-03-16-c947db",
+        "page_number": 1,
+        "quote": "the above Agreement has entered into force with effect from 01-01-2016"
+      },
+      "version_label": "Social Security Agreement between the Republic of India and Australia",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2016-03-16-c947db",
+        "page_number": 1,
+        "quote": "Social Security Agreement between the Republic of India and Australia"
+      }
+    },
+    {
+      "id": "international_workers-2016-04-12-07fabc",
+      "title": "Social Security Agreement with Germany, Requests for certain statistics",
+      "circular_no": "HO No. IWU/7(17)2009/Germany/Pt./1291",
+      "issued_on": "2016-04-12",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/IWU_SSA_Germany_1291.pdf",
+      "source_file": "sources/international_workers-2016-04-12-07fabc.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Social Security Agreement with Germany, Requests for certain statistics",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2016-04-12-07fabc",
+        "page_number": 1,
+        "quote": "Social Security Agreement with Germany, Requests for certain"
+      }
+    },
+    {
+      "id": "international_workers-2017-03-14-f45e22",
+      "title": "Special Provision in respect of International Workers - Exemption granted under the Comprehensive Economic Cooperation Agreement between the Republic of India and Republic of Singapore (CECA-2005) to Singapore citizens working in India from contributing to social security schemes in India - clarification",
+      "circular_no": "HO No. IWU/7(14)2008/Singapore/20803",
+      "issued_on": "2017-03-14",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/IWU_SpProvision_Singapore_20803.pdf",
+      "source_file": "sources/international_workers-2017-03-14-f45e22.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Special Provision in respect of International Workers - Exemption granted under the Comprehensive Economic Cooperation Agreement between the Republic of India and Republic of Singapore (CECA-2005) to Singapore citizens working in India from contributing to social security schemes in India - clarification",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2017-03-14-f45e22",
+        "page_number": 1,
+        "quote": "Special Provision in respect of International Workers-- Exemption"
+      }
+    },
+    {
+      "id": "international_workers-2017-03-23-a34bee",
+      "title": "Payment of PF and withdrawl benefit under Pension scheme on the date of leaving service to International workers",
+      "circular_no": "HONo. IWU/7/(25)/2017/Payment of PFwithdrawal benefits/34140",
+      "issued_on": "2017-03-23",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/IWU7_PaymentPFwithdrawlbenefit_Pen_34140.pdf",
+      "source_file": "sources/international_workers-2017-03-23-a34bee.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Payment of PF and withdrawl benefit under Pension scheme on the date of leaving service to International workers",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2017-03-23-a34bee",
+        "page_number": 1,
+        "quote": "Regional Offices. Sub: Payment of PF and withdrawal benefit under"
+      }
+    },
+    {
+      "id": "international_workers-2017-06-23-1e2f1a",
+      "title": "viii Definition of \"International Worker\" as given in Para 83(2)(ja)(a) of EPF Scheme, 1952 and Para 43 A(1)(viii a)(a) of EPS, 1995",
+      "circular_no": "HO No. IWU/7/(25)/2017/Clarification reg. Para83/5041",
+      "issued_on": "2017-06-23",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/IWU_Definition_InternationalWorker_5041.pdf",
+      "source_file": "sources/international_workers-2017-06-23-1e2f1a.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "viii Definition of \"International Worker\" as given in Para 83(2)(ja)(a) of EPF Scheme, 1952 and Para 43 A(1)(viii a)(a) of EPS, 1995",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2017-06-23-1e2f1a",
+        "page_number": 1,
+        "quote": "Definition of “International Worker” as given in Para 83 (2)(ja)(a)"
+      }
+    },
+    {
+      "id": "international_workers-2018-11-20-4002b7",
+      "title": "(a) Competent Authorities to decide on issues related to cancellation / modification / extension of Certificate of Coverage issued by EPFO field offices\\r\\n(b) Nodal officer for coordination with the Competent Authorities / Institutions of the foreign countries with which India has Social Security Agreement",
+      "circular_no": "HO No. IWU/7(31)2017/Application for COC & COC Software/",
+      "issued_on": "2018-11-20",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/IWU_COC_20112018.pdf",
+      "source_file": "sources/international_workers-2018-11-20-4002b7.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "(a) Competent Authorities to decide on issues related to cancellation / modification / extension of Certificate of Coverage issued by EPFO field offices\\r\\n(b) Nodal officer for coordination with the Competent Authorities / Institutions of the foreign countries with which India has Social Security Agreement",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2018-11-20-4002b7",
+        "page_number": 1,
+        "quote": "(a) Competent Authorities to decide on issues related to"
+      }
+    },
+    {
+      "id": "international_workers-2018-11-28-706401",
+      "title": "Online submission of monthly IW1 return",
+      "circular_no": "HO No. IWU/7(30)2012/Return in r/o IWU/1191",
+      "issued_on": "2018-11-28",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/IWU_OnlineSub_ReturnIW1_1191.pdf",
+      "source_file": "sources/international_workers-2018-11-28-706401.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Online submission of monthly IW1 return",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2018-11-28-706401",
+        "page_number": 1,
+        "quote": "Online Submission of monthly IW1 return. — regarding. Sir, As you"
+      }
+    },
+    {
+      "id": "international_workers-2019-03-07-131d16",
+      "title": "Compliance of International Workers",
+      "circular_no": "HO No.IWU/7(68)2014/Reconciliation of data with FRRO/15881",
+      "issued_on": "2019-03-07",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/IWU7(68)2014_Reconciliation_data_FRRO_15881.pdf",
+      "source_file": "sources/international_workers-2019-03-07-131d16.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Compliance of International Workers",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2019-03-07-131d16",
+        "page_number": 1,
+        "quote": "Compliance of International Workers — reg. As you are well aware"
+      }
+    },
+    {
+      "id": "international_workers-2021-10-21-8c52e2",
+      "title": "Special Provision in respect of International Workers - Exemption granted under the Comprehensive Economic Cooperation Agreement between the Republic of India and the Republic of Singapore (CECA-2005) to Singapore citizens working in India from contributing to social security schemes in India",
+      "circular_no": "HO No. IWU/7(14)2008/Singapore/3130",
+      "issued_on": "2021-10-21",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/IWU_SingaporeNational_3130.pdf",
+      "source_file": "sources/international_workers-2021-10-21-8c52e2.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Special Provision in respect of International Workers - Exemption granted under the Comprehensive Economic Cooperation Agreement between the Republic of India and the Republic of Singapore (CECA-2005) to Singapore citizens working in India from contributing to social security schemes in India",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2021-10-21-8c52e2",
+        "page_number": 1,
+        "quote": "Special Provision in respect of International Workers- Exemption"
+      }
+    },
+    {
+      "id": "international_workers-2022-04-27-90c590",
+      "title": "Clarification regarding final withdrawal of PF for International Workers (IWs)",
+      "circular_no": "HO No. IWU/12061/1/2022-IWU/7213",
+      "issued_on": "2022-04-27",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/IWU_FinalWithdrawal_7213.pdf",
+      "source_file": "sources/international_workers-2022-04-27-90c590.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Clarification regarding final withdrawal of PF for International Workers (IWs)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2022-04-27-90c590",
+        "page_number": 1,
+        "quote": "Clarification regarding final withdrawal of PF for International"
+      }
+    },
+    {
+      "id": "international_workers-2024-02-13-9c80c7",
+      "title": "Social Security Agreement between Republic of India and Federative Republic of Brazil",
+      "circular_no": "No.IWU-1109/1/2020-IWU/Brazil/E-file(621352)/4763",
+      "issued_on": "2024-02-13",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/Circular_IWU_Brazil_14022024.pdf",
+      "source_file": "sources/international_workers-2024-02-13-9c80c7.json",
+      "verification": "source_checked",
+      "effective_from": "2024-01-01",
+      "effective_date_evidence": {
+        "document_id": "international_workers-2024-02-13-9c80c7",
+        "page_number": 1,
+        "quote": "the above Agreement has entered into force with effect from 01.01.2024"
+      },
+      "version_label": "Social Security Agreement between Republic of India and Federative Republic of Brazil",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2024-02-13-9c80c7",
+        "page_number": 1,
+        "quote": "Social Security Agreement between Republic of India and Federative"
+      }
+    },
+    {
+      "id": "international_workers-2026-03-18-144d3e",
+      "title": "Payment to the Overseas Bank Accounts of International Workers & their beneficiaries belonging to SSA countries - Regarding",
+      "circular_no": "o. WD/Payment toW/Jaрan/2025/E-1020722 /49",
+      "issued_on": "2026-03-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "international_workers"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_PaymentForeignBankAccount_IWsWithAnnexure_18032026.pdf",
+      "source_file": "sources/international_workers-2026-03-18-144d3e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Payment to the Overseas Bank Accounts of International Workers & their beneficiaries belonging to SSA countries - Regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "international_workers-2026-03-18-144d3e",
+        "page_number": 1,
+        "quote": "Payment to the Overseas Bank Accounts of International Workers &"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "iw-2011-02-cites-2010-11",
+      "source": "international_workers-2011-02-11-c80f80",
+      "target": "international_workers-2010-11-25-e63bb0",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "international_workers-2011-02-11-c80f80",
+        "page_number": 1,
+        "quote": "Head Office letter No. Coord/5(15)/09/International Worker dt. 25/11/10"
+      },
+      "scope": "The February 2011 circular forwarding the Gazette notifications refers to the Head Office letter of 25 November 2010 on the same amendments; it adds to it and does not replace it."
+    },
+    {
+      "id": "iw-2011-08-cites-2010-11",
+      "source": "international_workers-2011-08-30-8cf165",
+      "target": "international_workers-2010-11-25-e63bb0",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "international_workers-2011-08-30-8cf165",
+        "page_number": 1,
+        "quote": "circulated vide Head Office letter No. Coord/5(15)/2009/IW/07733"
+      },
+      "scope": "The 30 August 2011 compliance instructions recall the 11 September 2010 notification as circulated by the Head Office letter of 25/26 November 2010; they issue further instructions for ready reference."
+    },
+    {
+      "id": "iw-2012-05-clarifies-2011-08",
+      "source": "international_workers-2012-05-25-b03847",
+      "target": "international_workers-2011-08-30-8cf165",
+      "type": "clarifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "international_workers-2012-05-25-b03847",
+        "page_number": 1,
+        "quote": "and No.IWU/7(11)/Compliance"
+      },
+      "scope": "The 25 May 2012 circular records that detailed instructions were issued by the 8 September 2009 letter and the compliance letter of 30 August 2011, and issues clarifications after representations; it does not withdraw the 2011 circular."
+    },
+    {
+      "id": "iw-2012-08-cites-2012-05",
+      "source": "international_workers-2012-08-31-a225ad",
+      "target": "international_workers-2012-05-25-b03847",
+      "type": "references",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "international_workers-2012-08-31-a225ad",
+        "page_number": 1,
+        "quote": "clarified vide Head Office letter No. lWU/7(17)2009 dated 25.05.2012"
+      },
+      "scope": "Candidate link: the 31 August 2012 circular relies on a Head Office letter of 25 May 2012 stating that persons posted abroad with a Certificate of Coverage are not International Workers; the issuer's 25 May 2012 circular on compliance is the likely match but its file number is not legible."
+    },
+    {
+      "id": "iw-2026-bank-revises-2014",
+      "source": "international_workers-2026-03-18-144d3e",
+      "target": "international_workers-2014-10-20-9fc883",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "international_workers-2026-03-18-144d3e",
+        "page_number": 1,
+        "quote": "In order to remove such hardships by aligning the procedure for payment to the overseas bank accounts of International Workers and their beneficiaries with extant rule position/ legislations"
+      },
+      "scope": "The 18 March 2026 circular lays down a simplified and consolidated procedure for payment to overseas bank accounts of International Workers of Social Security Agreement countries, removing the Form 15CB and 15CA hardships of the procedure laid down by the 20 October 2014 circular (number 19453). It does not state that the 2014 circular is withdrawn; read the 2026 procedure for the current position."
+    }
+  ],
+  "limitations": [
+    "This collection covers circulars on international workers (EPF Scheme para 83 and EPS special provisions), Certificates of Coverage, individual Social Security Agreements and overseas-bank payment (2008-2026). Training workshops, RTI references and unit staffing circulars are not included.",
+    "The 2012 and 2017 circulars on the definition of 'International Worker' and 'excluded employee' refer to earlier circulars that are not in the set (for example the circular of 8 June 2017, which the 23 June 2017 circular says 'stands withdrawn', and the circular of 14 July 2017 cited in October 2021). No link is asserted to them.",
+    "The January 2009 and later compliance circulars state different dates for the start of enrolment (1 November 2008 and 1 October 2008 appear in different circulars); only the 7 January 2009 statement is recorded as an effective date.",
+    "Each Social Security Agreement circular records the date from which the agreement is in force, as stated in it; the Gazette notification and agreement text are not reproduced. Only the agreements that have an English-titled circular in the issuer's table are included, so the set does not list every agreement India has signed.",
+    "The 2026 circular on payment to overseas bank accounts changes the procedure of the 20 October 2014 circular without stating that it is withdrawn, so the link is recorded as a partial modification; instructions of 23 March 2017 on payment on the date of leaving service are also in the set and are not stated to be replaced.",
+    "Dates of a few early circulars are blank or partly legible in the scan; their issue dates follow the issuer listing.",
+    "Dates follow the letter, not the issuer listing; entries whose letter date differs carry a date_note.",
+    "PDFs were read from the issuer mirror on 4 November 2026 because the public site returned 404 for these paths; recorded SHA-256 values apply to those files. Scanned pages are OCR. Issue dates were checked against the document headers."
+  ]
+}

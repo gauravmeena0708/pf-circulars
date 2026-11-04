@@ -1,0 +1,20 @@
+{
+  "document_id": "legal_case_handling-2016-01-15-c10341",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/LC_LegalDashBoard_ProperEntry_36546.pdf",
+  "pdf_sha256": "12a974e971202948f8188f7121641f876de3105f8878ee3e88430d2702e7b44d",
+  "total_pdf_pages": 2,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "Through Web-Circulation only\nerrant wferea Fit at\n\n(ae ua TI Hae, WET BTA)\nEMPLOYEES’ PROVIDENT FUND ORGANISATION\n(Ministry of Labour & Employment, Govt. of India)\nyer wratera / Head Office\nsofter Paty ers, 14-stteprsit apr cote, Ae favett-1 10 066,\nBhavishya Nidhi Bhawan, 14, Bhikaiji Cama Place, New Delhi - 110 066.\n\nNo. LC/9(15)Review of Legal Dashboard/ // . \\ l Dt: 15.01.2016\n10 ab? 15 JAN 2016\n\nAll Addl. CPFC (Zone)\n\nSub: Proper Entry in the data fields “Subject Matter” and “Amount of impugned\norders” in respect of Supreme Court cases in the Legal Dash Board.\n\nSir/Madam\n\nFollowing deficiencies have. been observed in respect of the data entered in Legal\nDashboard by various offices:-\n\nS.N Data Field Deficiency |\n\n1 Case Subject Matter Blank or Wrong entries* |\n\n2 Amount (if Determined or levied | Mostly Blank or “zero” amount\nby the Impugned Order) shown\n\n* Trrelevant information such as details of parties, details of impugned HC\norder, etc. are being filled up.\n\n2 It is requested to enter proper subject matter. Some of the relevant “Case Subject\nMatter” are as follows:-\n\ni. 7A Dispute: Applicability of Act - Basic Wage u/s-2(b) of the Act/ Subterfuge/\nMinimum Wage\nii. 7A Dispute: Applicability of Act - Number of employees/ Definition of Employee\nu/s-2(f) of the Act\niii. | 7A Dispute: Applicability of Act - infancy benefit\niv. 7A Dispute: Applicability of Act - clubbability\ny. 7A Dispute: Applicability of Act — Coverage dispute on Schedule of Industry\nHead /Class of Establishments for Coverage\nvi. 7A Dispute: Amount of dues in default\nvii.  14B dispute: rate of damages/ mens real etc.",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 2,
+      "text": "viii. Pension dispute u/p-11(3) of EPS’95\nix. Pension dispute u/p-10(2) of EPS’95\nx. Recovery digpute: BIFR/SICA/Liquidation\nxi. Recovery dispute: section 17B of the Act\nxii. Recovery dispute: section 8/8B-8G of the Act\nxiii. Prosecution under section 14 of the Act\nxiv. _ Dispute related to Exemption or its Cancellation\nxv. Consumer Dispute: PF settlement/ Pension amount/ etc\nxvi. Service Matter\nxvii. _ EPFO is Proforma party, and EPFO’s interest is limited to\nxviii. Other than above (please specify)\n\n3 Further, the amount of the impugned 7A/14B Order or of the Recovery Certificate\nshould be invariably mentioned in the column heading “Amount (if Determined or levied by\nthe Impugned Order)”. In case there is no amount involved in the case, the amount must be\nmentioned as “Not Applicable”.\n\n4 OICs and Nodal Officers under your jurisdiction may please be directed to ensure\nthat these columns are filled-up with due care in the Legal Dashboard.\n\n5 Needles to say, entries in other data fields must also be made appropriately.\nDisposed cases must also be updated immediately so that they reflect in “Disposed Cases”\nReport rather than under “Pending Cases” Report.\n\n6 It is requested that the quality of entry of the data entered in Legal Dashboard\nby the offices*under your jurisdiction must be regularly checked at your level and\nregular instructions must be issued to them to set right the deficiencies wherever noted.\n\nYours faithfully,\n\ni=\n\n(Rajesh Bansal)\nAdIl.Central P.F.Commissioner (HQ)\n\nCopy to:\n1 All OICs and Nodal Officers\n2 RPFC(NDC), for web-upload and with the request to create drop down list as\ndetailed in para-2 above, in the data field “Case Subject Matter”.\n\n3 All ACCs in HO\n4 Director NATRSS\n5 ACC(HQ), PKU\n6 PS to CPFC\n\nco\n1128] gue",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

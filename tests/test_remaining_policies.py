@@ -70,7 +70,7 @@ def test_new_histories_use_epfo_hosted_originals_and_retain_pdf_hashes():
         h = PolicyHistory(policy.path)
         for doc in h.documents.values():
             if not doc.get('source_file'): continue
-            source = json.loads((policy.path.parent / doc['source_file']).read_text())
+            source = json.loads((policy.path.parent / doc['source_file']).read_text(encoding='utf-8'))
             assert urlparse(source['source_url']).hostname.endswith('epfindia.gov.in')
             assert len(source['pdf_sha256']) == 64
             assert source['pages']

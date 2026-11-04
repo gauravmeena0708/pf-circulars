@@ -1,0 +1,25 @@
+{
+  "document_id": "is_security_systems-2022-05-18-175c4a",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/NDC_CISO_Security_PW_1182.pdf",
+  "pdf_sha256": "a98ede1c5f9c87bb67d393c6743e7202f76a30eec289f9af2ed9b13223b88ad8",
+  "total_pdf_pages": 3,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "erent fae Pie aot\nEMPLOYEES PROVIDENT FUND ORGANISATION\n(A Ud WIN WaTAG, URT THR)\n(MINISTRY OF LABOUR & EMPLOYMENT. GOVT. OF INDIA}\nSTD BH/NATIONAL DATA CENTRI\n1°! Floor. Bhavishya Nidhi Bhawan. Plot No.23. Sector-23. Dwarka.New Delhi- 1 tc75\nwww. cpfindia.gov.in\n\nClSO/Security/2022/ 1192 Date: 18.05.2022\n\nCYBER SECURITY ADVISORY No 2022/01; PASSWORD SECURITY\nBEST PRACTICES\n\n1. Introduction. A password represents a shared secret between the end user and\nthe system they are authenticating. The system cannot differentiate the real user from\nanother user who also knows the password. Thus, it is essential that users keep their\npassword private. Stolen, weak or reused passwords are prominent reasons for data\nbreaches worldwide.\n\n2. Best Practices. The following best practices should be followed by all IT asset\nusers and data owners: -\n\n(a) Ensure a strong and unique password for all accounts.\n(b) Alf passwords to be treated as sensitive and classified information.\n\n(c) Use combination of upper case & lower case, letters, numbers and symbols\nin password.\n\n(d) Never reuse password on multiple account.\n\n{e) Do not use any information in password that can be found out in social\nmedia profiles (like DoB, name, etc.)\n\n(f) Avoid using dictionary words and commonly used passwords.\n(g) Never share password with anyone.\n(h) — Avoid password recycling.\n\n(i) Always change vendor supplied default password and remove or disable\nunnecessary default accounts before installing a system on the network.\n\n@) Never text or email password.\n\n(k) Do not use the same password for official and persona{ accounts.",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 2,
+      "text": "2.\n\n(l) Avoid saving passwords to a computer.\n\n(m} Do not provide user id or password on any page popping up by clicking on\na hyperlink received through email.\n\n(n) Use Multifactor authentication.\n\n(0) | Always decline the use of “ Remember Password” feature of applications\n(browsers. email clients. messengers etc)\n\n{p) Do not reveal a password on questionnaires or security forms.\n\n(q) Do not speak about a password in front of others.\n\n(r) Password should never be written down.\n\n(s) Password must be changed atleast every 45 days.\n\n(t) Some suggested ways to construct a strong password are as follows: -\n\n(i) A secure password not only consist of letters, but also use numbers\nand special characters. For example, “i” will become “!’, an “o” turns into a\n“O\" and “s” is written as “$”. This way, the simple term “Microsoft” changes\nto the substantially harder word “M!crO$Oft”.\n\n(ii) The longer the password, the harder it is to crack.\n\n(u) Obtain and instal! endpoint protection (antivirus, anti-malware, anti-spyware\nand firewall software) and make sure it is active and automatically updated online\nor take necessary steps to keep it updated.\n\nConclusion. An empioyee’s failure to comply with the above guidelines regarding\n\npassword security can lead to many major issues like data breaches, toss of sensitive\ninformation, account takeovers, exposure to malware, insider threats, reputational\ndamage etc. It is emphasized that the most effective control against fraud is a well-\ninformed user. The end user at EPFO must maintain confidentiality of login password and\nensure security of information entrusted to their care.\n\n3.\n\nFor information and strict compliance please.\n\nT\nChief Inferfnation Security Officer",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 3,
+      "text": "To,\n\nONDARON =\n\n. PPS to CPFC\n\nFA & CAO, CVO\nALL ACC/ ACC (HQ) in Head Office and NDC\n\n. ALL ACC/ ACC (HQ) Incharge of Zones\n. Director, PDUNASS\n\nALL RPFCs Incharge of Regiona! Offices & NDC\ncToO\n\n. OlCs of District Offices",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

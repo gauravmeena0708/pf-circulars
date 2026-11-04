@@ -158,3 +158,24 @@ compilation of circulars: the recorded hash names the compilation and no public 
 DPC procedure and model calendars, and MACP/NFU/NFSG guidance (see
 [recruitment_promotion](recruitment_promotion/README.md)). Drafts are consultation-only; only two
 supersessions are stated and both are verified.
+
+## Verified histories for every rule topic in the division catalog (2026-11-04)
+
+Every rule-nature row in the division catalog now links to a verified history built from the issuer's
+circulars table and the local PDF mirror (original PDFs, hashes recorded, scanned pages OCR):
+[is_hardware_norms](is_hardware_norms/README.md), [is_security_systems](is_security_systems/README.md),
+[spf_interest](spf_interest/README.md), [exemption](exemption/README.md), [damages_7a](damages_7a/README.md),
+[ecr_returns](ecr_returns/README.md), [claim_forms_payments](claim_forms_payments/README.md),
+[official_language](official_language/README.md), [pension_member_rules](pension_member_rules/README.md),
+[international_workers](international_workers/README.md), [legal_case_handling](legal_case_handling/README.md)
+and [quality_complaints](quality_complaints/README.md).
+
+How they were built: candidates selected from the issuer table by subject rules; each header checked
+against the typed letter date (28 circulars carry a `date_note` where the typed date differs from the
+issuer listing or stamp, and the index dates for those PDFs were corrected); supersessions and
+modifications are recorded only where the circular says so, with the quote checked against the page.
+Generic "supersedes earlier instructions" wording is kept as unverified candidate links. The three
+exemption SOPs (2023-2024) name the circulars they supersede in annexures, so those links are verified.
+Limits are stated in each collection's limitations; the Official Language collection holds only the
+English-titled circulars and the Hindi-titled ones are not yet included. Shared checks live in
+`tests/test_verified_collections.py`. Index: 78,697 -> 82,919 passages.

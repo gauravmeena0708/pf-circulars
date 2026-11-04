@@ -1,0 +1,95 @@
+{
+  "document_id": "ecr_returns-2021-02-01-a4c5af",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/C1_ABRY_1179.pdf",
+  "pdf_sha256": "8b2161d5f9c4ab0c81acc314ab23db54bfa0133b47a9202fd881c2cc8d36b773",
+  "total_pdf_pages": 17,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "No. C-I/011(16)2020-21/ABRY/1179                                                                Date: 01.02.2021 \n  \nTo, \nAll Addl. CPFCs in charge of Zones \nAll RPFCs in charge of Regional Offices \nAll OICs in charge of District Offices \n  \nSub: Deployment of electronic facility at Employer Interface of EPFO’s Unified Portal for \nPrincipal Employers to view EPF compliances of their Contractors & contract \nworkers. \n  \nSir, \n             \nThe EPF & MP Act, 1952 defines employee u/s 2 (f) as any person who is employed for \nwages in any kind of work, manual or otherwise, in or in connection with the work of an \nestablishment, and who gets his wages directly or indirectly from the employer and includes any \nperson employed by or through a contractor in or in connection with the work of the \nestablishment. \n             \nMany employers outsource business processes of their establishment to contractors and \nalso engage workers in or in connection with the work of the establishment by or through \ncontractors and in such cases employer’s liability under EPF & MP Act, 1952 is payable by the \nPrincipal employers. The contractors are registered independently as establishment with EPFO \nand they are required to report EPF compliance in r/o workers provided to their Principal \nEmployers through ECRs. The UANs of the workers and the attendance / wage payment \nrecords are verified by the Principal employers to settle the claims. \n  \nNow with deployment of aforesaid facility,  \n1. EPFO registered employers engaging employees by or through contractor(s) can add \nthe details of contractor(s), contract amount, tenure & UANs of contract employees at \nEmployer \nInterface \nof \nEPFO’s \nUnified \nPortal: \nhttps://unifiedportal-\nemp.epfindia.gov.in/epfo/  \nPrincipal Employers not registered with EPFO can register on above Portal with Income \nTax TAN to receive Login/password for adding details of their contractors & contract \nworkers. \n2. On adding contractor’s & employees details, principal employer can view through their \nlogin the employee wise remittance made by contractors through ECR for any wage \nmonth during tenure of contract.  \n \n3. Principal employer can view whether the employer’s share of EPF contributions (13% of \ncontract worker’s wages) paid by the principal employer has been remitted by the \ncontractor in r/o all contract workers or not.   \n \n1",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 2,
+      "text": "Pu,L\nk\nThe facility ensures ease of compliance with provisions of Sec 8A of the Act read with\nPara 30 and 32 of the EPF Scfrene, 1952 by Principal employers and compliance to provisions\nof Para 36-8 of the EPF Scheme, 1952 by the contrac*or establishments and extension of\nmembership of Scheme and remittance of contributions in respect of all contract workers.\nA write up on the procedure of registration as principal employer, adding contractor and\nemployee details, compliance dash board for employers is attached for clarity and guidance of\nthe Principal employers and contractor establishnents.\nThe Zonal ffies and Regional Offices shall conduct webinam with major\nestablishments engaging services of contract employees and major manpower suppliers to\ndisseminate information for ease of compliance and enrollment of all contract workers as\nmembers of Schemes and timely remittance of their contributions. A Power point presentation\non the facility is attached for use in the webinarc.\nAny doubts or querbs regarding the facility may be addressed to tre DD 0S) at NDC\nthrough email on harsh.kaushik@epfindia.qov.in\n(This issues with the approval of the Centnal Provident Fund Commissioner)\nYours faithfully\nEn*l: As above\nRarnan)\nAddX. GPFS {Somplianse}\n2",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 3,
+      "text": "Facility for Principal Employer to view compliances of their employees engaged \nby or through Contractors \n \nA new facility has been added in the login of all employers to declare their \nContractors (registered with EPFO) and the period of contract so that they as \nPrincipal employers may through their login view & monitor the compliance in \nrespect of their contract employees reported in ECR by their contractors. \nUnder the EPF & MP Act, 1952 the definition of employee in section 2 (f) includes a \nperson employed indirectly by or through a contractor.   \nWith this facility, Principal Employers can view the amount of wages on which the \nEPF dues have been remitted by the contractor as compared to the wages and EPF \nemployer’s share paid to contractor under the contract. \nBenefit schemes of PMRPY & ABRY are being operated by the Central \nGovernment under which contractor as independently registered estts claim the \nEmployee’s and Employer's Share of EPF contributions from Central \nGovernment.  \nNow Principal Employers through this facility can view such benefits claimed \nfrom Central Govt. by their contractors in respect of their contract employees & \nregulate their payments to contractor accordingly.  \nPROCESS FLOW FOR PRINCIPAL EMPLOYER (who are registered as \nestablishment with EPFO) AND CONTRACTOR FUNCTIONALITIES \n URL: Enter the URL in URL Bar  https://unifiedportal-emp.epfindia.gov.in/epfo/. \n The link for both Principal Employer and Contractor are inside the login of each \nestablishment covered under EPF & MP Act.  \n \n \n \nFor a Principal Employer \n3",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 4,
+      "text": "Adding a Contractor \n \n Use the Menu Establishment>>Contractor \n \n \n Here Principal Employer can add new contractor through ‘Add New Contractor’ \nLink. Click on the link. \n \n After clicking on the add new contractor link. A new page will be displayed. Now \nEnter ‘Establisment ID’ of Contractor and click the search link. (Click of this search \nis necessary to display the name of contractor establishment else Submit Button \nwill give error message. \n Name of the contractor establishment will be displayed. In case the name \ndisplayed shows that a wrong id was entered , enter the correct id and search to \ndisplay. \n Enter ‘Contract start date’ (mandatory), ‘Contract end date’ (if available), and \nUpload ‘Work order’ file (pdf file upto 2 MB only) then click on the ‘Submit’ button. \nOf the work order relevant or first page that shows the name of contractor \nand period of contract is sufficient to upload.  \n4",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 5,
+      "text": " After a new contractor is added, contractor details page will be displayed. Here \nprincipal employer can see the details of all added contractors in the grid.  However \nif the Principal Employer finds that he has added a wrong establishment he can \ndelete the added contractor establishment.  \n The fact of adding a contractor by a Principal Employer will be immediately \ndisplayed in the login of the Contractor with the name and code number of the \nPrincipal Employer. \n \n \nOnce the Principal Employer has added a contractor, he will be able to view the \ncompliance in respect of the contract employees working for it during the contract \nperiod through the following process: \n \n \nUpload Monthly Details of Contract Employee \n Through ‘Upload Monthly Details of Contract Employee’ link, principal employer \ncan upload the following details: \n Select the ‘Contractor’ from list, select ‘Wage month’ and ‘File’ from ‘Choose File’ \nbutton (File  should contain UAN, Name of contract employee, his wages on which \npayment made to the contractor and number of working days. Details of wages \nand number of working days is not mandatory. For knowing the format of the \nupload file click on button ‘View Help file for reference’).  \n Upload of the wages will help the Principal Employer to compare the wages on \nwhich the contractor has actually paid the PF dues. \n Only those months can be selected which fall under the period of contract.  \n \n5",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 6,
+      "text": " After press of ‘Update Member Summary’, the details will be shown in grid \n‘Uploaded Member Summaries’. \n \n \n \nView the compliance by the Contractor  \n ‘Compliance Dashboard’ is available for principal employer to check payment \nstatus of contractor employees. \n \nIt will display the data if the contractor has uploaded or paid the ECR and the \nwages on which the payment is made. It will also show the amount of Government \nsubsidy under a Scheme.  \n \n6",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 7,
+      "text": "IN THE LOGIN OF A CONTRACTOR ESTABLISHMENT \n \nAfter login, click on Establishment menu & submenu will be displayed. Click on principal \nemployer LInk. \n In case any Principal Employer has added the establishment as a contractor, the \ndetails will be visible. \n The contractor can see the period of contract and the copy of the work order. \n In case he finds that there is some error in the period of contract or that he has \nnever been a contractor for the establishment, he can disagree and record his \nremarks. \n \n Clicking on Disagree Button, a new popup window will display. Enter the disagree \ncontent & click on the disagree button. \n \nOn submit, the fact of disagreement will be immediately displayed in the login of the \nPrincipal Employer.  \nThe Principal Employer can agree with the dispue and delete the detaisl if the \nestablishment was not his contractor or edit the period is was wrongly entered. \nHowever the Principal Employer can also Reconfirm the fact. Then no further dispute \ncan be raised. The fact of reconfirmation means that the Proncipal Employer is \nconfirming that he has hired the contractor and thus is taking the responsibility for the \ncontract employees through this contractor.  \n \n7",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 8,
+      "text": "RESOLUTION OF DISAGREEMENT BY PRINCIPAL EMPLOYER AGAINST \nCONTRACTOR’S OBSERVATION \n \n The \nlist \nof \ncontractors \nadded \nmay \nbe \nopened \nthrough \nthe \nEstablishment>>Contractor link. \n In case the Contractor Establishment has disputed the fact of adding him as a \ncontractor, the status of contractor in the list will be dispayed as Disputed by \nContractor and the Remarks made by him will also be displayed. \n Three option  buttons are available under Action. Edit, Delete and Reconfirm. \n  Edit Button:Through edit button, principal employer can edit contract date and \nwork order file of the contractor. \n Delete Button:Through delete button, principal employer can delete the record of \nadded contractor. \n \n \n Reconfirm: If the Principal Employer finds the dispute by the Contractor to be \nwrng and that he has added correct establishment with correct period, he can Re-\nconfirm and that will make the status of the Contractor Active/Reconfirmed and \ntherefter no further dispute can be raised by the contractor. The Principal \nEmployer can upload the UAN list and view compliance. \n \n \n \nRegistration of a  principal employer not covered under the EPF and MP Act \n1952 & not registered with EPFO \n \n8",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 9,
+      "text": " Such Principal Employers like the Railways, CPWD, Government Departments \ncan also utilize the facility for viewing the compliance by their contractors and can \nknow of the exact amount of subsidy received against their contract workers. \n Such Principal Employers are not required to take a PF Registration Number. \n They can register themselves for this purpose through their TAN.  \n This also facilitates bigger Principal Employers to have registrations by each if the \nDDO who are having the TAN fo rthe Unit to register and add the contractors. So \nbigger Organisations like Railways will not have any issue since each unit may \nhave a separate TAN. \n No registration number is required since the TAN will be the user id for login post \nregistration. \n Application process is simple and based on TAN and the applicant needs only to \nknow the NIC Classification of its Organisation. \n \n \nStep1: https://unifiedportal-emp.epfindia.gov.in/epfo/ \n \n \nStep 2: Important links>>Uncovered Principal Employer Registration \n9",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 10,
+      "text": "After successful registration user id is same as TAN and password is same as set at the \ntime of registration. \n \nStep 3: Log in using user id and password using link uncovered Principal Employer ‘Sign \nIn' \n \nStep 4: After login, process flow is same as principal employer covered under the EPF \nand MP Act. \nThe authorized person who has applied will have the facility to change the mobile , e-mail \nid and also the name of the Authorised Person against the registration in case of his \ntransfer. \n \n10\n10",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 11,
+      "text": "Facility for Principal Employers\nto view compliances of their\nemployees engaged by or\nthrough Contractors",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 12,
+      "text": "EPFO launches electronic facility for Principal Employers to \nview EPF compliances of their Contractors\n• Now,\nEPFO\nregistered\nemployer\nengaging\nemployees\nthrough\ncontractor(s) can add the details of contractor(s) & contract employees at\nEmployer Interface of EPFO’s Unified Portal:\nhttps://unifiedportal-\nemp.epfindia.gov.in/epfo/\n• Principal Employers not registered with EPFO can register on above Portal\nwith Income Tax TAN to receive Login/password for adding details of their\ncontractors & contract workers.\n• On adding contractor’s & employees details, principal employer can view\nthrough their login the employee wise remittance made by contractors\nthrough ECR for any wage month during tenure of contract.\n• Principal employer can view whether the employer’s share of EPF\ncontributions (13% of contract worker’s wages) paid by the principal\nemployer has been remitted by the contractor in r/o all contract workers or\nnot.\n• Please visit https://unifiedportal-emp.epfindia.gov.in/epfo/ for details.\n12\n12",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 13,
+      "text": "Process of adding Contractors\n• Any employer engaging employees through contractor(s), can add the\ndetails of contractor estts at Employer Interface of Unified Portal.\nURL: https://unifiedportal-emp.epfindia.gov.in/epfo/\n13\n13",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 14,
+      "text": "Process flow: Adding Contractors\n\nUse the Menu Establishment>>Contractor",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 15,
+      "text": "Process Flow: Adding Contractors\n\n¢ Provide the PF Code of contractor and contract details",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 16,
+      "text": "Uploading employees details\n\nPrincipal Employer can upload details of employees engaged by or\nthrough contractor every month.",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 17,
+      "text": "Contractor Compliance view Dashboard\nPrincipal Employer can view the month wise compliances made by \ncontractor through ECR in r/o of each contract employees uploaded\n17\n17",
+      "extraction_method": "native"
+    }
+  ]
+}

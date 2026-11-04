@@ -1,0 +1,764 @@
+{
+  "schema_version": 1,
+  "id": "legal_case_handling",
+  "reviewed_on": "2026-11-04",
+  "topics": [
+    {
+      "id": "case_handling",
+      "label": "Handling of legal cases",
+      "include": "handling|cases|litigation|nodal|task force|adverse"
+    },
+    {
+      "id": "legal_dashboard",
+      "label": "Legal Dashboard data entry",
+      "include": "dash ?board|data entry"
+    }
+  ],
+  "documents": [
+    {
+      "id": "legal_case_handling-2014-05-16-773aa3",
+      "title": "nProper handling of legal cases in field offices",
+      "circular_no": "HO No. LC-9(12)2013/CPFC Ref./Pt./3865",
+      "issued_on": "2014-05-16",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "case_handling"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/LC_ProperHandling_LegalCases_3865.pdf",
+      "source_file": "sources/legal_case_handling-2014-05-16-773aa3.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "nProper handling of legal cases in field offices",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2014-05-16-773aa3",
+        "page_number": 1,
+        "quote": "Proper handling of legal cases in field offices-regarding. Sir, A"
+      }
+    },
+    {
+      "id": "legal_case_handling-2014-05-22-46cddc",
+      "title": "Instructions on handling legal cases where Union of India is a Proforma party",
+      "circular_no": "HO No. LC-4(7)2010/GJ/HC/Pt.2/4329",
+      "issued_on": "2014-05-22",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "case_handling"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/LC_HandlingUOICases_4329.pdf",
+      "source_file": "sources/legal_case_handling-2014-05-22-46cddc.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Instructions on handling legal cases where Union of India is a Proforma party",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2014-05-22-46cddc",
+        "page_number": 1,
+        "quote": "Regional Offices Subject : Instructions on handling legal cases where"
+      }
+    },
+    {
+      "id": "legal_case_handling-2014-07-02-d9a358",
+      "title": "Guidelines for dealing with Court Cases",
+      "circular_no": "HO No. LC-9(12)2013/ CPFC ref./pt/8156",
+      "issued_on": "2014-07-02",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "case_handling"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/LC_DealingCourtCases_8156.pdf",
+      "source_file": "sources/legal_case_handling-2014-07-02-d9a358.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Guidelines for dealing with Court Cases",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2014-07-02-d9a358",
+        "page_number": 1,
+        "quote": "Regional Offices Subject: - Guidelines for dealing with Court"
+      }
+    },
+    {
+      "id": "legal_case_handling-2014-10-28-f70cc2",
+      "title": "Instructions on handling legal cases where stay is granted by the Hon'ble High Court",
+      "circular_no": "HO No. LC-4(9)2012/Raj./20428",
+      "issued_on": "2014-10-28",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "case_handling"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/LC_HandlingLegalCases_20428.pdf",
+      "source_file": "sources/legal_case_handling-2014-10-28-f70cc2.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Instructions on handling legal cases where stay is granted by the Hon'ble High Court",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2014-10-28-f70cc2",
+        "page_number": 1,
+        "quote": "Regional Offices Subject: Instructions on handling legal cases where"
+      }
+    },
+    {
+      "id": "legal_case_handling-2015-03-04-733140",
+      "title": "Analysis of Court Cases where adverse orders have been passed - observation of EC, CBT (EPF)",
+      "circular_no": "HO No. LC-9(12)2013/CPFC Ref./Pt./41140",
+      "issued_on": "2015-03-04",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "case_handling"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/LC_AnalysisCourtCases_41140.pdf",
+      "source_file": "sources/legal_case_handling-2015-03-04-733140.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Analysis of Court Cases where adverse orders have been passed - observation of EC, CBT (EPF)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2015-03-04-733140",
+        "page_number": 1,
+        "quote": "Analysis of Court cases where adverse orders have been passed"
+      }
+    },
+    {
+      "id": "legal_case_handling-2015-05-05-3dcb8c",
+      "title": "Data entry in legal dashboard",
+      "circular_no": "HO No. LC-9(13)2013/ACC Pending Ref./4211",
+      "issued_on": "2015-05-05",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "legal_dashboard"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/LC_LegalDashboard_4211.pdf",
+      "source_file": "sources/legal_case_handling-2015-05-05-3dcb8c.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Data entry in legal dashboard",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2015-05-05-3dcb8c",
+        "page_number": 1,
+        "quote": "Data entry in legal dashboard -reg. Sir Please refer to this office"
+      }
+    },
+    {
+      "id": "legal_case_handling-2015-06-12-f64af3",
+      "title": "Proper handiing of Legal Cases in field offices",
+      "circular_no": "HO No. LC-2(990)/2015/MH/10588",
+      "issued_on": "2015-06-12",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "case_handling"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/LC-LegalCases_10588.pdf",
+      "source_file": "sources/legal_case_handling-2015-06-12-f64af3.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Proper handiing of Legal Cases in field offices",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2015-06-12-f64af3",
+        "page_number": 1,
+        "quote": "Regional Offices Subject:- Proper handling of Legal Cases in field"
+      }
+    },
+    {
+      "id": "legal_case_handling-2015-06-18-346ae7",
+      "title": "Analysis of Court cases where adverse orders have been passed - observation of EC, CBT (EPF)",
+      "circular_no": "HO No. LC-9(12)2013/CPFC Ref./Pt./ 10457",
+      "issued_on": "2015-06-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "case_handling"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/LC_CourtOrdersObservation_10457.pdf",
+      "source_file": "sources/legal_case_handling-2015-06-18-346ae7.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Analysis of Court cases where adverse orders have been passed - observation of EC, CBT (EPF)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2015-06-18-346ae7",
+        "page_number": 1,
+        "quote": "Analysis of Court cases where adverse orders have been passed"
+      },
+      "date_note": "The letter is typed 'Date:- 18.06.2015' (stamp 19 June 2015); the issuer listing shows 19 June 2015."
+    },
+    {
+      "id": "legal_case_handling-2015-06-18-b2afb9",
+      "title": "Analysis of Court cases where adverse orders have been passed - observation of EC, CBT (EPF)",
+      "circular_no": "HO No. LC-9(12)2013/CPFC Ref./Pt. 10449",
+      "issued_on": "2015-06-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "case_handling"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/LC_CourtOrdersObservation_10449.pdf",
+      "source_file": "sources/legal_case_handling-2015-06-18-b2afb9.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Analysis of Court cases where adverse orders have been passed - observation of EC, CBT (EPF)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2015-06-18-b2afb9",
+        "page_number": 1,
+        "quote": "Analysis of Court cases where adverse orders have been passed"
+      },
+      "date_note": "The letter is typed 'Date:- 18.06.2015' (stamp 19 June 2015); the issuer listing shows 19 June 2015."
+    },
+    {
+      "id": "legal_case_handling-2015-06-18-de91d4",
+      "title": "Analysis of Court cases where adverse orders have been passed - observation of EC, CBT (EPF)",
+      "circular_no": "HO No. LC-9(12)2013/CPFC Ref./Pt./ 10318",
+      "issued_on": "2015-06-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "case_handling"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/LC_CourtOrdersObservation_10318.pdf",
+      "source_file": "sources/legal_case_handling-2015-06-18-de91d4.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Analysis of Court cases where adverse orders have been passed - observation of EC, CBT (EPF)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2015-06-18-de91d4",
+        "page_number": 1,
+        "quote": "Analysis of Court cases where adverse orders have been passed"
+      },
+      "date_note": "The letter is typed 'Date:- 18.06.2015' (stamp 19 June 2015); the issuer listing shows 19 June 2015."
+    },
+    {
+      "id": "legal_case_handling-2015-06-22-285d81",
+      "title": "Deletion of the name of Cabinet Secretary from the array of respondents in Litigation/Court Cases",
+      "circular_no": "HO No. LC-9(46)2015/Circulars/13065",
+      "issued_on": "2015-06-22",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "case_handling"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/LC_Circular_13065.pdf",
+      "source_file": "sources/legal_case_handling-2015-06-22-285d81.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Deletion of the name of Cabinet Secretary from the array of respondents in Litigation/Court Cases",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2015-06-22-285d81",
+        "page_number": 1,
+        "quote": "Regional Offices Sir, Subject: - Deletion of the name of Cabinet"
+      },
+      "date_note": "The circular is typed 'Date:- 22.06.2015' (stamp 24 June 2015); the issuer listing shows 24 June 2015."
+    },
+    {
+      "id": "legal_case_handling-2015-09-03-3c9ac8",
+      "title": "Proper entry of data in Legal Dash Board",
+      "circular_no": "HO No. LC-9(2015)/Review of Legal Dash Board/23942",
+      "issued_on": "2015-09-03",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "legal_dashboard"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/LC_Entry_LegalDashboard_23942.pdf",
+      "source_file": "sources/legal_case_handling-2015-09-03-3c9ac8.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Proper entry of data in Legal Dash Board",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2015-09-03-3c9ac8",
+        "page_number": 1,
+        "quote": "Proper entry of data in Legal Dash Board-reg. Sir, On analysis of"
+      }
+    },
+    {
+      "id": "legal_case_handling-2015-09-10-f3ac6a",
+      "title": "100% Data entry in Legal Dash Board",
+      "circular_no": "HO No. LC-9(2015) Review of Legal Dash Board/11860",
+      "issued_on": "2015-09-10",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "legal_dashboard"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/LC_Entry_LegalDashBoard_11860.pdf",
+      "source_file": "sources/legal_case_handling-2015-09-10-f3ac6a.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "100% Data entry in Legal Dash Board",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2015-09-10-f3ac6a",
+        "page_number": 1,
+        "quote": "100% Data entry in Legal Dash Board-reg. Ref:- Head Office Letter No"
+      },
+      "date_note": "The letter is typed 'Date : 10.09.2015' (stamp 11 September 2015); the issuer listing shows 11 September 2015."
+    },
+    {
+      "id": "legal_case_handling-2015-09-11-3e42b0",
+      "title": "100% Data Entry in Legal Dash Board",
+      "circular_no": "HO No. LC-9(2015)Review of Legal Dash Board/11859",
+      "issued_on": "2015-09-11",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "legal_dashboard"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/LC_Entry_LegalDashBoard_11859.pdf",
+      "source_file": "sources/legal_case_handling-2015-09-11-3e42b0.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "100% Data Entry in Legal Dash Board",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2015-09-11-3e42b0",
+        "page_number": 1,
+        "quote": "100% Data Entry in Legal Dash Board-Regarding. Reference:-Head Office"
+      }
+    },
+    {
+      "id": "legal_case_handling-2015-11-12-41c56b",
+      "title": "Format of reports to be extracted from Legal Dash Board",
+      "circular_no": "HO No. LC-9(13)2013/ACC Pending Ref./30135",
+      "issued_on": "2015-11-12",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "legal_dashboard"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/LC_ReportFormat_LegalDashboard_30135.pdf",
+      "source_file": "sources/legal_case_handling-2015-11-12-41c56b.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Format of reports to be extracted from Legal Dash Board",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2015-11-12-41c56b",
+        "page_number": 1,
+        "quote": "Format of reports to be extracted from Legal Dash Board-reg. Ref:"
+      }
+    },
+    {
+      "id": "legal_case_handling-2015-12-16-2a1ea7",
+      "title": "Monitoring progress of data entry in the Legal Dashboard",
+      "circular_no": "HO No. ACC(HQ)/PS/Misc./12/2015",
+      "issued_on": "2015-12-16",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "legal_dashboard"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/ACCHQ_LegalDashboard_DatEntry_16122015.pdf",
+      "source_file": "sources/legal_case_handling-2015-12-16-2a1ea7.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Monitoring progress of data entry in the Legal Dashboard",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2015-12-16-2a1ea7",
+        "page_number": 1,
+        "quote": "Regional Office in relation to the data entry being made in the Legal"
+      }
+    },
+    {
+      "id": "legal_case_handling-2015-12-18-3f6ae9",
+      "title": "Quality of data entered in Legal Dashboard",
+      "circular_no": "HO No. LC-9(15) Review of Legal Dash Board/33418",
+      "issued_on": "2015-12-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "legal_dashboard"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/LC_LegalDashboard_DataEntry_33418.pdf",
+      "source_file": "sources/legal_case_handling-2015-12-18-3f6ae9.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Quality of data entered in Legal Dashboard",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2015-12-18-3f6ae9",
+        "page_number": 1,
+        "quote": "Quality of data entered in Legal Dashboard - regarding Ref: Head"
+      }
+    },
+    {
+      "id": "legal_case_handling-2015-12-18-f0adfe",
+      "title": "Legal Dashboard User log-in",
+      "circular_no": "HO No. LC-9(15) Review of Legal Dash Board/33417",
+      "issued_on": "2015-12-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "legal_dashboard"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/LC_Review_LegalDashboard_33417.pdf",
+      "source_file": "sources/legal_case_handling-2015-12-18-f0adfe.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Legal Dashboard User log-in",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2015-12-18-f0adfe",
+        "page_number": 1,
+        "quote": "Legal Dashboard User log-in - regarding Sir, While reviewing the"
+      }
+    },
+    {
+      "id": "legal_case_handling-2015-12-31-180efd",
+      "title": "Analysis of Court Cases where adverse orders have been passed",
+      "circular_no": "HO No. LC-9(12)2013/CPFC Ref./Pt/34207",
+      "issued_on": "2015-12-31",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "case_handling"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/LC_CourtCases_AdverseOrders_34207.pdf",
+      "source_file": "sources/legal_case_handling-2015-12-31-180efd.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Analysis of Court Cases where adverse orders have been passed",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2015-12-31-180efd",
+        "page_number": 1,
+        "quote": "Analysis of Court Cases where adverse orders have been passed- reg"
+      }
+    },
+    {
+      "id": "legal_case_handling-2016-01-04-ae6183",
+      "title": "Timely and Quality entry of data in Legal Dash Board",
+      "circular_no": "HO No. LC-9(2015)Review of Legal Dash Board/20248",
+      "issued_on": "2016-01-04",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "legal_dashboard"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/LC_LegalDashBoard_20248.pdf",
+      "source_file": "sources/legal_case_handling-2016-01-04-ae6183.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Timely and Quality entry of data in Legal Dash Board",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2016-01-04-ae6183",
+        "page_number": 1,
+        "quote": "Timely and Quality entry of data in Legal Dash Board- reg. Sir"
+      }
+    },
+    {
+      "id": "legal_case_handling-2016-01-15-8b29b1",
+      "title": "Avoiding duplicate entry in Legal Dashboard",
+      "circular_no": "HO No. LC/9(2015) Review of Legal Dashboard/36545",
+      "issued_on": "2016-01-15",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "legal_dashboard"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/LC_DuplicateEntry_LDB_36545.pdf",
+      "source_file": "sources/legal_case_handling-2016-01-15-8b29b1.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Avoiding duplicate entry in Legal Dashboard",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2016-01-15-8b29b1",
+        "page_number": 1,
+        "quote": "Avoiding duplicate entry in Legal Dashboard - regarding Sir Kindly"
+      }
+    },
+    {
+      "id": "legal_case_handling-2016-01-15-c10341",
+      "title": "Proper Entry in the data fields \"Subject Matter\" and \"Amount of impugned orders\" in respect of Supreme Court cases in the Legal Dash Board",
+      "circular_no": "HO No. LC/9(15) Review of Legal Dashboard/36546",
+      "issued_on": "2016-01-15",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "legal_dashboard"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/LC_LegalDashBoard_ProperEntry_36546.pdf",
+      "source_file": "sources/legal_case_handling-2016-01-15-c10341.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Proper Entry in the data fields \"Subject Matter\" and \"Amount of impugned orders\" in respect of Supreme Court cases in the Legal Dash Board",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2016-01-15-c10341",
+        "page_number": 1,
+        "quote": "Proper Entry in the data fields “Subject Matter” and “Amount of"
+      }
+    },
+    {
+      "id": "legal_case_handling-2016-01-21-6016db",
+      "title": "Instructions on handling legal cases where cause of action lies with EPFO and UOI is a respondent",
+      "circular_no": "HO No. LC-9(1)16/Genl. Instructions/21999",
+      "issued_on": "2016-01-21",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "case_handling"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/LC_Handling_LegalCases_21999.pdf",
+      "source_file": "sources/legal_case_handling-2016-01-21-6016db.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Instructions on handling legal cases where cause of action lies with EPFO and UOI is a respondent",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2016-01-21-6016db",
+        "page_number": 1,
+        "quote": "Regional Offices Subject : Instructions on handling legal cases where"
+      }
+    },
+    {
+      "id": "legal_case_handling-2016-10-13-99b5d6",
+      "title": "Proper handling of cases before Consumer Forums",
+      "circular_no": "HO No. LC-2(966)2016/RJ/18830",
+      "issued_on": "2016-10-13",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "case_handling"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/LC_ConfumerFormCase_18830.pdf",
+      "source_file": "sources/legal_case_handling-2016-10-13-99b5d6.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Proper handling of cases before Consumer Forums",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2016-10-13-99b5d6",
+        "page_number": 1,
+        "quote": "Regional Ofices Subject : Proper handling of cases before Consumer"
+      }
+    },
+    {
+      "id": "legal_case_handling-2017-02-03-bb25a6",
+      "title": "Proper handling of legal cases in field offices",
+      "circular_no": "HO No. LC-9(12)2013/CPFC Ref./29937",
+      "issued_on": "2017-02-03",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "case_handling"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/LC_LegalCases_29937.pdf",
+      "source_file": "sources/legal_case_handling-2017-02-03-bb25a6.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Proper handling of legal cases in field offices",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2017-02-03-bb25a6",
+        "page_number": 1,
+        "quote": "Regional Offices Sub:- Proper handling of legal cases in field"
+      }
+    },
+    {
+      "id": "legal_case_handling-2018-05-29-2ee9ed",
+      "title": "Nodal office for Legal cases pertaining to other Regional Offices of EPFO",
+      "circular_no": "HO No. LC-4(55)2018/DL/HC/4544",
+      "issued_on": "2018-05-29",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "case_handling"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/LC_NodalOffice_Legal_Delhi_4544.pdf",
+      "source_file": "sources/legal_case_handling-2018-05-29-2ee9ed.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Nodal office for Legal cases pertaining to other Regional Offices of EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2018-05-29-2ee9ed",
+        "page_number": 1,
+        "quote": "Nodal office for Legal cases pertaining to other Regional Offices of"
+      }
+    },
+    {
+      "id": "legal_case_handling-2019-05-07-239fe1",
+      "title": "Instructions for handling legal cases pertaining to service matters before Hon'ble CAT/High Courts/Supreme Court",
+      "circular_no": "HO No. F-23019/3/2018/HRM-VIII/1909",
+      "issued_on": "2019-05-07",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "case_handling"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2019-2020/HRM8_LegalCases_1909.pdf",
+      "source_file": "sources/legal_case_handling-2019-05-07-239fe1.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Instructions for handling legal cases pertaining to service matters before Hon'ble CAT/High Courts/Supreme Court",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2019-05-07-239fe1",
+        "page_number": 1,
+        "quote": "Instructions for handling legal cases pertaining to service matters"
+      }
+    },
+    {
+      "id": "legal_case_handling-2022-01-24-c163d4",
+      "title": "Constitution of Task Force for expediting disposal of pending legal cases",
+      "circular_no": "HO No. LC-15014(11)/1/2022-LEGAL/1",
+      "issued_on": "2022-01-24",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "case_handling"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/LC_TaskForce_1.pdf",
+      "source_file": "sources/legal_case_handling-2022-01-24-c163d4.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Constitution of Task Force for expediting disposal of pending legal cases",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2022-01-24-c163d4",
+        "page_number": 1,
+        "quote": "Constitution of Task Force for expediting disposal of pending legal"
+      }
+    },
+    {
+      "id": "legal_case_handling-2025-11-20-ac1896",
+      "title": "Circular regarding Strengthening Litigation Management - Mandatory Compliance in Handling of Court Cases",
+      "circular_no": "No: LitigationManagement/E58312 |13883",
+      "issued_on": "2025-11-20",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "case_handling"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_StrengtheningLitigationManagement_CourtCases.pdf",
+      "source_file": "sources/legal_case_handling-2025-11-20-ac1896.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Circular regarding Strengthening Litigation Management - Mandatory Compliance in Handling of Court Cases",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "legal_case_handling-2025-11-20-ac1896",
+        "page_number": 1,
+        "quote": "Strengthening Litigation Management — Mandatory Compliance in"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "lc-2014-guidelines-add-to-0516",
+      "source": "legal_case_handling-2014-07-02-d9a358",
+      "target": "legal_case_handling-2014-05-16-773aa3",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "legal_case_handling-2014-07-02-d9a358",
+        "page_number": 2,
+        "quote": "These guidelines are in addition to those issued vide this office circular"
+      },
+      "scope": "The 2 July 2014 guidelines are stated to be in addition to the 16 May 2014 circular on proper handling of legal cases; neither replaces the other."
+    },
+    {
+      "id": "lc-2015-reiterates-2014",
+      "source": "legal_case_handling-2015-06-12-f64af3",
+      "target": "legal_case_handling-2014-05-16-773aa3",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "legal_case_handling-2015-06-12-f64af3",
+        "page_number": 2,
+        "quote": "it is once again reiterated that the above circular should scrupulously be followed"
+      },
+      "scope": "The June 2015 circular reiterates that the 16 May 2014 circular must be followed; it does not change it."
+    },
+    {
+      "id": "lc-2016-consumer-reiterates",
+      "source": "legal_case_handling-2016-10-13-99b5d6",
+      "target": "legal_case_handling-2014-05-16-773aa3",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "legal_case_handling-2016-10-13-99b5d6",
+        "page_number": 1,
+        "quote": "It is reiterated that the above circulars should scrupulously be followed"
+      },
+      "scope": "The October 2016 circular on consumer-forum cases reiterates the 2014 guidelines (and the June 2015 circular) and adds instructions for consumer forums."
+    },
+    {
+      "id": "lc-2017-reiterates-2014",
+      "source": "legal_case_handling-2017-02-03-bb25a6",
+      "target": "legal_case_handling-2014-05-16-773aa3",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "legal_case_handling-2017-02-03-bb25a6",
+        "page_number": 1,
+        "quote": "vide which comprehensive guidelines on proper handling of legal cases in field offices of EPFO were issued"
+      },
+      "scope": "The February 2017 circular refers to the 16 May 2014 comprehensive guidelines and draws attention to further points; it does not replace them."
+    },
+    {
+      "id": "lc-2016-cites-2014-uoi",
+      "source": "legal_case_handling-2016-01-21-6016db",
+      "target": "legal_case_handling-2014-05-22-46cddc",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "legal_case_handling-2016-01-21-6016db",
+        "page_number": 1,
+        "quote": "has already been circulated vide circular No. LC- 4(7)2010/GI/HC/Pt.2/4329 dated 22.05.2014"
+      },
+      "scope": "The January 2016 circular asks that Union of India and the Secretary (L&E) be deleted from cases where the cause of action lies with EPFO, building on the 22 May 2014 instructions on cases where Union of India is a proforma party."
+    },
+    {
+      "id": "lc-2015-adverse-follow-up",
+      "source": "legal_case_handling-2015-06-18-346ae7",
+      "target": "legal_case_handling-2015-03-04-733140",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "legal_case_handling-2015-06-18-346ae7",
+        "page_number": 1,
+        "quote": "Please refer to this office letter dated 04.03.2015"
+      },
+      "scope": "The June 2015 letter follows up the 4 March 2015 direction to constitute a committee for analysing court cases with adverse orders."
+    }
+  ],
+  "limitations": [
+    "This collection covers Compliance and Legal Cell instructions on how field offices handle legal cases and the Legal Dashboard (2014-2025). Panel advocate empanelment and fees are in the Panel advocates collection; forwarded judgments and individual case orders are not included.",
+    "The 16 May 2014 circular is the comprehensive guideline; later circulars reiterate or add to it. No circular here is stated to withdraw it, so the relationships are references, not supersessions.",
+    "The Legal Dashboard circulars (2015-2016) are instructions to enter data and are time-bound to the 2015-16 roll-out; no circular here records the dashboard's closure.",
+    "The 2018 nodal-office letter refers to an earlier letter of 17 January 2018 that is not in the set; the 2019 service-matters circular refers to circulars of 2017 and March 2019 that are not in the set.",
+    "The 2025 Strengthening Litigation Management circular and the 2022 Task Force constitution state no commencement beyond their issue date.",
+    "Several scans are low quality; counts and committee compositions should be checked against the page images.",
+    "Dates follow the letter, not the issuer listing; entries whose letter date differs carry a date_note.",
+    "PDFs were read from the issuer mirror on 4 November 2026 because the public site returned 404 for these paths; recorded SHA-256 values apply to those files. Scanned pages are OCR. Issue dates were checked against the document headers."
+  ]
+}

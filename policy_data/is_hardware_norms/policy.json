@@ -1,0 +1,390 @@
+{
+  "schema_version": 1,
+  "id": "is_hardware_norms",
+  "reviewed_on": "2026-11-04",
+  "topics": [
+    {
+      "id": "specifications",
+      "label": "Laptop, desktop, tablet and thin-client specifications",
+      "include": "specification|laptop|desktop|tablet|thin client"
+    },
+    {
+      "id": "norms",
+      "label": "IT equipment norms for offices",
+      "include": "norms?|infrastructure|supplementary|supplemental"
+    },
+    {
+      "id": "obsolescence",
+      "label": "Obsolescence and replacement",
+      "include": "obsolescence|replacement"
+    },
+    {
+      "id": "devices",
+      "label": "Device purchase and mobile devices",
+      "include": "purchase|mobile|thin client|ultrabook|macbook"
+    }
+  ],
+  "documents": [
+    {
+      "id": "is_hardware_norms-2008-05-19-5111da",
+      "title": "Policy Decision on use of Thin Clients in place of Dumb Terminals in the field offices",
+      "circular_no": "H.O No. IS-5(3)97/Pt./9367-9617",
+      "issued_on": "2008-05-19",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "devices"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/Thin_Client.pdf",
+      "source_file": "sources/is_hardware_norms-2008-05-19-5111da.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Policy Decision on use of Thin Clients in place of Dumb Terminals in the field offices",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_hardware_norms-2008-05-19-5111da",
+        "page_number": 1,
+        "quote": "Policy decision on use of Thin Clients in place of Dumb Terminals in"
+      }
+    },
+    {
+      "id": "is_hardware_norms-2008-11-05-c95b83",
+      "title": "Obsolescence Policy for computer hardware & peripherals",
+      "circular_no": "HO No. IS 2(1)200/AMC/57739",
+      "issued_on": "2008-11-05",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "obsolescence"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/CompObsol.pdf",
+      "source_file": "sources/is_hardware_norms-2008-11-05-c95b83.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Obsolescence Policy for computer hardware & peripherals",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_hardware_norms-2008-11-05-c95b83",
+        "page_number": 1,
+        "quote": "Obsolescence Policy for Computer Hardware and Peripherals —"
+      }
+    },
+    {
+      "id": "is_hardware_norms-2009-03-06-cb0fd1",
+      "title": "Norms for basic minimum number of Desktops etc.",
+      "circular_no": "HO No. IS-1(3)/2003/Norms/101987",
+      "issued_on": "2009-03-06",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "norms"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/BasicMinNorms_Comp.pdf",
+      "source_file": "sources/is_hardware_norms-2009-03-06-cb0fd1.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Norms for basic minimum number of Desktops etc.",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_hardware_norms-2009-03-06-cb0fd1",
+        "page_number": 1,
+        "quote": "Norms for basic minimum number of Desktop for Field Offices and"
+      }
+    },
+    {
+      "id": "is_hardware_norms-2009-03-20-a341d3",
+      "title": "Delegation of power to RPFC to purchase Servers etc - Technical Specifications of the equipment",
+      "circular_no": "No. IS-1(3)/2003/Norms/42136",
+      "issued_on": "2009-03-20",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "specifications"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/DelePower_IT.pdf",
+      "source_file": "sources/is_hardware_norms-2009-03-20-a341d3.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of power to RPFC to purchase Servers etc - Technical Specifications of the equipment",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_hardware_norms-2009-03-20-a341d3",
+        "page_number": 1,
+        "quote": "Delegation of power to Regional Commissioners to purchase Servers"
+      }
+    },
+    {
+      "id": "is_hardware_norms-2009-10-07-6fb515",
+      "title": "Supplemental norms for IT equipment covering requirements for Head Office, Office of ACCs (Zones), NATRSS/ZTIs, Zonal Vigilance Offices, Zonal Audit Offices",
+      "circular_no": "HO No. IS-1(3)/2003/Norms/18728",
+      "issued_on": "2009-10-07",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "norms"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/SuppliNorms.PDF",
+      "source_file": "sources/is_hardware_norms-2009-10-07-6fb515.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Supplemental norms for IT equipment covering requirements for Head Office, Office of ACCs (Zones), NATRSS/ZTIs, Zonal Vigilance Offices, Zonal Audit Offices",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_hardware_norms-2009-10-07-6fb515",
+        "page_number": 1,
+        "quote": "Supplemental Norms for IT equipments covering requirements for Head"
+      }
+    },
+    {
+      "id": "is_hardware_norms-2014-09-17-409c50",
+      "title": "Supplementary norm for IT equipments covering requirements for field offices",
+      "circular_no": "HO No. IS-1(3)2003/Norms/16085",
+      "issued_on": "2014-09-17",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "norms"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/IS_EquipmentsIT_Norms_16085.pdf",
+      "source_file": "sources/is_hardware_norms-2014-09-17-409c50.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Supplementary norm for IT equipments covering requirements for field offices",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_hardware_norms-2014-09-17-409c50",
+        "page_number": 1,
+        "quote": "Supplementary norm for IT equipments covering requirements for field"
+      }
+    },
+    {
+      "id": "is_hardware_norms-2016-01-19-a18430",
+      "title": "Purchase of Thin Clients revised specification",
+      "circular_no": "HO No. IS-11(13)2015/Chandigarh/21492",
+      "issued_on": "2016-01-19",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "specifications"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/IS_Specifications_ThinClient_21492.pdf",
+      "source_file": "sources/is_hardware_norms-2016-01-19-a18430.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Purchase of Thin Clients revised specification",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_hardware_norms-2016-01-19-a18430",
+        "page_number": 1,
+        "quote": "Purchase of Thin Clients revised specification -regarding. Sir"
+      }
+    },
+    {
+      "id": "is_hardware_norms-2016-02-12-f40973",
+      "title": "Revised and supplementary norms for IT equipments for field offices",
+      "circular_no": "HO NO. IS-3(2)2003/Budget Delegation/39638",
+      "issued_on": "2016-02-12",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "norms"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/IS_BudgetDelegat_39638.pdf",
+      "source_file": "sources/is_hardware_norms-2016-02-12-f40973.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised and supplementary norms for IT equipments for field offices",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_hardware_norms-2016-02-12-f40973",
+        "page_number": 1,
+        "quote": "Revised and supplementary norms for IT equipments for field offices"
+      }
+    },
+    {
+      "id": "is_hardware_norms-2017-11-09-204d21",
+      "title": "Supplementary Norms for Mobile Devices covering the requirement of registration of Digital Life Certificate (DLC) of Jeevan Praman for Pensioners through 'UMANG'",
+      "circular_no": "HO No. IS-1(3)2003/Norms/Vol-II/",
+      "issued_on": "2017-11-09",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "norms"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/IS_Norms_Mobile Device_09112017.pdf",
+      "source_file": "sources/is_hardware_norms-2017-11-09-204d21.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Supplementary Norms for Mobile Devices covering the requirement of registration of Digital Life Certificate (DLC) of Jeevan Praman for Pensioners through 'UMANG'",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_hardware_norms-2017-11-09-204d21",
+        "page_number": 1,
+        "quote": "Supplementary Norms for Mobile Devices covering the requirement of"
+      }
+    },
+    {
+      "id": "is_hardware_norms-2018-05-09-329ed3",
+      "title": "Revised Guidelines for Purchase of laptop/ notebook / ultrabook / macbook for eligible officers of EPFO",
+      "circular_no": "HO No. IS-1(2)2003/Norms/173",
+      "issued_on": "2018-05-09",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "devices"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/IS_RevGuidelines_Laptop_173.pdf",
+      "source_file": "sources/is_hardware_norms-2018-05-09-329ed3.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised Guidelines for Purchase of laptop/ notebook / ultrabook / macbook for eligible officers of EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_hardware_norms-2018-05-09-329ed3",
+        "page_number": 1,
+        "quote": "Revised Guidelines for Purchase of laptop/notebook/ultrabook/macbook"
+      }
+    },
+    {
+      "id": "is_hardware_norms-2018-12-13-6eba18",
+      "title": "Guidelines for IT Infrastructure enhancement at EPFO Field Offices",
+      "circular_no": "HO No. IS-1(3)2003/Norms/Vol-II",
+      "issued_on": "2018-12-13",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "norms"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/IS_GuidelinesITInfrastructure_.pdf",
+      "source_file": "sources/is_hardware_norms-2018-12-13-6eba18.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Guidelines for IT Infrastructure enhancement at EPFO Field Offices",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_hardware_norms-2018-12-13-6eba18",
+        "page_number": 1,
+        "quote": "Guidelines for IT Infrastructure enhancement at EPFO Field Offices —"
+      }
+    },
+    {
+      "id": "is_hardware_norms-2019-01-08-a22a8e",
+      "title": "Revised specifications of Laptop & Desktop for normal use, Desktop for technical use, Thin Client, Printer (Normal and Heavy Duty), UPS, Virus Scanner and MS Office",
+      "circular_no": "HO No. IS-1(3)2003/Vol-II/281",
+      "issued_on": "2019-01-08",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "specifications"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/IS_RevisedSpecs_Computer_281.pdf",
+      "source_file": "sources/is_hardware_norms-2019-01-08-a22a8e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised specifications of Laptop & Desktop for normal use, Desktop for technical use, Thin Client, Printer (Normal and Heavy Duty), UPS, Virus Scanner and MS Office",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_hardware_norms-2019-01-08-a22a8e",
+        "page_number": 1,
+        "quote": "Revised specifications of Laptop & Desktop for normal use, Desktop"
+      }
+    },
+    {
+      "id": "is_hardware_norms-2025-12-11-35b53e",
+      "title": "Revised Model Technical Specifications of Desktop PCs, Laptop PCs & Tablet PCs - circular dated 11-12-2025",
+      "circular_no": "No: 25898/2630",
+      "issued_on": "2025-12-11",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "specifications"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_OnSpecification_compressed.pdf",
+      "source_file": "sources/is_hardware_norms-2025-12-11-35b53e.json",
+      "verification": "source_checked",
+      "effective_from": "2025-12-11",
+      "effective_date_evidence": {
+        "document_id": "is_hardware_norms-2025-12-11-35b53e",
+        "page_number": 1,
+        "quote": "These instructions shall come into force with immediate effect until further orders"
+      },
+      "version_label": "Revised Model Technical Specifications of Desktop PCs, Laptop PCs & Tablet PCs - circular dated 11-12-2025",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_hardware_norms-2025-12-11-35b53e",
+        "page_number": 1,
+        "quote": "Revised Model Technical Specifications of Desktop PCs, Laptop PCs &"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "hw-2019-supersedes-2016-norms",
+      "source": "is_hardware_norms-2019-01-08-a22a8e",
+      "target": "is_hardware_norms-2016-02-12-f40973",
+      "type": "supersedes",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "is_hardware_norms-2019-01-08-a22a8e",
+        "page_number": 1,
+        "quote": "This circular supersedes all previous circulars dealing with the norms and specifications of Laptop, Desktop, Printer, UPS, Virus Scanner and MS Office"
+      },
+      "scope": "Candidate link: the 2019 circular supersedes all previous circulars on the norms and specifications of laptops, desktops, printers, UPS, virus scanners and MS Office without naming them. It reaches only those items in the 2016 norms; other equipment (servers, networking) is not addressed."
+    },
+    {
+      "id": "hw-2019-supersedes-2014-norm",
+      "source": "is_hardware_norms-2019-01-08-a22a8e",
+      "target": "is_hardware_norms-2014-09-17-409c50",
+      "type": "supersedes",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "is_hardware_norms-2019-01-08-a22a8e",
+        "page_number": 1,
+        "quote": "This circular supersedes all previous circulars dealing with the norms and specifications of Laptop, Desktop, Printer, UPS, Virus Scanner and MS Office"
+      },
+      "scope": "Candidate link: the 2014 revised desktop specification falls within the class of earlier desktop specifications the 2019 circular supersedes; it is not named."
+    },
+    {
+      "id": "hw-2018-cites-obsolescence-2008",
+      "source": "is_hardware_norms-2018-12-13-6eba18",
+      "target": "is_hardware_norms-2008-11-05-c95b83",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "is_hardware_norms-2018-12-13-6eba18",
+        "page_number": 1,
+        "quote": "AMC/57739 dated 5th November, 2008"
+      },
+      "scope": "The 2018 guidelines require the 2008 obsolescence policy to be followed when replacing old desktops; the 2008 policy is not changed."
+    },
+    {
+      "id": "hw-2019-cites-obsolescence-2008",
+      "source": "is_hardware_norms-2019-01-08-a22a8e",
+      "target": "is_hardware_norms-2008-11-05-c95b83",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "is_hardware_norms-2019-01-08-a22a8e",
+        "page_number": 1,
+        "quote": "AMC/57739 dated 05.11.2008"
+      },
+      "scope": "The 2019 circular again requires the 2008 obsolescence policy to be strictly followed when replacing old desktops, PCs and printers."
+    }
+  ],
+  "limitations": [
+    "This collection covers Information Services specifications and norms for EPFO computer hardware and the obsolescence policy. Staff laptop entitlement and reimbursement are in the Employee benefits collection; delegation of purchase powers is in the Delegation collection.",
+    "The 25 October 2021 specifications of laptops, desktops and tablet PCs, which the 11 December 2025 circular says it supersedes, are not in the issuer's circulars table and are not in this collection. The 2019 laptop and desktop specifications appear to have been replaced by that 2021 circular, but no direct link is asserted here.",
+    "The 2019 circular supersedes all previous circulars on the norms and specifications of laptops, desktops, printers, UPS, virus scanners and MS Office without naming them; those links stay unverified and reach only the named items. Norms for servers, networking and other equipment have no stated replacement.",
+    "The 9 May 2018 laptop purchase guidelines are issued in supersession of an earlier communication that is not in this collection.",
+    "Warranty, AMC and rate-contract circulars, budget notices and individual purchase approvals are not covered.",
+    "The 2025 specifications are in force with immediate effect until further orders (stated); no other commencement dates are stated in the checked circulars.",
+    "PDFs were read from the issuer mirror on 4 November 2026 because the public site returned 404 for these paths; recorded SHA-256 values apply to those files. Scanned pages are OCR. Issue dates were checked against the document headers."
+  ]
+}

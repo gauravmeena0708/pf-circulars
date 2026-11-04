@@ -1,0 +1,79 @@
+{
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
+  "cases": [
+    {
+      "id": "claim_forms_payments-2009-11-04",
+      "question": "Addition of columns in the Claim Forms - Form 19, Form 20, Form 10C, Form 5(IF) and Form 31 in mode of remittance - inclusion of payments through Core",
+      "as_of": "2009-11-04",
+      "required_evidence": [
+        {
+          "document_id": "claim_forms_payments-2009-11-04-b50b5b",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "claim_forms_payments-2011-09-19",
+      "question": "Fraudulent payments in the Accounts of EPFO through fake cheques - precautionary measure to avoid fraudulent payment",
+      "as_of": "2011-09-19",
+      "required_evidence": [
+        {
+          "document_id": "claim_forms_payments-2011-09-19-ac6934",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "claim_forms_payments-2013-03-15",
+      "question": "Instructions in regard to making 100% payment through NEFT/RTGS where beneficiaries bank accounts is in NEFT/RTGS enabled bank",
+      "as_of": "2013-03-15",
+      "required_evidence": [
+        {
+          "document_id": "claim_forms_payments-2013-03-15-f88c99",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "claim_forms_payments-2014-08-20",
+      "question": "Implementation of CCPAP Module of Payment",
+      "as_of": "2014-08-20",
+      "required_evidence": [
+        {
+          "document_id": "claim_forms_payments-2014-08-20-986510",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "claim_forms_payments-2015-12-04",
+      "question": "Simplified UAN based withdrawal claim Form Nos. 19 (UAN), 10C (UAN) and 31 (UAN) - Instructions thereof",
+      "as_of": "2015-12-04",
+      "required_evidence": [
+        {
+          "document_id": "claim_forms_payments-2015-12-04-215c9c",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "claim_forms_payments-2023-11-01",
+      "question": "Payment of EPF benefits to subscriber’s payment bank account",
+      "as_of": "2023-11-01",
+      "required_evidence": [
+        {
+          "document_id": "claim_forms_payments-2023-11-01-14207a",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "claim_forms_payments-before-latest",
+      "question": "Payment of EPF benefits to subscriber’s payment bank account",
+      "as_of": "2023-10-31",
+      "absent_documents": [
+        "claim_forms_payments-2023-11-01-14207a"
+      ]
+    }
+  ]
+}

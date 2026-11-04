@@ -1,0 +1,1266 @@
+{
+  "schema_version": 1,
+  "id": "damages_7a",
+  "reviewed_on": "2026-11-04",
+  "topics": [
+    {
+      "id": "damages_interest",
+      "label": "Damages (14B) and interest (7Q)",
+      "include": "14-?B|7Q|damages|interest|penal|vishwas"
+    },
+    {
+      "id": "quasi_judicial",
+      "label": "Quasi-judicial proceedings (7A)",
+      "include": "7-?A|quasi|inquir|enquir|departmental representative|jurisdiction"
+    }
+  ],
+  "documents": [
+    {
+      "id": "damages_7a-2007-10-17-7a8136",
+      "title": "Arrangement of Powers under Section 7A, 7B, 7C/14B Order",
+      "circular_no": "RRC.II/28(31)07/53677 TO 53777",
+      "issued_on": "2007-10-17",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/Powers7A14B.pdf",
+      "source_file": "sources/damages_7a-2007-10-17-7a8136.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Arrangement of Powers under Section 7A, 7B, 7C/14B Order",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2007-10-17-7a8136",
+        "page_number": 1,
+        "quote": "Regional Offices Subject Arrangements for smooth exercise of powers"
+      }
+    },
+    {
+      "id": "damages_7a-2008-12-30-85159f",
+      "title": "Assesment of damages under Section 14B of the Act",
+      "circular_no": "HO No. C-IV/C-I/4(25)2006/DL/NZ",
+      "issued_on": "2008-12-30",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/Damage14B.pdf",
+      "source_file": "sources/damages_7a-2008-12-30-85159f.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Assesment of damages under Section 14B of the Act",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2008-12-30-85159f",
+        "page_number": 1,
+        "quote": "ofan afaea Fife ws Employees’ Provident Fund Organisation (3"
+      }
+    },
+    {
+      "id": "damages_7a-2009-02-13-44f21a",
+      "title": "Levy of damages for pre-discovery period - withdrawal of circular dated 17/06/2004",
+      "circular_no": "HO No. C.IV/Misc/Damages/09",
+      "issued_on": "2009-02-13",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/LevyDamage.pdf",
+      "source_file": "sources/damages_7a-2009-02-13-44f21a.json",
+      "verification": "source_checked",
+      "effective_from": "2009-02-16",
+      "effective_date_evidence": {
+        "document_id": "damages_7a-2009-02-13-44f21a",
+        "page_number": 1,
+        "quote": "prospectively w.e.f. 16.2.09"
+      },
+      "version_label": "Levy of damages for pre-discovery period - withdrawal of circular dated 17/06/2004",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2009-02-13-44f21a",
+        "page_number": 1,
+        "quote": "Levy of damages for pre-discovery period - withdrawal of circular"
+      }
+    },
+    {
+      "id": "damages_7a-2009-06-23-33ea20",
+      "title": "Powers excercised under section 7A of the Act - legal opinion",
+      "circular_no": "HO No. LC-4/22/07/Sewa Intnl/18512",
+      "issued_on": "2009-06-23",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "quasi_judicial"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/Relax7A.pdf",
+      "source_file": "sources/damages_7a-2009-06-23-33ea20.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Powers excercised under section 7A of the Act - legal opinion",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2009-06-23-33ea20",
+        "page_number": 1,
+        "quote": "otal ufesy Fifer ast GNFETP Employees’ Provident Fund Organi"
+      }
+    },
+    {
+      "id": "damages_7a-2009-08-17-a5e6b3",
+      "title": "Amendment in revision of rate of damages under EPF Scheme, 1952 of EPF & MP Act, 1952",
+      "circular_no": "HO No. Coor./2(27)05/Amend/Scheme/Part/35581",
+      "issued_on": "2009-08-17",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/AmendRateDamage.pdf",
+      "source_file": "sources/damages_7a-2009-08-17-a5e6b3.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Amendment in revision of rate of damages under EPF Scheme, 1952 of EPF & MP Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2009-08-17-a5e6b3",
+        "page_number": 1,
+        "quote": "Amendment in revision of rate of damages under EPF Scheme, 1952 of"
+      }
+    },
+    {
+      "id": "damages_7a-2009-10-28-34e05b",
+      "title": "Arrangements for smooth exercise of powers under Sections 7A, 7B,7C/14B etc",
+      "circular_no": "HO No. Coord/5(16)2009/Misc/ 3380-3630",
+      "issued_on": "2009-10-28",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/Powers7A7B7C.PDF",
+      "source_file": "sources/damages_7a-2009-10-28-34e05b.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Arrangements for smooth exercise of powers under Sections 7A, 7B,7C/14B etc",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2009-10-28-34e05b",
+        "page_number": 1,
+        "quote": "Arrangements for smooth exercise of powers under sections 7A,7B"
+      },
+      "date_note": "The circular is typed 'Dated: 28-10-2009' (stamp 29 October 2009); the issuer listing shows 29 October 2009."
+    },
+    {
+      "id": "damages_7a-2009-11-20-28e2e8",
+      "title": "Assessment of penal damages under Section 14B of EPF & MP Act",
+      "circular_no": "HO No. RRC/13(61)05/MH/71590",
+      "issued_on": "2009-11-20",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/AssessPD71590.PDF",
+      "source_file": "sources/damages_7a-2009-11-20-28e2e8.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Assessment of penal damages under Section 14B of EPF & MP Act",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2009-11-20-28e2e8",
+        "page_number": 1,
+        "quote": "Regional Offices. Subject: Assessment of penal damages u/s 14B of EPF"
+      },
+      "date_note": "The circular is typed 'Dated: 20.11.2009'; the issuer listing shows 23 November 2009."
+    },
+    {
+      "id": "damages_7a-2011-05-16-2b36d0",
+      "title": "Accounting of contribution towards PF on amount of arrear and levying damages/interest under section 14B/7Q",
+      "circular_no": "HO No. C-III/4(85)11/HQ/6359",
+      "issued_on": "2011-05-16",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/CIII_AccPF_6359.pdf",
+      "source_file": "sources/damages_7a-2011-05-16-2b36d0.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Accounting of contribution towards PF on amount of arrear and levying damages/interest under section 14B/7Q",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2011-05-16-2b36d0",
+        "page_number": 1,
+        "quote": "Accounting of contribution towards PF on amount of arrear and"
+      }
+    },
+    {
+      "id": "damages_7a-2011-10-11-244ed9",
+      "title": "Review of long pending 7A/ 14B cases and initiation of coercive action against defaulting establishments - observations of the Committee on Petitions",
+      "circular_no": "HO No. C-III/4 (208) 2011/HQ/31481",
+      "issued_on": "2011-10-11",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/CIII_HQ_31481.pdf",
+      "source_file": "sources/damages_7a-2011-10-11-244ed9.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Review of long pending 7A/ 14B cases and initiation of coercive action against defaulting establishments - observations of the Committee on Petitions",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2011-10-11-244ed9",
+        "page_number": 1,
+        "quote": "Reflew of long pending 7A/148 cases and h m of coercive action"
+      }
+    },
+    {
+      "id": "damages_7a-2012-09-11-143a40",
+      "title": "Arrangements for smooth exercise of powers under Section 7A, 7B, 7C and 14B of the EPF & MP Act, 1952- Administrative scrutiny of the orders- Instructions",
+      "circular_no": "HO No. Coord. /5(16)2009/Misc./11525",
+      "issued_on": "2012-09-11",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/Coord_11525.pdf",
+      "source_file": "sources/damages_7a-2012-09-11-143a40.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Arrangements for smooth exercise of powers under Section 7A, 7B, 7C and 14B of the EPF & MP Act, 1952- Administrative scrutiny of the orders- Instructions",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2012-09-11-143a40",
+        "page_number": 1,
+        "quote": "Arrangements for smooth exercise of powers under Section 7A, 7B, 7C"
+      }
+    },
+    {
+      "id": "damages_7a-2012-11-30-ee0f70",
+      "title": "Guidelines for Quasi-Judicial Proceedings under Section 7A of the Employees' Provident Funds & Miscellaneous Provisions Act 1952",
+      "circular_no": "HO No. 7(1)2012/RCs Review Meeting/345",
+      "issued_on": "2012-11-30",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "quasi_judicial"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/CirQJA_345.pdf",
+      "source_file": "sources/damages_7a-2012-11-30-ee0f70.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Guidelines for Quasi-Judicial Proceedings under Section 7A of the Employees' Provident Funds & Miscellaneous Provisions Act 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2012-11-30-ee0f70",
+        "page_number": 1,
+        "quote": "Guidelines for Quasi-judicial proceedings under Section 7A of the"
+      }
+    },
+    {
+      "id": "damages_7a-2013-11-25-2688e4",
+      "title": "nInstructions for generating reports for levy of penal damages under Section 14B and interest under Section 7Q of the EPF & MP Act, 1952",
+      "circular_no": "HO No. C-III/4(25)2006/DL/NZ/15253",
+      "issued_on": "2013-11-25",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/COMP_Generating14B_7Q_15253.pdf",
+      "source_file": "sources/damages_7a-2013-11-25-2688e4.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "nInstructions for generating reports for levy of penal damages under Section 14B and interest under Section 7Q of the EPF & MP Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2013-11-25-2688e4",
+        "page_number": 1,
+        "quote": "Instructions for generating reports for levy of penal damages under"
+      }
+    },
+    {
+      "id": "damages_7a-2014-01-30-29acfd",
+      "title": "nInstructions for generating reports for levy of penal damages under Section 14B and interest under Section 7Q of the EPF & MP Act, 1952",
+      "circular_no": "HO No. C-III/4(25)2006/DL/NZ/22733",
+      "issued_on": "2014-01-30",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/Comp_Report_Damages_Int_22733.pdf",
+      "source_file": "sources/damages_7a-2014-01-30-29acfd.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "nInstructions for generating reports for levy of penal damages under Section 14B and interest under Section 7Q of the EPF & MP Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2014-01-30-29acfd",
+        "page_number": 1,
+        "quote": "Instructions for génerating reports for levy of penal damages : under"
+      }
+    },
+    {
+      "id": "damages_7a-2014-08-06-a5cedc",
+      "title": "Guidelines for Quasi-judicial proceedings under Section 7A of the Employees' Provident Funds & Miscellaneous Provisions Act, 1952",
+      "circular_no": "HO No. 7(1)2012/RCs Review Meeting/",
+      "issued_on": "2014-08-06",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "quasi_judicial"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Comp_Guidelines_Proceedings7A.pdf",
+      "source_file": "sources/damages_7a-2014-08-06-a5cedc.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Guidelines for Quasi-judicial proceedings under Section 7A of the Employees' Provident Funds & Miscellaneous Provisions Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2014-08-06-a5cedc",
+        "page_number": 1,
+        "quote": "Guidelines for Quasi-judicial proceedings under Section 7A of the"
+      }
+    },
+    {
+      "id": "damages_7a-2014-09-04-f3ad3b",
+      "title": "Levy of Penal Damages under Section 14B and interest under Section 7Q of EPF & MP Act, 1952",
+      "circular_no": "HO No. C-III/4(25)2006/DL/NZ/14591",
+      "issued_on": "2014-09-04",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Comp_PenalDamages_14591.pdf",
+      "source_file": "sources/damages_7a-2014-09-04-f3ad3b.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Levy of Penal Damages under Section 14B and interest under Section 7Q of EPF & MP Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2014-09-04-f3ad3b",
+        "page_number": 1,
+        "quote": "Levy of Penal Damages under Section 14B and interest under Section 7Q"
+      }
+    },
+    {
+      "id": "damages_7a-2014-12-19-7c515e",
+      "title": "Avoding CPFC from being made a respondent in routine manner in appeals and contempt cases pertaining to 7A/14B, 14 etc.",
+      "circular_no": "HO No. LC-9(12)2013/CPFCs/ref./29427",
+      "issued_on": "2014-12-19",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "quasi_judicial"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/LC_7A14B_29427.pdf",
+      "source_file": "sources/damages_7a-2014-12-19-7c515e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Avoding CPFC from being made a respondent in routine manner in appeals and contempt cases pertaining to 7A/14B, 14 etc.",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2014-12-19-7c515e",
+        "page_number": 1,
+        "quote": "Regional offices Subject: Avoding CPFC from being made a respondent"
+      }
+    },
+    {
+      "id": "damages_7a-2015-01-07-f22718",
+      "title": "Issue of notices to defaulting establishments on initiation of proceedings under Section 7A / 14B of the Employees' Provident Funds & Miscellaneous Provisions Act, 1952 through e-mail",
+      "circular_no": "HO No. C-III/Compliance-2001/Cir/E.I/31509",
+      "issued_on": "2015-01-07",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/C3_Notice_DefaultingEstt_31509.pdf",
+      "source_file": "sources/damages_7a-2015-01-07-f22718.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Issue of notices to defaulting establishments on initiation of proceedings under Section 7A / 14B of the Employees' Provident Funds & Miscellaneous Provisions Act, 1952 through e-mail",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2015-01-07-f22718",
+        "page_number": 1,
+        "quote": "Regional Offices. Subject : Issue of notices to defaulting"
+      }
+    },
+    {
+      "id": "damages_7a-2015-04-20-8a24ac",
+      "title": "Levy of Damages u/s. 14B - Discretion to vary rates of damages",
+      "circular_no": "HO No. C-I/14(18)2015/UP/Gorakhpur",
+      "issued_on": "2015-04-20",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/C1_LevyOfDamages_20042015.pdf",
+      "source_file": "sources/damages_7a-2015-04-20-8a24ac.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Levy of Damages u/s. 14B - Discretion to vary rates of damages",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2015-04-20-8a24ac",
+        "page_number": 1,
+        "quote": "Levy of Damages U/S 14 B - Discretion to vary rates of damages — reg"
+      }
+    },
+    {
+      "id": "damages_7a-2015-11-02-d1d044",
+      "title": "Levy of Penal Damages under Section 14B and Interest u/s. 7Q of the EPF & MP Act, 1952",
+      "circular_no": "HO No. C-III/4(25)2006/DL/NZ/",
+      "issued_on": "2015-11-02",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/C3_Damages_Interest_021115.pdf",
+      "source_file": "sources/damages_7a-2015-11-02-d1d044.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Levy of Penal Damages under Section 14B and Interest u/s. 7Q of the EPF & MP Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2015-11-02-d1d044",
+        "page_number": 1,
+        "quote": "Levy of Penal Damages under Section 14B and Interest U/S 7Q of the"
+      }
+    },
+    {
+      "id": "damages_7a-2016-02-08-169a41",
+      "title": "Guidelines for Quasi-judicial proceedings under Section 7A of the Employees Provident Funds & Miscellaneous Provisions Act 1952",
+      "circular_no": "HO No. C-III/110001/4/3(71)MIS.C/2013/DI/Vol II/22-147",
+      "issued_on": "2016-02-08",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "quasi_judicial"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/C3_GuidelinesQJP_22-147.pdf",
+      "source_file": "sources/damages_7a-2016-02-08-169a41.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Guidelines for Quasi-judicial proceedings under Section 7A of the Employees Provident Funds & Miscellaneous Provisions Act 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2016-02-08-169a41",
+        "page_number": 1,
+        "quote": "Guidelines for Quasi-judicial proceedings under Section 7A of the"
+      }
+    },
+    {
+      "id": "damages_7a-2016-06-15-82364b",
+      "title": "Administrative Guidelines for Proceedings Under Section 7A of the EPF & MP Act, 1952",
+      "circular_no": "HO No. C-III/110001/4/3(7) Misc./2013/Vol.II/6511",
+      "issued_on": "2016-06-15",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "quasi_judicial"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/C3_Guidelines_7A_6511.pdf",
+      "source_file": "sources/damages_7a-2016-06-15-82364b.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Administrative Guidelines for Proceedings Under Section 7A of the EPF & MP Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2016-06-15-82364b",
+        "page_number": 1,
+        "quote": "Administrative Guidelines for Proceedings Under Section 7A of The EPF"
+      }
+    },
+    {
+      "id": "damages_7a-2016-09-01-a259ce",
+      "title": "Prompt disposal of pending 7A cases - inclusion of weightage for 7A case disposal for ranking of RO / SRO in e.samiksha Portal",
+      "circular_no": "HO No. C-I/1(5)16/7A/MoL&E/13959",
+      "issued_on": "2016-09-01",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "quasi_judicial"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/C1_Disposal_Cases7A_13959.pdf",
+      "source_file": "sources/damages_7a-2016-09-01-a259ce.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Prompt disposal of pending 7A cases - inclusion of weightage for 7A case disposal for ranking of RO / SRO in e.samiksha Portal",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2016-09-01-a259ce",
+        "page_number": 1,
+        "quote": "Regional Office. Sub: Prompt disposal of pending 7A cases —inclusion"
+      }
+    },
+    {
+      "id": "damages_7a-2017-02-14-f36681",
+      "title": "Monthly return on Levy of Penal Damages under section 14B and interest under section 7Q of EPF & MP Act, 1952",
+      "circular_no": "HO No. C-I/3(28)2016/7A & 14B/30979",
+      "issued_on": "2017-02-14",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/C1_PenalDamages_30979.pdf",
+      "source_file": "sources/damages_7a-2017-02-14-f36681.json",
+      "verification": "source_checked",
+      "effective_from": "2017-02-14",
+      "effective_date_evidence": {
+        "document_id": "damages_7a-2017-02-14-f36681",
+        "page_number": 1,
+        "quote": "the Competent Authority has decided to discontinue this return with immediate effect"
+      },
+      "version_label": "Monthly return on Levy of Penal Damages under section 14B and interest under section 7Q of EPF & MP Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2017-02-14-f36681",
+        "page_number": 1,
+        "quote": "Monthly return on Levy of Penal Damages under section 14B and"
+      }
+    },
+    {
+      "id": "damages_7a-2017-04-26-7ed657",
+      "title": "Progress in initiation and disposal of inquiries U/S 7A of the Act.",
+      "circular_no": "HO No. C-I/3(27)/2017",
+      "issued_on": "2017-04-26",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "quasi_judicial"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/CompI_Disp_intiat_7A_2604.pdf",
+      "source_file": "sources/damages_7a-2017-04-26-7ed657.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Progress in initiation and disposal of inquiries U/S 7A of the Act.",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2017-04-26-7ed657",
+        "page_number": 1,
+        "quote": "Progress in initiation and disposal of inquiries u/s 7A of the Act"
+      },
+      "date_note": "The circular is typed 'Date: 26.04.2016' under file number C-I/3(27)2017, an apparent typing error; the issuer listing shows 26 April 2017, which is kept."
+    },
+    {
+      "id": "damages_7a-2017-06-22-c80e5b",
+      "title": "Jurisdiction to conduct enquiries under Section 7A and 14B by officers in different hierarchies in field offices",
+      "circular_no": "HO No. C-I/1(5)16/7A/MOL&E/6242",
+      "issued_on": "2017-06-22",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/C1_Inquiry7A14B_6242.pdf",
+      "source_file": "sources/damages_7a-2017-06-22-c80e5b.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Jurisdiction to conduct enquiries under Section 7A and 14B by officers in different hierarchies in field offices",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2017-06-22-c80e5b",
+        "page_number": 1,
+        "quote": "lurisdiction to conduct enquiries under Section 7A and 148 by"
+      }
+    },
+    {
+      "id": "damages_7a-2017-08-29-ef89f9",
+      "title": "Instructions regarding conduct of quasi-judicial proceedings in field offices",
+      "circular_no": "HO No. C-I/3(41)2017/7A-14B/Software/9078",
+      "issued_on": "2017-08-29",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "quasi_judicial"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/C1_QuasiJudicial_Proceeding_9078.pdf",
+      "source_file": "sources/damages_7a-2017-08-29-ef89f9.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Instructions regarding conduct of quasi-judicial proceedings in field offices",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2017-08-29-ef89f9",
+        "page_number": 1,
+        "quote": "Instructions regarding conduct of quasi-judicial proceedings in field"
+      }
+    },
+    {
+      "id": "damages_7a-2018-01-03-9b790e",
+      "title": "Review of long pending 7A/14B cases initiation of coercive actions against defaulting establishments",
+      "circular_no": "HO No. C-I/3(28)19/7A & 14B/22684",
+      "issued_on": "2018-01-03",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/C1_REview_7A14B_22684.pdf",
+      "source_file": "sources/damages_7a-2018-01-03-9b790e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Review of long pending 7A/14B cases initiation of coercive actions against defaulting establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2018-01-03-9b790e",
+        "page_number": 1,
+        "quote": "Review of long pending 7A/14B cases initiation of coercive action"
+      }
+    },
+    {
+      "id": "damages_7a-2018-03-05-2d70d2",
+      "title": "Review of long pending 7A/14B cases and confirmation of number of cases pending with all RO, under Section 7A/14B",
+      "circular_no": "HO No. C-I/3(28)2016/7A & 14B/27519",
+      "issued_on": "2018-03-05",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/C1_Review_7A14B_27519.pdf",
+      "source_file": "sources/damages_7a-2018-03-05-2d70d2.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Review of long pending 7A/14B cases and confirmation of number of cases pending with all RO, under Section 7A/14B",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2018-03-05-2d70d2",
+        "page_number": 1,
+        "quote": "Review of long pending 7A/14B cases and confirmation of number of"
+      }
+    },
+    {
+      "id": "damages_7a-2019-01-03-1feba5",
+      "title": "Pending 7A cases",
+      "circular_no": "HO No.C-III/Performance Monitoring/2018/Gen/01/13497",
+      "issued_on": "2019-01-03",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "quasi_judicial"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/C3_Pending7Acases_13497.pdf",
+      "source_file": "sources/damages_7a-2019-01-03-1feba5.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Pending 7A cases",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2019-01-03-1feba5",
+        "page_number": 1,
+        "quote": "Pending 7A cases - regarding Sir, It is intimated that the Ministry"
+      }
+    },
+    {
+      "id": "damages_7a-2019-01-29-37ac75",
+      "title": "Review of long pending 7A / 14B cases and confirmation of number of cases pending with all Regional Offices under Section 7A / 14B",
+      "circular_no": "HO No. C-I/3(28)2016/7A & 14B/227",
+      "issued_on": "2019-01-29",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/Comp_Review_7A14B_227.pdf",
+      "source_file": "sources/damages_7a-2019-01-29-37ac75.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Review of long pending 7A / 14B cases and confirmation of number of cases pending with all Regional Offices under Section 7A / 14B",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2019-01-29-37ac75",
+        "page_number": 1,
+        "quote": "Review of long pending 7A / 14B cases and confirmation of number of"
+      }
+    },
+    {
+      "id": "damages_7a-2020-02-14-3906ac",
+      "title": "Guidelines for initiation of inquiries u/s 7A of the Act",
+      "circular_no": "HO No.C-II/20/76/Misc./2020/CBE/TN/1027",
+      "issued_on": "2020-02-14",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "quasi_judicial"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2019-2020/C2_Guidelines_7A _1027.pdf",
+      "source_file": "sources/damages_7a-2020-02-14-3906ac.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Guidelines for initiation of inquiries u/s 7A of the Act",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2020-02-14-3906ac",
+        "page_number": 1,
+        "quote": "Guidelines for initiation of inquiries u/s 7A of the Act"
+      }
+    },
+    {
+      "id": "damages_7a-2020-05-15-cc27f8",
+      "title": "Relief to establishments and factories covered under EPF and MP Act 1952 fro levy of penal damages for delay in deposit of dues during Lockdown to prevent COVID-19",
+      "circular_no": "H O No. C-I/Misc/2020-21/Vol.I/1112",
+      "issued_on": "2020-05-15",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/Relief_in_pd_due_2_covid.pdf",
+      "source_file": "sources/damages_7a-2020-05-15-cc27f8.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Relief to establishments and factories covered under EPF and MP Act 1952 fro levy of penal damages for delay in deposit of dues during Lockdown to prevent COVID-19",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2020-05-15-cc27f8",
+        "page_number": 1,
+        "quote": "Relief to establishments and factories covered under EPF and MP Act"
+      }
+    },
+    {
+      "id": "damages_7a-2020-10-01-2f7741",
+      "title": "Conduct of virtual hearing in quasi-judicial cases by Assessing Officers through Video Conferencing by use of secure IT applications.",
+      "circular_no": "HO No.C-I/3(28)2016/7A & 14B/1161",
+      "issued_on": "2020-10-01",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "quasi_judicial"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/Virtual Hearing_AO_VC_1161.pdf",
+      "source_file": "sources/damages_7a-2020-10-01-2f7741.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Conduct of virtual hearing in quasi-judicial cases by Assessing Officers through Video Conferencing by use of secure IT applications.",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2020-10-01-2f7741",
+        "page_number": 1,
+        "quote": "Conduct of virtual hearing in quasi-judicial cases by Assessing"
+      }
+    },
+    {
+      "id": "damages_7a-2021-01-19-5a69d2",
+      "title": "Instructions for conduct of quasi judicial proceedings under the EPF & MP Act, 1952",
+      "circular_no": "HO No. C-I/3(28)2016/7A & 14B/1189",
+      "issued_on": "2021-01-19",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "quasi_judicial"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/C1_QuasiJudicialProceedings_1189.pdf",
+      "source_file": "sources/damages_7a-2021-01-19-5a69d2.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Instructions for conduct of quasi judicial proceedings under the EPF & MP Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2021-01-19-5a69d2",
+        "page_number": 1,
+        "quote": "Instructions for conduct of quasi judicial proceedings under the EPF"
+      }
+    },
+    {
+      "id": "damages_7a-2021-03-11-d2fb40",
+      "title": "Sub-optimal disposal of 14-B Cases",
+      "circular_no": "HO No. C-I/(1)/2020-21/14BCases/1199",
+      "issued_on": "2021-03-11",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/C1_Cases14B_1199.pdf",
+      "source_file": "sources/damages_7a-2021-03-11-d2fb40.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Sub-optimal disposal of 14-B Cases",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2021-03-11-d2fb40",
+        "page_number": 1,
+        "quote": "Sub-optimal disposal of 14-B Cases-Reg. Sir/Madam, I am directed to"
+      }
+    },
+    {
+      "id": "damages_7a-2021-06-23-cb6706",
+      "title": "Review of 7-A Inquiries pending for more than 3 years",
+      "circular_no": "HO No. Compliance/2020-21-7A-Cases/1214",
+      "issued_on": "2021-06-23",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "quasi_judicial"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/Comp_Cases7A_Review_1214.pdf",
+      "source_file": "sources/damages_7a-2021-06-23-cb6706.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Review of 7-A Inquiries pending for more than 3 years",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2021-06-23-cb6706",
+        "page_number": 1,
+        "quote": "Review of 7-A Inquiries pending for more than 3 years - Regarding"
+      }
+    },
+    {
+      "id": "damages_7a-2021-08-19-46ca9b",
+      "title": "Review of 7-A inquiries pending for more than 3 years",
+      "circular_no": "HO No. Compliance/2020-2021/7-A Cases/1027",
+      "issued_on": "2021-08-19",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "quasi_judicial"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/Comp_Review7A_1027.pdf",
+      "source_file": "sources/damages_7a-2021-08-19-46ca9b.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Review of 7-A inquiries pending for more than 3 years",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2021-08-19-46ca9b",
+        "page_number": 1,
+        "quote": "Review of 7-A Inquiries pending for more than 3 years- Regarding"
+      },
+      "date_note": "The circular is typed '19/08/2021' (stamp 25 August 2021); the issuer listing shows 25 August 2021."
+    },
+    {
+      "id": "damages_7a-2021-08-24-6447d9",
+      "title": "Administrative Scrutiny of 7A/ 7B/ 14B cases",
+      "circular_no": "HO No. C-I/(104)/2017/Sahara India/1016",
+      "issued_on": "2021-08-24",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/C1_Scrutiny_7A7B14B_1016.pdf",
+      "source_file": "sources/damages_7a-2021-08-24-6447d9.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Administrative Scrutiny of 7A/ 7B/ 14B cases",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2021-08-24-6447d9",
+        "page_number": 1,
+        "quote": "Administrative scrutiny of 7A/7B/14B cases-Reg P.F.O. H.O. Circular"
+      }
+    },
+    {
+      "id": "damages_7a-2021-08-25-f3bb5f",
+      "title": "Review of 14B inquiries pending for more than 1 year",
+      "circular_no": "HO No. C-I/(1)/2020-21/14B Cases/1026",
+      "issued_on": "2021-08-25",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/C1_Review14B_1026.pdf",
+      "source_file": "sources/damages_7a-2021-08-25-f3bb5f.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Review of 14B inquiries pending for more than 1 year",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2021-08-25-f3bb5f",
+        "page_number": 1,
+        "quote": "Review of 14B Inquiries pending for more than 1 year-Reg. Sir/Madam"
+      }
+    },
+    {
+      "id": "damages_7a-2021-08-31-94a61f",
+      "title": "Relief to establishments covered under EPF & MP Act, 1952 from levy of penal damages for delay in deposit of dues / filling of ECR for wage month May, 2021 in r/o EPF members due to non-seeding of Aadhaar in the UANs",
+      "circular_no": "HO No. C-I/MISC/Pandemic Relief/2021/Vol-I/",
+      "issued_on": "2021-08-31",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/C1_PandemicRelief_31082021.pdf",
+      "source_file": "sources/damages_7a-2021-08-31-94a61f.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Relief to establishments covered under EPF & MP Act, 1952 from levy of penal damages for delay in deposit of dues / filling of ECR for wage month May, 2021 in r/o EPF members due to non-seeding of Aadhaar in the UANs",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2021-08-31-94a61f",
+        "page_number": 1,
+        "quote": "Relief to establishments covered under EPF & MP Act, 1952 from levy"
+      }
+    },
+    {
+      "id": "damages_7a-2022-08-16-12dd72",
+      "title": "Departmental Representative (DR) in quasi-judicial proceedings",
+      "circular_no": "HO.No.Compliance/Guidelineson7-AInquiry/2021-22/9881",
+      "issued_on": "2022-08-16",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "quasi_judicial"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/letter_dated_16082022.pdf",
+      "source_file": "sources/damages_7a-2022-08-16-12dd72.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Departmental Representative (DR) in quasi-judicial proceedings",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2022-08-16-12dd72",
+        "page_number": 1,
+        "quote": "Departmental Representative (DR) in quasi-judicial"
+      }
+    },
+    {
+      "id": "damages_7a-2022-08-16-c78497",
+      "title": "Jurisdiction to conduct inquiries under Sections 7A & 14B by officers in different hierarchies in field offices – clarification",
+      "circular_no": "HO.No.Compliance/Guidelineson7-AInquiry/2021-22/9882",
+      "issued_on": "2022-08-16",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/Jurisdiction_letter_17082022.pdf",
+      "source_file": "sources/damages_7a-2022-08-16-c78497.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Jurisdiction to conduct inquiries under Sections 7A & 14B by officers in different hierarchies in field offices – clarification",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2022-08-16-c78497",
+        "page_number": 1,
+        "quote": "Jurisdiction to conduct Inquiries under Sections 7A & 14B by officers"
+      }
+    },
+    {
+      "id": "damages_7a-2022-12-16-6e4219",
+      "title": "Reconciliation of VDR entries with the corresponding ECRs and timely levy of damages and interest",
+      "circular_no": "No.Compliance/M/sEastCoastEnterprises/2021/14899",
+      "issued_on": "2022-12-16",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/Circular_compliance_19122022.pdf",
+      "source_file": "sources/damages_7a-2022-12-16-6e4219.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Reconciliation of VDR entries with the corresponding ECRs and timely levy of damages and interest",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2022-12-16-6e4219",
+        "page_number": 1,
+        "quote": "wa afer FRY 21a, 14, afleprstt aro ke, ag fecett 110066 EPFO"
+      }
+    },
+    {
+      "id": "damages_7a-2024-06-21-80f2c3",
+      "title": "Initiation and disposal of 14B & 7Q Inquiries",
+      "circular_no": "No.RRC/(01)2024/RecoveryDues/1884",
+      "issued_on": "2024-06-21",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/Circular_Recovery_24062024.pdf",
+      "source_file": "sources/damages_7a-2024-06-21-80f2c3.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Initiation and disposal of 14B & 7Q Inquiries",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2024-06-21-80f2c3",
+        "page_number": 1,
+        "quote": "Initiation and disposal of 14B & 7Q Inquiries -reg Madan/Sir, As per"
+      }
+    },
+    {
+      "id": "damages_7a-2024-08-28-b9a243",
+      "title": "Revision of rate of damages",
+      "circular_no": "No.Compliance/Notifications/2024",
+      "issued_on": "2024-08-28",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/circular_Compliance_30082024.pdf",
+      "source_file": "sources/damages_7a-2024-08-28-b9a243.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revision of rate of damages",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2024-08-28-b9a243",
+        "page_number": 1,
+        "quote": "Revision of rate of damages - reg. Please find enclosed herewith a"
+      }
+    },
+    {
+      "id": "damages_7a-2025-11-19-50cb39",
+      "title": "Amendments in Section 14AC and 14B of the EPF & MP Act, 1952 – Notification No. S.O. 4920(E) and 4921(E) dated 29.10.2025-reg.",
+      "circular_no": "File No. LC-12011(15)/19/2021-LEGAL(E-34577)/13862",
+      "issued_on": "2025-11-19",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/CircularNotifications_14AC&14B.pdf",
+      "source_file": "sources/damages_7a-2025-11-19-50cb39.json",
+      "verification": "source_checked",
+      "effective_from": "2025-10-29",
+      "effective_date_evidence": {
+        "document_id": "damages_7a-2025-11-19-50cb39",
+        "page_number": 1,
+        "quote": "shall come into force from the date of its publication in the Official Gazette"
+      },
+      "version_label": "Amendments in Section 14AC and 14B of the EPF & MP Act, 1952 – Notification No. S.O. 4920(E) and 4921(E) dated 29.10.2025-reg.",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2025-11-19-50cb39",
+        "page_number": 1,
+        "quote": "Amendments in Section 14AC and 14B of the EPF & MP Act, 1952 —"
+      }
+    },
+    {
+      "id": "damages_7a-2026-07-09-18c17b",
+      "title": "Launch of “VISHWAS, 2026 for Amicable Settlement of disputes relating to Damages under Section 14B of Employees Provident Funds and Miscellaneous Provisions Act, 1952 and or 128 of the Code of Social Security, 2020 - Regarding",
+      "circular_no": "No.: Compliance/ E-1203096/ 2025/2823",
+      "issued_on": "2026-07-09",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2026-2027/Circular_VishwasCompliance_09072026.pdf",
+      "source_file": "sources/damages_7a-2026-07-09-18c17b.json",
+      "verification": "source_checked",
+      "effective_from": "2026-06-29",
+      "effective_date_evidence": {
+        "document_id": "damages_7a-2026-07-09-18c17b",
+        "page_number": 1,
+        "quote": "The provisions of VISHWAS, 2026 are effective w.e.f. 29.06.2026"
+      },
+      "version_label": "Launch of “VISHWAS, 2026 for Amicable Settlement of disputes relating to Damages under Section 14B of Employees Provident Funds and Miscellaneous Provisions Act, 1952 and or 128 of the Code of Social Security, 2020 - Regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2026-07-09-18c17b",
+        "page_number": 1,
+        "quote": "Launch of “VISHWAS, 2026 for Amicable Settlement of disputes relating"
+      },
+      "date_note": "The circular is typed 'Date: 09/07/2026'; the issuer listing shows 11 July 2026."
+    },
+    {
+      "id": "damages_7a-2026-07-13-cfb960",
+      "title": "Notification of Authorised Officers and Officers competent to levy and recover damages under Chapter III of the Code on Social Security, 2020 — Initiation and conduct of proceedings under Sections 125 and 128 thereof — Regarding",
+      "circular_no": "No.C-IV/7A/14B/7Q/MiscMatter/2026/e-12678751/2936",
+      "issued_on": "2026-07-13",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2026-2027/Circular_AuthorisedOfficers-Sec125&128_CoSS.pdf",
+      "source_file": "sources/damages_7a-2026-07-13-cfb960.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Notification of Authorised Officers and Officers competent to levy and recover damages under Chapter III of the Code on Social Security, 2020 — Initiation and conduct of proceedings under Sections 125 and 128 thereof — Regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2026-07-13-cfb960",
+        "page_number": 1,
+        "quote": "Notification of Authorised Officers and Officers competent to levy"
+      }
+    },
+    {
+      "id": "damages_7a-2026-07-31-87bb2d",
+      "title": "Notification of Authorised Officers and Officers competent to levy and recover damages under Chapter III of the Code on Social Security, 2020 — Initiation and conduct of proceedings under Sections 125 and 128 thereof — Regarding",
+      "circular_no": "No.C-IV/A/14B/7Q/Misc Matter/2026/e-1267875/3344",
+      "issued_on": "2026-07-31",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "damages_interest"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2026-2027/Circular_AuthorisedOfficers_Sec125&128_CoSS31072026.pdf",
+      "source_file": "sources/damages_7a-2026-07-31-87bb2d.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Notification of Authorised Officers and Officers competent to levy and recover damages under Chapter III of the Code on Social Security, 2020 — Initiation and conduct of proceedings under Sections 125 and 128 thereof — Regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "damages_7a-2026-07-31-87bb2d",
+        "page_number": 1,
+        "quote": "Notification of Authorised Officers and Officers competent to levy"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "dm-2009-10-modifies-2007",
+      "source": "damages_7a-2009-10-28-34e05b",
+      "target": "damages_7a-2007-10-17-7a8136",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "damages_7a-2009-10-28-34e05b",
+        "page_number": 1,
+        "quote": "now the following arrangement for handling 7A cases is being issued in partial modification to the earlier direction dated 17"
+      },
+      "scope": "The October 2009 circular changes who handles 7A cases (for example in SROs) in partial modification of the 17 October 2007 arrangement of powers under sections 7A, 7B, 7C and 14B; the rest of the 2007 circular continues."
+    },
+    {
+      "id": "dm-2012-09-modifies-2007",
+      "source": "damages_7a-2012-09-11-143a40",
+      "target": "damages_7a-2007-10-17-7a8136",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "damages_7a-2012-09-11-143a40",
+        "page_number": 3,
+        "quote": "now the following arrangement for handling 7A cases is being issued in partial modification to the earlier direction dated 17"
+      },
+      "scope": "The September 2012 circular repeats the same partial modification of the 17 October 2007 arrangement, with the subscriber thresholds for SROs as stated in it; read it for the thresholds."
+    },
+    {
+      "id": "dm-2016-02-continues-2014-08",
+      "source": "damages_7a-2016-02-08-169a41",
+      "target": "damages_7a-2014-08-06-a5cedc",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "damages_7a-2016-02-08-169a41",
+        "page_number": 1,
+        "quote": "In continuation of Head Office Circular No.7 (1)2012/RCs R M dated 06.08.2014"
+      },
+      "scope": "The February 2016 circular adds instructions to the 6 August 2014 guidelines for quasi-judicial proceedings under section 7A; it does not withdraw them."
+    },
+    {
+      "id": "dm-2016-06-continues-2014-08",
+      "source": "damages_7a-2016-06-15-82364b",
+      "target": "damages_7a-2014-08-06-a5cedc",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "damages_7a-2016-06-15-82364b",
+        "page_number": 1,
+        "quote": "In continuation of head office circular dated 06.08.2014 and dated 06.02.2016"
+      },
+      "scope": "The June 2016 administrative guidelines continue the 6 August 2014 circular and a circular dated 6 February 2016; they add administrative steps and do not withdraw either."
+    },
+    {
+      "id": "dm-2016-06-continues-2016-02",
+      "source": "damages_7a-2016-06-15-82364b",
+      "target": "damages_7a-2016-02-08-169a41",
+      "type": "references",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "damages_7a-2016-06-15-82364b",
+        "page_number": 1,
+        "quote": "In continuation of head office circular dated 06.08.2014 and dated 06.02.2016"
+      },
+      "scope": "Candidate link: the June 2016 circular cites a head office circular dated 6 February 2016; the issuer lists the February 2016 guidelines as 8 February 2016 and the cited file number is not legible, so the match is by date proximity and subject."
+    },
+    {
+      "id": "dm-2019-01-continues-2018-03",
+      "source": "damages_7a-2019-01-29-37ac75",
+      "target": "damages_7a-2018-03-05-2d70d2",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "damages_7a-2019-01-29-37ac75",
+        "page_number": 1,
+        "quote": "In continuation of Head Office circular letter dated 05.03.2018"
+      },
+      "scope": "The January 2019 review request continues the 5 March 2018 request to confirm pending 7A and 14B cases; it asks again for the same data."
+    },
+    {
+      "id": "dm-2022-08-continues-2017-06",
+      "source": "damages_7a-2022-08-16-c78497",
+      "target": "damages_7a-2017-06-22-c80e5b",
+      "type": "references",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "damages_7a-2022-08-16-c78497",
+        "page_number": 1,
+        "quote": "In continuation to those circulars, the criteria to reckon the subscriber strength for assigning the case in certain scenarios are prescribed as"
+      },
+      "scope": "Candidate link: the August 2022 circular continues earlier circulars on which officer may conduct 7A and 14B inquiries and prescribes how subscriber strength is reckoned; the June 2017 circular on the same subject is the likely earlier one, but the text cited does not name it."
+    },
+    {
+      "id": "dm-2026-07-supersedes-instructions",
+      "source": "damages_7a-2026-07-13-cfb960",
+      "target": "damages_7a-2022-08-16-c78497",
+      "type": "supersedes",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "damages_7a-2026-07-13-cfb960",
+        "page_number": 1,
+        "quote": "following administrative and jurisdictional guidelines are issued in supersession of all earlier instructions issued in this regard for the conduct of proceedings under Sections 125 and 128 of the Code"
+      },
+      "scope": "Candidate link: the 13 July 2026 circular supersedes all earlier instructions for the conduct of proceedings under sections 125 and 128 of the Code on Social Security, 2020 (the successors of sections 7A and 14B) without naming them; the 2022 jurisdiction circular is the closest earlier instruction in this set and the link is not confirmed."
+    },
+    {
+      "id": "dm-2026-07-31-modifies-07-13",
+      "source": "damages_7a-2026-07-31-87bb2d",
+      "target": "damages_7a-2026-07-13-cfb960",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "damages_7a-2026-07-31-87bb2d",
+        "page_number": 1,
+        "quote": "In partial modification to the HO Circular"
+      },
+      "scope": "The 31 July 2026 circular partially modifies the 13 July 2026 circular on authorised officers and officers competent to levy and recover damages under the Code on Social Security, 2020; read the 31 July circular for the changed points."
+    }
+  ],
+  "limitations": [
+    "This collection covers Compliance circulars on levy of damages (14B) and interest (7Q), enquiries under section 7A (2007-2025) and the 2026 arrangements under the Code on Social Security, 2020 (VISHWAS 2026 and authorised officers). Recovery, panel advocates, court-case handling and exemption matters are in other collections.",
+    "Waiver-of-damages requests for individual mills, judgments forwarded to offices and committee minutes are not included.",
+    "The 2007 arrangement of powers and its 2009 and 2012 partial modifications fix thresholds for officers handling 7A cases; later circulars on jurisdiction (2017, 2022) continue the subject without a stated link in the text checked, so those links are unverified.",
+    "The 2020 circular on initiation of 7A inquiries is issued 'in supersession of the earlier instructions' without naming them, and the 2012-2016 quasi-judicial guidelines are continued but not stated to be withdrawn; no supersession is asserted between them. Whether the 2007 arrangement and the 2009-2012 circulars were later replaced is not stated.",
+    "The 2026 circulars apply sections 125 and 128 of the Code on Social Security, 2020; whether they replace the 7A and 14B instructions for proceedings under the 1952 Act is not stated, so the supersession link is unverified.",
+    "Rates of damages: the 2009 revision (Para 32A) and the 2024 amendment of the Pension Scheme are listed, but the rate tables should be read from the page; the 2025 amendments of sections 14AC and 14B are in force from the Gazette date stated (29 October 2025).",
+    "Dates of two 2008-2009 circulars are blank or partly legible in the scan; they follow the issuer listing.",
+    "Dates follow the letter, not the issuer listing; entries whose letter date differs carry a date_note.",
+    "PDFs were read from the issuer mirror on 4 November 2026 because the public site returned 404 for these paths; recorded SHA-256 values apply to those files. Scanned pages are OCR. Issue dates were checked against the document headers."
+  ]
+}

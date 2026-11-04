@@ -1,0 +1,809 @@
+{
+  "schema_version": 1,
+  "id": "pension_member_rules",
+  "reviewed_on": "2026-11-04",
+  "topics": [
+    {
+      "id": "pension_rules",
+      "label": "EPS Para 11(3), Para 12, date of birth and Aadhaar",
+      "include": "para|weightage|date of birth|aadhaar|pension|higher|table b"
+    }
+  ],
+  "documents": [
+    {
+      "id": "pension_member_rules-2006-03-29-4f237a",
+      "title": "Calculation of Pension for new entrants governed by Para 12(2) of Employees Pension Scheme '95",
+      "circular_no": "HO No. Pension-3/1/2006/Para 12(2)Clarification/106589",
+      "issued_on": "2006-03-29",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/Para12_NewEnt.pdf",
+      "source_file": "sources/pension_member_rules-2006-03-29-4f237a.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Calculation of Pension for new entrants governed by Para 12(2) of Employees Pension Scheme '95",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2006-03-29-4f237a",
+        "page_number": 1,
+        "quote": "Calculation of Pension for New entrants governed by Para 12(2) of"
+      }
+    },
+    {
+      "id": "pension_member_rules-2006-05-08-c0e212",
+      "title": "Problem in CEPS for calculation of pension for new entrants under Para 12(2) of EPS'95",
+      "circular_no": "HO No. CC/5(45)96/CEPS",
+      "issued_on": "2006-05-08",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/PbmCEPS.pdf",
+      "source_file": "sources/pension_member_rules-2006-05-08-c0e212.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Problem in CEPS for calculation of pension for new entrants under Para 12(2) of EPS'95",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2006-05-08-c0e212",
+        "page_number": 1,
+        "quote": "Problem in CEPS software for calculation of pension for new entrants"
+      }
+    },
+    {
+      "id": "pension_member_rules-2006-12-12-2a5e81",
+      "title": "Change of Date of Birth of Employee's Pension Fund Members",
+      "circular_no": "PENSION-3/8/OR/1/2005/69869",
+      "issued_on": "2006-12-12",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/DateofBirth.pdf",
+      "source_file": "sources/pension_member_rules-2006-12-12-2a5e81.json",
+      "verification": "source_checked",
+      "effective_from": "2006-12-12",
+      "effective_date_evidence": {
+        "document_id": "pension_member_rules-2006-12-12-2a5e81",
+        "page_number": 1,
+        "quote": "the following comprehensive guidelines are issued with immediate effect"
+      },
+      "version_label": "Change of Date of Birth of Employee's Pension Fund Members",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2006-12-12-2a5e81",
+        "page_number": 1,
+        "quote": "Change of date of birth of Employees’ Pension Fund member- regarding"
+      }
+    },
+    {
+      "id": "pension_member_rules-2007-06-29-a13263",
+      "title": "Recasting of Para 12 of the Employees Pension Scheme 1995",
+      "circular_no": "PENSION-1-25/PARA 12/AMEND/2004/19359",
+      "issued_on": "2007-06-29",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/RecasedPara12.pdf",
+      "source_file": "sources/pension_member_rules-2007-06-29-a13263.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Recasting of Para 12 of the Employees Pension Scheme 1995",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2007-06-29-a13263",
+        "page_number": 1,
+        "quote": "Recasting of Para 12 of the Employees Pension Scheme 1995-regarding"
+      }
+    },
+    {
+      "id": "pension_member_rules-2008-11-11-cc4499",
+      "title": "Notification GSR 688(E) dated 26th September 2008 deleting Para 12A and 13 of EPS, 1995 and increasing the reduction factor for early pension from 3% to 4% - Clarification with regard to effective date of implementation",
+      "circular_no": "HO No. Pension/3/9/2005/Para 13/59252",
+      "issued_on": "2008-11-11",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/Pension221.pdf",
+      "source_file": "sources/pension_member_rules-2008-11-11-cc4499.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Notification GSR 688(E) dated 26th September 2008 deleting Para 12A and 13 of EPS, 1995 and increasing the reduction factor for early pension from 3% to 4% - Clarification with regard to effective date of implementation",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2008-11-11-cc4499",
+        "page_number": 1,
+        "quote": "Notification GSR 688(E) dated 26\" September, 2008 deleting Para 12A"
+      }
+    },
+    {
+      "id": "pension_member_rules-2013-11-08-2e7edc",
+      "title": "nContribution on salary exceeding the statutory limit under Para 11(3) of the EPS' 95",
+      "circular_no": "HO No. Pension/Misc./2013/Higher Salary/528",
+      "issued_on": "2013-11-08",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/Pension_Para11(3)EPS_528.pdf",
+      "source_file": "sources/pension_member_rules-2013-11-08-2e7edc.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "nContribution on salary exceeding the statutory limit under Para 11(3) of the EPS' 95",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2013-11-08-2e7edc",
+        "page_number": 1,
+        "quote": "Regional Offices Sub:- Contribution on salary exceeding the statutory"
+      }
+    },
+    {
+      "id": "pension_member_rules-2014-06-20-bf152d",
+      "title": "nContribution on salary exceeding the statutory limit under Para 11(3) of the EPS' 95",
+      "circular_no": "HO No. Pension/Misc/2013/Higher Salary/4370",
+      "issued_on": "2014-06-20",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Pension_ContHigherSalary_4370.pdf",
+      "source_file": "sources/pension_member_rules-2014-06-20-bf152d.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "nContribution on salary exceeding the statutory limit under Para 11(3) of the EPS' 95",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2014-06-20-bf152d",
+        "page_number": 1,
+        "quote": "Regional! Offices Sub: Contribution on salary exceeding the statutory"
+      }
+    },
+    {
+      "id": "pension_member_rules-2014-09-01-02d448",
+      "title": "Contribution on salary exceeding the statutory limit under para 11(3) of the EPS, 95 (S. No. 28) in office orders and circulars of 2014-2015 of EPF Website",
+      "circular_no": "HO No. Pen./Misc./2013/Higher Salary/14050",
+      "issued_on": "2014-09-01",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Pen_ContributionHigherSalary_14050.pdf",
+      "source_file": "sources/pension_member_rules-2014-09-01-02d448.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Contribution on salary exceeding the statutory limit under para 11(3) of the EPS, 95 (S. No. 28) in office orders and circulars of 2014-2015 of EPF Website",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2014-09-01-02d448",
+        "page_number": 1,
+        "quote": "Regional Offices. (Except ROs, Ahemdabad, Jaipur, Guhawati"
+      }
+    },
+    {
+      "id": "pension_member_rules-2014-11-19-20bd8e",
+      "title": "Contribution on salary exceeding the statutory limit under Para 11 (3) of the EPF, 95 (S.No.208) in the office order & circulars of 2014-15 of EPF Website",
+      "circular_no": "HO No. Pension/Misc./2013/Higher Salary/23837",
+      "issued_on": "2014-11-19",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Pension_ContributionSalaryExceeding_23837.pdf",
+      "source_file": "sources/pension_member_rules-2014-11-19-20bd8e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Contribution on salary exceeding the statutory limit under Para 11 (3) of the EPF, 95 (S.No.208) in the office order & circulars of 2014-15 of EPF Website",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2014-11-19-20bd8e",
+        "page_number": 1,
+        "quote": "Regional Offices (Except ROs, Ahmadabad, Jaipur, Guhawati, Vadodara"
+      }
+    },
+    {
+      "id": "pension_member_rules-2016-06-24-68a63d",
+      "title": "Simplified UAN based Pension Claim Form Number 10-D - UAN implementation under Para - 35 of the Employees Pension Scheme, 1995",
+      "circular_no": "HO No. Pension.I/7(1)96/Forms/7429",
+      "issued_on": "2016-06-24",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/Pen_Form10D_7429.pdf",
+      "source_file": "sources/pension_member_rules-2016-06-24-68a63d.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Simplified UAN based Pension Claim Form Number 10-D - UAN implementation under Para - 35 of the Employees Pension Scheme, 1995",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2016-06-24-68a63d",
+        "page_number": 1,
+        "quote": "Simplified UAN based Pension Claim Form Number 10-_D- UAN"
+      }
+    },
+    {
+      "id": "pension_member_rules-2016-07-22-9a4423",
+      "title": "Benefit of two years weightage of service to the members with 20 or more years of Pensionable Service under Employees' Pension Scheme, 1995",
+      "circular_no": "HO No. Pension-I/3(4)16/7915",
+      "issued_on": "2016-07-22",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/Pension_Benefit_2Years_7915.pdf",
+      "source_file": "sources/pension_member_rules-2016-07-22-9a4423.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Benefit of two years weightage of service to the members with 20 or more years of Pensionable Service under Employees' Pension Scheme, 1995",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2016-07-22-9a4423",
+        "page_number": 1,
+        "quote": "Benefit of two years weightage of service to the members with 20 or"
+      }
+    },
+    {
+      "id": "pension_member_rules-2016-09-20-d7da44",
+      "title": "Benefit of two years weightage of service to the members with 20 or more years of Pensionable Service under Employees' Pension Scheme, 1995",
+      "circular_no": "HO No. Pension-I/3(4)16/2/15850",
+      "issued_on": "2016-09-20",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/Pen_Weightage_2years_15850.pdf",
+      "source_file": "sources/pension_member_rules-2016-09-20-d7da44.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Benefit of two years weightage of service to the members with 20 or more years of Pensionable Service under Employees' Pension Scheme, 1995",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2016-09-20-d7da44",
+        "page_number": 1,
+        "quote": "Benefit of two years weightage of service to the members with 20 or"
+      }
+    },
+    {
+      "id": "pension_member_rules-2017-01-31-3b4725",
+      "title": "Submission of Aadhaar as identity document by the Pensioners and Members of the EPS, 1995 - reg.",
+      "circular_no": "Pension-I/17(10)2016-2017/Jeevan Pramaan/28246",
+      "issued_on": "2017-01-31",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/Aadhaar_identity.pdf",
+      "source_file": "sources/pension_member_rules-2017-01-31-3b4725.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Submission of Aadhaar as identity document by the Pensioners and Members of the EPS, 1995 - reg.",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2017-01-31-3b4725",
+        "page_number": 1,
+        "quote": "Submission of Aadhaar as identity document by the Pensioners and"
+      }
+    },
+    {
+      "id": "pension_member_rules-2017-02-07-678657",
+      "title": "Benefit of two years weightage of service to the members with 20 or more years of pensionable service under Employees' Pension Scheme 1995",
+      "circular_no": "HO No. Pension-I/L & D/3/4/2016/MOL&E/2/30142",
+      "issued_on": "2017-02-07",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/Pension_2yr_weightage_30142.pdf",
+      "source_file": "sources/pension_member_rules-2017-02-07-678657.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Benefit of two years weightage of service to the members with 20 or more years of pensionable service under Employees' Pension Scheme 1995",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2017-02-07-678657",
+        "page_number": 1,
+        "quote": "Benefit of two years weightage of service to the members with 20 or"
+      }
+    },
+    {
+      "id": "pension_member_rules-2017-02-27-b120c4",
+      "title": "Submission of Aadhaar as identity document by the Pensioners and Members of the EPS, 1995",
+      "circular_no": "HO No. Pension-I/17(10)/2016-17/Jeevan Pramaan/32049",
+      "issued_on": "2017-02-27",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/Pension_Aadhaar_JeevanPramaan_32049.pdf",
+      "source_file": "sources/pension_member_rules-2017-02-27-b120c4.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Submission of Aadhaar as identity document by the Pensioners and Members of the EPS, 1995",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2017-02-27-b120c4",
+        "page_number": 1,
+        "quote": "Submission of Aadhaar as identity document by the Pensioners and"
+      },
+      "date_note": "The letter is typed 'Date: 27.02.2017' (stamp 28 February 2017); the issuer listing shows 28 February 2017."
+    },
+    {
+      "id": "pension_member_rules-2017-03-03-9b9fbc",
+      "title": "Introduction of Pension Claim Form (Aadhaar)",
+      "circular_no": "HO No. Pension-I/7(1)/96/2017/Forms/32614",
+      "issued_on": "2017-03-03",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/Pension_PenClaimForm(Aadhar)_32614.pdf",
+      "source_file": "sources/pension_member_rules-2017-03-03-9b9fbc.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Introduction of Pension Claim Form (Aadhaar)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2017-03-03-9b9fbc",
+        "page_number": 1,
+        "quote": "Introduction of Pension claim Form (Aadhaar)- regarding. Sir, Date: 0"
+      }
+    },
+    {
+      "id": "pension_member_rules-2017-03-10-5f5bcf",
+      "title": "Change of date of birth of Employees Pension Fund member",
+      "circular_no": "HO No. Pension-II/Instructions/Guidelines/2016-17/33314",
+      "issued_on": "2017-03-10",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/Pension_ChangeDOB_EPS_33314.pdf",
+      "source_file": "sources/pension_member_rules-2017-03-10-5f5bcf.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Change of date of birth of Employees Pension Fund member",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2017-03-10-5f5bcf",
+        "page_number": 1,
+        "quote": "Change of date of birth of Employees Pension Fund member - reg. Ref :"
+      }
+    },
+    {
+      "id": "pension_member_rules-2017-05-04-5d4830",
+      "title": "Submission of Aadhaar as Identity document by the Pensioners and Members of the EPS, 1995.",
+      "circular_no": "HO No. Pension-Pen-I/17(10)2016-17/Jeevan Pramaan/2609",
+      "issued_on": "2017-05-04",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Pension_JeevanPramaan_2609.pdf",
+      "source_file": "sources/pension_member_rules-2017-05-04-5d4830.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Submission of Aadhaar as Identity document by the Pensioners and Members of the EPS, 1995.",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2017-05-04-5d4830",
+        "page_number": 1,
+        "quote": "Submission of Aadhaar as identity document by the Pensioners and"
+      }
+    },
+    {
+      "id": "pension_member_rules-2017-05-08-e43b55",
+      "title": "Benefit of 2 Years weightage of Service to the members with 20 or more years of pensionable service under Para 10(2) of Employees' Pension Scheme, 1995",
+      "circular_no": "HO No. Pension-Pen-I/3/4/2016/MOL&E/2/2832",
+      "issued_on": "2017-05-08",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Pension_2yrWeightage_EPS_2832.pdf",
+      "source_file": "sources/pension_member_rules-2017-05-08-e43b55.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Benefit of 2 Years weightage of Service to the members with 20 or more years of pensionable service under Para 10(2) of Employees' Pension Scheme, 1995",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2017-05-08-e43b55",
+        "page_number": 1,
+        "quote": "Benefit of 2 Years weightage of Service to the members with 20 or"
+      }
+    },
+    {
+      "id": "pension_member_rules-2017-06-05-65a6cd",
+      "title": "Submission of Aadhaar as Identity document by members of EPS, 1995",
+      "circular_no": "HO No. Pension-I/17(10)/2016-17/Jeevan Pramaan- Aadhar/4792",
+      "issued_on": "2017-06-05",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/PensionI_Aadhar_4792.pdf",
+      "source_file": "sources/pension_member_rules-2017-06-05-65a6cd.json",
+      "verification": "source_checked",
+      "effective_from": "2017-07-01",
+      "effective_date_evidence": {
+        "document_id": "pension_member_rules-2017-06-05-65a6cd",
+        "page_number": 1,
+        "quote": "with effect from 1st July, 2017"
+      },
+      "version_label": "Submission of Aadhaar as Identity document by members of EPS, 1995",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2017-06-05-65a6cd",
+        "page_number": 1,
+        "quote": "Submission of Aadhaar as identity document by members of EPS, 1995"
+      }
+    },
+    {
+      "id": "pension_member_rules-2017-06-21-2d11a8",
+      "title": "Benefit of two years weightage of service to the members with 20 or more years of Pensionable Service under Employees' Pension Scheme, 1995",
+      "circular_no": "HO No. Pension - Pen-I/3/4/2016/MOL&E/2/5689",
+      "issued_on": "2017-06-21",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Pension_2YrWeightage_5689.pdf",
+      "source_file": "sources/pension_member_rules-2017-06-21-2d11a8.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Benefit of two years weightage of service to the members with 20 or more years of Pensionable Service under Employees' Pension Scheme, 1995",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2017-06-21-2d11a8",
+        "page_number": 1,
+        "quote": "Benefit of two years weightage of service to the members with 20 or"
+      }
+    },
+    {
+      "id": "pension_member_rules-2017-08-04-c3a219",
+      "title": "Submission of Aadhaar as identity document by members of EPS, 1995",
+      "circular_no": "HO No. Pension-I/17(10)/2016-17/Jeevan Pramaan-Aadhar/8051",
+      "issued_on": "2017-08-04",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Pension_Aadhaar_JeevanPramaan_8051.pdf",
+      "source_file": "sources/pension_member_rules-2017-08-04-c3a219.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Submission of Aadhaar as identity document by members of EPS, 1995",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2017-08-04-c3a219",
+        "page_number": 1,
+        "quote": "Submission of Aadhaar as identity document by members of EPS, 1995"
+      }
+    },
+    {
+      "id": "pension_member_rules-2017-08-07-fc9feb",
+      "title": "Change in Date of Birth of Employees' Pension Scheme Members",
+      "circular_no": "HO No. Pension-I/Instructions/Guidelines/2017/8351",
+      "issued_on": "2017-08-07",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Pension_Change_DOB_EPS_8351.pdf",
+      "source_file": "sources/pension_member_rules-2017-08-07-fc9feb.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Change in Date of Birth of Employees' Pension Scheme Members",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2017-08-07-fc9feb",
+        "page_number": 1,
+        "quote": "Change in Date of Birth of Employees’ Pension Fund Members —"
+      }
+    },
+    {
+      "id": "pension_member_rules-2017-09-04-ad1600",
+      "title": "Change in Date of Birth of Employees' Pension Fund Members",
+      "circular_no": "HO No. Pension-I/Instructions/Guidelines/2017/11518",
+      "issued_on": "2017-09-04",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Pension_ChangeDOB_EPS_11518.pdf",
+      "source_file": "sources/pension_member_rules-2017-09-04-ad1600.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Change in Date of Birth of Employees' Pension Fund Members",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2017-09-04-ad1600",
+        "page_number": 1,
+        "quote": "Change in Date of Birth of Employees’ Pension Fund"
+      }
+    },
+    {
+      "id": "pension_member_rules-2017-12-12-4eb124",
+      "title": "Change of Date of Birth of Employees' Pension Fund Members",
+      "circular_no": "HO No. Pension-I/Instructions/Guidelines/2017/20825",
+      "issued_on": "2017-12-12",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Pension_Change_DOB_EPS_20825.pdf",
+      "source_file": "sources/pension_member_rules-2017-12-12-4eb124.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Change of Date of Birth of Employees' Pension Fund Members",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2017-12-12-4eb124",
+        "page_number": 1,
+        "quote": "Change of Date of Birth of Employees' Pension Fund Members- reg. Ref:"
+      }
+    },
+    {
+      "id": "pension_member_rules-2018-03-05-286b3c",
+      "title": "Submission of Aadhaar as identity document by the Pensioners and Members of the EPS, 1995",
+      "circular_no": "HO No. Pension-I/17(10)2016-17/Jeevan Pramaan/27583",
+      "issued_on": "2018-03-05",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Pension_JeevanPramaan_Aadhaar_27583.pdf",
+      "source_file": "sources/pension_member_rules-2018-03-05-286b3c.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Submission of Aadhaar as identity document by the Pensioners and Members of the EPS, 1995",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2018-03-05-286b3c",
+        "page_number": 1,
+        "quote": "Submission of Aadhaar as identity document by the Pensioners and"
+      },
+      "date_note": "The letter is typed 'Dated: 05.03.2018' (stamp 6 March 2018); the issuer listing shows 6 March 2018."
+    },
+    {
+      "id": "pension_member_rules-2018-06-08-871ea8",
+      "title": "Delay in implementation of Hon'ble Supreme Court order on payment of pension on higher wages",
+      "circular_no": "HO No. ACC/HQ/Pension/Distribution of work/2896",
+      "issued_on": "2018-06-08",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/Pension_Pension_HigherWages_2896.pdf",
+      "source_file": "sources/pension_member_rules-2018-06-08-871ea8.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delay in implementation of Hon'ble Supreme Court order on payment of pension on higher wages",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2018-06-08-871ea8",
+        "page_number": 1,
+        "quote": "DELAY IN IMPLEMENTATION OF HON'BLE SUPREME COURT ORDER ON PAYMENT OF"
+      }
+    },
+    {
+      "id": "pension_member_rules-2023-01-25-b92327",
+      "title": "Re-examination of cases of pension on Higher Wages, of employees who had retired upto 1 September 2014 without exercising any option under Para 11(3) of pre-amended EPS'95, in light of directions contained in Para 44(ix) read with Para 44(v) and (vi) of Hon'ble Supreme Court judgement dt. 04.11.2022 in the matter of Special Leave Petition (C) No. 8658-8659 of 2019.",
+      "circular_no": "HO No. Pension/2022/55893/15785",
+      "issued_on": "2023-01-25",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/Pension2022-55893-15785.pdf",
+      "source_file": "sources/pension_member_rules-2023-01-25-b92327.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Re-examination of cases of pension on Higher Wages, of employees who had retired upto 1 September 2014 without exercising any option under Para 11(3) of pre-amended EPS'95, in light of directions contained in Para 44(ix) read with Para 44(v) and (vi) of Hon'ble Supreme Court judgement dt. 04.11.2022 in the matter of Special Leave Petition (C) No. 8658-8659 of 2019.",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2023-01-25-b92327",
+        "page_number": 1,
+        "quote": "Re-examination of cases of pension on Higher Wages, of employees who"
+      }
+    },
+    {
+      "id": "pension_member_rules-2024-06-24-f1ce9d",
+      "title": "Modification in Table B under EPS’95 for the purpose of calculation of past service benefit under Para 12(3)(i)(b) of the scheme",
+      "circular_no": "No.e-37633/1921",
+      "issued_on": "2024-06-24",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "pension_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/Circular_Pension_TableB_24062024.pdf",
+      "source_file": "sources/pension_member_rules-2024-06-24-f1ce9d.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Modification in Table B under EPS’95 for the purpose of calculation of past service benefit under Para 12(3)(i)(b) of the scheme",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "pension_member_rules-2024-06-24-f1ce9d",
+        "page_number": 1,
+        "quote": "Modification in Table B under EPS’ 95 for the purpose of"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "pen-2016-09-continues-2016-07",
+      "source": "pension_member_rules-2016-09-20-d7da44",
+      "target": "pension_member_rules-2016-07-22-9a4423",
+      "type": "references",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "pension_member_rules-2016-09-20-d7da44",
+        "page_number": 1,
+        "quote": "This is in continuation of Head Office letter no."
+      },
+      "scope": "Candidate link: the 20 September 2016 circular continues the earlier Head Office letter on two years' weightage of service, which it cites as dated 25.07.2016; the issuer lists the first letter as 22 July 2016 (dispatch stamp 25 July), so the match is by subject."
+    },
+    {
+      "id": "pen-2017-02-07-cites-2016-09",
+      "source": "pension_member_rules-2017-02-07-678657",
+      "target": "pension_member_rules-2016-09-20-d7da44",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "pension_member_rules-2017-02-07-678657",
+        "page_number": 1,
+        "quote": "Pension- 1/3(4)16/2/15850 dated 20.09.2016"
+      },
+      "scope": "The February 2017 circular on two years' weightage refers to the 20 September 2016 letter (number 15850) and the July 2016 letter; it adds Ministry directions and does not replace them."
+    },
+    {
+      "id": "pen-2017-05-08-cites-2016-07",
+      "source": "pension_member_rules-2017-05-08-e43b55",
+      "target": "pension_member_rules-2016-07-22-9a4423",
+      "type": "references",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "pension_member_rules-2017-05-08-e43b55",
+        "page_number": 1,
+        "quote": "Attention is drawn to Head Office letter No. Pension-I/3(4)16/7915 dated 25.07.2016"
+      },
+      "scope": "Candidate link: the May 2017 circular recalls the Head Office letter of 25.07.2016 (number 7915) on the weightage benefit; the issuer lists the first letter as 22 July 2016."
+    },
+    {
+      "id": "pen-aadhaar-2017-02-28-clarifies-01-31",
+      "source": "pension_member_rules-2017-02-27-b120c4",
+      "target": "pension_member_rules-2017-01-31-3b4725",
+      "type": "clarifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "pension_member_rules-2017-02-27-b120c4",
+        "page_number": 1,
+        "quote": "This office vide letter dated 31.01.2017 had conveyed that a member must furnish the Aadhaar number while submitting claim form under EPS 1995"
+      },
+      "scope": "The 27 February 2017 letter recalls that the 31 January 2017 letter required Aadhaar when submitting a claim form under EPS 1995 and clarifies how the requirement works; it does not withdraw it."
+    },
+    {
+      "id": "pen-aadhaar-2017-05-04-cites",
+      "source": "pension_member_rules-2017-05-04-5d4830",
+      "target": "pension_member_rules-2017-02-27-b120c4",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "pension_member_rules-2017-05-04-5d4830",
+        "page_number": 1,
+        "quote": "letter No. Pen-I/ 17(10)2016-17/Jeevan Pramaan/32049 dated 28.02.2017"
+      },
+      "scope": "The 4 May 2017 circular recalls the 31 January and 28 February 2017 letters on Aadhaar with pension claims (the 28 February number 32049 matches the issuer letter typed 27 February) and responds to difficulties reported by offices."
+    },
+    {
+      "id": "pen-aadhaar-2017-08-04-clarifies-06-05",
+      "source": "pension_member_rules-2017-08-04-c3a219",
+      "target": "pension_member_rules-2017-06-05-65a6cd",
+      "type": "clarifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "pension_member_rules-2017-08-04-c3a219",
+        "page_number": 1,
+        "quote": "Aadhaar No. would not be mandatory for International Workers as well as workers from Nepal and Bhutan"
+      },
+      "scope": "The 4 August 2017 circular states that Aadhaar is not mandatory for International Workers and workers from Nepal and Bhutan, as an exception to the 5 June 2017 requirement for new members."
+    },
+    {
+      "id": "pen-aadhaar-2018-03-cites-2017-05",
+      "source": "pension_member_rules-2018-03-05-286b3c",
+      "target": "pension_member_rules-2017-05-04-5d4830",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "pension_member_rules-2018-03-05-286b3c",
+        "page_number": 1,
+        "quote": "circular No. Pen-I/17(10)2016-17/Jeevan Pramaan/2609 dated 04.05.2017"
+      },
+      "scope": "The 5 March 2018 letter to the North East zone recalls the 4 May 2017 and 5 June 2017 circulars on Aadhaar for pensioners and members; it does not replace them."
+    },
+    {
+      "id": "pen-dob-2017-09-cites-2017-03",
+      "source": "pension_member_rules-2017-09-04-ad1600",
+      "target": "pension_member_rules-2017-03-10-5f5bcf",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "pension_member_rules-2017-09-04-ad1600",
+        "page_number": 1,
+        "quote": "Pension-II/Instructions/Guidelines/2016-17/33314 dated 10.03.2017"
+      },
+      "scope": "The September 2017 circular on change of date of birth cites the 10 March 2017 circular (number 33314) among its references; the earlier 2006 comprehensive guidelines also remain cited."
+    },
+    {
+      "id": "pen-1114-2014-cites-2013",
+      "source": "pension_member_rules-2014-06-20-bf152d",
+      "target": "pension_member_rules-2013-11-08-2e7edc",
+      "type": "references",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "pension_member_rules-2014-06-20-bf152d",
+        "page_number": 1,
+        "quote": "Circular No. Pension/Misc./2013/528 dated 08/11/2013"
+      },
+      "scope": "Candidate link: the June 2014 circular refers to two Head Office circulars of 8 November 2013 (numbers 528 and 529) on contribution on salary above the statutory limit; only one of the two is in the issuer's circulars table."
+    }
+  ],
+  "limitations": [
+    "This collection covers Pension Division circulars on EPS Para 11(3) (contribution on salary above the statutory limit), Para 12 (pension calculation, weightage of service), change of date of birth of pension fund members, Aadhaar as an identity document and pension claim forms, and pension on higher wages (2006-2024). Jeevan Pramaan life certificates and UAN-Aadhaar linking circulars are not included.",
+    "Supersession of 'all the earlier directions' by the 12 December 2006 date-of-birth guidelines is generic and no named earlier circular is in the set; later date-of-birth circulars (2017) refer to letters of 2006-2017 that are not in the set. The status of the date-of-birth rule after December 2017 is not recorded.",
+    "The 2016-2017 circulars on weightage of two years' service cite the first letter as dated 25 July 2016 while the issuer lists it as 22 July 2016; links by subject are marked unverified.",
+    "The Aadhaar requirement for pension claims (2017) was applied by dates stated in the letters (1 February 2017 for claim forms, 1 July 2017 for new members, 1 October 2017 for the North East); only the 5 June 2017 date is recorded as an effective date. No circular here states that the requirement ended.",
+    "The 2018 and 2023 circulars on pension on higher wages refer to Supreme Court judgments and earlier circulars of 2017 and 2022 that are not in the set; they are included as the issuer filed them but this is not a complete history of that matter.",
+    "Several older scans (2008, 2013, 2014) have only partly legible headers; their issue dates follow the issuer listing.",
+    "Dates follow the letter, not the issuer listing; entries whose letter date differs carry a date_note.",
+    "PDFs were read from the issuer mirror on 4 November 2026 because the public site returned 404 for these paths; recorded SHA-256 values apply to those files. Scanned pages are OCR. Issue dates were checked against the document headers."
+  ]
+}

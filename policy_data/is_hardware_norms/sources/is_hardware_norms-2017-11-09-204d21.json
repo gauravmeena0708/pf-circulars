@@ -1,0 +1,20 @@
+{
+  "document_id": "is_hardware_norms-2017-11-09-204d21",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/IS_Norms_Mobile Device_09112017.pdf",
+  "pdf_sha256": "132b034ba06f8aa2298690cb3e09fcd9059e779bf7de7f995f5a07c872741b0a",
+  "total_pdf_pages": 2,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "Telephone: 011 -28052495 \nFAX: 011- 28052496 \nEmployees' Provident Fund Organisation \nP;j1f '(!cf ~ \n~ \n:ITT'«, mcfiR\" \nMinistry of Labour & Employment, Govt. Of India \nJ-Fli.llcfil~i>lll/Head Office \n.;) \n~ \n~ \n~\n. 14-~ \nifiTm cm:r, ~ ~ \n-110066 \nBhavishya Nidhi Bhawan, 14-Bhikaji Cama Place, New Delhi-110066 \nWebsite: enfindir1.oov.in \nNo.: \n15-1 (3)2003/Norms/Vol-lI/ \nTo \nDated: 09-11-2017 \nAll Additional Central Provident Fund Commissioners (Zonal ACC) \nAll Regional PF Commissioners-I/In-charge of Regional Offices \nSub: \nSupplementary Norms for Mobile Devices covering the requirement of \nregistration of Digital Life Certificate (DLC) of Jeevan Praman for \nPensioners through \"UMANG\" - Regarding \nRef: \nLetter No.Pension.1/17(10)2016-17/Jeevan Praman/15960 dated 03.11.2017. \nSir, \nReference is invited to Pension Division letter referred above on the above subject. \n2. \nThe Norms that were approved and communicated earlier cover the basic \nrequirement of field offices, Head Office, Zones, PDNASS / ZTis, Zonal Vigilance Offices and \nZonal Audit Setups. \n3. \nFurthermore, to cater to the requirement of registration of Digital Life Certificate \n(DLC) of Jeevan Praman for Pensioners through \"UMANG\" (Mobile Application), the new \nadditional requirement of mobile devices for the field offices has been decided and the \nspecification of the mobile device is enclosed herewith to capture the required information. \n4. \nThe procurement should be made strictly in accordance with the provisions of GFR \n2017 and eve guidelines/ instructions issued from time to time. \n{This issues with the approval of CPFC} \nCopy to: \n1. PS to CPFC \n2. FA&CAO \n3. cvo \nYours faithfully, \n(K.V.~~~,~\n~~~N~)~~~ \nAddi. Central PF Commissioner (HQ-IS) \n4. Web Administrator with a request to upload in EPFO Website",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 2,
+      "text": "Configuration of the Mobile Device \nS.No \nItem \nSpecification / Configuration \nParticulars \n1 \nProcessor \n1.3 GHz Quad Core Processor or Higher \n2 \nROM Size \nMinimum 32 GB and Expandable up to 128 GB \n3 \nDisplay \n1280X720 HD - ( 5.5\" or Higher) \n4 \nCamera \nFront 5 MP/ Rear 13 MP or Higher \n5 \nSIM \nDual SIM/Optional \n6 \nRAM \n2 GB TO 4 GB \n7 \nOTG/USB \nUSB/OTG support for external USB/ Finger Print reader support \n8 \nAndroid \n7 .1 or Higher \nVersion \n9 \nBattery \nMinimum 3000mAH Lithium-Ion Battery with 15W Turbo \ncharger \n10 \nWarranty \nOne year manufacture warranty for device and 6 Months \nManufacture warranty for Inbox Accessories including battery \nfrom the date of purchase. \n11 \nSupport \nThe device must support 3G/4G connectivity \n12 \nCost of the \nThe cost of the mobile device must be less than Rs.10,000/-\nDevice \nonly. However, the taxes as applicable from time to time shall \nbe pa id extra. \nNote: \n1. All existing \nbio metric devices / IRIS Scanners may be upgraded to the latest \nsoftware recommended by UIDAI and hereby required to install Registered Device \nservices (Software) and get your device activated/registered through your \nvendors. For information, please visit https://ieevanpramaan.gov.in. \n2. The Jeevan Pramaan client application 3.0 (Android) will work on KitKat and above \nversion. \nFurther, the connectivity with the recommended finger print device (as \nrecommended by UIDAI / UMANG) must be tested before placing the purchase \norder. \n3. \nAs regard to procurement of new finger print devices / IRIS Devices, please refer \nthe Circular No.Pension-1/17(6)2014/Jeevan Praman/4538 dated 07-05-2017.",
+      "extraction_method": "native"
+    }
+  ]
+}

@@ -64,6 +64,6 @@ def test_rows_carry_a_timeline_span_within_the_corpus_years():
     spans = [r['span'] for r in rows if r['span']]
     assert len(spans) >= 130 and all(2006 <= a <= b <= 2026 for a, b in spans)
     uncurated_rules = [r for r in rows if r['nature'] == 'rule' and not r['collections']]
-    assert len(uncurated_rules) >= 25 and all(r['span'] for r in uncurated_rules)
+    assert not uncurated_rules, [r['cells'][:2] for r in uncurated_rules]  # every rule row links to a verified collection
     issue = next(r for r in rows if r['cells'] and 'Issue Tracker' in ' '.join(r['cells'][:2]))
     assert issue['span'] == [2008, 2026]

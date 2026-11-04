@@ -1,0 +1,50 @@
+{
+  "document_id": "is_security_systems-2024-11-13-dd5dbc",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/Circular_eOffice_VPNInfrastructure_Upgradeto_WebBased_MFA.pdf",
+  "pdf_sha256": "046cb7d25e8509462b9d224c43d79cfb553184a1871a9e68ecb9c9a2eaa23e28",
+  "total_pdf_pages": 8,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "Through Web Circular\n\naorfant ufaer Pty ero\nEMPLOYEES’ PROVIDENT FUND ORGANISATION\n(AF Ue ToT Hare, UIA AAT)\n(MINISTRY OF LABOUR & EMPLOYMENT, GOVT. OF INDIA)\nBTeT GH / NATIONAL DATA CENTRE\n17 Floor, Bhavishya Nidhi Bhawan, Plot No.23, Sector-23, Dwarka, New Delhi-\n110075\n\nwww.epfindia.gov.in\n\nNo.e- 907850/24 92 Date: 13.11.2024\n\nTo,\n\nAll Additional CPFCs (HQ)/ Director (PDNASS)\nAll Additional CPFCs (Zones)\nAll RPFCs/OIC-in-charge of Region\n\nSubject: e-Office VPN Infrastructure Upgrade to Web-Based with MFA- Reg.\nMadam/ Sir,\n\nThis is with reference to the upgradation of E-office VPN infrastructure from a client-based\nsystem to a Web based solution with Multi Factor Authentication (MFA) for improving safety\nand security. Furthermore, migration to web-VPN is going to solve the issue of BIG F5 VPN\nconnectivity on both Mac and Windows computers, and 2FA authentication will also improve\nsecurity.\n\nPlease note that both the client-based and web-based VPN systems will operate concurrently\nuntil 15 November, 2024. Post this period, the client-based VPN will be disabled.\n\nYou are requested to circulate this information to all E-Office users under your jurisdiction to\nensure a smooth transition. The SOP for migration to the web-based VPN system is attached for\nyour reference. Please note that usernames and passwords will remain unchanged.\n\nFor your information and necessary action.\n\n(This issues with the approval of the Competent Authority.)\n\n(Pawan Kumar Singh)\nRegional P.F. Commissioner-I (ISD)\n\nCopy To,\n\n1. PS to CPFC\n\n. ACC(HQ) IS\n\n. ACC (IS)\n\n. E-Office, Notice Board\n\nBwWbd",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 2,
+      "text": "SOP for Web-based VPN \n \nStep 1: \nOpen any browser – Chrome, Edge, Firefox, Opera etc. \n \nStep 2: \nType https://epfo-vpn.rcil.gov.in/ in URL and Press Enter. Then \nthe following login page appears.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 3,
+      "text": "Step 3: \nEnter your user name (email ID) and VPN password (will be the \nsame as used in F5 VPN) \n \n \nStep 4: \nAfter that below authentication page appears. You have to \ncomplete authentication step for MFA.  Select Mobile Token button.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 4,
+      "text": "Step 5: \nNow click on ‘Register Mobile Token’ button and you’ll get a bar \ncode to scan. \n \n \nStep 6: \nDownload ACCOPS HyID application in your android/IOS \nsmartphones from Play Store.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 5,
+      "text": "Step 7: \nThen open the app in your mobile and click on the scanner button \nto scan the bar code (shown in Step 5).   \n \n \nStep 8: \nAfter that you’ll get 6 digits of code. Enter the code as a OTP  for \nregistering it and click “Next” and you see below screen.",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 6,
+      "text": "Step 9: \nClick on verify and app is registered successfully. \n \n \nMFA has been set up.    \n \nLogin in eOffice  \nStep 1: \nOpen URL “epfo-vpn.rcil.gov.in” and for following screen appears: -",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 7,
+      "text": "Step 2: \nEnter your user name (email ID) and VPN password (will be the \nsame as used in F5 VPN).  The following screen will appear  \n \n \n \nStep 3: \nSelect Mobile Token button.  Open ACCOPS HyID application in \nyour mobile, a secret code will  show in the app, enter the code in space \nprovided for OTP and click ‘sign-in’.  The following screen will appear :",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 8,
+      "text": "Step 4: Click on eOffice-EPFO logo and you will be directed to eoffice login\npage.\n\nTaricHay\n\nPlease enter details to proceed\n\nEnter Email or Mo i\nnter Email or Parichay Authenticator should be downloaded only from authentic\nplatforms.\nExtend 10 Update Mobile &\n(Retired Officers) Profile\n\nI Password Less Authentication @\n\nBB | consent to Parichay\n\n1 Technology.\nent of India",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

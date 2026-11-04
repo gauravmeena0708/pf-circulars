@@ -1,0 +1,15 @@
+{
+  "document_id": "claim_forms_payments-2014-11-26-eaef3a",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Bkg_ModuleCCPAP_25376.pdf",
+  "pdf_sha256": "969e031aeec657644752a4bdeb83e4191af82f3ce5ec7b063a979b4baecf70c8",
+  "total_pdf_pages": 1,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "<t>4ill~ ~ \n~ \n'fi41d\"1 \nEmployees' Provident Fund Organisation \n( .IJJli ii ?I I C'l ll ~ \n'<1'< Cf> I~) \n(Ministry of Labour, Govt. Of India) \n~ \nct>lllft'tll /Head Office \n'+iFcltll ~ \n~. 14-1fl<t>l'lft Cffll=IT ~. ~ \n~~1-110066 \nBhavishya Nidhi Bhawan, 14- Bhikaji Cama Place, New Delhi-110066 \nNo. Bkg.l(ll)lONew ProcessNol.-1~ \n&25~ \nDate \nFor Web Circulation only \nTo \nSubject: \nSir/Madam, \nAll Addi. CPFC (Zones) \nAll RPFC-In-charge \nRegional/Sub-Regional Offices \n. ·• \ni u .. u. \nImplementing CCPAP Module in Ale No. 21 from 5th December, 2014. \nThe CCP AP Module for payment has been implemented successfully in Ale \nNo. 1 & 10 in all offices. The module has to be replicated in A/c No. 21. \n2. \nThe CCPAP Module may be rolled out in all offices on 5th December, 2014. \nThe data of Type-29 cheques for the last three months may be uploaded on the said date. \nHowever, in case of offices which may have not completed 3 months period of issuing \nType-29 cheques may upload data for period less than 3 months. \n~ \nf: ithfully, \nnjay Kumar) \nFinancial Advisor & Chief Accounts Officer",
+      "extraction_method": "native"
+    }
+  ]
+}
