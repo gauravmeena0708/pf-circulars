@@ -28,3 +28,19 @@ collection (for example Transfer, APAR, Dearness, Recruitment, Delegation, Claim
 
 The web UI page "Policies by division" is generated from these files: after editing any of them run
 `python scripts/build_division_catalog.py` and commit `policy_data/division_catalog.json` (a test fails if it is out of date).
+
+## Kinds of work
+
+Each topic carries a kind of work (in `natures.json`; labelled by hand, with a secondary kind where a topic mixes):
+
+| Kind | Meaning |
+|---|---|
+| Rule / policy | Standing rules, norms, specifications, schemes, SOPs, delegations and guidelines the division creates and maintains |
+| Forwarded order | Orders and rates decided elsewhere (Ministry, DoPT, Finance, Gazette) that the division circulates or applies |
+| Routine work | Seniority lists, examinations, appointments, orders, allocations, programmes, meetings |
+| Data request | Information, returns, reports or data called for from field offices |
+| Dissemination | RTI replies, Parliament questions, publications |
+| Communication | Reminders, advisories, notices, observances, instructions to offices |
+
+The division mix bar on each page is an estimate from circular titles with keyword rules (individual cases such as named-officer orders
+count as routine), so it is approximate. Of the 145 topics, 51 are rules the division creates and manages and 14 are forwarded orders.

@@ -118,14 +118,30 @@ def parse(path):
 
 
 def build():
+    natures = json.loads((SOURCE / 'natures.json').read_text(encoding='utf-8'))
+    legend = {n['id'] for n in natures['natures']}
     divisions = []
     for name, short in FILES:
         title, intro, notes, sections = parse(SOURCE / name)
+        labels = natures['rows'][name]
+        for si, section in enumerate(sections):
+            if not section['rows']:
+                continue
+            given = labels[f's{si}']
+            if len(given) != len(section['rows']):
+                raise ValueError(f'{name} section {si}: {len(given)} natures for {len(section["rows"])} rows')
+            for row, label in zip(section['rows'], given):
+                if label['nature'] not in legend or not set(label['also']) <= legend:
+                    raise ValueError(f'{name}: unknown nature {label}')
+                row['nature'], row['also'] = label['nature'], label['also']
         divisions.append(dict(
             id=name[:-3], name=short, title=title, source_file=f'docs/division_policies/{name}', intro=intro, notes=notes,
             sections=sections, row_count=sum(len(s['rows']) for s in sections),
         ))
-    return dict(schema_version=1, generated_from='docs/division_policies', divisions=divisions)
+    for d in divisions:
+        d['mix'] = natures['mix'][d['id']]
+    return dict(schema_version=1, generated_from='docs/division_policies', natures=natures['natures'],
+                natures_method=natures['method'], divisions=divisions)
 
 
 def main():

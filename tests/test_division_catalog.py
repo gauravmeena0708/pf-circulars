@@ -26,3 +26,27 @@ def test_every_division_file_is_listed_and_parsed():
     assert listed == {p.name for p in (ROOT / 'docs/division_policies').glob('*.md') if p.name != 'README.md'}
     for d in build.build()['divisions']:
         assert d['row_count'] > 0 and all(len(r['cells']) == len(s['columns']) for s in d['sections'] for r in s['rows'])
+
+
+def test_every_row_has_a_nature_from_the_legend_and_rules_are_labelled_by_hand():
+    catalog = build.build()
+    legend = {n['id'] for n in catalog['natures']}
+    assert legend == {'rule', 'forwarded', 'routine', 'data_request', 'dissemination', 'communication'}
+    rows = [r for d in catalog['divisions'] for s in d['sections'] for r in s['rows']]
+    assert all(r['nature'] in legend and set(r['also']) <= legend and r['nature'] not in r['also'] for r in rows)
+    by = {}
+    for r in rows:
+        by[r['nature']] = by.get(r['nature'], 0) + 1
+    assert by['rule'] > by['forwarded'] and by['routine'] > 0 and by['data_request'] > 0
+    # known anchors
+    cells = {r['cells'][1]: r for d in catalog['divisions'] for s in d['sections'] for r in s['rows'] if len(r['cells']) > 1}
+    assert cells['Laptop / desktop / tablet specifications']['nature'] == 'rule'
+    assert cells['RTI replies (staff matters)']['nature'] == 'dissemination'
+    assert cells['Seniority lists (draft and final by cadre)']['nature'] == 'routine'
+    assert cells['Dearness allowance and relief (staff and pensioners) and 7th CPC implementation']['nature'] == 'forwarded'
+    assert cells['MIS, ABP and dashboard returns']['nature'] == 'data_request'
+
+
+def test_division_mix_is_present_for_every_division():
+    for d in build.build()['divisions']:
+        assert sum(d['mix'].values()) > 0 and set(d['mix']) <= {'rule', 'forwarded', 'routine', 'data_request', 'dissemination', 'communication'}

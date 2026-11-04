@@ -1,0 +1,830 @@
+{
+ "schema_version": 1,
+ "natures": [
+  {
+   "id": "rule",
+   "label": "Rule / policy the division creates and manages",
+   "description": "Standing rules, norms, specifications, schemes, SOPs, delegations and guidelines issued and maintained by the division."
+  },
+  {
+   "id": "forwarded",
+   "label": "Forwarded Government order",
+   "description": "Orders and rates decided elsewhere (Ministry, DoPT, Finance, Gazette) that the division circulates or applies. The division does not create the rule."
+  },
+  {
+   "id": "routine",
+   "label": "Routine administration or operations",
+   "description": "Seniority lists, examinations, appointments, orders, allocations, programmes, meetings and similar day-to-day work."
+  },
+  {
+   "id": "data_request",
+   "label": "Data request or return",
+   "description": "Information, returns, reports or data called for from field offices."
+  },
+  {
+   "id": "dissemination",
+   "label": "Data dissemination or reply",
+   "description": "Replies and information given out: RTI replies, Parliament questions, publications."
+  },
+  {
+   "id": "communication",
+   "label": "Communication with field offices",
+   "description": "Reminders, advisories, notices, observances, announcements and instructions to offices."
+  }
+ ],
+ "method": "Each topic row was labelled by hand from its description (primary nature, plus a secondary where the topic mixes kinds of work). The division mix is an estimate from circular titles using keyword rules (individual cases such as named-officer orders count as routine); it is approximate and Hindi-only titles are classified on Hindi keywords.",
+ "rows": {
+  "information_services.md": {
+   "s0": [
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": [
+      "rule"
+     ]
+    },
+    {
+     "nature": "rule",
+     "also": [
+      "communication"
+     ]
+    },
+    {
+     "nature": "routine",
+     "also": [
+      "rule"
+     ]
+    },
+    {
+     "nature": "rule",
+     "also": [
+      "communication"
+     ]
+    },
+    {
+     "nature": "routine",
+     "also": [
+      "communication"
+     ]
+    },
+    {
+     "nature": "routine",
+     "also": [
+      "data_request"
+     ]
+    },
+    {
+     "nature": "communication",
+     "also": [
+      "rule"
+     ]
+    },
+    {
+     "nature": "communication",
+     "also": [
+      "rule"
+     ]
+    },
+    {
+     "nature": "communication",
+     "also": []
+    },
+    {
+     "nature": "data_request",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "communication",
+     "also": []
+    }
+   ]
+  },
+  "hrm_hrd.md": {
+   "s0": [
+    {
+     "nature": "rule",
+     "also": [
+      "routine"
+     ]
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "forwarded",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "data_request",
+     "also": [
+      "rule"
+     ]
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "forwarded",
+     "also": [
+      "routine"
+     ]
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "dissemination",
+     "also": []
+    },
+    {
+     "nature": "data_request",
+     "also": []
+    }
+   ],
+   "s1": [
+    {
+     "nature": "forwarded",
+     "also": []
+    },
+    {
+     "nature": "forwarded",
+     "also": []
+    },
+    {
+     "nature": "forwarded",
+     "also": []
+    },
+    {
+     "nature": "communication",
+     "also": []
+    },
+    {
+     "nature": "communication",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "forwarded",
+     "also": []
+    }
+   ]
+  },
+  "compliance.md": {
+   "s0": [
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": [
+      "rule"
+     ]
+    },
+    {
+     "nature": "rule",
+     "also": [
+      "data_request"
+     ]
+    },
+    {
+     "nature": "data_request",
+     "also": []
+    },
+    {
+     "nature": "data_request",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": [
+      "communication"
+     ]
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": [
+      "routine"
+     ]
+    },
+    {
+     "nature": "data_request",
+     "also": []
+    },
+    {
+     "nature": "dissemination",
+     "also": []
+    }
+   ]
+  },
+  "finance.md": {
+   "s0": [
+    {
+     "nature": "forwarded",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": [
+      "data_request"
+     ]
+    },
+    {
+     "nature": "routine",
+     "also": [
+      "rule"
+     ]
+    },
+    {
+     "nature": "data_request",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": [
+      "routine"
+     ]
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "forwarded",
+     "also": [
+      "rule"
+     ]
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "forwarded",
+     "also": [
+      "routine"
+     ]
+    },
+    {
+     "nature": "forwarded",
+     "also": []
+    },
+    {
+     "nature": "data_request",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "forwarded",
+     "also": []
+    }
+   ]
+  },
+  "natrss_zti.md": {
+   "s0": [
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": [
+      "communication"
+     ]
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "communication",
+     "also": []
+    },
+    {
+     "nature": "communication",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    }
+   ]
+  },
+  "official_language.md": {
+   "s0": [
+    {
+     "nature": "data_request",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": [
+      "communication"
+     ]
+    },
+    {
+     "nature": "routine",
+     "also": [
+      "communication"
+     ]
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "communication",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    }
+   ]
+  },
+  "pension.md": {
+   "s0": [
+    {
+     "nature": "rule",
+     "also": [
+      "routine"
+     ]
+    },
+    {
+     "nature": "rule",
+     "also": [
+      "communication"
+     ]
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": [
+      "forwarded"
+     ]
+    },
+    {
+     "nature": "forwarded",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "data_request",
+     "also": []
+    },
+    {
+     "nature": "data_request",
+     "also": []
+    },
+    {
+     "nature": "dissemination",
+     "also": []
+    }
+   ]
+  },
+  "csd_publicity.md": {
+   "s0": [
+    {
+     "nature": "data_request",
+     "also": [
+      "communication"
+     ]
+    },
+    {
+     "nature": "communication",
+     "also": []
+    },
+    {
+     "nature": "communication",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    }
+   ]
+  },
+  "pfd_pid.md": {
+   "s0": [
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "data_request",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": [
+      "data_request"
+     ]
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "data_request",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    }
+   ]
+  },
+  "asd_vigilance.md": {
+   "s0": [
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": [
+      "rule"
+     ]
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "forwarded",
+     "also": []
+    }
+   ],
+   "s1": [
+    {
+     "nature": "communication",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "communication",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "data_request",
+     "also": []
+    },
+    {
+     "nature": "communication",
+     "also": []
+    }
+   ]
+  },
+  "other_divisions.md": {
+   "s0": [
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "communication",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    }
+   ],
+   "s1": [
+    {
+     "nature": "dissemination",
+     "also": [
+      "communication"
+     ]
+    }
+   ],
+   "s2": [
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    }
+   ],
+   "s3": [
+    {
+     "nature": "communication",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "routine",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    }
+   ],
+   "s4": [
+    {
+     "nature": "forwarded",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    }
+   ],
+   "s5": [
+    {
+     "nature": "data_request",
+     "also": []
+    },
+    {
+     "nature": "rule",
+     "also": []
+    },
+    {
+     "nature": "data_request",
+     "also": []
+    }
+   ],
+   "s6": [
+    {
+     "nature": "rule",
+     "also": [
+      "routine"
+     ]
+    }
+   ]
+  }
+ },
+ "mix": {
+  "finance": {
+   "rule": 92,
+   "routine": 486,
+   "data_request": 185,
+   "communication": 54,
+   "forwarded": 17,
+   "dissemination": 28
+  },
+  "compliance": {
+   "routine": 534,
+   "communication": 95,
+   "rule": 128,
+   "forwarded": 61,
+   "data_request": 171,
+   "dissemination": 133
+  },
+  "information_services": {
+   "routine": 322,
+   "data_request": 75,
+   "communication": 37,
+   "rule": 28,
+   "dissemination": 21,
+   "forwarded": 3
+  },
+  "other_divisions": {
+   "routine": 188,
+   "communication": 46,
+   "rule": 41,
+   "data_request": 56,
+   "dissemination": 105,
+   "forwarded": 20
+  },
+  "csd_publicity": {
+   "communication": 16,
+   "routine": 156,
+   "data_request": 23,
+   "dissemination": 16,
+   "rule": 5,
+   "forwarded": 2
+  },
+  "hrm_hrd": {
+   "routine": 2358,
+   "communication": 216,
+   "rule": 396,
+   "forwarded": 170,
+   "data_request": 390,
+   "dissemination": 371
+  },
+  "pension": {
+   "rule": 61,
+   "routine": 117,
+   "communication": 21,
+   "data_request": 71,
+   "forwarded": 8,
+   "dissemination": 138
+  },
+  "natrss_zti": {
+   "routine": 843,
+   "forwarded": 42,
+   "communication": 105,
+   "rule": 40,
+   "data_request": 24,
+   "dissemination": 17
+  },
+  "pfd_pid": {
+   "dissemination": 119,
+   "routine": 120,
+   "communication": 15,
+   "forwarded": 6,
+   "rule": 9,
+   "data_request": 38
+  },
+  "asd_vigilance": {
+   "routine": 170,
+   "communication": 36,
+   "dissemination": 15,
+   "data_request": 16,
+   "forwarded": 5,
+   "rule": 15
+  },
+  "official_language": {
+   "data_request": 91,
+   "communication": 39,
+   "routine": 256,
+   "rule": 58,
+   "dissemination": 23,
+   "forwarded": 2
+  }
+ }
+}

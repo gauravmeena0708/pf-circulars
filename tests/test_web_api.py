@@ -126,3 +126,13 @@ def test_divisions_endpoint_serves_the_catalog_with_registered_collection_links(
     issue = next(r for s in body['divisions'][0]['sections'] for r in s['rows'] if 'Issue Tracker' in r['cells'][1])
     assert issue['status_kind'] == 'ended' and 'discontinued' in ' '.join(issue['cells']).lower()
     assert {r['status_kind'] for d in body['divisions'] for s in d['sections'] for r in s['rows']} >= {'active', 'ended', 'dormant', 'routine'}
+
+
+def test_divisions_endpoint_carries_kinds_of_work():
+    from web_api.app import app
+    from fastapi.testclient import TestClient
+    body = TestClient(app).get('/api/divisions').json()
+    assert [n['id'] for n in body['natures']][0] == 'rule' and len(body['natures']) == 6
+    rows = [r for d in body['divisions'] for s in d['sections'] for r in s['rows']]
+    assert all('nature' in r and isinstance(r['also'], list) for r in rows)
+    assert body['divisions'][0]['mix']['routine'] > 0

@@ -2651,3 +2651,112 @@ footer {
   margin-top: 18px;
   max-width: 980px;
 }
+
+/* Kind of work */
+:root {
+  --nat-rule: #217b7c;
+  --nat-forwarded: #7a6fb0;
+  --nat-routine: #98a8b2;
+  --nat-data_request: #b58c45;
+  --nat-dissemination: #5b8fbd;
+  --nat-communication: #c98a62;
+}
+i.nat-rule, .nature.nat-rule { background: var(--nat-rule); }
+i.nat-forwarded, .nature.nat-forwarded { background: var(--nat-forwarded); }
+i.nat-routine, .nature.nat-routine { background: var(--nat-routine); }
+i.nat-data_request, .nature.nat-data_request { background: var(--nat-data_request); }
+i.nat-dissemination, .nature.nat-dissemination { background: var(--nat-dissemination); }
+i.nat-communication, .nature.nat-communication { background: var(--nat-communication); }
+.nature-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 18px;
+}
+.nature-legend-title {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8b9ba4;
+  margin-right: 4px;
+}
+.nature-legend button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: #fff;
+  color: #4a6372;
+}
+.nature-legend button i {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+.nature-legend button em {
+  font-style: normal;
+  font-size: 10px;
+  color: #8b9ba4;
+}
+.nature-legend button.active {
+  border-color: #173650;
+  color: #173650;
+  background: #f1f5f7;
+}
+.mix {
+  margin: 0 0 20px;
+  max-width: 980px;
+}
+.mix-bar {
+  display: flex;
+  height: 10px;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #edf1f3;
+}
+.mix-bar i {
+  display: block;
+  height: 100%;
+}
+.mix-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #6a7f8b;
+}
+.mix-key span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.mix-key i {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+.mix-key .mix-total {
+  color: #8b9ba4;
+}
+.nature-cell {
+  min-width: 130px;
+}
+.nature {
+  display: inline-block;
+  font-size: 10px;
+  padding: 3px 8px;
+  margin: 0 6px 6px 0;
+  border-radius: 3px;
+  color: #fff;
+  white-space: nowrap;
+}
+.nature.also {
+  background: transparent !important;
+  border: 1px solid #dce3e6;
+  color: #657e8d;
+}

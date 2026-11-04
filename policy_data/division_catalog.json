@@ -1,6 +1,39 @@
 {
  "schema_version": 1,
  "generated_from": "docs/division_policies",
+ "natures": [
+  {
+   "id": "rule",
+   "label": "Rule / policy the division creates and manages",
+   "description": "Standing rules, norms, specifications, schemes, SOPs, delegations and guidelines issued and maintained by the division."
+  },
+  {
+   "id": "forwarded",
+   "label": "Forwarded Government order",
+   "description": "Orders and rates decided elsewhere (Ministry, DoPT, Finance, Gazette) that the division circulates or applies. The division does not create the rule."
+  },
+  {
+   "id": "routine",
+   "label": "Routine administration or operations",
+   "description": "Seniority lists, examinations, appointments, orders, allocations, programmes, meetings and similar day-to-day work."
+  },
+  {
+   "id": "data_request",
+   "label": "Data request or return",
+   "description": "Information, returns, reports or data called for from field offices."
+  },
+  {
+   "id": "dissemination",
+   "label": "Data dissemination or reply",
+   "description": "Replies and information given out: RTI replies, Parliament questions, publications."
+  },
+  {
+   "id": "communication",
+   "label": "Communication with field offices",
+   "description": "Reminders, advisories, notices, observances, announcements and instructions to offices."
+  }
+ ],
+ "natures_method": "Each topic row was labelled by hand from its description (primary nature, plus a secondary where the topic mixes kinds of work). The division mix is an estimate from circular titles using keyword rules (individual cases such as named-officer orders count as routine); it is approximate and Hindi-only titles are classified on Hindi keywords.",
  "divisions": [
   {
    "id": "information_services",
@@ -29,7 +62,9 @@
         "NDC/e-1320153: \"The existing Issue Tracker Portal is discontinued\". J-Track orders: no later circular"
        ],
        "status_kind": "ended",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -40,7 +75,9 @@
         "2025 circular \"supersedes the previous specifications ... circular dated 25/10/2021\"; 2019 circular \"supersedes all previous circulars\" on these items"
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -53,7 +90,9 @@
        "status_kind": "other",
        "collections": [
         "employee_benefits"
-       ]
+       ],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -64,7 +103,9 @@
         "2009 \"in addition to the norms communicated earlier\"; 2014 \"all instructions remain same\""
        ],
        "status_kind": "ended",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -75,7 +116,9 @@
         "2018-12-13 and 2019-01-08 circulars"
        ],
        "status_kind": "other",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -86,7 +129,11 @@
         "2019-01-08 circular lists thin client"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": [
+        "rule"
+       ]
       },
       {
        "cells": [
@@ -97,7 +144,11 @@
         ""
        ],
        "status_kind": "other",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": [
+        "communication"
+       ]
       },
       {
        "cells": [
@@ -108,7 +159,11 @@
         "Titles; 2024 circular describes the migration"
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": [
+        "rule"
+       ]
       },
       {
        "cells": [
@@ -119,7 +174,11 @@
         ""
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": [
+        "communication"
+       ]
       },
       {
        "cells": [
@@ -130,7 +189,11 @@
         ""
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": [
+        "communication"
+       ]
       },
       {
        "cells": [
@@ -143,6 +206,10 @@
        "status_kind": "routine",
        "collections": [
         "delegation"
+       ],
+       "nature": "routine",
+       "also": [
+        "data_request"
        ]
       },
       {
@@ -154,7 +221,11 @@
         ""
        ],
        "status_kind": "ended",
-       "collections": []
+       "collections": [],
+       "nature": "communication",
+       "also": [
+        "rule"
+       ]
       },
       {
        "cells": [
@@ -165,7 +236,11 @@
         ""
        ],
        "status_kind": "other",
-       "collections": []
+       "collections": [],
+       "nature": "communication",
+       "also": [
+        "rule"
+       ]
       },
       {
        "cells": [
@@ -176,7 +251,9 @@
         ""
        ],
        "status_kind": "other",
-       "collections": []
+       "collections": [],
+       "nature": "communication",
+       "also": []
       },
       {
        "cells": [
@@ -187,7 +264,9 @@
         ""
        ],
        "status_kind": "other",
-       "collections": []
+       "collections": [],
+       "nature": "data_request",
+       "also": []
       },
       {
        "cells": [
@@ -198,7 +277,9 @@
         "Title of 2016-11-01 circular"
        ],
        "status_kind": "ended",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -209,7 +290,9 @@
         ""
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -220,13 +303,23 @@
         ""
        ],
        "status_kind": "routine",
-       "collections": []
+       "collections": [],
+       "nature": "communication",
+       "also": []
       }
      ],
      "text": ""
     }
    ],
-   "row_count": 18
+   "row_count": 18,
+   "mix": {
+    "routine": 322,
+    "data_request": 75,
+    "communication": 37,
+    "rule": 28,
+    "dissemination": 21,
+    "forwarded": 3
+   }
   },
   {
    "id": "hrm_hrd",
@@ -257,6 +350,10 @@
        "status_kind": "active",
        "collections": [
         "staff_transfer"
+       ],
+       "nature": "rule",
+       "also": [
+        "routine"
        ]
       },
       {
@@ -270,7 +367,9 @@
        "status_kind": "active",
        "collections": [
         "apar_sparrow"
-       ]
+       ],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -283,7 +382,9 @@
        "status_kind": "active",
        "collections": [
         "recruitment_promotion"
-       ]
+       ],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -296,7 +397,9 @@
        "status_kind": "active",
        "collections": [
         "dearness"
-       ]
+       ],
+       "nature": "forwarded",
+       "also": []
       },
       {
        "cells": [
@@ -309,7 +412,9 @@
        "status_kind": "active",
        "collections": [
         "delegation"
-       ]
+       ],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -322,7 +427,9 @@
        "status_kind": "active",
        "collections": [
         "foreign_visit"
-       ]
+       ],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -335,7 +442,9 @@
        "status_kind": "other",
        "collections": [
         "employee_benefits"
-       ]
+       ],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -346,7 +455,9 @@
         "not in a collection"
        ],
        "status_kind": "routine",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -357,7 +468,9 @@
         "not in a collection"
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -368,7 +481,9 @@
         "not in a collection"
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -379,7 +494,11 @@
         "Delegation (draft)"
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "data_request",
+       "also": [
+        "rule"
+       ]
       },
       {
        "cells": [
@@ -390,7 +509,9 @@
         "not in a collection"
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -401,7 +522,9 @@
         "not in a collection"
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -412,7 +535,11 @@
         "not in a collection"
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "forwarded",
+       "also": [
+        "routine"
+       ]
       },
       {
        "cells": [
@@ -423,7 +550,9 @@
         "not in a collection"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -434,7 +563,9 @@
         "not in a collection"
        ],
        "status_kind": "routine",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -445,7 +576,9 @@
         "not in a collection"
        ],
        "status_kind": "routine",
-       "collections": []
+       "collections": [],
+       "nature": "dissemination",
+       "also": []
       },
       {
        "cells": [
@@ -456,7 +589,9 @@
         "not in a collection"
        ],
        "status_kind": "routine",
-       "collections": []
+       "collections": [],
+       "nature": "data_request",
+       "also": []
       }
      ],
      "text": ""
@@ -476,7 +611,9 @@
         "**Discontinued**"
        ],
        "status_kind": "ended",
-       "collections": []
+       "collections": [],
+       "nature": "forwarded",
+       "also": []
       },
       {
        "cells": [
@@ -485,7 +622,9 @@
         "**Abolished**"
        ],
        "status_kind": "ended",
-       "collections": []
+       "collections": [],
+       "nature": "forwarded",
+       "also": []
       },
       {
        "cells": [
@@ -494,7 +633,9 @@
         "**Deductions discontinued**"
        ],
        "status_kind": "ended",
-       "collections": []
+       "collections": [],
+       "nature": "forwarded",
+       "also": []
       },
       {
        "cells": [
@@ -503,7 +644,9 @@
         "A circular withdrawn (the withdrawn item is in the PDF, not the title)"
        ],
        "status_kind": "ended",
-       "collections": []
+       "collections": [],
+       "nature": "communication",
+       "also": []
       },
       {
        "cells": [
@@ -512,7 +655,9 @@
         "**29 Apr 2025 circular withdrawn**"
        ],
        "status_kind": "ended",
-       "collections": []
+       "collections": [],
+       "nature": "communication",
+       "also": []
       },
       {
        "cells": [
@@ -521,7 +666,9 @@
         "Specific appointments cancelled"
        ],
        "status_kind": "ended",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -530,13 +677,23 @@
         "Rules amended"
        ],
        "status_kind": "other",
-       "collections": []
+       "collections": [],
+       "nature": "forwarded",
+       "also": []
       }
      ],
      "text": ""
     }
    ],
-   "row_count": 25
+   "row_count": 25,
+   "mix": {
+    "routine": 2358,
+    "communication": 216,
+    "rule": 396,
+    "forwarded": 170,
+    "data_request": 390,
+    "dissemination": 371
+   }
   },
   {
    "id": "compliance",
@@ -565,7 +722,9 @@
         "Procedure for cancellation (2015-02-23) and transfer of past accumulation on cancellation (2014, 2016) are earlier steps; no circular says they were withdrawn"
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -576,7 +735,9 @@
         "**2009-02-13 withdrew the 17/06/2004 circular** on damages for the pre-discovery period"
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -587,7 +748,9 @@
         ""
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -598,7 +761,11 @@
         ""
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": [
+        "rule"
+       ]
       },
       {
        "cells": [
@@ -609,7 +776,11 @@
         "**2022-09-26 withdrew prosecutions** for non-submission of KYC"
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": [
+        "data_request"
+       ]
       },
       {
        "cells": [
@@ -620,7 +791,9 @@
         "Titles"
        ],
        "status_kind": "ended",
-       "collections": []
+       "collections": [],
+       "nature": "data_request",
+       "also": []
       },
       {
        "cells": [
@@ -631,7 +804,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "data_request",
+       "also": []
       },
       {
        "cells": [
@@ -642,7 +817,11 @@
         ""
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": [
+        "communication"
+       ]
       },
       {
        "cells": [
@@ -653,7 +832,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -666,6 +847,10 @@
        "status_kind": "dormant",
        "collections": [
         "legal_panel"
+       ],
+       "nature": "rule",
+       "also": [
+        "routine"
        ]
       },
       {
@@ -677,7 +862,9 @@
         ""
        ],
        "status_kind": "routine",
-       "collections": []
+       "collections": [],
+       "nature": "data_request",
+       "also": []
       },
       {
        "cells": [
@@ -688,13 +875,23 @@
         ""
        ],
        "status_kind": "routine",
-       "collections": []
+       "collections": [],
+       "nature": "dissemination",
+       "also": []
       }
      ],
      "text": ""
     }
    ],
-   "row_count": 12
+   "row_count": 12,
+   "mix": {
+    "routine": 534,
+    "communication": 95,
+    "rule": 128,
+    "forwarded": 61,
+    "data_request": 171,
+    "dissemination": 133
+   }
   },
   {
    "id": "finance",
@@ -725,7 +922,9 @@
        "status_kind": "active",
        "collections": [
         "epf_interest_rate"
-       ]
+       ],
+       "nature": "forwarded",
+       "also": []
       },
       {
        "cells": [
@@ -736,7 +935,11 @@
         ""
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": [
+        "data_request"
+       ]
       },
       {
        "cells": [
@@ -747,7 +950,11 @@
         ""
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": [
+        "rule"
+       ]
       },
       {
        "cells": [
@@ -758,7 +965,9 @@
         ""
        ],
        "status_kind": "routine",
-       "collections": []
+       "collections": [],
+       "nature": "data_request",
+       "also": []
       },
       {
        "cells": [
@@ -769,7 +978,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -780,7 +991,11 @@
         "Titles"
        ],
        "status_kind": "ended",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": [
+        "routine"
+       ]
       },
       {
        "cells": [
@@ -791,7 +1006,9 @@
         "Titles"
        ],
        "status_kind": "ended",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -804,7 +1021,9 @@
        "status_kind": "other",
        "collections": [
         "claim_authority"
-       ]
+       ],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -815,7 +1034,11 @@
         ""
        ],
        "status_kind": "ended",
-       "collections": []
+       "collections": [],
+       "nature": "forwarded",
+       "also": [
+        "rule"
+       ]
       },
       {
        "cells": [
@@ -826,7 +1049,9 @@
         "Title note"
        ],
        "status_kind": "ended",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -837,7 +1062,9 @@
         ""
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -848,7 +1075,11 @@
         ""
        ],
        "status_kind": "routine",
-       "collections": []
+       "collections": [],
+       "nature": "forwarded",
+       "also": [
+        "routine"
+       ]
       },
       {
        "cells": [
@@ -861,7 +1092,9 @@
        "status_kind": "other",
        "collections": [
         "dearness"
-       ]
+       ],
+       "nature": "forwarded",
+       "also": []
       },
       {
        "cells": [
@@ -872,7 +1105,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "data_request",
+       "also": []
       },
       {
        "cells": [
@@ -883,7 +1118,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -894,13 +1131,23 @@
         ""
        ],
        "status_kind": "other",
-       "collections": []
+       "collections": [],
+       "nature": "forwarded",
+       "also": []
       }
      ],
      "text": ""
     }
    ],
-   "row_count": 16
+   "row_count": 16,
+   "mix": {
+    "rule": 92,
+    "routine": 486,
+    "data_request": 185,
+    "communication": 54,
+    "forwarded": 17,
+    "dissemination": 28
+   }
   },
   {
    "id": "natrss_zti",
@@ -929,7 +1176,9 @@
         ""
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -940,7 +1189,9 @@
         "Titles"
        ],
        "status_kind": "ended",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -951,7 +1202,11 @@
         "Titles"
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": [
+        "communication"
+       ]
       },
       {
        "cells": [
@@ -962,7 +1217,9 @@
         "Recruitment and promotion collection covers the related recruitment rules"
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -973,7 +1230,9 @@
         ""
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -984,7 +1243,9 @@
         ""
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "communication",
+       "also": []
       },
       {
        "cells": [
@@ -995,7 +1256,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "communication",
+       "also": []
       },
       {
        "cells": [
@@ -1006,13 +1269,23 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       }
      ],
      "text": ""
     }
    ],
-   "row_count": 8
+   "row_count": 8,
+   "mix": {
+    "routine": 843,
+    "forwarded": 42,
+    "communication": 105,
+    "rule": 40,
+    "data_request": 24,
+    "dissemination": 17
+   }
   },
   {
    "id": "official_language",
@@ -1041,7 +1314,9 @@
         "2026-06-08 (quarter ended 31 Dec 2025)"
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "data_request",
+       "also": []
       },
       {
        "cells": [
@@ -1052,7 +1327,9 @@
         "2026-02-25 (Parliamentary Committee)"
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -1063,7 +1340,11 @@
         "2026-06-03 (Hindi teaching scheme and Rajbhasha)"
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": [
+        "communication"
+       ]
       },
       {
        "cells": [
@@ -1074,7 +1355,11 @@
         "2026-06-22 (Hindi Divas 14 Sept 2026 and the sixth all-India conference)"
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": [
+        "communication"
+       ]
       },
       {
        "cells": [
@@ -1085,7 +1370,9 @@
         "2026-08-14 (noting and drafting originally in Hindi)"
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -1096,7 +1383,9 @@
         "2026-07-23 (14-29 Sept 2026)"
        ],
        "status_kind": "routine",
-       "collections": []
+       "collections": [],
+       "nature": "communication",
+       "also": []
       },
       {
        "cells": [
@@ -1107,7 +1396,9 @@
         "2025-04-11 (translators' weekly reports)"
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -1118,7 +1409,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -1131,13 +1424,23 @@
        "status_kind": "ended",
        "collections": [
         "recruitment_promotion"
-       ]
+       ],
+       "nature": "rule",
+       "also": []
       }
      ],
      "text": ""
     }
    ],
-   "row_count": 9
+   "row_count": 9,
+   "mix": {
+    "data_request": 91,
+    "communication": 39,
+    "routine": 256,
+    "rule": 58,
+    "dissemination": 23,
+    "forwarded": 2
+   }
   },
   {
    "id": "pension",
@@ -1168,6 +1471,10 @@
        "status_kind": "active",
        "collections": [
         "cpps"
+       ],
+       "nature": "rule",
+       "also": [
+        "routine"
        ]
       },
       {
@@ -1181,6 +1488,10 @@
        "status_kind": "active",
        "collections": [
         "cpps"
+       ],
+       "nature": "rule",
+       "also": [
+        "communication"
        ]
       },
       {
@@ -1194,7 +1505,9 @@
        "status_kind": "ended",
        "collections": [
         "higher_pension"
-       ]
+       ],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -1205,7 +1518,11 @@
         ""
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": [
+        "forwarded"
+       ]
       },
       {
        "cells": [
@@ -1216,7 +1533,9 @@
         "Titles"
        ],
        "status_kind": "other",
-       "collections": []
+       "collections": [],
+       "nature": "forwarded",
+       "also": []
       },
       {
        "cells": [
@@ -1227,7 +1546,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -1238,7 +1559,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -1249,7 +1572,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -1260,7 +1585,9 @@
         ""
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -1271,7 +1598,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "data_request",
+       "also": []
       },
       {
        "cells": [
@@ -1282,7 +1611,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "data_request",
+       "also": []
       },
       {
        "cells": [
@@ -1293,13 +1624,23 @@
         ""
        ],
        "status_kind": "routine",
-       "collections": []
+       "collections": [],
+       "nature": "dissemination",
+       "also": []
       }
      ],
      "text": ""
     }
    ],
-   "row_count": 12
+   "row_count": 12,
+   "mix": {
+    "rule": 61,
+    "routine": 117,
+    "communication": 21,
+    "data_request": 71,
+    "forwarded": 8,
+    "dissemination": 138
+   }
   },
   {
    "id": "csd_publicity",
@@ -1328,7 +1669,11 @@
         "Issue tracking for IS tools: the IS Issue Tracker portal was discontinued 2026-07-23 (see Information Services)"
        ],
        "status_kind": "other",
-       "collections": []
+       "collections": [],
+       "nature": "data_request",
+       "also": [
+        "communication"
+       ]
       },
       {
        "cells": [
@@ -1339,7 +1684,9 @@
         ""
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "communication",
+       "also": []
       },
       {
        "cells": [
@@ -1352,7 +1699,9 @@
        "status_kind": "other",
        "collections": [
         "delegation"
-       ]
+       ],
+       "nature": "communication",
+       "also": []
       },
       {
        "cells": [
@@ -1363,13 +1712,23 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       }
      ],
      "text": ""
     }
    ],
-   "row_count": 4
+   "row_count": 4,
+   "mix": {
+    "communication": 16,
+    "routine": 156,
+    "data_request": 23,
+    "dissemination": 16,
+    "rule": 5,
+    "forwarded": 2
+   }
   },
   {
    "id": "pfd_pid",
@@ -1400,7 +1759,9 @@
        "status_kind": "active",
        "collections": [
         "delegation"
-       ]
+       ],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -1413,7 +1774,9 @@
        "status_kind": "other",
        "collections": [
         "delegation"
-       ]
+       ],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -1424,7 +1787,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -1435,7 +1800,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "data_request",
+       "also": []
       },
       {
        "cells": [
@@ -1446,7 +1813,11 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": [
+        "data_request"
+       ]
       },
       {
        "cells": [
@@ -1457,7 +1828,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -1468,7 +1841,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "data_request",
+       "also": []
       },
       {
        "cells": [
@@ -1479,13 +1854,23 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       }
      ],
      "text": ""
     }
    ],
-   "row_count": 8
+   "row_count": 8,
+   "mix": {
+    "dissemination": 119,
+    "routine": 120,
+    "communication": 15,
+    "forwarded": 6,
+    "rule": 9,
+    "data_request": 38
+   }
   },
   {
    "id": "asd_vigilance",
@@ -1514,7 +1899,9 @@
         ""
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -1525,7 +1912,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -1536,7 +1925,9 @@
         ""
        ],
        "status_kind": "routine",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -1549,6 +1940,10 @@
        "status_kind": "dormant",
        "collections": [
         "delegation"
+       ],
+       "nature": "routine",
+       "also": [
+        "rule"
        ]
       },
       {
@@ -1560,7 +1955,9 @@
         ""
        ],
        "status_kind": "routine",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -1571,7 +1968,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "forwarded",
+       "also": []
       }
      ],
      "text": ""
@@ -1595,7 +1994,9 @@
         ""
        ],
        "status_kind": "routine",
-       "collections": []
+       "collections": [],
+       "nature": "communication",
+       "also": []
       },
       {
        "cells": [
@@ -1608,7 +2009,9 @@
        "status_kind": "active",
        "collections": [
         "apar_sparrow"
-       ]
+       ],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -1619,7 +2022,9 @@
         ""
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "communication",
+       "also": []
       },
       {
        "cells": [
@@ -1630,7 +2035,9 @@
         "Not called inactive"
        ],
        "status_kind": "other",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -1641,7 +2048,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -1652,7 +2061,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "data_request",
+       "also": []
       },
       {
        "cells": [
@@ -1663,13 +2074,23 @@
         ""
        ],
        "status_kind": "routine",
-       "collections": []
+       "collections": [],
+       "nature": "communication",
+       "also": []
       }
      ],
      "text": ""
     }
    ],
-   "row_count": 13
+   "row_count": 13,
+   "mix": {
+    "routine": 170,
+    "communication": 36,
+    "dissemination": 15,
+    "data_request": 16,
+    "forwarded": 5,
+    "rule": 15
+   }
   },
   {
    "id": "other_divisions",
@@ -1696,7 +2117,9 @@
         "Not called inactive"
        ],
        "status_kind": "other",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -1706,7 +2129,9 @@
         ""
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "communication",
+       "also": []
       },
       {
        "cells": [
@@ -1718,7 +2143,9 @@
        "status_kind": "active",
        "collections": [
         "legal_panel"
-       ]
+       ],
+       "nature": "rule",
+       "also": []
       }
      ],
      "text": ""
@@ -1738,7 +2165,11 @@
         "**Active, each session.** Latest 2026-07-09 (Monsoon Session 2026). Individual sittings were cancelled or extended in 2011 (titles)"
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "dissemination",
+       "also": [
+        "communication"
+       ]
       }
      ],
      "text": ""
@@ -1760,7 +2191,9 @@
         ""
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -1770,7 +2203,9 @@
         ""
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -1780,7 +2215,9 @@
         ""
        ],
        "status_kind": "routine",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       }
      ],
      "text": ""
@@ -1802,7 +2239,9 @@
         ""
        ],
        "status_kind": "other",
-       "collections": []
+       "collections": [],
+       "nature": "communication",
+       "also": []
       },
       {
        "cells": [
@@ -1812,7 +2251,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -1822,7 +2263,9 @@
         "Not called inactive"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "routine",
+       "also": []
       },
       {
        "cells": [
@@ -1832,7 +2275,9 @@
         ""
        ],
        "status_kind": "ended",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       }
      ],
      "text": ""
@@ -1854,7 +2299,9 @@
         ""
        ],
        "status_kind": "active",
-       "collections": []
+       "collections": [],
+       "nature": "forwarded",
+       "also": []
       },
       {
        "cells": [
@@ -1867,7 +2314,9 @@
        "collections": [
         "aadhaar",
         "jd"
-       ]
+       ],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -1879,7 +2328,9 @@
        "status_kind": "active",
        "collections": [
         "claim_authority"
-       ]
+       ],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -1891,7 +2342,9 @@
        "status_kind": "active",
        "collections": [
         "transfers"
-       ]
+       ],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -1903,7 +2356,9 @@
        "status_kind": "ended",
        "collections": [
         "advances"
-       ]
+       ],
+       "nature": "rule",
+       "also": []
       }
      ],
      "text": ""
@@ -1925,7 +2380,9 @@
         "Not called inactive; Compliance division later discontinued paper ABP/MIS returns (2016-03-02)"
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "data_request",
+       "also": []
       },
       {
        "cells": [
@@ -1935,7 +2392,9 @@
         ""
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "rule",
+       "also": []
       },
       {
        "cells": [
@@ -1945,7 +2404,9 @@
         ""
        ],
        "status_kind": "dormant",
-       "collections": []
+       "collections": [],
+       "nature": "data_request",
+       "also": []
       }
      ],
      "text": ""
@@ -1969,6 +2430,10 @@
        "status_kind": "dormant",
        "collections": [
         "apar_sparrow"
+       ],
+       "nature": "rule",
+       "also": [
+        "routine"
        ]
       }
      ],
@@ -1981,7 +2446,15 @@
      "text": "RTI: replies to individual applicants (operational). Manual: construction works procedure (2011), pending Annexure K (2015), change of date of birth (2020), employees' and employers' guides (2023). MoL&E: letters from the Ministry (EPF interest rate 2010-11; additional charge of CPFC 2012-2013; GSR 225(E) of 27.03.2020, 2020-03-28). Conference: CBT reconstitution 2024-04-25, annual report calendar 2026-05-13. EPFAT: cases before the Appellate Tribunal (2011-01-14); the EPFAT was merged into the CGITs in 2017 (see Panel advocates collection). Blank division (45): office orders, e-mail lists, and entries the issuer **removed** (titles say \"Circular removed as per the email ...\", for example 2024-12-11)."
     }
    ],
-   "row_count": 20
+   "row_count": 20,
+   "mix": {
+    "routine": 188,
+    "communication": 46,
+    "rule": 41,
+    "data_request": 56,
+    "dissemination": 105,
+    "forwarded": 20
+   }
   }
  ]
 }
