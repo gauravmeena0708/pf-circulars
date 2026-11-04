@@ -68,7 +68,101 @@ function MixBar({ mix, natures }) {
   );
 }
 
-export default function Divisions({ onOpenPolicy }) {
+
+const AXIS_START = 2006,
+  AXIS_END = 2026;
+// A bar on a shared 2006-2026 axis, so cards can be compared by timeline.
+export function SpanBar({ start, end }) {
+  if (!start || !end) return null;
+  const range = AXIS_END - AXIS_START + 1;
+  const left = Math.max(0, ((start - AXIS_START) / range) * 100);
+  const width = Math.max(2.5, ((end - Math.max(start, AXIS_START) + 1) / range) * 100);
+  return (
+    <div className="span-bar" title={`${start}-${end}`}>
+      <i style={{ left: `${left}%`, width: `${Math.min(width, 100 - left)}%` }} />
+    </div>
+  );
+}
+const SORTS = {
+  latest: (a, b) => b.end - a.end || b.start - a.start,
+  earliest: (a, b) => a.start - b.start || a.end - b.end,
+  az: (a, b) => a.name.localeCompare(b.name),
+};
+export const sortItems = (items, how) => [...items].sort(SORTS[how] || SORTS.latest);
+
+// Rule topics from the division catalog that are not yet a curated history, ordered by timeline.
+export function LibraryRules({ sort, onOpenDivision }) {
+  const [data, setData] = useState(null),
+    [error, setError] = useState("");
+  useEffect(() => {
+    let live = true;
+    json("/api/divisions")
+      .then((d) => live && setData(d))
+      .catch((e) => live && setError(e.message));
+    return () => {
+      live = false;
+    };
+  }, []);
+  const items = useMemo(() => {
+    if (!data) return [];
+    const out = [];
+    data.divisions.forEach((d) =>
+      d.sections.forEach((s) =>
+        s.rows.forEach((r) => {
+          if (r.nature !== "rule" || r.collections.length || !r.span) return;
+          const topicCol = s.columns[0] === "#" ? 1 : 0;
+          out.push({
+            key: `${d.id}-${s.heading}-${r.cells[topicCol]}`,
+            name: r.cells[topicCol],
+            division: d.name,
+            divisionId: d.id,
+            start: r.span[0],
+            end: r.span[1],
+            status: r.status_kind,
+          });
+        }),
+      ),
+    );
+    return sortItems(out, sort);
+  }, [data, sort]);
+  if (error) return <p className="division-note error">{error}</p>;
+  if (!data) return null;
+  return (
+    <>
+      <div className="library-heading rules-heading">
+        <span>{items.length} rule topics not yet a curated history</span>
+        <span>
+          Rules the divisions create and manage, placed on the {AXIS_START}-{AXIS_END} timeline by
+          the span of their circulars. Evidence is from circular titles and the circulars named on
+          the division page.
+        </span>
+      </div>
+      <div className="library-grid">
+        {items.map((it) => (
+          <button
+            className="library-card rule-card"
+            key={it.key}
+            onClick={() => onOpenDivision(it.divisionId)}
+            title={`Open ${it.division}`}
+          >
+            <div>
+              <span className="topic-index">{it.division}</span>
+              <ArrowUpRight size={18} />
+            </div>
+            <h2>{it.name}</h2>
+            <SpanBar start={it.start} end={it.end} />
+            <div className="library-facts">
+              <span>{it.start === it.end ? it.start : `${it.start}-${it.end}`}</span>
+              <span className={`kind-text ${it.status}`}>{KIND_LABEL[it.status]}</span>
+            </div>
+          </button>
+        ))}
+      </div>
+    </>
+  );
+}
+
+export default function Divisions({ onOpenPolicy, focus }) {
   const [data, setData] = useState(null),
     [error, setError] = useState(""),
     [active, setActive] = useState(""),
@@ -88,6 +182,9 @@ export default function Divisions({ onOpenPolicy }) {
       live = false;
     };
   }, []);
+  useEffect(() => {
+    if (focus && data?.divisions.some((d) => d.id === focus)) setActive(focus);
+  }, [focus, data]);
   const division = data?.divisions.find((d) => d.id === active);
   const needle = term.trim().toLowerCase();
   const sections = useMemo(() => {

@@ -136,3 +136,14 @@ def test_divisions_endpoint_carries_kinds_of_work():
     rows = [r for d in body['divisions'] for s in d['sections'] for r in s['rows']]
     assert all('nature' in r and isinstance(r['also'], list) for r in rows)
     assert body['divisions'][0]['mix']['routine'] > 0
+
+
+def test_catalog_policies_carry_their_timeline():
+    from web_api.app import app
+    from fastapi.testclient import TestClient
+    policies = TestClient(app).get('/api/catalog').json()['policies']
+    assert len(policies) >= 19
+    for p in policies:
+        assert p['first_issued'] and p['last_issued'] and p['first_issued'] <= p['last_issued'], p['id']
+    by = {p['id']: p for p in policies}
+    assert by['epf_interest_rate']['first_issued'] == '2011-03-17' and by['epf_interest_rate']['last_issued'] == '2026-07-01'

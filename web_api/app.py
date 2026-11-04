@@ -154,7 +154,9 @@ def catalog():
     for policy in registered_policies():
         history = history_for(policy.id)
         checked = [d for d in history.documents.values() if d.get('source_file')]
+        issued = [d['issued_on'] for d in history.documents.values()]
         policies.append(dict(id=policy.id, label=policy.label, scope=policy.scope,
+                             first_issued=min(issued, default=None), last_issued=max(issued, default=None),
                              document_count=len(history.documents), checked_count=len(checked),
                              topics=history.policy.get('topics', []),
                              newest_checked=max((d['issued_on'] for d in checked), default=None)))

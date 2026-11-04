@@ -2760,3 +2760,53 @@ i.nat-communication, .nature.nat-communication { background: var(--nat-communica
   border: 1px solid #dce3e6;
   color: #657e8d;
 }
+
+/* Library timeline */
+.library-sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: -8px 0 20px;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8b9ba4;
+}
+.library-sort button {
+  font-size: 11px;
+  letter-spacing: 0;
+  text-transform: none;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: #fff;
+  color: #4a6372;
+}
+.library-sort button.active {
+  background: #173650;
+  border-color: #173650;
+  color: #fff;
+}
+.span-bar {
+  position: relative;
+  height: 6px;
+  margin: 0 0 14px;
+  background: #edf1f3;
+  border-radius: 3px;
+}
+.span-bar i {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: #217b7c;
+  border-radius: 3px;
+}
+.rule-card .span-bar i {
+  background: #b58c45;
+}
+.rules-heading {
+  margin-top: 42px;
+}
+.kind-text.active { color: #3f7a68; }
+.kind-text.ended { color: #a2573a; }
+.kind-text.dormant { color: #9b7a35; }

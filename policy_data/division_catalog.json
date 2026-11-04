@@ -63,6 +63,10 @@
        ],
        "status_kind": "ended",
        "collections": [],
+       "span": [
+        2008,
+        2026
+       ],
        "nature": "rule",
        "also": []
       },
@@ -76,6 +80,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2019,
+        2025
+       ],
        "nature": "rule",
        "also": []
       },
@@ -91,6 +99,10 @@
        "collections": [
         "employee_benefits"
        ],
+       "span": [
+        2018,
+        2024
+       ],
        "nature": "rule",
        "also": []
       },
@@ -104,6 +116,10 @@
        ],
        "status_kind": "ended",
        "collections": [],
+       "span": [
+        2009,
+        2019
+       ],
        "nature": "rule",
        "also": []
       },
@@ -117,6 +133,10 @@
        ],
        "status_kind": "other",
        "collections": [],
+       "span": [
+        2008,
+        2019
+       ],
        "nature": "rule",
        "also": []
       },
@@ -130,6 +150,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2008,
+        2019
+       ],
        "nature": "routine",
        "also": [
         "rule"
@@ -145,6 +169,10 @@
        ],
        "status_kind": "other",
        "collections": [],
+       "span": [
+        2015,
+        2022
+       ],
        "nature": "rule",
        "also": [
         "communication"
@@ -160,6 +188,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2022,
+        2025
+       ],
        "nature": "routine",
        "also": [
         "rule"
@@ -175,6 +207,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2015,
+        2024
+       ],
        "nature": "rule",
        "also": [
         "communication"
@@ -190,6 +226,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2022,
+        2026
+       ],
        "nature": "routine",
        "also": [
         "communication"
@@ -207,6 +247,10 @@
        "collections": [
         "delegation"
        ],
+       "span": [
+        2008,
+        2023
+       ],
        "nature": "routine",
        "also": [
         "data_request"
@@ -222,6 +266,10 @@
        ],
        "status_kind": "ended",
        "collections": [],
+       "span": [
+        2008,
+        2026
+       ],
        "nature": "communication",
        "also": [
         "rule"
@@ -237,6 +285,10 @@
        ],
        "status_kind": "other",
        "collections": [],
+       "span": [
+        2008,
+        2022
+       ],
        "nature": "communication",
        "also": [
         "rule"
@@ -252,6 +304,10 @@
        ],
        "status_kind": "other",
        "collections": [],
+       "span": [
+        2010,
+        2020
+       ],
        "nature": "communication",
        "also": []
       },
@@ -265,6 +321,10 @@
        ],
        "status_kind": "other",
        "collections": [],
+       "span": [
+        2009,
+        2019
+       ],
        "nature": "data_request",
        "also": []
       },
@@ -278,6 +338,10 @@
        ],
        "status_kind": "ended",
        "collections": [],
+       "span": [
+        2010,
+        2016
+       ],
        "nature": "routine",
        "also": []
       },
@@ -291,6 +355,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2016,
+        2016
+       ],
        "nature": "routine",
        "also": []
       },
@@ -304,6 +372,10 @@
        ],
        "status_kind": "routine",
        "collections": [],
+       "span": [
+        2013,
+        2019
+       ],
        "nature": "communication",
        "also": []
       }
@@ -351,6 +423,10 @@
        "collections": [
         "staff_transfer"
        ],
+       "span": [
+        2009,
+        2026
+       ],
        "nature": "rule",
        "also": [
         "routine"
@@ -368,6 +444,10 @@
        "collections": [
         "apar_sparrow"
        ],
+       "span": [
+        2010,
+        2026
+       ],
        "nature": "rule",
        "also": []
       },
@@ -382,6 +462,10 @@
        "status_kind": "active",
        "collections": [
         "recruitment_promotion"
+       ],
+       "span": [
+        2009,
+        2026
        ],
        "nature": "rule",
        "also": []
@@ -398,6 +482,10 @@
        "collections": [
         "dearness"
        ],
+       "span": [
+        2019,
+        2026
+       ],
        "nature": "forwarded",
        "also": []
       },
@@ -412,6 +500,10 @@
        "status_kind": "active",
        "collections": [
         "delegation"
+       ],
+       "span": [
+        2017,
+        2017
        ],
        "nature": "rule",
        "also": []
@@ -428,6 +520,10 @@
        "collections": [
         "foreign_visit"
        ],
+       "span": [
+        2013,
+        2026
+       ],
        "nature": "rule",
        "also": []
       },
@@ -443,6 +539,10 @@
        "collections": [
         "employee_benefits"
        ],
+       "span": [
+        2008,
+        2025
+       ],
        "nature": "rule",
        "also": []
       },
@@ -456,6 +556,10 @@
        ],
        "status_kind": "routine",
        "collections": [],
+       "span": [
+        2008,
+        2026
+       ],
        "nature": "routine",
        "also": []
       },
@@ -469,6 +573,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2010,
+        2026
+       ],
        "nature": "routine",
        "also": []
       },
@@ -482,6 +590,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2007,
+        2026
+       ],
        "nature": "routine",
        "also": []
       },
@@ -495,6 +607,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2015,
+        2026
+       ],
        "nature": "data_request",
        "also": [
         "rule"
@@ -510,6 +626,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2012,
+        2026
+       ],
        "nature": "rule",
        "also": []
       },
@@ -523,6 +643,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2012,
+        2026
+       ],
        "nature": "routine",
        "also": []
       },
@@ -536,6 +660,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2016,
+        2026
+       ],
        "nature": "forwarded",
        "also": [
         "routine"
@@ -551,6 +679,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2009,
+        2019
+       ],
        "nature": "routine",
        "also": []
       },
@@ -564,6 +696,10 @@
        ],
        "status_kind": "routine",
        "collections": [],
+       "span": [
+        2010,
+        2025
+       ],
        "nature": "routine",
        "also": []
       },
@@ -577,6 +713,10 @@
        ],
        "status_kind": "routine",
        "collections": [],
+       "span": [
+        2010,
+        2026
+       ],
        "nature": "dissemination",
        "also": []
       },
@@ -590,6 +730,10 @@
        ],
        "status_kind": "routine",
        "collections": [],
+       "span": [
+        2010,
+        2025
+       ],
        "nature": "data_request",
        "also": []
       }
@@ -612,6 +756,7 @@
        ],
        "status_kind": "ended",
        "collections": [],
+       "span": null,
        "nature": "forwarded",
        "also": []
       },
@@ -623,6 +768,7 @@
        ],
        "status_kind": "ended",
        "collections": [],
+       "span": null,
        "nature": "forwarded",
        "also": []
       },
@@ -634,6 +780,7 @@
        ],
        "status_kind": "ended",
        "collections": [],
+       "span": null,
        "nature": "forwarded",
        "also": []
       },
@@ -645,6 +792,7 @@
        ],
        "status_kind": "ended",
        "collections": [],
+       "span": null,
        "nature": "communication",
        "also": []
       },
@@ -656,6 +804,10 @@
        ],
        "status_kind": "ended",
        "collections": [],
+       "span": [
+        2025,
+        2025
+       ],
        "nature": "communication",
        "also": []
       },
@@ -667,6 +819,7 @@
        ],
        "status_kind": "ended",
        "collections": [],
+       "span": null,
        "nature": "routine",
        "also": []
       },
@@ -678,6 +831,7 @@
        ],
        "status_kind": "other",
        "collections": [],
+       "span": null,
        "nature": "forwarded",
        "also": []
       }
@@ -723,6 +877,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2006,
+        2026
+       ],
        "nature": "rule",
        "also": []
       },
@@ -736,6 +894,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2007,
+        2026
+       ],
        "nature": "rule",
        "also": []
       },
@@ -749,6 +911,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2012,
+        2022
+       ],
        "nature": "rule",
        "also": []
       },
@@ -762,6 +928,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2009,
+        2024
+       ],
        "nature": "routine",
        "also": [
         "rule"
@@ -777,6 +947,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2009,
+        2026
+       ],
        "nature": "rule",
        "also": [
         "data_request"
@@ -792,6 +966,10 @@
        ],
        "status_kind": "ended",
        "collections": [],
+       "span": [
+        2010,
+        2022
+       ],
        "nature": "data_request",
        "also": []
       },
@@ -805,6 +983,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2010,
+        2013
+       ],
        "nature": "data_request",
        "also": []
       },
@@ -818,6 +1000,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2008,
+        2022
+       ],
        "nature": "routine",
        "also": [
         "communication"
@@ -833,6 +1019,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2009,
+        2017
+       ],
        "nature": "routine",
        "also": []
       },
@@ -847,6 +1037,10 @@
        "status_kind": "dormant",
        "collections": [
         "legal_panel"
+       ],
+       "span": [
+        2008,
+        2020
        ],
        "nature": "rule",
        "also": [
@@ -863,6 +1057,10 @@
        ],
        "status_kind": "routine",
        "collections": [],
+       "span": [
+        2009,
+        2022
+       ],
        "nature": "data_request",
        "also": []
       },
@@ -876,6 +1074,10 @@
        ],
        "status_kind": "routine",
        "collections": [],
+       "span": [
+        2010,
+        2025
+       ],
        "nature": "dissemination",
        "also": []
       }
@@ -923,6 +1125,10 @@
        "collections": [
         "epf_interest_rate"
        ],
+       "span": [
+        2007,
+        2026
+       ],
        "nature": "forwarded",
        "also": []
       },
@@ -936,6 +1142,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2008,
+        2026
+       ],
        "nature": "routine",
        "also": [
         "data_request"
@@ -951,6 +1161,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2009,
+        2026
+       ],
        "nature": "routine",
        "also": [
         "rule"
@@ -966,6 +1180,10 @@
        ],
        "status_kind": "routine",
        "collections": [],
+       "span": [
+        2008,
+        2022
+       ],
        "nature": "data_request",
        "also": []
       },
@@ -979,6 +1197,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2008,
+        2018
+       ],
        "nature": "routine",
        "also": []
       },
@@ -992,6 +1214,10 @@
        ],
        "status_kind": "ended",
        "collections": [],
+       "span": [
+        2010,
+        2017
+       ],
        "nature": "rule",
        "also": [
         "routine"
@@ -1007,6 +1233,10 @@
        ],
        "status_kind": "ended",
        "collections": [],
+       "span": [
+        2016,
+        2020
+       ],
        "nature": "rule",
        "also": []
       },
@@ -1022,6 +1252,10 @@
        "collections": [
         "claim_authority"
        ],
+       "span": [
+        2010,
+        2021
+       ],
        "nature": "rule",
        "also": []
       },
@@ -1035,6 +1269,10 @@
        ],
        "status_kind": "ended",
        "collections": [],
+       "span": [
+        2016,
+        2020
+       ],
        "nature": "forwarded",
        "also": [
         "rule"
@@ -1050,6 +1288,10 @@
        ],
        "status_kind": "ended",
        "collections": [],
+       "span": [
+        2015,
+        2015
+       ],
        "nature": "rule",
        "also": []
       },
@@ -1063,6 +1305,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2018,
+        2025
+       ],
        "nature": "rule",
        "also": []
       },
@@ -1076,6 +1322,10 @@
        ],
        "status_kind": "routine",
        "collections": [],
+       "span": [
+        2008,
+        2022
+       ],
        "nature": "forwarded",
        "also": [
         "routine"
@@ -1093,6 +1343,10 @@
        "collections": [
         "dearness"
        ],
+       "span": [
+        2016,
+        2017
+       ],
        "nature": "forwarded",
        "also": []
       },
@@ -1106,6 +1360,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2009,
+        2018
+       ],
        "nature": "data_request",
        "also": []
       },
@@ -1119,6 +1377,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2013,
+        2016
+       ],
        "nature": "routine",
        "also": []
       },
@@ -1132,6 +1394,10 @@
        ],
        "status_kind": "other",
        "collections": [],
+       "span": [
+        2009,
+        2021
+       ],
        "nature": "forwarded",
        "also": []
       }
@@ -1177,6 +1443,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2009,
+        2026
+       ],
        "nature": "routine",
        "also": []
       },
@@ -1190,6 +1460,10 @@
        ],
        "status_kind": "ended",
        "collections": [],
+       "span": [
+        2010,
+        2016
+       ],
        "nature": "routine",
        "also": []
       },
@@ -1203,6 +1477,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2010,
+        2024
+       ],
        "nature": "routine",
        "also": [
         "communication"
@@ -1218,6 +1496,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2013,
+        2026
+       ],
        "nature": "routine",
        "also": []
       },
@@ -1231,6 +1513,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2013,
+        2026
+       ],
        "nature": "routine",
        "also": []
       },
@@ -1244,6 +1530,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2023,
+        2023
+       ],
        "nature": "communication",
        "also": []
       },
@@ -1257,6 +1547,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2020,
+        2023
+       ],
        "nature": "communication",
        "also": []
       },
@@ -1270,6 +1564,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2009,
+        2017
+       ],
        "nature": "routine",
        "also": []
       }
@@ -1315,6 +1613,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2011,
+        2026
+       ],
        "nature": "data_request",
        "also": []
       },
@@ -1328,6 +1630,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2011,
+        2026
+       ],
        "nature": "routine",
        "also": []
       },
@@ -1341,6 +1647,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2010,
+        2026
+       ],
        "nature": "rule",
        "also": [
         "communication"
@@ -1356,6 +1666,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2012,
+        2026
+       ],
        "nature": "routine",
        "also": [
         "communication"
@@ -1371,6 +1685,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2011,
+        2026
+       ],
        "nature": "rule",
        "also": []
       },
@@ -1384,6 +1702,10 @@
        ],
        "status_kind": "routine",
        "collections": [],
+       "span": [
+        2010,
+        2026
+       ],
        "nature": "communication",
        "also": []
       },
@@ -1397,6 +1719,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2010,
+        2025
+       ],
        "nature": "routine",
        "also": []
       },
@@ -1410,6 +1736,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2012,
+        2013
+       ],
        "nature": "routine",
        "also": []
       },
@@ -1424,6 +1754,10 @@
        "status_kind": "ended",
        "collections": [
         "recruitment_promotion"
+       ],
+       "span": [
+        2017,
+        2020
        ],
        "nature": "rule",
        "also": []
@@ -1472,6 +1806,10 @@
        "collections": [
         "cpps"
        ],
+       "span": [
+        2008,
+        2025
+       ],
        "nature": "rule",
        "also": [
         "routine"
@@ -1488,6 +1826,10 @@
        "status_kind": "active",
        "collections": [
         "cpps"
+       ],
+       "span": [
+        2014,
+        2026
        ],
        "nature": "rule",
        "also": [
@@ -1506,6 +1848,10 @@
        "collections": [
         "higher_pension"
        ],
+       "span": [
+        2012,
+        2023
+       ],
        "nature": "rule",
        "also": []
       },
@@ -1519,6 +1865,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2023,
+        2023
+       ],
        "nature": "rule",
        "also": [
         "forwarded"
@@ -1534,6 +1884,10 @@
        ],
        "status_kind": "other",
        "collections": [],
+       "span": [
+        2014,
+        2021
+       ],
        "nature": "forwarded",
        "also": []
       },
@@ -1547,6 +1901,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2006,
+        2017
+       ],
        "nature": "rule",
        "also": []
       },
@@ -1560,6 +1918,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2006,
+        2017
+       ],
        "nature": "rule",
        "also": []
       },
@@ -1573,6 +1935,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2017,
+        2018
+       ],
        "nature": "rule",
        "also": []
       },
@@ -1586,6 +1952,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2009,
+        2023
+       ],
        "nature": "rule",
        "also": []
       },
@@ -1599,6 +1969,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2009,
+        2013
+       ],
        "nature": "data_request",
        "also": []
       },
@@ -1612,6 +1986,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2009,
+        2014
+       ],
        "nature": "data_request",
        "also": []
       },
@@ -1625,6 +2003,10 @@
        ],
        "status_kind": "routine",
        "collections": [],
+       "span": [
+        2011,
+        2023
+       ],
        "nature": "dissemination",
        "also": []
       }
@@ -1670,6 +2052,10 @@
        ],
        "status_kind": "other",
        "collections": [],
+       "span": [
+        2009,
+        2023
+       ],
        "nature": "data_request",
        "also": [
         "communication"
@@ -1685,6 +2071,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2015,
+        2024
+       ],
        "nature": "communication",
        "also": []
       },
@@ -1700,6 +2090,10 @@
        "collections": [
         "delegation"
        ],
+       "span": [
+        2009,
+        2026
+       ],
        "nature": "communication",
        "also": []
       },
@@ -1713,6 +2107,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2018,
+        2018
+       ],
        "nature": "routine",
        "also": []
       }
@@ -1760,6 +2158,10 @@
        "collections": [
         "delegation"
        ],
+       "span": [
+        2014,
+        2023
+       ],
        "nature": "rule",
        "also": []
       },
@@ -1775,6 +2177,10 @@
        "collections": [
         "delegation"
        ],
+       "span": [
+        2016,
+        2019
+       ],
        "nature": "rule",
        "also": []
       },
@@ -1788,6 +2194,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2009,
+        2016
+       ],
        "nature": "routine",
        "also": []
       },
@@ -1801,6 +2211,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2015,
+        2018
+       ],
        "nature": "data_request",
        "also": []
       },
@@ -1814,6 +2228,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2010,
+        2019
+       ],
        "nature": "routine",
        "also": [
         "data_request"
@@ -1829,6 +2247,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2014,
+        2019
+       ],
        "nature": "routine",
        "also": []
       },
@@ -1842,6 +2264,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2010,
+        2018
+       ],
        "nature": "data_request",
        "also": []
       },
@@ -1855,6 +2281,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2009,
+        2019
+       ],
        "nature": "routine",
        "also": []
       }
@@ -1900,6 +2330,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2015,
+        2024
+       ],
        "nature": "routine",
        "also": []
       },
@@ -1913,6 +2347,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2017,
+        2019
+       ],
        "nature": "routine",
        "also": []
       },
@@ -1926,6 +2364,10 @@
        ],
        "status_kind": "routine",
        "collections": [],
+       "span": [
+        2016,
+        2019
+       ],
        "nature": "routine",
        "also": []
       },
@@ -1940,6 +2382,10 @@
        "status_kind": "dormant",
        "collections": [
         "delegation"
+       ],
+       "span": [
+        2017,
+        2018
        ],
        "nature": "routine",
        "also": [
@@ -1956,6 +2402,10 @@
        ],
        "status_kind": "routine",
        "collections": [],
+       "span": [
+        2019,
+        2019
+       ],
        "nature": "routine",
        "also": []
       },
@@ -1969,6 +2419,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2019,
+        2019
+       ],
        "nature": "forwarded",
        "also": []
       }
@@ -1995,6 +2449,10 @@
        ],
        "status_kind": "routine",
        "collections": [],
+       "span": [
+        2009,
+        2026
+       ],
        "nature": "communication",
        "also": []
       },
@@ -2010,6 +2468,10 @@
        "collections": [
         "apar_sparrow"
        ],
+       "span": [
+        2015,
+        2022
+       ],
        "nature": "rule",
        "also": []
       },
@@ -2023,6 +2485,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2016,
+        2024
+       ],
        "nature": "communication",
        "also": []
       },
@@ -2036,6 +2502,10 @@
        ],
        "status_kind": "other",
        "collections": [],
+       "span": [
+        2012,
+        2013
+       ],
        "nature": "rule",
        "also": []
       },
@@ -2049,6 +2519,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2012,
+        2013
+       ],
        "nature": "routine",
        "also": []
       },
@@ -2062,6 +2536,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2015,
+        2016
+       ],
        "nature": "data_request",
        "also": []
       },
@@ -2075,6 +2553,10 @@
        ],
        "status_kind": "routine",
        "collections": [],
+       "span": [
+        2019,
+        2019
+       ],
        "nature": "communication",
        "also": []
       }
@@ -2118,6 +2600,10 @@
        ],
        "status_kind": "other",
        "collections": [],
+       "span": [
+        2015,
+        2017
+       ],
        "nature": "rule",
        "also": []
       },
@@ -2130,6 +2616,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2016,
+        2023
+       ],
        "nature": "communication",
        "also": []
       },
@@ -2143,6 +2633,10 @@
        "status_kind": "active",
        "collections": [
         "legal_panel"
+       ],
+       "span": [
+        2016,
+        2026
        ],
        "nature": "rule",
        "also": []
@@ -2166,6 +2660,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2010,
+        2026
+       ],
        "nature": "dissemination",
        "also": [
         "communication"
@@ -2192,6 +2690,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2012,
+        2026
+       ],
        "nature": "rule",
        "also": []
       },
@@ -2204,6 +2706,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2012,
+        2026
+       ],
        "nature": "rule",
        "also": []
       },
@@ -2216,6 +2722,10 @@
        ],
        "status_kind": "routine",
        "collections": [],
+       "span": [
+        2018,
+        2018
+       ],
        "nature": "rule",
        "also": []
       }
@@ -2240,6 +2750,10 @@
        ],
        "status_kind": "other",
        "collections": [],
+       "span": [
+        2016,
+        2023
+       ],
        "nature": "communication",
        "also": []
       },
@@ -2252,6 +2766,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2016,
+        2018
+       ],
        "nature": "routine",
        "also": []
       },
@@ -2264,6 +2782,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2018,
+        2019
+       ],
        "nature": "routine",
        "also": []
       },
@@ -2276,6 +2798,10 @@
        ],
        "status_kind": "ended",
        "collections": [],
+       "span": [
+        2018,
+        2018
+       ],
        "nature": "rule",
        "also": []
       }
@@ -2300,6 +2826,10 @@
        ],
        "status_kind": "active",
        "collections": [],
+       "span": [
+        2023,
+        2025
+       ],
        "nature": "forwarded",
        "also": []
       },
@@ -2315,6 +2845,10 @@
         "aadhaar",
         "jd"
        ],
+       "span": [
+        2024,
+        2025
+       ],
        "nature": "rule",
        "also": []
       },
@@ -2328,6 +2862,10 @@
        "status_kind": "active",
        "collections": [
         "claim_authority"
+       ],
+       "span": [
+        2024,
+        2025
        ],
        "nature": "rule",
        "also": []
@@ -2343,6 +2881,10 @@
        "collections": [
         "transfers"
        ],
+       "span": [
+        2025,
+        2025
+       ],
        "nature": "rule",
        "also": []
       },
@@ -2356,6 +2898,10 @@
        "status_kind": "ended",
        "collections": [
         "advances"
+       ],
+       "span": [
+        2024,
+        2024
        ],
        "nature": "rule",
        "also": []
@@ -2381,6 +2927,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2011,
+        2017
+       ],
        "nature": "data_request",
        "also": []
       },
@@ -2393,6 +2943,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2012,
+        2015
+       ],
        "nature": "rule",
        "also": []
       },
@@ -2405,6 +2959,10 @@
        ],
        "status_kind": "dormant",
        "collections": [],
+       "span": [
+        2016,
+        2020
+       ],
        "nature": "data_request",
        "also": []
       }
@@ -2430,6 +2988,10 @@
        "status_kind": "dormant",
        "collections": [
         "apar_sparrow"
+       ],
+       "span": [
+        2015,
+        2026
        ],
        "nature": "rule",
        "also": [

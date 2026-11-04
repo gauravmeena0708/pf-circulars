@@ -50,3 +50,20 @@ def test_every_row_has_a_nature_from_the_legend_and_rules_are_labelled_by_hand()
 def test_division_mix_is_present_for_every_division():
     for d in build.build()['divisions']:
         assert sum(d['mix'].values()) > 0 and set(d['mix']) <= {'rule', 'forwarded', 'routine', 'data_request', 'dissemination', 'communication'}
+
+
+def test_builder_source_has_no_control_characters():
+    # A literal backspace once replaced the regex word boundary and silently emptied every span.
+    text = (ROOT / 'scripts/build_division_catalog.py').read_text(encoding='utf-8')
+    assert not [c for c in text if ord(c) < 32 and c not in '\n\r\t']
+
+
+def test_rows_carry_a_timeline_span_within_the_corpus_years():
+    catalog = build.build()
+    rows = [r for d in catalog['divisions'] for s in d['sections'] for r in s['rows']]
+    spans = [r['span'] for r in rows if r['span']]
+    assert len(spans) >= 130 and all(2006 <= a <= b <= 2026 for a, b in spans)
+    uncurated_rules = [r for r in rows if r['nature'] == 'rule' and not r['collections']]
+    assert len(uncurated_rules) >= 25 and all(r['span'] for r in uncurated_rules)
+    issue = next(r for r in rows if r['cells'] and 'Issue Tracker' in ' '.join(r['cells'][:2]))
+    assert issue['span'] == [2008, 2026]

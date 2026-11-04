@@ -31,7 +31,7 @@ import {
 } from "lucide-react";
 import "./style.css";
 import { Assistant, PdfTools, SessionSettings } from "./Workspace";
-import Divisions from "./Divisions";
+import Divisions, { LibraryRules, SpanBar, sortItems } from "./Divisions";
 import { headers, request as fetchWorkspace, saveResponse } from "./client";
 
 const dateText = (v) => {
@@ -107,7 +107,9 @@ function App() {
     [selectedHistory, setSelectedHistory] = useState("jd"),
     [historyTopic, setHistoryTopic] = useState(""),
     [copied, setCopied] = useState(false),
-    [hasToken, setHasToken] = useState(false);
+    [hasToken, setHasToken] = useState(false),
+    [librarySort, setLibrarySort] = useState("latest"),
+    [divisionFocus, setDivisionFocus] = useState("");
   const requestSeq = useRef(0),
     answerAbort = useRef(null),
     input = useRef(null);
@@ -1351,8 +1353,32 @@ function App() {
                   Checked originals and unresolved evidence, shown together
                 </span>
               </div>
+              <div className="library-sort" role="group" aria-label="Order by timeline">
+                <span>Timeline</span>
+                {[
+                  ["latest", "Latest first"],
+                  ["earliest", "Earliest first"],
+                  ["az", "A to Z"],
+                ].map(([v, label]) => (
+                  <button
+                    key={v}
+                    className={librarySort === v ? "active" : ""}
+                    onClick={() => setLibrarySort(v)}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
               <div className="library-grid">
-                {policies.map((p, i) => (
+                {sortItems(
+                  policies.map((p) => ({
+                    p,
+                    name: p.label,
+                    start: Number((p.first_issued || "").slice(0, 4)) || 0,
+                    end: Number((p.last_issued || "").slice(0, 4)) || 0,
+                  })),
+                  librarySort,
+                ).map(({ p, start, end }, i) => (
                   <button
                     className="library-card"
                     key={p.id}
@@ -1370,19 +1396,31 @@ function App() {
                     </div>
                     <h2>{p.label}</h2>
                     <p>{p.scope}</p>
+                    <SpanBar start={start} end={end} />
                     <div className="library-facts">
                       <span>
                         {p.checked_count}/{p.document_count} sources checked
                       </span>
-                      <span>Latest checked: {dateText(p.newest_checked)}</span>
+                      <span>
+                        {start === end ? start : `${start}-${end}`} · latest{" "}
+                        {dateText(p.last_issued)}
+                      </span>
                     </div>
                   </button>
                 ))}
               </div>
+              <LibraryRules
+                sort={librarySort}
+                onOpenDivision={(id) => {
+                  setDivisionFocus(id);
+                  setPage("divisions");
+                }}
+              />
             </>
           )}
           {page === "divisions" && (
             <Divisions
+              focus={divisionFocus}
               onOpenPolicy={(id) => {
                 setSelectedHistory(id);
                 setHistoryTopic("");

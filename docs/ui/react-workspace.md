@@ -18,6 +18,7 @@ private inference credentials. One Docker Space keeps these on the same origin.
 | Research | Existing policy router and FAISS/BM25/RRF/reranking pipeline, date cutoff, policy selector, English/Hindi streaming answers |
 | Sources | Numbered citations, selectable excerpts, page provenance, original PDF panel (fetched from the official URL and hash-checked), original-source links |
 | Policies by division | Sidebar page "Policies by division": division groups, searchable policy-topic tables with a status filter (status shown only where a circular says it), and links into the curated collections. Served by `/api/divisions` from `policy_data/division_catalog.json` |
+| Policy library timeline | Each curated history shows its first-to-latest issue span on a shared 2006-2026 bar and can be ordered latest first, earliest first or A to Z. Below them, rule topics from the division catalog that are not yet a curated history are placed on the same timeline and open the division page |
 | Policy collection | Live index count, eleven registered histories, dated timelines, scoped relationships, missing-source and commencement limitations |
 | PDF assistant | Native extraction, lazy Tesseract OCR in English/Hindi, physical-page markers, file questions, formal office noting, text/Word/original downloads |
 | CSV assistant | Schema, null counts, summary statistics, first 100 rows, exact-term search, category distributions, file-grounded questions and notes |

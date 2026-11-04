@@ -98,13 +98,17 @@ def parse(path):
             status_col = next((n for n, h in enumerate(header) if re.search(r'status|latest', h, re.I)), None)
             if status_col is not None and any(re.search(r'status', h, re.I) for h in header):
                 status_col = next(n for n, h in enumerate(header) if re.search(r'status', h, re.I))
+            span_col = next((n for n, h in enumerate(header) if re.search(r'span|circulars', h, re.I)), None)
             out = []
             for cells in rows:
                 cells = (cells + [''] * len(header))[:len(header)]
                 text = ' '.join(cells)
                 kind = status_kind(cells[status_col]) if status_col is not None else 'other'
                 links = sorted({cid for pattern, cid in COLLECTIONS if re.search(pattern, text, re.I)})
-                out.append(dict(cells=cells, status_kind=kind, collections=links))
+                year_cells = [cells[c] for c in (span_col, status_col) if c is not None]
+                years = [int(y) for cell in year_cells for y in re.findall(r'\b(?:19|20)\d{2}\b', cell) if int(y) <= 2026]
+                span = [min(years), max(years)] if years else None
+                out.append(dict(cells=cells, status_kind=kind, collections=links, span=span))
             sections.append(dict(heading=heading, columns=header, rows=out, text=''))
             seen_table, pending_text = True, []
         else:
