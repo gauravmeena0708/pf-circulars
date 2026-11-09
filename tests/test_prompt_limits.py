@@ -1,4 +1,5 @@
 from types import SimpleNamespace
+import pytest
 
 from answer_generator import bounded_prompt, describe_llm_error, get_llm_answer
 
@@ -65,12 +66,13 @@ def test_unicode_request_obeys_byte_budget():
     assert len(prompt.encode('utf-8')) <= 9000
 
 
-def test_latest_jd_request_and_retry_retain_2025_evidence_before_old_sops():
+@pytest.mark.parametrize('detail', ['brief', 'detailed'])
+def test_latest_jd_request_and_retry_retain_2025_evidence_before_old_sops(detail):
     from policy_router import route_retrieval
     question = 'What is the latest Joint Declaration policy and SOP version?'
     result = route_retrieval(question, '2026-10-28', lambda: [], mode='jd')
     for limit in (18000, 9000):
-        prompt = bounded_prompt(question, result['chunks'], policy_context=result['policy_context'], limit=limit)
+        prompt = bounded_prompt(question, result['chunks'], policy_context=result['policy_context'], limit=limit, answer_detail=detail)
         assert len(prompt.encode('utf-8')) <= limit
         numbered = prompt.split('POLICY EVIDENCE REVIEW')[0]
         assert '2025-08-13' in numbered

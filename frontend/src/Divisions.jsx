@@ -1,3 +1,4 @@
+import { useI18n } from "./UiLanguage.jsx";
 import React, { useEffect, useMemo, useState } from "react";
 import { ArrowUpRight, Search } from "lucide-react";
 import Markdown from "./Markdown";
@@ -35,11 +36,16 @@ const Inline = ({ children }) => (
 );
 
 function MixBar({ mix, natures }) {
+  const { t: tr } = useI18n();
   const total = natures.reduce((n, x) => n + (mix[x.id] || 0), 0);
   if (!total) return null;
   return (
     <div className="mix">
-      <div className="mix-bar" role="img" aria-label="Estimated mix of circulars by kind of work">
+      <div
+        className="mix-bar"
+        role="img"
+        aria-label={tr("Estimated mix of circulars by kind of work")}
+      >
         {natures
           .filter((x) => mix[x.id])
           .map((x) => (
@@ -47,7 +53,10 @@ function MixBar({ mix, natures }) {
               key={x.id}
               className={`nat-${x.id}`}
               style={{ width: `${(100 * mix[x.id]) / total}%` }}
-              title={`${NATURE_SHORT[x.id]}: ${mix[x.id]} circulars`}
+              title={tr("{value0}: {value1} circulars", {
+                value0: NATURE_SHORT[x.id],
+                value1: mix[x.id],
+              })}
             />
           ))}
       </div>
@@ -61,13 +70,14 @@ function MixBar({ mix, natures }) {
             </span>
           ))}
         <span className="mix-total">
-          estimated from the titles of {total.toLocaleString("en-IN")} circulars
+          {tr("estimated from the titles of ")}
+          {total.toLocaleString("en-IN")}
+          {tr(" circulars")}
         </span>
       </div>
     </div>
   );
 }
-
 
 const AXIS_START = 2006,
   AXIS_END = 2026;
@@ -76,10 +86,15 @@ export function SpanBar({ start, end }) {
   if (!start || !end) return null;
   const range = AXIS_END - AXIS_START + 1;
   const left = Math.max(0, ((start - AXIS_START) / range) * 100);
-  const width = Math.max(2.5, ((end - Math.max(start, AXIS_START) + 1) / range) * 100);
+  const width = Math.max(
+    2.5,
+    ((end - Math.max(start, AXIS_START) + 1) / range) * 100,
+  );
   return (
     <div className="span-bar" title={`${start}-${end}`}>
-      <i style={{ left: `${left}%`, width: `${Math.min(width, 100 - left)}%` }} />
+      <i
+        style={{ left: `${left}%`, width: `${Math.min(width, 100 - left)}%` }}
+      />
     </div>
   );
 }
@@ -88,10 +103,12 @@ const SORTS = {
   earliest: (a, b) => a.start - b.start || a.end - b.end,
   az: (a, b) => a.name.localeCompare(b.name),
 };
-export const sortItems = (items, how) => [...items].sort(SORTS[how] || SORTS.latest);
+export const sortItems = (items, how) =>
+  [...items].sort(SORTS[how] || SORTS.latest);
 
 // Rule topics from the division catalog that are not yet a curated history, ordered by timeline.
 export function LibraryRules({ sort, onOpenDivision }) {
+  const { t: tr } = useI18n();
   const [data, setData] = useState(null),
     [error, setError] = useState("");
   useEffect(() => {
@@ -130,17 +147,24 @@ export function LibraryRules({ sort, onOpenDivision }) {
   if (!items.length)
     return (
       <p className="division-note">
-        Every rule topic in the division catalog now has a verified history above.
+        {tr(
+          "Every rule topic in the division catalog now has a verified history above.",
+        )}
       </p>
     );
   return (
     <>
       <div className="library-heading rules-heading">
-        <span>{items.length} rule topics not yet a curated history</span>
         <span>
-          Rules the divisions create and manage, placed on the {AXIS_START}-{AXIS_END} timeline by
-          the span of their circulars. Evidence is from circular titles and the circulars named on
-          the division page.
+          {items.length}
+          {tr(" rule topics without a policy history")}
+        </span>
+        <span>
+          {tr("Rules the divisions create and manage, placed on the ")}
+          {AXIS_START}-{AXIS_END}
+          {tr(
+            " timeline by the span of their circulars. Evidence is from circular titles and the circulars named on the division page.",
+          )}
         </span>
       </div>
       <div className="library-grid">
@@ -149,7 +173,7 @@ export function LibraryRules({ sort, onOpenDivision }) {
             className="library-card rule-card"
             key={it.key}
             onClick={() => onOpenDivision(it.divisionId)}
-            title={`Open ${it.division}`}
+            title={tr("Open {value0}", { value0: it.division })}
           >
             <div>
               <span className="topic-index">{it.division}</span>
@@ -158,8 +182,17 @@ export function LibraryRules({ sort, onOpenDivision }) {
             <h2>{it.name}</h2>
             <SpanBar start={it.start} end={it.end} />
             <div className="library-facts">
-              <span>{it.start === it.end ? it.start : `${it.start}-${it.end}`}</span>
-              <span className={`kind-text ${it.status}`}>{KIND_LABEL[it.status]}</span>
+              <span>
+                {it.start === it.end
+                  ? it.start
+                  : tr("{value0}-{value1}", {
+                      value0: it.start,
+                      value1: it.end,
+                    })}
+              </span>
+              <span className={`kind-text ${it.status}`}>
+                {tr(KIND_LABEL[it.status])}
+              </span>
             </div>
           </button>
         ))}
@@ -169,6 +202,7 @@ export function LibraryRules({ sort, onOpenDivision }) {
 }
 
 export default function Divisions({ onOpenPolicy, focus }) {
+  const { t: tr } = useI18n();
   const [data, setData] = useState(null),
     [error, setError] = useState(""),
     [active, setActive] = useState(""),
@@ -208,7 +242,7 @@ export default function Divisions({ onOpenPolicy, focus }) {
   const shown = sections.reduce((n, s) => n + s.rows.length, 0);
 
   if (error) return <p className="division-note error">{error}</p>;
-  if (!data) return <p className="division-note">Loading divisions…</p>;
+  if (!data) return <p className="division-note">{tr("Loading divisions…")}</p>;
   const total = data.divisions.reduce((n, d) => n + d.row_count, 0);
   const counts = {};
   division?.sections.forEach((s) =>
@@ -218,11 +252,15 @@ export default function Divisions({ onOpenPolicy, focus }) {
     <>
       <div className="library-heading">
         <span>
-          {data.divisions.length} division groups · {total} policy topics
+          {data.divisions.length}
+          {tr(" division groups · ")}
+          {total}
+          {tr(" policy topics")}
         </span>
         <span>
-          Status is shown only where a circular says it. “No recent circular” is
-          not a finding that a policy has ended.
+          {tr(
+            "Status is shown only where a circular says it. “No recent circular” is not a finding that a policy has ended.",
+          )}
         </span>
       </div>
       <div className="division-chips" role="tablist">
@@ -239,13 +277,13 @@ export default function Divisions({ onOpenPolicy, focus }) {
           </button>
         ))}
       </div>
-      <div className="nature-legend" aria-label="Kinds of work">
-        <span className="nature-legend-title">Kind of work</span>
+      <div className="nature-legend" aria-label={tr("Kinds of work")}>
+        <span className="nature-legend-title">{tr("Kind of work")}</span>
         <button
           className={nature === "all" ? "active" : ""}
           onClick={() => setNature("all")}
         >
-          All
+          {tr("All")}
         </button>
         {data.natures.map((n) => (
           <button
@@ -255,7 +293,7 @@ export default function Divisions({ onOpenPolicy, focus }) {
             title={n.description}
           >
             <i className={`nat-${n.id}`} />
-            {NATURE_SHORT[n.id]}
+            {tr(NATURE_SHORT[n.id])}
             <em>{counts[n.id] || 0}</em>
           </button>
         ))}
@@ -272,23 +310,26 @@ export default function Divisions({ onOpenPolicy, focus }) {
               <input
                 value={term}
                 onChange={(e) => setTerm(e.target.value)}
-                placeholder={`Search ${division.name}`}
-                aria-label="Search policy topics"
+                placeholder={tr("Search {value0}", { value0: division.name })}
+                aria-label={tr("Search policy topics")}
               />
             </label>
             <select
               value={kind}
               onChange={(e) => setKind(e.target.value)}
-              aria-label="Filter by status"
+              aria-label={tr("Filter by status")}
             >
               {KINDS.map(([v, label]) => (
                 <option key={v} value={v}>
-                  {label}
+                  {tr(label)}
                 </option>
               ))}
             </select>
             <span className="division-count">
-              {shown} of {division.row_count} topics
+              {shown}
+              {tr(" of ")}
+              {division.row_count}
+              {tr(" topics")}
             </span>
           </div>
           {sections.map((s, i) => {
@@ -311,10 +352,10 @@ export default function Divisions({ onOpenPolicy, focus }) {
                           {cols.map((x, k) => (
                             <React.Fragment key={x.c + x.n}>
                               <th>{x.c}</th>
-                              {k === 0 && <th>Kind of work</th>}
+                              {k === 0 && <th>{tr("Kind of work")}</th>}
                             </React.Fragment>
                           ))}
-                          <th>Collection</th>
+                          <th>{tr("Collection")}</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -325,7 +366,7 @@ export default function Divisions({ onOpenPolicy, focus }) {
                                 <td>
                                   {/status/i.test(x.c) && (
                                     <em className={`kind ${r.status_kind}`}>
-                                      {KIND_LABEL[r.status_kind]}
+                                      {tr(KIND_LABEL[r.status_kind])}
                                     </em>
                                   )}
                                   <Inline>{r.cells[x.n]}</Inline>
@@ -333,15 +374,15 @@ export default function Divisions({ onOpenPolicy, focus }) {
                                 {k === 0 && (
                                   <td className="nature-cell">
                                     <span className={`nature nat-${r.nature}`}>
-                                      {NATURE_SHORT[r.nature]}
+                                      {tr(NATURE_SHORT[r.nature])}
                                     </span>
                                     {r.also.map((a) => (
                                       <span
                                         key={a}
                                         className={`nature also nat-${a}`}
-                                        title="Also includes"
+                                        title={tr("Also includes")}
                                       >
-                                        + {NATURE_SHORT[a]}
+                                        + {tr(NATURE_SHORT[a])}
                                       </span>
                                     ))}
                                   </td>
@@ -355,7 +396,9 @@ export default function Divisions({ onOpenPolicy, focus }) {
                                   <button
                                     key={id}
                                     onClick={() => onOpenPolicy(id)}
-                                    title={`Open ${data.collections[id]}`}
+                                    title={tr("Open {value0}", {
+                                      value0: data.collections[id],
+                                    })}
                                   >
                                     {data.collections[id]}
                                     <ArrowUpRight size={12} />
@@ -373,7 +416,7 @@ export default function Divisions({ onOpenPolicy, focus }) {
           })}
           {shown === 0 && (
             <p className="division-note">
-              No topics match. Clear the search or a filter.
+              {tr("No topics match. Clear the search or a filter.")}
             </p>
           )}
           {division.notes && (
@@ -382,10 +425,11 @@ export default function Divisions({ onOpenPolicy, focus }) {
             </p>
           )}
           <p className="division-foot">
-            Source: <code>{division.source_file}</code>. Counts are approximate
-            and topics overlap; the division tag is the issuing division. Kind
-            of work: each topic is labelled by hand; the bar is an estimate from
-            circular titles.
+            {tr("Source: ")}
+            <code>{division.source_file}</code>
+            {tr(
+              ". Counts are approximate and topics overlap; the division tag is the issuing division. Kind of work: each topic is labelled by hand; the bar is an estimate from circular titles.",
+            )}
           </p>
         </>
       )}

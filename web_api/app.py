@@ -12,6 +12,7 @@ import sqlite3
 import threading
 import time
 from uuid import uuid4
+from typing import Literal
 
 from fastapi import FastAPI, HTTPException, UploadFile, File, Form, Request, Header
 from fastapi.responses import FileResponse, RedirectResponse, StreamingResponse, Response
@@ -63,6 +64,7 @@ class SearchRequest(BaseModel):
 
 class AnswerRequest(BaseModel):
     language: str = 'English'
+    detail: Literal['brief', 'detailed'] = 'brief'
 
 
 def check_day(day):
@@ -301,10 +303,13 @@ def answer(packet_id: str, request: AnswerRequest, http_request: Request, x_hf_t
     from answer_generator import get_llm_answer, initialize_llm, describe_llm_error
     def events():
         try:
-            model = initialize_llm(hf_token=x_hf_token) if x_hf_token else initialize_llm()
+            options = {'hf_token': x_hf_token} if x_hf_token else {}
+            if request.detail == 'detailed':
+                options['max_new_tokens'] = max(config.LLM_MAX_NEW_TOKENS, 2048)
+            model = initialize_llm(**options)
             stream = get_llm_answer(packet['question'], packet['chunks'], model, stream=True,
                                     answer_language=request.language, policy_context=packet['context'],
-                                    currency=packet.get('currency'))
+                                    currency=packet.get('currency'), answer_detail=request.detail)
             if isinstance(stream, str):
                 stream = [stream]
             for chunk in stream:

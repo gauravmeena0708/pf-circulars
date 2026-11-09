@@ -2,6 +2,7 @@ from types import SimpleNamespace
 import unittest
 
 from answer_generator import describe_llm_error, format_prompt
+import pytest
 
 
 class FormatPromptTests(unittest.TestCase):
@@ -92,10 +93,11 @@ class FormatPromptTests(unittest.TestCase):
         self.assertIn("Source [1]", prompt)
         self.assertIn("Interest Rate Circular", prompt)
 
-    def test_english_answer_adds_no_language_instruction(self):
+    def test_english_answer_explicitly_requests_english(self):
         prompt = format_prompt("What is the PF interest rate?", self._sample_chunks())
 
         self.assertNotIn("Hindi", prompt)
+        self.assertIn("Write the entire answer in English.", prompt)
 
     def test_hindi_answer_requests_hindi_but_keeps_citations_verbatim(self):
         prompt = format_prompt(
@@ -167,3 +169,16 @@ def test_answer_invocation_receives_dated_policy_review():
     assert "POLICY EVIDENCE REVIEW" in captured[0].content
     assert "relationship_verified_timing_unresolved" in captured[0].content
     assert "Aadhaar" in captured[0].content
+
+
+@pytest.mark.parametrize('detail', ['brief', 'detailed'])
+def test_answer_style_leads_with_the_answer_and_keeps_material_qualifications(detail):
+    prompt = format_prompt('Which documents are needed?', [{
+        'text': 'Required documents and conditions.', 'metadata': {},
+    }], answer_detail=detail, currency={'newest_cited':'2025-04-03'})
+    assert 'Start with a direct, cited answer' in prompt
+    assert 'Never omit a material qualification for brevity' in prompt
+    assert 'Begin the answer with the issue date' not in prompt
+    assert 'never say a provision is current' in prompt
+    assert ('150-250 words' in prompt) == (detail == 'brief')
+    assert ('fuller explanation' in prompt) == (detail == 'detailed')

@@ -1,5 +1,39 @@
 # React workspace decision and implementation
 
+## Stakeholder usability update - 9 November 2026
+
+The main research action is **Get answer**: retrieve the source packet and then
+stream an answer from that same packet. **Search documents only** skips inference.
+When inference is not configured, sources remain readable and the interface
+explains that answers are unavailable. A new question cancels the previous
+generation, and older requests cannot replace the new result.
+
+**Brief answer** is the default, with a **Detailed explanation** option. The API
+accepts `detail: "brief" | "detailed"` on the answer request, independently of
+`language`. Detailed requests allow at least 2,048 output tokens; brief requests
+keep the existing configured budget. The prompt leads with a direct cited answer,
+targets 150-250 words for routine brief questions, uses steps for procedures, and
+explains history only when relevant. Explicit user requests for format or length
+take precedence. Citation, supersession, missing-source and applicability rules
+remain in both styles, including the smaller 413 retry prompt.
+
+The English/हिन्दी interface toggle is independent of answer language and updates
+the document's language attribute. Navigation, controls and supporting interface
+copy use a small local translation dictionary. Official titles, source excerpts
+and evidence limitations returned by the API retain their original language.
+Task shortcuts cover member corrections, PF transfers, pensions, employer
+compliance and staff matters. Reading text is 16px; supporting labels are larger,
+and date-limit information remains visible on small screens.
+
+New previews: [desktop research](screenshots/stakeholder-research.png) and
+[Hindi mobile research](screenshots/stakeholder-mobile-hi.png).
+
+Validation: the production build, frontend Markdown check and 61 API/prompt/session
+checks pass. Chromium checks cover all seven pages at 320, 390, 768, 1024 and
+1440px, plus automatic generation, document-only searches, independent language
+choices, answer length and cancellation of stale answers. Browser generation uses
+a test stream; these checks do not benchmark paid-model answer quality.
+
 Use React + Vite and FastAPI together in one Hugging Face Docker Space. The
 institutional interface uses navy `#173650`, teal `#217b7c`, restrained gold
 `#b58c45`, serif headings and fine rules. It identifies itself as an independent

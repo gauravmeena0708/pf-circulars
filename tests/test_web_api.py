@@ -89,21 +89,22 @@ def test_missing_packet_cannot_start_inference():
     assert client.post('/api/answers/not-a-packet',json={'language':'English'}).status_code==410
 
 
-def test_answer_stream_uses_the_selected_evidence_packet(monkeypatch):
+@pytest.mark.parametrize('detail', ['brief', 'detailed'])
+def test_answer_stream_uses_the_selected_evidence_packet(monkeypatch, detail):
     import config
     import answer_generator
     from types import SimpleNamespace
     packet = client.post('/api/search',json={'question':'Bank KYC employer approval?', 'policy':'bank_kyc','as_of':'2025-04-03'}).json()
     calls = {}
     def generate(question, chunks, model, **kwargs):
-        calls.update(question=question, chunks=chunks, context=kwargs['policy_context'], language=kwargs['answer_language'])
+        calls.update(question=question, chunks=chunks, context=kwargs['policy_context'], language=kwargs['answer_language'], detail=kwargs['answer_detail'])
         yield SimpleNamespace(content='Supported answer ')
         yield SimpleNamespace(content='[1]')
     monkeypatch.setattr(config, 'HF_TOKEN', 'test-only-not-a-real-token')
-    monkeypatch.setattr(answer_generator, 'initialize_llm', lambda: object())
+    monkeypatch.setattr(answer_generator, 'initialize_llm', lambda **kwargs: calls.update(model_options=kwargs) or object())
     monkeypatch.setattr(answer_generator, 'get_llm_answer', generate)
     monkeypatch.setattr(module, 'limiter', lambda: SimpleNamespace(try_acquire=lambda: (True, 0)))
-    response = client.post('/api/answers/'+packet['packet_id'],json={'language':'Hindi'})
+    response = client.post('/api/answers/'+packet['packet_id'],json={'language':'Hindi', 'detail':detail})
     assert response.status_code==200
     import json
     events = [json.loads(line) for line in response.text.splitlines()]
@@ -111,7 +112,16 @@ def test_answer_stream_uses_the_selected_evidence_packet(monkeypatch):
     assert events[-1]=={'done':True}
     assert calls['context']['as_of']=='2025-04-03'
     assert calls['language']=='Hindi'
+    assert calls['detail']==detail
+    if detail == 'detailed':
+        assert calls['model_options']['max_new_tokens'] >= 2048
+    else:
+        assert calls['model_options'] == {}
     assert len(calls['chunks'])==len(packet['sources'])
+
+
+def test_invalid_answer_detail_is_rejected_before_inference():
+    assert client.post('/api/answers/not-a-packet', json={'detail':'unbounded'}).status_code == 422
 
 
 def test_divisions_endpoint_serves_the_catalog_with_registered_collection_links():

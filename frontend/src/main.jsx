@@ -1,3 +1,4 @@
+import { I18nProvider, useI18n } from "./UiLanguage.jsx";
 import React, { useState, useEffect, useRef } from "react";
 import { createRoot } from "react-dom/client";
 import Markdown from "./Markdown";
@@ -86,6 +87,7 @@ function Status({ children, kind = "neutral" }) {
   );
 }
 function App() {
+  const { t: tr, locale, setLocale } = useI18n();
   const [catalog, setCatalog] = useState(null),
     [page, setPage] = useState("research"),
     [menu, setMenu] = useState(false),
@@ -93,7 +95,8 @@ function App() {
     [policy, setPolicy] = useState("auto"),
     [queryTopic, setQueryTopic] = useState(""),
     [day, setDay] = useState(new Date().toLocaleDateString("en-CA")),
-    [language, setLanguage] = useState("English");
+    [language, setLanguage] = useState("English"),
+    [detail, setDetail] = useState("brief");
   const [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
     [result, setResult] = useState(null),
@@ -149,8 +152,14 @@ function App() {
       live = false;
     };
   }, [page, selectedHistory, historyTopic, day]);
-  async function search(e, question = query, mode = policy) {
+  async function search(
+    e,
+    question = query,
+    mode = policy,
+    documentsOnly = false,
+  ) {
     e?.preventDefault();
+    documentsOnly ||= e?.nativeEvent?.submitter?.value === "documents";
     if (question.trim().length < 3) return;
     const seq = ++requestSeq.current;
     answerAbort.current?.abort();
@@ -177,28 +186,37 @@ function App() {
         }),
       );
       if (seq !== requestSeq.current) return;
-      setResult({ ...r, selection_mode: mode });
+      const packet = { ...r, selection_mode: mode };
+      setResult(packet);
       setSource(r.sources[0] || null);
       setRecent((v) =>
         [question, ...v.filter((x) => x !== question)].slice(0, 5),
       );
+      setBusy(false);
+      if (
+        !documentsOnly &&
+        r.sources.length &&
+        (catalog?.answer_enabled || hasToken)
+      ) {
+        await generate(packet, seq);
+      }
     } catch (e) {
       if (seq === requestSeq.current) setError(e.message);
     } finally {
       if (seq === requestSeq.current) setBusy(false);
     }
   }
-  async function generate() {
-    if (!result) return;
-    const seq = requestSeq.current,
-      controller = new AbortController();
+  async function generate(packet = result, seq = requestSeq.current) {
+    if (!packet || seq !== requestSeq.current) return;
+    answerAbort.current?.abort();
+    const controller = new AbortController();
     answerAbort.current = controller;
     setGenerating(true);
     setAnswer("");
     setError("");
     try {
-      const r = await fetch("/api/answers/" + result.packet_id, {
-        ...post({ language }),
+      const r = await fetch("/api/answers/" + packet.packet_id, {
+        ...post({ language, detail }),
         headers: headers({ "Content-Type": "application/json" }),
         signal: controller.signal,
       });
@@ -218,7 +236,11 @@ function App() {
           if (!line) continue;
           const item = JSON.parse(line);
           if (item.error) throw Error(item.error);
-          if (item.text && seq === requestSeq.current)
+          if (
+            item.text &&
+            seq === requestSeq.current &&
+            !controller.signal.aborted
+          )
             setAnswer((v) => v + item.text);
         }
         if (done) break;
@@ -227,7 +249,8 @@ function App() {
       if (e.name !== "AbortError" && seq === requestSeq.current)
         setError(e.message);
     } finally {
-      if (seq === requestSeq.current) setGenerating(false);
+      if (seq === requestSeq.current && answerAbort.current === controller)
+        setGenerating(false);
     }
   }
   function selectSource(id) {
@@ -245,24 +268,21 @@ function App() {
     selected = policies.find((p) => p.id === policy);
   const examples = [
     [
-      "Joint declaration",
-      "What is the procedure for joint declaration profile update?",
-      "jd",
+      "Correct member details",
+      "What is the procedure for a joint declaration profile update?",
     ],
     [
-      "EPF account transfer",
+      "Transfer PF",
       "Can a transfer claim be rejected for overlapping service?",
-      "transfers",
+    ],
+    ["Pension", "How does CPPS handle a pensioner changing bank branch?"],
+    [
+      "Employer compliance",
+      "What are the employer requirements for filing ECR returns?",
     ],
     [
-      "Bank KYC",
-      "Is employer approval required for bank account seeding?",
-      "bank_kyc",
-    ],
-    [
-      "Pension payment",
-      "How does CPPS handle a pensioner changing bank branch?",
-      "cpps",
+      "Staff matters",
+      "What is the procedure for an EPFO staff transfer request?",
     ],
   ];
   const exportReport = () =>
@@ -278,7 +298,7 @@ function App() {
         "\n\n" +
         (context
           ? "Evidence is incomplete. Complete applicability is not established."
-          : "Standard hybrid search; the history date cutoff is not applied."),
+          : "Search of all documents; the policy-history date limit is not applied."),
     );
   return (
     <div className="app">
@@ -295,10 +315,11 @@ function App() {
             <BookOpen size={23} />
           </span>
           <span>
-            EPFO<span className="brand-sub">KNOWLEDGE ASSISTANT</span>
+            {tr("EPFO")}
+            <span className="brand-sub">{tr("KNOWLEDGE ASSISTANT")}</span>
           </span>
         </a>
-        <div className="sidebar-label">WORKSPACE</div>
+        <div className="sidebar-label">{tr("WORKSPACE")}</div>
         <nav>
           <button
             className={page === "research" ? "active" : ""}
@@ -308,7 +329,8 @@ function App() {
             }}
           >
             <Search size={18} />
-            Policy research<span className="nav-shortcut">⌘ K</span>
+            {tr("Ask about EPFO rules")}
+            <span className="nav-shortcut">{tr("⌘ K")}</span>
           </button>
           <button
             className={page === "history" ? "active" : ""}
@@ -318,7 +340,7 @@ function App() {
             }}
           >
             <GitBranch size={18} />
-            Circular history
+            {tr("Policy changes")}
             <span className="nav-count">{policies.length || "—"}</span>
           </button>
           <button
@@ -329,7 +351,7 @@ function App() {
             }}
           >
             <LibraryBig size={18} />
-            Policy library
+            {tr("Browse policies")}
           </button>
           <button
             className={page === "divisions" ? "active" : ""}
@@ -339,7 +361,7 @@ function App() {
             }}
           >
             <Building2 size={18} />
-            Policies by division
+            {tr("Browse by division")}
           </button>
           <button
             className={page === "assistant" ? "active" : ""}
@@ -349,7 +371,7 @@ function App() {
             }}
           >
             <FileText size={18} />
-            Document & data assistant
+            {tr("File assistant")}
           </button>
           <button
             className={page === "tools" ? "active" : ""}
@@ -359,7 +381,7 @@ function App() {
             }}
           >
             <Files size={18} />
-            PDF utilities
+            {tr("PDF tools")}
           </button>
           <button
             className={page === "settings" ? "active" : ""}
@@ -369,11 +391,11 @@ function App() {
             }}
           >
             <Settings2 size={18} />
-            Session settings
+            {tr("Settings")}
           </button>
         </nav>
         <div className="sidebar-divider" />
-        <div className="sidebar-label">RECENT RESEARCH</div>
+        <div className="sidebar-label">{tr("RECENT RESEARCH")}</div>
         <div className="recent">
           {recent.length ? (
             recent.map((q) => (
@@ -390,9 +412,9 @@ function App() {
             ))
           ) : (
             <p>
-              Your recent questions will
+              {tr("Your recent questions will")}
               <br />
-              appear here during this visit.
+              {tr("appear here during this visit.")}
             </p>
           )}
         </div>
@@ -402,19 +424,23 @@ function App() {
               <LibraryBig size={18} />
             </span>
             <div>
-              Research collection
+              {tr("Research collection")}
               <small>
-                {catalog?.passage_count?.toLocaleString() || "Loading…"}{" "}
-                searchable passages
+                {catalog?.passage_count?.toLocaleString() || tr("Loading…")}{" "}
+                {tr("searchable passages")}
                 {catalog?.corpus_as_of && (
-                  <> · circulars to {dateText(catalog.corpus_as_of)}</>
+                  <>
+                    {tr(" · circulars to ")}
+                    {dateText(catalog.corpus_as_of)}
+                  </>
                 )}
               </small>
             </div>
           </div>
           <div className="independent">
             <span />
-            Independent research tool<small>Not an official EPFO service</small>
+            {tr("Independent research tool")}
+            <small>{tr("Not an official EPFO service")}</small>
           </div>
         </div>
       </aside>
@@ -423,7 +449,7 @@ function App() {
         <header className="topbar">
           <button
             className="mobile-menu icon-btn"
-            aria-label="Open navigation"
+            aria-label={tr("Open navigation")}
             aria-expanded={menu}
             aria-controls="workspace-nav"
             onClick={() => setMenu(!menu)}
@@ -431,29 +457,54 @@ function App() {
             <Menu size={20} />
           </button>
           <div className="breadcrumb">
-            Workspace
+            {tr("Workspace")}
             <ChevronRight size={13} />
             <strong>
-              {
+              {tr(
                 {
-                  research: "Policy research",
-                  history: "Circular history",
-                  library: "Policy library",
-                  assistant: "Document & data assistant",
-                  tools: "PDF utilities",
-                  settings: "Session settings",
-                }[page]
-              }
+                  research: "Ask about EPFO rules",
+                  history: "Policy changes",
+                  library: "Browse policies",
+                  divisions: "Browse by division",
+                  assistant: "File assistant",
+                  tools: "PDF tools",
+                  settings: "Settings",
+                }[page],
+              )}
             </strong>
           </div>
           <div className="top-actions">
-            <span className="preview-tag">RESEARCH & OFFICE WORKSPACE</span>
+            <div
+              className="interface-language"
+              role="group"
+              aria-label={tr("Interface language")}
+            >
+              <button
+                type="button"
+                lang="en"
+                aria-pressed={locale === "en"}
+                onClick={() => setLocale("en")}
+              >
+                English
+              </button>
+              <button
+                type="button"
+                lang="hi"
+                aria-pressed={locale === "hi"}
+                onClick={() => setLocale("hi")}
+              >
+                हिन्दी
+              </button>
+            </div>
+            <span className="preview-tag">
+              {tr("RESEARCH & OFFICE WORKSPACE")}
+            </span>
             <a
               href="https://www.epfo.gov.in/circulars"
               target="_blank"
               rel="noreferrer"
             >
-              EPFO circulars
+              {tr("EPFO circulars")}
               <ArrowUpRight size={14} />
             </a>
           </div>
@@ -462,43 +513,47 @@ function App() {
           <div className="page-heading">
             <div>
               <div className="eyebrow">
-                CIRCULARS · SCHEMES · STATUTORY MANUALS
+                {tr("CIRCULARS · SCHEMES · STATUTORY MANUALS")}
               </div>
               <h1>
-                {
+                {tr(
                   {
-                    research: "Research with the source in view.",
+                    research: "Find the EPFO guidance you need.",
                     history: "Follow the policy through time.",
-                    library: "A structured policy collection.",
+                    library: "Browse policies by topic.",
+                    divisions: "Find policies by EPFO division.",
                     assistant: "Work from the document.",
                     tools: "Prepare documents with care.",
                     settings: "Your workspace preferences.",
-                  }[page]
-                }
+                  }[page],
+                )}
               </h1>
               <p>
-                {
+                {tr(
                   {
                     research:
-                      "Find provisions, understand changes, and review the evidence behind each answer.",
+                      "Ask a question, get an answer with references, and check the original circular.",
                     history:
                       "Review issued instructions, amendments and the links that still need verification.",
                     library:
-                      "Explore curated histories alongside the complete circular and statutory search index.",
+                      "Explore policy changes, circulars and statutory manuals by topic.",
+                    divisions:
+                      "Choose a division to explore its policy topics and source circulars.",
                     assistant:
                       "Review a PDF, explore a CSV, and draft file-grounded notes in English or Hindi.",
                     tools:
                       "Merge, extract, rotate, compress and OCR your office documents.",
                     settings:
-                      "Configure an optional inference token for this browser visit.",
-                  }[page]
-                }
+                      "Manage your optional personal token for this visit.",
+                  }[page],
+                )}
               </p>
             </div>
             <div className="heading-stamp">
               <span className="stamp-line" />
               <span>
-                EVIDENCE FIRST<small>Sources. Dates. Context.</small>
+                {tr("EVIDENCE FIRST")}
+                <small>{tr("Sources. Dates. Context.")}</small>
               </span>
             </div>
           </div>
@@ -508,7 +563,7 @@ function App() {
               <span>{error}</span>
               <button
                 className="icon-btn"
-                aria-label="Dismiss error"
+                aria-label={tr("Dismiss error")}
                 onClick={() => setError("")}
               >
                 <X size={16} />
@@ -519,12 +574,13 @@ function App() {
             <>
               <section className="search-card">
                 <div className="section-kicker">
-                  <span className="number-label">01</span> ASK A POLICY QUESTION
+                  <span className="number-label">01</span>
+                  {tr(" ASK YOUR QUESTION")}
                   <span className="search-label">
                     <span className="live-dot" />
                     {catalog
-                      ? "Connected to the research collection"
-                      : "Loading the research collection…"}
+                      ? tr("Connected to the research collection")
+                      : tr("Loading the research collection…")}
                   </span>
                 </div>
                 <form onSubmit={search}>
@@ -532,10 +588,12 @@ function App() {
                     <Search size={21} />
                     <input
                       ref={input}
-                      aria-label="Policy question"
+                      aria-label={tr("Policy question")}
                       value={query}
                       onChange={(e) => setQuery(e.target.value)}
-                      placeholder="For example, what is the procedure for a joint declaration profile update?"
+                      placeholder={tr(
+                        "For example, what is the procedure for a joint declaration profile update?",
+                      )}
                       required
                       minLength={3}
                       maxLength={6000}
@@ -546,16 +604,44 @@ function App() {
                       ) : (
                         <Search size={17} />
                       )}{" "}
-                      {busy ? "Finding evidence…" : "Find evidence"}
+                      {busy ? tr("Finding sources…") : tr("Get answer")}
                     </button>
+                  </div>
+                  <div className="search-actions">
+                    <button
+                      type="submit"
+                      value="documents"
+                      className="text-button"
+                      disabled={busy || !catalog}
+                    >
+                      <Search size={16} />
+                      {tr(" Search documents only")}
+                    </button>
+                    {catalog && !(catalog.answer_enabled || hasToken) && (
+                      <p>
+                        {tr(
+                          "Answers are unavailable right now. You can still search and read source documents.",
+                        )}
+                      </p>
+                    )}
                   </div>
                   <div className="filters">
                     <div className="automatic-scope">
                       <GitBranch size={15} />
                       <span>
                         {policy === "auto"
-                          ? "Policy and matter detected automatically"
-                          : `Scope: ${selected?.label || "Entire collection"}${selected?.topics?.find((t) => t.id === queryTopic) ? " · " + selected.topics.find((t) => t.id === queryTopic).label : ""}`}
+                          ? tr("Topic selected from your question")
+                          : tr("Scope: {value0}{value1}", {
+                              value0: selected?.label || "Entire collection",
+                              value1: selected?.topics?.find(
+                                (t) => t.id === queryTopic,
+                              )
+                                ? " · " +
+                                  selected.topics.find(
+                                    (t) => t.id === queryTopic,
+                                  ).label
+                                : "",
+                            })}
                       </span>
                       {policy !== "auto" && (
                         <button
@@ -566,17 +652,17 @@ function App() {
                             setQueryTopic("");
                           }}
                         >
-                          Use automatic
+                          {tr("Use automatic")}
                         </button>
                       )}
                     </div>
                     <div className="filter-divider" />
                     <label>
-                      EVIDENCE AS OF
+                      {tr("CIRCULARS ISSUED BY")}
                       <div className="date-field">
                         <CalendarDays size={15} />
                         <input
-                          aria-label="Evidence as of"
+                          aria-label={tr("Circulars issued by")}
                           type="date"
                           min="1952-01-01"
                           max={catalog?.today}
@@ -588,46 +674,64 @@ function App() {
                     </label>
                     <div className="filter-divider" />
                     <label>
-                      ANSWER LANGUAGE
+                      {tr("ANSWER LANGUAGE")}
                       <select
-                        aria-label="Answer language"
+                        aria-label={tr("Answer language")}
                         value={language}
+                        disabled={busy || generating}
                         onChange={(e) => setLanguage(e.target.value)}
                       >
-                        <option>English</option>
-                        <option>Hindi</option>
+                        <option value="English">{tr("English")}</option>
+                        <option value="Hindi">{tr("Hindi")}</option>
                       </select>
                     </label>
-                    <span className="filter-note">
-                      <CircleHelp size={14} />
-                      The date filters curated histories.
-                      <br />
-                      It does not certify applicability.
-                    </span>
+                    <label>
+                      {tr("ANSWER LENGTH")}
+                      <select
+                        aria-label={tr("Answer length")}
+                        value={detail}
+                        disabled={busy || generating}
+                        onChange={(e) => setDetail(e.target.value)}
+                      >
+                        <option value="brief">{tr("Brief answer")}</option>
+                        <option value="detailed">
+                          {tr("Detailed explanation")}
+                        </option>
+                      </select>
+                    </label>
+                    <p className="filter-note">
+                      <CircleHelp size={16} />
+                      {tr(
+                        "The date limits policy histories. It does not confirm which rules still apply.",
+                      )}
+                    </p>
                   </div>
                   <details className="search-refinements">
                     <summary>
-                      Refine search scope <span>Optional</span>
+                      {tr("Choose a policy or search all documents ")}
+                      <span>{tr("Optional")}</span>
                     </summary>
                     <div className="refinement-fields">
                       <label>
-                        POLICY COLLECTION (OPTIONAL)
+                        {tr("POLICY TOPIC (OPTIONAL)")}
                         <select
-                          aria-label="Policy collection"
+                          aria-label={tr("Policy collection")}
                           value={policy}
                           onChange={(e) => {
                             setPolicy(e.target.value);
                             setQueryTopic("");
                           }}
                         >
-                          <option value="auto">Detect from question</option>
+                          <option value="auto">
+                            {tr("Detect from question")}
+                          </option>
                           {policies.map((p) => (
                             <option key={p.id} value={p.id}>
                               {p.label}
                             </option>
                           ))}
                           <option value="hybrid">
-                            Search entire collection
+                            {tr("Search all documents")}
                           </option>
                         </select>
                       </label>
@@ -636,13 +740,15 @@ function App() {
                           ?.topics || []
                       ).length > 0 && (
                         <label>
-                          MATTER
+                          {tr("SUBTOPIC")}
                           <select
-                            aria-label="Research matter"
+                            aria-label={tr("Policy subtopic")}
                             value={queryTopic}
                             onChange={(e) => setQueryTopic(e.target.value)}
                           >
-                            <option value="">Detect from question</option>
+                            <option value="">
+                              {tr("Detect from question")}
+                            </option>
                             {catalog.policies
                               .find((p) => p.id === policy)
                               .topics.map((t) => (
@@ -654,10 +760,9 @@ function App() {
                         </label>
                       )}
                       <p>
-                        Use this for a short follow-up or to choose a different
-                        collection. Automatic search matches your question to a
-                        policy and searches the full collection when no curated
-                        policy matches.
+                        {tr(
+                          "We match your question to a policy topic automatically. Choose a topic here to narrow your search, or search all documents. The date limit applies to policy histories only.",
+                        )}
                       </p>
                     </div>
                   </details>
@@ -666,10 +771,10 @@ function App() {
               {!result && !busy && (
                 <>
                   <div className="suggestions">
-                    <span>EXPLORE A QUESTION</span>
+                    <span>{tr("START WITH A TASK")}</span>
                     {examples.map(([label, q]) => (
                       <button
-                        key={label}
+                        key={tr(label)}
                         onClick={(e) => {
                           setQuery(q);
                           setPolicy("auto");
@@ -677,7 +782,7 @@ function App() {
                           search(e, q, "auto");
                         }}
                       >
-                        {label}
+                        {tr(label)}
                         <ArrowUpRight size={13} />
                       </button>
                     ))}
@@ -685,61 +790,63 @@ function App() {
                   <div className="start-grid">
                     <section className="start-main">
                       <span className="eyebrow">
-                        A MORE TRACEABLE WAY TO RESEARCH
+                        {tr("ANSWERS WITH REFERENCES")}
                       </span>
                       <h2>
-                        From a question
+                        {tr("From a question")}
                         <br />
-                        to the original circular.
+                        {tr("to the original circular.")}
                       </h2>
                       <p>
-                        Your workspace brings the answer, its source pages and
-                        the policy’s history together. Start with a specific
-                        question or explore a curated collection.
+                        {tr(
+                          "See the answer, source pages and policy changes together. Ask a specific question or browse a policy topic.",
+                        )}
                       </p>
                       <div className="steps">
                         <div>
                           <span>01</span>
-                          <strong>Locate provisions</strong>
-                          <p>Search circulars and statutory manuals.</p>
+                          <strong>{tr("Locate provisions")}</strong>
+                          <p>{tr("Search circulars and statutory manuals.")}</p>
                         </div>
                         <div>
                           <span>02</span>
-                          <strong>Understand changes</strong>
-                          <p>Review dates and scoped relationships.</p>
+                          <strong>{tr("Understand changes")}</strong>
+                          <p>{tr("See what later instructions changed.")}</p>
                         </div>
                         <div>
                           <span>03</span>
-                          <strong>Check the original</strong>
-                          <p>Read the cited page before relying on it.</p>
+                          <strong>{tr("Check the original")}</strong>
+                          <p>
+                            {tr("Read the cited page before relying on it.")}
+                          </p>
                         </div>
                       </div>
                     </section>
                     <section className="collection-card">
                       <div className="collection-card-title">
                         <LibraryBig size={19} />
-                        <span>THE RESEARCH COLLECTION</span>
+                        <span>{tr("THE RESEARCH COLLECTION")}</span>
                       </div>
                       <div className="big-stat">
                         {catalog?.passage_count?.toLocaleString() || "—"}
-                        <span>searchable passages</span>
+                        <span>{tr("searchable passages")}</span>
                       </div>
                       <div className="stat-rule" />
                       <div className="small-stats">
                         <div>
                           <strong>{policies.length || "—"}</strong>
-                          <span>curated policy histories</span>
+                          <span>{tr("policy histories")}</span>
                         </div>
                         <div>
-                          <strong>PDF</strong>
-                          <span>physical page provenance</span>
+                          <strong>{tr("PDF")}</strong>
+                          <span>{tr("original source pages")}</span>
                         </div>
                       </div>
                       <button
                         className="text-button"
                         onClick={() => setPage("library")}
                       >
-                        Explore policy collections
+                        {tr("Explore policy collections")}
                         <ArrowRight size={16} />
                       </button>
                     </section>
@@ -747,14 +854,16 @@ function App() {
                   <section className="topics">
                     <div className="section-title">
                       <div>
-                        <span className="eyebrow">CURATED COLLECTIONS</span>
-                        <h2>Start with a policy.</h2>
+                        <span className="eyebrow">{tr("POLICY TOPICS")}</span>
+                        <h2>{tr("Start with a policy.")}</h2>
                       </div>
                       <button
                         className="text-button"
                         onClick={() => setPage("library")}
                       >
-                        View all {policies.length} collections
+                        {tr("View all {count} collections", {
+                          count: policies.length,
+                        })}
                         <ArrowRight size={15} />
                       </button>
                     </div>
@@ -782,8 +891,9 @@ function App() {
                             <GitBranch size={20} />
                             <h3>{p.label}</h3>
                             <p>
-                              {p.document_count} documents · {p.checked_count}{" "}
-                              checked sources
+                              {p.document_count}
+                              {tr(" documents · ")}
+                              {p.checked_count} {tr("checked sources")}
                             </p>
                             <ArrowUpRight className="topic-arrow" size={18} />
                           </button>
@@ -795,11 +905,11 @@ function App() {
               {busy && (
                 <section className="loading-state" role="status">
                   <LoaderCircle className="spin" size={28} />
-                  <h2>Assembling the evidence</h2>
+                  <h2>{tr("Finding relevant sources")}</h2>
                   <p>
-                    Matching provisions and checking the dated policy inventory.
-                    The first search may take longer while the search models
-                    load.
+                    {tr(
+                      "Searching circulars and manuals for your question. The first search may take a little longer.",
+                    )}
                   </p>
                 </section>
               )}
@@ -807,15 +917,20 @@ function App() {
                 <>
                   <div className="results-heading">
                     <div>
-                      <span className="eyebrow">RESEARCH RESULT</span>
+                      <span className="eyebrow">{tr("RESEARCH RESULT")}</span>
                       <h2>{result.question}</h2>
                     </div>
-                    <button className="secondary" onClick={exportReport}>
+                    <button
+                      className="secondary"
+                      onClick={exportReport}
+                      disabled={generating}
+                    >
                       <Download size={15} />
-                      Export report
+                      {tr("Export report")}
                     </button>
                     <button
                       className="secondary"
+                      disabled={generating}
                       onClick={async () => {
                         try {
                           await saveResponse(
@@ -831,7 +946,7 @@ function App() {
                       }}
                     >
                       <Download size={15} />
-                      Word report
+                      {tr("Word report")}
                     </button>
                   </div>
                   <div className="evidence-notice">
@@ -840,13 +955,13 @@ function App() {
                       {context ? (
                         <>
                           {result.selection_mode === "auto"
-                            ? "Detected policy: "
-                            : "Selected policy: "}
+                            ? tr("Detected policy: ")
+                            : tr("Selected policy: ")}
                           <strong>{context.policy_label}</strong>.
                           {context.selected_topics?.length > 0 && (
                             <>
                               {" "}
-                              Matters:{" "}
+                              {tr("Subtopics:")}{" "}
                               {context.topics
                                 .filter((t) =>
                                   context.selected_topics.includes(t.id),
@@ -856,18 +971,24 @@ function App() {
                               .{" "}
                             </>
                           )}{" "}
-                          Instructions issued by{" "}
-                          <strong>{dateText(result.as_of)}</strong>. The
-                          evidence inventory is incomplete; current
-                          applicability is not certified.
+                          {tr("Instructions issued by")}{" "}
+                          <strong>{dateText(result.as_of)}</strong>
+                          {tr(
+                            ". The evidence inventory is incomplete; current applicability is not certified.",
+                          )}
                         </>
                       ) : (
                         <>
                           {result.selection_mode === "auto"
-                            ? "No curated policy matched; searching the full collection. "
-                            : "Searching the full collection. "}
-                          The history date cutoff is not applied; amendment and
-                          applicability remain unverified.
+                            ? tr(
+                                "No policy topic matched; all documents were searched. ",
+                              )
+                            : tr("Searching the full collection. ")}
+                          {tr("The date limit was not applied.")}
+                          {!result.currency &&
+                            tr(
+                              " Later changes and continued applicability have not been verified.",
+                            )}
                         </>
                       )}
                     </span>
@@ -877,14 +998,20 @@ function App() {
                       className={`currency-notice ${result.currency.level}`}
                       role="note"
                     >
-                      <strong>Check whether this is still current.</strong>{" "}
+                      <strong>
+                        {tr("Check whether this is still current.")}
+                      </strong>{" "}
                       {result.currency.notice}
                       {result.currency.newer_related.length > 0 && (
                         <ul>
                           {result.currency.newer_related.map((c) => (
                             <li key={c.date + (c.circular_no || c.title)}>
                               {c.url ? (
-                                <a href={c.url} target="_blank" rel="noreferrer">
+                                <a
+                                  href={c.url}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                >
                                   {c.title}
                                 </a>
                               ) : (
@@ -907,10 +1034,12 @@ function App() {
                             key={t}
                           >
                             {t === "answer"
-                              ? "Research answer"
+                              ? tr("Answer")
                               : t === "sources"
-                                ? `Sources (${result.sources.length})`
-                                : "Policy history"}
+                                ? tr("Sources ({value0})", {
+                                    value0: result.sources.length,
+                                  })
+                                : tr("Policy history")}
                           </button>
                         ))}
                       </div>
@@ -918,9 +1047,12 @@ function App() {
                         <div className="answer-content">
                           <div className="answer-meta">
                             <Status kind="teal">
-                              {context?.policy_label || "Hybrid search"}
+                              {context?.policy_label || tr("All documents")}
                             </Status>
-                            <span>{result.sources.length} source pages</span>
+                            <span>
+                              {result.sources.length}
+                              {tr(" source pages")}
+                            </span>
                           </div>
                           {answer ? (
                             <div className="markdown">
@@ -959,14 +1091,24 @@ function App() {
                                 <FileText size={26} />
                               </span>
                               <h3>
-                                {result.sources.length
-                                  ? "The source evidence is ready."
-                                  : "No matching evidence was found."}
+                                {generating
+                                  ? tr("Writing your answer…")
+                                  : result.sources.length
+                                    ? tr("Your source documents are ready.")
+                                    : tr("No matching sources were found.")}
                               </h3>
                               <p>
-                                {result.sources.length
-                                  ? "Review the original pages, or generate a cited synthesis from this evidence."
-                                  : "Try a narrower question or choose Standard hybrid search."}
+                                {generating
+                                  ? tr(
+                                      "You can read the source pages while your answer is prepared.",
+                                    )
+                                  : result.sources.length
+                                    ? tr(
+                                        "Read the original pages, or get an answer with references.",
+                                      )
+                                    : tr(
+                                        "Try a more specific question or search all documents.",
+                                      )}
                               </p>
                               <button
                                 className="primary"
@@ -975,7 +1117,7 @@ function App() {
                                   generating ||
                                   !(catalog?.answer_enabled || hasToken)
                                 }
-                                onClick={generate}
+                                onClick={() => generate()}
                               >
                                 {generating ? (
                                   <LoaderCircle size={16} className="spin" />
@@ -983,13 +1125,14 @@ function App() {
                                   <Sparkles size={16} />
                                 )}{" "}
                                 {generating
-                                  ? "Generating…"
-                                  : "Generate cited answer"}
+                                  ? tr("Generating…")
+                                  : tr("Get answer with references")}
                               </button>
                               {!(catalog?.answer_enabled || hasToken) && (
                                 <small>
-                                  AI generation is not configured. Sources
-                                  remain available.
+                                  {tr(
+                                    "AI generation is not configured. Sources remain available.",
+                                  )}
                                 </small>
                               )}
                             </div>
@@ -997,7 +1140,7 @@ function App() {
                           {generating && (
                             <div className="streaming-indicator" role="status">
                               <LoaderCircle size={14} className="spin" />
-                              Generating from the numbered evidence…
+                              {tr("Preparing your answer with references…")}
                             </div>
                           )}
                           {answer && (
@@ -1021,14 +1164,14 @@ function App() {
                                 ) : (
                                   <Copy size={14} />
                                 )}{" "}
-                                {copied ? "Copied" : "Copy answer"}
+                                {copied ? tr("Copied") : tr("Copy answer")}
                               </button>
                               <button
                                 className="text-button"
-                                onClick={generate}
+                                onClick={() => generate()}
                                 disabled={generating}
                               >
-                                Regenerate
+                                {tr("Regenerate")}
                               </button>
                             </div>
                           )}
@@ -1045,14 +1188,16 @@ function App() {
                               <span className="source-num">{s.id}</span>
                               <div>
                                 <strong>
-                                  {s.metadata.title || "EPFO document"}
+                                  {s.metadata.title || tr("EPFO document")}
                                 </strong>
                                 <small>
-                                  {s.metadata.date || "Date unavailable"} ·{" "}
+                                  {s.metadata.date || tr("Date unavailable")} ·{" "}
                                   {s.metadata.page_provenance ===
                                   "physical_pdf_page"
-                                    ? `PDF page ${s.metadata.page_number}`
-                                    : "Page unverified"}
+                                    ? tr("PDF page {value0}", {
+                                        value0: s.metadata.page_number,
+                                      })
+                                    : tr("Page number unverified")}
                                 </small>
                               </div>
                               <ChevronRight size={16} />
@@ -1080,9 +1225,9 @@ function App() {
                             />
                           ) : (
                             <p>
-                              This question used standard hybrid retrieval.
-                              Select a curated collection to explore its dated
-                              history.
+                              {tr(
+                                "This search covered all documents. Choose a policy topic to explore its history.",
+                              )}
                             </p>
                           )}
                         </div>
@@ -1092,7 +1237,7 @@ function App() {
                       <div className="source-panel-heading">
                         <span>
                           <BookOpen size={17} />
-                          SOURCE EVIDENCE
+                          {tr("SOURCE DOCUMENT")}
                         </span>
                         {source && (
                           <span className="source-number">[{source.id}]</span>
@@ -1111,28 +1256,32 @@ function App() {
                             >
                               {source.metadata.source_host_kind ===
                               "mirror_copy"
-                                ? "Mirror copy"
-                                : "Source document"}
+                                ? tr("Mirror copy")
+                                : tr("Source document")}
                             </Status>
-                            <h3>{source.metadata.title || "EPFO document"}</h3>
+                            <h3>
+                              {source.metadata.title || tr("EPFO document")}
+                            </h3>
                             <code>
                               {source.metadata.circular_no ||
-                                "Identifier unavailable"}
+                                tr("Identifier unavailable")}
                             </code>
                             <div className="source-facts">
                               <span>
-                                ISSUED
+                                {tr("ISSUED")}
                                 <strong>
                                   {dateText(source.metadata.date)}
                                 </strong>
                               </span>
                               <span>
-                                PROVENANCE
+                                {tr("SOURCE PAGE")}
                                 <strong>
                                   {source.metadata.page_provenance ===
                                   "physical_pdf_page"
-                                    ? `Physical page ${source.metadata.page_number}`
-                                    : "Document level"}
+                                    ? tr("PDF page {value0}", {
+                                        value0: source.metadata.page_number,
+                                      })
+                                    : tr("Page number unverified")}
                                 </strong>
                               </span>
                             </div>
@@ -1144,19 +1293,19 @@ function App() {
                               }
                               onClick={() => setSourceTab("excerpt")}
                             >
-                              Source text
+                              {tr("Source text")}
                             </button>
                             <button
                               className={sourceTab === "pdf" ? "selected" : ""}
                               disabled={!source.pdf_url}
                               onClick={() => setSourceTab("pdf")}
                             >
-                              Original PDF
+                              {tr("Original PDF")}
                             </button>
                           </div>
                           {sourceTab === "pdf" ? (
                             <iframe
-                              title="Original PDF source"
+                              title={tr("Original PDF source")}
                               src={`${source.pdf_url}#page=${source.metadata.page_number || 1}`}
                               className="pdf-viewer"
                             />
@@ -1166,7 +1315,7 @@ function App() {
                           <div className="source-foot">
                             <span>
                               {source.metadata.evidence_status ||
-                                "Applicability unverified"}
+                                tr("Applicability unverified")}
                             </span>
                             <a
                               href={
@@ -1177,14 +1326,16 @@ function App() {
                               target="_blank"
                               rel="noreferrer"
                             >
-                              Open document
+                              {tr("Open document")}
                               <ArrowUpRight size={14} />
                             </a>
                           </div>
                         </>
                       ) : (
                         <p className="empty">
-                          Choose a numbered source to inspect the evidence.
+                          {tr(
+                            "Choose a numbered source to inspect the evidence.",
+                          )}
                         </p>
                       )}
                     </aside>
@@ -1192,7 +1343,7 @@ function App() {
                   {context?.fallback_reason && (
                     <details className="gaps">
                       <summary>
-                        Coverage and unresolved evidence
+                        {tr("Missing sources and limitations")}
                         <ChevronDown size={15} />
                       </summary>
                       <p>{context.fallback_reason}</p>
@@ -1215,13 +1366,13 @@ function App() {
                     ?.topics || []
                 ).length > 0 && (
                   <label>
-                    MATTER
+                    {tr("SUBTOPIC")}
                     <select
-                      aria-label="History matter"
+                      aria-label={tr("History subtopic")}
                       value={historyTopic}
                       onChange={(e) => setHistoryTopic(e.target.value)}
                     >
-                      <option value="">All matters</option>
+                      <option value="">{tr("All subtopics")}</option>
                       {catalog.policies
                         .find((p) => p.id === selectedHistory)
                         .topics.map((t) => (
@@ -1234,9 +1385,9 @@ function App() {
                 )}
 
                 <label>
-                  POLICY COLLECTION
+                  {tr("POLICY COLLECTION")}
                   <select
-                    aria-label="History policy collection"
+                    aria-label={tr("History policy collection")}
                     value={selectedHistory}
                     onChange={(e) => {
                       setSelectedHistory(e.target.value);
@@ -1251,7 +1402,7 @@ function App() {
                   </select>
                 </label>
                 <label>
-                  EVIDENCE AS OF
+                  {tr("CIRCULARS ISSUED BY")}
                   <input
                     type="date"
                     min="1952-01-01"
@@ -1270,7 +1421,7 @@ function App() {
                     input.current?.focus();
                   }}
                 >
-                  Research this policy
+                  {tr("Ask about this policy")}
                   <ArrowRight size={16} />
                 </button>
               </div>
@@ -1297,26 +1448,29 @@ function App() {
                   </section>
                   <aside className="history-note">
                     <GitBranch size={28} />
-                    <h2>Dates need context.</h2>
+                    <h2>{tr("Dates need context.")}</h2>
                     <p>
-                      A circular’s issue date, its commencement and its
-                      continued applicability are different facts.
+                      {tr(
+                        "A circular’s issue date, its commencement and its continued applicability are different facts.",
+                      )}
                     </p>
                     <div className="rule-note">
-                      <Status kind="teal">Source checked</Status>
+                      <Status kind="teal">{tr("Source checked")}</Status>
                       <p>
-                        The source text has been examined. It does not certify
-                        current applicability.
+                        {tr(
+                          "The source text has been examined. It does not certify current applicability.",
+                        )}
                       </p>
                     </div>
                     <div className="rule-note">
-                      <Status kind="gold">Evidence gap</Status>
+                      <Status kind="gold">{tr("Evidence gap")}</Status>
                       <p>
-                        A missing original or unresolved relationship remains
-                        visible.
+                        {tr(
+                          "A missing original or unresolved relationship remains visible.",
+                        )}
                       </p>
                     </div>
-                    <h3>Recorded limitations</h3>
+                    <h3>{tr("Recorded limitations")}</h3>
                     <ul>
                       {history.limitations.map((l, i) => (
                         <li key={i}>{l}</li>
@@ -1333,14 +1487,14 @@ function App() {
                       }
                     >
                       <Download size={15} />
-                      Download review
+                      {tr("Download review")}
                     </button>
                   </aside>
                 </div>
               ) : (
                 <div className="loading-state">
                   <LoaderCircle size={24} className="spin" />
-                  Loading policy history…
+                  {tr("Loading policy history…")}
                 </div>
               )}
             </>
@@ -1348,13 +1502,22 @@ function App() {
           {page === "library" && (
             <>
               <div className="library-heading">
-                <span>{policies.length} curated histories</span>
                 <span>
-                  Checked originals and unresolved evidence, shown together
+                  {policies.length}
+                  {tr(" policy histories")}
+                </span>
+                <span>
+                  {tr(
+                    "Checked originals and unresolved evidence, shown together",
+                  )}
                 </span>
               </div>
-              <div className="library-sort" role="group" aria-label="Order by timeline">
-                <span>Timeline</span>
+              <div
+                className="library-sort"
+                role="group"
+                aria-label={tr("Order by timeline")}
+              >
+                <span>{tr("Timeline")}</span>
                 {[
                   ["latest", "Latest first"],
                   ["earliest", "Earliest first"],
@@ -1365,7 +1528,7 @@ function App() {
                     className={librarySort === v ? "active" : ""}
                     onClick={() => setLibrarySort(v)}
                   >
-                    {label}
+                    {tr(label)}
                   </button>
                 ))}
               </div>
@@ -1399,11 +1562,17 @@ function App() {
                     <SpanBar start={start} end={end} />
                     <div className="library-facts">
                       <span>
-                        {p.checked_count}/{p.document_count} sources checked
+                        {p.checked_count}/{p.document_count}
+                        {tr(" sources checked")}
                       </span>
                       <span>
-                        {start === end ? start : `${start}-${end}`} · latest{" "}
-                        {dateText(p.last_issued)}
+                        {start === end
+                          ? start
+                          : tr("{value0}-{value1}", {
+                              value0: start,
+                              value1: end,
+                            })}
+                        {tr(" · latest")} {dateText(p.last_issued)}
                       </span>
                     </div>
                   </button>
@@ -1443,10 +1612,11 @@ function App() {
           </div>
           <footer>
             <span>
-              Independent research assistance. Confirm the original source
-              before acting.
+              {tr(
+                "Independent research assistance. Confirm the original source before acting.",
+              )}
             </span>
-            <span>Issue-date evidence · Traceable citations</span>
+            <span>{tr("Issue-date evidence · Traceable citations")}</span>
           </footer>
         </main>
       </div>
@@ -1454,6 +1624,7 @@ function App() {
   );
 }
 function Timeline({ documents, relationships, onDocument, available }) {
+  const { t: tr } = useI18n();
   return (
     <div className="timeline">
       {[...documents]
@@ -1471,18 +1642,20 @@ function Timeline({ documents, relationships, onDocument, available }) {
               </div>
               <div className="timeline-date">
                 {dateText(d.issued_on)}
-                {i === 0 && <span>Most recent in inventory</span>}
+                {i === 0 && <span>{tr("Most recent in inventory")}</span>}
               </div>
               <h3>{d.title || d.version_label || d.id}</h3>
               <code>{d.circular_no}</code>
               <div className="timeline-status">
                 <Status kind={checked ? "teal" : "gold"}>
-                  {checked ? "Source checked" : "Original unverified"}
+                  {checked ? tr("Source checked") : tr("Original unverified")}
                 </Status>
                 <span>
                   {d.effective_from
-                    ? `Commencement recorded: ${dateText(d.effective_from)}`
-                    : "Commencement unverified"}
+                    ? tr("Commencement recorded: {value0}", {
+                        value0: dateText(d.effective_from),
+                      })
+                    : tr("Commencement unverified")}
                 </span>
               </div>
               {relations.map((r) => (
@@ -1491,15 +1664,15 @@ function Timeline({ documents, relationships, onDocument, available }) {
                   <div>
                     <strong>{r.type.replaceAll("_", " ")}</strong> ·{" "}
                     {r.verification === "source_checked"
-                      ? "Source passage checked"
-                      : "Target unresolved"}
+                      ? tr("Source passage checked")
+                      : tr("Target unresolved")}
                     <p>{r.scope}</p>
                   </div>
                 </div>
               ))}
               {(d.pdf_url || available?.(d)) && (
                 <button className="text-button" onClick={() => onDocument(d)}>
-                  Review source
+                  {tr("Review source")}
                   <ArrowUpRight size={14} />
                 </button>
               )}
@@ -1509,4 +1682,8 @@ function Timeline({ documents, relationships, onDocument, available }) {
     </div>
   );
 }
-createRoot(document.getElementById("root")).render(<App />);
+createRoot(document.getElementById("root")).render(
+  <I18nProvider>
+    <App />
+  </I18nProvider>,
+);

@@ -1,3 +1,4 @@
+import { useI18n } from "./UiLanguage.jsx";
 import React, { useState, useRef } from "react";
 import Markdown from "./Markdown";
 import {
@@ -15,6 +16,7 @@ import {
 import { json, request, post, stream, saveResponse, setToken } from "./client";
 
 export function Assistant({ language, onLanguage, enabled }) {
+  const { t: tr } = useI18n();
   const [file, setFile] = useState(null),
     [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
@@ -138,18 +140,19 @@ export function Assistant({ language, onLanguage, enabled }) {
       <div className="workspace-intro">
         <FileText size={21} />
         <div>
-          <h2>Document & data assistant</h2>
+          <h2>{tr("File assistant")}</h2>
           <select
-            aria-label="File answer language"
+            aria-label={tr("File answer language")}
             value={language}
             onChange={(e) => onLanguage(e.target.value)}
           >
-            <option>English</option>
-            <option>Hindi</option>
+            <option value="English">{tr("English")}</option>
+            <option value="Hindi">{tr("Hindi")}</option>
           </select>
           <p>
-            Read a PDF or examine a CSV, then ask a question or draft an office
-            note.
+            {tr(
+              "Read a PDF or examine a CSV, then ask a question or draft an office note.",
+            )}
           </p>
         </div>
       </div>
@@ -162,14 +165,14 @@ export function Assistant({ language, onLanguage, enabled }) {
         <Upload size={25} />
         <strong>
           {busy
-            ? "Extracting and checking the file…"
+            ? tr("Extracting and checking the file…")
             : file
-              ? "Replace the uploaded file"
-              : "Choose a PDF or CSV"}
+              ? tr("Replace the uploaded file")
+              : tr("Choose a PDF or CSV")}
         </strong>
-        <span>PDF: up to 50 MB / 100 pages · CSV: up to 25 MB</span>
+        <span>{tr("PDF: up to 50 MB / 100 pages · CSV: up to 25 MB")}</span>
         <input
-          aria-label="Upload document or CSV"
+          aria-label={tr("Upload document or CSV")}
           type="file"
           accept=".pdf,.csv"
           disabled={busy || running}
@@ -186,8 +189,14 @@ export function Assistant({ language, onLanguage, enabled }) {
               <strong>{file.name}</strong>
               <small>
                 {file.kind === "pdf"
-                  ? `${file.page_count} pages · ${file.scanned_page_count} pages checked for OCR`
-                  : `${file.profile.row_count.toLocaleString()} rows · ${file.profile.column_count} columns`}
+                  ? tr("{value0} pages · {value1} pages checked for OCR", {
+                      value0: file.page_count,
+                      value1: file.scanned_page_count,
+                    })
+                  : tr("{value0} rows · {value1} columns", {
+                      value0: file.profile.row_count.toLocaleString(),
+                      value1: file.profile.column_count,
+                    })}
               </small>
             </div>
             <div>
@@ -196,19 +205,19 @@ export function Assistant({ language, onLanguage, enabled }) {
                 onClick={() => exportFile("original")}
               >
                 <Download size={14} />
-                Original
+                {tr("Original")}
               </button>
               <button className="secondary" onClick={() => exportFile("docx")}>
                 <Download size={14} />
-                Word
+                {tr("Word")}
               </button>
               <button className="secondary" onClick={() => exportFile("text")}>
                 <Download size={14} />
-                Text
+                {tr("Text")}
               </button>
               <button
                 className="icon-btn"
-                aria-label="Remove upload"
+                aria-label={tr("Remove upload")}
                 onClick={remove}
               >
                 <Trash2 size={16} />
@@ -222,7 +231,7 @@ export function Assistant({ language, onLanguage, enabled }) {
           ))}
           {file.kind === "pdf" ? (
             <details className="document-text">
-              <summary>Read extracted text and physical page markers</summary>
+              <summary>{tr("Read extracted text and page numbers")}</summary>
               <pre>{file.text}</pre>
             </details>
           ) : (
@@ -230,29 +239,33 @@ export function Assistant({ language, onLanguage, enabled }) {
               <div className="data-controls">
                 <form onSubmit={filter}>
                   <input
-                    aria-label="Search dataset"
+                    aria-label={tr("Search dataset")}
                     value={term}
                     onChange={(e) => setTerm(e.target.value)}
-                    placeholder="Find an exact term across columns…"
+                    placeholder={tr("Find an exact term across columns…")}
                     maxLength={300}
                   />
                   <select
-                    aria-label="Distribution column"
+                    aria-label={tr("Distribution column")}
                     value={column}
                     onChange={(e) => setColumn(e.target.value)}
                   >
-                    <option value="">Choose a distribution column</option>
+                    <option value="">
+                      {tr("Choose a distribution column")}
+                    </option>
                     {file.profile.columns.map((c) => (
                       <option key={c}>{c}</option>
                     ))}
                   </select>
-                  <button className="secondary">Search / analyse</button>
+                  <button className="secondary">
+                    {tr("Search / analyse")}
+                  </button>
                 </form>
               </div>
               {rows && (
                 <p className="data-caption">
-                  {rows.total_matches.toLocaleString()} matching rows. Showing
-                  up to the first 100.
+                  {rows.total_matches.toLocaleString()}
+                  {tr(" matching rows. Showing up to the first 100.")}
                 </p>
               )}
               <div className="table-scroll">
@@ -276,14 +289,16 @@ export function Assistant({ language, onLanguage, enabled }) {
                 </table>
               </div>
               <details className="document-text">
-                <summary>Schema, missing values & summary statistics</summary>
+                <summary>
+                  {tr("Schema, missing values & summary statistics")}
+                </summary>
                 <div className="table-scroll">
                   <table>
                     <thead>
                       <tr>
-                        <th>Column</th>
-                        <th>Type</th>
-                        <th>Missing values</th>
+                        <th>{tr("Column")}</th>
+                        <th>{tr("Type")}</th>
+                        <th>{tr("Missing values")}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -302,7 +317,10 @@ export function Assistant({ language, onLanguage, enabled }) {
               {rows?.distribution &&
                 Object.keys(rows.distribution).length > 0 && (
                   <div className="distribution">
-                    <h3>{column} · largest categories</h3>
+                    <h3>
+                      {column}
+                      {tr(" · largest categories")}
+                    </h3>
                     {Object.entries(rows.distribution).map(([key, value]) => (
                       <div key={key}>
                         <span>{key}</span>
@@ -321,28 +339,28 @@ export function Assistant({ language, onLanguage, enabled }) {
           <div className="chat-heading">
             <h3>
               <MessageSquare size={17} />
-              Ask about this file
+              {tr("Ask about this file")}
             </h3>
             <button
               className="text-button"
               onClick={() => exportFile("transcript")}
             >
               <Download size={14} />
-              Word transcript
+              {tr("Word transcript")}
             </button>
           </div>
           <p className="data-caption">
-            Uploads expire after 30 minutes and are isolated to this browser
-            session. Expired files are removed from memory automatically.
-            Download anything you want to keep.
+            {tr(
+              "Uploads expire after 30 minutes and are isolated to this browser session. Expired files are removed from memory automatically. Download anything you want to keep.",
+            )}
           </p>
           <div className="file-chat" aria-live="polite">
             {messages.map((m, i) => (
               <div key={i} className={"chat-message " + m.role}>
                 <span>
                   {m.role === "user"
-                    ? "YOUR QUESTION"
-                    : "FILE-GROUNDED RESPONSE"}
+                    ? tr("YOUR QUESTION")
+                    : tr("FILE-GROUNDED RESPONSE")}
                 </span>
                 <div className="markdown">
                   <Markdown>
@@ -357,28 +375,30 @@ export function Assistant({ language, onLanguage, enabled }) {
           </div>
           <form className="chat-form" onSubmit={ask}>
             <select
-              aria-label="Drafting mode"
+              aria-label={tr("Drafting mode")}
               value={mode}
               onChange={(e) => setMode(e.target.value)}
             >
-              <option value="answer">Question & answer</option>
-              <option value="note">Formal office noting sheet</option>
+              <option value="answer">{tr("Question & answer")}</option>
+              <option value="note">{tr("Formal office noting sheet")}</option>
             </select>
             <textarea
-              aria-label="File question"
+              aria-label={tr("File question")}
               required
               minLength={3}
               maxLength={6000}
               value={question}
               onChange={(e) => setQuestion(e.target.value)}
-              placeholder="Ask about facts in this file, or describe the office note you need…"
+              placeholder={tr(
+                "Ask about facts in this file, or describe the office note you need…",
+              )}
             />
             <div>
               <span>
                 {language} ·{" "}
                 {enabled
-                  ? "AI configured"
-                  : "Add a token in Session settings for AI responses"}
+                  ? tr("AI configured")
+                  : tr("Add a token in Settings for AI responses")}
               </span>
               <button className="primary" disabled={running || !enabled}>
                 {running ? (
@@ -386,7 +406,7 @@ export function Assistant({ language, onLanguage, enabled }) {
                 ) : (
                   <ArrowRight size={15} />
                 )}{" "}
-                {running ? "Generating…" : "Submit"}
+                {running ? tr("Generating…") : tr("Submit")}
               </button>
             </div>
           </form>
@@ -407,6 +427,7 @@ const OPERATIONS = [
   ["ocr", "OCR scanned PDF"],
 ];
 export function PdfTools() {
+  const { t: tr } = useI18n();
   const [operation, setOperation] = useState("merge"),
     [files, setFiles] = useState([]),
     [pages, setPages] = useState(""),
@@ -452,10 +473,11 @@ export function PdfTools() {
       <div className="workspace-intro">
         <Files size={23} />
         <div>
-          <h2>Office PDF utilities</h2>
+          <h2>{tr("PDF tools")}</h2>
           <p>
-            Prepare, organise and extract documents. These operations do not use
-            the language model.
+            {tr(
+              "Prepare and organise your PDFs, or make scanned pages searchable.",
+            )}
           </p>
         </div>
       </div>
@@ -472,7 +494,7 @@ export function PdfTools() {
             }}
           >
             <span>{String(i + 1).padStart(2, "0")}</span>
-            <strong>{label}</strong>
+            <strong>{tr(label)}</strong>
           </button>
         ))}
       </div>
@@ -484,7 +506,7 @@ export function PdfTools() {
       {done && (
         <div className="success-box" role="status">
           <Check size={17} />
-          {done}
+          {tr(done)}
         </div>
       )}
       <form onSubmit={run}>
@@ -492,15 +514,17 @@ export function PdfTools() {
           <Upload size={25} />
           <strong>
             {files.length
-              ? `${files.length} file(s) selected`
+              ? tr("{value0} file(s) selected", { value0: files.length })
               : operation === "images"
-                ? "Choose image files"
-                : "Choose PDF files"}
+                ? tr("Choose image files")
+                : tr("Choose PDF files")}
           </strong>
-          <span>50 MB per file · 100 MB per operation · 20 files maximum</span>
+          <span>
+            {tr("50 MB per file · 100 MB per operation · 20 files maximum")}
+          </span>
           <input
             key={operation}
-            aria-label="PDF utility files"
+            aria-label={tr("PDF utility files")}
             type="file"
             required
             accept={
@@ -517,7 +541,10 @@ export function PdfTools() {
             {files.map((f, i) => (
               <li key={i}>
                 {f.name}
-                <span>{(f.size / 1024).toFixed(0)} KB</span>
+                <span>
+                  {(f.size / 1024).toFixed(0)}
+                  {tr(" KB")}
+                </span>
                 {["merge", "images"].includes(operation) && (
                   <div>
                     <button
@@ -531,7 +558,7 @@ export function PdfTools() {
                         })
                       }
                     >
-                      Move up
+                      {tr("Move up")}
                     </button>
                     <button
                       type="button"
@@ -544,7 +571,7 @@ export function PdfTools() {
                         })
                       }
                     >
-                      Move down
+                      {tr("Move down")}
                     </button>
                   </div>
                 )}
@@ -555,15 +582,15 @@ export function PdfTools() {
         <div className="tool-options">
           {["extract", "rotate"].includes(operation) && (
             <label>
-              PAGE NUMBERS / RANGES
+              {tr("PAGE NUMBERS / RANGES")}
               <input
-                aria-label="Page ranges"
+                aria-label={tr("Page ranges")}
                 value={pages}
                 onChange={(e) => setPages(e.target.value)}
                 placeholder={
                   operation === "extract"
-                    ? "Required, e.g. 1,3-5"
-                    : "All pages, or e.g. 1,3-5"
+                    ? tr("Required, e.g. 1,3-5")
+                    : tr("All pages, or e.g. 1,3-5")
                 }
                 required={operation === "extract"}
               />
@@ -571,29 +598,30 @@ export function PdfTools() {
           )}
           {operation === "rotate" && (
             <label>
-              ROTATION
+              {tr("ROTATION")}
               <select
-                aria-label="Rotation"
+                aria-label={tr("Rotation")}
                 value={rotation}
                 onChange={(e) => setRotation(e.target.value)}
               >
-                <option value="90">90° clockwise</option>
+                <option value="90">{tr("90° clockwise")}</option>
                 <option value="180">180°</option>
-                <option value="270">270° clockwise</option>
+                <option value="270">{tr("270° clockwise")}</option>
               </select>
             </label>
           )}
           {["render", "ocr"].includes(operation) && (
             <label>
-              RESOLUTION
+              {tr("RESOLUTION")}
               <select
-                aria-label="Resolution"
+                aria-label={tr("Resolution")}
                 value={dpi}
                 onChange={(e) => setDpi(e.target.value)}
               >
                 {[100, 150, 200].map((d) => (
                   <option value={d} key={d}>
-                    {d} DPI
+                    {d}
+                    {tr(" DPI")}
                   </option>
                 ))}
               </select>
@@ -601,15 +629,15 @@ export function PdfTools() {
           )}
           {operation === "ocr" && (
             <label>
-              OCR LANGUAGE
+              {tr("OCR LANGUAGE")}
               <select
-                aria-label="OCR language"
+                aria-label={tr("OCR language")}
                 value={language}
                 onChange={(e) => setLanguage(e.target.value)}
               >
-                <option value="eng+hin">English + Hindi</option>
-                <option value="eng">English</option>
-                <option value="hin">Hindi</option>
+                <option value="eng+hin">{tr("English + Hindi")}</option>
+                <option value="eng">{tr("English")}</option>
+                <option value="hin">{tr("Hindi")}</option>
               </select>
             </label>
           )}
@@ -617,12 +645,20 @@ export function PdfTools() {
         <div className="tool-submit">
           <p>
             {operation === "ocr"
-              ? "OCR supports up to 30 pages and downloads a searchable PDF, Word document and extracted text in a ZIP."
+              ? tr(
+                  "OCR supports up to 30 pages and downloads a searchable PDF, Word document and extracted text in a ZIP.",
+                )
               : operation === "render"
-                ? "Rendering supports up to 50 pages and downloads page images in a ZIP."
+                ? tr(
+                    "Rendering supports up to 50 pages and downloads page images in a ZIP.",
+                  )
                 : operation === "compress"
-                  ? "Compression is lossless; the size reduction depends on the input document."
-                  : "PDF operations support up to 250 pages per file and 300 pages combined."}
+                  ? tr(
+                      "Compression is lossless; the size reduction depends on the input document.",
+                    )
+                  : tr(
+                      "PDF operations support up to 250 pages per file and 300 pages combined.",
+                    )}
           </p>
           <button className="primary" disabled={!files.length || busy}>
             {busy ? (
@@ -630,7 +666,7 @@ export function PdfTools() {
             ) : (
               <Download size={16} />
             )}{" "}
-            {busy ? "Processing…" : "Process & download"}
+            {busy ? tr("Processing…") : tr("Process & download")}
           </button>
         </div>
       </form>
@@ -639,6 +675,7 @@ export function PdfTools() {
 }
 
 export function SessionSettings({ hasToken, onToken }) {
+  const { t: tr } = useI18n();
   const [value, setValue] = useState(""),
     [saved, setSaved] = useState(false);
   return (
@@ -646,14 +683,14 @@ export function SessionSettings({ hasToken, onToken }) {
       <div className="workspace-intro">
         <Settings2 size={22} />
         <div>
-          <h2>Session settings</h2>
-          <p>Optional inference credentials for this browser visit.</p>
+          <h2>{tr("Settings")}</h2>
+          <p>{tr("Use a personal Hugging Face token if you need one.")}</p>
         </div>
       </div>
       <p>
-        The hosted app uses its configured Hugging Face token. You can provide
-        your own token when the shared service is unavailable or rate limited.
-        The model and provider remain configured on the server.
+        {tr(
+          "The hosted app uses its configured Hugging Face token. You can provide your own token when the shared service is unavailable or rate limited. The model and provider remain configured on the server.",
+        )}
       </p>
       <form
         onSubmit={(e) => {
@@ -665,9 +702,9 @@ export function SessionSettings({ hasToken, onToken }) {
         }}
       >
         <label>
-          HUGGING FACE TOKEN
+          {tr("HUGGING FACE TOKEN")}
           <input
-            aria-label="Hugging Face token"
+            aria-label={tr("Hugging Face token")}
             type="password"
             autoComplete="off"
             value={value}
@@ -675,12 +712,12 @@ export function SessionSettings({ hasToken, onToken }) {
               setValue(e.target.value);
               setSaved(false);
             }}
-            placeholder="hf_…"
+            placeholder={tr("hf_…")}
             maxLength={300}
           />
         </label>
         <div>
-          <button className="primary">Use for this visit</button>
+          <button className="primary">{tr("Use for this visit")}</button>
           <button
             type="button"
             className="secondary"
@@ -691,21 +728,21 @@ export function SessionSettings({ hasToken, onToken }) {
               setSaved(false);
             }}
           >
-            Clear token
+            {tr("Clear token")}
           </button>
         </div>
       </form>
       <p className="data-caption">
-        The token stays in JavaScript memory and is sent only in request headers
-        to this app over HTTPS. It is not saved to local storage or included in
-        exported files. Reloading the page clears it.
+        {tr(
+          "The token stays in JavaScript memory and is sent only in request headers to this app over HTTPS. It is not saved to local storage or included in exported files. Reloading the page clears it.",
+        )}
       </p>
       {saved && (
         <div className="success-box">
           <Check size={16} />
           {hasToken
-            ? "Your session token is configured."
-            : "Your session token was cleared."}
+            ? tr("Your session token is configured.")
+            : tr("Your session token was cleared.")}
         </div>
       )}
     </section>
