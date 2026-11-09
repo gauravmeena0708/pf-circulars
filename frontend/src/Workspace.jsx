@@ -359,8 +359,8 @@ export function Assistant({ language, onLanguage, enabled }) {
               <div key={i} className={"chat-message " + m.role}>
                 <span>
                   {m.role === "user"
-                    ? tr("YOUR QUESTION")
-                    : tr("FILE-GROUNDED RESPONSE")}
+                    ? tr("Your question")
+                    : tr("From your file")}
                 </span>
                 <div className="markdown">
                   <Markdown>
@@ -582,7 +582,7 @@ export function PdfTools() {
         <div className="tool-options">
           {["extract", "rotate"].includes(operation) && (
             <label>
-              {tr("PAGE NUMBERS / RANGES")}
+              {tr("Page numbers / ranges")}
               <input
                 aria-label={tr("Page ranges")}
                 value={pages}
@@ -598,7 +598,7 @@ export function PdfTools() {
           )}
           {operation === "rotate" && (
             <label>
-              {tr("ROTATION")}
+              {tr("Rotation")}
               <select
                 aria-label={tr("Rotation")}
                 value={rotation}
@@ -612,7 +612,7 @@ export function PdfTools() {
           )}
           {["render", "ocr"].includes(operation) && (
             <label>
-              {tr("RESOLUTION")}
+              {tr("Resolution")}
               <select
                 aria-label={tr("Resolution")}
                 value={dpi}
@@ -629,7 +629,7 @@ export function PdfTools() {
           )}
           {operation === "ocr" && (
             <label>
-              {tr("OCR LANGUAGE")}
+              {tr("OCR language")}
               <select
                 aria-label={tr("OCR language")}
                 value={language}
@@ -702,7 +702,7 @@ export function SessionSettings({ hasToken, onToken }) {
         }}
       >
         <label>
-          {tr("HUGGING FACE TOKEN")}
+          {tr("Hugging Face token")}
           <input
             aria-label={tr("Hugging Face token")}
             type="password"

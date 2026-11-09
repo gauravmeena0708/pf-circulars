@@ -1,5 +1,38 @@
 # React workspace decision and implementation
 
+## Conversational visual update - 9 November 2026
+
+The research landing page now centres on one rounded question composer, task
+shortcuts and a link to browse policies. A warm canvas, pale sidebar, pill controls
+and fewer outlined panels replace the former dashboard styling. Numbered section
+labels and the decorative evidence stamp have been removed. The shared visual
+layer is in `frontend/src/friendly.css`.
+
+Answer language and length remain visible. Date, policy and subtopic controls are
+under **Research options**, with a visible indicator when custom filters are set.
+Invalid date inputs reopen that section for correction. Enter sends a question;
+Shift+Enter adds a new line. **New question** cancels in-flight work and clears the
+result, question and research filters while retaining language/length preferences.
+Document-only searches open the source list directly.
+
+Sources open from citations or the source list in a native modal drawer, with a
+bottom-sheet layout on phones. It retains source dates, page provenance, original
+PDF inspection and source links. Native dialog behaviour provides background
+inertness, Escape dismissal and focus restoration. Citation renderer identity is
+kept stable so opening the drawer does not remove the focused citation element.
+Retrieval, inference prompts, evidence notices, exports and backend APIs are unchanged.
+
+Previews: [desktop](screenshots/friendly-research.png),
+[Hindi mobile](screenshots/friendly-mobile-hi.png), and
+[source drawer](screenshots/friendly-source-drawer.png).
+
+Validation: production build and the frontend Markdown check pass. Browser checks
+cover all seven pages and expanded research options at 320-1440px, bilingual
+controls, both answer lengths, document-only retrieval, PDF viewing, Word export,
+multiline questions, invalid-date correction, filter reset, stale-answer
+cancellation, and source-drawer focus/Escape behaviour. Generated answers and PDF
+viewer bytes use test fixtures; retrieval and Word export use the real local API.
+
 ## Stakeholder usability update - 9 November 2026
 
 The main research action is **Get answer**: retrieve the source packet and then
@@ -35,9 +68,8 @@ choices, answer length and cancellation of stale answers. Browser generation use
 a test stream; these checks do not benchmark paid-model answer quality.
 
 Use React + Vite and FastAPI together in one Hugging Face Docker Space. The
-institutional interface uses navy `#173650`, teal `#217b7c`, restrained gold
-`#b58c45`, serif headings and fine rules. It identifies itself as an independent
-research tool and does not use an official seal.
+interface uses a warm canvas, pale sidebar, muted green actions and serif headings.
+It identifies itself as an independent research tool and does not use an official seal.
 
 The [Docker Spaces documentation](https://huggingface.co/docs/hub/spaces-sdks-docker)
 and [configuration reference](https://huggingface.co/docs/hub/spaces-config-reference)

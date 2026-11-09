@@ -1,5 +1,11 @@
 import { I18nProvider, useI18n } from "./UiLanguage.jsx";
-import React, { useState, useEffect, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  useMemo,
+} from "react";
 import { createRoot } from "react-dom/client";
 import Markdown from "./Markdown";
 import {
@@ -17,20 +23,25 @@ import {
   Download,
   Check,
   X,
-  PanelLeftClose,
   Menu,
   CircleHelp,
   Settings2,
   BookOpen,
   History,
   LoaderCircle,
-  ScanLine,
   AlertCircle,
-  ExternalLink,
   Copy,
   Sparkles,
+  ArrowUp,
+  Languages,
+  UsersRound,
+  ArrowLeftRight,
+  Wallet,
+  BriefcaseBusiness,
 } from "lucide-react";
 import "./style.css";
+import "./friendly.css";
+import SourceDrawer from "./SourceDrawer.jsx";
 import { Assistant, PdfTools, SessionSettings } from "./Workspace";
 import Divisions, { LibraryRules, SpanBar, sortItems } from "./Divisions";
 import { headers, request as fetchWorkspace, saveResponse } from "./client";
@@ -103,7 +114,7 @@ function App() {
     [answer, setAnswer] = useState(""),
     [generating, setGenerating] = useState(false),
     [source, setSource] = useState(null),
-    [sourceTab, setSourceTab] = useState("excerpt"),
+    [sourceOpen, setSourceOpen] = useState(false),
     [resultTab, setResultTab] = useState("answer"),
     [recent, setRecent] = useState([]),
     [history, setHistory] = useState(null),
@@ -115,6 +126,7 @@ function App() {
     [divisionFocus, setDivisionFocus] = useState("");
   const requestSeq = useRef(0),
     answerAbort = useRef(null),
+    researchOptions = useRef(null),
     input = useRef(null);
   useEffect(() => {
     api("/api/catalog")
@@ -169,6 +181,7 @@ function App() {
     setAnswer("");
     setResult(null);
     setSource(null);
+    setSourceOpen(false);
     setResultTab("answer");
     setPage("research");
     try {
@@ -189,6 +202,8 @@ function App() {
       const packet = { ...r, selection_mode: mode };
       setResult(packet);
       setSource(r.sources[0] || null);
+      if (documentsOnly || !(catalog?.answer_enabled || hasToken))
+        setResultTab("sources");
       setRecent((v) =>
         [question, ...v.filter((x) => x !== question)].slice(0, 5),
       );
@@ -253,16 +268,55 @@ function App() {
         setGenerating(false);
     }
   }
-  function selectSource(id) {
-    const s = result?.sources.find((x) => x.id === Number(id));
-    if (s) {
-      setSource(s);
-      setSourceTab("excerpt");
-      document
-        .getElementById("source-panel")
-        ?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    }
+  function newQuestion() {
+    ++requestSeq.current;
+    answerAbort.current?.abort();
+    if (researchOptions.current) researchOptions.current.open = false;
+    setBusy(false);
+    setGenerating(false);
+    setQuery("");
+    setAnswer("");
+    setResult(null);
+    setSource(null);
+    setSourceOpen(false);
+    setError("");
+    setPolicy("auto");
+    setQueryTopic("");
+    if (catalog?.today) setDay(catalog.today);
+    setPage("research");
+    setMenu(false);
+    setTimeout(() => input.current?.focus(), 0);
   }
+  const selectSource = useCallback(
+    (id) => {
+      const selectedSource = result?.sources.find((s) => s.id === Number(id));
+      if (selectedSource) {
+        setSource(selectedSource);
+        setSourceOpen(true);
+      }
+    },
+    [result],
+  );
+  // Keep citation elements mounted while the drawer opens so native dialog
+  // focus restoration returns to the link that was selected.
+  const answerComponents = useMemo(
+    () => ({
+      a: ({ href, children }) =>
+        href?.startsWith("#source-") ? (
+          <button
+            className="citation"
+            onClick={() => selectSource(href.slice(8))}
+          >
+            {children}
+          </button>
+        ) : (
+          <a href={href} target="_blank" rel="noreferrer">
+            {children}
+          </a>
+        ),
+    }),
+    [selectSource],
+  );
   const context = result?.policy_context,
     policies = catalog?.policies || [],
     selected = policies.find((p) => p.id === policy);
@@ -301,14 +355,14 @@ function App() {
           : "Search of all documents; the policy-history date limit is not applied."),
     );
   return (
-    <div className="app">
+    <div className="app friendly-workspace">
       <aside id="workspace-nav" className={"sidebar " + (menu ? "open" : "")}>
         <a
           className="brand"
           href="#"
           onClick={(e) => {
             e.preventDefault();
-            setPage("research");
+            newQuestion();
           }}
         >
           <span className="brand-symbol">
@@ -316,20 +370,16 @@ function App() {
           </span>
           <span>
             {tr("EPFO")}
-            <span className="brand-sub">{tr("KNOWLEDGE ASSISTANT")}</span>
+            <span className="brand-sub">{tr("Knowledge assistant")}</span>
           </span>
         </a>
-        <div className="sidebar-label">{tr("WORKSPACE")}</div>
         <nav>
           <button
             className={page === "research" ? "active" : ""}
-            onClick={() => {
-              setPage("research");
-              setMenu(false);
-            }}
+            onClick={newQuestion}
           >
             <Search size={18} />
-            {tr("Ask about EPFO rules")}
+            {tr("New question")}
             <span className="nav-shortcut">{tr("⌘ K")}</span>
           </button>
           <button
@@ -395,7 +445,7 @@ function App() {
           </button>
         </nav>
         <div className="sidebar-divider" />
-        <div className="sidebar-label">{tr("RECENT RESEARCH")}</div>
+        <div className="sidebar-label">{tr("Recent questions")}</div>
         <div className="recent">
           {recent.length ? (
             recent.map((q) => (
@@ -457,8 +507,6 @@ function App() {
             <Menu size={20} />
           </button>
           <div className="breadcrumb">
-            {tr("Workspace")}
-            <ChevronRight size={13} />
             <strong>
               {tr(
                 {
@@ -509,16 +557,24 @@ function App() {
             </a>
           </div>
         </header>
-        <main>
+        <main
+          className={
+            page === "research"
+              ? `research-main ${!result && !busy ? "is-home" : "has-results"}`
+              : "workspace-main"
+          }
+        >
           <div className="page-heading">
             <div>
-              <div className="eyebrow">
-                {tr("CIRCULARS · SCHEMES · STATUTORY MANUALS")}
-              </div>
+              {page === "research" && (
+                <span className="welcome-icon" aria-hidden="true">
+                  <Sparkles size={25} strokeWidth={1.5} />
+                </span>
+              )}
               <h1>
                 {tr(
                   {
-                    research: "Find the EPFO guidance you need.",
+                    research: "How can I help with EPFO?",
                     history: "Follow the policy through time.",
                     library: "Browse policies by topic.",
                     divisions: "Find policies by EPFO division.",
@@ -532,7 +588,7 @@ function App() {
                 {tr(
                   {
                     research:
-                      "Ask a question, get an answer with references, and check the original circular.",
+                      "Ask about PF, pensions, employer duties or staff matters.",
                     history:
                       "Review issued instructions, amendments and the links that still need verification.",
                     library:
@@ -548,13 +604,6 @@ function App() {
                   }[page],
                 )}
               </p>
-            </div>
-            <div className="heading-stamp">
-              <span className="stamp-line" />
-              <span>
-                {tr("EVIDENCE FIRST")}
-                <small>{tr("Sources. Dates. Context.")}</small>
-              </span>
             </div>
           </div>
           {error && (
@@ -572,109 +621,44 @@ function App() {
           )}
           {page === "research" && (
             <>
-              <section className="search-card">
-                <div className="section-kicker">
-                  <span className="number-label">01</span>
-                  {tr(" ASK YOUR QUESTION")}
-                  <span className="search-label">
-                    <span className="live-dot" />
-                    {catalog
-                      ? tr("Connected to the research collection")
-                      : tr("Loading the research collection…")}
-                  </span>
-                </div>
-                <form onSubmit={search}>
+              <section
+                className="search-card"
+                aria-label={tr("Ask about EPFO rules")}
+              >
+                <form
+                  id="research-question-form"
+                  onSubmit={search}
+                  onInvalidCapture={(e) =>
+                    e.target.closest("details")?.setAttribute("open", "")
+                  }
+                >
                   <div className="query-field">
-                    <Search size={21} />
-                    <input
+                    <textarea
                       ref={input}
                       aria-label={tr("Policy question")}
                       value={query}
                       onChange={(e) => setQuery(e.target.value)}
-                      placeholder={tr(
-                        "For example, what is the procedure for a joint declaration profile update?",
-                      )}
+                      onKeyDown={(e) => {
+                        if (
+                          e.key === "Enter" &&
+                          !e.shiftKey &&
+                          !e.nativeEvent.isComposing
+                        ) {
+                          e.preventDefault();
+                          e.currentTarget.form.requestSubmit();
+                        }
+                      }}
+                      placeholder={tr("What would you like to know?")}
+                      rows={3}
                       required
                       minLength={3}
                       maxLength={6000}
                     />
-                    <button className="primary" disabled={busy || !catalog}>
-                      {busy ? (
-                        <LoaderCircle className="spin" size={17} />
-                      ) : (
-                        <Search size={17} />
-                      )}{" "}
-                      {busy ? tr("Finding sources…") : tr("Get answer")}
-                    </button>
                   </div>
-                  <div className="search-actions">
-                    <button
-                      type="submit"
-                      value="documents"
-                      className="text-button"
-                      disabled={busy || !catalog}
-                    >
-                      <Search size={16} />
-                      {tr(" Search documents only")}
-                    </button>
-                    {catalog && !(catalog.answer_enabled || hasToken) && (
-                      <p>
-                        {tr(
-                          "Answers are unavailable right now. You can still search and read source documents.",
-                        )}
-                      </p>
-                    )}
-                  </div>
-                  <div className="filters">
-                    <div className="automatic-scope">
-                      <GitBranch size={15} />
-                      <span>
-                        {policy === "auto"
-                          ? tr("Topic selected from your question")
-                          : tr("Scope: {value0}{value1}", {
-                              value0: selected?.label || "Entire collection",
-                              value1: selected?.topics?.find(
-                                (t) => t.id === queryTopic,
-                              )
-                                ? " · " +
-                                  selected.topics.find(
-                                    (t) => t.id === queryTopic,
-                                  ).label
-                                : "",
-                            })}
-                      </span>
-                      {policy !== "auto" && (
-                        <button
-                          type="button"
-                          className="text-button"
-                          onClick={() => {
-                            setPolicy("auto");
-                            setQueryTopic("");
-                          }}
-                        >
-                          {tr("Use automatic")}
-                        </button>
-                      )}
-                    </div>
-                    <div className="filter-divider" />
-                    <label>
-                      {tr("CIRCULARS ISSUED BY")}
-                      <div className="date-field">
-                        <CalendarDays size={15} />
-                        <input
-                          aria-label={tr("Circulars issued by")}
-                          type="date"
-                          min="1952-01-01"
-                          max={catalog?.today}
-                          required
-                          value={day}
-                          onChange={(e) => setDay(e.target.value)}
-                        />
-                      </div>
-                    </label>
-                    <div className="filter-divider" />
-                    <label>
-                      {tr("ANSWER LANGUAGE")}
+                  <div className="composer-toolbar">
+                    <label className="composer-select">
+                      <Languages size={17} aria-hidden="true" />
+                      <span className="sr-only">{tr("Answer language")}</span>
                       <select
                         aria-label={tr("Answer language")}
                         value={language}
@@ -685,8 +669,8 @@ function App() {
                         <option value="Hindi">{tr("Hindi")}</option>
                       </select>
                     </label>
-                    <label>
-                      {tr("ANSWER LENGTH")}
+                    <label className="composer-select">
+                      <span className="sr-only">{tr("Answer length")}</span>
                       <select
                         aria-label={tr("Answer length")}
                         value={detail}
@@ -699,21 +683,48 @@ function App() {
                         </option>
                       </select>
                     </label>
-                    <p className="filter-note">
-                      <CircleHelp size={16} />
-                      {tr(
-                        "The date limits policy histories. It does not confirm which rules still apply.",
+                    <button
+                      className="primary composer-submit"
+                      disabled={busy || !catalog}
+                    >
+                      {busy ? tr("Finding sources…") : tr("Get answer")}
+                      {busy ? (
+                        <LoaderCircle className="spin" size={18} />
+                      ) : (
+                        <ArrowUp size={19} />
                       )}
-                    </p>
+                    </button>
                   </div>
-                  <details className="search-refinements">
+                  <details ref={researchOptions} className="search-options">
                     <summary>
-                      {tr("Choose a policy or search all documents ")}
-                      <span>{tr("Optional")}</span>
+                      <Settings2 size={16} />
+                      {tr("Research options")}
+                      {catalog &&
+                        (policy !== "auto" || day !== catalog.today) && (
+                          <span className="options-changed">
+                            {tr("Custom filters")}
+                          </span>
+                        )}
+                      <ChevronDown size={15} className="options-chevron" />
                     </summary>
-                    <div className="refinement-fields">
+                    <div className="filters">
                       <label>
-                        {tr("POLICY TOPIC (OPTIONAL)")}
+                        {tr("Circulars issued by")}
+                        <div className="date-field">
+                          <CalendarDays size={16} />
+                          <input
+                            aria-label={tr("Circulars issued by")}
+                            type="date"
+                            min="1952-01-01"
+                            max={catalog?.today}
+                            required
+                            value={day}
+                            onChange={(e) => setDay(e.target.value)}
+                          />
+                        </div>
+                      </label>
+                      <label>
+                        {tr("Policy topic")}
                         <select
                           aria-label={tr("Policy collection")}
                           value={policy}
@@ -735,12 +746,9 @@ function App() {
                           </option>
                         </select>
                       </label>
-                      {(
-                        catalog?.policies.find((p) => p.id === policy)
-                          ?.topics || []
-                      ).length > 0 && (
+                      {(selected?.topics || []).length > 0 && (
                         <label>
-                          {tr("SUBTOPIC")}
+                          {tr("Subtopic")}
                           <select
                             aria-label={tr("Policy subtopic")}
                             value={queryTopic}
@@ -749,158 +757,86 @@ function App() {
                             <option value="">
                               {tr("Detect from question")}
                             </option>
-                            {catalog.policies
-                              .find((p) => p.id === policy)
-                              .topics.map((t) => (
-                                <option key={t.id} value={t.id}>
-                                  {t.label}
-                                </option>
-                              ))}
+                            {selected.topics.map((topic) => (
+                              <option key={topic.id} value={topic.id}>
+                                {topic.label}
+                              </option>
+                            ))}
                           </select>
                         </label>
                       )}
-                      <p>
+                      <p className="filter-note">
+                        <CircleHelp size={16} />
                         {tr(
-                          "We match your question to a policy topic automatically. Choose a topic here to narrow your search, or search all documents. The date limit applies to policy histories only.",
+                          "The date limits policy histories. It does not confirm which rules still apply.",
                         )}
                       </p>
                     </div>
                   </details>
                 </form>
               </section>
+              <div className="search-actions">
+                <span className="search-assurance">
+                  <BookOpen size={15} />
+                  {tr("Answers with source references")}
+                </span>
+                <button
+                  type="submit"
+                  form="research-question-form"
+                  value="documents"
+                  className="text-button"
+                  disabled={busy || !catalog}
+                >
+                  <Search size={15} />
+                  {tr("Search documents only")}
+                </button>
+              </div>
+              {catalog && !(catalog.answer_enabled || hasToken) && (
+                <p className="inference-unavailable" role="status">
+                  {tr(
+                    "Answers are unavailable right now. You can still search and read source documents.",
+                  )}
+                </p>
+              )}
               {!result && !busy && (
-                <>
+                <section
+                  className="task-section"
+                  aria-label={tr("Start with a task")}
+                >
+                  <p>{tr("A few things I can help with")}</p>
                   <div className="suggestions">
-                    <span>{tr("START WITH A TASK")}</span>
-                    {examples.map(([label, q]) => (
-                      <button
-                        key={tr(label)}
-                        onClick={(e) => {
-                          setQuery(q);
-                          setPolicy("auto");
-                          setQueryTopic("");
-                          search(e, q, "auto");
-                        }}
-                      >
-                        {tr(label)}
-                        <ArrowUpRight size={13} />
-                      </button>
-                    ))}
+                    {examples.map(([label, question], i) => {
+                      const Icon = [
+                        UsersRound,
+                        ArrowLeftRight,
+                        Wallet,
+                        Building2,
+                        BriefcaseBusiness,
+                      ][i];
+                      return (
+                        <button
+                          key={label}
+                          onClick={(e) => {
+                            setQuery(question);
+                            setPolicy("auto");
+                            setQueryTopic("");
+                            search(e, question, "auto");
+                          }}
+                        >
+                          <Icon size={17} strokeWidth={1.6} />
+                          {tr(label)}
+                        </button>
+                      );
+                    })}
                   </div>
-                  <div className="start-grid">
-                    <section className="start-main">
-                      <span className="eyebrow">
-                        {tr("ANSWERS WITH REFERENCES")}
-                      </span>
-                      <h2>
-                        {tr("From a question")}
-                        <br />
-                        {tr("to the original circular.")}
-                      </h2>
-                      <p>
-                        {tr(
-                          "See the answer, source pages and policy changes together. Ask a specific question or browse a policy topic.",
-                        )}
-                      </p>
-                      <div className="steps">
-                        <div>
-                          <span>01</span>
-                          <strong>{tr("Locate provisions")}</strong>
-                          <p>{tr("Search circulars and statutory manuals.")}</p>
-                        </div>
-                        <div>
-                          <span>02</span>
-                          <strong>{tr("Understand changes")}</strong>
-                          <p>{tr("See what later instructions changed.")}</p>
-                        </div>
-                        <div>
-                          <span>03</span>
-                          <strong>{tr("Check the original")}</strong>
-                          <p>
-                            {tr("Read the cited page before relying on it.")}
-                          </p>
-                        </div>
-                      </div>
-                    </section>
-                    <section className="collection-card">
-                      <div className="collection-card-title">
-                        <LibraryBig size={19} />
-                        <span>{tr("THE RESEARCH COLLECTION")}</span>
-                      </div>
-                      <div className="big-stat">
-                        {catalog?.passage_count?.toLocaleString() || "—"}
-                        <span>{tr("searchable passages")}</span>
-                      </div>
-                      <div className="stat-rule" />
-                      <div className="small-stats">
-                        <div>
-                          <strong>{policies.length || "—"}</strong>
-                          <span>{tr("policy histories")}</span>
-                        </div>
-                        <div>
-                          <strong>{tr("PDF")}</strong>
-                          <span>{tr("original source pages")}</span>
-                        </div>
-                      </div>
-                      <button
-                        className="text-button"
-                        onClick={() => setPage("library")}
-                      >
-                        {tr("Explore policy collections")}
-                        <ArrowRight size={16} />
-                      </button>
-                    </section>
-                  </div>
-                  <section className="topics">
-                    <div className="section-title">
-                      <div>
-                        <span className="eyebrow">{tr("POLICY TOPICS")}</span>
-                        <h2>{tr("Start with a policy.")}</h2>
-                      </div>
-                      <button
-                        className="text-button"
-                        onClick={() => setPage("library")}
-                      >
-                        {tr("View all {count} collections", {
-                          count: policies.length,
-                        })}
-                        <ArrowRight size={15} />
-                      </button>
-                    </div>
-                    <div className="topic-grid">
-                      {policies
-                        .filter((p) =>
-                          [
-                            "jd",
-                            "transfers",
-                            "higher_pension",
-                            "mid_delinking",
-                          ].includes(p.id),
-                        )
-                        .map((p, i) => (
-                          <button
-                            key={p.id}
-                            className="topic-card"
-                            onClick={() => {
-                              setSelectedHistory(p.id);
-                              setHistoryTopic("");
-                              setPage("history");
-                            }}
-                          >
-                            <span className="topic-index">0{i + 1}</span>
-                            <GitBranch size={20} />
-                            <h3>{p.label}</h3>
-                            <p>
-                              {p.document_count}
-                              {tr(" documents · ")}
-                              {p.checked_count} {tr("checked sources")}
-                            </p>
-                            <ArrowUpRight className="topic-arrow" size={18} />
-                          </button>
-                        ))}
-                    </div>
-                  </section>
-                </>
+                  <button
+                    className="browse-topics text-button"
+                    onClick={() => setPage("library")}
+                  >
+                    {tr("Or browse policy topics")}
+                    <ArrowRight size={15} />
+                  </button>
+                </section>
               )}
               {busy && (
                 <section className="loading-state" role="status">
@@ -917,7 +853,6 @@ function App() {
                 <>
                   <div className="results-heading">
                     <div>
-                      <span className="eyebrow">{tr("RESEARCH RESULT")}</span>
                       <h2>{result.question}</h2>
                     </div>
                     <button
@@ -1049,36 +984,19 @@ function App() {
                             <Status kind="teal">
                               {context?.policy_label || tr("All documents")}
                             </Status>
-                            <span>
-                              {result.sources.length}
-                              {tr(" source pages")}
-                            </span>
+                            <button
+                              className="text-button source-count"
+                              onClick={() => setResultTab("sources")}
+                            >
+                              <BookOpen size={15} />
+                              {tr("Sources ({value0})", {
+                                value0: result.sources.length,
+                              })}
+                            </button>
                           </div>
                           {answer ? (
                             <div className="markdown">
-                              <Markdown
-                                components={{
-                                  a: ({ href, children }) =>
-                                    href?.startsWith("#source-") ? (
-                                      <button
-                                        className="citation"
-                                        onClick={() =>
-                                          selectSource(href.slice(8))
-                                        }
-                                      >
-                                        {children}
-                                      </button>
-                                    ) : (
-                                      <a
-                                        href={href}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                      >
-                                        {children}
-                                      </a>
-                                    ),
-                                }}
-                              >
+                              <Markdown components={answerComponents}>
                                 {answer.replace(
                                   /\[(\d+)\]/g,
                                   "[$1](#source-$1)",
@@ -1233,112 +1151,11 @@ function App() {
                         </div>
                       )}
                     </section>
-                    <aside id="source-panel" className="source-panel">
-                      <div className="source-panel-heading">
-                        <span>
-                          <BookOpen size={17} />
-                          {tr("SOURCE DOCUMENT")}
-                        </span>
-                        {source && (
-                          <span className="source-number">[{source.id}]</span>
-                        )}
-                      </div>
-                      {source ? (
-                        <>
-                          <div className="source-details">
-                            <Status
-                              kind={
-                                source.metadata.source_host_kind ===
-                                "mirror_copy"
-                                  ? "gold"
-                                  : "teal"
-                              }
-                            >
-                              {source.metadata.source_host_kind ===
-                              "mirror_copy"
-                                ? tr("Mirror copy")
-                                : tr("Source document")}
-                            </Status>
-                            <h3>
-                              {source.metadata.title || tr("EPFO document")}
-                            </h3>
-                            <code>
-                              {source.metadata.circular_no ||
-                                tr("Identifier unavailable")}
-                            </code>
-                            <div className="source-facts">
-                              <span>
-                                {tr("ISSUED")}
-                                <strong>
-                                  {dateText(source.metadata.date)}
-                                </strong>
-                              </span>
-                              <span>
-                                {tr("SOURCE PAGE")}
-                                <strong>
-                                  {source.metadata.page_provenance ===
-                                  "physical_pdf_page"
-                                    ? tr("PDF page {value0}", {
-                                        value0: source.metadata.page_number,
-                                      })
-                                    : tr("Page number unverified")}
-                                </strong>
-                              </span>
-                            </div>
-                          </div>
-                          <div className="source-tabs">
-                            <button
-                              className={
-                                sourceTab === "excerpt" ? "selected" : ""
-                              }
-                              onClick={() => setSourceTab("excerpt")}
-                            >
-                              {tr("Source text")}
-                            </button>
-                            <button
-                              className={sourceTab === "pdf" ? "selected" : ""}
-                              disabled={!source.pdf_url}
-                              onClick={() => setSourceTab("pdf")}
-                            >
-                              {tr("Original PDF")}
-                            </button>
-                          </div>
-                          {sourceTab === "pdf" ? (
-                            <iframe
-                              title={tr("Original PDF source")}
-                              src={`${source.pdf_url}#page=${source.metadata.page_number || 1}`}
-                              className="pdf-viewer"
-                            />
-                          ) : (
-                            <pre className="excerpt">{source.text}</pre>
-                          )}
-                          <div className="source-foot">
-                            <span>
-                              {source.metadata.evidence_status ||
-                                tr("Applicability unverified")}
-                            </span>
-                            <a
-                              href={
-                                source.pdf_url ||
-                                source.metadata.english_pdf_link ||
-                                source.metadata.source_pdf
-                              }
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              {tr("Open document")}
-                              <ArrowUpRight size={14} />
-                            </a>
-                          </div>
-                        </>
-                      ) : (
-                        <p className="empty">
-                          {tr(
-                            "Choose a numbered source to inspect the evidence.",
-                          )}
-                        </p>
-                      )}
-                    </aside>
+                    <SourceDrawer
+                      source={source}
+                      open={sourceOpen}
+                      onClose={() => setSourceOpen(false)}
+                    />
                   </div>
                   {context?.fallback_reason && (
                     <details className="gaps">
@@ -1366,7 +1183,7 @@ function App() {
                     ?.topics || []
                 ).length > 0 && (
                   <label>
-                    {tr("SUBTOPIC")}
+                    {tr("Subtopic")}
                     <select
                       aria-label={tr("History subtopic")}
                       value={historyTopic}
@@ -1385,7 +1202,7 @@ function App() {
                 )}
 
                 <label>
-                  {tr("POLICY COLLECTION")}
+                  {tr("Policy topic")}
                   <select
                     aria-label={tr("History policy collection")}
                     value={selectedHistory}
@@ -1402,7 +1219,7 @@ function App() {
                   </select>
                 </label>
                 <label>
-                  {tr("CIRCULARS ISSUED BY")}
+                  {tr("Circulars issued by")}
                   <input
                     type="date"
                     min="1952-01-01"
@@ -1428,10 +1245,7 @@ function App() {
               {history ? (
                 <div className="history-grid">
                   <section className="timeline-card">
-                    <div className="section-kicker">
-                      <span className="number-label">02</span>
-                      {history.label.toUpperCase()}
-                    </div>
+                    <div className="section-kicker">{history.label}</div>
                     <p className="scope">{history.scope}</p>
                     <Timeline
                       documents={history.documents}

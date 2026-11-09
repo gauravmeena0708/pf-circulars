@@ -1,6 +1,28 @@
 // Interface translations only. Official document titles, excerpts and evidence
 // limitations returned by the API are retained in their original language.
 export const hindi = {
+  "Your question": "आपका प्रश्न",
+  "From your file": "आपकी फ़ाइल के आधार पर",
+  "Page numbers / ranges": "पृष्ठ संख्या / सीमा",
+  "New question": "नया प्रश्न",
+  "Knowledge assistant": "जानकारी सहायक",
+  "Recent questions": "हाल के प्रश्न",
+  "How can I help with EPFO?": "EPFO से जुड़ी किस बात में मदद चाहिए?",
+  "Ask about PF, pensions, employer duties or staff matters.":
+    "PF, पेंशन, नियोक्ता के दायित्व या कर्मचारी मामलों के बारे में पूछें।",
+  "What would you like to know?": "आप क्या जानना चाहते हैं?",
+  "Research options": "खोज के विकल्प",
+  "Custom filters": "चुने हुए फ़िल्टर",
+  "Policy topic": "नीति का विषय",
+  Subtopic: "उपविषय",
+  "Answers with source references": "स्रोत संदर्भ सहित उत्तर",
+  "Start with a task": "अपना काम चुनें",
+  "A few things I can help with": "इन विषयों पर पूछ सकते हैं",
+  "Or browse policy topics": "या नीति के विषय देखें",
+  "Close source": "स्रोत बंद करें",
+  "Source view": "स्रोत देखने का तरीका",
+  Issued: "जारी होने की तारीख",
+  "Source page": "स्रोत पृष्ठ",
   "The date limit was not applied.": "तारीख की सीमा लागू नहीं हुई।",
   "Later changes and continued applicability have not been verified.":
     "बाद के बदलाव और वर्तमान लागू स्थिति सत्यापित नहीं हैं।",
