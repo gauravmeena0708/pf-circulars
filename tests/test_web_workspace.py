@@ -2,6 +2,7 @@
 import io
 import json
 import zipfile
+import unicodedata
 from types import SimpleNamespace
 
 import fitz
@@ -106,6 +107,63 @@ def test_research_export_and_generation_are_owned_by_session(client):
     other = {'X-Workspace-Session': 'c' * 32}
     assert client.post('/api/exports/research', headers=other, json=body).status_code == 410
     assert client.post('/api/answers/' + packet['packet_id'], headers=other, json={}).status_code == 410
+
+
+def test_research_pdf_keeps_cutoff_sources_links_and_session_expiry(client, monkeypatch):
+    packet = client.post('/api/search', json={'question':'Bank KYC employer approval?',
+                         'policy':'bank_kyc', 'as_of':'2025-04-03'}).json()
+    body = {'packet_id':packet['packet_id'], 'answer':'Review the source [1].', 'format':'pdf'}
+    response = client.post('/api/exports/research', json=body)
+    assert response.status_code == 200 and response.headers['content-type'] == 'application/pdf'
+    assert 'epfo-research-report.pdf' in response.headers['content-disposition']
+    with fitz.open(stream=response.content, filetype='pdf') as document:
+        text = unicodedata.normalize('NFKC', '\n'.join(page.get_text() for page in document))
+        assert 'Bank KYC' in text and '2025-04-03' in text
+        assert 'Evidence cutoff' in text and 'applicability is not certified' in text
+        assert 'Physical page:' in text
+        assert any(link.get('uri', '').startswith('https://') for page in document for link in page.get_links())
+    assert client.post('/api/exports/research', headers={'X-Workspace-Session':'c'*32}, json=body).status_code == 410
+    assert client.post('/api/exports/research', json={**body, 'format':'pptx'}).status_code == 422
+    monkeypatch.setitem(root._packets[packet['packet_id']], 'created', root.time.monotonic()-901)
+    assert client.post('/api/exports/research', json=body).status_code == 410
+
+
+@pytest.mark.parametrize('format', ['pdf', 'response_pdf', 'response_docx', 'transcript_pdf'])
+def test_file_exports_include_source_and_protect_session_and_expiry(client, pdf, monkeypatch, format):
+    file = upload(client, 'instructions.pdf', pdf)
+    entry = workspace.FILES[file['id']]
+    entry['history'] = [{'role':'user', 'content':'Prepare an office note'},
+                        {'role':'assistant', 'content':'A note grounded in the uploaded document.'}]
+    url = '/api/uploads/'+file['id']+'/download?format='+format
+    response = client.get(url)
+    if format.endswith('docx'):
+        text = word_text(response)
+    else:
+        assert response.status_code == 200 and response.headers['content-type'] == 'application/pdf'
+        with fitz.open(stream=response.content, filetype='pdf') as document:
+            text = '\n'.join(page.get_text() for page in document)
+    text = unicodedata.normalize('NFKC', text)
+    assert 'instructions.pdf' in text
+    if format.startswith('response'):
+        assert 'A note grounded in the uploaded document.' in text and 'Prepare an office note' in text
+    assert client.get(url, headers={'X-Workspace-Session':'c'*32}).status_code == 404
+    monkeypatch.setitem(entry, 'created', workspace.time.monotonic()-1801)
+    assert client.get(url).status_code == 404
+
+
+def test_response_export_requires_a_completed_response(client, pdf):
+    file = upload(client, 'instructions.pdf', pdf)
+    assert client.get('/api/uploads/'+file['id']+'/download?format=response_pdf').status_code == 422
+
+
+def test_empty_evidence_packet_exports_without_inventing_an_answer(client, monkeypatch):
+    packet_id = 'empty-export-test'
+    monkeypatch.setitem(root._packets, packet_id, {'owner':'b'*32, 'created':root.time.monotonic(),
+        'question':'No matching evidence?', 'chunks':[], 'context':None, 'currency':None})
+    response = client.post('/api/exports/research', json={'packet_id':packet_id, 'format':'pdf'})
+    assert response.status_code == 200
+    with fitz.open(stream=response.content, filetype='pdf') as document:
+        assert 'No source evidence was found' in document[0].get_text()
 
 
 @pytest.mark.parametrize('operation,count,pages', [('merge',2,4),('extract',1,1),('rotate',1,2),('compress',1,2)])

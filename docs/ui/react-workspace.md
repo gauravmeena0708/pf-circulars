@@ -1,5 +1,34 @@
 # React workspace decision and implementation
 
+## PDF and Word downloads - 9 November 2026
+
+Research results now use one **Download** menu: PDF first, then editable Word and
+the existing Markdown export. The file assistant puts Word first for extracted
+files and completed responses/office notes, with PDF alongside it. The response
+menu also offers PDF/Word copies of the recent conversation. Original uploads and
+plain text remain available from the file menu. Menus support keyboard navigation,
+Escape dismissal and placement within narrow screens.
+
+PDF reports are generated offline with PyMuPDF Story and MarkdownIt, including
+pagination, tables, embedded Hindi fonts, source excerpts, clickable source URLs
+and internal citation links. HTML and images in answer/source text are not loaded
+as report assets. Word source URLs are explicit hyperlinks. Research reports keep
+the question, source dates, page provenance and evidence-cutoff/applicability
+qualifications. Uploaded-file responses identify their source file and question;
+they do not invent a policy cutoff for uploaded evidence.
+
+`POST /api/exports/research` accepts `format: "pdf" | "docx"`; omitted format keeps
+the existing DOCX API default for compatibility. Upload downloads additionally
+accept `pdf`, `response_pdf`, `response_docx`, and `transcript_pdf`. All formats
+retain the existing session-ownership and expiry checks. PDF generation shares
+the bounded office-processing queue and limits very long reports to 500 pages.
+
+Validation: production build, frontend Markdown check, 76 Python checks, and
+Chromium downloads of actual PDF/DOCX research reports, extracted files, office
+responses and conversations. Browser inference uses a local test stub; exports
+and source retrieval use the actual API. PDF pagination, font embedding, source
+links, session isolation and expired/empty evidence are covered by tests.
+
 ## Conversational visual update - 9 November 2026
 
 The research landing page now centres on one rounded question composer, task

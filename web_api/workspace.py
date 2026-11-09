@@ -8,6 +8,7 @@ import re
 import threading
 import time
 from uuid import uuid4
+from typing import Literal
 from urllib.parse import quote
 import zipfile
 
@@ -23,6 +24,14 @@ MAX_FILE = 50 * 1024 * 1024
 MAX_CACHE = 256 * 1024 * 1024
 TTL = 1800
 DOCX = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+
+
+def pdf_response(renderer, name, *args):
+    try:
+        with WORK:
+            return binary(renderer(*args), name, 'application/pdf')
+    except ValueError as error:
+        raise HTTPException(422, str(error)) from None
 
 
 def json_safe(value):
@@ -174,11 +183,30 @@ def download_upload(id: str, format: str = 'text', x_workspace_session: str | No
     from docx_export import create_text_document_docx, create_chat_transcript_docx
     if format == 'original':
         return binary(entry['data'], entry['name'], 'text/csv' if entry['kind']=='csv' else 'application/pdf')
-    if format == 'transcript':
-        return binary(create_chat_transcript_docx(entry['name']+' — research transcript', entry['history'], {'File':entry['name']}), 'transcript.docx', DOCX)
+    if format in ('transcript', 'transcript_pdf'):
+        title = entry['name']+' — recent conversation'
+        metadata = {'Source file':entry['name'], 'Evidence scope':'Uploaded file only; policy applicability not verified.'}
+        if format == 'transcript_pdf':
+            from pdf_export import create_chat_transcript_pdf
+            return pdf_response(create_chat_transcript_pdf, 'conversation.pdf', title, entry['history'], metadata)
+        return binary(create_chat_transcript_docx(title, entry['history'], metadata), 'transcript.docx', DOCX)
+    if format in ('response_docx', 'response_pdf'):
+        history = entry['history']
+        index = next((i for i in range(len(history)-1, -1, -1) if history[i]['role']=='assistant' and history[i]['content']), None)
+        if index is None:
+            raise HTTPException(422, 'Generate a response before downloading it.')
+        question = history[index-1]['content'] if index and history[index-1]['role']=='user' else ''
+        metadata = {'Source file':entry['name'], 'Question':question, 'Evidence scope':'Uploaded file only; policy applicability not verified.'}
+        if format == 'response_pdf':
+            from pdf_export import create_text_document_pdf
+            return pdf_response(create_text_document_pdf, 'file-response.pdf', 'File response', history[index]['content'], metadata)
+        return binary(create_text_document_docx('File response', history[index]['content'], metadata), 'file-response.docx', DOCX)
     text = entry.get('text') or json.dumps(entry['profile'], ensure_ascii=False, indent=2, default=str)
     if format == 'docx':
         return binary(create_text_document_docx(entry['name'], text), 'extracted-document.docx', DOCX)
+    if format == 'pdf':
+        from pdf_export import create_text_document_pdf
+        return pdf_response(create_text_document_pdf, 'extracted-document.pdf', entry['name'], text)
     if format != 'text':
         raise HTTPException(422, 'Unknown export format.')
     return binary(text.encode(), 'extracted-text.txt', 'text/plain; charset=utf-8')
@@ -238,6 +266,7 @@ def chat(id: str, request: ChatRequest, x_workspace_session: str | None = Header
 class ResearchExport(BaseModel):
     packet_id: str
     answer: str = Field(default='', max_length=60000)
+    format: Literal['pdf', 'docx'] = 'docx'
 
 
 @router.post('/exports/research')
@@ -257,10 +286,16 @@ def research_export(request: ResearchExport, x_workspace_session: str | None = H
         source += f' | Page provenance: {provenance}'
         if page and provenance not in ('document_only', 'unverified'):
             source += f' | Physical page: {page}'
-        sources.append(dict(metadata, source=source, text=chunk['text'], url=metadata.get('english_pdf_link')))
+        sources.append(dict(metadata, source=source, text=chunk['text'], url=metadata.get('english_pdf_link') or metadata.get('source_pdf')))
     qualifier = ('\n\nEvidence cutoff: '+packet['context']['as_of']+
                  '. Evidence is incomplete; applicability is not certified.') if packet['context'] else '\n\nStandard hybrid search; the history date cutoff is not applied.'
-    return binary(create_research_report_docx(packet['question'], request.answer+qualifier, sources), 'epfo-research-report.docx', DOCX)
+    if not packet['context'] and (packet.get('currency') or {}).get('notice'):
+        qualifier += '\n\n'+packet['currency']['notice']
+    answer = request.answer or ('Sources retrieved; no AI answer generated.' if sources else 'No source evidence was found for this question.')
+    if request.format == 'pdf':
+        from pdf_export import create_research_report_pdf
+        return pdf_response(create_research_report_pdf, 'epfo-research-report.pdf', packet['question'], answer+qualifier, sources)
+    return binary(create_research_report_docx(packet['question'], answer+qualifier, sources), 'epfo-research-report.docx', DOCX)
 
 
 def zipped(items):

@@ -30,3 +30,4 @@ pandas
 reportlab
 timm
 python-docx
+markdown-it-py==3.0.0

@@ -15,6 +15,48 @@ textarea {
   font: inherit;
   color: inherit;
 }
+.download-control {
+  display: inline-flex;
+}
+.download-menu {
+  position: fixed;
+  z-index: 60;
+  padding: 7px;
+  border: 1px solid #e1e7da;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 12px 40px #273c2826;
+  max-height: calc(100dvh - 24px);
+  overflow-y: auto;
+}
+.download-menu > button {
+  display: block;
+  text-align: left;
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: 10px;
+  color: #344d3c;
+}
+.download-menu > button:hover,
+.download-menu > button:focus-visible {
+  background: #edf3e6;
+}
+.download-menu > button span {
+  display: block;
+  font-size: 14px;
+}
+.download-menu > button small {
+  display: block;
+  font-size: 12px;
+  color: #66705f;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+.chat-heading,
+.file-toolbar > div:last-child {
+  flex-wrap: wrap;
+  gap: 10px;
+}
 .sr-only {
   position: absolute;
   width: 1px;

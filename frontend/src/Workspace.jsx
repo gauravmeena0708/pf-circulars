@@ -1,6 +1,7 @@
 import { useI18n } from "./UiLanguage.jsx";
 import React, { useState, useRef } from "react";
 import Markdown from "./Markdown";
+import DownloadMenu from "./DownloadMenu.jsx";
 import {
   Upload,
   FileText,
@@ -200,21 +201,34 @@ export function Assistant({ language, onLanguage, enabled }) {
               </small>
             </div>
             <div>
-              <button
-                className="secondary"
-                onClick={() => exportFile("original")}
-              >
-                <Download size={14} />
-                {tr("Original")}
-              </button>
-              <button className="secondary" onClick={() => exportFile("docx")}>
-                <Download size={14} />
-                {tr("Word")}
-              </button>
-              <button className="secondary" onClick={() => exportFile("text")}>
-                <Download size={14} />
-                {tr("Text")}
-              </button>
+              <DownloadMenu
+                label="Download file"
+                disabled={running || busy}
+                items={[
+                  {
+                    id: "docx",
+                    label: "Word document (.docx)",
+                    description: "Editable document",
+                    onSelect: () => exportFile("docx"),
+                  },
+                  {
+                    id: "pdf",
+                    label: "PDF document (.pdf)",
+                    description: "Ready to print or share",
+                    onSelect: () => exportFile("pdf"),
+                  },
+                  {
+                    id: "original",
+                    label: "Original file",
+                    onSelect: () => exportFile("original"),
+                  },
+                  {
+                    id: "text",
+                    label: "Plain text (.txt)",
+                    onSelect: () => exportFile("text"),
+                  },
+                ]}
+              />
               <button
                 className="icon-btn"
                 aria-label={tr("Remove upload")}
@@ -341,13 +355,41 @@ export function Assistant({ language, onLanguage, enabled }) {
               <MessageSquare size={17} />
               {tr("Ask about this file")}
             </h3>
-            <button
-              className="text-button"
-              onClick={() => exportFile("transcript")}
-            >
-              <Download size={14} />
-              {tr("Word transcript")}
-            </button>
+            <DownloadMenu
+              label="Download response"
+              disabled={
+                running ||
+                !messages.some(
+                  (message) => message.role === "assistant" && message.content,
+                )
+              }
+              items={[
+                {
+                  id: "docx",
+                  label: "Word document (.docx)",
+                  description: "Latest response · editable",
+                  onSelect: () => exportFile("response_docx"),
+                },
+                {
+                  id: "pdf",
+                  label: "PDF document (.pdf)",
+                  description: "Latest response · ready to share",
+                  onSelect: () => exportFile("response_pdf"),
+                },
+                {
+                  id: "conversation-docx",
+                  label: "Word conversation (.docx)",
+                  description: "Recent questions and responses",
+                  onSelect: () => exportFile("transcript"),
+                },
+                {
+                  id: "conversation-pdf",
+                  label: "PDF conversation (.pdf)",
+                  description: "Recent questions and responses",
+                  onSelect: () => exportFile("transcript_pdf"),
+                },
+              ]}
+            />
           </div>
           <p className="data-caption">
             {tr(

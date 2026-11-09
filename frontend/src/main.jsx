@@ -42,6 +42,7 @@ import {
 import "./style.css";
 import "./friendly.css";
 import SourceDrawer from "./SourceDrawer.jsx";
+import DownloadMenu from "./DownloadMenu.jsx";
 import { Assistant, PdfTools, SessionSettings } from "./Workspace";
 import Divisions, { LibraryRules, SpanBar, sortItems } from "./Divisions";
 import { headers, request as fetchWorkspace, saveResponse } from "./client";
@@ -339,6 +340,19 @@ function App() {
       "What is the procedure for an EPFO staff transfer request?",
     ],
   ];
+  async function exportResearch(format) {
+    try {
+      await saveResponse(
+        await fetchWorkspace(
+          "/api/exports/research",
+          post({ packet_id: result.packet_id, answer, format }),
+        ),
+        `epfo-research-report.${format}`,
+      );
+    } catch (error) {
+      setError(error.message);
+    }
+  }
   const exportReport = () =>
     download(
       "epfo-research-report.md",
@@ -855,34 +869,29 @@ function App() {
                     <div>
                       <h2>{result.question}</h2>
                     </div>
-                    <button
-                      className="secondary"
-                      onClick={exportReport}
+                    <DownloadMenu
+                      ariaLabel="Download research report"
                       disabled={generating}
-                    >
-                      <Download size={15} />
-                      {tr("Export report")}
-                    </button>
-                    <button
-                      className="secondary"
-                      disabled={generating}
-                      onClick={async () => {
-                        try {
-                          await saveResponse(
-                            await fetchWorkspace(
-                              "/api/exports/research",
-                              post({ packet_id: result.packet_id, answer }),
-                            ),
-                            "epfo-research-report.docx",
-                          );
-                        } catch (e) {
-                          setError(e.message);
-                        }
-                      }}
-                    >
-                      <Download size={15} />
-                      {tr("Word report")}
-                    </button>
+                      items={[
+                        {
+                          id: "pdf",
+                          label: "PDF document (.pdf)",
+                          description: "Ready to print or share",
+                          onSelect: () => exportResearch("pdf"),
+                        },
+                        {
+                          id: "docx",
+                          label: "Word document (.docx)",
+                          description: "Editable document",
+                          onSelect: () => exportResearch("docx"),
+                        },
+                        {
+                          id: "markdown",
+                          label: "Markdown text (.md)",
+                          onSelect: exportReport,
+                        },
+                      ]}
+                    />
                   </div>
                   <div className="evidence-notice">
                     <AlertCircle size={17} />
@@ -1072,7 +1081,7 @@ function App() {
                                     setTimeout(() => setCopied(false), 2000);
                                   } catch {
                                     setError(
-                                      "Clipboard is unavailable. Use Export report.",
+                                      "Clipboard is unavailable. Use Download.",
                                     );
                                   }
                                 }}

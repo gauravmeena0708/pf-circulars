@@ -7,9 +7,11 @@ from __future__ import annotations
 from datetime import datetime
 import io
 import re
+from urllib.parse import urlsplit
 from typing import Any, Mapping, Sequence
 
 import docx
+from docx.opc.constants import RELATIONSHIP_TYPE
 from docx.enum.table import WD_ALIGN_VERTICAL, WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement, parse_xml
@@ -20,6 +22,38 @@ from docx.shared import Inches, Pt, RGBColor
 NAVY_COLOR = RGBColor(26, 54, 93)  # #1A365D
 GRAY_COLOR = RGBColor(100, 116, 139)  # #64748B
 DARK_TEXT_COLOR = RGBColor(30, 41, 59)  # #1E293B
+
+
+def _add_hyperlink(paragraph, label, url):
+    """Use explicit hyperlink relationships rather than relying on Word auto-linking."""
+    try:
+        parsed = urlsplit(str(url))
+        valid = parsed.scheme in ("http", "https") and parsed.hostname
+    except ValueError:
+        valid = False
+    if not valid or re.search(r"[\x00-\x1f\x7f]", str(url)):
+        paragraph.add_run(label)
+        return
+    relation = paragraph.part.relate_to(str(url), RELATIONSHIP_TYPE.HYPERLINK, is_external=True)
+    hyperlink = OxmlElement("w:hyperlink")
+    hyperlink.set(qn("r:id"), relation)
+    run = OxmlElement("w:r")
+    properties = OxmlElement("w:rPr")
+    style = OxmlElement("w:rStyle")
+    style.set(qn("w:val"), "Hyperlink")
+    properties.append(style)
+    color = OxmlElement("w:color")
+    color.set(qn("w:val"), "23766A")
+    properties.append(color)
+    underline = OxmlElement("w:u")
+    underline.set(qn("w:val"), "single")
+    properties.append(underline)
+    run.append(properties)
+    text = OxmlElement("w:t")
+    text.text = label
+    run.append(text)
+    hyperlink.append(run)
+    paragraph._p.append(hyperlink)
 
 
 def _set_cell_background(cell, fill_hex: str):
@@ -242,9 +276,8 @@ def create_research_report_docx(
             if url:
                 url_p = ref_cell.add_paragraph()
                 url_p.paragraph_format.space_after = Pt(0)
-                u_run = url_p.add_run(f"Official Link: {url}")
-                u_run.font.size = Pt(8.5)
-                u_run.font.color.rgb = RGBColor(37, 99, 235)  # Blue
+                url_p.add_run("Source link: ")
+                _add_hyperlink(url_p, str(url), url)
 
             doc.add_paragraph().paragraph_format.space_after = Pt(4)
 

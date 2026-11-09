@@ -1,6 +1,23 @@
 // Interface translations only. Official document titles, excerpts and evidence
 // limitations returned by the API are retained in their original language.
 export const hindi = {
+  Download: "डाउनलोड करें",
+  "Download research report": "शोध रिपोर्ट डाउनलोड करें",
+  "Download file": "फ़ाइल डाउनलोड करें",
+  "Download response": "उत्तर डाउनलोड करें",
+  "Preparing download…": "डाउनलोड तैयार हो रहा है…",
+  "PDF document (.pdf)": "PDF दस्तावेज़ (.pdf)",
+  "Word document (.docx)": "Word दस्तावेज़ (.docx)",
+  "Ready to print or share": "प्रिंट करने या साझा करने के लिए",
+  "Editable document": "संपादन योग्य दस्तावेज़",
+  "Markdown text (.md)": "Markdown पाठ (.md)",
+  "Plain text (.txt)": "सादा पाठ (.txt)",
+  "Original file": "मूल फ़ाइल",
+  "Latest response · editable": "नवीनतम उत्तर · संपादन योग्य",
+  "Latest response · ready to share": "नवीनतम उत्तर · साझा करने के लिए",
+  "Word conversation (.docx)": "बातचीत की Word प्रति (.docx)",
+  "PDF conversation (.pdf)": "बातचीत की PDF प्रति (.pdf)",
+  "Recent questions and responses": "हाल के प्रश्न और उत्तर",
   "Your question": "आपका प्रश्न",
   "From your file": "आपकी फ़ाइल के आधार पर",
   "Page numbers / ranges": "पृष्ठ संख्या / सीमा",
