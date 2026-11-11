@@ -1,194 +1,217 @@
-from bs4 import BeautifulSoup as bs, NavigableString
-import requests
-from urllib.parse import urljoin
-import json
-from datetime import datetime
-import os
-import argparse # For command-line arguments
+"""Add newly listed EPFO circulars to circular-data.json.
 
-# --- Configuration ---
-# If tesseract is not in your PATH, you might need to specify its location
-# For example, on Windows:
-# pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+The issuer lists circulars at https://www.epfo.gov.in/circulars/ (also served at
+https://pmvbry.epfindia.gov.in/circulars/). The page carries every listed circular in
+its HTML, but only part of the archive, so this script merges: existing records are
+never removed or rewritten, and only circulars that are not already held are added.
+
+    python fetch.py --dry-run          # show what would be added
+    python fetch.py                    # update circular-data.json
+    python fetch.py --html saved.html  # read a saved copy of the page
+"""
+
+import argparse
+from datetime import datetime
+import json
+import os
+import re
+import sys
+from urllib.parse import unquote, urlparse
+
+from bs4 import BeautifulSoup
+import requests
 
 CIRCULAR_DATA_FILE = "circular-data.json"
-
+LISTING_URLS = (
+    "https://www.epfo.gov.in/circulars/",
+    "https://pmvbry.epfindia.gov.in/circulars/",
+)
 HEADERS = {
-    'Host': 'www.epfindia.gov.in',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:55.0) Gecko/20100101 Firefox/55.0',
-    'Accept': 'text/html, */*; q=0.01',
-    'Accept-Language': 'en-US,en;q=0.5',
-    'Accept-Encoding': 'gzip, deflate, br',
-    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    'X-Requested-With': 'XMLHttpRequest',
-    'Referer': 'https://www.epfindia.gov.in/site_en/Contact_office_wise.php?id=MHEM',
-    'Connection': 'keep-alive',
-    'Upgrade-Insecure-Requests': '1'
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0",
+    "Accept": "text/html,application/xhtml+xml",
+    "Accept-Language": "en-US,en;q=0.5",
 }
+# A real listing has well over a thousand entries; far fewer means the page changed.
+MIN_EXPECTED_ENTRIES = 500
+DATE = r"\d{1,2}[/.-]\d{1,2}[/.-]\d{4}"
+# "... - Regarding No. HRM-I/S-4(1)95/S.L./806 dated 24/10/2025"
+# Annexure names can follow the date, so neither pattern is anchored to the end of the title.
+NUMBER_AND_DATE = re.compile(rf"\b(?:File\s+)?No\s*[.:]+\s*(?P<number>\S.*?)\s+dated?\s+(?P<date>{DATE})", re.I)
+LETTER_DATE = re.compile(rf"\bdated?\s+(?P<date>{DATE})", re.I)
 
-def generate_year_params():
-    """Dynamically generates financial year parameters up to the current date."""
-    current_date = datetime.now()
-    current_year = current_date.year
-    current_month = current_date.month
-    
-    # Financial year in India starts in April
-    if current_month >= 4:
-        latest_start_year = current_year
-    else:
-        latest_start_year = current_year - 1
-        
-    params = []
-    # Oldest explicitly listed year before 'Old Circulars' is 2009-2010
-    for year in range(latest_start_year, 2008, -1):
-        params.append(f"yr={year}-{year+1}")
-        
-    params.append("yr=Old+Circulars")
-    return params
 
-YEAR_PARAMS = generate_year_params()
-
-# --- Utility Functions ---
 def load_json_file(filepath):
-    """Loads a JSON file if it exists, otherwise returns an empty dictionary."""
     if os.path.exists(filepath):
-        try:
-            with open(filepath, 'r', encoding='utf-8') as f:
-                return json.load(f)
-        except json.JSONDecodeError:
-            print(f"Warning: Could not decode JSON from {filepath}. Starting fresh.")
-            return {}
-    return {}
+        with open(filepath, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return []
+
 
 def save_json_file(data, filepath):
-    """Saves data to a JSON file."""
-    with open(filepath, 'w', encoding='utf-8') as f:
+    with open(filepath, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
     print(f"Data saved to {filepath}")
 
-# --- Main Data Fetching Logic ---
-def fetch_circular_metadata():
-    """Fetches circular metadata from EPFO website and saves to circular-data.json."""
-    parsed_circulars_data = []
-    print("Starting to fetch circular metadata...")
 
-    for q_param in YEAR_PARAMS:
-        current_page_url = f'https://www.epfindia.gov.in/site_en/get_cir_content.php?{q_param}'
-        print(f"  Requesting URL: {current_page_url}")
-
-        try:
-            r = requests.get(current_page_url, headers=HEADERS, timeout=20)
-            r.raise_for_status()
-            soup = bs(r.text, 'html.parser')
-            print(f"  Status Code: {r.status_code} for {q_param}")
-
-            table_rows = soup.find_all('tr')
-            data_rows = table_rows[1:] if table_rows and table_rows[0].find('th') else table_rows
-
-            for row_idx, row in enumerate(data_rows):
-                cells = row.find_all('td')
-                if len(cells) < 4:
-                    # print(f"    Skipping row {row_idx+1} in {q_param} due to insufficient cells ({len(cells)}).")
-                    continue
-
-                serial_no = cells[0].get_text(strip=True)
-                subject_cell = cells[1]
-                title_parts = [content.strip() for content in subject_cell.contents if isinstance(content, NavigableString) and content.strip()]
-                title = " ".join(title_parts).split('Circular No.')[0].split('No.')[0].strip() # Basic title cleaning
-
-                circular_no_date_raw = ""
-                after_first_br = False
-                temp_circular_parts = []
-                for content in subject_cell.contents:
-                    if content.name == 'br':
-                        if not after_first_br:
-                            after_first_br = True
-                            continue
-                        else: # Second br or end of relevant part
-                            break
-                    if after_first_br:
-                        if isinstance(content, NavigableString):
-                            text_content = content.strip()
-                            if text_content:
-                                temp_circular_parts.append(text_content)
-                        elif content.name == 'a' and temp_circular_parts: # Link after some text
-                            break
-                circular_no_date_raw = " ".join(filter(None, temp_circular_parts))
+def _date(value):
+    """Return dd/mm/yyyy for a date written with /, . or -, or '' if it is not a date."""
+    match = re.fullmatch(r"(\d{1,2})[/.-](\d{1,2})[/.-](\d{4})", (value or "").strip())
+    if not match:
+        return ""
+    day, month, year = (int(part) for part in match.groups())
+    try:
+        return datetime(year, month, day).strftime("%d/%m/%Y")
+    except ValueError:
+        return ""
 
 
-                circular_no = ""
-                date_of_circular = ""
-                delimiter_dated = " dated "
-                delimiter_date = " date " # some entries use "date" instead of "dated"
-                
-                actual_delimiter = None
-                if delimiter_dated in circular_no_date_raw.lower(): # Check lower case
-                    actual_delimiter = delimiter_dated
-                elif delimiter_date in circular_no_date_raw.lower():
-                    actual_delimiter = delimiter_date
-
-                if actual_delimiter:
-                    # Find the actual delimiter with original casing for split
-                    delimiter_pos = circular_no_date_raw.lower().find(actual_delimiter)
-                    original_delimiter = circular_no_date_raw[delimiter_pos : delimiter_pos + len(actual_delimiter)]
-                    
-                    parts = circular_no_date_raw.split(original_delimiter, 1)
-                    circular_no = parts[0].strip()
-                    if len(parts) > 1:
-                        date_of_circular = parts[1].strip()
-                else:
-                    circular_no = circular_no_date_raw.strip()
-                
-                # Further clean title from circular number if any residue
-                if circular_no and title.endswith(circular_no): # simple check
-                    title = title[:-len(circular_no)].strip()
+def _is_pdf_link(url):
+    # The page writes "http://false" where no file is attached.
+    parsed = urlparse(url or "")
+    return parsed.scheme in ("http", "https") and "." in parsed.netloc and parsed.path.lower().endswith(".pdf")
 
 
-                def get_pdf_link(cell, base_url):
-                    link_tag = cell.find('a')
-                    if link_tag and link_tag.has_attr('href'):
-                        relative_link = link_tag['href']
-                        return urljoin(base_url, relative_link)
-                    return None
+def parse_listing(page_html):
+    """Return the circulars on the listing page, in page order (latest first)."""
+    soup = BeautifulSoup(page_html, "html.parser")
+    entries = []
+    for box in soup.select("div.download-box"):
+        heading = box.select_one(".download-title")
+        link = box.select_one("a[href]")
+        if heading is None:
+            continue
+        meta = [item.get_text(" ", strip=True) for item in box.select(".meta-item")]
+        entries.append({
+            "title": " ".join(heading.get_text(" ", strip=True).split()),
+            "division": meta[0] if meta else "",
+            "date": _date(meta[1]) if len(meta) > 1 else "",
+            "url": link["href"].strip() if link else "",
+        })
+    return entries
 
-                hindi_pdf_link = get_pdf_link(cells[2], current_page_url)
-                english_pdf_link = get_pdf_link(cells[3], current_page_url)
 
-                circular_data = {
-                    "serial_no": serial_no,
-                    "title": title,
-                    "circular_no": circular_no,
-                    "date": date_of_circular,
-                    "hindi_pdf_link": hindi_pdf_link,
-                    "english_pdf_link": english_pdf_link
-                }
-                parsed_circulars_data.append(circular_data)
-            print(f"  Successfully processed {q_param}")
-
-        except requests.exceptions.RequestException as e:
-            print(f"  Error fetching {q_param}: {e}")
-        except Exception as e:
-            print(f"  An error occurred during parsing for {q_param}: {e}")
-
-    if parsed_circulars_data:
-        save_json_file(parsed_circulars_data, CIRCULAR_DATA_FILE)
+def to_record(entry):
+    """Shape a listing entry like the existing circular-data.json records."""
+    title = entry["title"]
+    circular_no, title_date = "", ""
+    match = NUMBER_AND_DATE.search(title)
+    if match:
+        circular_no, title_date = match.group("number").strip(), _date(match.group("date"))
     else:
-        print("No circular metadata was extracted.")
-    print("Finished fetching circular metadata.")
+        match = LETTER_DATE.search(title)
+        if match:
+            title_date = _date(match.group("date"))
+    return {
+        "serial_no": "",
+        "title": title,
+        "circular_no": circular_no,
+        # The letter's own date is preferred; the listing date is the upload date when they differ.
+        "date": title_date or entry["date"],
+        "hindi_pdf_link": None,
+        "english_pdf_link": entry["url"],
+        "division": entry["division"],
+    }
 
 
-# --- Main Execution ---
+def _normalise(text):
+    return re.sub(r"[^0-9a-zऀ-ॿ]+", "", (text or "").casefold())
+
+
+def _title_keys(title):
+    """Keys under which the same circular's title appears in old and new listings.
+
+    Older records had the title cut at "No." and the number stored separately; the new
+    page keeps "... Regarding No. <number> dated <date>" in the title.
+    """
+    # The Hindi copy of a circular is listed separately with "(Hindi)" after the same title.
+    title = re.sub(r"\(\s*(?:Hindi|English)\s*\)\s*$", "", title.strip(), flags=re.I)
+    full = _normalise(title)
+    # Older records cut at "No." and sometimes kept the word before it ("... Regarding File").
+    cuts = [_normalise(re.split(pattern, title, maxsplit=1, flags=re.I)[0])
+            for pattern in (r"\bNo\s*[.:]", r"\b(?:Circular\s+|File\s+)?No\s*[.:]")]
+    keys = {full, *cuts}
+    for key in (full, *cuts):
+        if len(key) >= 60:
+            keys.add(key[:60])
+    return {key for key in keys if len(key) >= 12}
+
+
+def _file_key(url):
+    """PDF file name without the "-1", "-2" suffixes the new site adds to re-uploads."""
+    name = unquote(os.path.basename(urlparse(url or "").path)).casefold()
+    if not name.endswith(".pdf"):
+        return ""
+    stem = re.sub(r"(?:-\d{1,2})+$", "", name[:-4])
+    # The new site also drops brackets and spaces from file names.
+    stem = re.sub(r"[^0-9a-zऀ-ॿ]+", "", stem)
+    # Numbered uploads such as "161.pdf" say nothing about the circular.
+    return "" if stem.isdigit() or len(stem) < 6 else stem
+
+
+def merge(existing, listed):
+    """Return (records, added): existing records unchanged, unseen circulars first."""
+    titles, files = set(), set()
+    for record in existing:
+        titles |= _title_keys(record.get("title", ""))
+        for field in ("english_pdf_link", "hindi_pdf_link"):
+            key = _file_key(record.get(field))
+            if key:
+                files.add(key)
+    added = []
+    for entry in listed:
+        if not _is_pdf_link(entry["url"]):
+            continue
+        title_keys, file_key = _title_keys(entry["title"]), _file_key(entry["url"])
+        if title_keys & titles or (file_key and file_key in files):
+            continue
+        added.append(to_record(entry))
+        titles |= title_keys
+        if file_key:
+            files.add(file_key)
+    return added + list(existing), added
+
+
+def download_listing():
+    last_error = None
+    for url in LISTING_URLS:
+        try:
+            response = requests.get(url, headers=HEADERS, timeout=60)
+            response.raise_for_status()
+            response.encoding = "utf-8"
+            return response.text, url
+        except requests.exceptions.RequestException as error:
+            print(f"  Could not read {url}: {error}")
+            last_error = error
+    raise SystemExit(f"The circular listing could not be downloaded: {last_error}")
+
+
+def fetch_circular_metadata(html_path=None, data_file=CIRCULAR_DATA_FILE, dry_run=False):
+    if html_path:
+        with open(html_path, "r", encoding="utf-8", errors="replace") as f:
+            page, source = f.read(), html_path
+    else:
+        page, source = download_listing()
+    listed = parse_listing(page)
+    print(f"{len(listed)} circulars listed at {source}")
+    if len(listed) < MIN_EXPECTED_ENTRIES:
+        raise SystemExit("Too few circulars were found; the page layout may have changed. Nothing was written.")
+    existing = load_json_file(data_file)
+    records, added = merge(existing, listed)
+    print(f"{len(existing)} circulars already held; {len(added)} new")
+    for record in added:
+        print(f"  + {record['date'] or 'undated'} | {record['title'][:110]} | {record['english_pdf_link']}")
+    if added and not dry_run:
+        save_json_file(records, data_file)
+    return added
+
+
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Fetch EPFO circular metadata.")
-    parser.add_argument(
-        "--action",
-        choices=['fetch', 'all'],
-        default='fetch',
-        help="'fetch' updates circular-data.json. 'all' is kept as a backwards-compatible alias."
-    )
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    parser = argparse.ArgumentParser(description="Add newly listed EPFO circulars to circular-data.json.")
+    parser.add_argument("--action", choices=["fetch", "all"], default="fetch",
+                        help="Kept for compatibility; both values fetch the listing.")
+    parser.add_argument("--html", help="Read a saved copy of the listing page instead of downloading it.")
+    parser.add_argument("--dry-run", action="store_true", help="Report new circulars without writing the data file.")
     args = parser.parse_args()
-
-    if args.action in {'fetch', 'all'}:
-        fetch_circular_metadata()
-
-    print("\nScript finished.")
+    fetch_circular_metadata(html_path=args.html, dry_run=args.dry_run)

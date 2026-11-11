@@ -1,11 +1,13 @@
 name: Update FAISS Index
 
 on:
-  schedule:
-    # Runs daily at 00:00 UTC. You can adjust this cron expression.
-    # See https://crontab.guru/ for help.
-    - cron: '0 0 * * *'
-  workflow_dispatch: # Allows manual triggering
+  # The daily schedule is switched off. This job checks out without Git LFS, so
+  # update_indexer.py finds no index and starts an empty one; if a PDF download
+  # succeeded it would commit that small index over the full one. It also uploads
+  # vector_store/ to the Space, which the Space no longer holds. Restore the
+  # schedule only after the job checks out LFS, appends to the full index and
+  # refreshes deploy/runtime-assets.json.
+  workflow_dispatch: # Manual runs only; see the note above before using it
 
 jobs:
   update-index:

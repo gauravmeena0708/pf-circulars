@@ -1,8 +1,8 @@
 # Registered policy version and date histories
 
-The hosted search supports **JD member profile**, **Member profile / Aadhaar**,
-**Transfer claims**, **Higher pension / PoHW**, **Pension payment / CPPS**,
-**Advances / auto-settlement**, **EPF interest rate**, **EPFO staff transfer policy**, **APAR / vigilance clearance**, **Dearness allowance / relief**, **Panel advocates**, **Claim settlement authority**, **Foreign visit permissions**, and **Recruitment rules and promotion**.
+The hosted search supports the 31 policies registered in `registry.json` (684 documents
+as of 11 November 2026). The sections below were added as each group of policies was
+built and describe the state at that time.
 Choose a policy or Automatic, set **Evidence as of**, then submit a question.
 Automatic recognises registered scopes in registry order; the more specific Aadhaar
 scope precedes JD. Choose an explicit policy for short follow-up questions. Standard
