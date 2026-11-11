@@ -39,6 +39,12 @@ def _found(patterns, text):
     return any(re.search(pattern, text, re.I) for pattern in patterns)
 
 
+def _circular(source):
+    """Identifies the circular a source belongs to, by its number or else its title."""
+    meta = source.get('metadata') or {}
+    return re.sub(r'[^0-9a-z]+', '', (meta.get('circular_no') or meta.get('title') or '').casefold())
+
+
 def check_retrieval(case, search):
     """Checks that need no generated answer: the route taken and the sources handed to the model."""
     failures = []
@@ -64,7 +70,8 @@ def check_answer(case, search, answer):
         return ['empty answer']
     sources = search.get('sources', [])
     numbers = cited_numbers(text)
-    if not numbers:
+    # An answer that only reports that nothing was found has nothing to cite.
+    if not numbers and not case.get('citation_optional'):
         failures.append('no numbered citation')
     unlinked = unlinked_citations(answer)
     if unlinked:
@@ -72,9 +79,13 @@ def check_answer(case, search, answer):
     invalid = [number for number in numbers if not 1 <= number <= len(sources)]
     if invalid:
         failures.append(f'cites sources that do not exist: {invalid}')
-    cited_documents = {sources[number - 1].get('document_id') for number in numbers if 1 <= number <= len(sources)}
+    cited = [sources[number - 1] for number in numbers if 1 <= number <= len(sources)]
+    cited_documents = {source.get('document_id') for source in cited}
+    cited_circulars = {_circular(source) for source in cited} - {''}
     for document in case.get('must_cite', []):
-        if document not in cited_documents:
+        # The same circular can also arrive from the general index without a curated document id.
+        same_circular = {_circular(source) for source in sources if source.get('document_id') == document} - {''}
+        if document not in cited_documents and not same_circular & cited_circulars:
             failures.append(f'does not cite {document}')
     for fact in case.get('must_state', []):
         if not _found(fact['any'], text):

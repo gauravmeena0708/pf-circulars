@@ -295,7 +295,8 @@
     }
    ],
    "source": "No circular for 2026-27 is held; the answer must not supply a rate for that year",
-   "review": "draft"
+   "review": "draft",
+   "citation_optional": true
   },
   {
    "id": "eps-concurrent-employment",
@@ -699,11 +700,14 @@
    ],
    "must_state": [
     {
-     "fact": "the Department of Legal Affairs OM",
+     "fact": "the Law Ministry (Department of Legal Affairs) OM J-12011/6/2025-Judicial",
      "any": [
       "Legal Affairs",
-      "\\bDoLA\\b",
-      "Law (?:and|&) Justice"
+      "\bDoLA\b",
+      "Law (?:and|&) Justice",
+      "Law Ministry",
+      "Ministry of Law",
+      "J-12011/6/2025"
      ]
     },
     {

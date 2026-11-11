@@ -44,6 +44,21 @@ def test_each_rule_reports_its_own_failure():
     assert 'does not cite dr-2025-10-13' not in failures('Dearness relief is 58% 【2】.')
 
 
+def test_same_circular_from_the_general_index_counts_as_the_citation():
+    search = {'sources': [
+        {'document_id': 'dr-2025-10-13', 'metadata': {'circular_no': 'No.HRD/1(71)/2020/Misc./Pt./1445'}},
+        {'document_id': None, 'metadata': {'circular_no': 'No. HRD/1(71)/2020/Misc./Pt./1445'}},
+        {'document_id': None, 'metadata': {'circular_no': 'Another/1'}},
+    ]}
+    assert checks.check_answer(CASE, search, 'Dearness relief is 58% [2].') == []
+    assert 'does not cite dr-2025-10-13' in checks.check_answer(CASE, search, 'Dearness relief is 58% [3].')
+
+
+def test_not_found_answers_need_no_citation():
+    case = {'citation_optional': True, 'must_state': [{'fact': 'not found', 'any': ['not (?:been )?declared']}]}
+    assert checks.check_answer(case, SEARCH, 'A rate has not been declared for that year.') == []
+
+
 def test_route_and_missing_source_are_reported_without_an_answer():
     wrong = {'policy_context': None, 'sources': [{'document_id': None}]}
     assert checks.check_retrieval(CASE, wrong) == [
