@@ -53,6 +53,25 @@ def describe_llm_error(e):
     )
 
 
+# Wording fixed by describe_llm_error; a streamed provider failure reaches the reader as this text.
+_ERROR_KINDS = (
+    ("(401)", "token_rejected"),
+    ("(402)", "credits_exhausted"),
+    ("(403)", "token_not_allowed"),
+    ("(404)", "model_not_served"),
+    ("(413)", "request_too_large"),
+    ("(429)", "rate_limited"),
+    ("temporarily unavailable", "unavailable"),
+)
+
+
+def llm_error_kind(text):
+    """Name the provider failure a short answer text reports, or None for a real answer."""
+    if len(text) > 400:
+        return None
+    return next((kind for marker, kind in _ERROR_KINDS if marker in text), None)
+
+
 def _stream_llm_answer(llm_instance, messages, retry_messages=None):
     """Iterate the remote stream while keeping provider failures out of the UI."""
     emitted = False

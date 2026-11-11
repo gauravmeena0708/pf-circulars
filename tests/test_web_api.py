@@ -6,6 +6,7 @@ from web_api import app as module
 client = TestClient(module.app, headers={'X-Workspace-Session': 'a' * 32})
 
 
+@pytest.mark.needs_index
 def test_catalog_is_live_metadata_and_exposes_no_credentials():
     data = client.get('/api/catalog').json()
     assert data['passage_count'] >= 74884
@@ -190,6 +191,7 @@ def test_divisions_endpoint_carries_kinds_of_work():
     assert body['divisions'][0]['mix']['routine'] > 0
 
 
+@pytest.mark.needs_index
 def test_catalog_policies_carry_their_timeline():
     from fastapi.testclient import TestClient
 

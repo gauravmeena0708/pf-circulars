@@ -19,7 +19,7 @@ from fastapi.responses import FileResponse, RedirectResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from epfo import currency, policy_pdfs
+from epfo import currency, policy_pdfs, usage
 from epfo.citation_provenance import normalise_citation_stream
 from epfo.official_links import official_links, official_url
 from epfo.policy_history import PolicyHistory
@@ -65,6 +65,12 @@ class SearchRequest(BaseModel):
     policy: str = 'auto'
     topic: str | None = Field(default=None, max_length=80)
     as_of: date = Field(default_factory=date.today)
+
+
+class FeedbackRequest(BaseModel):
+    packet_id: str = Field(pattern='^[a-f0-9]{32}$')
+    helpful: bool
+    comment: str = Field(default='', max_length=500)
 
 
 class AnswerRequest(BaseModel):
@@ -257,6 +263,7 @@ def search(request: SearchRequest, http_request: Request):
     from epfo import config
 
     pool = []
+    started = time.monotonic()
 
     def run_hybrid():
         ranked = hybrid_search(request.question.strip(), extra=currency.EXTRA_CANDIDATES)
@@ -269,9 +276,11 @@ def search(request: SearchRequest, http_request: Request):
             request.question.strip(), request.as_of.isoformat(), run_hybrid, mode=request.policy, topic=request.topic
         )
     except ValueError as error:
+        usage.record('search_failed', outcome='invalid_request')
         raise HTTPException(422, str(error)) from None
     except Exception:
         LOG.exception('Search failed')
+        usage.record('search_failed', outcome='unavailable')
         raise HTTPException(503, 'Search is unavailable. Please retry shortly.') from None
     # The old epfindia.gov.in site now lives at epfo.gov.in: show readers (and the model) current links.
     for chunk in result['chunks']:
@@ -311,7 +320,19 @@ def search(request: SearchRequest, http_request: Request):
             chunks=result['chunks'],
             context=result['policy_context'],
             currency=freshness,
+            route=result['route'],
         )
+    usage.record(
+        'search',
+        route=result['route'],
+        policy=(result['policy_context'] or {}).get('policy_id'),
+        chosen=request.policy,
+        sources=len(sources),
+        fallback=bool((result['policy_context'] or {}).get('fallback_reason')) or None,
+        as_of_today=request.as_of == date.today(),
+        seconds=round(time.monotonic() - started, 2),
+        question=request.question.strip() if usage.questions_logged() else None,
+    )
     return dict(
         packet_id=packet_id,
         question=request.question,
@@ -352,12 +373,28 @@ def answer(
         raise HTTPException(503, 'AI generation is not configured. The source evidence remains available.')
     allowed, retry = (True, 0) if x_hf_token else limiter().try_acquire()
     if not allowed:
+        usage.record('answer', outcome='local_limit', route=packet.get('route'))
         raise HTTPException(
             429, 'Generation limit reached. Please retry shortly.', headers={'Retry-After': str(int(retry) + 1)}
         )
-    from epfo.answer_generator import describe_llm_error, get_llm_answer, initialize_llm
+    from epfo.answer_generator import describe_llm_error, get_llm_answer, initialize_llm, llm_error_kind
 
     def events():
+        started, written = time.monotonic(), []
+
+        def finish(outcome):
+            usage.record(
+                'answer',
+                outcome=outcome,
+                route=packet.get('route'),
+                policy=(packet['context'] or {}).get('policy_id'),
+                language=request.language,
+                detail=request.detail,
+                own_token=bool(x_hf_token) or None,
+                characters=sum(map(len, written)),
+                seconds=round(time.monotonic() - started, 2),
+            )
+
         try:
             options = {'hf_token': x_hf_token} if x_hf_token else {}
             if request.detail == 'detailed':
@@ -378,14 +415,45 @@ def answer(
             pieces = (chunk.content if hasattr(chunk, 'content') else str(chunk) for chunk in stream)
             # Models sometimes write 【3】 or [1, 2]; readers and exports only recognise [3].
             for text in normalise_citation_stream(pieces):
+                written.append(text)
                 yield json.dumps({'text': text}, ensure_ascii=False) + '\n'
+            # A provider failure arrives as a short explanatory text, not as an exception.
+            finish(llm_error_kind(''.join(written)) or 'ok')
             yield json.dumps({'done': True}) + '\n'
         except Exception as error:
+            finish('error')
             yield json.dumps({'error': describe_llm_error(error)}) + '\n'
 
     return StreamingResponse(
         events(), media_type='application/x-ndjson', headers={'Cache-Control': 'no-store', 'X-Accel-Buffering': 'no'}
     )
+
+
+@app.post('/api/feedback')
+def feedback(request: FeedbackRequest, http_request: Request):
+    """Record whether an answer helped. The interface tells the reader the question is recorded."""
+    from .workspace import owner
+
+    session = owner(http_request.headers.get("x-workspace-session"))
+    with _lock:
+        packet = _packets.get(request.packet_id)
+    if packet is None or packet.get('owner') != session:
+        raise HTTPException(410, 'This answer is no longer available for feedback.')
+    usage.record(
+        'feedback',
+        helpful=request.helpful,
+        route=packet.get('route'),
+        policy=(packet['context'] or {}).get('policy_id'),
+        question=packet['question'],
+        comment=request.comment.strip() or None,
+    )
+    return {'status': 'recorded'}
+
+
+@app.get('/api/stats')
+def stats():
+    """Counts since the process started: searches by route and policy, answer outcomes, feedback."""
+    return usage.snapshot()
 
 
 @app.get('/api/health')

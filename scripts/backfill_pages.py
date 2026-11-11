@@ -7,6 +7,7 @@ assigns a passage to a page only when the match is clear. Passage text and vecto
 changed; only the metadata of matched passages is.
 
     python scripts/backfill_pages.py extract --pdf-root "<...>/Circulars" --cache-dir <dir> --workers 8
+    python scripts/backfill_pages.py extract ... --skip-scanned    # quick pass without OCR
     python scripts/backfill_pages.py apply   --cache-dir <dir> --output <staged passages.db>
 
 `extract` is resumable and writes one small JSON per PDF. `apply` writes a new passages
@@ -69,7 +70,7 @@ def cache_path(cache_dir, link):
 
 def read_pages(job):
     """Worker: page texts of one PDF. Returns (link, status)."""
-    link, pdf, target, dpi, tesseract = job
+    link, pdf, target, dpi, tesseract, skip_scanned = job
     if Path(target).exists():
         return link, 'cached'
     import pymupdf
@@ -83,6 +84,8 @@ def read_pages(job):
             text = page.get_text().strip()
             method = 'native_text'
             if len(text) < NATIVE_MIN_CHARS and total > 1:
+                if skip_scanned:
+                    return link, 'needs OCR (skipped)'
                 import pytesseract
                 from PIL import Image
 
@@ -103,9 +106,15 @@ def read_pages(job):
         }
     except Exception as error:
         record = {'link': link, 'error': str(error)[:200]}
-    temporary = str(target) + '.tmp'
+    # Two runs may share a cache folder (a quick pass beside an OCR pass): keep temporary names apart.
+    temporary = f'{target}.{os.getpid()}.tmp'
     Path(temporary).write_text(json.dumps(record, ensure_ascii=False), encoding='utf-8')
-    os.replace(temporary, target)
+    try:
+        os.replace(temporary, target)
+    except OSError:
+        Path(temporary).unlink(missing_ok=True)
+        if not Path(target).exists():
+            raise
     return link, 'error' if 'error' in record else 'read'
 
 
@@ -115,7 +124,14 @@ def extract(args):
     links = cited_pdfs(args.passages_db)
     tesseract = args.tesseract if Path(args.tesseract).exists() else ''
     jobs = [
-        (link, str(local[link.rsplit('/', 1)[-1]]), str(cache_path(args.cache_dir, link)), args.dpi, tesseract)
+        (
+            link,
+            str(local[link.rsplit('/', 1)[-1]]),
+            str(cache_path(args.cache_dir, link)),
+            args.dpi,
+            tesseract,
+            args.skip_scanned,
+        )
         for link in links
         if link.rsplit('/', 1)[-1] in local
     ]
@@ -239,6 +255,9 @@ def main():
     commands.choices['extract'].add_argument('--pdf-root', required=True, type=Path)
     commands.choices['extract'].add_argument('--workers', type=int, default=max(1, (os.cpu_count() or 2) - 2))
     commands.choices['extract'].add_argument('--dpi', type=int, default=150)
+    commands.choices['extract'].add_argument(
+        '--skip-scanned', action='store_true', help='Quick pass: leave PDFs that need OCR for a later run'
+    )
     commands.choices['extract'].add_argument('--tesseract', default=r'C:\Program Files\Tesseract-OCR\tesseract.exe')
     commands.choices['apply'].add_argument('--output', required=True, type=Path)
     args = parser.parse_args()

@@ -2,6 +2,7 @@
 
 import io
 import json
+import logging
 import math
 import re
 import threading
@@ -525,6 +526,8 @@ def pdf_tool(
     except Exception as error:
         if isinstance(error, (tools.PDFProcessingError, ValueError)):
             raise HTTPException(422, str(error)) from None
+        # The reader gets a general message; the cause goes to the log.
+        logging.getLogger(__name__).exception('PDF tool %s failed', operation)
         raise HTTPException(
             422, 'Processing failed. Check the file, page range or OCR language and try again.'
         ) from None

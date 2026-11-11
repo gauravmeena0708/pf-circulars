@@ -2,6 +2,7 @@ import json
 import sqlite3
 from datetime import date
 
+import pytest
 from fastapi.testclient import TestClient
 
 from epfo import currency
@@ -90,6 +91,7 @@ def test_prompt_carries_the_currency_instruction_only_when_given():
     assert 'CURRENCY CHECK' not in format_prompt('limit?', [chunk('01/03/2019', 'A/1')])
 
 
+@pytest.mark.needs_index
 def test_general_search_returns_currency_and_curated_search_does_not(monkeypatch):
     client = TestClient(module.app, headers={'X-Workspace-Session': 'a' * 32})
     ranked = [chunk('01/03/2019', f'A/{i}') for i in range(5)] + [chunk('15/06/2022', 'B/2', 'Newer rule')]
