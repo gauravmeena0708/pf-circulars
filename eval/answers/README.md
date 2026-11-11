@@ -15,9 +15,16 @@ python eval/answers/run.py --out report.json         # all cases with generated 
 python eval/answers/run.py --case dr-2025-07         # one case
 ```
 
-Generating answers needs `HF_TOKEN` and uses paid inference. The provider limits tokens
-per minute, so a rate-limited attempt is repeated after a wait and a full run of 31 cases
-takes roughly 20 to 30 minutes. The exit status is 1 if any case fails.
+Generating answers needs `HF_TOKEN` and uses paid inference. The exit status is 1 if any
+case fails.
+
+**A full run uses a large share of the daily token allowance, which the live Space shares.**
+On the Groq on-demand tier the limits for `openai/gpt-oss-20b` are 8,000 tokens a minute and
+200,000 tokens a day; one case uses several thousand tokens. A rate-limited attempt is
+repeated after a wait, so a full run takes 20 to 30 minutes, and two full runs in a day
+exhaust the allowance and leave users of the Space without answers until it recovers. The
+runner stops when two cases in a row stay rate-limited. Use `--case` for spot checks and
+keep full runs for releases, or use a separate token.
 
 ## What a failure means
 

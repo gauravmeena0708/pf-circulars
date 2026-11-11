@@ -6,7 +6,11 @@ on:
   workflow_dispatch: # Allows manual triggering
 
 jobs:
+  tests:
+    uses: ./.github/workflows/tests.yaml
+
   sync-to-hub:
+    needs: tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,4 +23,6 @@ jobs:
         run: |
           pip install huggingface_hub==0.36.0
           python scripts/fetch_runtime_assets.py --refresh-commit "$GITHUB_SHA"
-          python -c "from huggingface_hub import HfApi; HfApi().upload_folder(folder_path='.', repo_id='gauravmeena0708/epfo-circulars', repo_type='space', ignore_patterns=['.git/*', '.github/*', 'vector_store/*', 'policy_data/*/pdfs/*'], delete_patterns=['vector_store/data_index/faiss_index.texts.json'])"
+          # delete_patterns removes files from the Space that no longer exist here (it only
+          # deletes remote files matching a pattern that are absent from this upload).
+          python -c "from huggingface_hub import HfApi; HfApi().upload_folder(folder_path='.', repo_id='gauravmeena0708/epfo-circulars', repo_type='space', ignore_patterns=['.git/*', '.github/*', 'vector_store/*', 'policy_data/*/pdfs/*'], delete_patterns=['*.py', '*.txt', '*.toml', '*.md', '*.json', '*.yaml', '.streamlit/*', '.devcontainer/*', 'deploy/*', 'data/*', 'frontend/src/*', 'frontend/tests/*', 'tests/*', 'scripts/*', 'web_api/*', 'eval/*', 'vector_store/data_index/faiss_index.texts.json'])"

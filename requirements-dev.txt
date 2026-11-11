@@ -1,0 +1,10 @@
+# Development, tests and the ingestion scripts. Install after requirements.txt
+# (and after CPU Torch: pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cpu).
+-r requirements.txt
+pytest>=8,<10
+httpx>=0.27,<1            # FastAPI TestClient
+ruff==0.14.4
+requests>=2.31,<3         # fetch.py, scripts/index_new_circulars.py
+beautifulsoup4>=4.12,<5   # fetch.py, fetch_manuals.py
+langchain-text-splitters>=0.3,<2   # import_pf_circular_index.py
+reportlab>=4,<5           # fetch_manuals.py

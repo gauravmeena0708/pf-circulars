@@ -29,8 +29,9 @@ import checks
 
 SESSION = 'e' * 32
 RATE_LIMITED = 'rate-limiting requests (429)'   # wording from answer_generator.describe_llm_error
-RATE_LIMIT_ATTEMPTS = 8
+RATE_LIMIT_ATTEMPTS = 5
 RATE_LIMIT_WAIT = 30
+STILL_LIMITED = 'the provider was still rate-limiting after repeated attempts'
 
 
 def read_answer(response):
@@ -80,7 +81,7 @@ def run_case(client, case, token, generate=True, detail='brief'):
         result['attempts'] = attempt + 1
         result['seconds'] = round(time.monotonic() - started, 1)
         if RATE_LIMITED in (answer or ''):
-            answer, error = '', 'the provider was still rate-limiting after repeated attempts'
+            answer, error = '', STILL_LIMITED
         result['answer'] = answer
         if error:
             failures.append(f'generation error: {error}')
@@ -116,18 +117,26 @@ def main():
     from web_api.app import app
     client = TestClient(app, headers={'X-Workspace-Session': SESSION})
 
-    results = []
+    results, throttled = [], 0
     for number, case in enumerate(cases, 1):
         result = run_case(client, case, token, generate=not args.retrieval_only, detail=args.detail)
         results.append(result)
         status = 'PASS' if not result['failures'] else 'FAIL'
         print(f"[{number}/{len(cases)}] {status} {case['id']}" + ''.join(f'\n      - {f}' for f in result['failures']), flush=True)
+        # Two cases in a row that stay rate-limited mean the daily token allowance is used up.
+        # That allowance is shared with the live Space, so stop instead of waiting it out.
+        throttled = throttled + 1 if any(STILL_LIMITED in f for f in result['failures']) else 0
+        if throttled == 2:
+            print('Stopping: the provider is still rate-limiting. The daily token allowance is probably '
+                  'exhausted; the remaining cases were not run.', flush=True)
+            break
 
     failed = [r['id'] for r in results if r['failures']]
     summary = {
         'dataset_status': dataset['dataset_status'],
         'mode': 'retrieval only' if args.retrieval_only else f'generated answers ({config.LLM_REPO_ID}, {args.detail})',
-        'cases': len(results), 'passed': len(results) - len(failed), 'failed_cases': failed,
+        'cases': len(results), 'not_run': len(cases) - len(results),
+        'passed': len(results) - len(failed), 'failed_cases': failed,
         'reviewed_cases': sum(r['review'] == 'reviewed' for r in results),
         'not_measured': ['claims outside the listed facts', 'completeness of the answer', 'legal applicability'],
     }

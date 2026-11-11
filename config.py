@@ -8,7 +8,6 @@ load_dotenv()
 HF_TOKEN = os.environ.get("HF_TOKEN")
 HF_INFERENCE_PROVIDER = os.environ.get("HF_INFERENCE_PROVIDER", "groq")
 
-NGROK_AUTH_TOKEN = os.environ.get("NGROK_AUTH_TOKEN") # If you plan to use ngrok
 EMBEDDING_MODEL_NAME = 'sentence-transformers/all-MiniLM-L6-v2'
 
 if torch.cuda.is_available():
@@ -30,9 +29,6 @@ LLM_REASONING_EFFORT = os.environ.get(
     "LLM_REASONING_EFFORT", "low" if LLM_REPO_ID.startswith("openai/gpt-oss") else ""
 ).strip()
 
-# Table Detection Model
-TABLE_DETECTION_MODEL = 'microsoft/table-transformer-detection'
-
 # Re-ranking & Hybrid Retrieval Model
 CROSS_ENCODER_MODEL_NAME = 'cross-encoder/ms-marco-MiniLM-L-6-v2'
 TOP_N_INITIAL_RETRIEVAL = 20
@@ -46,61 +42,10 @@ CONFIDENCE_GATE_ENABLED = os.environ.get("CONFIDENCE_GATE_ENABLED", "true").stri
 CHUNK_SIZE = 800
 CHUNK_OVERLAP = 150
 
-# Ingestion / PDF Extraction Settings
-USE_NATIVE_PDF_TEXT = True
-NATIVE_TEXT_MIN_WORDS = 25  # Safety net: minimum meaningful words required to accept native digital text
-
-# OCR Configuration
-OCR_LANGUAGES = ['en', 'hi'] # Default bilingual (English + Hindi)
-OCR_LANGUAGE_OPTIONS = {
-    "Bilingual (English + Hindi)": ["en", "hi"],
-    "English Only": ["en"],
-    "Hindi (Devanagari) Only": ["hi"],
-}
-DEFAULT_OCR_LANGUAGE_OPTION = "Bilingual (English + Hindi)"
-
-# PDF Office Utilities
-PDF_UTILS_MAX_UPLOAD_BYTES = int(
-    os.environ.get("PDF_UTILS_MAX_UPLOAD_BYTES", str(100 * 1024 * 1024))
-)
-
-# Uploaded File & Noting Sheet Assistant
-DOCUMENT_ASSISTANT_MAX_UPLOAD_BYTES = int(
-    os.environ.get("DOCUMENT_ASSISTANT_MAX_UPLOAD_BYTES", str(50 * 1024 * 1024))
-)
-DOCUMENT_ASSISTANT_MAX_CONTEXT_CHARS = int(
-    os.environ.get("DOCUMENT_ASSISTANT_MAX_CONTEXT_CHARS", "20000")
-)
-DOCUMENT_ASSISTANT_MAX_HISTORY_CHARS = int(
-    os.environ.get("DOCUMENT_ASSISTANT_MAX_HISTORY_CHARS", "4000")
-)
-DOCUMENT_ASSISTANT_MAX_HISTORY_MESSAGES = int(
-    os.environ.get("DOCUMENT_ASSISTANT_MAX_HISTORY_MESSAGES", "8")
-)
-
-# CSV Data Analysis Assistant
-DATA_ASSISTANT_MAX_UPLOAD_BYTES = int(
-    os.environ.get("DATA_ASSISTANT_MAX_UPLOAD_BYTES", str(25 * 1024 * 1024))
-)
-DATA_ASSISTANT_MAX_CONTEXT_CHARS = int(
-    os.environ.get("DATA_ASSISTANT_MAX_CONTEXT_CHARS", "16000")
-)
-DATA_ASSISTANT_PREVIEW_ROWS = int(
-    os.environ.get("DATA_ASSISTANT_PREVIEW_ROWS", "100")
-)
-
-# Circular & Manual Search Conversation Memory (Tab 1)
-CIRCULAR_SEARCH_MAX_HISTORY_CHARS = int(
-    os.environ.get("CIRCULAR_SEARCH_MAX_HISTORY_CHARS", "3000")
-)
-CIRCULAR_SEARCH_MAX_HISTORY_MESSAGES = int(
-    os.environ.get("CIRCULAR_SEARCH_MAX_HISTORY_MESSAGES", "6")
-)
-
 # Shared LLM Rate Limiting
 # Protects the server-side default HF_TOKEN from being exhausted by
-# concurrent users. A session that supplies its own Hugging Face token in
-# the sidebar draws on that user's own account/budget instead, so it is not
+# concurrent users. A session that supplies its own Hugging Face token
+# draws on that user's own account/budget instead, so it is not
 # subject to this limit. Set LLM_RATE_LIMIT_MAX_REQUESTS to 0 to disable.
 LLM_RATE_LIMIT_MAX_REQUESTS = int(
     os.environ.get("LLM_RATE_LIMIT_MAX_REQUESTS", "10")
@@ -111,10 +56,7 @@ LLM_RATE_LIMIT_WINDOW_SECONDS = int(
 
 DEFAULT_INDEX_DIR = "vector_store"
 DEFAULT_INDEX_NAME = "faiss_index" # The FAISS index file itself
-PROCESSED_DATA_DIR = "processed_pdf_data"
 TOP_N_RETRIEVAL = 5  # Number of relevant chunks to retrieve
-PDF_TO_IMAGE_DPI = 200
-STREAMLIT_SERVER_PORT = 8501
 
 # --- Logging ---
 LOG_LEVEL = "INFO" # e.g., DEBUG, INFO, WARNING, ERROR, CRITICAL
