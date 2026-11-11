@@ -17,7 +17,9 @@ torch.set_num_threads(min(8, os.cpu_count() or 4))
 import pytesseract
 from PIL import Image
 
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+from epfo import tesseract
+
+tesseract.configure()
 
 from sentence_transformers import SentenceTransformer
 

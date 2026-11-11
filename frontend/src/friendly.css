@@ -585,6 +585,36 @@ main {
   border: 0;
   gap: 18px;
 }
+.answer-feedback {
+  align-items: center;
+  color: #6b6658;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 13px;
+  gap: 6px;
+  margin-left: auto;
+}
+.answer-feedback .icon-btn[aria-pressed="true"] {
+  background: #ece8d8;
+}
+.answer-feedback-note {
+  display: flex;
+  flex-basis: 100%;
+  gap: 8px;
+}
+.answer-feedback-note input {
+  border: 1px solid #d8d3c2;
+  border-radius: 10px;
+  flex: 1;
+  font: inherit;
+  min-width: 0;
+  padding: 7px 10px;
+}
+.answer-feedback-notice {
+  color: #8a8472;
+  flex-basis: 100%;
+  font-size: 12px;
+}
 .evidence-notice,
 .currency-notice {
   border: 0;

@@ -80,13 +80,11 @@ def download_pdf(url, target):
 
 
 def _reader(max_pages, dpi):
-    import pytesseract
 
+    from epfo import tesseract
     from scripts import ocr_local_circulars
 
-    windows_default = Path(r'C:\Program Files\Tesseract-OCR\tesseract.exe')
-    if windows_default.exists():
-        pytesseract.pytesseract.tesseract_cmd = str(windows_default)
+    tesseract.configure()
 
     def read(path, title):
         # The Hindi model adds noise to English scans, so use it only for Hindi-titled circulars.

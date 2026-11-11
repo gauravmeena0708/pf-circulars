@@ -14,7 +14,7 @@ import {
   Settings2,
   Check,
 } from "lucide-react";
-import { json, request, post, stream, saveResponse, setToken } from "./client";
+import { json, request, stream, saveResponse, setToken } from "./client";
 
 export function Assistant({ language, onLanguage, enabled }) {
   const { t: tr } = useI18n();

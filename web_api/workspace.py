@@ -126,6 +126,10 @@ class OCRReader:
         import pytesseract
         from PIL import Image
 
+        from epfo import tesseract
+
+        tesseract.configure()
+
         return pytesseract.image_to_string(Image.fromarray(image), lang=self.language, timeout=45).splitlines()
 
 
@@ -496,6 +500,10 @@ def pdf_tool(
             import fitz
             import pytesseract
             from PIL import Image
+
+            from epfo import tesseract
+
+            tesseract.configure()
 
             text = []
             with fitz.open(stream=data, filetype='pdf') as original, fitz.open() as out:

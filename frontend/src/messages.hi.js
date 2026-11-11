@@ -415,4 +415,13 @@ export const hindi = {
     "प्रभागों द्वारा बनाए और प्रबंधित नियम, इस समयरेखा पर:",
   "timeline by the span of their circulars. Evidence is from circular titles and the circulars named on the division page.":
     "परिपत्रों की अवधि के अनुसार। स्रोत परिपत्रों के शीर्षक और प्रभाग पृष्ठ पर दिए गए परिपत्र हैं।",
+  "Was this answer helpful?": "क्या यह उत्तर उपयोगी था?",
+  "Yes, this answer helped": "हाँ, यह उत्तर उपयोगी था",
+  "No, this answer did not help": "नहीं, यह उत्तर उपयोगी नहीं था",
+  "Thank you for the feedback.": "आपकी प्रतिक्रिया के लिए धन्यवाद।",
+  "What was wrong? (optional)": "क्या गलत था? (वैकल्पिक)",
+  Send: "भेजें",
+  "Feedback could not be sent.": "प्रतिक्रिया भेजी नहीं जा सकी।",
+  "Your question and rating are recorded to improve this tool.":
+    "इस टूल को बेहतर बनाने के लिए आपका प्रश्न और रेटिंग दर्ज की जाती है।",
 };
