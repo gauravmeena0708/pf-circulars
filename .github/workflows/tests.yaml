@@ -35,7 +35,9 @@ jobs:
           pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cpu
           pip install -r requirements-dev.txt
       - name: Lint
-        run: ruff check .
+        run: |
+          ruff check .
+          ruff format --check .
       - name: Test
         env:
           PYTHONUTF8: '1'

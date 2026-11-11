@@ -1,15 +1,17 @@
 import io
 import unittest
+
 import docx
 
-import docx_export
+from epfo import docx_export
 
 
 class TestDocxExport(unittest.TestCase):
-
     def test_create_research_report_docx(self):
         query = "What is the procedure for joint declaration?"
-        answer = "To update joint declaration, the member and employer must submit the request online via Unified Portal."
+        answer = (
+            "To update joint declaration, the member and employer must submit the request online via Unified Portal."
+        )
         references = [
             {
                 "rank": 1,
@@ -28,8 +30,10 @@ class TestDocxExport(unittest.TestCase):
 
         # Verify it can be loaded by python-docx
         doc = docx.Document(io.BytesIO(doc_bytes))
-        all_text = "\n".join(p.text for p in doc.paragraphs) + "\n" + "\n".join(
-            c.text for t in doc.tables for r in t.rows for c in r.cells
+        all_text = (
+            "\n".join(p.text for p in doc.paragraphs)
+            + "\n"
+            + "\n".join(c.text for t in doc.tables for r in t.rows for c in r.cells)
         )
         self.assertIn("EPFO Knowledge Assistant", all_text)
         self.assertIn(query, all_text)

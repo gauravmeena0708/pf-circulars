@@ -3,31 +3,56 @@ from pathlib import Path
 
 import pytest
 
-from policy_history import PolicyHistory, _normalise
-from policy_registry import select_policy
+from epfo.policy_history import PolicyHistory, _normalise
+from epfo.policy_registry import select_policy
 
 POLICY = Path(__file__).parents[1] / 'policy_data' / 'epf_interest_rate'
 RATES = {
-    '2010-11': 9.5, '2011-12': 8.25, '2012-13': 8.5, '2013-14': 8.75, '2014-15': 8.75,
-    '2015-16': 8.8, '2016-17': 8.65, '2017-18': 8.55, '2018-19': 8.65, '2019-20': 8.5,
-    '2020-21': 8.5, '2021-22': 8.1, '2022-23': 8.15, '2023-24': 8.25, '2024-25': 8.25,
+    '2010-11': 9.5,
+    '2011-12': 8.25,
+    '2012-13': 8.5,
+    '2013-14': 8.75,
+    '2014-15': 8.75,
+    '2015-16': 8.8,
+    '2016-17': 8.65,
+    '2017-18': 8.55,
+    '2018-19': 8.65,
+    '2019-20': 8.5,
+    '2020-21': 8.5,
+    '2021-22': 8.1,
+    '2022-23': 8.15,
+    '2023-24': 8.25,
+    '2024-25': 8.25,
     '2025-26': 8.25,
 }
 
 
-@pytest.mark.parametrize('query', [
-    'What is the EPF interest rate for 2023-24?', 'rate of interest declared for provident fund members',
-    'EPF interest rate 2021-22', 'ROI for EPF accounts', 'ब्याज दर 2024-25',
-])
+@pytest.mark.parametrize(
+    'query',
+    [
+        'What is the EPF interest rate for 2023-24?',
+        'rate of interest declared for provident fund members',
+        'EPF interest rate 2021-22',
+        'ROI for EPF accounts',
+        'ब्याज दर 2024-25',
+    ],
+)
 def test_interest_rate_queries_route_to_history(query):
     assert select_policy(query).id == 'epf_interest_rate'
 
 
-@pytest.mark.parametrize('query', [
-    'Rate of interest on EPF advance', 'Staff Provident Fund interest rate', 'NPS interest rate',
-    'interest under section 7Q', 'penal damages 14B interest', 'TDS on taxable interest EPF',
-    'interest on belated crediting of EPF',
-])
+@pytest.mark.parametrize(
+    'query',
+    [
+        'Rate of interest on EPF advance',
+        'Staff Provident Fund interest rate',
+        'NPS interest rate',
+        'interest under section 7Q',
+        'penal damages 14B interest',
+        'TDS on taxable interest EPF',
+        'interest on belated crediting of EPF',
+    ],
+)
 def test_other_interest_matters_are_not_routed_here(query):
     policy = select_policy(query)
     assert policy is None or policy.id != 'epf_interest_rate'

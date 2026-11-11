@@ -4,7 +4,7 @@ import os
 
 import pytest
 
-import retriever
+from epfo import retriever
 
 
 @pytest.fixture(autouse=True)

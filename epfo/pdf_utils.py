@@ -5,9 +5,8 @@ compressing, format conversion, and OCR processing.
 from __future__ import annotations
 
 import io
-import os
-import re
-from typing import Sequence
+from collections.abc import Sequence
+
 import numpy as np
 from PIL import Image
 
@@ -76,9 +75,7 @@ def parse_page_ranges(range_str: str, max_pages: int) -> list[int]:
                 raise PDFProcessingError(f"Invalid page number: '{token}'")
 
             if page_num < 1 or page_num > max_pages:
-                raise PDFProcessingError(
-                    f"Page number {page_num} is out of bounds (1-{max_pages})."
-                )
+                raise PDFProcessingError(f"Page number {page_num} is out of bounds (1-{max_pages}).")
             indices.append(page_num - 1)
 
     return indices
@@ -94,7 +91,7 @@ def merge_pdfs(pdf_bytes_list: Sequence[bytes]) -> bytes:
 
     merged_doc = fitz.open()
     try:
-        for index, pdf_data in enumerate(pdf_bytes_list):
+        for pdf_data in pdf_bytes_list:
             sub_doc = _open_pdf(pdf_data)
             try:
                 merged_doc.insert_pdf(sub_doc)
@@ -157,9 +154,7 @@ def rotate_pdf_pages(
     If page_range_str is provided, only specified pages are rotated.
     """
     if rotation_degrees not in (90, 180, 270):
-        raise PDFProcessingError(
-            f"Invalid rotation degrees: {rotation_degrees}. Allowed values: 90, 180, 270."
-        )
+        raise PDFProcessingError(f"Invalid rotation degrees: {rotation_degrees}. Allowed values: 90, 180, 270.")
 
     doc = _open_pdf(pdf_bytes)
     try:

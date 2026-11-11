@@ -13,17 +13,18 @@ changed; only the metadata of matched passages is.
 database next to nothing else, checks it against the original and prints a report; copy it
 over vector_store/data_index/faiss_index.passages.db only after reading the report.
 """
+
 import argparse
-from collections import Counter
-from concurrent.futures import ProcessPoolExecutor
 import hashlib
 import json
 import os
-from pathlib import Path
 import re
 import shutil
 import sqlite3
 import sys
+from collections import Counter
+from concurrent.futures import ProcessPoolExecutor
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PASSAGES = ROOT / 'vector_store/data_index/faiss_index.passages.db'
@@ -72,6 +73,7 @@ def read_pages(job):
     if Path(target).exists():
         return link, 'cached'
     import pymupdf
+
     try:
         document = pymupdf.open(pdf)
         total = len(document)
@@ -83,6 +85,7 @@ def read_pages(job):
             if len(text) < NATIVE_MIN_CHARS and total > 1:
                 import pytesseract
                 from PIL import Image
+
                 if tesseract:
                     pytesseract.pytesseract.tesseract_cmd = tesseract
                 longest = max(page.rect.width, page.rect.height) / 72
@@ -92,8 +95,12 @@ def read_pages(job):
                 method = 'ocr_text'
             # A one-page document needs no text: every passage is on page 1.
             pages.append({'page': number + 1, 'method': method if total > 1 else 'single_page', 'text': text})
-        record = {'link': link, 'total_pages': total, 'pages': pages,
-                  'sha256': hashlib.sha256(Path(pdf).read_bytes()).hexdigest()}
+        record = {
+            'link': link,
+            'total_pages': total,
+            'pages': pages,
+            'sha256': hashlib.sha256(Path(pdf).read_bytes()).hexdigest(),
+        }
     except Exception as error:
         record = {'link': link, 'error': str(error)[:200]}
     temporary = str(target) + '.tmp'
@@ -107,8 +114,11 @@ def extract(args):
     local = local_pdfs(args.pdf_root)
     links = cited_pdfs(args.passages_db)
     tesseract = args.tesseract if Path(args.tesseract).exists() else ''
-    jobs = [(link, str(local[link.rsplit('/', 1)[-1]]), str(cache_path(args.cache_dir, link)), args.dpi, tesseract)
-            for link in links if link.rsplit('/', 1)[-1] in local]
+    jobs = [
+        (link, str(local[link.rsplit('/', 1)[-1]]), str(cache_path(args.cache_dir, link)), args.dpi, tesseract)
+        for link in links
+        if link.rsplit('/', 1)[-1] in local
+    ]
     print(f'{len(links)} cited PDFs without verified pages; {len(jobs)} found under {args.pdf_root}', flush=True)
     status = Counter()
     with ProcessPoolExecutor(max_workers=args.workers) as pool:
@@ -156,7 +166,7 @@ def apply(args):
                     page['counts'] = Counter(words(page['text']))
             else:
                 record = None
-            pages_cache.clear()        # passages of one document are stored together
+            pages_cache.clear()  # passages of one document are stored together
             pages_cache[link] = record
         return pages_cache[link]
 
@@ -179,9 +189,16 @@ def apply(args):
                 report['page unclear, left as it was'] += 1
                 continue
             page, method, score = found
-            m.update(page_number=page, page_provenance='physical_pdf_page',
-                     page_match={'method': method, 'score': score, 'pdf_sha256': record['sha256'],
-                                 'earlier_page_label': m.get('page_number')})
+            m.update(
+                page_number=page,
+                page_provenance='physical_pdf_page',
+                page_match={
+                    'method': method,
+                    'score': score,
+                    'pdf_sha256': record['sha256'],
+                    'earlier_page_label': m.get('page_number'),
+                },
+            )
             updates.append((json.dumps(m, ensure_ascii=False), passage_id))
             report['page assigned'] += 1
             by_method[method] += 1
@@ -189,16 +206,25 @@ def apply(args):
         db.commit()
         # Safety: same ids and text as the original; metadata differs only on the updated rows.
         db.execute('attach database ? as original', (str(args.passages_db),))
-        text_changed = db.execute('select count(*) from original.passages o left join main.passages n on o.id = n.id '
-                                  'where n.id is null or n.text != o.text').fetchone()[0]
-        meta_changed = db.execute('select count(*) from original.passages o join main.passages n on o.id = n.id '
-                                  'where n.metadata != o.metadata').fetchone()[0]
+        text_changed = db.execute(
+            'select count(*) from original.passages o left join main.passages n on o.id = n.id '
+            'where n.id is null or n.text != o.text'
+        ).fetchone()[0]
+        meta_changed = db.execute(
+            'select count(*) from original.passages o join main.passages n on o.id = n.id '
+            'where n.metadata != o.metadata'
+        ).fetchone()[0]
         total = db.execute('select count(*) from main.passages').fetchone()[0]
     if text_changed or meta_changed != len(updates) or total != len(rows):
         output.unlink()
         raise SystemExit('The staged database failed its check and was removed.')
-    summary = {'passages': total, **report, 'by_method': dict(by_method), 'text_changed': text_changed,
-               'thresholds': {'min_score': MIN_SCORE, 'min_margin': MIN_MARGIN}}
+    summary = {
+        'passages': total,
+        **report,
+        'by_method': dict(by_method),
+        'text_changed': text_changed,
+        'thresholds': {'min_score': MIN_SCORE, 'min_margin': MIN_MARGIN},
+    }
     print(json.dumps(summary, indent=1))
     Path(str(output) + '.report.json').write_text(json.dumps(summary, indent=1) + '\n', encoding='utf-8')
 

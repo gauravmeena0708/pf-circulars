@@ -10,17 +10,18 @@ record of it exists in ocr_updates/index-*.json. Text is read as in ocr_local_ci
 indexed by import_pf_circular_index.py. The three index files are checked afterwards (earlier
 passages unchanged, counts aligned) and restored if the check fails.
 """
+
 import argparse
-from datetime import date, datetime
 import glob
 import gzip
 import json
 import os
-from pathlib import Path
 import shutil
 import sqlite3
 import sys
 import tempfile
+from datetime import date, datetime
+from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -62,6 +63,7 @@ def pending(root=ROOT):
 
 def download_pdf(url, target):
     import requests
+
     with requests.get(url, headers=HEADERS, timeout=90, stream=True) as response:
         response.raise_for_status()
         size = 0
@@ -78,9 +80,10 @@ def download_pdf(url, target):
 
 
 def _reader(max_pages, dpi):
-    sys.path.insert(0, str(ROOT / 'scripts'))
-    import ocr_local_circulars
     import pytesseract
+
+    from scripts import ocr_local_circulars
+
     windows_default = Path(r'C:\Program Files\Tesseract-OCR\tesseract.exe')
     if windows_default.exists():
         pytesseract.pytesseract.tesseract_cmd = str(windows_default)
@@ -89,6 +92,7 @@ def _reader(max_pages, dpi):
         # The Hindi model adds noise to English scans, so use it only for Hindi-titled circulars.
         hindi = any('\u0900' <= ch <= '\u097f' for ch in title or '')
         return ocr_local_circulars.read_pdf(path, max_pages, dpi, 'eng+hin' if hindi else 'eng')
+
     return read
 
 
@@ -109,8 +113,11 @@ def read_circulars(records, download=download_pdf, read=None, max_pages=30, dpi=
                 continue
             text['indexed_at'] = datetime.now().isoformat(timespec='seconds')
             texts[url] = text
-            print(f'[{number}/{len(records)}] {url}: {text["pages_indexed"]}/{text["total_pages"]} pages, '
-                  f'{len(text["ocr_content"])} chars ({text["method"]})', flush=True)
+            print(
+                f'[{number}/{len(records)}] {url}: {text["pages_indexed"]}/{text["total_pages"]} pages, '
+                f'{len(text["ocr_content"])} chars ({text["method"]})',
+                flush=True,
+            )
     return texts, failed
 
 
@@ -128,6 +135,7 @@ def write_updates(updates_dir, texts, stamp=None):
 def check_index(index_dir, original_db):
     """Raise unless the saved index is aligned and every earlier passage is unchanged."""
     import faiss
+
     index_dir = Path(index_dir)
     vectors = faiss.read_index(str(index_dir / 'faiss_index.index')).ntotal
     with sqlite3.connect(index_dir / 'faiss_index.passages.db') as db:
@@ -136,7 +144,8 @@ def check_index(index_dir, original_db):
         before = db.execute('select count(*) from original.passages').fetchone()[0]
         changed = db.execute(
             'select count(*) from original.passages o left join main.passages n on o.id = n.id '
-            'where n.id is null or n.text != o.text or n.metadata != o.metadata').fetchone()[0]
+            'where n.id is null or n.text != o.text or n.metadata != o.metadata'
+        ).fetchone()[0]
     with gzip.open(index_dir / 'faiss_index.bm25.json.gz', 'rt', encoding='utf-8') as source:
         sparse = json.load(source)
     if vectors != count:
@@ -162,8 +171,8 @@ def index_updates(root=ROOT):
     here = os.getcwd()
     try:
         os.chdir(root)
-        sys.path.insert(0, str(ROOT))
-        import import_pf_circular_index as importer
+        from scripts import import_pf_circular_index as importer
+
         importer.backup_existing_index = lambda *args: None  # the snapshot above is the backup
         importer.run_import(pf_circular_data_dir='ocr_updates')
         return check_index(index_dir, snapshot / 'faiss_index.passages.db')
@@ -187,7 +196,9 @@ def main():
     if hasattr(sys.stdout, 'reconfigure'):
         sys.stdout.reconfigure(encoding='utf-8', errors='replace')
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument('--root', type=Path, default=ROOT, help='Folder holding circular-data.json, ocr_updates/ and vector_store/')
+    parser.add_argument(
+        '--root', type=Path, default=ROOT, help='Folder holding circular-data.json, ocr_updates/ and vector_store/'
+    )
     parser.add_argument('--list', action='store_true', help='Report waiting circulars and stop')
     parser.add_argument('--ocr-only', action='store_true', help='Write ocr_updates/ but do not touch the index')
     parser.add_argument('--probe-url', help='Download and read one PDF, then stop without writing anything')
@@ -197,8 +208,9 @@ def main():
     args = parser.parse_args()
 
     if args.probe_url:
-        texts, failed = read_circulars([{'english_pdf_link': args.probe_url, 'title': ''}],
-                                       max_pages=args.max_pages, dpi=args.dpi)
+        texts, failed = read_circulars(
+            [{'english_pdf_link': args.probe_url, 'title': ''}], max_pages=args.max_pages, dpi=args.dpi
+        )
         return 1 if failed else 0
 
     waiting = pending(args.root)
@@ -206,11 +218,13 @@ def main():
     _set_output('pending', len(waiting))
     if args.list or not waiting:
         for record in waiting:
-            print(f'  {record.get("date") or "undated"} | {(record.get("title") or "")[:100]} | {record["english_pdf_link"]}')
+            print(
+                f'  {record.get("date") or "undated"} | {(record.get("title") or "")[:100]} | {record["english_pdf_link"]}'
+            )
         return 0
 
     if args.limit:
-        waiting = waiting[:args.limit]
+        waiting = waiting[: args.limit]
     texts, failed = read_circulars(waiting, max_pages=args.max_pages, dpi=args.dpi)
     if not texts:
         print('No circular could be read; nothing was written.')

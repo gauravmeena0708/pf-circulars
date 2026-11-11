@@ -59,9 +59,7 @@ import passage_store
 
 def _write_passages_db(path, rows):
     conn = sqlite3.connect(path)
-    conn.execute(
-        "CREATE TABLE passages (id INTEGER PRIMARY KEY, text TEXT NOT NULL, metadata TEXT NOT NULL)"
-    )
+    conn.execute("CREATE TABLE passages (id INTEGER PRIMARY KEY, text TEXT NOT NULL, metadata TEXT NOT NULL)")
     conn.executemany(
         "INSERT INTO passages (id, text, metadata) VALUES (?, ?, ?)",
         [(doc_id, text, json.dumps(metadata)) for doc_id, text, metadata in rows],
@@ -235,17 +233,13 @@ class PassageStore:
         return self._total
 
     def fetch_text(self, doc_id):
-        row = self._conn.execute(
-            "SELECT text FROM passages WHERE id = ?", (doc_id,)
-        ).fetchone()
+        row = self._conn.execute("SELECT text FROM passages WHERE id = ?", (doc_id,)).fetchone()
         if row is None:
             raise IndexError(f"No passage with id {doc_id}")
         return row[0]
 
     def fetch_metadata(self, doc_id):
-        row = self._conn.execute(
-            "SELECT metadata FROM passages WHERE id = ?", (doc_id,)
-        ).fetchone()
+        row = self._conn.execute("SELECT metadata FROM passages WHERE id = ?", (doc_id,)).fetchone()
         if row is None:
             raise IndexError(f"No passage with id {doc_id}")
         return json.loads(row[0])
@@ -337,9 +331,7 @@ def test_save_and_load_round_trip_through_sqlite(tmp_path):
     assert os.path.isfile(db_path)
     assert not os.path.isfile(os.path.join(index_dir, "faiss_index.texts.json"))
 
-    loaded_index, loaded_texts, loaded_metadata = vector_indexer.load_faiss_index(
-        index_dir, index_name="faiss_index"
-    )
+    loaded_index, loaded_texts, loaded_metadata = vector_indexer.load_faiss_index(index_dir, index_name="faiss_index")
 
     assert loaded_index.ntotal == 2
     assert loaded_texts == texts
@@ -365,9 +357,7 @@ def test_load_faiss_binary_index_works_without_passages_db(tmp_path):
     assert binary_index.ntotal == 1
 
     # load_faiss_index (which also needs the passages db) must fail gracefully.
-    full_index, full_texts, full_metadata = vector_indexer.load_faiss_index(
-        index_dir, index_name="faiss_index"
-    )
+    full_index, full_texts, full_metadata = vector_indexer.load_faiss_index(index_dir, index_name="faiss_index")
     assert (full_index, full_texts, full_metadata) == (None, None, None)
 
 
@@ -406,7 +396,9 @@ def load_faiss_index(index_dir, embedding_model_for_dim_check=None, index_name=c
         if embedding_model_for_dim_check:
             expected_dim = embedding_model_for_dim_check.get_sentence_embedding_dimension()
             if index.d != expected_dim:
-                logger.error(f"Loaded index dimension ({index.d}) does not match embedding model dimension ({expected_dim}).")
+                logger.error(
+                    f"Loaded index dimension ({index.d}) does not match embedding model dimension ({expected_dim})."
+                )
                 return None, None, None
         with open(texts_path, 'r', encoding='utf-8') as f:
             retrieval_data = json.load(f)
@@ -432,7 +424,9 @@ def load_faiss_binary_index(index_dir, embedding_model_for_dim_check=None, index
         if embedding_model_for_dim_check:
             expected_dim = embedding_model_for_dim_check.get_sentence_embedding_dimension()
             if index.d != expected_dim:
-                logger.error(f"Loaded index dimension ({index.d}) does not match embedding model dimension ({expected_dim}).")
+                logger.error(
+                    f"Loaded index dimension ({index.d}) does not match embedding model dimension ({expected_dim})."
+                )
                 return None
         return index
     except Exception as e:
@@ -469,12 +463,14 @@ def load_faiss_index(index_dir, embedding_model_for_dim_check=None, index_name=c
 
 Replace the current `save_faiss_index` function (current lines 276-294):
 ```python
-def save_faiss_index(index, texts_for_retrieval, metadata_for_retrieval, index_dir, index_name=config.DEFAULT_INDEX_NAME):
+def save_faiss_index(
+    index, texts_for_retrieval, metadata_for_retrieval, index_dir, index_name=config.DEFAULT_INDEX_NAME
+):
     # Saves the FAISS index, corresponding texts, and metadata to disk.
     if not os.path.exists(index_dir):
         os.makedirs(index_dir)
     index_path = os.path.join(index_dir, f"{index_name}.index")
-    texts_path = os.path.join(index_dir, f"{index_name}.texts.json") 
+    texts_path = os.path.join(index_dir, f"{index_name}.texts.json")
     try:
         logger.info(f"Saving FAISS index to {index_path}")
         faiss.write_index(index, index_path)
@@ -491,7 +487,9 @@ def save_faiss_index(index, texts_for_retrieval, metadata_for_retrieval, index_d
 ```
 with:
 ```python
-def save_faiss_index(index, texts_for_retrieval, metadata_for_retrieval, index_dir, index_name=config.DEFAULT_INDEX_NAME):
+def save_faiss_index(
+    index, texts_for_retrieval, metadata_for_retrieval, index_dir, index_name=config.DEFAULT_INDEX_NAME
+):
     # Saves the FAISS index, corresponding texts, and metadata to disk.
     if not os.path.exists(index_dir):
         os.makedirs(index_dir)
@@ -505,16 +503,12 @@ def save_faiss_index(index, texts_for_retrieval, metadata_for_retrieval, index_d
             os.remove(db_path)
         conn = sqlite3.connect(db_path)
         try:
-            conn.execute(
-                "CREATE TABLE passages (id INTEGER PRIMARY KEY, text TEXT NOT NULL, metadata TEXT NOT NULL)"
-            )
+            conn.execute("CREATE TABLE passages (id INTEGER PRIMARY KEY, text TEXT NOT NULL, metadata TEXT NOT NULL)")
             conn.executemany(
                 "INSERT INTO passages (id, text, metadata) VALUES (?, ?, ?)",
                 (
                     (doc_id, text, json.dumps(meta, ensure_ascii=False))
-                    for doc_id, (text, meta) in enumerate(
-                        zip(texts_for_retrieval, metadata_for_retrieval)
-                    )
+                    for doc_id, (text, meta) in enumerate(zip(texts_for_retrieval, metadata_for_retrieval))
                 ),
             )
             conn.commit()

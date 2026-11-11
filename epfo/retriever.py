@@ -7,20 +7,18 @@ import logging
 import os
 import re
 import tempfile
+
 import numpy as np
 from rank_bm25 import BM25Okapi
-import config
+
+from epfo import config
 
 # Configure logging
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=config.LOG_LEVEL, format=config.LOG_FORMAT)
 
 # In-memory cache for BM25 index to avoid re-tokenizing corpus on every query
-_BM25_CACHE = {
-    "corpus": None,
-    "corpus_fingerprint": None,
-    "bm25_instance": None
-}
+_BM25_CACHE = {"corpus": None, "corpus_fingerprint": None, "bm25_instance": None}
 
 _BM25_CACHE_VERSION = 1
 _BM25_STATE_FIELDS = (
@@ -114,10 +112,7 @@ def _persist_bm25(cache_path, corpus_fingerprint, document_count, bm25_instance)
             "version": _BM25_CACHE_VERSION,
             "corpus_fingerprint": corpus_fingerprint,
             "document_count": document_count,
-            "bm25_state": {
-                field: getattr(bm25_instance, field)
-                for field in _BM25_STATE_FIELDS
-            },
+            "bm25_state": {field: getattr(bm25_instance, field) for field in _BM25_STATE_FIELDS},
         }
         with gzip.open(temp_path, "wt", encoding="utf-8", compresslevel=5) as cache_file:
             json.dump(payload, cache_file, ensure_ascii=True, separators=(",", ":"))
@@ -136,11 +131,7 @@ def _persist_bm25(cache_path, corpus_fingerprint, document_count, bm25_instance)
 
 def _get_or_build_bm25_index(all_indexed_texts, cache_path=None, use_memory_cache=True):
     """Loads BM25 from memory or disk, rebuilding it when the corpus changes."""
-    if (
-        use_memory_cache
-        and _BM25_CACHE["corpus"] is all_indexed_texts
-        and _BM25_CACHE["bm25_instance"] is not None
-    ):
+    if use_memory_cache and _BM25_CACHE["corpus"] is all_indexed_texts and _BM25_CACHE["bm25_instance"] is not None:
         return _BM25_CACHE["bm25_instance"]
 
     corpus_fingerprint = _fingerprint_corpus(all_indexed_texts)
@@ -219,11 +210,19 @@ def _has_high_confidence_agreement(dense_rankings, sparse_rankings):
     )
 
 
-def retrieve_relevant_chunks(query_text, faiss_index, all_indexed_texts, all_indexed_metadata,
-                             embedding_model, cross_encoder_model=None,
-                             top_n_initial=None, top_n_final=None,
-                             use_hybrid=None, bm25_cache_path=None,
-                             confidence_gate_enabled=None):
+def retrieve_relevant_chunks(
+    query_text,
+    faiss_index,
+    all_indexed_texts,
+    all_indexed_metadata,
+    embedding_model,
+    cross_encoder_model=None,
+    top_n_initial=None,
+    top_n_final=None,
+    use_hybrid=None,
+    bm25_cache_path=None,
+    confidence_gate_enabled=None,
+):
     """
     Retrieves the most relevant text chunks using Hybrid Retrieval (BM25 + Dense FAISS)
     fused with Reciprocal Rank Fusion (RRF) and re-ranked with a CrossEncoder.
@@ -262,8 +261,10 @@ def retrieve_relevant_chunks(query_text, faiss_index, all_indexed_texts, all_ind
         logger.warning("Indexed texts or metadata are missing. Cannot retrieve.")
         return []
     if len(all_indexed_texts) != len(all_indexed_metadata) or len(all_indexed_texts) != faiss_index.ntotal:
-        logger.warning(f"Mismatch in lengths: texts ({len(all_indexed_texts)}), "
-                       f"metadata ({len(all_indexed_metadata)}), index ({faiss_index.ntotal}).")
+        logger.warning(
+            f"Mismatch in lengths: texts ({len(all_indexed_texts)}), "
+            f"metadata ({len(all_indexed_metadata)}), index ({faiss_index.ntotal})."
+        )
         return []
 
     try:
@@ -276,15 +277,11 @@ def retrieve_relevant_chunks(query_text, faiss_index, all_indexed_texts, all_ind
         # 1. Dense Semantic Search (FAISS IndexFlatIP with normalized vectors)
         # -------------------------------------------------------------
         logger.info(f"Generating normalized embedding for query: '{query_text[:80]}...'")
-        query_embedding = embedding_model.encode(
-            query_text, 
-            convert_to_tensor=False, 
-            normalize_embeddings=True
-        )
+        query_embedding = embedding_model.encode(query_text, convert_to_tensor=False, normalize_embeddings=True)
         query_embedding_np = np.array(query_embedding).astype('float32').reshape(1, -1)
 
         distances, indices = faiss_index.search(query_embedding_np, k=dense_k)
-        
+
         dense_rankings = {}
         dense_scores = {}
         if indices.size > 0:
@@ -299,7 +296,7 @@ def retrieve_relevant_chunks(query_text, faiss_index, all_indexed_texts, all_ind
         # -------------------------------------------------------------
         sparse_rankings = {}
         sparse_scores = {}
-        
+
         if use_hybrid:
             try:
                 bm25 = _get_or_build_bm25_index(all_indexed_texts, bm25_cache_path)
@@ -307,7 +304,7 @@ def retrieve_relevant_chunks(query_text, faiss_index, all_indexed_texts, all_ind
                 if tokenized_query:
                     doc_scores = bm25.get_scores(tokenized_query)
                     top_bm25_indices = _top_k_score_indices(doc_scores, sparse_k)
-                    
+
                     for rank, doc_idx in enumerate(top_bm25_indices):
                         score = doc_scores[doc_idx]
                         if score > 0 and 0 <= doc_idx < total_docs:
@@ -339,12 +336,14 @@ def retrieve_relevant_chunks(query_text, faiss_index, all_indexed_texts, all_ind
         for doc_id in top_candidates:
             metadata = all_indexed_metadata[doc_id]
             metadata_by_id[doc_id] = metadata
-            retrieved_results.append({
-                "text": all_indexed_texts[doc_id],
-                "metadata": metadata,
-                "score": float(dense_scores.get(doc_id, rrf_scores[doc_id])),
-                "rrf_score": float(rrf_scores[doc_id])
-            })
+            retrieved_results.append(
+                {
+                    "text": all_indexed_texts[doc_id],
+                    "metadata": metadata,
+                    "score": float(dense_scores.get(doc_id, rrf_scores[doc_id])),
+                    "rrf_score": float(rrf_scores[doc_id]),
+                }
+            )
 
         # -------------------------------------------------------------
         # 4. Cross-Encoder Deep Re-ranking (skipped on high-confidence agreement)
@@ -363,7 +362,8 @@ def retrieve_relevant_chunks(query_text, faiss_index, all_indexed_texts, all_ind
             agreed_source = agreed_metadata.get("source_pdf", "unknown") if agreed_metadata else "unknown"
             logger.info(
                 "Dense and sparse retrieval agree on top document id=%s (source=%s); skipping CrossEncoder re-ranking.",
-                agreed_doc_id, agreed_source,
+                agreed_doc_id,
+                agreed_source,
             )
             retrieved_results.sort(key=lambda x: x['rrf_score'], reverse=True)
         elif cross_encoder_model and retrieved_results:

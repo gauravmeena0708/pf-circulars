@@ -1,19 +1,22 @@
 # index_manuals.py
 import os
+
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 os.environ["OMP_NUM_THREADS"] = str(min(8, os.cpu_count() or 4))
 
-import re
 import io
-import json
 import logging
-import fitz # PyMuPDF
+import re
+
+import fitz  # PyMuPDF
 import numpy as np
 import torch
+
 torch.set_num_threads(min(8, os.cpu_count() or 4))
 
-from PIL import Image
 import pytesseract
+from PIL import Image
+
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 from sentence_transformers import SentenceTransformer
@@ -23,14 +26,16 @@ try:
 except ImportError:
     from langchain.text_splitter import RecursiveCharacterTextSplitter
 
-import config
-from vector_indexer import load_faiss_index, save_faiss_index, create_empty_faiss_index, encode_normalized
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from epfo import config
+from epfo.vector_indexer import create_empty_faiss_index, encode_normalized, load_faiss_index, save_faiss_index
 
 # Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger("IndexManuals")
 
 MANUAL_TITLES = {
@@ -49,7 +54,7 @@ MANUAL_TITLES = {
     "MAP_PartIII.pdf": "Manual of Accounting Procedure (MAP) Part-III (EDLI Scheme 1976 Accounts)",
     "MAP_PartIV.pdf": "Manual of Accounting Procedure (MAP) Part-IV (Computerised Operations & EDP)",
     "Pension_Manual.pdf": "EPFO Pension Manual (Employees' Pension Scheme 1995 Procedure & Practice)",
-    "Recovery_Manual.pdf": "EPFO Recovery Manual (Procedures for Recovery of PF Dues)"
+    "Recovery_Manual.pdf": "EPFO Recovery Manual (Procedures for Recovery of PF Dues)",
 }
 
 
@@ -105,12 +110,7 @@ def extract_text_from_pdf(pdf_path):
     return pages_data
 
 
-def run_manual_indexing(
-    manuals_dir="data/manuals",
-    chunk_size=500,
-    chunk_overlap=50,
-    batch_size=256
-):
+def run_manual_indexing(manuals_dir="data/manuals", chunk_size=500, chunk_overlap=50, batch_size=256):
     """Indexes all manuals into the existing FAISS vector database."""
     if not os.path.exists(manuals_dir):
         logger.error(f"Manuals directory '{manuals_dir}' not found.")
@@ -126,9 +126,7 @@ def run_manual_indexing(
 
     # Load existing FAISS index
     faiss_index, existing_texts, existing_metadata = load_faiss_index(
-        index_dir,
-        embedding_model_for_dim_check=embedding_model,
-        index_name=index_name
+        index_dir, embedding_model_for_dim_check=embedding_model, index_name=index_name
     )
 
     if faiss_index is None:
@@ -147,10 +145,7 @@ def run_manual_indexing(
             already_indexed_files.add(os.path.basename(src))
 
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=chunk_size,
-        chunk_overlap=chunk_overlap,
-        length_function=len,
-        is_separator_regex=False
+        chunk_size=chunk_size, chunk_overlap=chunk_overlap, length_function=len, is_separator_regex=False
     )
 
     pdf_files = sorted([f for f in os.listdir(manuals_dir) if f.lower().endswith(".pdf")])
@@ -173,20 +168,22 @@ def run_manual_indexing(
             chunks = text_splitter.split_text(text_content)
             for chunk in chunks:
                 new_texts.append(chunk)
-                new_metadata.append({
-                    "source_pdf": f"manuals/{pdf_file}",
-                    "source_pdf_original_filename": pdf_file,
-                    "page_number": str(page_num),
-                    "original_group_content_snippet": chunk[:200],
-                    "serial_no": "MANUAL",
-                    "title": title,
-                    "circular_no": f"EPFO-MANUAL/{pdf_file.replace('.pdf', '')}",
-                    "date": "Statutory Manual / Scheme",
-                    "english_pdf_link": f"https://www.epfindia.gov.in/manuals/{pdf_file}",
-                    "hindi_pdf_link": None,
-                    "doc_type": "manual",
-                    "extraction_method": method
-                })
+                new_metadata.append(
+                    {
+                        "source_pdf": f"manuals/{pdf_file}",
+                        "source_pdf_original_filename": pdf_file,
+                        "page_number": str(page_num),
+                        "original_group_content_snippet": chunk[:200],
+                        "serial_no": "MANUAL",
+                        "title": title,
+                        "circular_no": f"EPFO-MANUAL/{pdf_file.replace('.pdf', '')}",
+                        "date": "Statutory Manual / Scheme",
+                        "english_pdf_link": f"https://www.epfindia.gov.in/manuals/{pdf_file}",
+                        "hindi_pdf_link": None,
+                        "doc_type": "manual",
+                        "extraction_method": method,
+                    }
+                )
                 file_chunk_count += 1
 
         logger.info(f"Generated {file_chunk_count} chunks for '{pdf_file}'.")
@@ -203,17 +200,12 @@ def run_manual_indexing(
 
     logger.info(f"Embedding {total_new} chunks in batches of {batch_size}...")
     for i in range(0, total_new, 5000):
-        chunk_slice = new_texts[i:i + 5000]
-        meta_slice = new_metadata[i:i + 5000]
+        chunk_slice = new_texts[i : i + 5000]
+        meta_slice = new_metadata[i : i + 5000]
         slice_len = len(chunk_slice)
 
         logger.info(f"Embedding chunks {i + 1} to {i + slice_len} of {total_new}...")
-        embeddings = encode_normalized(
-            embedding_model,
-            chunk_slice,
-            batch_size=batch_size,
-            show_progress_bar=False
-        )
+        embeddings = encode_normalized(embedding_model, chunk_slice, batch_size=batch_size, show_progress_bar=False)
         embeddings_np = np.array(embeddings, dtype=np.float32)
         if embeddings_np.ndim == 1:
             embeddings_np = embeddings_np.reshape(1, -1)
@@ -225,16 +217,10 @@ def run_manual_indexing(
         existing_metadata.extend(meta_slice)
 
         logger.info(f"Checkpoint save: Index now has {faiss_index.ntotal} vectors.")
-        save_faiss_index(
-            faiss_index,
-            existing_texts,
-            existing_metadata,
-            index_dir=index_dir,
-            index_name=index_name
-        )
+        save_faiss_index(faiss_index, existing_texts, existing_metadata, index_dir=index_dir, index_name=index_name)
 
     logger.info("=" * 60)
-    logger.info(f"MANUAL INDEXING COMPLETE!")
+    logger.info("MANUAL INDEXING COMPLETE!")
     logger.info(f"Total vectors in FAISS index: {faiss_index.ntotal}")
     logger.info(f"Total texts in catalog: {len(existing_texts)}")
     logger.info("=" * 60)

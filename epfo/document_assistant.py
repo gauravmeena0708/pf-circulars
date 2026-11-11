@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 import hashlib
 import re
-from typing import Callable, Iterable, Mapping, Sequence
+from collections.abc import Callable, Iterable, Mapping, Sequence
+from dataclasses import dataclass
 
 import numpy as np
 
@@ -18,9 +18,26 @@ except ImportError:  # pragma: no cover - compatibility with older PyMuPDF relea
 PAGE_MARKER_PATTERN = re.compile(r"(?=^--- \[Page \d+ / )", re.MULTILINE)
 WORD_PATTERN = re.compile(r"[A-Za-z0-9][A-Za-z0-9_-]{2,}")
 QUERY_STOP_WORDS = {
-    "about", "all", "and", "answer", "document", "file", "from", "have",
-    "noting", "page", "provide", "sheet", "that", "the", "this", "what",
-    "when", "where", "which", "with",
+    "about",
+    "all",
+    "and",
+    "answer",
+    "document",
+    "file",
+    "from",
+    "have",
+    "noting",
+    "page",
+    "provide",
+    "sheet",
+    "that",
+    "the",
+    "this",
+    "what",
+    "when",
+    "where",
+    "which",
+    "with",
 }
 
 
@@ -88,15 +105,11 @@ def extract_pdf_text(
     try:
         document = fitz.open(stream=pdf_data, filetype="pdf")
     except Exception as exc:
-        raise DocumentExtractionError(
-            "The uploaded file is not a readable PDF or is damaged."
-        ) from exc
+        raise DocumentExtractionError("The uploaded file is not a readable PDF or is damaged.") from exc
 
     with document:
         if document.needs_pass:
-            raise DocumentExtractionError(
-                "This PDF is password-protected. Upload an unlocked copy."
-            )
+            raise DocumentExtractionError("This PDF is password-protected. Upload an unlocked copy.")
 
         page_count = len(document)
         if page_count == 0:
@@ -143,9 +156,7 @@ def extract_pdf_text(
                 if page_number + 1 not in unreadable_pages:
                     unreadable_pages.append(page_number + 1)
                 content = "[No readable text could be extracted from this page.]"
-            extracted_pages[page_number] = (
-                f"--- [Page {page_number + 1} / {page_type}] ---\n{content}"
-            )
+            extracted_pages[page_number] = f"--- [Page {page_number + 1} / {page_type}] ---\n{content}"
 
         if unreadable_pages:
             page_list = ", ".join(str(number) for number in unreadable_pages)
@@ -184,11 +195,7 @@ def select_document_context(
     if len(page_blocks) <= 1:
         return _truncate_middle(full_text, max_chars), True
 
-    query_terms = {
-        term.lower()
-        for term in WORD_PATTERN.findall(query)
-        if term.lower() not in QUERY_STOP_WORDS
-    }
+    query_terms = {term.lower() for term in WORD_PATTERN.findall(query) if term.lower() not in QUERY_STOP_WORDS}
 
     scored_indices = []
     for index, block in enumerate(page_blocks):
@@ -200,12 +207,7 @@ def select_document_context(
     relevant_indices = [index for score, index in candidates if score > 0][:3]
     mandatory_indices = {0, len(page_blocks) - 1, *relevant_indices}
     # With broad prompts, evenly distributed candidates give summaries better coverage.
-    evenly_spaced = sorted(
-        {
-            round(position * (len(page_blocks) - 1) / 7)
-            for position in range(1, 7)
-        }
-    )
+    evenly_spaced = sorted({round(position * (len(page_blocks) - 1) / 7) for position in range(1, 7)})
     candidate_indices = [index for _, index in candidates] + evenly_spaced
 
     notice = (
@@ -218,10 +220,7 @@ def select_document_context(
         200,
         (budget - separator_cost) // max(1, len(mandatory_indices)),
     )
-    rendered_blocks = {
-        index: _truncate_middle(page_blocks[index], per_mandatory_budget)
-        for index in mandatory_indices
-    }
+    rendered_blocks = {index: _truncate_middle(page_blocks[index], per_mandatory_budget) for index in mandatory_indices}
     used_chars = sum(len(block) + 2 for block in rendered_blocks.values())
 
     for index in candidate_indices:

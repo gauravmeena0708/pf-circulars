@@ -1,14 +1,12 @@
 """Newly listed circulars are queued, read and recorded without touching what is already held."""
+
 import json
-from pathlib import Path
-import sys
 from types import SimpleNamespace
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).parents[1] / 'scripts'))
-import index_new_circulars as job
-import import_pf_circular_index as importer
+from scripts import import_pf_circular_index as importer
+from scripts import index_new_circulars as job
 
 NEW = 'https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2026/06/161.pdf'
 NEWER = 'https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2026/07/161.pdf'
@@ -20,7 +18,8 @@ def workspace(tmp_path, records, recorded=()):
     (tmp_path / 'ocr_updates').mkdir()
     if recorded:
         (tmp_path / 'ocr_updates/index-2026-06-01.json').write_text(
-            json.dumps({url: {'ocr_content': 'text'} for url in recorded}), encoding='utf-8')
+            json.dumps({url: {'ocr_content': 'text'} for url in recorded}), encoding='utf-8'
+        )
     return tmp_path
 
 
@@ -29,12 +28,19 @@ def record(url, title='Circular'):
 
 
 def test_only_unread_new_site_pdfs_are_waiting(tmp_path):
-    root = workspace(tmp_path, [
-        record(NEWER, 'Newest'), record(NEW, 'Already read'), record(OLD, 'Retired site'),
-        record('http://false', 'No file'), record(None, 'No link'),
-        record('https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2026/06/form.xls', 'Not a PDF'),
-        record(NEWER, 'Listed twice'),
-    ], recorded=[NEW])
+    root = workspace(
+        tmp_path,
+        [
+            record(NEWER, 'Newest'),
+            record(NEW, 'Already read'),
+            record(OLD, 'Retired site'),
+            record('http://false', 'No file'),
+            record(None, 'No link'),
+            record('https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2026/06/form.xls', 'Not a PDF'),
+            record(NEWER, 'Listed twice'),
+        ],
+        recorded=[NEW],
+    )
     assert [r['title'] for r in job.pending(root)] == ['Listed twice']
 
 
@@ -81,14 +87,19 @@ def test_index_step_refuses_git_lfs_pointers(tmp_path):
 
 def test_same_file_name_in_another_upload_folder_is_a_different_circular(tmp_path, monkeypatch):
     long_text = 'A sufficiently long direction about member profile correction and supporting documents.'
-    (tmp_path / 'index-test.json').write_text(json.dumps({
-        NEWER: {'ocr_content': long_text},
-        'https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/161.pdf': {'ocr_content': long_text},
-    }))
+    (tmp_path / 'index-test.json').write_text(
+        json.dumps(
+            {
+                NEWER: {'ocr_content': long_text},
+                'https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/161.pdf': {'ocr_content': long_text},
+            }
+        )
+    )
     existing = [{'english_pdf_link': NEW, 'source_pdf': NEW, 'source_pdf_original_filename': '161.pdf'}]
     index = SimpleNamespace(ntotal=1, add_with_ids=lambda vectors, ids: None)
-    monkeypatch.setattr(importer, 'SentenceTransformer',
-                        lambda *a, **kw: SimpleNamespace(get_sentence_embedding_dimension=lambda: 2))
+    monkeypatch.setattr(
+        importer, 'SentenceTransformer', lambda *a, **kw: SimpleNamespace(get_sentence_embedding_dimension=lambda: 2)
+    )
     monkeypatch.setattr(importer, 'backup_existing_index', lambda *a: None)
     monkeypatch.setattr(importer, 'load_faiss_index', lambda *a, **kw: (index, ['earlier'], list(existing)))
     monkeypatch.setattr(importer, 'encode_normalized', lambda model, texts, **kw: np.tile([1.0, 0.0], (len(texts), 1)))

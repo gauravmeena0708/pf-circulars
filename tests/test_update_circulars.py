@@ -1,14 +1,9 @@
 """The local update command commits and pushes in the order the Space build needs."""
-from pathlib import Path
-import sys
 
 import pytest
 
-sys.path.insert(0, str(Path(__file__).parents[1] / 'scripts'))
-import fetch
-import fetch_runtime_assets
-import index_new_circulars
-import update_circulars as job
+from scripts import fetch, fetch_runtime_assets, index_new_circulars
+from scripts import update_circulars as job
 
 URL = 'https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2026/06/161.pdf'
 
@@ -35,9 +30,17 @@ def test_manifest_is_recorded_only_after_the_index_commit_is_pushed(monkeypatch)
     monkeypatch.setattr(fetch_runtime_assets, 'record', lambda sha, **kw: log.append('record manifest'))
 
     job.run()
-    wanted = ['git pull --ff-only -q', 'commit Update EPF circulars data', 'write text records', 'index',
-              'commit Index 1 newly listed circulars', 'git push -q', 'record manifest',
-              'commit Pin runtime assets to the updated index', 'git push -q']
+    wanted = [
+        'git pull --ff-only -q',
+        'commit Update EPF circulars data',
+        'write text records',
+        'index',
+        'commit Index 1 newly listed circulars',
+        'git push -q',
+        'record manifest',
+        'commit Pin runtime assets to the updated index',
+        'git push -q',
+    ]
     positions = [log.index(step) for step in wanted[:6]] + [log.index('record manifest')]
     assert positions == sorted(positions)
     assert [step for step in log if step in wanted] == wanted
@@ -53,10 +56,13 @@ def test_manifest_is_recorded_only_after_the_index_commit_is_pushed(monkeypatch)
     assert 'index' not in log and 'record manifest' not in log and log.count('git push -q') == 1
 
 
-@pytest.mark.parametrize('status, branch, message', [
-    (' M README.md', 'main', 'uncommitted changes'),
-    ('', 'feature', 'Run this on main'),
-])
+@pytest.mark.parametrize(
+    'status, branch, message',
+    [
+        (' M README.md', 'main', 'uncommitted changes'),
+        ('', 'feature', 'Run this on main'),
+    ],
+)
 def test_refuses_a_dirty_tree_or_another_branch(monkeypatch, status, branch, message):
     def git(*args, capture=False):
         if args[:2] == ('status', '--porcelain'):

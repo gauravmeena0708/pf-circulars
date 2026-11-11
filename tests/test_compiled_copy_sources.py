@@ -1,6 +1,6 @@
 import json
 
-import policy_pdfs
+from epfo import policy_pdfs
 
 
 def test_compiled_copy_source_has_no_public_original(tmp_path):

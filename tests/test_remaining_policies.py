@@ -1,27 +1,33 @@
 import json
-from pathlib import Path
 
 import pytest
 
-from policy_history import PolicyHistory
-from policy_registry import select_policy
-from policy_router import route_retrieval
+from epfo.policy_history import PolicyHistory
+from epfo.policy_registry import select_policy
+from epfo.policy_router import route_retrieval
 
 
-@pytest.mark.parametrize('query,policy', [
-    ('Transfer of EPF accounts', 'transfers'), ('Form 13 Annexure K', 'transfers'),
-    ('EPS service transfer overlapping service', 'transfers'),
-    ('higher pension Aadhaar correction', 'higher_pension'),
-    ('joint declaration for higher pension', 'higher_pension'),
-    ('CPPS pension payment bank branch', 'cpps'), ('PPO transfer to another RO', 'cpps'),
-    ('PF illness advance auto-settlement', 'advances'), ('partial withdrawal reforms', 'advances'),
-])
+@pytest.mark.parametrize(
+    'query,policy',
+    [
+        ('Transfer of EPF accounts', 'transfers'),
+        ('Form 13 Annexure K', 'transfers'),
+        ('EPS service transfer overlapping service', 'transfers'),
+        ('higher pension Aadhaar correction', 'higher_pension'),
+        ('joint declaration for higher pension', 'higher_pension'),
+        ('CPPS pension payment bank branch', 'cpps'),
+        ('PPO transfer to another RO', 'cpps'),
+        ('PF illness advance auto-settlement', 'advances'),
+        ('partial withdrawal reforms', 'advances'),
+    ],
+)
 def test_policy_scope_routes(query, policy):
     assert select_policy(query).id == policy
 
 
-@pytest.mark.parametrize('query', ['staff transfer', 'staff pension CPPC',
-                                  'payment of advance against PLB bonus', 'LTC staff advance'])
+@pytest.mark.parametrize(
+    'query', ['staff transfer', 'staff pension CPPC', 'payment of advance against PLB bonus', 'LTC staff advance']
+)
 def test_member_policy_routes_exclude_staff_matters(query):
     assert select_policy(query) is None
 
@@ -65,11 +71,13 @@ def test_higher_pension_missing_policy_not_replaced_by_audit_targets():
 
 def test_new_histories_use_epfo_hosted_originals_and_retain_pdf_hashes():
     from urllib.parse import urlparse
+
     for name in ['transfers', 'higher_pension', 'cpps', 'advances']:
         policy = select_policy('', name)
         h = PolicyHistory(policy.path)
         for doc in h.documents.values():
-            if not doc.get('source_file'): continue
+            if not doc.get('source_file'):
+                continue
             source = json.loads((policy.path.parent / doc['source_file']).read_text(encoding='utf-8'))
             assert urlparse(source['source_url']).hostname.endswith('epfindia.gov.in')
             assert len(source['pdf_sha256']) == 64

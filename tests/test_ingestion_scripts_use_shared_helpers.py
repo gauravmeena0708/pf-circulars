@@ -4,7 +4,7 @@ import inspect
 
 import pytest
 
-MODULE_NAMES = ["index_manuals", "import_pf_circular_index"]
+MODULE_NAMES = ["scripts.index_manuals", "scripts.import_pf_circular_index"]
 
 
 @pytest.mark.parametrize("module_name", MODULE_NAMES)

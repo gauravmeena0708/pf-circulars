@@ -1,46 +1,50 @@
 """React research workspace API. Run: uvicorn web_api.app:app --port 7860."""
-from datetime import date
+
 import asyncio
-from contextlib import asynccontextmanager, suppress
-from functools import lru_cache
-import io
 import json
 import logging
 import os
-from pathlib import Path
 import sqlite3
 import threading
 import time
-from uuid import uuid4
+from contextlib import asynccontextmanager, suppress
+from datetime import date
+from functools import lru_cache
+from pathlib import Path
 from typing import Literal
+from uuid import uuid4
 
-from fastapi import FastAPI, HTTPException, UploadFile, File, Form, Request, Header
-from fastapi.responses import FileResponse, RedirectResponse, StreamingResponse, Response
+from fastapi import FastAPI, Header, HTTPException, Request
+from fastapi.responses import FileResponse, RedirectResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from policy_registry import registered_policies
-from citation_provenance import normalise_citation_stream
-import currency
-from official_links import official_links, official_url
-import policy_pdfs
-from policy_history import PolicyHistory
-from policy_router import route_retrieval
+from epfo import currency, policy_pdfs
+from epfo.citation_provenance import normalise_citation_stream
+from epfo.official_links import official_links, official_url
+from epfo.policy_history import PolicyHistory
+from epfo.policy_registry import registered_policies
+from epfo.policy_router import route_retrieval
 
 ROOT = Path(__file__).resolve().parents[1]
 from dotenv import load_dotenv
+
 load_dotenv(ROOT / '.env')
 LOG = logging.getLogger(__name__)
+
+
 @asynccontextmanager
 async def lifespan(app):
     from .workspace import FILES, LOCK, TTL
+
     async def cleanup():
         while True:
             await asyncio.sleep(60)
             with LOCK:
-                expired = [key for key, value in FILES.items() if time.monotonic()-value['created'] > TTL]
+                expired = [key for key, value in FILES.items() if time.monotonic() - value['created'] > TTL]
                 for key in expired:
                     del FILES[key]
+
     task = asyncio.create_task(cleanup())
     try:
         yield
@@ -82,10 +86,12 @@ def policy_by_id(id):
 
 @lru_cache(maxsize=1)
 def resources():
-    import config
-    from sentence_transformers import SentenceTransformer, CrossEncoder
-    from vector_indexer import load_faiss_binary_index
-    from passage_store import open_passage_store
+    from sentence_transformers import CrossEncoder, SentenceTransformer
+
+    from epfo import config
+    from epfo.passage_store import open_passage_store
+    from epfo.vector_indexer import load_faiss_binary_index
+
     with _lock:
         directory = str(ROOT / config.DEFAULT_INDEX_DIR / 'data_index')
         model = SentenceTransformer(config.EMBEDDING_MODEL_NAME, device=config.EMBEDDING_DEVICE)
@@ -103,16 +109,23 @@ def resources():
 
 
 def hybrid_search(question, extra=0):
-    import config
-    from retriever import retrieve_relevant_chunks
+    from epfo import config
+    from epfo.retriever import retrieve_relevant_chunks
+
     # Serialize CPU-heavy retrieval on a small Space; no shared question state.
     with _lock:
         model, index, store, reranker, directory = resources()
         # ``extra`` ranks a few more candidates (same retrieval pass) so newer circulars can be flagged.
-        return retrieve_relevant_chunks(question, index, store.texts, store.metadata, model,
-                                        cross_encoder_model=reranker,
-                                        top_n_final=getattr(config, 'TOP_N_RETRIEVAL', 5) + extra if extra else None,
-                                        bm25_cache_path=str(Path(directory) / 'faiss_index.bm25.json.gz'))
+        return retrieve_relevant_chunks(
+            question,
+            index,
+            store.texts,
+            store.metadata,
+            model,
+            cross_encoder_model=reranker,
+            top_n_final=getattr(config, 'TOP_N_RETRIEVAL', 5) + extra if extra else None,
+            bm25_cache_path=str(Path(directory) / 'faiss_index.bm25.json.gz'),
+        )
 
 
 @lru_cache(maxsize=16)
@@ -158,13 +171,27 @@ def catalog():
         history = history_for(policy.id)
         checked = [d for d in history.documents.values() if d.get('source_file')]
         issued = [d['issued_on'] for d in history.documents.values()]
-        policies.append(dict(id=policy.id, label=policy.label, scope=policy.scope,
-                             first_issued=min(issued, default=None), last_issued=max(issued, default=None),
-                             document_count=len(history.documents), checked_count=len(checked),
-                             topics=history.policy.get('topics', []),
-                             newest_checked=max((d['issued_on'] for d in checked), default=None)))
+        policies.append(
+            dict(
+                id=policy.id,
+                label=policy.label,
+                scope=policy.scope,
+                first_issued=min(issued, default=None),
+                last_issued=max(issued, default=None),
+                document_count=len(history.documents),
+                checked_count=len(checked),
+                topics=history.policy.get('topics', []),
+                newest_checked=max((d['issued_on'] for d in checked), default=None),
+            )
+        )
     latest = corpus_date()
-    return dict(policies=policies, passage_count=count, corpus_as_of=latest.isoformat() if latest else None, answer_enabled=bool(os.environ.get('HF_TOKEN')), today=date.today().isoformat())
+    return dict(
+        policies=policies,
+        passage_count=count,
+        corpus_as_of=latest.isoformat() if latest else None,
+        answer_enabled=bool(os.environ.get('HF_TOKEN')),
+        today=date.today().isoformat(),
+    )
 
 
 @lru_cache(maxsize=1)
@@ -222,11 +249,13 @@ def source_pdf(id: str, document_id: str):
 @app.post('/api/search')
 def search(request: SearchRequest, http_request: Request):
     from .workspace import owner
+
     session = owner(http_request.headers.get("x-workspace-session"))
     check_day(request.as_of)
     if not request.question.strip():
         raise HTTPException(422, 'Enter a question.')
-    import config
+    from epfo import config
+
     pool = []
 
     def run_hybrid():
@@ -234,9 +263,11 @@ def search(request: SearchRequest, http_request: Request):
         top = getattr(config, 'TOP_N_RETRIEVAL', 5)
         pool[:] = ranked[top:]
         return ranked[:top]
+
     try:
-        result = route_retrieval(request.question.strip(), request.as_of.isoformat(),
-                                 run_hybrid, mode=request.policy, topic=request.topic)
+        result = route_retrieval(
+            request.question.strip(), request.as_of.isoformat(), run_hybrid, mode=request.policy, topic=request.topic
+        )
     except ValueError as error:
         raise HTTPException(422, str(error)) from None
     except Exception:
@@ -246,7 +277,9 @@ def search(request: SearchRequest, http_request: Request):
     for chunk in result['chunks']:
         chunk['metadata'] = official_links(chunk.get('metadata', {}))
     for document in (result['policy_context'] or {}).get('documents', []):
-        document.update(official_links({k: document[k] for k in ('source_url', 'original_source_url') if k in document}))
+        document.update(
+            official_links({k: document[k] for k in ('source_url', 'original_source_url') if k in document})
+        )
     sources = []
     for number, chunk in enumerate(result['chunks'], 1):
         meta = dict(chunk.get('metadata', {}))
@@ -271,23 +304,42 @@ def search(request: SearchRequest, http_request: Request):
             del _packets[key]
         if len(_packets) >= 50:
             del _packets[next(iter(_packets))]
-        _packets[packet_id] = dict(created=now, owner=session, question=request.question, chunks=result['chunks'], context=result['policy_context'], currency=freshness)
-    return dict(packet_id=packet_id, question=request.question, route=result['route'], sources=sources,
-                policy_context=result['policy_context'], currency=freshness, as_of=request.as_of.isoformat())
+        _packets[packet_id] = dict(
+            created=now,
+            owner=session,
+            question=request.question,
+            chunks=result['chunks'],
+            context=result['policy_context'],
+            currency=freshness,
+        )
+    return dict(
+        packet_id=packet_id,
+        question=request.question,
+        route=result['route'],
+        sources=sources,
+        policy_context=result['policy_context'],
+        currency=freshness,
+        as_of=request.as_of.isoformat(),
+    )
 
 
 @lru_cache(maxsize=1)
 def limiter():
-    import config
-    from rate_limiter import SlidingWindowRateLimiter
+    from epfo import config
+    from epfo.rate_limiter import SlidingWindowRateLimiter
+
     return SlidingWindowRateLimiter(config.LLM_RATE_LIMIT_MAX_REQUESTS, config.LLM_RATE_LIMIT_WINDOW_SECONDS)
 
 
 @app.post('/api/answers/{packet_id}')
-def answer(packet_id: str, request: AnswerRequest, http_request: Request, x_hf_token: str | None = Header(default=None)):
+def answer(
+    packet_id: str, request: AnswerRequest, http_request: Request, x_hf_token: str | None = Header(default=None)
+):
     from .workspace import owner
+
     session = owner(http_request.headers.get("x-workspace-session"))
-    import config
+    from epfo import config
+
     if request.language not in ('English', 'Hindi'):
         raise HTTPException(422, 'Choose English or Hindi.')
     with _lock:
@@ -300,17 +352,27 @@ def answer(packet_id: str, request: AnswerRequest, http_request: Request, x_hf_t
         raise HTTPException(503, 'AI generation is not configured. The source evidence remains available.')
     allowed, retry = (True, 0) if x_hf_token else limiter().try_acquire()
     if not allowed:
-        raise HTTPException(429, 'Generation limit reached. Please retry shortly.', headers={'Retry-After': str(int(retry) + 1)})
-    from answer_generator import get_llm_answer, initialize_llm, describe_llm_error
+        raise HTTPException(
+            429, 'Generation limit reached. Please retry shortly.', headers={'Retry-After': str(int(retry) + 1)}
+        )
+    from epfo.answer_generator import describe_llm_error, get_llm_answer, initialize_llm
+
     def events():
         try:
             options = {'hf_token': x_hf_token} if x_hf_token else {}
             if request.detail == 'detailed':
                 options['max_new_tokens'] = max(config.LLM_MAX_NEW_TOKENS, 2048)
             model = initialize_llm(**options)
-            stream = get_llm_answer(packet['question'], packet['chunks'], model, stream=True,
-                                    answer_language=request.language, policy_context=packet['context'],
-                                    currency=packet.get('currency'), answer_detail=request.detail)
+            stream = get_llm_answer(
+                packet['question'],
+                packet['chunks'],
+                model,
+                stream=True,
+                answer_language=request.language,
+                policy_context=packet['context'],
+                currency=packet.get('currency'),
+                answer_detail=request.detail,
+            )
             if isinstance(stream, str):
                 stream = [stream]
             pieces = (chunk.content if hasattr(chunk, 'content') else str(chunk) for chunk in stream)
@@ -320,7 +382,10 @@ def answer(packet_id: str, request: AnswerRequest, http_request: Request, x_hf_t
             yield json.dumps({'done': True}) + '\n'
         except Exception as error:
             yield json.dumps({'error': describe_llm_error(error)}) + '\n'
-    return StreamingResponse(events(), media_type='application/x-ndjson', headers={'Cache-Control': 'no-store', 'X-Accel-Buffering': 'no'})
+
+    return StreamingResponse(
+        events(), media_type='application/x-ndjson', headers={'Cache-Control': 'no-store', 'X-Accel-Buffering': 'no'}
+    )
 
 
 @app.get('/api/health')
@@ -329,6 +394,7 @@ def health():
 
 
 from .workspace import router as workspace_router
+
 app.include_router(workspace_router)
 
 
@@ -347,8 +413,12 @@ class BodyLimit:
             length = 0
         if length > maximum:
             from fastapi.responses import JSONResponse
-            return await JSONResponse({'detail':'A request may contain at most 100 MB of files.'}, status_code=413)(scope, receive, send)
+
+            return await JSONResponse({'detail': 'A request may contain at most 100 MB of files.'}, status_code=413)(
+                scope, receive, send
+            )
         total = 0
+
         async def limited_receive():
             nonlocal total
             message = await receive()
@@ -356,6 +426,7 @@ class BodyLimit:
             if total > maximum:
                 raise HTTPException(413, 'A request may contain at most 100 MB of files.')
             return message
+
         await self.app(scope, limited_receive, send)
 
 

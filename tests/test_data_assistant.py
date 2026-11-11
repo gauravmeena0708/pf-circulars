@@ -1,13 +1,13 @@
 import unittest
-import pandas as pd
-import numpy as np
 
-from data_assistant import (
+import pandas as pd
+
+from epfo.data_assistant import (
     DataExtractionError,
-    load_csv_dataframe,
     generate_dataset_profile,
-    search_dataframe,
+    load_csv_dataframe,
     prepare_dataframe_llm_context,
+    search_dataframe,
 )
 
 
@@ -31,9 +31,7 @@ class DataAssistantTests(unittest.TestCase):
 
     def test_arbitrary_schema_and_double_csv_suffix_are_supported(self):
         location_csv = (
-            b"place,latitude,longitude,population\n"
-            b"North Point,28.61,77.21,1200\n"
-            b"South Point,19.08,72.88,900\n"
+            b"place,latitude,longitude,population\nNorth Point,28.61,77.21,1200\nSouth Point,19.08,72.88,900\n"
         )
         df = load_csv_dataframe(
             location_csv,
@@ -88,7 +86,7 @@ class DataAssistantTests(unittest.TestCase):
     def test_search_dataframe_form_13_exact_count(self):
         df = load_csv_dataframe(self.sample_csv_bytes)
         matched_df, total_matches, breakdown = search_dataframe(df, "Form 13")
-        
+
         # In our sample CSV: rows 101, 103, 106 have "Form 13" in Issue_Topic
         self.assertEqual(total_matches, 3)
         self.assertEqual(len(matched_df), 3)
@@ -108,7 +106,7 @@ class DataAssistantTests(unittest.TestCase):
         df = load_csv_dataframe(self.sample_csv_bytes)
         user_query = "How many Form 13 issues are there in the dataset?"
         context = prepare_dataframe_llm_context(df, user_query)
-        
+
         self.assertIn("Dataset Structure", context)
         self.assertIn("Form 13", context)
         self.assertIn("Exactly **3** matching row(s) found", context)
@@ -124,9 +122,7 @@ class DataAssistantTests(unittest.TestCase):
         self.assertIn("Exactly **2** row(s) match all identified terms", context)
 
     def test_prepare_context_respects_character_limit(self):
-        df = pd.DataFrame(
-            {f"Column_{index}": ["x" * 200 for _ in range(20)] for index in range(40)}
-        )
+        df = pd.DataFrame({f"Column_{index}": ["x" * 200 for _ in range(20)] for index in range(40)})
         context = prepare_dataframe_llm_context(
             df,
             "summarize this dataset",

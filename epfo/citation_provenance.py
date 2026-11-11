@@ -1,4 +1,5 @@
 """Shared citation labels and citation markers; a document page count is not passage provenance."""
+
 import re
 
 
@@ -15,7 +16,9 @@ def page_label(metadata):
 # Models also write 【3】, 【3†L1-L4】, [1, 2] and [10, p. 5]; these are rewritten to that form.
 _FULL_WIDTH = re.compile(r"【\s*(\d{1,3})\s*(?:†[^】]*)?】")
 _LIST = re.compile(r"\[(\d{1,3}(?:\s*[,;]\s*\d{1,3})+)\]")
-_WITH_LOCATOR = re.compile(r"\[(\d{1,3})\s*[,;:]\s*((?:pp?|pages?|paras?|paragraphs?)\b\.?\s*[^\[\]]{1,30}?)\s*\]", re.I)
+_WITH_LOCATOR = re.compile(
+    r"\[(\d{1,3})\s*[,;:]\s*((?:pp?|pages?|paras?|paragraphs?)\b\.?\s*[^\[\]]{1,30}?)\s*\]", re.I
+)
 # Longest marker that is held back while its closing bracket has not arrived yet.
 _MAX_MARKER = 60
 

@@ -187,7 +187,7 @@ from vector_indexer import (
     group_extracted_content_to_blocks,
     merge_spanning_table_blocks,
     load_faiss_index,
-    save_faiss_index
+    save_faiss_index,
 )
 ```
 to:
@@ -244,21 +244,13 @@ to:
 
 Change lines 213-218 from:
 ```python
-        embeddings = embedding_model.encode(
-            chunk_slice,
-            batch_size=batch_size,
-            convert_to_tensor=False,
-            show_progress_bar=False
-        )
+embeddings = embedding_model.encode(
+    chunk_slice, batch_size=batch_size, convert_to_tensor=False, show_progress_bar=False
+)
 ```
 to:
 ```python
-        embeddings = encode_normalized(
-            embedding_model,
-            chunk_slice,
-            batch_size=batch_size,
-            show_progress_bar=False
-        )
+embeddings = encode_normalized(embedding_model, chunk_slice, batch_size=batch_size, show_progress_bar=False)
 ```
 
 - [ ] **Step 5: Update `import_pf_circular_index.py`**
@@ -284,21 +276,13 @@ to:
 
 Change lines 259-264 from:
 ```python
-        embeddings = embedding_model.encode(
-            chunk_slice,
-            batch_size=batch_size,
-            convert_to_tensor=False,
-            show_progress_bar=False
-        )
+embeddings = embedding_model.encode(
+    chunk_slice, batch_size=batch_size, convert_to_tensor=False, show_progress_bar=False
+)
 ```
 to:
 ```python
-        embeddings = encode_normalized(
-            embedding_model,
-            chunk_slice,
-            batch_size=batch_size,
-            show_progress_bar=False
-        )
+embeddings = encode_normalized(embedding_model, chunk_slice, batch_size=batch_size, show_progress_bar=False)
 ```
 
 - [ ] **Step 6: Run test to verify it passes**

@@ -1,14 +1,14 @@
 # vector_indexer.py
 
-import os
 import json
+import logging
+import os
 import sqlite3
+
 import faiss
 import numpy as np
-import logging
-from sentence_transformers import SentenceTransformer
-import config
-import retriever
+
+from epfo import config, retriever
 
 # Configure logging
 logger = logging.getLogger(__name__)
@@ -21,7 +21,7 @@ def group_extracted_content_to_blocks(extracted_pages_data):
     for page_data in extracted_pages_data:
         page_number = page_data['page_number']
         source_pdf = page_data['source_pdf']
-        page_content = page_data['content'] 
+        page_content = page_data['content']
 
         if not page_content:
             continue
@@ -29,34 +29,38 @@ def group_extracted_content_to_blocks(extracted_pages_data):
         current_group = []
         for i, content_item in enumerate(page_content):
             current_group.append(content_item)
-            is_last_item_on_page = (i == len(page_content) - 1)
+            is_last_item_on_page = i == len(page_content) - 1
             finalize_group = False
             if is_last_item_on_page:
                 finalize_group = True
             else:
                 current_is_table = content_item["type"] == "table"
-                next_is_table = (page_content[i + 1]["type"] == "table")
+                next_is_table = page_content[i + 1]["type"] == "table"
                 if not current_is_table and not next_is_table:
                     pass  # Continue accumulating text
-                else: 
+                else:
                     finalize_group = True
-            
+
             if finalize_group and current_group:
-                grouped_blocks.append({
+                grouped_blocks.append(
+                    {
+                        "source_pdf": source_pdf,
+                        "page_number": page_number,
+                        "group_content": list(current_group),
+                    }
+                )
+                current_group = []
+
+        # Catch any trailing group for the page
+        if current_group:
+            grouped_blocks.append(
+                {
                     "source_pdf": source_pdf,
                     "page_number": page_number,
-                    "group_content": list(current_group), 
-                })
-                current_group = []
-        
-        # Catch any trailing group for the page
-        if current_group: 
-            grouped_blocks.append({
-                "source_pdf": source_pdf,
-                "page_number": page_number,
-                "group_content": list(current_group),
-            })
-            
+                    "group_content": list(current_group),
+                }
+            )
+
     return grouped_blocks
 
 
@@ -68,7 +72,7 @@ def get_start_page_num_from_block(block):
             return int(page_meta.split('-')[0])
         except ValueError:
             logger.warning(f"Could not parse start page from string: '{page_meta}'")
-            return float('inf') 
+            return float('inf')
     elif isinstance(page_meta, (int, float)):
         return int(page_meta)
     logger.warning(f"Unexpected page_meta type or value: {page_meta}. Assigning high page number for sort stability.")
@@ -81,8 +85,9 @@ def merge_spanning_table_blocks(grouped_blocks_input):
         return []
 
     try:
-        processing_list = sorted(list(grouped_blocks_input), 
-                                 key=lambda b: (b.get('source_pdf', ''), get_start_page_num_from_block(b)))
+        processing_list = sorted(
+            list(grouped_blocks_input), key=lambda b: (b.get('source_pdf', ''), get_start_page_num_from_block(b))
+        )
     except Exception as e:
         logger.error(f"Error during initial sort in merge_spanning_table_blocks: {e}")
         return list(grouped_blocks_input)
@@ -91,7 +96,6 @@ def merge_spanning_table_blocks(grouped_blocks_input):
     i = 0
     while i < len(processing_list):
         current_block = processing_list[i]
-        merged_anything_for_current_block = False
 
         if current_block.get('group_content') and current_block['group_content'][-1].get('type') == 'table':
             last_item_in_current = current_block['group_content'][-1]
@@ -117,9 +121,13 @@ def merge_spanning_table_blocks(grouped_blocks_input):
                             first_item_in_next = next_block['group_content'][0]
                             if first_item_in_next.get('is_at_page_top', False):
                                 # Merge table data
-                                merge_target_table_item['extracted_text_list'].extend(first_item_in_next.get('extracted_text_list', []))
+                                merge_target_table_item['extracted_text_list'].extend(
+                                    first_item_in_next.get('extracted_text_list', [])
+                                )
                                 merge_target_table_item['raw_cells'].extend(first_item_in_next.get('raw_cells', []))
-                                merge_target_table_item['is_at_page_bottom'] = first_item_in_next.get('is_at_page_bottom', False)
+                                merge_target_table_item['is_at_page_bottom'] = first_item_in_next.get(
+                                    'is_at_page_bottom', False
+                                )
 
                                 # Update page range
                                 curr_page_meta = str(current_block.get('page_number'))
@@ -134,7 +142,6 @@ def merge_spanning_table_blocks(grouped_blocks_input):
                                     current_block['group_content'].extend(remaining_items_in_next)
 
                                 indices_of_blocks_to_consume.append(j)
-                                merged_anything_for_current_block = True
                                 current_start_page = next_start_page
                                 j += 1
                                 continue
@@ -192,11 +199,11 @@ def convert_grouped_blocks_to_texts_and_metadata(grouped_blocks):
                     [f"[{cell_text}]" for cell_text in content_item.get("extracted_text_list", [])]
                 )
                 block_text_parts.append(table_str)
-        
+
         full_block_text = "\n".join(block_text_parts).strip()
         if full_block_text:
             chunks = text_splitter.split_text(full_block_text)
-            
+
             for chunk_idx, chunk in enumerate(chunks):
                 texts_for_embedding.append(chunk)
                 metadata_item = {
@@ -204,12 +211,12 @@ def convert_grouped_blocks_to_texts_and_metadata(grouped_blocks):
                     "page_number": str(block["page_number"]),
                     "chunk_id": f"{source_doc}_p{block['page_number']}_c{chunk_idx}",
                     "parent_context": full_block_text[:1200],  # Surrounding parent section for LLM synthesis
-                    "original_group_content_snippet": chunk[:200]
+                    "original_group_content_snippet": chunk[:200],
                 }
                 if block.get('metadata_is_merged'):
                     metadata_item['is_merged_table'] = True
                 corresponding_metadata.append(metadata_item)
-            
+
     return texts_for_embedding, corresponding_metadata
 
 
@@ -224,25 +231,24 @@ def create_faiss_index(texts_for_embedding, list_of_metadata, embedding_model):
         logger.info(f"Generating normalized embeddings for {len(texts_for_embedding)} text blocks...")
         # Explicit normalization ensures inner product equals cosine similarity
         embeddings = embedding_model.encode(
-            texts_for_embedding, 
-            convert_to_tensor=False, 
-            normalize_embeddings=True, 
-            show_progress_bar=True
+            texts_for_embedding, convert_to_tensor=False, normalize_embeddings=True, show_progress_bar=True
         )
-        embeddings_np = np.array(embeddings).astype('float32') 
-        
-        if embeddings_np.ndim == 1: 
+        embeddings_np = np.array(embeddings).astype('float32')
+
+        if embeddings_np.ndim == 1:
             embeddings_np = embeddings_np.reshape(1, -1)
 
         if embeddings_np.shape[0] != len(list_of_metadata):
-            logger.error(f"Mismatch between number of embeddings ({embeddings_np.shape[0]}) and metadata entries ({len(list_of_metadata)}). Aborting index creation.")
+            logger.error(
+                f"Mismatch between number of embeddings ({embeddings_np.shape[0]}) and metadata entries ({len(list_of_metadata)}). Aborting index creation."
+            )
             return None
 
         dimension = embeddings_np.shape[1]
-        
+
         # Using IndexFlatIP for Cosine Similarity on unit-normalized vectors
         index = faiss.IndexFlatIP(dimension)
-        index_id_map = faiss.IndexIDMap(index) 
+        index_id_map = faiss.IndexIDMap(index)
         ids = np.arange(len(texts_for_embedding))
         index_id_map.add_with_ids(embeddings_np, ids)
         logger.info(f"FAISS IndexFlatIP created with {index_id_map.ntotal} normalized vectors (dim={dimension}).")
@@ -274,7 +280,9 @@ def encode_normalized(embedding_model, texts, **kwargs):
     return embedding_model.encode(texts, **kwargs)
 
 
-def save_faiss_index(index, texts_for_retrieval, metadata_for_retrieval, index_dir, index_name=config.DEFAULT_INDEX_NAME):
+def save_faiss_index(
+    index, texts_for_retrieval, metadata_for_retrieval, index_dir, index_name=config.DEFAULT_INDEX_NAME
+):
     # Saves the FAISS index, corresponding texts, and metadata to disk.
     #
     # Both artifacts are written to temp paths first and only swapped into
@@ -301,16 +309,12 @@ def save_faiss_index(index, texts_for_retrieval, metadata_for_retrieval, index_d
             os.remove(temp_db_path)
         conn = sqlite3.connect(temp_db_path)
         try:
-            conn.execute(
-                "CREATE TABLE passages (id INTEGER PRIMARY KEY, text TEXT NOT NULL, metadata TEXT NOT NULL)"
-            )
+            conn.execute("CREATE TABLE passages (id INTEGER PRIMARY KEY, text TEXT NOT NULL, metadata TEXT NOT NULL)")
             conn.executemany(
                 "INSERT INTO passages (id, text, metadata) VALUES (?, ?, ?)",
                 (
                     (doc_id, text, json.dumps(meta, ensure_ascii=False))
-                    for doc_id, (text, meta) in enumerate(
-                        zip(texts_for_retrieval, metadata_for_retrieval)
-                    )
+                    for doc_id, (text, meta) in enumerate(zip(texts_for_retrieval, metadata_for_retrieval))
                 ),
             )
             conn.commit()
@@ -358,7 +362,9 @@ def load_faiss_binary_index(index_dir, embedding_model_for_dim_check=None, index
         if embedding_model_for_dim_check:
             expected_dim = embedding_model_for_dim_check.get_sentence_embedding_dimension()
             if index.d != expected_dim:
-                logger.error(f"Loaded index dimension ({index.d}) does not match embedding model dimension ({expected_dim}).")
+                logger.error(
+                    f"Loaded index dimension ({index.d}) does not match embedding model dimension ({expected_dim})."
+                )
                 return None
         return index
     except Exception as e:

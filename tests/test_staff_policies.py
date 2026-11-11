@@ -1,13 +1,13 @@
 """Matter isolation, dated changes and honest gaps for staff-policy collections."""
-import hashlib
+
 import json
-from pathlib import Path
 
 import pytest
 from fastapi.testclient import TestClient
-from policy_registry import registered_policies, select_policy
-from policy_history import PolicyHistory
-from policy_router import route_retrieval
+
+from epfo.policy_history import PolicyHistory
+from epfo.policy_registry import registered_policies, select_policy
+from epfo.policy_router import route_retrieval
 from web_api.app import app
 
 
@@ -15,15 +15,18 @@ def history(id):
     return PolicyHistory(next(p.path for p in registered_policies() if p.id == id))
 
 
-@pytest.mark.parametrize('question,policy', [
-    ('Delegation of powers for physical infrastructure', 'delegation'),
-    ('Who has sanctioning authority for medical reimbursement?', 'delegation'),
-    ('Briefcase reimbursement for EPFO employees', 'employee_benefits'),
-    ('Laptop entitlement for officers', 'employee_benefits'),
-    ('Newspaper reimbursement', 'employee_benefits'),
-    ('Reimbursement of mobile phone bills', 'employee_benefits'),
-    ('Medical reimbursement for retired EPFO staff', 'employee_benefits'),
-])
+@pytest.mark.parametrize(
+    'question,policy',
+    [
+        ('Delegation of powers for physical infrastructure', 'delegation'),
+        ('Who has sanctioning authority for medical reimbursement?', 'delegation'),
+        ('Briefcase reimbursement for EPFO employees', 'employee_benefits'),
+        ('Laptop entitlement for officers', 'employee_benefits'),
+        ('Newspaper reimbursement', 'employee_benefits'),
+        ('Reimbursement of mobile phone bills', 'employee_benefits'),
+        ('Medical reimbursement for retired EPFO staff', 'employee_benefits'),
+    ],
+)
 def test_collection_routing(question, policy):
     assert select_policy(question).id == policy
 
@@ -75,10 +78,14 @@ def test_pid_layers_remain_distinct_and_dates_come_from_issuing_letter():
 
 
 def test_medical_gaps_are_honest_and_supplementary_sources_stay_in_matter():
-    report = route_retrieval('Medical reimbursement for retired EPFO employees', '2026-10-29', lambda: [
-        {'text': 'Medical reimbursement for EPFO employees', 'metadata': {'date': '28/01/2022'}},
-        {'text': 'Laptop entitlement for EPFO officers', 'metadata': {'date': '18/12/2024'}},
-    ])
+    report = route_retrieval(
+        'Medical reimbursement for retired EPFO employees',
+        '2026-10-29',
+        lambda: [
+            {'text': 'Medical reimbursement for EPFO employees', 'metadata': {'date': '28/01/2022'}},
+            {'text': 'Laptop entitlement for EPFO officers', 'metadata': {'date': '18/12/2024'}},
+        ],
+    )
     context = report['policy_context']
     assert context['selected_topics'] == ['medical']
     assert context['coverage']['documents_without_page_text']
@@ -112,7 +119,9 @@ def test_delegation_collection_has_no_jd_process_documents_and_name_correction_l
     assert any('Joint Declaration' in l for l in claims.policy['limitations'])
 
 
-@pytest.mark.parametrize('query', ['Joint Declaration SOP', 'JD process for name correction', 'Aadhaar seeding in UAN powers'])
+@pytest.mark.parametrize(
+    'query', ['Joint Declaration SOP', 'JD process for name correction', 'Aadhaar seeding in UAN powers']
+)
 def test_jd_and_aadhaar_questions_do_not_route_to_delegation(query):
     policy = select_policy(query)
     assert policy is not None and policy.id in {'jd', 'aadhaar'}
@@ -125,17 +134,25 @@ def test_api_matter_controls_filter_inventory_and_explicit_evidence():
     assert response.json()['selected_topics'] == ['newspaper']
     assert all('newspaper' in d['topics'] for d in response.json()['documents'])
     assert client.get('/api/policies/employee_benefits?topic=unknown').status_code == 422
-    result = client.post('/api/search', json={'question': 'What are the limits?', 'policy': 'employee_benefits', 'topic': 'newspaper'}).json()
+    result = client.post(
+        '/api/search', json={'question': 'What are the limits?', 'policy': 'employee_benefits', 'topic': 'newspaper'}
+    ).json()
     assert result['policy_context']['selected_topics'] == ['newspaper']
     assert result['sources'] and all('Newspaper' in s['metadata']['title'] for s in result['sources'])
-    assert client.post('/api/search', json={'question':'limits?', 'policy':'employee_benefits', 'topic':'unknown'}).status_code == 422
+    assert (
+        client.post(
+            '/api/search', json={'question': 'limits?', 'policy': 'employee_benefits', 'topic': 'unknown'}
+        ).status_code
+        == 422
+    )
 
 
 def test_new_archive_hashes_and_physical_page_maps_match_extracted_sources():
     for policy in registered_policies()[:2]:
         h = PolicyHistory(policy.path)
         for doc in h.documents.values():
-            if not doc.get('source_file'): continue
-            source = json.loads((policy.path.parent/doc['source_file']).read_text(encoding='utf-8'))
+            if not doc.get('source_file'):
+                continue
+            source = json.loads((policy.path.parent / doc['source_file']).read_text(encoding='utf-8'))
             assert len(source['pdf_sha256']) == 64 and doc['source_url'].startswith('https://')
             assert all(1 <= p['page_number'] <= source['total_pdf_pages'] for p in source['pages'])

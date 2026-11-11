@@ -1,14 +1,17 @@
 # import_pf_circular_index.py
 import os
+
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 os.environ["OMP_NUM_THREADS"] = str(min(8, os.cpu_count() or 4))
 
 import glob
 import json
-import shutil
 import logging
+import shutil
+
 import numpy as np
 import torch
+
 torch.set_num_threads(min(8, os.cpu_count() or 4))
 
 from sentence_transformers import SentenceTransformer
@@ -18,14 +21,16 @@ try:
 except ImportError:
     from langchain.text_splitter import RecursiveCharacterTextSplitter
 
-import config
-from vector_indexer import load_faiss_index, save_faiss_index, create_empty_faiss_index, encode_normalized
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from epfo import config
+from epfo.vector_indexer import create_empty_faiss_index, encode_normalized, load_faiss_index, save_faiss_index
 
 # Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger("ImportPFCircular")
 
 
@@ -47,7 +52,7 @@ def load_all_circular_metadata(pf_circular_data_dir):
     main_circular_data_file = "circular-data.json"
     if os.path.exists(main_circular_data_file):
         try:
-            with open(main_circular_data_file, 'r', encoding='utf-8') as f:
+            with open(main_circular_data_file, encoding='utf-8') as f:
                 items = json.load(f)
                 for item in items:
                     link = item.get("english_pdf_link")
@@ -64,7 +69,7 @@ def load_all_circular_metadata(pf_circular_data_dir):
     pf_circular_files = glob.glob(os.path.join(pf_circular_data_dir, "circulars-*.json"))
     for file_path in pf_circular_files:
         try:
-            with open(file_path, 'r', encoding='utf-8') as f:
+            with open(file_path, encoding='utf-8') as f:
                 items = json.load(f)
                 if isinstance(items, list):
                     for item in items:
@@ -81,7 +86,7 @@ def load_all_circular_metadata(pf_circular_data_dir):
                                     "hindi_pdf_link": item.get("hindi_pdf_link"),
                                     "division": item.get("division"),
                                     "sub_division": item.get("sub_division"),
-                                    "doc_type": item.get("doc_type")
+                                    "doc_type": item.get("doc_type"),
                                 }
                                 url_to_meta[clean_link] = normalized_item
                                 filename = clean_link.split('/')[-1]
@@ -122,7 +127,7 @@ def run_import(
     chunk_size=500,
     chunk_overlap=50,
     checkpoint_every=5000,
-    max_chunks=0
+    max_chunks=0,
 ):
     """Main import and vectorization routine with incremental checkpoints."""
     logger.info("Initializing SentenceTransformer embedding model...")
@@ -139,9 +144,7 @@ def run_import(
 
     # Load existing FAISS index
     faiss_index, existing_texts, existing_metadata = load_faiss_index(
-        index_dir,
-        embedding_model_for_dim_check=embedding_model,
-        index_name=index_name
+        index_dir, embedding_model_for_dim_check=embedding_model, index_name=index_name
     )
 
     if faiss_index is None:
@@ -159,10 +162,7 @@ def run_import(
 
     # Text splitter
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=chunk_size,
-        chunk_overlap=chunk_overlap,
-        length_function=len,
-        is_separator_regex=False
+        chunk_size=chunk_size, chunk_overlap=chunk_overlap, length_function=len, is_separator_regex=False
     )
 
     # Scan and process index-*.json files
@@ -180,7 +180,7 @@ def run_import(
 
     for index_file in index_files:
         try:
-            with open(index_file, 'r', encoding='utf-8') as f:
+            with open(index_file, encoding='utf-8') as f:
                 data = json.load(f)
         except Exception as e:
             logger.error(f"Failed to read '{index_file}': {e}")
@@ -221,25 +221,27 @@ def run_import(
 
             for chunk in chunks:
                 new_texts.append(chunk)
-                new_metadata.append({
-                    "source_pdf": pdf_url,
-                    "source_pdf_original_filename": filename,
-                    "page_number": None,
-                    "page_provenance": "document_only",
-                    "total_pages": total_pages,
-                    "pages_indexed": pages_indexed,
-                    "original_group_content_snippet": chunk[:200],
-                    "serial_no": item_meta.get("serial_no"),
-                    "title": item_meta.get("title"),
-                    "circular_no": item_meta.get("circular_no"),
-                    "date": item_meta.get("date"),
-                    "english_pdf_link": pdf_url,
-                    "hindi_pdf_link": item_meta.get("hindi_pdf_link"),
-                    "division": item_meta.get("division"),
-                    "sub_division": item_meta.get("sub_division"),
-                    "doc_type": item_meta.get("doc_type"),
-                    "extraction_method": val.get("method", "ocr_import")
-                })
+                new_metadata.append(
+                    {
+                        "source_pdf": pdf_url,
+                        "source_pdf_original_filename": filename,
+                        "page_number": None,
+                        "page_provenance": "document_only",
+                        "total_pages": total_pages,
+                        "pages_indexed": pages_indexed,
+                        "original_group_content_snippet": chunk[:200],
+                        "serial_no": item_meta.get("serial_no"),
+                        "title": item_meta.get("title"),
+                        "circular_no": item_meta.get("circular_no"),
+                        "date": item_meta.get("date"),
+                        "english_pdf_link": pdf_url,
+                        "hindi_pdf_link": item_meta.get("hindi_pdf_link"),
+                        "division": item_meta.get("division"),
+                        "sub_division": item_meta.get("sub_division"),
+                        "doc_type": item_meta.get("doc_type"),
+                        "extraction_method": val.get("method", "ocr_import"),
+                    }
+                )
 
             already_indexed.add(pdf_url)
             already_indexed.add(filename)
@@ -250,7 +252,7 @@ def run_import(
         if max_chunks > 0 and len(new_texts) >= max_chunks:
             break
 
-    logger.info(f"--- Extraction Summary ---")
+    logger.info("--- Extraction Summary ---")
     logger.info(f"Skipped (already indexed): {skipped_count} circular entries.")
     logger.info(f"New circulars to ingest: {added_circulars_count}")
     logger.info(f"New text chunks to embed: {len(new_texts)}")
@@ -264,17 +266,12 @@ def run_import(
     start_id = len(existing_texts)
 
     for i in range(0, total_new, checkpoint_every):
-        chunk_slice = new_texts[i:i + checkpoint_every]
-        meta_slice = new_metadata[i:i + checkpoint_every]
+        chunk_slice = new_texts[i : i + checkpoint_every]
+        meta_slice = new_metadata[i : i + checkpoint_every]
         slice_len = len(chunk_slice)
 
         logger.info(f"Embedding chunks {i + 1} to {i + slice_len} of {total_new}...")
-        embeddings = encode_normalized(
-            embedding_model,
-            chunk_slice,
-            batch_size=batch_size,
-            show_progress_bar=False
-        )
+        embeddings = encode_normalized(embedding_model, chunk_slice, batch_size=batch_size, show_progress_bar=False)
         embeddings_np = np.array(embeddings, dtype=np.float32)
         if embeddings_np.ndim == 1:
             embeddings_np = embeddings_np.reshape(1, -1)
@@ -287,16 +284,10 @@ def run_import(
 
         # Checkpoint save
         logger.info(f"Checkpoint save: Index now has {faiss_index.ntotal} vectors ({len(existing_texts)} texts).")
-        save_faiss_index(
-            faiss_index,
-            existing_texts,
-            existing_metadata,
-            index_dir=index_dir,
-            index_name=index_name
-        )
+        save_faiss_index(faiss_index, existing_texts, existing_metadata, index_dir=index_dir, index_name=index_name)
 
     logger.info("=" * 60)
-    logger.info(f"IMPORT COMPLETE!")
+    logger.info("IMPORT COMPLETE!")
     logger.info(f"Total vectors in FAISS index: {faiss_index.ntotal}")
     logger.info(f"Total texts with metadata: {len(existing_texts)}")
     logger.info("=" * 60)
@@ -304,6 +295,7 @@ def run_import(
 
 if __name__ == "__main__":
     import argparse
+
     parser = argparse.ArgumentParser(description="Import precomputed OCR data from pf-circular into FAISS index.")
     parser.add_argument("--data-dir", default=r"..\pf-circular\data", help="Path to pf-circular data directory")
     parser.add_argument("--batch-size", type=int, default=256, help="Batch size for sentence transformer encoding")
@@ -319,5 +311,5 @@ if __name__ == "__main__":
         chunk_size=args.chunk_size,
         chunk_overlap=args.chunk_overlap,
         checkpoint_every=args.checkpoint_every,
-        max_chunks=args.max_chunks
+        max_chunks=args.max_chunks,
     )

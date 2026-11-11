@@ -3,15 +3,16 @@
 Record after committing assets: python scripts/fetch_runtime_assets.py --record-commit SHA
 Docker build: python scripts/fetch_runtime_assets.py --output /assets/data
 """
+
 import argparse
-from concurrent.futures import ThreadPoolExecutor
 import hashlib
 import json
-from pathlib import Path, PurePosixPath
 import re
 import tempfile
 import time
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path, PurePosixPath
 
 REPO = 'gauravmeena0708/pf-circulars'
 MANIFEST = Path('deploy/runtime-assets.json')
@@ -37,7 +38,7 @@ def validate(manifest):
         # on demand from their public URLs (see policy_pdfs.py) and are not stored in Git.
         if not entry['path'].startswith('vector_store/data_index/'):
             raise ValueError('Unexpected runtime asset path')
-        if not re.fullmatch('[a-f0-9]{64}', entry['sha256']) or not 0 < entry['size'] <= 500*1024*1024:
+        if not re.fullmatch('[a-f0-9]{64}', entry['sha256']) or not 0 < entry['size'] <= 500 * 1024 * 1024:
             raise ValueError('Invalid runtime asset hash or size')
         seen.add(str(path))
 
@@ -53,10 +54,15 @@ def fetch(entry, revision, output):
         try:
             checksum = hashlib.sha256()
             size = 0
-            request = urllib.request.Request(url, headers={'User-Agent': 'EPFO-Workspace-Build', 'Accept-Encoding': 'identity'})
-            with urllib.request.urlopen(request, timeout=90) as response, tempfile.NamedTemporaryFile(dir=target.parent, delete=False) as out:
+            request = urllib.request.Request(
+                url, headers={'User-Agent': 'EPFO-Workspace-Build', 'Accept-Encoding': 'identity'}
+            )
+            with (
+                urllib.request.urlopen(request, timeout=90) as response,
+                tempfile.NamedTemporaryFile(dir=target.parent, delete=False) as out,
+            ):
                 temporary = Path(out.name)
-                for block in iter(lambda: response.read(1024*1024), b''):
+                for block in iter(lambda: response.read(1024 * 1024), b''):
                     size += len(block)
                     if size > entry['size']:
                         raise ValueError('Asset exceeds its recorded size')
@@ -73,20 +79,26 @@ def fetch(entry, revision, output):
                 temporary.unlink()
             if attempt == 2:
                 raise
-            time.sleep(2 * (attempt+1))
+            time.sleep(2 * (attempt + 1))
 
 
 def record(revision, root=Path('.'), path=MANIFEST, preserve_revision=False):
-    files = sorted(root/'vector_store/data_index'/name for name in
-                   ('faiss_index.index', 'faiss_index.passages.db', 'faiss_index.bm25.json.gz'))
-    manifest = dict(repo=REPO, revision=revision, files=[dict(path=p.relative_to(root).as_posix(), size=p.stat().st_size, sha256=digest(p)) for p in files])
+    files = sorted(
+        root / 'vector_store/data_index' / name
+        for name in ('faiss_index.index', 'faiss_index.passages.db', 'faiss_index.bm25.json.gz')
+    )
+    manifest = dict(
+        repo=REPO,
+        revision=revision,
+        files=[dict(path=p.relative_to(root).as_posix(), size=p.stat().st_size, sha256=digest(p)) for p in files],
+    )
     if preserve_revision and path.exists():
         previous = json.loads(path.read_text())
         validate(previous)
         if previous['files'] == manifest['files']:
             manifest['revision'] = previous['revision']
     validate(manifest)
-    path.write_text(json.dumps(manifest, indent=2)+'\n')
+    path.write_text(json.dumps(manifest, indent=2) + '\n')
     return manifest
 
 
@@ -99,7 +111,9 @@ def main():
     mode.add_argument('--refresh-commit', help='CI: keep the pinned revision when asset bytes have not changed')
     args = parser.parse_args()
     if args.record_commit or args.refresh_commit:
-        record(args.record_commit or args.refresh_commit, path=args.manifest, preserve_revision=bool(args.refresh_commit))
+        record(
+            args.record_commit or args.refresh_commit, path=args.manifest, preserve_revision=bool(args.refresh_commit)
+        )
         return
     manifest = json.loads(args.manifest.read_text())
     validate(manifest)

@@ -1,8 +1,10 @@
 # config.py
 
 import os
+
 import torch
 from dotenv import load_dotenv
+
 load_dotenv()
 
 HF_TOKEN = os.environ.get("HF_TOKEN")
@@ -36,7 +38,9 @@ USE_HYBRID_RETRIEVAL = True
 BM25_TOP_K = 40
 DENSE_TOP_K = 40
 RRF_K = 60
-CONFIDENCE_GATE_ENABLED = os.environ.get("CONFIDENCE_GATE_ENABLED", "true").strip().lower() not in ("false", "0", "no")  # Skip CrossEncoder re-ranking when dense and sparse retrieval already agree on the top document; set to "false" to disable without a code change
+CONFIDENCE_GATE_ENABLED = (
+    os.environ.get("CONFIDENCE_GATE_ENABLED", "true").strip().lower() not in ("false", "0", "no")
+)  # Skip CrossEncoder re-ranking when dense and sparse retrieval already agree on the top document; set to "false" to disable without a code change
 
 # Chunking Configuration
 CHUNK_SIZE = 800
@@ -47,17 +51,13 @@ CHUNK_OVERLAP = 150
 # concurrent users. A session that supplies its own Hugging Face token
 # draws on that user's own account/budget instead, so it is not
 # subject to this limit. Set LLM_RATE_LIMIT_MAX_REQUESTS to 0 to disable.
-LLM_RATE_LIMIT_MAX_REQUESTS = int(
-    os.environ.get("LLM_RATE_LIMIT_MAX_REQUESTS", "10")
-)
-LLM_RATE_LIMIT_WINDOW_SECONDS = int(
-    os.environ.get("LLM_RATE_LIMIT_WINDOW_SECONDS", "60")
-)
+LLM_RATE_LIMIT_MAX_REQUESTS = int(os.environ.get("LLM_RATE_LIMIT_MAX_REQUESTS", "10"))
+LLM_RATE_LIMIT_WINDOW_SECONDS = int(os.environ.get("LLM_RATE_LIMIT_WINDOW_SECONDS", "60"))
 
 DEFAULT_INDEX_DIR = "vector_store"
-DEFAULT_INDEX_NAME = "faiss_index" # The FAISS index file itself
+DEFAULT_INDEX_NAME = "faiss_index"  # The FAISS index file itself
 TOP_N_RETRIEVAL = 5  # Number of relevant chunks to retrieve
 
 # --- Logging ---
-LOG_LEVEL = "INFO" # e.g., DEBUG, INFO, WARNING, ERROR, CRITICAL
+LOG_LEVEL = "INFO"  # e.g., DEBUG, INFO, WARNING, ERROR, CRITICAL
 LOG_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'

@@ -2,10 +2,10 @@
 import faiss
 import numpy as np
 
-import retriever
-
+from epfo import retriever
 
 # --- Unit tests for the pure helper ---
+
 
 def test_agreement_true_when_same_doc_is_rank_one_in_both():
     dense_rankings = {5: 1, 2: 2, 9: 3}
@@ -26,6 +26,7 @@ def test_agreement_false_when_either_ranking_is_empty():
 
 
 # --- End-to-end tests against retrieve_relevant_chunks ---
+
 
 class _FixedVectorEmbeddingModel:
     """Fake embedding model that always returns a pre-chosen vector,

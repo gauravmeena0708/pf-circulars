@@ -6,15 +6,22 @@ from types import SimpleNamespace
 import numpy as np
 import pytest
 
-import import_pf_circular_index as importer
+from scripts import import_pf_circular_index as importer
 
 
 @pytest.mark.parametrize("page_info", [{}, {"pages_indexed": 2}, {"total_pages": 35, "pages_indexed": 2}])
 def test_flattened_ocr_never_claims_chunk_pages(tmp_path, monkeypatch, page_info):
     url = "https://example.com/circular.pdf"
-    (tmp_path / "index-test.json").write_text(json.dumps({
-        url: {"ocr_content": "A sufficiently long direction about member profile correction and supporting documents.", **page_info}
-    }))
+    (tmp_path / "index-test.json").write_text(
+        json.dumps(
+            {
+                url: {
+                    "ocr_content": "A sufficiently long direction about member profile correction and supporting documents.",
+                    **page_info,
+                }
+            }
+        )
+    )
     model = SimpleNamespace(get_sentence_embedding_dimension=lambda: 2)
     monkeypatch.setattr(importer, "SentenceTransformer", lambda *a, **kw: model)
     monkeypatch.setattr(importer, "backup_existing_index", lambda *a: None)

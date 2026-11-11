@@ -1,6 +1,6 @@
 import faiss
 
-import vector_indexer
+from epfo import vector_indexer
 
 
 def test_create_empty_faiss_index_uses_inner_product_metric():

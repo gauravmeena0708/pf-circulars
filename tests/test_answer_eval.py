@@ -1,15 +1,17 @@
 """The answer evaluation scores by fixed rules, and its cases point at real, in-date sources."""
-from datetime import date
+
 import json
-from pathlib import Path
 import re
 import sys
+from datetime import date
+from pathlib import Path
 
 ROOT = Path(__file__).parents[1]
 sys.path.insert(0, str(ROOT / 'eval/answers'))
 import checks
-from policy_history import PolicyHistory
-from policy_registry import registered_policies
+
+from epfo.policy_history import PolicyHistory
+from epfo.policy_registry import registered_policies
 
 CASES = json.loads((ROOT / 'eval/answers/cases.json').read_text(encoding='utf-8'))['cases']
 SEARCH = {
@@ -17,7 +19,8 @@ SEARCH = {
     'sources': [{'document_id': 'dr-2025-04-17'}, {'document_id': 'dr-2025-10-13'}, {'document_id': None}],
 }
 CASE = {
-    'expect_policy': 'dearness', 'must_cite': ['dr-2025-10-13'],
+    'expect_policy': 'dearness',
+    'must_cite': ['dr-2025-10-13'],
     'must_state': [{'fact': '58 per cent', 'any': [r'\b58 ?%', r'\b58 per ?cent']}],
     'must_not_state': [{'claim': '60 per cent', 'any': [r'\b60 ?%']}],
 }
@@ -45,11 +48,13 @@ def test_each_rule_reports_its_own_failure():
 
 
 def test_same_circular_from_the_general_index_counts_as_the_citation():
-    search = {'sources': [
-        {'document_id': 'dr-2025-10-13', 'metadata': {'circular_no': 'No.HRD/1(71)/2020/Misc./Pt./1445'}},
-        {'document_id': None, 'metadata': {'circular_no': 'No. HRD/1(71)/2020/Misc./Pt./1445'}},
-        {'document_id': None, 'metadata': {'circular_no': 'Another/1'}},
-    ]}
+    search = {
+        'sources': [
+            {'document_id': 'dr-2025-10-13', 'metadata': {'circular_no': 'No.HRD/1(71)/2020/Misc./Pt./1445'}},
+            {'document_id': None, 'metadata': {'circular_no': 'No. HRD/1(71)/2020/Misc./Pt./1445'}},
+            {'document_id': None, 'metadata': {'circular_no': 'Another/1'}},
+        ]
+    }
     assert checks.check_answer(CASE, search, 'Dearness relief is 58% [2].') == []
     assert 'does not cite dr-2025-10-13' in checks.check_answer(CASE, search, 'Dearness relief is 58% [3].')
 
@@ -62,7 +67,9 @@ def test_not_found_answers_need_no_citation():
 def test_route_and_missing_source_are_reported_without_an_answer():
     wrong = {'policy_context': None, 'sources': [{'document_id': None}]}
     assert checks.check_retrieval(CASE, wrong) == [
-        'routed to standard search, expected dearness', 'source not retrieved: dr-2025-10-13']
+        'routed to standard search, expected dearness',
+        'source not retrieved: dr-2025-10-13',
+    ]
     assert checks.check_retrieval({'expect_policy': None}, wrong) == []
 
 

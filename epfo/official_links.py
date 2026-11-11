@@ -5,6 +5,7 @@ The old www.epfindia.gov.in site now redirects to epfo.gov.in with the same path
 rewritten only when shown to readers or fetched, so a future change is a one-function edit.
 Other hosts (for example the pmvbry-cdn.epfindia.gov.in file CDN) are left untouched.
 """
+
 import re
 
 CURRENT_SITE = 'www.epfo.gov.in'

@@ -9,20 +9,36 @@ Output is written in the same shape the importer reads (``index-*.json`` + ``cir
 
 Scanned pages are OCR'd with Tesseract (English + Hindi); pages with a real text layer are read directly.
 """
+
 import argparse
-from datetime import date, datetime
 import json
 import os
-from pathlib import Path
 import re
 import sqlite3
 import sys
+from datetime import date, datetime
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE_URL = 'https://www.epfindia.gov.in/site_docs/PDFs/Circulars/'
-COLUMNS = ['sr_no', 'subject', 'ref_no', 'cir_date', 'doc_type', 'division', 'sub_division', 'link_eng',
-           'link_hindi', 'cir_serial_no', 'year', 'financial_year', 'addl_link', 'addl_link_title',
-           'linked_items', 'removed_circulars']
+COLUMNS = [
+    'sr_no',
+    'subject',
+    'ref_no',
+    'cir_date',
+    'doc_type',
+    'division',
+    'sub_division',
+    'link_eng',
+    'link_hindi',
+    'cir_serial_no',
+    'year',
+    'financial_year',
+    'addl_link',
+    'addl_link_title',
+    'linked_items',
+    'removed_circulars',
+]
 BACKSLASH = chr(92)
 
 
@@ -37,19 +53,26 @@ def _tuple(text, i):
             while True:
                 c = text[j]
                 if c == BACKSLASH:
-                    buf.append(text[j + 1]); j += 2; continue
+                    buf.append(text[j + 1])
+                    j += 2
+                    continue
                 if c == "'":
                     if text[j + 1] == "'":
-                        buf.append("'"); j += 2; continue
+                        buf.append("'")
+                        j += 2
+                        continue
                     break
-                buf.append(c); j += 1
-            values.append(''.join(buf)); i = j + 1
+                buf.append(c)
+                j += 1
+            values.append(''.join(buf))
+            i = j + 1
         else:
             j = i
             while text[j] not in ',)':
                 j += 1
             token = text[i:j]
-            values.append(None if token == 'NULL' else int(token)); i = j
+            values.append(None if token == 'NULL' else int(token))
+            i = j
         if text[i] == ',':
             i += 1
             continue
@@ -95,6 +118,7 @@ def flatten_background(image):
     """Divide out the paper tone so grey or tinted scans keep their ink (fixes empty OCR)."""
     import numpy as np
     from PIL import Image, ImageFilter
+
     grey = image.convert('L')
     paper = np.maximum(np.array(grey.filter(ImageFilter.GaussianBlur(40)), dtype=float), 1)
     return Image.fromarray(np.clip(np.array(grey, dtype=float) / paper * 255, 0, 255).astype('uint8'))
@@ -102,6 +126,7 @@ def flatten_background(image):
 
 def ocr_image(image, lang):
     import pytesseract
+
     text = pytesseract.image_to_string(image, lang=lang).strip()
     if len(text) < 80:
         retry = pytesseract.image_to_string(flatten_background(image), lang=lang, config='--psm 6').strip()
@@ -112,8 +137,8 @@ def ocr_image(image, lang):
 
 def read_pdf(path, max_pages, dpi, lang):
     import pymupdf
-    import pytesseract
     from PIL import Image
+
     document = pymupdf.open(path)
     total = len(document)
     pages, methods = [], set()
@@ -132,8 +157,12 @@ def read_pdf(path, max_pages, dpi, lang):
         text = re.sub(r'[ \t]+\n', '\n', text)
         text = re.sub(r'\n{3,}', '\n\n', text)
         pages.append(text)
-    return dict(ocr_content='\n\n'.join(p for p in pages if p), total_pages=total, pages_indexed=len(pages),
-                method='+'.join(sorted(methods)) or 'none')
+    return dict(
+        ocr_content='\n\n'.join(p for p in pages if p),
+        total_pages=total,
+        pages_indexed=len(pages),
+        method='+'.join(sorted(methods)) or 'none',
+    )
 
 
 def main():
@@ -153,6 +182,7 @@ def main():
     if args.tessdata:
         os.environ['TESSDATA_PREFIX'] = str(args.tessdata)
     import pytesseract
+
     if Path(args.tesseract).exists():
         pytesseract.pytesseract.tesseract_cmd = args.tesseract
 
@@ -181,19 +211,32 @@ def main():
         except Exception as error:
             print(f'[{number}/{len(todo)}] FAILED {name}: {error}')
             continue
-        print(f'[{number}/{len(todo)}] {name}: {record["pages_indexed"]}/{record["total_pages"]} pages, '
-              f'{len(record["ocr_content"])} chars ({record["method"]})', flush=True)
+        print(
+            f'[{number}/{len(todo)}] {name}: {record["pages_indexed"]}/{record["total_pages"]} pages, '
+            f'{len(record["ocr_content"])} chars ({record["method"]})',
+            flush=True,
+        )
         record['indexed_at'] = datetime.now().isoformat(timespec='seconds')
         index[url] = record
         day = row['cir_date'] if row['cir_date'] and row['cir_date'] != '0000-00-00' else None
-        circulars.append(dict(
-            serial_no=str(row['cir_serial_no'] or row['sr_no']), title=row['subject'], circular_no=row['ref_no'] or None,
-            date=datetime.strptime(day, '%Y-%m-%d').strftime('%d/%m/%Y') if day else None,
-            english_pdf_link=url, hindi_pdf_link=row['link_hindi'] or None, division=row['division'],
-            sub_division=row['sub_division'], doc_type=row['doc_type']))
+        circulars.append(
+            dict(
+                serial_no=str(row['cir_serial_no'] or row['sr_no']),
+                title=row['subject'],
+                circular_no=row['ref_no'] or None,
+                date=datetime.strptime(day, '%Y-%m-%d').strftime('%d/%m/%Y') if day else None,
+                english_pdf_link=url,
+                hindi_pdf_link=row['link_hindi'] or None,
+                division=row['division'],
+                sub_division=row['sub_division'],
+                doc_type=row['doc_type'],
+            )
+        )
     args.out_dir.mkdir(parents=True, exist_ok=True)
     (args.out_dir / f'index-{stamp}.json').write_text(json.dumps(index, ensure_ascii=False, indent=1), encoding='utf-8')
-    (args.out_dir / f'circulars-{stamp}.json').write_text(json.dumps(circulars, ensure_ascii=False, indent=1), encoding='utf-8')
+    (args.out_dir / f'circulars-{stamp}.json').write_text(
+        json.dumps(circulars, ensure_ascii=False, indent=1), encoding='utf-8'
+    )
     empty = [u.rsplit('/', 1)[-1] for u, r in index.items() if len(r['ocr_content']) < 30]
     print(f'Wrote {len(index)} OCR records to {args.out_dir}; no usable text: {empty or "none"}')
 

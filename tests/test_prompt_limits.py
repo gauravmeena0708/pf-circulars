@@ -1,7 +1,8 @@
 from types import SimpleNamespace
+
 import pytest
 
-from answer_generator import bounded_prompt, describe_llm_error, get_llm_answer
+from epfo.answer_generator import bounded_prompt, describe_llm_error, get_llm_answer
 
 
 def failure():
@@ -18,8 +19,13 @@ def test_413_reports_request_limit_without_permission_advice():
 
 
 def test_budget_omits_whole_pages_and_preserves_original_citation_numbers():
-    chunks = [{'text': 'a' * 16000, 'metadata': {}},
-              {'text': 'Checked commencement page.', 'metadata': {'evidence_status': 'curated relationship or commencement page'}}]
+    chunks = [
+        {'text': 'a' * 16000, 'metadata': {}},
+        {
+            'text': 'Checked commencement page.',
+            'metadata': {'evidence_status': 'curated relationship or commencement page'},
+        },
+    ]
     prompt = bounded_prompt('rules?', chunks, limit=9000, policy_context={'relationships': [], 'limitations': []})
     assert len(prompt) <= 9000
     assert 'Source [2]' in prompt
@@ -30,11 +36,15 @@ def test_budget_omits_whole_pages_and_preserves_original_citation_numbers():
 
 def test_nonstream_413_retries_once_with_smaller_request():
     class Model:
-        def __init__(self): self.calls = []
+        def __init__(self):
+            self.calls = []
+
         def invoke(self, messages):
             self.calls.append(messages[0].content)
-            if len(self.calls) == 1: raise failure()
+            if len(self.calls) == 1:
+                raise failure()
             return SimpleNamespace(content='answer [1]')
+
     model = Model()
     chunks = [{'text': 'evidence ' * 1100, 'metadata': {}}]
     assert get_llm_answer('rules?', chunks, model) == 'answer [1]'
@@ -44,13 +54,18 @@ def test_nonstream_413_retries_once_with_smaller_request():
 
 def test_stream_413_retries_before_output_and_never_duplicates_partial_answer():
     class Model:
-        def __init__(self, partial=False): self.calls = 0; self.partial = partial
+        def __init__(self, partial=False):
+            self.calls = 0
+            self.partial = partial
+
         def stream(self, messages):
             self.calls += 1
             if self.calls == 1:
-                if self.partial: yield 'partial'
+                if self.partial:
+                    yield 'partial'
                 raise failure()
             yield 'success'
+
     model = Model()
     assert list(get_llm_answer('rules?', [], model, stream=True)) == ['success']
     assert model.calls == 2
@@ -68,11 +83,14 @@ def test_unicode_request_obeys_byte_budget():
 
 @pytest.mark.parametrize('detail', ['brief', 'detailed'])
 def test_latest_jd_request_and_retry_retain_2025_evidence_before_old_sops(detail):
-    from policy_router import route_retrieval
+    from epfo.policy_router import route_retrieval
+
     question = 'What is the latest Joint Declaration policy and SOP version?'
     result = route_retrieval(question, '2026-10-28', lambda: [], mode='jd')
     for limit in (18000, 9000):
-        prompt = bounded_prompt(question, result['chunks'], policy_context=result['policy_context'], limit=limit, answer_detail=detail)
+        prompt = bounded_prompt(
+            question, result['chunks'], policy_context=result['policy_context'], limit=limit, answer_detail=detail
+        )
         assert len(prompt.encode('utf-8')) <= limit
         numbered = prompt.split('POLICY EVIDENCE REVIEW')[0]
         assert '2025-08-13' in numbered
@@ -82,7 +100,8 @@ def test_latest_jd_request_and_retry_retain_2025_evidence_before_old_sops(detail
 
 
 def test_general_jd_procedure_retains_later_superseding_directions():
-    from policy_router import route_retrieval
+    from epfo.policy_router import route_retrieval
+
     question = 'What is the procedure for joint declaration profile update?'
     result = route_retrieval(question, '2026-10-28', lambda: [], mode='jd')
     for limit in (18000, 9000):

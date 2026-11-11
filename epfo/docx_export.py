@@ -4,20 +4,19 @@ interactive Q&A transcripts, and extracted OCR text.
 
 from __future__ import annotations
 
-from datetime import datetime
 import io
 import re
+from collections.abc import Mapping, Sequence
+from datetime import datetime
+from typing import Any
 from urllib.parse import urlsplit
-from typing import Any, Mapping, Sequence
 
 import docx
+from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.opc.constants import RELATIONSHIP_TYPE
-from docx.enum.table import WD_ALIGN_VERTICAL, WD_TABLE_ALIGNMENT
-from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement, parse_xml
 from docx.oxml.ns import nsdecls, qn
 from docx.shared import Inches, Pt, RGBColor
-
 
 NAVY_COLOR = RGBColor(26, 54, 93)  # #1A365D
 GRAY_COLOR = RGBColor(100, 116, 139)  # #64748B
@@ -143,7 +142,7 @@ def _render_markdown_blocks(doc: docx.Document, content: str):
             match = re.match(r"^\d+\.\s", stripped)
             p = doc.add_paragraph(style="List Number")
             p.paragraph_format.space_after = Pt(3)
-            _add_formatted_text(p, stripped[match.end():])
+            _add_formatted_text(p, stripped[match.end() :])
         else:
             p = doc.add_paragraph()
             p.paragraph_format.space_after = Pt(6)
@@ -346,7 +345,7 @@ def create_chat_transcript_docx(
     doc.add_paragraph().paragraph_format.space_after = Pt(4)
 
     # Render Chat Conversation
-    for i, msg in enumerate(chat_history):
+    for msg in chat_history:
         role = msg.get("role", "user").lower()
         content = msg.get("content", "")
 

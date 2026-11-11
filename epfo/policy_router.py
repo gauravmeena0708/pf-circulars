@@ -2,8 +2,8 @@
 
 from datetime import datetime
 
-from policy_history import PolicyHistory, UnknownPolicyMatter, _date
-from policy_registry import registered_policies, select_policy
+from epfo.policy_history import PolicyHistory, UnknownPolicyMatter, _date
+from epfo.policy_registry import registered_policies, select_policy
 
 
 def is_jd_question(query):
@@ -50,8 +50,14 @@ def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=No
     except (OSError, ValueError, KeyError):
         # Do not present a failed policy load as a successful verification pass.
         warning = f"Curated {policy.label} evidence could not be loaded; policy verification is unavailable."
-        report = {"as_of": as_of, "documents": [], "relationships": [], "evidence": [],
-                  "coverage": {}, "limitations": [warning]}
+        report = {
+            "as_of": as_of,
+            "documents": [],
+            "relationships": [],
+            "evidence": [],
+            "coverage": {},
+            "limitations": [warning],
+        }
 
     documents = {d["id"]: d for d in report["documents"]}
     chunks = []
@@ -60,10 +66,15 @@ def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=No
         doc = documents[evidence["document_id"]]
         if doc["status"] == "not_yet_effective":
             continue
-        item = {**evidence, "text": evidence["parent_context"], "metadata": {
-            **evidence["metadata"], "evidence_status": "curated source page; applicability not certified",
-            "policy_document_status": doc["status"],
-        }}
+        item = {
+            **evidence,
+            "text": evidence["parent_context"],
+            "metadata": {
+                **evidence["metadata"],
+                "evidence_status": "curated source page; applicability not certified",
+                "policy_document_status": doc["status"],
+            },
+        }
         chunks.append(item)
         included_pages.add((evidence["document_id"], evidence["metadata"]["page_number"]))
     # Relationship and commencement pages must reach generation even if the
@@ -82,18 +93,37 @@ def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=No
             if doc["status"] == "not_yet_effective":
                 continue
             page = history.page(*key)
-            chunks.append({"text": page["text"], "metadata": {
-                "title": doc["title"], "circular_no": doc["circular_no"], "date": doc["issued_on"],
-                "english_pdf_link": doc["source_url"], "source_host_kind": doc.get("source_host_kind", "issuer_hosted"), "authority": doc.get("authority"), "page_number": key[1],
-                "page_provenance": "physical_pdf_page", "policy_change_evidence": True, "evidence_status": "curated relationship or commencement page",
-                "policy_document_status": doc["status"],
-            }})
+            chunks.append(
+                {
+                    "text": page["text"],
+                    "metadata": {
+                        "title": doc["title"],
+                        "circular_no": doc["circular_no"],
+                        "date": doc["issued_on"],
+                        "english_pdf_link": doc["source_url"],
+                        "source_host_kind": doc.get("source_host_kind", "issuer_hosted"),
+                        "authority": doc.get("authority"),
+                        "page_number": key[1],
+                        "page_provenance": "physical_pdf_page",
+                        "policy_change_evidence": True,
+                        "evidence_status": "curated relationship or commencement page",
+                        "policy_document_status": doc["status"],
+                    },
+                }
+            )
             included_pages.add(key)
 
     supporting = []
     fallback_reason = ""
-    if warning or not report["evidence"] or report["coverage"].get("documents_without_page_text") or report["coverage"].get("omitted_by_budget"):
-        fallback_reason = warning or f"Curated {policy.label} coverage is incomplete; supplementary hybrid results remain unverified."
+    if (
+        warning
+        or not report["evidence"]
+        or report["coverage"].get("documents_without_page_text")
+        or report["coverage"].get("omitted_by_budget")
+    ):
+        fallback_reason = (
+            warning or f"Curated {policy.label} coverage is incomplete; supplementary hybrid results remain unverified."
+        )
         try:
             candidates = hybrid_search()
         except Exception:
@@ -106,7 +136,9 @@ def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=No
             if not policy.matches(title + " " + candidate.get("text", "")):
                 continue
             selected_topics = report.get('selected_topics', [])
-            if selected_topics and not set(selected_topics).intersection(history.matching_topics(title + ' ' + candidate.get('text', ''))):
+            if selected_topics and not set(selected_topics).intersection(
+                history.matching_topics(title + ' ' + candidate.get('text', ''))
+            ):
                 continue
             # A consultation (draft, call for comments) is never operative evidence, so its indexed
             # passages must not return through the supplementary hybrid path either.
@@ -121,7 +153,8 @@ def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=No
             if doc and doc["status"] == "not_yet_effective":
                 continue
             supporting_metadata = {
-                **meta, "evidence_status": "supplementary hybrid source; amendment and applicability unverified",
+                **meta,
+                "evidence_status": "supplementary hybrid source; amendment and applicability unverified",
             }
             # Legacy OCR imports can contain a document-wide range masquerading
             # as a chunk page. Only explicitly mapped pages keep a page claim.
@@ -131,13 +164,37 @@ def route_retrieval(query, as_of, hybrid_search, mode="auto", history_factory=No
         chunks.extend(supporting)
 
     context = {
-        "as_of": as_of, "scope": policy.scope, "policy_id": policy.id, "policy_label": policy.label,
+        "as_of": as_of,
+        "scope": policy.scope,
+        "policy_id": policy.id,
+        "policy_label": policy.label,
         "date_semantics": "Instructions issued by this date; not a complete retrospective legal applicability determination.",
         "conclusion": "complete_applicability_not_established",
-        "documents": [{k: d.get(k) for k in ("id", "title", "version_label", "authority", "notes", "source_host_kind", "original_source_url", "circular_no", "issued_on", "effective_from", "status")} for d in documents.values()],
-        "relationships": report["relationships"], "coverage": report["coverage"],
-        "limitations": report["limitations"], "fallback_reason": fallback_reason,
-        "topics": report.get('topics', []), "selected_topics": report.get('selected_topics', []),
+        "documents": [
+            {
+                k: d.get(k)
+                for k in (
+                    "id",
+                    "title",
+                    "version_label",
+                    "authority",
+                    "notes",
+                    "source_host_kind",
+                    "original_source_url",
+                    "circular_no",
+                    "issued_on",
+                    "effective_from",
+                    "status",
+                )
+            }
+            for d in documents.values()
+        ],
+        "relationships": report["relationships"],
+        "coverage": report["coverage"],
+        "limitations": report["limitations"],
+        "fallback_reason": fallback_reason,
+        "topics": report.get('topics', []),
+        "selected_topics": report.get('selected_topics', []),
         "supporting_source_count": len(supporting),
     }
     return {"route": policy.route, "chunks": chunks, "policy_context": context, "report": report}

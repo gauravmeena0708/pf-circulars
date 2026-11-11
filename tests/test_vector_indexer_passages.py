@@ -4,7 +4,7 @@ import os
 import faiss
 import numpy as np
 
-import vector_indexer
+from epfo import vector_indexer
 
 
 def test_save_and_load_round_trip_through_sqlite(tmp_path):
@@ -23,9 +23,7 @@ def test_save_and_load_round_trip_through_sqlite(tmp_path):
     assert os.path.isfile(db_path)
     assert not os.path.isfile(os.path.join(index_dir, "faiss_index.texts.json"))
 
-    loaded_index, loaded_texts, loaded_metadata = vector_indexer.load_faiss_index(
-        index_dir, index_name="faiss_index"
-    )
+    loaded_index, loaded_texts, loaded_metadata = vector_indexer.load_faiss_index(index_dir, index_name="faiss_index")
 
     assert loaded_index.ntotal == 2
     assert loaded_texts == texts
@@ -51,9 +49,7 @@ def test_load_faiss_binary_index_works_without_passages_db(tmp_path):
     assert binary_index.ntotal == 1
 
     # load_faiss_index (which also needs the passages db) must fail gracefully.
-    full_index, full_texts, full_metadata = vector_indexer.load_faiss_index(
-        index_dir, index_name="faiss_index"
-    )
+    full_index, full_texts, full_metadata = vector_indexer.load_faiss_index(index_dir, index_name="faiss_index")
     assert (full_index, full_texts, full_metadata) == (None, None, None)
 
 

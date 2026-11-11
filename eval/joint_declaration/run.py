@@ -2,13 +2,13 @@
 
 import argparse
 import json
-from pathlib import Path
 import sys
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
-from policy_history import PolicyHistory
-from policy_registry import registered_policies
+from epfo.policy_history import PolicyHistory
+from epfo.policy_registry import registered_policies
 
 
 def main():
@@ -42,20 +42,34 @@ def main():
             wanted = case["document_status"]
             checks.append(docs[wanted["id"]]["status"] == wanted["status"])
         if "relationship" in case:
-            checks.append(any(all(r.get(k) == v for k, v in case["relationship"].items()) for r in report["relationships"]))
+            checks.append(
+                any(all(r.get(k) == v for k, v in case["relationship"].items()) for r in report["relationships"])
+            )
         if "expected_conclusion" in case:
             checks.append(report["conclusion"] == case["expected_conclusion"])
         if all(checks):
             passed += 1
         else:
             failures.append(case["id"])
-    print(json.dumps({
-        "dataset_status": dataset["dataset_status"], "cases": len(dataset["cases"]),
-        "passed": passed, "failed_cases": failures,
-        "required_source_recall": source_hits / source_total if source_total else None,
-        "required_page_recall": page_hits / source_total if source_total else None,
-        "not_measured": ["answer accuracy", "unsupported claim rate", "complete amendment correctness", "production hybrid retrieval performance"],
-    }, indent=2))
+    print(
+        json.dumps(
+            {
+                "dataset_status": dataset["dataset_status"],
+                "cases": len(dataset["cases"]),
+                "passed": passed,
+                "failed_cases": failures,
+                "required_source_recall": source_hits / source_total if source_total else None,
+                "required_page_recall": page_hits / source_total if source_total else None,
+                "not_measured": [
+                    "answer accuracy",
+                    "unsupported claim rate",
+                    "complete amendment correctness",
+                    "production hybrid retrieval performance",
+                ],
+            },
+            indent=2,
+        )
+    )
     return bool(failures)
 
 

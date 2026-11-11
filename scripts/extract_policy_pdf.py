@@ -9,17 +9,17 @@ OCR output must be reviewed before promoting policy relationships.
 """
 
 import argparse
-from datetime import datetime, timezone
 import hashlib
 import io
 import json
+from datetime import UTC, datetime
 from pathlib import Path
 
 
 def extract(pdf_path, document_id, source_url, pages):
     import fitz
-    from PIL import Image
     import pytesseract
+    from PIL import Image
 
     content = Path(pdf_path).read_bytes()
     results = []
@@ -37,10 +37,13 @@ def extract(pdf_path, document_id, source_url, pages):
                 method = "tesseract_eng_180dpi"
             results.append({"page_number": number, "text": text, "extraction_method": method})
         return {
-            "document_id": document_id, "source_url": source_url,
-            "pdf_sha256": hashlib.sha256(content).hexdigest(), "total_pdf_pages": len(doc),
-            "extracted_on": datetime.now(timezone.utc).date().isoformat(),
-            "page_numbering": "physical PDF page, one-based", "pages": results,
+            "document_id": document_id,
+            "source_url": source_url,
+            "pdf_sha256": hashlib.sha256(content).hexdigest(),
+            "total_pdf_pages": len(doc),
+            "extracted_on": datetime.now(UTC).date().isoformat(),
+            "page_numbering": "physical PDF page, one-based",
+            "pages": results,
         }
 
 

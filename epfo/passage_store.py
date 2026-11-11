@@ -6,7 +6,7 @@ import os
 import sqlite3
 import threading
 
-import config
+from epfo import config
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=config.LOG_LEVEL, format=config.LOG_FORMAT)
@@ -94,18 +94,14 @@ class PassageStore:
         # to a native int first so a SQLite-backed store behaves exactly
         # like a list here too.
         with self._lock:
-            row = self._conn.execute(
-                "SELECT text FROM passages WHERE id = ?", (int(doc_id),)
-            ).fetchone()
+            row = self._conn.execute("SELECT text FROM passages WHERE id = ?", (int(doc_id),)).fetchone()
         if row is None:
             raise IndexError(f"No passage with id {doc_id}")
         return row[0]
 
     def fetch_metadata(self, doc_id):
         with self._lock:
-            row = self._conn.execute(
-                "SELECT metadata FROM passages WHERE id = ?", (int(doc_id),)
-            ).fetchone()
+            row = self._conn.execute("SELECT metadata FROM passages WHERE id = ?", (int(doc_id),)).fetchone()
         if row is None:
             raise IndexError(f"No passage with id {doc_id}")
         return json.loads(row[0])

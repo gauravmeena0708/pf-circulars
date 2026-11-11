@@ -1,4 +1,5 @@
 """Deterministic checks of a generated answer against one evaluation case. No model is used to judge."""
+
 import re
 import unicodedata
 
@@ -6,11 +7,24 @@ CITATION = re.compile(r'\[(\d{1,3})\]')
 # Some models write citations as 【3】 or 【3†source】. The interface links only [3].
 UNLINKED_CITATION = re.compile(r'【(\d{1,3})(?:†[^】]*)?】')
 # Typographic variants a model may emit; folded so that the patterns in cases.json stay plain.
-FOLD = str.maketrans({
-    ' ': ' ', ' ': ' ', ' ': ' ', ' ': ' ',
-    '‐': '-', '‑': '-', '‒': '-', '–': '-', '—': '-', '−': '-',
-    '‘': "'", '’': "'", '“': '"', '”': '"',
-})
+FOLD = str.maketrans(
+    {
+        ' ': ' ',
+        ' ': ' ',
+        ' ': ' ',
+        ' ': ' ',
+        '‐': '-',
+        '‑': '-',
+        '‒': '-',
+        '–': '-',
+        '—': '-',
+        '−': '-',
+        '‘': "'",
+        '’': "'",
+        '“': '"',
+        '”': '"',
+    }
+)
 
 
 def unlinked_citations(answer):
@@ -22,7 +36,7 @@ def normalise(text):
     # Counted as citations for the source checks; reported separately by check_answer.
     text = UNLINKED_CITATION.sub(r'[\1]', text or '')
     text = unicodedata.normalize('NFKC', text).translate(FOLD)
-    text = re.sub(r'[*_`]+', '', text)          # Markdown emphasis
+    text = re.sub(r'[*_`]+', '', text)  # Markdown emphasis
     return re.sub(r'\s+', ' ', text).strip()
 
 
@@ -52,7 +66,9 @@ def check_retrieval(case, search):
     if 'expect_policy' in case:
         got = context.get('policy_id')
         if got != case['expect_policy']:
-            failures.append(f"routed to {got or 'standard search'}, expected {case['expect_policy'] or 'standard search'}")
+            failures.append(
+                f"routed to {got or 'standard search'}, expected {case['expect_policy'] or 'standard search'}"
+            )
     offered = {source.get('document_id') for source in search.get('sources', [])}
     for document in case.get('must_cite', []):
         if document not in offered:

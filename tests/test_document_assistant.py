@@ -5,7 +5,7 @@ try:
 except ImportError:
     import fitz
 
-from document_assistant import (
+from epfo.document_assistant import (
     DocumentExtractionError,
     extract_pdf_text,
     format_conversation_history,

@@ -1,7 +1,7 @@
 import threading
 import unittest
 
-from rate_limiter import SlidingWindowRateLimiter
+from epfo.rate_limiter import SlidingWindowRateLimiter
 
 
 class SlidingWindowRateLimiterTests(unittest.TestCase):

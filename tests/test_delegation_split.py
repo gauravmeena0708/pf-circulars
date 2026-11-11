@@ -3,8 +3,8 @@ from pathlib import Path
 
 import pytest
 
-from policy_history import PolicyHistory, _normalise
-from policy_registry import select_policy
+from epfo.policy_history import PolicyHistory, _normalise
+from epfo.policy_registry import select_policy
 
 BASE = Path(__file__).parents[1] / 'policy_data'
 NAMES = ['delegation', 'claim_authority', 'foreign_visit']
@@ -14,21 +14,27 @@ def hist(name):
     return PolicyHistory(BASE / name / 'policy.json')
 
 
-@pytest.mark.parametrize('query,expected', [
-    ('Who can authorise payment of claims out of inoperative accounts?', 'claim_authority'),
-    ('Multi-location claim settlement CRO assignment', 'claim_authority'),
-    ('delegation of claim settlement to Special State Offices', 'claim_authority'),
-    ('delegation of financial powers for settlement of claims in closed establishments', 'claim_authority'),
-    ('Who grants permission for a private foreign visit?', 'foreign_visit'),
-    ('permission to visit abroad Group C employees', 'foreign_visit'),
-    ('delegation of administrative and financial powers to CPFC', 'delegation'),
-    ('delegation of powers for physical infrastructure', 'delegation'),
-])
+@pytest.mark.parametrize(
+    'query,expected',
+    [
+        ('Who can authorise payment of claims out of inoperative accounts?', 'claim_authority'),
+        ('Multi-location claim settlement CRO assignment', 'claim_authority'),
+        ('delegation of claim settlement to Special State Offices', 'claim_authority'),
+        ('delegation of financial powers for settlement of claims in closed establishments', 'claim_authority'),
+        ('Who grants permission for a private foreign visit?', 'foreign_visit'),
+        ('permission to visit abroad Group C employees', 'foreign_visit'),
+        ('delegation of administrative and financial powers to CPFC', 'delegation'),
+        ('delegation of powers for physical infrastructure', 'delegation'),
+    ],
+)
 def test_questions_route_to_the_right_collection(query, expected):
     assert select_policy(query).id == expected
 
 
-@pytest.mark.parametrize('query', ['How do I file an EPF claim?', 'international worker social security agreement', 'EPS pension foreign country'])
+@pytest.mark.parametrize(
+    'query',
+    ['How do I file an EPF claim?', 'international worker social security agreement', 'EPS pension foreign country'],
+)
 def test_member_or_filing_questions_do_not_route_to_the_authority_collections(query):
     policy = select_policy(query)
     assert policy is None or policy.id not in {'claim_authority', 'foreign_visit'}
@@ -47,7 +53,12 @@ def test_moved_topics_are_gone_from_delegation():
     topics = {t['id'] for t in hist('delegation').policy['topics']}
     assert not topics & {'claims', 'member_profile', 'foreign_visit'}
     assert {d['topics'][0] for d in hist('delegation').documents.values()} <= topics
-    assert {d['topics'][0] for d in hist('claim_authority').documents.values()} == {'claims_financial', 'inoperative_accounts', 'processing_offices', 'name_correction'}
+    assert {d['topics'][0] for d in hist('claim_authority').documents.values()} == {
+        'claims_financial',
+        'inoperative_accounts',
+        'processing_offices',
+        'name_correction',
+    }
 
 
 def test_compiled_copy_documents_declare_their_provenance_and_have_checked_pages():

@@ -1,8 +1,9 @@
-from types import SimpleNamespace
 import unittest
+from types import SimpleNamespace
 
-from answer_generator import describe_llm_error, format_prompt
 import pytest
+
+from epfo.answer_generator import describe_llm_error, format_prompt
 
 
 class FormatPromptTests(unittest.TestCase):
@@ -139,18 +140,43 @@ if __name__ == "__main__":
 
 
 def test_prompt_does_not_assert_a_page_for_document_only_ocr():
-    prompt = format_prompt("Which instruction?", [{
-        "text": "A direction from a flattened OCR document.",
-        "metadata": {"title": "Pilot circular", "page_number": "1-35",
-                     "page_provenance": "document_only", "total_pages": 35},
-    }])
+    prompt = format_prompt(
+        "Which instruction?",
+        [
+            {
+                "text": "A direction from a flattened OCR document.",
+                "metadata": {
+                    "title": "Pilot circular",
+                    "page_number": "1-35",
+                    "page_provenance": "document_only",
+                    "total_pages": 35,
+                },
+            }
+        ],
+    )
     assert "Page: unverified (document-level source)" in prompt
     assert "Page: 1-35" not in prompt
     assert "cite the document without inventing a page" in prompt
 
 
 def test_policy_context_is_sent_to_llm_with_fallback_caveats():
-    prompt = format_prompt("JD documents", [{"text": "A checked parent page", "metadata": {"evidence_status": "supplementary hybrid source; applicability unverified", "date": "2025-01-16"}}], policy_context={"as_of": "2025-01-16", "relationships": [], "conclusion": "complete_applicability_not_established"})
+    prompt = format_prompt(
+        "JD documents",
+        [
+            {
+                "text": "A checked parent page",
+                "metadata": {
+                    "evidence_status": "supplementary hybrid source; applicability unverified",
+                    "date": "2025-01-16",
+                },
+            }
+        ],
+        policy_context={
+            "as_of": "2025-01-16",
+            "relationships": [],
+            "conclusion": "complete_applicability_not_established",
+        },
+    )
     assert "POLICY EVIDENCE REVIEW" in prompt
     assert "2025-01-16" in prompt
     assert "Never promote an unverified target" in prompt
@@ -159,11 +185,14 @@ def test_policy_context_is_sent_to_llm_with_fallback_caveats():
 
 
 def test_answer_invocation_receives_dated_policy_review():
-    from answer_generator import get_llm_answer
-    from policy_router import route_retrieval
+    from epfo.answer_generator import get_llm_answer
+    from epfo.policy_router import route_retrieval
+
     result = route_retrieval("JD closed establishment", "2025-01-16", lambda: [])
     captured = []
-    llm = SimpleNamespace(invoke=lambda messages: (captured.extend(messages), SimpleNamespace(content="Evidence summary"))[1])
+    llm = SimpleNamespace(
+        invoke=lambda messages: (captured.extend(messages), SimpleNamespace(content="Evidence summary"))[1]
+    )
     answer = get_llm_answer("JD closed establishment", result["chunks"], llm, policy_context=result["policy_context"])
     assert answer == "Evidence summary"
     assert "POLICY EVIDENCE REVIEW" in captured[0].content
@@ -173,9 +202,17 @@ def test_answer_invocation_receives_dated_policy_review():
 
 @pytest.mark.parametrize('detail', ['brief', 'detailed'])
 def test_answer_style_leads_with_the_answer_and_keeps_material_qualifications(detail):
-    prompt = format_prompt('Which documents are needed?', [{
-        'text': 'Required documents and conditions.', 'metadata': {},
-    }], answer_detail=detail, currency={'newest_cited':'2025-04-03'})
+    prompt = format_prompt(
+        'Which documents are needed?',
+        [
+            {
+                'text': 'Required documents and conditions.',
+                'metadata': {},
+            }
+        ],
+        answer_detail=detail,
+        currency={'newest_cited': '2025-04-03'},
+    )
     assert 'Start with a direct, cited answer' in prompt
     assert 'Never omit a material qualification for brevity' in prompt
     assert 'Begin the answer with the issue date' not in prompt

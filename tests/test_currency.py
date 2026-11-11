@@ -1,17 +1,24 @@
-from datetime import date
 import json
 import sqlite3
+from datetime import date
 
 from fastapi.testclient import TestClient
 
-import currency
-from answer_generator import format_prompt
+from epfo import currency
+from epfo.answer_generator import format_prompt
 from web_api import app as module
 
 
 def chunk(day, no, title='Circular'):
-    return {'text': 'body', 'metadata': {'title': title, 'circular_no': no, 'date': day,
-                                         'english_pdf_link': f'https://www.epfindia.gov.in/{no}.pdf'}}
+    return {
+        'text': 'body',
+        'metadata': {
+            'title': title,
+            'circular_no': no,
+            'date': day,
+            'english_pdf_link': f'https://www.epfindia.gov.in/{no}.pdf',
+        },
+    }
 
 
 def test_issue_dates_parse_from_every_format_in_the_index():
@@ -31,10 +38,15 @@ def test_current_questions_are_detected():
 
 def test_newer_related_circulars_are_flagged_and_deduplicated():
     cited = [chunk('01/03/2019', 'A/1'), chunk('10/09/2018', 'A/0')]
-    extras = [chunk('15/06/2022', 'B/2', 'Later revision'), chunk('15/06/2022', 'B/2', 'Later revision'),
-              chunk('01/01/2017', 'C/3'), chunk(None, 'D/4')]
-    result = currency.build_currency(cited, extras, 'What is the latest limit?', today=date(2026, 11, 2),
-                                     corpus_as_of=date(2026, 8, 3))
+    extras = [
+        chunk('15/06/2022', 'B/2', 'Later revision'),
+        chunk('15/06/2022', 'B/2', 'Later revision'),
+        chunk('01/01/2017', 'C/3'),
+        chunk(None, 'D/4'),
+    ]
+    result = currency.build_currency(
+        cited, extras, 'What is the latest limit?', today=date(2026, 11, 2), corpus_as_of=date(2026, 8, 3)
+    )
     assert result['newest_cited'] == '2019-03-01' and result['oldest_cited'] == '2018-09-10'
     assert [c['circular_no'] for c in result['newer_related']] == ['B/2']
     assert result['level'] == 'warning' and result['stale'] and result['asked_for_current']
@@ -43,7 +55,9 @@ def test_newer_related_circulars_are_flagged_and_deduplicated():
 
 
 def test_recent_sources_without_newer_hits_are_only_a_caution():
-    result = currency.build_currency([chunk('10/09/2026', 'A/1')], [chunk('01/01/2020', 'B/1')], today=date(2026, 11, 2))
+    result = currency.build_currency(
+        [chunk('10/09/2026', 'A/1')], [chunk('01/01/2020', 'B/1')], today=date(2026, 11, 2)
+    )
     assert result['level'] == 'caution' and not result['newer_related'] and not result['stale']
     assert 'does not prove' not in result['notice']  # only said when a staleness or "current" signal exists
 
@@ -68,7 +82,11 @@ def test_corpus_date_ignores_future_typos(tmp_path):
 def test_prompt_carries_the_currency_instruction_only_when_given():
     info = currency.build_currency([chunk('01/03/2019', 'A/1')], [chunk('15/06/2022', 'B/2')], today=date(2026, 11, 2))
     with_check = format_prompt('limit?', [chunk('01/03/2019', 'A/1')], currency=info)
-    assert 'CURRENCY CHECK' in with_check and '2022-06-15' in with_check and 'never say a provision is current' in with_check
+    assert (
+        'CURRENCY CHECK' in with_check
+        and '2022-06-15' in with_check
+        and 'never say a provision is current' in with_check
+    )
     assert 'CURRENCY CHECK' not in format_prompt('limit?', [chunk('01/03/2019', 'A/1')])
 
 
@@ -76,34 +94,56 @@ def test_general_search_returns_currency_and_curated_search_does_not(monkeypatch
     client = TestClient(module.app, headers={'X-Workspace-Session': 'a' * 32})
     ranked = [chunk('01/03/2019', f'A/{i}') for i in range(5)] + [chunk('15/06/2022', 'B/2', 'Newer rule')]
     seen = {}
+
     def fake(question, extra=0):
         seen['extra'] = extra
         return ranked
+
     monkeypatch.setattr(module, 'hybrid_search', fake)
-    general = client.post('/api/search', json={'question': 'What is the allowance for training travel?', 'policy': 'hybrid'}).json()
+    general = client.post(
+        '/api/search', json={'question': 'What is the allowance for training travel?', 'policy': 'hybrid'}
+    ).json()
     assert seen['extra'] == currency.EXTRA_CANDIDATES and len(general['sources']) == 5
     assert general['currency']['newer_related'][0]['circular_no'] == 'B/2'
-    curated = client.post('/api/search', json={'question': 'Is employer approval required for bank KYC?',
-                                               'policy': 'bank_kyc', 'as_of': '2025-04-03'}).json()
+    curated = client.post(
+        '/api/search',
+        json={'question': 'Is employer approval required for bank KYC?', 'policy': 'bank_kyc', 'as_of': '2025-04-03'},
+    ).json()
     assert curated['currency'] is None
     assert client.get('/api/catalog').json()['corpus_as_of'] >= '2026-01-01'
 
 
 def test_old_site_links_are_shown_on_the_current_official_site():
-    from official_links import official_url, official_links
-    assert official_url('https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/a.pdf') == 'https://www.epfo.gov.in/site_docs/PDFs/Circulars/Y2024-2025/a.pdf'
+    from epfo.official_links import official_links, official_url
+
+    assert (
+        official_url('https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/a.pdf')
+        == 'https://www.epfo.gov.in/site_docs/PDFs/Circulars/Y2024-2025/a.pdf'
+    )
     assert official_url('http://epfindia.gov.in/x?y=1') == 'https://www.epfo.gov.in/x?y=1'
     assert official_url('https://www.epfindia.nic.in/a.pdf') == 'https://www.epfo.gov.in/a.pdf'
     # Other hosts, including the working file CDN, are untouched.
     cdn = 'https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/a.pdf'
     assert official_url(cdn) == cdn and official_url(None) is None
-    assert official_url('https://example.org/www.epfindia.gov.in/a.pdf') == 'https://example.org/www.epfindia.gov.in/a.pdf'
-    meta = {'title': 'www.epfindia.gov.in', 'english_pdf_link': 'https://www.epfindia.gov.in/a.pdf', 'hindi_pdf_link': None}
-    assert official_links(meta) == {'title': 'www.epfindia.gov.in', 'english_pdf_link': 'https://www.epfo.gov.in/a.pdf', 'hindi_pdf_link': None}
+    assert (
+        official_url('https://example.org/www.epfindia.gov.in/a.pdf') == 'https://example.org/www.epfindia.gov.in/a.pdf'
+    )
+    meta = {
+        'title': 'www.epfindia.gov.in',
+        'english_pdf_link': 'https://www.epfindia.gov.in/a.pdf',
+        'hindi_pdf_link': None,
+    }
+    assert official_links(meta) == {
+        'title': 'www.epfindia.gov.in',
+        'english_pdf_link': 'https://www.epfo.gov.in/a.pdf',
+        'hindi_pdf_link': None,
+    }
 
 
 def test_search_results_carry_links_on_the_current_site(monkeypatch):
     client = TestClient(module.app, headers={'X-Workspace-Session': 'a' * 32})
-    monkeypatch.setattr(module, 'hybrid_search', lambda question, extra=0: [chunk('01/03/2019', 'A/1')] + [chunk('15/06/2022', 'B/2')])
+    monkeypatch.setattr(
+        module, 'hybrid_search', lambda question, extra=0: [chunk('01/03/2019', 'A/1')] + [chunk('15/06/2022', 'B/2')]
+    )
     result = client.post('/api/search', json={'question': 'Allowance for training travel?', 'policy': 'hybrid'}).json()
     assert result['sources'][0]['metadata']['english_pdf_link'] == 'https://www.epfo.gov.in/A/1.pdf'

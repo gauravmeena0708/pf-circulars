@@ -1,12 +1,11 @@
 """Data-driven registration of curated policies; adding one does not change routing code."""
 
-from dataclasses import dataclass
 import json
-from pathlib import Path
 import re
+from dataclasses import dataclass
+from pathlib import Path
 
-
-REGISTRY_PATH = Path(__file__).parent / "policy_data/registry.json"
+REGISTRY_PATH = Path(__file__).resolve().parents[1] / "policy_data/registry.json"
 
 
 @dataclass(frozen=True)

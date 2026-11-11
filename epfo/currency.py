@@ -5,12 +5,13 @@ curated policy histories nothing certifies which circular is in force, so every 
 carries (a) the issue dates of what it relies on, (b) any *newer* circulars the same search
 surfaced, and (c) the date the collection is current to. Nothing here decides applicability.
 """
-from datetime import date, datetime
-from functools import lru_cache
+
 import re
 import sqlite3
+from datetime import date, datetime
+from functools import lru_cache
 
-from official_links import official_url
+from epfo.official_links import official_url
 
 # Number of extra ranked candidates inspected, beyond the answer sources, for newer circulars.
 EXTRA_CANDIDATES = 7
@@ -20,7 +21,8 @@ STALE_YEARS = 2
 CURRENT_QUESTION = re.compile(
     r"\b(current(?:ly)?|latest|newest|now|presently|at present|today|in force|prevailing|"
     r"as on date|up[- ]to[- ]date|recent(?:ly)?|revised|new rule)\b|वर्तमान|नवीनतम|अभी|ताज़ा|ताजा",
-    re.IGNORECASE)
+    re.IGNORECASE,
+)
 _DATE_IN_TEXT = re.compile(r"(\d{1,2})[/-](\d{1,2})[/-](\d{4})")
 
 
@@ -55,8 +57,12 @@ def _human(day):
 
 def _summary(chunk, day):
     meta = chunk.get("metadata", {})
-    return {"title": meta.get("title") or "EPFO circular", "circular_no": meta.get("circular_no"),
-            "date": day.isoformat(), "url": official_url(meta.get("english_pdf_link") or meta.get("source_pdf"))}
+    return {
+        "title": meta.get("title") or "EPFO circular",
+        "circular_no": meta.get("circular_no"),
+        "date": day.isoformat(),
+        "url": official_url(meta.get("english_pdf_link") or meta.get("source_pdf")),
+    }
 
 
 def build_currency(chunks, extras, question="", today=None, corpus_as_of=None):
@@ -85,25 +91,37 @@ def build_currency(chunks, extras, question="", today=None, corpus_as_of=None):
 
     parts = []
     if newest:
-        parts.append(f"The most recent cited circular is dated {_human(newest)}"
-                     + (f" ({age_years:g} years ago)." if age_years and age_years >= 1 else "."))
+        parts.append(
+            f"The most recent cited circular is dated {_human(newest)}"
+            + (f" ({age_years:g} years ago)." if age_years and age_years >= 1 else ".")
+        )
     if undated:
-        parts.append(f"{undated} cited source{'s have' if undated != 1 else ' has'} no reliable issue date "
-                     "(for example a manual or statute).")
-    parts.append("This search cannot confirm that these provisions are still in force: a later circular "
-                 "may have amended or replaced them.")
+        parts.append(
+            f"{undated} cited source{'s have' if undated != 1 else ' has'} no reliable issue date "
+            "(for example a manual or statute)."
+        )
+    parts.append(
+        "This search cannot confirm that these provisions are still in force: a later circular "
+        "may have amended or replaced them."
+    )
     if newer:
         parts.append("Newer circulars on related text were also found; read them first.")
     elif stale or asked_current:
         parts.append("No newer related circular was among the top results, which does not prove none exists.")
     if corpus_as_of:
         parts.append(f"The collection is current to {_human(corpus_as_of)}.")
-    return {"newest_cited": newest.isoformat() if newest else None,
-            "oldest_cited": oldest.isoformat() if oldest else None,
-            "undated_sources": undated, "age_years": age_years, "stale": stale,
-            "asked_for_current": asked_current, "newer_related": newer,
-            "corpus_as_of": corpus_as_of.isoformat() if corpus_as_of else None,
-            "level": "warning" if (newer or stale) else "caution", "notice": " ".join(parts)}
+    return {
+        "newest_cited": newest.isoformat() if newest else None,
+        "oldest_cited": oldest.isoformat() if oldest else None,
+        "undated_sources": undated,
+        "age_years": age_years,
+        "stale": stale,
+        "asked_for_current": asked_current,
+        "newer_related": newer,
+        "corpus_as_of": corpus_as_of.isoformat() if corpus_as_of else None,
+        "level": "warning" if (newer or stale) else "caution",
+        "notice": " ".join(parts),
+    }
 
 
 @lru_cache(maxsize=4)

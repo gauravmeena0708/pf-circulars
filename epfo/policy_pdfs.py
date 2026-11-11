@@ -5,16 +5,17 @@ Each curated document records ``source_url`` and a ``pdf_sha256`` (in its
 SHA-256 matches that record, so a changed or replaced public file is never served as the
 archived original. Verified files are cached on local disk.
 """
-from functools import lru_cache
+
 import hashlib
 import json
 import os
-from pathlib import Path
 import tempfile
 import urllib.request
+from functools import lru_cache
+from pathlib import Path
 from urllib.parse import urlsplit
 
-from official_links import official_url
+from epfo.official_links import official_url
 
 MAX_BYTES = 60 * 1024 * 1024
 TIMEOUT = 45

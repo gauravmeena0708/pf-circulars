@@ -1,13 +1,15 @@
 # answer_generator.py
 
+import json
 import logging
+import os
+
+from langchain_core.messages import HumanMessage
 from langchain_huggingface import HuggingFaceEndpoint
 from langchain_huggingface.chat_models import ChatHuggingFace
-from langchain_core.messages import HumanMessage             
-import config
-import json
-import os
-from citation_provenance import page_label
+
+from epfo import config
+from epfo.citation_provenance import page_label
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=config.LOG_LEVEL, format=config.LOG_FORMAT)
@@ -37,8 +39,10 @@ def describe_llm_error(e):
             "Change LLM_REPO_ID or HF_INFERENCE_PROVIDER."
         )
     if status == 413:
-        return ("The evidence request exceeds the language-model provider's size or token limit (413). "
-                "Try a narrower question or a shorter evidence history. Token permissions are not the cause of this error.")
+        return (
+            "The evidence request exceeds the language-model provider's size or token limit (413). "
+            "Try a narrower question or a shorter evidence history. Token permissions are not the cause of this error."
+        )
     if status == 429:
         return "The language-model provider is rate-limiting requests (429). Please retry shortly."
     suffix = f" (HTTP {status})" if status else ""
@@ -93,10 +97,8 @@ def _sanitize_conversation_context(conversation_context):
     """
     if not conversation_context:
         return conversation_context
-    return (
-        conversation_context.replace(
-            "--- END PREVIOUS CONVERSATION ---", "[conversation marker omitted]"
-        ).replace("--- PREVIOUS CONVERSATION", "[conversation marker omitted]")
+    return conversation_context.replace("--- END PREVIOUS CONVERSATION ---", "[conversation marker omitted]").replace(
+        "--- PREVIOUS CONVERSATION", "[conversation marker omitted]"
     )
 
 
@@ -105,20 +107,28 @@ def answer_style_instruction(answer_detail="brief"):
         raise ValueError("Choose a brief or detailed answer.")
     length = (
         "Aim for 150-250 words for routine questions; simple facts may be shorter. "
-        if answer_detail == "brief" else
-        "Give a fuller explanation with relevant conditions, exceptions and references. "
+        if answer_detail == "brief"
+        else "Give a fuller explanation with relevant conditions, exceptions and references. "
     )
     return (
         "Start with a direct, cited answer in one or two sentences. If evidence is insufficient, say so immediately. "
-        + length +
-        "Follow explicit user length/format requests. Include only relevant eligibility, documents, authority, deadlines and exceptions. "
+        + length
+        + "Follow explicit user length/format requests. Include only relevant eligibility, documents, authority, deadlines and exceptions. "
         "Number procedure steps. Explain history only when asked or needed to resolve conflicting instructions. "
         "State material evidence gaps or applicability limits once near the affected claim. "
         "Never omit a material qualification for brevity. Use plain language; expand unfamiliar abbreviations."
     )
 
 
-def format_prompt(query, retrieved_chunks_data, conversation_context="", answer_language="English", policy_context=None, currency=None, answer_detail="brief"):
+def format_prompt(
+    query,
+    retrieved_chunks_data,
+    conversation_context="",
+    answer_language="English",
+    policy_context=None,
+    currency=None,
+    answer_detail="brief",
+):
     conversation_context = _sanitize_conversation_context(conversation_context)
     if not retrieved_chunks_data:
         context_str = "No relevant information found in the documents."
@@ -132,7 +142,9 @@ def format_prompt(query, retrieved_chunks_data, conversation_context="", answer_
             page_no = page_label(meta)
             evidence_status = meta.get("evidence_status", "retrieved source; applicability unverified")
             source_info = f"[Title: {title} | Identifier: {circular_no} | Date: {meta.get('date', 'unknown')} | PDF: {source_pdf} | Page: {page_no} | Authority: {meta.get('authority', 'not classified')} | Evidence: {evidence_status}]"
-            context_parts.append(f"Source [{chunk_data.get('citation_number', i+1)}] {source_info}:\n{chunk_data['text']}")
+            context_parts.append(
+                f"Source [{chunk_data.get('citation_number', i + 1)}] {source_info}:\n{chunk_data['text']}"
+            )
         context_str = "\n\n".join(context_parts)
 
     policy_section = ""
@@ -149,13 +161,18 @@ def format_prompt(query, retrieved_chunks_data, conversation_context="", answer_
             "Supplementary hybrid sources are unverified for amendment and applicability. "
             "State material gaps and unknown dates; never claim complete applicable rules, current validity or live implementation. "
             "Cite numbered source pages, never metadata alone.\n"
-
         )
     currency_section = ""
     if currency:
         currency_section = (
             "\nCURRENCY CHECK (search metadata, not a numbered source):\n"
-            + json.dumps({k: currency.get(k) for k in ("newest_cited", "oldest_cited", "undated_sources", "newer_related", "corpus_as_of")}, ensure_ascii=False)
+            + json.dumps(
+                {
+                    k: currency.get(k)
+                    for k in ("newest_cited", "oldest_cited", "undated_sources", "newer_related", "corpus_as_of")
+                },
+                ensure_ascii=False,
+            )
             + "\nInclude the issue date of the most recent circular you rely on alongside the relevant claim. "
             "Attribute rules to their circular and date without repeating the same attribution in every sentence; "
             "never say a provision is current, in force or still applicable. "
@@ -192,7 +209,16 @@ Helpful & Grounded Answer:"""
     return prompt
 
 
-def bounded_prompt(query, chunks, conversation_context="", answer_language="English", policy_context=None, limit=18000, currency=None, answer_detail="brief"):
+def bounded_prompt(
+    query,
+    chunks,
+    conversation_context="",
+    answer_language="English",
+    policy_context=None,
+    limit=18000,
+    currency=None,
+    answer_detail="brief",
+):
     """Bound the complete request, preserving original UI citation numbers.
 
     Omit whole source pages instead of cutting instructions out of context. The
@@ -202,9 +228,16 @@ def bounded_prompt(query, chunks, conversation_context="", answer_language="Engl
         raise ValueError("Please shorten the question to 6,000 characters.")
     selected = [{**c, "citation_number": c.get("citation_number", i + 1)} for i, c in enumerate(chunks)]
     if policy_context:
-        selected.sort(key=lambda c: (str(c.get("metadata", {}).get("date", "")),
-                                    bool(c.get("metadata", {}).get("policy_change_evidence") or
-                                         "relationship or commencement" in c.get("metadata", {}).get("evidence_status", ""))), reverse=True)
+        selected.sort(
+            key=lambda c: (
+                str(c.get("metadata", {}).get("date", "")),
+                bool(
+                    c.get("metadata", {}).get("policy_change_evidence")
+                    or "relationship or commencement" in c.get("metadata", {}).get("evidence_status", "")
+                ),
+            ),
+            reverse=True,
+        )
         # One page per document before further pages of the same document.
         first, rest, seen = [], [], set()
         for item in selected:
@@ -217,24 +250,45 @@ def bounded_prompt(query, chunks, conversation_context="", answer_language="Engl
     if policy_context:
         context = {**policy_context}
         # Page text already supplies the evidence. Do not repeat long OCR quotes.
-        context["relationships"] = [{k: v for k, v in r.items() if k not in ("evidence", "effective_date_evidence")} for r in context.get("relationships", [])]
+        context["relationships"] = [
+            {k: v for k, v in r.items() if k not in ("evidence", "effective_date_evidence")}
+            for r in context.get("relationships", [])
+        ]
     if context and len(json.dumps(context, ensure_ascii=False).encode("utf-8")) > limit // 4:
         # Reserve the request for actual numbered evidence, including on 413 retry.
         context = {
-            "as_of": policy_context.get("as_of"), "scope": policy_context.get("scope"),
+            "as_of": policy_context.get("as_of"),
+            "scope": policy_context.get("scope"),
             "conclusion": "complete_applicability_not_established",
-            "documents": [{k: d.get(k) for k in ("id", "title", "issued_on", "status")}
-                          for d in sorted(policy_context.get("documents", []), key=lambda d: d.get("issued_on", ""), reverse=True)[:4]],
-            "relationships": [{k: r.get(k) for k in ("source", "target", "type", "scope", "verification", "status")}
-                              for r in policy_context.get("relationships", [])[-3:]],
-            "limitations": ["Review metadata condensed for request limits. Full inventory and gaps are displayed separately. Unknown commencement and missing originals remain unverified; complete applicability is not established."],
+            "documents": [
+                {k: d.get(k) for k in ("id", "title", "issued_on", "status")}
+                for d in sorted(
+                    policy_context.get("documents", []), key=lambda d: d.get("issued_on", ""), reverse=True
+                )[:4]
+            ],
+            "relationships": [
+                {k: r.get(k) for k in ("source", "target", "type", "scope", "verification", "status")}
+                for r in policy_context.get("relationships", [])[-3:]
+            ],
+            "limitations": [
+                "Review metadata condensed for request limits. Full inventory and gaps are displayed separately. Unknown commencement and missing originals remain unverified; complete applicability is not established."
+            ],
         }
     if context and limit <= 9000:
         context = {
-            "as_of": context.get("as_of"), "conclusion": "complete_applicability_not_established",
-            "recent_documents_id_date_status": [[d.get("id"), d.get("issued_on"), d.get("status")] for d in context.get("documents", [])],
-            "checked_changes_source_target_type": [[r.get("source"), r.get("target"), r.get("type")] for r in context.get("relationships", []) if r.get("verification") == "source_checked"],
-            "limitations": ["Inventory condensed; full review is in UI. Missing originals and commencement remain unverified. No complete applicability claim."],
+            "as_of": context.get("as_of"),
+            "conclusion": "complete_applicability_not_established",
+            "recent_documents_id_date_status": [
+                [d.get("id"), d.get("issued_on"), d.get("status")] for d in context.get("documents", [])
+            ],
+            "checked_changes_source_target_type": [
+                [r.get("source"), r.get("target"), r.get("type")]
+                for r in context.get("relationships", [])
+                if r.get("verification") == "source_checked"
+            ],
+            "limitations": [
+                "Inventory condensed; full review is in UI. Missing originals and commencement remain unverified. No complete applicability claim."
+            ],
         }
     history = conversation_context[-1500:]
     while True:
@@ -249,24 +303,54 @@ def bounded_prompt(query, chunks, conversation_context="", answer_language="Engl
                 # Keep the newest dated change pages before historical controls.
                 drop = len(selected) - 1
             else:
-                drop = next((i for i in range(len(selected)-1, -1, -1)
-                             if "relationship or commencement" not in selected[i].get("metadata", {}).get("evidence_status", "")), len(selected)-1)
+                drop = next(
+                    (
+                        i
+                        for i in range(len(selected) - 1, -1, -1)
+                        if "relationship or commencement"
+                        not in selected[i].get("metadata", {}).get("evidence_status", "")
+                    ),
+                    len(selected) - 1,
+                )
             selected.pop(drop)
             if context:
                 context["prompt_coverage_reduced"] = True
-                if "Source pages omitted to meet provider request limits; answer coverage is incomplete." not in context["limitations"]:
-                    context["limitations"] = list(context["limitations"]) + ["Source pages omitted to meet provider request limits; answer coverage is incomplete."]
+                if (
+                    "Source pages omitted to meet provider request limits; answer coverage is incomplete."
+                    not in context["limitations"]
+                ):
+                    context["limitations"] = list(context["limitations"]) + [
+                        "Source pages omitted to meet provider request limits; answer coverage is incomplete."
+                    ]
         elif context:
-            context = {"as_of": context.get("as_of"), "scope": context.get("scope"),
-                       "conclusion": "complete_applicability_not_established",
-                       "limitations": ["Policy inventory omitted to meet request limits; no complete applicability claim is supported."]}
-            if len(format_prompt(query, [], "", answer_language, context, currency, answer_detail).encode("utf-8")) > limit:
+            context = {
+                "as_of": context.get("as_of"),
+                "scope": context.get("scope"),
+                "conclusion": "complete_applicability_not_established",
+                "limitations": [
+                    "Policy inventory omitted to meet request limits; no complete applicability claim is supported."
+                ],
+            }
+            if (
+                len(format_prompt(query, [], "", answer_language, context, currency, answer_detail).encode("utf-8"))
+                > limit
+            ):
                 raise ValueError("The question is too long for the configured request limit.")
         else:
             raise ValueError("The question is too long for the configured request limit.")
 
 
-def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False, conversation_context="", answer_language="English", policy_context=None, currency=None, answer_detail="brief"):
+def get_llm_answer(
+    query,
+    retrieved_chunks_data,
+    llm_instance,
+    stream=False,
+    conversation_context="",
+    answer_language="English",
+    policy_context=None,
+    currency=None,
+    answer_detail="brief",
+):
     if not query:
         logger.warning("Query is empty. Cannot generate answer.")
         return "No query provided."
@@ -275,11 +359,26 @@ def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False, con
         return "LLM not available."
 
     try:
-        prompt_string = bounded_prompt(query, retrieved_chunks_data, conversation_context,
-                                       answer_language, policy_context,
-                                       limit=int(os.environ.get("LLM_MAX_PROMPT_BYTES", "18000")), currency=currency, answer_detail=answer_detail)
-        retry_prompt = bounded_prompt(query, retrieved_chunks_data, "", answer_language,
-                                     policy_context, limit=9000, currency=currency, answer_detail=answer_detail)
+        prompt_string = bounded_prompt(
+            query,
+            retrieved_chunks_data,
+            conversation_context,
+            answer_language,
+            policy_context,
+            limit=int(os.environ.get("LLM_MAX_PROMPT_BYTES", "18000")),
+            currency=currency,
+            answer_detail=answer_detail,
+        )
+        retry_prompt = bounded_prompt(
+            query,
+            retrieved_chunks_data,
+            "",
+            answer_language,
+            policy_context,
+            limit=9000,
+            currency=currency,
+            answer_detail=answer_detail,
+        )
     except ValueError as error:
         return str(error)
     logger.debug(f"Formatted Prompt String for Chat LLM:\n{prompt_string}")
@@ -301,7 +400,9 @@ def get_llm_answer(query, retrieved_chunks_data, llm_instance, stream=False, con
         if hasattr(response_message, 'content'):
             return response_message.content
         else:
-            logger.error(f"Unexpected response type from Chat LLM: {type(response_message)}. Full response: {response_message}")
+            logger.error(
+                f"Unexpected response type from Chat LLM: {type(response_message)}. Full response: {response_message}"
+            )
             return str(response_message)
 
     except Exception as e:
@@ -316,10 +417,7 @@ def initialize_llm(hf_token=None, max_new_tokens=None):
         raise ValueError("HF_TOKEN not found. LLM initialization failed.")
 
     try:
-        logger.info(
-            f"Initializing Chat LLM via HuggingFaceEndpoint: {config.LLM_REPO_ID}, "
-            f"Task: {config.LLM_TASK}"
-        )
+        logger.info(f"Initializing Chat LLM via HuggingFaceEndpoint: {config.LLM_REPO_ID}, Task: {config.LLM_TASK}")
         kwargs = {
             "repo_id": config.LLM_REPO_ID,
             "task": config.LLM_TASK,
@@ -349,10 +447,12 @@ if __name__ == '__main__':
     try:
         llm_service = initialize_llm()
         sample_query = "What is the procedure for joint declaration?"
-        sample_context = [{
-            "text": "Joint declaration SOP outlines the procedure for member profile correction.",
-            "metadata": {"title": "SOP Joint Declaration", "source_pdf": "Circular_JD.pdf", "page_number": "1"}
-        }]
+        sample_context = [
+            {
+                "text": "Joint declaration SOP outlines the procedure for member profile correction.",
+                "metadata": {"title": "SOP Joint Declaration", "source_pdf": "Circular_JD.pdf", "page_number": "1"},
+            }
+        ]
         print(get_llm_answer(sample_query, sample_context, llm_service))
     except Exception as e:
         logger.info(f"Test run completed: {e}")

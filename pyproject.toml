@@ -1,0 +1,39 @@
+[project]
+name = "epfo-workspace"
+version = "1.0.0"
+description = "Research workspace over EPFO circulars and statutory manuals"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+filterwarnings = [
+    "ignore::DeprecationWarning:starlette.*",
+    "ignore::DeprecationWarning:fastapi.*",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+extend-exclude = ["frontend", "vector_store", "policy_data", "ocr_updates"]
+
+[tool.ruff.lint]
+# Errors, unused code, import order, likely bugs and outdated syntax.
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = [
+    "E501",  # long lines: prompts, expressions and source titles are kept on one line
+    "E402",  # scripts put the repository root on sys.path before importing from it
+    "E701",  # compact one-line statements are used deliberately in the API modules
+    "E702",
+    "E731",  # small lambdas assigned to names in tests
+    "E741",
+    "B008",  # FastAPI declares parameters with calls in defaults
+    "B905",  # zip() over lists built together; lengths are checked where it matters
+    "B904",  # HTTP errors are raised without chaining so provider details do not leak
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["epfo", "web_api", "scripts"]
+
+[tool.ruff.format]
+quote-style = "preserve"

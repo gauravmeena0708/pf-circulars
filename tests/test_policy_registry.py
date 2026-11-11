@@ -1,25 +1,34 @@
 import json
-from pathlib import Path
 
 import pytest
 
-from policy_history import PolicyHistory
-from policy_registry import mode_for_label, registered_policies, select_policy
-from policy_router import route_retrieval
+from epfo.policy_history import PolicyHistory
+from epfo.policy_registry import mode_for_label, registered_policies, select_policy
+from epfo.policy_router import route_retrieval
 
 
-@pytest.mark.parametrize("query", [
-    "How do I correct wrong Aadhaar in UAN?", "Aadhaar name mismatch", "Aadhar date of birth proof",
-    "Member profile correction", "आधार सुधार",
-])
+@pytest.mark.parametrize(
+    "query",
+    [
+        "How do I correct wrong Aadhaar in UAN?",
+        "Aadhaar name mismatch",
+        "Aadhar date of birth proof",
+        "Member profile correction",
+        "आधार सुधार",
+    ],
+)
 def test_aadhaar_scope_detected(query):
     assert select_policy(query).id == "aadhaar"
 
 
-@pytest.mark.parametrize("query", [
-    "EPS pension eligibility",
-    "UIDAI address update", "How can I correct Aadhaar address?",
-])
+@pytest.mark.parametrize(
+    "query",
+    [
+        "EPS pension eligibility",
+        "UIDAI address update",
+        "How can I correct Aadhaar address?",
+    ],
+)
 def test_unregistered_scopes_keep_hybrid_fallback(query):
     original = [{"text": "original search result", "metadata": {}}]
     result = route_retrieval(query, "2026-10-28", lambda: original)
@@ -30,7 +39,39 @@ def test_unregistered_scopes_keep_hybrid_fallback(query):
 
 def test_registered_paths_and_explicit_followups():
     policies = registered_policies()
-    assert {p.id for p in policies} == {"jd", "aadhaar", "transfers", "higher_pension", "cpps", "advances", "bank_kyc", "mid_delinking", "eps_corrections", "delegation", "employee_benefits", "epf_interest_rate", "staff_transfer", "apar_sparrow", "dearness", "legal_panel", "claim_authority", "foreign_visit", "recruitment_promotion", "is_hardware_norms", "is_security_systems", "spf_interest", "exemption", "damages_7a", "ecr_returns", "claim_forms_payments", "official_language", "pension_member_rules", "international_workers", "legal_case_handling", "quality_complaints"}
+    assert {p.id for p in policies} == {
+        "jd",
+        "aadhaar",
+        "transfers",
+        "higher_pension",
+        "cpps",
+        "advances",
+        "bank_kyc",
+        "mid_delinking",
+        "eps_corrections",
+        "delegation",
+        "employee_benefits",
+        "epf_interest_rate",
+        "staff_transfer",
+        "apar_sparrow",
+        "dearness",
+        "legal_panel",
+        "claim_authority",
+        "foreign_visit",
+        "recruitment_promotion",
+        "is_hardware_norms",
+        "is_security_systems",
+        "spf_interest",
+        "exemption",
+        "damages_7a",
+        "ecr_returns",
+        "claim_forms_payments",
+        "official_language",
+        "pension_member_rules",
+        "international_workers",
+        "legal_case_handling",
+        "quality_complaints",
+    }
     for policy in policies:
         assert policy.path.is_file()
         PolicyHistory(policy.path)
@@ -71,8 +112,13 @@ def test_source_checked_reference_does_not_verify_original_or_invent_supersessio
 
 def test_new_policy_registration_does_not_require_router_changes(tmp_path):
     entry = {
-        "id": "example-policy", "label": "Example policy", "scope": "synthetic test only",
-        "path": "example/policy.json", "include": "synthetic test", "exclude": "", "route": "example_policy",
+        "id": "example-policy",
+        "label": "Example policy",
+        "scope": "synthetic test only",
+        "path": "example/policy.json",
+        "include": "synthetic test",
+        "exclude": "",
+        "route": "example_policy",
     }
     path = tmp_path / "registry.json"
     path.write_text(json.dumps({"policies": [entry]}))
@@ -86,10 +132,16 @@ def test_new_policy_registration_does_not_require_router_changes(tmp_path):
 def test_aadhaar_store_failure_uses_its_scope_and_unverified_fallback():
     def missing():
         raise FileNotFoundError()
-    result = route_retrieval("correct Aadhaar in UAN", "2025-08-13", lambda: [
-        {"text": "Wrong Aadhaar correction in UAN", "metadata": {"date": "13/08/2025"}},
-        {"text": "JD transgender certificate", "metadata": {"date": "13/08/2025"}},
-    ], history_factory=missing)
+
+    result = route_retrieval(
+        "correct Aadhaar in UAN",
+        "2025-08-13",
+        lambda: [
+            {"text": "Wrong Aadhaar correction in UAN", "metadata": {"date": "13/08/2025"}},
+            {"text": "JD transgender certificate", "metadata": {"date": "13/08/2025"}},
+        ],
+        history_factory=missing,
+    )
     assert result["route"] == "aadhaar_policy"
     assert result["policy_context"]["policy_id"] == "aadhaar"
     assert len(result["chunks"]) == 1

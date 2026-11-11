@@ -5,16 +5,17 @@ Run before relying on the public URLs (network required):
     python scripts/verify_policy_pdfs.py --policy jd
 Exit status is 1 if any document cannot be reproduced from its public URL.
 """
+
 import argparse
 import json
-from pathlib import Path
 import sys
 import tempfile
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-import policy_pdfs  # noqa: E402
+from epfo import policy_pdfs  # noqa: E402
 
 
 def main():

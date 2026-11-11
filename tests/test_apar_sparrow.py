@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from policy_history import PolicyHistory, _normalise
-from policy_registry import select_policy
+from epfo.policy_history import PolicyHistory, _normalise
+from epfo.policy_registry import select_policy
 
 POLICY = Path(__file__).parents[1] / 'policy_data' / 'apar_sparrow' / 'policy.json'
 
@@ -12,17 +12,28 @@ def history():
     return PolicyHistory(POLICY)
 
 
-@pytest.mark.parametrize('query', [
-    'APAR 2024-25 timelines', 'SPARROW APAR submission', 'revision of timelines for annual performance assessment report',
-    'vigilance clearance certificate proforma', 'who issues VCC for Group C employees',
-])
+@pytest.mark.parametrize(
+    'query',
+    [
+        'APAR 2024-25 timelines',
+        'SPARROW APAR submission',
+        'revision of timelines for annual performance assessment report',
+        'vigilance clearance certificate proforma',
+        'who issues VCC for Group C employees',
+    ],
+)
 def test_staff_appraisal_queries_route_to_collection(query):
     assert select_policy(query).id == 'apar_sparrow'
 
 
-@pytest.mark.parametrize('query', [
-    'EPF member account claim settlement', 'UAN activation', 'employer establishment inspection',
-])
+@pytest.mark.parametrize(
+    'query',
+    [
+        'EPF member account claim settlement',
+        'UAN activation',
+        'employer establishment inspection',
+    ],
+)
 def test_member_and_employer_queries_do_not_route_here(query):
     policy = select_policy(query)
     assert policy is None or policy.id != 'apar_sparrow'
@@ -44,7 +55,9 @@ def test_2024_25_chain_is_linear_and_each_revision_is_partial():
     assert len(chain) == 12
     assert len({r['source'] for r in chain}) == len(chain)
     assert not any(r['type'] == 'supersedes' for r in h.relationships)
-    assert all('not restated' in r['scope'] or 'Corrects only' in r['scope'] or 'Revises only' in r['scope'] for r in rels)
+    assert all(
+        'not restated' in r['scope'] or 'Corrects only' in r['scope'] or 'Revises only' in r['scope'] for r in rels
+    )
 
 
 def test_corrigendum_scope_and_later_revisions():

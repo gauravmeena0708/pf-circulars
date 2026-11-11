@@ -2,16 +2,16 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 import io
 import logging
 import re
-from typing import Mapping, Sequence
+from collections.abc import Mapping, Sequence
+from dataclasses import dataclass
 
 import numpy as np
 import pandas as pd
 
-from document_assistant import format_conversation_history
+from epfo.document_assistant import format_conversation_history
 
 logger = logging.getLogger(__name__)
 
@@ -57,22 +57,14 @@ def _truncate_text(text: str, max_chars: int) -> str:
 
 def _query_search_candidates(user_query: str, stop_words: set[str]) -> list[str]:
     """Build domain-neutral search phrases from quoted text and meaningful tokens."""
-    quoted_terms = [
-        match.strip()
-        for match in re.findall(r'["\']([^"\']+)["\']', user_query)
-        if match.strip()
-    ]
+    quoted_terms = [match.strip() for match in re.findall(r'["\']([^"\']+)["\']', user_query) if match.strip()]
     tokens = re.findall(r"[A-Za-z0-9]+(?:[-_][A-Za-z0-9]+)*", user_query)
-    meaningful_tokens = [
-        token for token in tokens if token.lower() not in stop_words
-    ]
+    meaningful_tokens = [token for token in tokens if token.lower() not in stop_words]
 
     candidates = list(quoted_terms)
     for phrase_length in (3, 2, 1):
         for start in range(len(meaningful_tokens) - phrase_length + 1):
-            candidates.append(
-                " ".join(meaningful_tokens[start:start + phrase_length])
-            )
+            candidates.append(" ".join(meaningful_tokens[start : start + phrase_length]))
 
     unique_candidates = []
     seen = set()
@@ -126,14 +118,10 @@ def load_csv_dataframe(file_bytes: bytes, filename: str = "dataset.csv") -> pd.D
             continue
 
     if df is None or not isinstance(df, pd.DataFrame):
-        raise DataExtractionError(
-            f"Could not parse '{filename}' as a valid CSV table. Error: {last_error}"
-        )
+        raise DataExtractionError(f"Could not parse '{filename}' as a valid CSV table. Error: {last_error}")
 
     if df.empty:
-        raise DataExtractionError(
-            f"The CSV file '{filename}' contains no readable data rows."
-        )
+        raise DataExtractionError(f"The CSV file '{filename}' contains no readable data rows.")
 
     df.columns = _unique_column_names(df.columns)
     return df
@@ -147,9 +135,7 @@ def generate_dataset_profile(df: pd.DataFrame) -> DatasetProfile:
     null_counts = {str(c): int(df[c].isnull().sum()) for c in df.columns}
 
     numeric_cols = tuple(str(c) for c in df.select_dtypes(include=[np.number]).columns)
-    categorical_cols = tuple(
-        str(c) for c in df.columns if str(c) not in numeric_cols
-    )
+    categorical_cols = tuple(str(c) for c in df.columns if str(c) not in numeric_cols)
 
     summary_stats: dict[str, dict[str, float]] = {}
     for col in numeric_cols:
@@ -198,11 +184,7 @@ def search_dataframe(
     flags = 0 if case_sensitive else re.IGNORECASE
     regex_pattern = re.escape(term)
 
-    cols_to_check = (
-        [c for c in target_columns if c in df.columns]
-        if target_columns
-        else list(df.columns)
-    )
+    cols_to_check = [c for c in target_columns if c in df.columns] if target_columns else list(df.columns)
 
     column_match_counts: dict[str, int] = {}
     combined_mask = pd.Series(False, index=df.index)
@@ -232,9 +214,7 @@ def prepare_dataframe_llm_context(
 
     displayed_columns = profile.columns[:100]
     omitted_column_count = max(0, profile.column_count - len(displayed_columns))
-    column_description = ", ".join(
-        f"`{col}` ({profile.dtypes[col]})" for col in displayed_columns
-    )
+    column_description = ", ".join(f"`{col}` ({profile.dtypes[col]})" for col in displayed_columns)
     if omitted_column_count:
         column_description += f", ... ({omitted_column_count} additional columns omitted)"
 
@@ -251,9 +231,7 @@ def prepare_dataframe_llm_context(
         cat_lines = ["### Categorical Column Distributions (Top Values):"]
         for col, counts in list(profile.top_categories.items())[:30]:
             if counts:
-                formatted = ", ".join(
-                    f"'{_truncate_text(val, 120)}': {cnt}" for val, cnt in counts
-                )
+                formatted = ", ".join(f"'{_truncate_text(val, 120)}': {cnt}" for val, cnt in counts)
                 cat_lines.append(f"- **{col}**: {formatted}")
         sections.append("\n".join(cat_lines))
 
@@ -262,16 +240,40 @@ def prepare_dataframe_llm_context(
         num_lines = ["### Numeric Summary:"]
         for col, stats in list(profile.summary_stats.items())[:50]:
             num_lines.append(
-                f"- **{col}**: Min={stats['min']}, Max={stats['max']}, "
-                f"Mean={stats['mean']}, Median={stats['50%']}"
+                f"- **{col}**: Min={stats['min']}, Max={stats['max']}, Mean={stats['mean']}, Median={stats['50%']}"
             )
         sections.append("\n".join(num_lines))
 
     # 4. Keyword Grounding & Deterministic Matches
     query_stop_words = {
-        "how", "many", "what", "which", "where", "when", "who", "why", "are", "there",
-        "is", "the", "a", "an", "of", "in", "for", "to", "and", "or",
-        "show", "give", "list", "tell", "me", "find", "analyze", "summarize"
+        "how",
+        "many",
+        "what",
+        "which",
+        "where",
+        "when",
+        "who",
+        "why",
+        "are",
+        "there",
+        "is",
+        "the",
+        "a",
+        "an",
+        "of",
+        "in",
+        "for",
+        "to",
+        "and",
+        "or",
+        "show",
+        "give",
+        "list",
+        "tell",
+        "me",
+        "find",
+        "analyze",
+        "summarize",
     }
     search_candidates = _query_search_candidates(user_query, query_stop_words)
 
@@ -307,19 +309,15 @@ def prepare_dataframe_llm_context(
             )
 
     if deterministic_matches_info:
-        sections.append(
-            "### Deterministic Search & Verification Metrics:\n" + "\n".join(deterministic_matches_info)
-        )
+        sections.append("### Deterministic Search & Verification Metrics:\n" + "\n".join(deterministic_matches_info))
 
     # 5. Sample Rows (prioritize matching rows if any, else head of dataset)
     display_sample = sample_matched_df if sample_matched_df is not None else df
     sample_to_show = display_sample.head(max_sample_rows)
     sample_to_show = sample_to_show.apply(
-        lambda column: column.map(
-            lambda value: _truncate_text(str(value), 300) if not pd.isna(value) else ""
-        )
+        lambda column: column.map(lambda value: _truncate_text(str(value), 300) if not pd.isna(value) else "")
     )
-    
+
     try:
         sample_md = sample_to_show.to_markdown(index=False)
     except Exception:
@@ -358,8 +356,7 @@ def stream_tabular_query(
         max_messages=8,
     )
     history_section = (
-        f"\n--- PREVIOUS CONVERSATION ---\n{conversation_context}\n"
-        "--- END PREVIOUS CONVERSATION ---\n"
+        f"\n--- PREVIOUS CONVERSATION ---\n{conversation_context}\n--- END PREVIOUS CONVERSATION ---\n"
         if conversation_context
         else ""
     )
@@ -396,7 +393,7 @@ Detailed, precise, data-grounded response:"""
     except Exception as e:
         # Imported lazily so the dataframe helpers stay usable without the
         # langchain_huggingface dependency answer_generator pulls in.
-        from answer_generator import describe_llm_error
+        from epfo.answer_generator import describe_llm_error
 
         logger.error("LLM error while streaming tabular answer: %s", e, exc_info=True)
         yield f"\n\n{describe_llm_error(e)}"

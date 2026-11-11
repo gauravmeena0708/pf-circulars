@@ -11,15 +11,15 @@ never removed or rewritten, and only circulars that are not already held are add
 """
 
 import argparse
-from datetime import datetime
 import json
 import os
 import re
 import sys
+from datetime import datetime
 from urllib.parse import unquote, urlparse
 
-from bs4 import BeautifulSoup
 import requests
+from bs4 import BeautifulSoup
 
 CIRCULAR_DATA_FILE = "circular-data.json"
 LISTING_URLS = (
@@ -42,7 +42,7 @@ LETTER_DATE = re.compile(rf"\bdated?\s+(?P<date>{DATE})", re.I)
 
 def load_json_file(filepath):
     if os.path.exists(filepath):
-        with open(filepath, "r", encoding="utf-8") as f:
+        with open(filepath, encoding="utf-8") as f:
             return json.load(f)
     return []
 
@@ -81,12 +81,14 @@ def parse_listing(page_html):
         if heading is None:
             continue
         meta = [item.get_text(" ", strip=True) for item in box.select(".meta-item")]
-        entries.append({
-            "title": " ".join(heading.get_text(" ", strip=True).split()),
-            "division": meta[0] if meta else "",
-            "date": _date(meta[1]) if len(meta) > 1 else "",
-            "url": link["href"].strip() if link else "",
-        })
+        entries.append(
+            {
+                "title": " ".join(heading.get_text(" ", strip=True).split()),
+                "division": meta[0] if meta else "",
+                "date": _date(meta[1]) if len(meta) > 1 else "",
+                "url": link["href"].strip() if link else "",
+            }
+        )
     return entries
 
 
@@ -127,8 +129,10 @@ def _title_keys(title):
     title = re.sub(r"\(\s*(?:Hindi|English)\s*\)\s*$", "", title.strip(), flags=re.I)
     full = _normalise(title)
     # Older records cut at "No." and sometimes kept the word before it ("... Regarding File").
-    cuts = [_normalise(re.split(pattern, title, maxsplit=1, flags=re.I)[0])
-            for pattern in (r"\bNo\s*[.:]", r"\b(?:Circular\s+|File\s+)?No\s*[.:]")]
+    cuts = [
+        _normalise(re.split(pattern, title, maxsplit=1, flags=re.I)[0])
+        for pattern in (r"\bNo\s*[.:]", r"\b(?:Circular\s+|File\s+)?No\s*[.:]")
+    ]
     keys = {full, *cuts}
     for key in (full, *cuts):
         if len(key) >= 60:
@@ -187,7 +191,7 @@ def download_listing():
 
 def fetch_circular_metadata(html_path=None, data_file=CIRCULAR_DATA_FILE, dry_run=False):
     if html_path:
-        with open(html_path, "r", encoding="utf-8", errors="replace") as f:
+        with open(html_path, encoding="utf-8", errors="replace") as f:
             page, source = f.read(), html_path
     else:
         page, source = download_listing()
@@ -209,8 +213,12 @@ if __name__ == "__main__":
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     parser = argparse.ArgumentParser(description="Add newly listed EPFO circulars to circular-data.json.")
-    parser.add_argument("--action", choices=["fetch", "all"], default="fetch",
-                        help="Kept for compatibility; both values fetch the listing.")
+    parser.add_argument(
+        "--action",
+        choices=["fetch", "all"],
+        default="fetch",
+        help="Kept for compatibility; both values fetch the listing.",
+    )
     parser.add_argument("--html", help="Read a saved copy of the listing page instead of downloading it.")
     parser.add_argument("--dry-run", action="store_true", help="Report new circulars without writing the data file.")
     args = parser.parse_args()

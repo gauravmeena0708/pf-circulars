@@ -1,20 +1,20 @@
 """Offline, evidence-first policy history pilot; no applicability inferred from recency.
 
-Run ``python policy_history.py --as-of 2025-01-16 --query 'closed establishment'``.
+Run ``python -m epfo.policy_history --as-of 2025-01-16 --query 'closed establishment'``.
 This research CLI does not replace the application's hybrid retriever.
 """
 
 from __future__ import annotations
 
 import argparse
-from collections import Counter
-from datetime import date
 import json
 import math
-from pathlib import Path
 import re
+from collections import Counter
+from datetime import date
+from pathlib import Path
 
-DEFAULT_POLICY = Path(__file__).parent / "policy_data/joint_declaration/policy.json"
+DEFAULT_POLICY = Path(__file__).resolve().parents[1] / "policy_data/joint_declaration/policy.json"
 
 
 def _date(value):
@@ -103,8 +103,7 @@ class PolicyHistory:
 
     def matching_topics(self, query):
         """Return every matching matter; multi-matter questions retain each scope."""
-        return [topic['id'] for topic in self.policy.get('topics', [])
-                if re.search(topic['include'], query, re.I)]
+        return [topic['id'] for topic in self.policy.get('topics', []) if re.search(topic['include'], query, re.I)]
 
     def snapshot(self, as_of, topics=None):
         cutoff = _date(as_of)
@@ -113,8 +112,9 @@ class PolicyHistory:
         if any(topic not in known for topic in topics):
             raise UnknownPolicyMatter('Unknown matter in this policy collection')
         available = {
-            k: v for k, v in self.documents.items() if _date(v["issued_on"]) <= cutoff
-            and (not topics or set(topics).intersection(v.get('topics', [])))
+            k: v
+            for k, v in self.documents.items()
+            if _date(v["issued_on"]) <= cutoff and (not topics or set(topics).intersection(v.get('topics', [])))
         }
         documents = []
         for doc in sorted(available.values(), key=lambda d: (d["issued_on"], d["id"])):
@@ -141,11 +141,14 @@ class PolicyHistory:
                 status = "effective_relationship"
             relationships.append({**rel, "status": status})
         return {
-            "policy_id": self.policy["id"], "as_of": as_of,
+            "policy_id": self.policy["id"],
+            "as_of": as_of,
             "conclusion": "evidence_inventory_only",
-            "documents": documents, "relationships": relationships,
+            "documents": documents,
+            "relationships": relationships,
             "limitations": self.policy["limitations"],
-            "topics": self.policy.get('topics', []), "selected_topics": topics,
+            "topics": self.policy.get('topics', []),
+            "selected_topics": topics,
         }
 
     def search(self, query, as_of, max_characters=16000, topics=None):
@@ -170,7 +173,7 @@ class PolicyHistory:
                 text = page["text"]
                 # Keep offsets into unmodified page text for citation auditing.
                 for start in range(0, len(text), 650):
-                    chunk = text[start:start + 800]
+                    chunk = text[start : start + 800]
                     candidates.append((doc_id, page, start, chunk, Counter(_tokens(document["title"] + " " + chunk))))
         frequencies = Counter()
         for *_, counts in candidates:
@@ -180,12 +183,18 @@ class PolicyHistory:
         wanted_version = re.search(r"\bversion\s*(\d+(?:\.\d+)?)", query, re.I)
         for doc_id, page, start, chunk, counts in candidates:
             score = sum(
-                (1 + math.log(counts[t])) * math.log(1 + len(candidates) / frequencies[t])
-                for t in terms if counts[t]
+                (1 + math.log(counts[t])) * math.log(1 + len(candidates) / frequencies[t]) for t in terms if counts[t]
             )
-            if score and navigation_request and re.search(r"SOP\s+version", page["text"], re.I) and re.search(r"Effective\s+Date", page["text"], re.I):
+            if (
+                score
+                and navigation_request
+                and re.search(r"SOP\s+version", page["text"], re.I)
+                and re.search(r"Effective\s+Date", page["text"], re.I)
+            ):
                 score *= 2
-                if wanted_version and re.search(r"version\s*[:\s]*" + re.escape(wanted_version.group(1)) + r"\b", page["text"], re.I):
+                if wanted_version and re.search(
+                    r"version\s*[:\s]*" + re.escape(wanted_version.group(1)) + r"\b", page["text"], re.I
+                ):
                     score *= 2
             if score:
                 ranked.append((score, doc_id, page, start, chunk))
@@ -212,33 +221,49 @@ class PolicyHistory:
                 continue
             used += len(parent)
             doc = self.documents[doc_id]
-            evidence.append({
-                "document_id": doc_id, "score": score, "text": chunk,
-                "parent_context": parent, "match_start": start,
-                "metadata": {"title": doc["title"], "circular_no": doc["circular_no"],
-                             "date": doc["issued_on"], "authority": doc.get("authority", "EPFO document"), "page_number": page["page_number"],
-                             "page_provenance": "physical_pdf_page", "english_pdf_link": doc["source_url"],
-                             "source_host_kind": doc.get("source_host_kind", "issuer_hosted"), "original_source_url": doc.get("original_source_url"),
-                             "extraction_method": page["extraction_method"]},
-            })
-        report.update({
-            "query": query, "evidence": evidence,
-            "coverage": {
-                "matched_documents": sorted({r[1] for r in ranked}),
-                "included_documents": sorted({r["document_id"] for r in evidence}),
-                "omitted_by_budget": sorted(omitted),
-                "documents_without_page_text": sorted(allowed - self.pages.keys()),
-                "context_characters": used,
-                "complete_applicability_established": False,
-            },
-        })
+            evidence.append(
+                {
+                    "document_id": doc_id,
+                    "score": score,
+                    "text": chunk,
+                    "parent_context": parent,
+                    "match_start": start,
+                    "metadata": {
+                        "title": doc["title"],
+                        "circular_no": doc["circular_no"],
+                        "date": doc["issued_on"],
+                        "authority": doc.get("authority", "EPFO document"),
+                        "page_number": page["page_number"],
+                        "page_provenance": "physical_pdf_page",
+                        "english_pdf_link": doc["source_url"],
+                        "source_host_kind": doc.get("source_host_kind", "issuer_hosted"),
+                        "original_source_url": doc.get("original_source_url"),
+                        "extraction_method": page["extraction_method"],
+                    },
+                }
+            )
+        report.update(
+            {
+                "query": query,
+                "evidence": evidence,
+                "coverage": {
+                    "matched_documents": sorted({r[1] for r in ranked}),
+                    "included_documents": sorted({r["document_id"] for r in evidence}),
+                    "omitted_by_budget": sorted(omitted),
+                    "documents_without_page_text": sorted(allowed - self.pages.keys()),
+                    "context_characters": used,
+                    "complete_applicability_established": False,
+                },
+            }
+        )
         return report
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--policy", type=Path, default=DEFAULT_POLICY)
-    from policy_registry import registered_policies
+    from epfo.policy_registry import registered_policies
+
     policies = registered_policies()
     parser.add_argument("--policy-name", choices=[p.id for p in policies], help="Use a registered policy history")
     parser.add_argument("--as-of", required=True, help="YYYY-MM-DD; issue-date cutoff, not inferred commencement")
@@ -250,7 +275,9 @@ def main():
             parser.error("Use either --policy or --policy-name")
         path = next(p.path for p in policies if p.id == args.policy_name) if args.policy_name else args.policy
         history = PolicyHistory(path)
-        report = history.search(args.query, args.as_of, args.max_characters) if args.query else history.snapshot(args.as_of)
+        report = (
+            history.search(args.query, args.as_of, args.max_characters) if args.query else history.snapshot(args.as_of)
+        )
     except (ValueError, KeyError, StopIteration) as error:
         parser.error(str(error))
     print(json.dumps(report, indent=2, ensure_ascii=False))

@@ -3,8 +3,8 @@ import json
 
 import pytest
 
-from citation_provenance import page_label
-from policy_history import DEFAULT_POLICY, PolicyHistory
+from epfo.citation_provenance import page_label
+from epfo.policy_history import DEFAULT_POLICY, PolicyHistory
 
 
 @pytest.fixture
@@ -22,7 +22,9 @@ def test_partial_modification_does_not_become_whole_document_supersession(histor
     snapshot = history.snapshot("2024-03-11")
     assert {r["type"] for r in snapshot["relationships"]} == {"partially_modifies"}
     assert all(r["status"] == "relationship_verified_timing_unresolved" for r in snapshot["relationships"])
-    assert next(d for d in snapshot["documents"] if d["id"] == "jd-2023-08-22")["status"] == "effective_date_established"
+    assert (
+        next(d for d in snapshot["documents"] if d["id"] == "jd-2023-08-22")["status"] == "effective_date_established"
+    )
 
 
 def test_effective_dates_require_source_evidence_and_uncertain_targets_stay_uncertain(history):
@@ -48,10 +50,12 @@ def test_unfetched_document_never_acquires_page_evidence(history):
 
 def test_retrieved_chunk_expands_to_exact_page_and_keeps_offsets(history):
     report = history.search("closed establishments deceased claimant", "2025-01-16")
-    evidence = next(e for e in report["evidence"] if e["document_id"] == "jd-2025-01-16" and e["metadata"]["page_number"] == 1)
+    evidence = next(
+        e for e in report["evidence"] if e["document_id"] == "jd-2025-01-16" and e["metadata"]["page_number"] == 1
+    )
     parent = history.page("jd-2025-01-16", 1)["text"]
     assert evidence["parent_context"] == parent
-    assert parent[evidence["match_start"]:evidence["match_start"] + len(evidence["text"])] == evidence["text"]
+    assert parent[evidence["match_start"] : evidence["match_start"] + len(evidence["text"])] == evidence["text"]
     assert evidence["metadata"]["page_provenance"] == "physical_pdf_page"
     assert not report["coverage"]["complete_applicability_established"]
 
@@ -99,15 +103,30 @@ def test_citations_never_promote_page_counts_or_missing_pages():
 
 
 def test_explicit_future_commencement_is_respected_at_boundary(tmp_path):
-    source = {"document_id": "scheduled", "total_pdf_pages": 1, "pages": [
-        {"page_number": 1, "text": "Commences 2025-03-01", "extraction_method": "native"}
-    ]}
+    source = {
+        "document_id": "scheduled",
+        "total_pdf_pages": 1,
+        "pages": [{"page_number": 1, "text": "Commences 2025-03-01", "extraction_method": "native"}],
+    }
     (tmp_path / "source.json").write_text(json.dumps(source))
-    policy = {"id": "synthetic-date-boundary", "limitations": [], "relationships": [], "documents": [
-        {"id": "scheduled", "issued_on": "2025-01-01", "source_file": "source.json",
-         "effective_from": "2025-03-01", "effective_date_evidence": {
-             "document_id": "scheduled", "page_number": 1, "quote": "Commences 2025-03-01"}}
-    ]}
+    policy = {
+        "id": "synthetic-date-boundary",
+        "limitations": [],
+        "relationships": [],
+        "documents": [
+            {
+                "id": "scheduled",
+                "issued_on": "2025-01-01",
+                "source_file": "source.json",
+                "effective_from": "2025-03-01",
+                "effective_date_evidence": {
+                    "document_id": "scheduled",
+                    "page_number": 1,
+                    "quote": "Commences 2025-03-01",
+                },
+            }
+        ],
+    }
     path = tmp_path / "policy.json"
     path.write_text(json.dumps(policy))
     history = PolicyHistory(path)

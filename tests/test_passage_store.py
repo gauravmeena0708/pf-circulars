@@ -5,14 +5,12 @@ import sqlite3
 
 import pytest
 
-import passage_store
+from epfo import passage_store
 
 
 def _write_passages_db(path, rows):
     conn = sqlite3.connect(path)
-    conn.execute(
-        "CREATE TABLE passages (id INTEGER PRIMARY KEY, text TEXT NOT NULL, metadata TEXT NOT NULL)"
-    )
+    conn.execute("CREATE TABLE passages (id INTEGER PRIMARY KEY, text TEXT NOT NULL, metadata TEXT NOT NULL)")
     conn.executemany(
         "INSERT INTO passages (id, text, metadata) VALUES (?, ?, ?)",
         [(doc_id, text, json.dumps(metadata)) for doc_id, text, metadata in rows],
@@ -78,7 +76,7 @@ def test_retrieve_relevant_chunks_gives_identical_results_for_lists_and_passage_
     import faiss
     import numpy as np
 
-    import retriever
+    from epfo import retriever
 
     texts = [
         "alpha unique statutory reference one",
@@ -119,7 +117,7 @@ def test_retrieve_relevant_chunks_gives_identical_results_with_confidence_gate_a
     import faiss
     import numpy as np
 
-    import retriever
+    from epfo import retriever
 
     texts = [
         "alpha unique statutory reference one",
@@ -150,12 +148,22 @@ def test_retrieve_relevant_chunks_gives_identical_results_with_confidence_gate_a
     monkeypatch.setattr(retriever, "_has_high_confidence_agreement", lambda dense, sparse: True)
 
     list_based_results = retriever.retrieve_relevant_chunks(
-        "beta", index, texts, metadata, embedding_model,
-        cross_encoder_model=cross_encoder, top_n_final=3,
+        "beta",
+        index,
+        texts,
+        metadata,
+        embedding_model,
+        cross_encoder_model=cross_encoder,
+        top_n_final=3,
     )
     store_based_results = retriever.retrieve_relevant_chunks(
-        "beta", index, store.texts, store.metadata, embedding_model,
-        cross_encoder_model=cross_encoder, top_n_final=3,
+        "beta",
+        index,
+        store.texts,
+        store.metadata,
+        embedding_model,
+        cross_encoder_model=cross_encoder,
+        top_n_final=3,
     )
 
     assert list_based_results == store_based_results

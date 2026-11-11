@@ -1,9 +1,10 @@
 import io
 import unittest
-from PIL import Image
-import fitz
 
-import pdf_utils
+import fitz
+from PIL import Image
+
+from epfo import pdf_utils
 
 
 def _create_sample_pdf(page_count: int = 3, text_prefix: str = "Page") -> bytes:
@@ -26,7 +27,6 @@ def _create_sample_image(width: int = 100, height: int = 100, color: str = "red"
 
 
 class TestPDFUtils(unittest.TestCase):
-
     def test_merge_pdfs(self):
         pdf1 = _create_sample_pdf(2, "Doc1 Page")
         pdf2 = _create_sample_pdf(3, "Doc2 Page")

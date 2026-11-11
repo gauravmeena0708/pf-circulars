@@ -51,6 +51,7 @@ import retriever
 
 # --- Unit tests for the pure helper ---
 
+
 def test_agreement_true_when_same_doc_is_rank_one_in_both():
     dense_rankings = {5: 1, 2: 2, 9: 3}
     sparse_rankings = {5: 1, 7: 2}
@@ -70,6 +71,7 @@ def test_agreement_false_when_either_ranking_is_empty():
 
 
 # --- End-to-end tests against retrieve_relevant_chunks ---
+
 
 class _FixedVectorEmbeddingModel:
     """Fake embedding model that always returns a pre-chosen vector,
@@ -178,7 +180,9 @@ Expected: the three pure-helper tests `FAIL` with `AttributeError: module 'retri
 In `config.py`, immediately after the existing line `RRF_K = 60`:
 
 ```python
-CONFIDENCE_GATE_ENABLED = True  # Skip CrossEncoder re-ranking when dense and sparse retrieval already agree on the top document
+CONFIDENCE_GATE_ENABLED = (
+    True  # Skip CrossEncoder re-ranking when dense and sparse retrieval already agree on the top document
+)
 ```
 
 - [ ] **Step 4: Add the helper function to `retriever.py`**
@@ -257,34 +261,32 @@ Change the re-ranking branch (current lines 319-341) from:
 ```
 to:
 ```python
-        # -------------------------------------------------------------
-        # 4. Cross-Encoder Deep Re-ranking (skipped on high-confidence agreement)
-        # -------------------------------------------------------------
-        if confidence_gate_enabled and _has_high_confidence_agreement(dense_rankings, sparse_rankings):
-            logger.info(
-                "Dense and sparse retrieval agree on the top document; skipping CrossEncoder re-ranking."
-            )
-            retrieved_results.sort(key=lambda x: x['rrf_score'], reverse=True)
-        elif cross_encoder_model and retrieved_results:
-            try:
-                logger.info(f"Re-ranking {len(retrieved_results)} hybrid candidates with CrossEncoder...")
-                cross_input = [[query_text, res["text"]] for res in retrieved_results]
-                cross_scores = cross_encoder_model.predict(cross_input)
+# -------------------------------------------------------------
+# 4. Cross-Encoder Deep Re-ranking (skipped on high-confidence agreement)
+# -------------------------------------------------------------
+if confidence_gate_enabled and _has_high_confidence_agreement(dense_rankings, sparse_rankings):
+    logger.info("Dense and sparse retrieval agree on the top document; skipping CrossEncoder re-ranking.")
+    retrieved_results.sort(key=lambda x: x['rrf_score'], reverse=True)
+elif cross_encoder_model and retrieved_results:
+    try:
+        logger.info(f"Re-ranking {len(retrieved_results)} hybrid candidates with CrossEncoder...")
+        cross_input = [[query_text, res["text"]] for res in retrieved_results]
+        cross_scores = cross_encoder_model.predict(cross_input)
 
-                for i, c_score in enumerate(cross_scores):
-                    retrieved_results[i]["score"] = float(c_score)
+        for i, c_score in enumerate(cross_scores):
+            retrieved_results[i]["score"] = float(c_score)
 
-                # Sort by CrossEncoder score descending
-                retrieved_results.sort(key=lambda x: x['score'], reverse=True)
-            except Exception as cross_encoder_error:
-                logger.warning(
-                    "Cross-encoder re-ranking failed: %s. Using RRF ranking.",
-                    cross_encoder_error,
-                )
-                retrieved_results.sort(key=lambda x: x['rrf_score'], reverse=True)
-        else:
-            # Sort by RRF score descending
-            retrieved_results.sort(key=lambda x: x['rrf_score'], reverse=True)
+        # Sort by CrossEncoder score descending
+        retrieved_results.sort(key=lambda x: x['score'], reverse=True)
+    except Exception as cross_encoder_error:
+        logger.warning(
+            "Cross-encoder re-ranking failed: %s. Using RRF ranking.",
+            cross_encoder_error,
+        )
+        retrieved_results.sort(key=lambda x: x['rrf_score'], reverse=True)
+else:
+    # Sort by RRF score descending
+    retrieved_results.sort(key=lambda x: x['rrf_score'], reverse=True)
 ```
 
 - [ ] **Step 6: Run tests to verify they pass**

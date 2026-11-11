@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from policy_history import PolicyHistory, _normalise
-from policy_registry import select_policy
+from epfo.policy_history import PolicyHistory, _normalise
+from epfo.policy_registry import select_policy
 
 POLICY = Path(__file__).parents[1] / 'policy_data' / 'legal_panel' / 'policy.json'
 
@@ -12,10 +12,15 @@ def history():
     return PolicyHistory(POLICY)
 
 
-@pytest.mark.parametrize('query', [
-    'Revision of fee payable to panel advocates', 'legal fee for EPFO counsel', 'empanelment of advocates for CGIT',
-    'panel counsel eligibility years',
-])
+@pytest.mark.parametrize(
+    'query',
+    [
+        'Revision of fee payable to panel advocates',
+        'legal fee for EPFO counsel',
+        'empanelment of advocates for CGIT',
+        'panel counsel eligibility years',
+    ],
+)
 def test_panel_queries_route_to_collection(query):
     assert select_policy(query).id == 'legal_panel'
 

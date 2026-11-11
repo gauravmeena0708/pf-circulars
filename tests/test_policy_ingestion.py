@@ -1,22 +1,24 @@
 import json
-from pathlib import Path
 import sqlite3
 
 import faiss
 import numpy as np
 import pytest
 
-from policy_history import PolicyHistory
-from policy_registry import registered_policies, select_policy
+from epfo.policy_history import PolicyHistory
+from epfo.policy_registry import registered_policies, select_policy
 from scripts import index_policy_evidence as ingestion
 
 
-@pytest.mark.parametrize('query,expected', [
-    ('Is employer approval needed for bank KYC?', 'bank_kyc'),
-    ('Must I upload cheque leaf for EPFO claim?', 'bank_kyc'),
-    ('Delink MID with contributions', 'mid_delinking'),
-    ('Rectification of erroneous EPS contributions', 'eps_corrections'),
-])
+@pytest.mark.parametrize(
+    'query,expected',
+    [
+        ('Is employer approval needed for bank KYC?', 'bank_kyc'),
+        ('Must I upload cheque leaf for EPFO claim?', 'bank_kyc'),
+        ('Delink MID with contributions', 'mid_delinking'),
+        ('Rectification of erroneous EPS contributions', 'eps_corrections'),
+    ],
+)
 def test_specific_correction_scopes(query, expected):
     assert select_policy(query).id == expected
 
@@ -26,11 +28,13 @@ def test_every_extracted_original_can_be_re_fetched_and_verified():
 
     ``scripts/verify_policy_pdfs.py`` re-downloads and compares them (needs network).
     """
-    import policy_pdfs
+    from epfo import policy_pdfs
+
     for policy in registered_policies():
         history = PolicyHistory(policy.path)
         for doc in history.documents.values():
-            if not doc.get('source_file'): continue
+            if not doc.get('source_file'):
+                continue
             source = json.loads((policy.path.parent / doc['source_file']).read_text(encoding='utf-8'))
             assert doc['source_url'].startswith('https://'), doc['id']
             if source.get('compiled_copy'):
@@ -71,16 +75,30 @@ def test_mid_extension_and_mirror_provenance():
 
 
 def test_id_mapped_index_append_preserves_old_passages_and_is_idempotent(tmp_path, monkeypatch):
-    from vector_indexer import save_faiss_index
+    from epfo.vector_indexer import save_faiss_index
+
     original, staged, repeated = (tmp_path / n for n in ('original', 'staged', 'repeated'))
     index = faiss.IndexIDMap(faiss.IndexFlatIP(3))
     index.add_with_ids(np.array([[1, 0, 0], [0, 1, 0]], dtype='float32'), np.array([0, 1], dtype='int64'))
-    save_faiss_index(index, ['old first document', 'old second document'], [{'marker': 1}, {'marker': 2}], str(original))
-    meta = dict(policy_evidence_key='unique-page', policy_document_id='test-doc', pdf_sha256='hash', page_number=1, extraction_method='native')
+    save_faiss_index(
+        index, ['old first document', 'old second document'], [{'marker': 1}, {'marker': 2}], str(original)
+    )
+    meta = dict(
+        policy_evidence_key='unique-page',
+        policy_document_id='test-doc',
+        pdf_sha256='hash',
+        page_number=1,
+        extraction_method='native',
+    )
     monkeypatch.setattr(ingestion, 'evidence_chunks', lambda policies: iter([('new evidence text', meta)]))
+
     class Model:
-        def get_sentence_embedding_dimension(self): return 3
-        def encode(self, texts, **kwargs): return np.array([[0, 0, 1]], dtype='float32')
+        def get_sentence_embedding_dimension(self):
+            return 3
+
+        def encode(self, texts, **kwargs):
+            return np.array([[0, 0, 1]], dtype='float32')
+
     report = ingestion.build(original, staged, Model())
     assert report['final_passages'] == 3
     assert report['original_passages_changed'] == 0
@@ -96,13 +114,19 @@ def test_id_mapped_index_append_preserves_old_passages_and_is_idempotent(tmp_pat
 def test_sparse_native_pdf_layer_falls_back_to_full_page_ocr(tmp_path, monkeypatch):
     import fitz
     import pytesseract
+
     from scripts.extract_policy_pdf import extract
+
     path = tmp_path / 'partial-text.pdf'
     with fitz.open() as pdf:
         page = pdf.new_page()
         page.insert_text((40, 40), 'WSU/ErroneousLinkingofUAN/E-838432/2024-25/10 partial metadata')
         pdf.save(path)
-    monkeypatch.setattr(pytesseract, 'image_to_string', lambda *a, **k: 'Full scanned circular text with operative instructions and policy conditions.')
+    monkeypatch.setattr(
+        pytesseract,
+        'image_to_string',
+        lambda *a, **k: 'Full scanned circular text with operative instructions and policy conditions.',
+    )
     source = extract(path, 'example', 'https://official.example/circular.pdf', None)
     assert source['pages'][0]['text'].startswith('Full scanned circular')
     assert source['pages'][0]['extraction_method'] == 'tesseract_eng_180dpi'

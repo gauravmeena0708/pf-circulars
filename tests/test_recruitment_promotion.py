@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from policy_history import PolicyHistory, _normalise
-from policy_registry import select_policy
+from epfo.policy_history import PolicyHistory, _normalise
+from epfo.policy_registry import select_policy
 
 POLICY = Path(__file__).parents[1] / 'policy_data' / 'recruitment_promotion' / 'policy.json'
 
@@ -18,10 +18,18 @@ def doc(h, date, frag):
     return found[0]
 
 
-@pytest.mark.parametrize('query', [
-    'recruitment rules for Section Supervisor', 'draft recruitment rules stakeholders comments', 'model calendar for DPC',
-    'Departmental Promotion Committee procedure', 'MACP consolidated guidelines', 'NFU pay fixation', 'refusal of promotion',
-])
+@pytest.mark.parametrize(
+    'query',
+    [
+        'recruitment rules for Section Supervisor',
+        'draft recruitment rules stakeholders comments',
+        'model calendar for DPC',
+        'Departmental Promotion Committee procedure',
+        'MACP consolidated guidelines',
+        'NFU pay fixation',
+        'refusal of promotion',
+    ],
+)
 def test_recruitment_and_promotion_queries_route_to_collection(query):
     assert select_policy(query).id == 'recruitment_promotion'
 
@@ -36,7 +44,12 @@ def test_counts_and_matters():
     h = history()
     assert len(h.documents) == 51
     from collections import Counter
-    assert Counter(d['topics'][0] for d in h.documents.values()) == {'recruitment_rules': 27, 'promotion_dpc': 12, 'macp': 12}
+
+    assert Counter(d['topics'][0] for d in h.documents.values()) == {
+        'recruitment_rules': 27,
+        'promotion_dpc': 12,
+        'macp': 12,
+    }
 
 
 def test_every_subject_quote_is_on_its_checked_page():
@@ -60,8 +73,15 @@ def test_the_two_named_supersessions_have_checked_predecessors_and_gazette_dates
     h = history()
     rels = {r['id']: r for r in h.snapshot('2026-12-31')['relationships']}
     mts = rels['rec-mts-2017-supersedes-2011']
-    assert mts['type'] == 'supersedes' and mts['status'] == 'effective_relationship' and mts['effective_from'] == '2017-12-05'
-    assert h.documents[mts['source']]['issued_on'] == '2017-12-07' and h.documents[mts['target']]['issued_on'] == '2011-04-25'
+    assert (
+        mts['type'] == 'supersedes'
+        and mts['status'] == 'effective_relationship'
+        and mts['effective_from'] == '2017-12-05'
+    )
+    assert (
+        h.documents[mts['source']]['issued_on'] == '2017-12-07'
+        and h.documents[mts['target']]['issued_on'] == '2011-04-25'
+    )
     ss = rels['rec-ss-2019-supersedes-2017']
     assert ss['effective_from'] == '2019-01-31' and h.documents[ss['target']]['issued_on'] == '2017-12-08'
     assert {r['type'] for r in h.relationships} == {'supersedes', 'references'}
@@ -77,7 +97,12 @@ def test_supersession_not_effective_before_it_is_issued():
 def test_effective_dates_only_where_the_circular_states_the_gazette_date():
     h = history()
     eff = {d['issued_on']: d['effective_from'] for d in h.documents.values() if d['effective_from']}
-    assert eff == {'2017-11-28': '2017-11-24', '2017-12-07': '2017-12-05', '2017-12-08': '2017-12-05', '2019-02-04': '2019-01-31'}
+    assert eff == {
+        '2017-11-28': '2017-11-24',
+        '2017-12-07': '2017-12-05',
+        '2017-12-08': '2017-12-05',
+        '2019-02-04': '2019-01-31',
+    }
 
 
 def test_model_calendar_reminders_are_references_not_new_rules():
@@ -95,15 +120,28 @@ def test_matter_filter_and_issue_date_cutoff():
 
 
 def test_consultation_passages_do_not_return_through_the_supplementary_hybrid_path():
-    from policy_router import route_retrieval
+    from epfo.policy_router import route_retrieval
+
     h = history()
     draft = next(d for d in h.documents.values() if d.get('document_role') == 'consultation')
-    live = next(d for d in h.documents.values() if d.get('document_role') != 'consultation' and d['topics'] == ['recruitment_rules'])
+    live = next(
+        d
+        for d in h.documents.values()
+        if d.get('document_role') != 'consultation' and d['topics'] == ['recruitment_rules']
+    )
 
     def chunk(doc):
-        return {'text': 'Recruitment Rules for the post', 'metadata': {
-            'title': doc['title'], 'circular_no': doc['circular_no'], 'date': doc['issued_on'], 'policy_document_id': doc['id'],
-            'page_number': 1, 'page_provenance': 'physical_pdf_page'}}
+        return {
+            'text': 'Recruitment Rules for the post',
+            'metadata': {
+                'title': doc['title'],
+                'circular_no': doc['circular_no'],
+                'date': doc['issued_on'],
+                'policy_document_id': doc['id'],
+                'page_number': 1,
+                'page_provenance': 'physical_pdf_page',
+            },
+        }
 
     result = route_retrieval('xqzvk', '2026-12-31', lambda: [chunk(draft), chunk(live)], mode='recruitment_promotion')
     used = {c['metadata'].get('policy_document_id') for c in result['chunks']}
