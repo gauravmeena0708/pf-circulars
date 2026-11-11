@@ -159,6 +159,8 @@ def read_pdf(path, max_pages, dpi, lang):
         pages.append(text)
     return dict(
         ocr_content='\n\n'.join(p for p in pages if p),
+        # Page texts in order from page 1, so the importer can cite the page a passage is on.
+        pages=pages,
         total_pages=total,
         pages_indexed=len(pages),
         method='+'.join(sorted(methods)) or 'none',

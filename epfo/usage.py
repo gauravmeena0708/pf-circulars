@@ -11,12 +11,21 @@ so, or (b) for every search when USAGE_LOG_QUESTIONS=true.
 import json
 import logging
 import os
+import sys
 import threading
 import time
 from collections import Counter
 from datetime import UTC, datetime
 
 LOG = logging.getLogger('epfo.usage')
+# The server does not configure logging for this name, so give it its own output: one bare
+# JSON line per event on stdout, not repeated through the root logger.
+if not LOG.handlers:
+    _handler = logging.StreamHandler(sys.stdout)
+    _handler.setFormatter(logging.Formatter('%(message)s'))
+    LOG.addHandler(_handler)
+    LOG.setLevel(logging.INFO)
+    LOG.propagate = False
 _lock = threading.Lock()
 _counts = Counter()
 _started = time.time()

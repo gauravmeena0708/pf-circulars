@@ -1,5 +1,15 @@
 # React workspace decision and implementation
 
+## Restructuring - 11 November 2026
+
+The Streamlit application and its files were removed, so the rollback described under
+"Deployment and rollback" below is no longer available; `requirements-react.txt` is now
+`requirements.txt`. Library modules moved into `epfo/` and ingestion scripts into `scripts/`.
+`main.jsx` was split into one file per page with the markup unchanged, and answers gained a
+helpful / not helpful control. Tests, lint and format checks run on GitHub for every branch and
+gate the upload to the Space. The sections below are a dated record and keep the file names of
+their time.
+
 ## PDF and Word downloads - 9 November 2026
 
 Research results now use one **Download** menu: PDF first, then editable Word and

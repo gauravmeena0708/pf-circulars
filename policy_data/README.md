@@ -44,8 +44,8 @@ Legacy fallback ranges are not promoted to verified physical pages.
 Example CLI:
 
 ```bash
-python policy_history.py --policy-name aadhaar --as-of 2025-08-13 --query "wrong Aadhaar in UAN"
-python policy_history.py --policy-name jd --as-of 2025-01-16 --query "closed establishment"
+python -m epfo.policy_history --policy-name aadhaar --as-of 2025-08-13 --query "wrong Aadhaar in UAN"
+python -m epfo.policy_history --policy-name jd --as-of 2025-01-16 --query "closed establishment"
 ```
 
 Development checks:
@@ -53,7 +53,7 @@ Development checks:
 ```bash
 python eval/joint_declaration/run.py
 python eval/joint_declaration/run.py --policy-name aadhaar --cases eval/member_profile_aadhaar/cases.json
-python -m pytest -q tests/test_policy_registry.py tests/test_policy_router.py tests/test_policy_ui.py tests/test_policy_history.py tests/test_answer_generator.py
+python -m pytest -q tests/test_policy_registry.py tests/test_policy_router.py tests/test_policy_history.py tests/test_answer_generator.py
 ```
 
 These development cases check retrieval and safeguards, not legal completeness or

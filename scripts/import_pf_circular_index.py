@@ -209,24 +209,33 @@ def run_import(
             # Retrieve metadata
             item_meta = meta_lookup.get(pdf_url) or meta_lookup.get(filename) or {}
 
-            # Split content into chunks
-            chunks = text_splitter.split_text(ocr_content)
+            # A record that kept its page texts (in order from page 1) is split page by page,
+            # so each passage can name the PDF page it is on. Flattened OCR has no reliable
+            # passage-to-page mapping: keep counts separately and never turn them into an
+            # asserted citation range.
+            pages = val.get("pages")
+            if isinstance(pages, list) and pages and all(isinstance(page, str) for page in pages):
+                chunks = [
+                    (chunk, number)
+                    for number, page in enumerate(pages, 1)
+                    for chunk in text_splitter.split_text(clean_ocr_text(page))
+                ]
+            else:
+                chunks = [(chunk, None) for chunk in text_splitter.split_text(ocr_content)]
             if not chunks:
                 continue
 
-            # Flattened OCR has no reliable passage-to-page mapping. Keep counts
-            # separately; never turn them into an asserted citation range.
             total_pages = val.get("total_pages")
             pages_indexed = val.get("pages_indexed")
 
-            for chunk in chunks:
+            for chunk, page_number in chunks:
                 new_texts.append(chunk)
                 new_metadata.append(
                     {
                         "source_pdf": pdf_url,
                         "source_pdf_original_filename": filename,
-                        "page_number": None,
-                        "page_provenance": "document_only",
+                        "page_number": page_number,
+                        "page_provenance": "physical_pdf_page" if page_number else "document_only",
                         "total_pages": total_pages,
                         "pages_indexed": pages_indexed,
                         "original_group_content_snippet": chunk[:200],

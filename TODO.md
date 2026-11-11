@@ -4,7 +4,7 @@ This document outlines the prioritized improvements for the **EPFO Circulars & S
 1. **Phase 1: Hugging Face Spaces Deployment** (Near-term optimizations tailored for single-container, CPU-constrained, zero-cost hosting).
 2. **Phase 2: Enterprise Cloud Migration** (Long-term architectural evolution for deployment on AWS, GCP, Azure, or on-premises Kubernetes).
 
-> **Status, 11 November 2026**: Phase 1 is complete except cross-encoder ONNX quantization (design only, in `docs/superpowers/specs/`). From Phase 2, the FastAPI service and the React frontend are in production as a single-worker Docker Space; the remaining Phase 2 items are not started. New circulars are listed and indexed by one local command, `python scripts/update_circulars.py`; GitHub's runners cannot reach the issuer's site. See "Corpus Updates" under Phase 1.
+> **Status, 11 November 2026**: The Streamlit application has been removed; file names below that no longer exist (`app.py`, `update_indexer.py`) refer to it, and library modules now live in `epfo/`. Phase 1 is complete except cross-encoder ONNX quantization (design only, in `docs/superpowers/specs/`). From Phase 2, the FastAPI service and the React frontend are in production as a single-worker Docker Space; the remaining Phase 2 items are not started. New circulars are listed and indexed by one local command, `python scripts/update_circulars.py`; GitHub's runners cannot reach the issuer's site. See "Corpus Updates" under Phase 1.
 
 ---
 
@@ -109,7 +109,9 @@ This document outlines the prioritized improvements for the **EPFO Circulars & S
 ### 6. Observability & Continuous RAG Evaluation
 - [ ] **Continuous RAG evaluation**:
   - Started: `eval/answers/` holds 31 questions with expected facts, citations and date limits, scored by fixed rules (`python eval/answers/run.py`). The expectations are drafts until a subject expert reviews them.
-  - Remaining: review the cases, extend the set to 100+ questions, and run it on every code/index release.
+  - Remaining: review the cases, extend the set to 100+ questions, and run it on every code/index release. A full run uses a large share of the provider's daily token allowance, which the live Space shares.
+- [x] **Usage visibility**:
+  - `epfo/usage.py` records anonymous search, answer and feedback events; `/api/stats` shows counts since the last restart. Durable storage of events is not set up (the Space has none).
 - [ ] **APM & Tracing**:
   - Implement OpenTelemetry tracing across the retrieval waterfall: vector search latency, BM25 lookup time, re-ranking time, and LLM Time to First Token (TTFT).
 

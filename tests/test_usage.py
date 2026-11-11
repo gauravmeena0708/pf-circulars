@@ -20,6 +20,8 @@ def events(monkeypatch, caplog):
     usage.reset()
     monkeypatch.delenv('USAGE_LOG_QUESTIONS', raising=False)
     monkeypatch.delenv('USAGE_LOG_FILE', raising=False)
+    # The usage logger writes to stdout on its own; let the test capture it instead.
+    monkeypatch.setattr(usage.LOG, 'propagate', True)
     caplog.set_level(logging.INFO, logger='epfo.usage')
     return lambda: [json.loads(r.getMessage()) for r in caplog.records if r.name == 'epfo.usage']
 

@@ -37,8 +37,7 @@ Uploaded files expire after 30 minutes and are isolated per browser session.
 
 For separate frontend/backend development commands, API limits and the migration
 record, see [the React workspace guide](docs/ui/react-workspace.md). The original
-Streamlit entry point remains available locally through `streamlit run app.py`
-with `requirements.txt`; Docker uses `requirements-react.txt`.
+Streamlit interface has been removed; it remains in the Git history.
 
 ## 🌟 Features
 
@@ -57,10 +56,11 @@ with `requirements.txt`; Docker uses `requirements-react.txt`.
   * PDF/CSV file assistant, office noting, eight PDF utilities, and PDF/Word exports.
 * **Curated policy histories (`policy_data/`)**:
   * 31 registered policies with 684 documents; relationships (supersedes, modifies, clarifies) are recorded only where the circular itself states them.
-* **Legacy Streamlit application (`app.py`)**:
-  * The original interface, kept for local use and rollback.
-* **CLI Interface (`main.py`)**:
-  * Fast command-line query execution and batch PDF re-indexing.
+* **Checks before release**:
+  * Python and frontend tests, lint and format checks run on every branch and must pass before anything is uploaded to the Space.
+  * An answer evaluation checks generated answers against expected facts, citations and date limits.
+* **Usage visibility**:
+  * Anonymous counts of searches, answer outcomes and reader feedback (`/api/stats`); question text is recorded only with feedback.
 * **Git LFS Integration**:
   * The FAISS index, SQLite passage store and BM25 cache are versioned via Git Large File Storage; the Docker build downloads them at the commit pinned in `deploy/runtime-assets.json`.
 
@@ -68,25 +68,19 @@ with `requirements.txt`; Docker uses `requirements-react.txt`.
 
 ## 📁 Repository Structure
 
-* `web_api/`: FastAPI application (`app.py` for research and policy routes, `workspace.py` for uploads, PDF tools and exports).
-* `frontend/`: React + Vite interface.
-* `config.py`: Centralized configuration for models, retrieval parameters, upload limits and API keys.
-* `policy_registry.py`, `policy_router.py`, `policy_history.py`: Registry-driven routing to curated policy histories, with a labelled hybrid fallback.
+* `epfo/`: The library.
+  * `retriever.py`, `passage_store.py`, `vector_indexer.py`: Hybrid search (BM25 + FAISS + RRF + CrossEncoder) over the index.
+  * `policy_registry.py`, `policy_router.py`, `policy_history.py`, `policy_pdfs.py`: Registry-driven routing to curated policy histories, with a labelled hybrid fallback and hash-checked originals.
+  * `answer_generator.py`, `citation_provenance.py`, `currency.py`: Prompting, citation markers and the check for newer circulars.
+  * `document_assistant.py`, `data_assistant.py`, `pdf_utils.py`, `docx_export.py`, `pdf_export.py`: File assistant, PDF utilities and exports.
+  * `usage.py`, `config.py`: Anonymous usage events and settings.
+* `web_api/`: FastAPI application (`app.py` for research, policies, feedback and statistics; `workspace.py` for uploads, PDF tools and exports).
+* `frontend/`: React + Vite interface, one file per page.
+* `scripts/`: Circular listing and indexing (`update_circulars.py`, `fetch.py`, `index_new_circulars.py`, `import_pf_circular_index.py`), manuals (`fetch_manuals.py`, `index_manuals.py`), policy PDF extraction and verification, page backfill, division catalog build and runtime asset pinning.
 * `policy_data/`: One folder per curated policy (`policy.json`, per-page `sources/*.json`), `registry.json`, and the division catalog.
-* `policy_pdfs.py`: Fetches original policy PDFs from their public URLs and accepts them only on a SHA-256 match.
-* `retriever.py`: Hybrid search engine (BM25 + FAISS + RRF + CrossEncoder).
-* `passage_store.py`: Lazy SQLite access to passage text and metadata.
-* `answer_generator.py`: Prompt synthesis, citation formatting, and LLM interaction.
-* `currency.py`: Flags newer circulars on the same subject for standard hybrid results.
-* `document_assistant.py`, `data_assistant.py`, `pdf_utils.py`, `docx_export.py`, `pdf_export.py`: File assistant, PDF utilities and exports.
-* `index_manuals.py`: Extraction and vectorization pipeline for the statutory manuals.
-* `import_pf_circular_index.py`: Ingestion pipeline for precomputed OCR circular datasets.
-* `scripts/`: Policy PDF extraction and verification, policy evidence indexing, division catalog build, runtime asset pinning.
-* `pdf_parser.py`: OCR (EasyOCR / PyMuPDF) and Table Transformer processing.
-* `vector_indexer.py`: FAISS vector index creation and persistence utilities.
-* `app.py`, `main.py`: Legacy Streamlit interface and command-line tool.
-* `vector_store/data_index/`: The three aligned index files, all tracked via Git LFS: `faiss_index.index` (vectors), `faiss_index.passages.db` (SQLite text and metadata) and `faiss_index.bm25.json.gz` (sparse cache). They must be updated together. The BM25 cache is regenerated automatically by `save_faiss_index()` whenever an ingestion script saves; re-commit it after re-indexing.
-* `tests/`, `eval/`: Python tests and per-policy retrieval/guardrail cases.
+* `vector_store/data_index/`: The three aligned index files, all tracked via Git LFS: `faiss_index.index` (vectors), `faiss_index.passages.db` (SQLite text and metadata) and `faiss_index.bm25.json.gz` (sparse cache).
+* `tests/`, `eval/`: Python tests, per-policy retrieval cases and the answer evaluation.
+* `.github/workflows/`: `tests.yaml` (every branch) and `sync_to_hf.yaml` (tests, then upload to the Space).
 
 ---
 
@@ -111,8 +105,8 @@ git lfs pull
 python -m venv .venv
 .\.venv\Scripts\activate   # Linux/macOS: source .venv/bin/activate
 pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cpu
-pip install -r requirements-react.txt   # React/FastAPI workspace
-# pip install -r requirements.txt       # legacy Streamlit app and ingestion scripts
+pip install -r requirements.txt        # the application
+pip install -r requirements-dev.txt    # plus tests, lint and the ingestion scripts
 ```
 
 ### 4. Configure Environment (Optional for LLM Synthesis)
@@ -135,20 +129,20 @@ npm --prefix frontend ci
 npm --prefix frontend run dev -- --port 5174   # proxies /api to port 7861
 ```
 
-The legacy Streamlit interface still runs with `streamlit run app.py`.
-
-### Run the Tests
+### Run the Checks
 ```bash
 python -m pytest -q
+ruff check . && ruff format --check .
 npm --prefix frontend test
+npm --prefix frontend run lint
 ```
 
-### Query via CLI
+The same checks run on GitHub for every branch, and a push to `main` is uploaded to the Space only
+after they pass.
+
+### Query a Policy History from the Command Line
 ```bash
-python main.py data --query "What is the procedure for joint declaration profile update?"
-```
-```bash
-python main.py data --query "What are the duties of Recovery Officer under EPFO Recovery Manual?"
+python -m epfo.policy_history --policy-name jd --as-of 2025-01-16 --query "closed establishment"
 ```
 
 ---
@@ -174,7 +168,7 @@ python scripts/update_circulars.py --check    # report what is new; change nothi
 python scripts/update_circulars.py            # list, read, index, commit and push
 ```
 
-It adds newly listed circulars to `circular-data.json` (`fetch.py`), reads their PDFs and adds
+It adds newly listed circulars to `circular-data.json` (`scripts/fetch.py`), reads their PDFs and adds
 them to the index (`scripts/index_new_circulars.py`), checks that earlier passages are unchanged,
 pushes the index commit and then pins `deploy/runtime-assets.json` to it. Pushing to `main`
 deploys the Space. A PDF that cannot be downloaded stays queued for the next run. Each index
@@ -206,7 +200,7 @@ Other questions use hybrid retrieval. Missing curated coverage can use supplemen
 hybrid sources, explicitly unverified for amendment and applicability.
 
 The offline CLI remains available:
-`python policy_history.py --as-of 2025-01-16 --query "closed establishment"`.
+`python -m epfo.policy_history --as-of 2025-01-16 --query "closed establishment"`.
 See [registered policies and how to extend them](policy_data/README.md),
 [JD sources](policy_data/joint_declaration/README.md) and
 [Aadhaar sources](policy_data/member_profile_aadhaar/README.md).
