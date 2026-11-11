@@ -166,16 +166,31 @@ Counts as of 11 November 2026. The circular listing in `circular-data.json` hold
 ### Keeping the corpus current
 
 New circulars are listed at <https://www.epfo.gov.in/circulars/> (the same page is served at
-<https://pmvbry.epfindia.gov.in/circulars/>). `python fetch.py` reads that page and adds any
-circular not already in `circular-data.json`; it never removes or rewrites existing records, and
-`python fetch.py --dry-run` only reports what would be added. The weekly `fetch.yaml` workflow
-runs the same script. On 11 November 2026 the page listed 1,884 circulars, the latest issued in
-December 2025, and none that the repository did not already hold.
+<https://pmvbry.epfindia.gov.in/circulars/>). One command brings the list and the search index
+up to date:
 
-Adding a listed circular to the search index is still a manual step: the daily schedule of
-`update_faiss.yaml` is switched off because that job would start from an empty index (see the
-note in the workflow file).
+```bash
+python scripts/update_circulars.py --check    # report what is new; change nothing
+python scripts/update_circulars.py            # list, read, index, commit and push
+```
 
+It adds newly listed circulars to `circular-data.json` (`fetch.py`), reads their PDFs and adds
+them to the index (`scripts/index_new_circulars.py`), checks that earlier passages are unchanged,
+pushes the index commit and then pins `deploy/runtime-assets.json` to it. Pushing to `main`
+deploys the Space. A PDF that cannot be downloaded stays queued for the next run. Each index
+update adds about 290 MB to Git LFS; `--min-pending N` waits until N circulars are queued.
+
+This runs from a local machine because the issuer's site refuses GitHub's hosted runners (403),
+so there is no scheduled workflow. On 11 November 2026 the page listed 1,884 circulars, the
+latest issued in December 2025, and none that the repository did not already hold.
+
+
+## Answer evaluation
+
+`python eval/answers/run.py` sends 31 questions through the same API the interface uses and
+checks each generated answer by fixed rules: the policy chosen, the source cited, the facts
+stated, and that nothing issued after the evidence date is stated. The expected facts are
+drafts until reviewed; see [eval/answers/README.md](eval/answers/README.md).
 
 ## Policy version and date histories
 

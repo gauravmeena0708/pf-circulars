@@ -4,7 +4,7 @@ This document outlines the prioritized improvements for the **EPFO Circulars & S
 1. **Phase 1: Hugging Face Spaces Deployment** (Near-term optimizations tailored for single-container, CPU-constrained, zero-cost hosting).
 2. **Phase 2: Enterprise Cloud Migration** (Long-term architectural evolution for deployment on AWS, GCP, Azure, or on-premises Kubernetes).
 
-> **Status, 11 November 2026**: Phase 1 is complete except cross-encoder ONNX quantization (design only, in `docs/superpowers/specs/`). From Phase 2, the FastAPI service and the React frontend are in production as a single-worker Docker Space; the remaining Phase 2 items are not started. New circulars are listed from <https://www.epfo.gov.in/circulars/>, but adding them to the index is not automatic; see "Corpus Updates" under Phase 1.
+> **Status, 11 November 2026**: Phase 1 is complete except cross-encoder ONNX quantization (design only, in `docs/superpowers/specs/`). From Phase 2, the FastAPI service and the React frontend are in production as a single-worker Docker Space; the remaining Phase 2 items are not started. New circulars are listed and indexed by one local command, `python scripts/update_circulars.py`; GitHub's runners cannot reach the issuer's site. See "Corpus Updates" under Phase 1.
 
 ---
 
@@ -50,12 +50,13 @@ This document outlines the prioritized improvements for the **EPFO Circulars & S
   - *Files touched*: [`app.py`](app.py), [`rate_limiter.py`](rate_limiter.py).
 
 ### 5. Corpus Updates
-- [x] **Read the new circular listing**:
-  - `fetch.py` now reads <https://www.epfo.gov.in/circulars/> and merges unseen circulars into `circular-data.json` (the earlier endpoint on `www.epfindia.gov.in` redirects). `fetch.yaml` runs it weekly; the workflow was disabled by GitHub for inactivity (last run 20 July 2026) and has to be re-enabled once.
-- [ ] **Restore automatic indexing of new circulars**:
-  - *Current issue*: `update_faiss.yaml` checks out without Git LFS, so `update_indexer.py` starts from an empty index, and PDF downloads from the runner returned 403 on the old host. Its daily schedule is switched off so that it cannot commit a small index over the full one.
-  - *Action*: Check out LFS in the index job, append to the full index, exclude `vector_store/` from the Space upload and refresh `deploy/runtime-assets.json` after an index change; confirm that PDFs on `pmvbry-cdn.epfindia.gov.in` can be downloaded from the runner.
-  - *Files touched*: [`update_indexer.py`](update_indexer.py), `.github/workflows/update_faiss.yaml`.
+- [x] **Read the new circular listing and index new circulars**:
+  - `python scripts/update_circulars.py` adds newly listed circulars from <https://www.epfo.gov.in/circulars/> to `circular-data.json`, reads their PDFs, adds them to the index, verifies it, pushes and pins `deploy/runtime-assets.json`.
+- [ ] **Run the update without a person starting it**:
+  - *Current issue*: the issuer's site returns 403 to GitHub's hosted runners (probe run of 11 November 2026), so the scheduled workflows were removed and the update runs from a local machine.
+  - *Action*: schedule `scripts/update_circulars.py` on a machine in India (Task Scheduler or a self-hosted runner). Each index update adds about 290 MB to Git LFS, so batch with `--min-pending`.
+- [ ] **Source links on the retired site**:
+  - *Current issue*: circular links recorded as `www.epfindia.gov.in/site_docs/...` are rewritten to `www.epfo.gov.in`, which returned 404 for them on 11 November 2026. 39 older listed PDFs are not in the index and can no longer be downloaded from those links.
 
 ---
 
@@ -106,8 +107,9 @@ This document outlines the prioritized improvements for the **EPFO Circulars & S
   - Set up a scheduled worker (Airflow, Temporal, or AWS Lambda / EventBridge) that runs [`fetch.py`](fetch.py) and [`update_indexer.py`](update_indexer.py) weekly to ingest new circulars automatically without manual developer intervention.
 
 ### 6. Observability & Continuous RAG Evaluation
-- [ ] **Continuous RAG evaluation (Ragas / TruLens)**:
-  - Benchmark context precision, context recall, and groundedness against a golden test set of 100+ statutory questions on every code/index release.
+- [ ] **Continuous RAG evaluation**:
+  - Started: `eval/answers/` holds 31 questions with expected facts, citations and date limits, scored by fixed rules (`python eval/answers/run.py`). The expectations are drafts until a subject expert reviews them.
+  - Remaining: review the cases, extend the set to 100+ questions, and run it on every code/index release.
 - [ ] **APM & Tracing**:
   - Implement OpenTelemetry tracing across the retrieval waterfall: vector search latency, BM25 lookup time, re-ranking time, and LLM Time to First Token (TTFT).
 

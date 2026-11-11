@@ -1,0 +1,769 @@
+{
+ "dataset_status": "Draft: expectations were written from the cited source pages and have not been reviewed by a subject expert",
+ "how_to_review": "Read the source named in each case, correct the facts if needed, and change review from 'draft' to 'reviewed'.",
+ "cases": [
+  {
+   "id": "advances-illness-limit",
+   "question": "What is the auto claim settlement limit for illness advances under para 68J, and when was it deployed?",
+   "as_of": "2024-04-16",
+   "expect_policy": "advances",
+   "must_cite": [
+    "advances-2024-04-16"
+   ],
+   "must_state": [
+    {
+     "fact": "limit raised to Rs 1,00,000",
+     "any": [
+      "1,?00,?000",
+      "\\b1(?:\\.0+)? ?lakh|\\bone lakh"
+     ]
+    },
+    {
+     "fact": "deployed on 10 April 2024",
+     "any": [
+      "\\b0?10(?:st|nd|rd|th)?[ ,/.-]*(?:of )?(?:April|Apr[a-z]*\\.?)[ ,/.-]*2024",
+      "(?:April|Apr[a-z]*\\.?) 0?10(?:st|nd|rd|th)?,? 2024",
+      "\\b0?10[/.-]0?4[/.-]2024\\b"
+     ]
+    }
+   ],
+   "must_not_state": [
+    {
+     "claim": "a five lakh limit (issued after the evidence date)",
+     "any": [
+      "5,?00,?000",
+      "\\b5(?:\\.0+)? ?lakh|\\bfive lakh"
+     ]
+    }
+   ],
+   "source": "WSU/E-13719 dated 16/04/2024, page 1",
+   "review": "draft"
+  },
+  {
+   "id": "advances-covid-discontinued",
+   "question": "Is the COVID-19 advance still available to members?",
+   "as_of": "2024-06-12",
+   "expect_policy": "advances",
+   "must_cite": [
+    "advances-2024-06-12"
+   ],
+   "must_state": [
+    {
+     "fact": "the COVID-19 advance is discontinued",
+     "any": [
+      "discontinu",
+      "withdrawn",
+      "no longer",
+      "stopped",
+      "ceased",
+      "not available"
+     ]
+    }
+   ],
+   "source": "Circular of 12/06/2024 (discontinuation of COVID-19 advance)",
+   "review": "draft"
+  },
+  {
+   "id": "bank-kyc-2024-relaxation",
+   "question": "Under what conditions is uploading the cheque leaf or passbook image relaxed for online claims?",
+   "as_of": "2024-05-28",
+   "expect_policy": "bank_kyc",
+   "must_cite": [
+    "bank-2024-05-28"
+   ],
+   "must_state": [
+    {
+     "fact": "bank KYC verified online by the bank or NPCI",
+     "any": [
+      "NPCI",
+      "verif\\w+ by (?:the )?(?:concerned )?bank"
+     ]
+    },
+    {
+     "fact": "employer verification using DSC",
+     "any": [
+      "\\bDSC\\b",
+      "digital(?:ly)? sign"
+     ]
+    },
+    {
+     "fact": "Aadhaar verified by UIDAI",
+     "any": [
+      "UIDAI",
+      "Aadhaar"
+     ]
+    }
+   ],
+   "must_not_state": [
+    {
+     "claim": "the April 2025 rule (issued after the evidence date)",
+     "any": [
+      "\\b2025\\b"
+     ]
+    }
+   ],
+   "source": "WSU/E-49885 dated 28/05/2024, page 1",
+   "review": "draft"
+  },
+  {
+   "id": "bank-kyc-2025-employer",
+   "question": "Is employer approval still required for seeding a bank account with UAN, and must a cheque leaf image be uploaded with an online claim?",
+   "as_of": "2025-04-03",
+   "expect_policy": "bank_kyc",
+   "must_cite": [
+    "bank-2025-04-03"
+   ],
+   "must_state": [
+    {
+     "fact": "employer approval is no longer required",
+     "any": [
+      "employer.{0,90}(?:\\bnot?\\b|no longer|removed|dispens|without|waive)",
+      "(?:\\bno\\b|\\bnot\\b|removal|removed|dispens|without).{0,70}employer"
+     ]
+    },
+    {
+     "fact": "upload not required when the account is validated by the bank or NPCI",
+     "any": [
+      "NPCI",
+      "validated by (?:the )?(?:concerned )?bank"
+     ]
+    }
+   ],
+   "source": "WSU/IssuesofBKG/E-49885/2024-25/16 dated 03/04/2025, page 1",
+   "review": "draft"
+  },
+  {
+   "id": "cpps-any-bank",
+   "question": "After CPPS, can a pension claim be processed for a bank branch outside the regional office's jurisdiction?",
+   "as_of": "2025-01-17",
+   "expect_policy": "cpps",
+   "must_cite": [
+    "cpps-2025-01-17"
+   ],
+   "must_state": [
+    {
+     "fact": "any branch of any scheduled commercial bank",
+     "any": [
+      "scheduled commercial bank"
+     ]
+    },
+    {
+     "fact": "anywhere in India / any branch",
+     "any": [
+      "anywhere in India",
+      "any branch",
+      "any bank"
+     ]
+    }
+   ],
+   "source": "Pension/V4/CPPS/Pilot/2024 dated 17/01/2025, page 1",
+   "review": "draft"
+  },
+  {
+   "id": "cpps-any-bank-hindi",
+   "question": "After CPPS, can a pension claim be processed for a bank branch outside the regional office's jurisdiction?",
+   "as_of": "2025-01-17",
+   "expect_policy": "cpps",
+   "must_cite": [
+    "cpps-2025-01-17"
+   ],
+   "must_state": [],
+   "source": "Same circular; checks that a Hindi answer is in Hindi and cites the source",
+   "review": "draft",
+   "language": "Hindi"
+  },
+  {
+   "id": "damages-7a-officer-tier",
+   "question": "Which officer exercises powers under section 7A for an establishment with 251 to 1000 members?",
+   "as_of": "2007-10-17",
+   "expect_policy": "damages_7a",
+   "must_cite": [
+    "damages_7a-2007-10-17-7a8136"
+   ],
+   "must_state": [
+    {
+     "fact": "RPFC-II for 251 to 1000 members",
+     "any": [
+      "RPFC[- ]?II\\b",
+      "Regional (?:Provident Fund|P\\.? ?F\\.?) Commissioner[- ,(]*(?:Grade[- ]*)?II\\b"
+     ]
+    }
+   ],
+   "source": "RRC.II/28(31)07 dated 17/10/2007, page 2",
+   "review": "draft"
+  },
+  {
+   "id": "dr-2025-07",
+   "question": "What is the dearness relief rate for staff pensioners with effect from 1 July 2025?",
+   "as_of": "2025-10-13",
+   "expect_policy": "dearness",
+   "must_cite": [
+    "dr-2025-10-13"
+   ],
+   "must_state": [
+    {
+     "fact": "58 per cent",
+     "any": [
+      "\\b58 ?%",
+      "\\b58 per ?cent"
+     ]
+    },
+    {
+     "fact": "effective 1 July 2025",
+     "any": [
+      "\\b0?1(?:st|nd|rd|th)?[ ,/.-]*(?:of )?(?:July|Jul[a-z]*\\.?)[ ,/.-]*2025",
+      "(?:July|Jul[a-z]*\\.?) 0?1(?:st|nd|rd|th)?,? 2025",
+      "\\b0?1[/.-]0?7[/.-]2025\\b"
+     ]
+    }
+   ],
+   "must_not_state": [
+    {
+     "claim": "60 per cent (issued in 2026, after the evidence date)",
+     "any": [
+      "\\b60 ?%",
+      "\\b60 per ?cent"
+     ]
+    }
+   ],
+   "source": "HRD/1(71)/2020/Misc./Pt./1445 dated 13/10/2025, page 2",
+   "review": "draft"
+  },
+  {
+   "id": "dr-before-october-2025",
+   "question": "What is the dearness relief rate for staff pensioners?",
+   "as_of": "2025-06-30",
+   "expect_policy": "dearness",
+   "must_cite": [
+    "dr-2025-04-17"
+   ],
+   "must_state": [
+    {
+     "fact": "55 per cent",
+     "any": [
+      "\\b55 ?%",
+      "\\b55 per ?cent"
+     ]
+    }
+   ],
+   "must_not_state": [
+    {
+     "claim": "58 per cent (issued in October 2025, after the evidence date)",
+     "any": [
+      "\\b58 ?%",
+      "\\b58 per ?cent"
+     ]
+    }
+   ],
+   "source": "Dearness relief circular of 17/04/2025 (55% from 01/01/2025)",
+   "review": "draft"
+  },
+  {
+   "id": "epf-interest-2023-24",
+   "question": "What interest rate was declared for EPF members for 2023-24?",
+   "as_of": "2024-05-31",
+   "expect_policy": "epf_interest_rate",
+   "must_cite": [
+    "roi-2024-05-31"
+   ],
+   "must_state": [
+    {
+     "fact": "8.25 per cent",
+     "any": [
+      "8\\.25"
+     ]
+    }
+   ],
+   "source": "INV-11/2/2021-INV dated 31/05/2024, page 1",
+   "review": "draft"
+  },
+  {
+   "id": "epf-interest-not-declared",
+   "question": "What interest rate has been declared for EPF members for 2026-27?",
+   "expect_policy": "epf_interest_rate",
+   "must_state": [
+    {
+     "fact": "says no declaration for 2026-27 is among the sources",
+     "any": [
+      "\\bnot? (?:been )?(?:found|declared|available|provided|contained|included|mentioned|covered|given|stated)",
+      "\\bno (?:source|information|circular|declaration|document|rate|mention|record)",
+      "\\b(?:do|does|did) not\\b",
+      "\\bcannot\\b",
+      "\\bunable\\b",
+      "\\bnone of the\\b"
+     ]
+    }
+   ],
+   "source": "No circular for 2026-27 is held; the answer must not supply a rate for that year",
+   "review": "draft"
+  },
+  {
+   "id": "eps-concurrent-employment",
+   "question": "How is pension worked out when an EPS member has concurrent employment in two establishments?",
+   "as_of": "2024-01-29",
+   "expect_policy": "eps_corrections",
+   "must_cite": [
+    "transfer-2024-01-29"
+   ],
+   "must_state": [
+    {
+     "fact": "pension from all establishments is aggregated",
+     "any": [
+      "aggregat"
+     ]
+    },
+    {
+     "fact": "subject to the wage ceiling",
+     "any": [
+      "wage ceiling"
+     ]
+    }
+   ],
+   "source": "e-597452/4406 dated 29/01/2024, page 1",
+   "review": "draft"
+  },
+  {
+   "id": "foreign-visit-authority",
+   "question": "Who is delegated the power to permit an EPFO employee to go abroad on a personal visit?",
+   "as_of": "2013-12-31",
+   "expect_policy": "foreign_visit",
+   "must_cite": [
+    "foreignvisit-2013-10-31-ff350f"
+   ],
+   "must_state": [
+    {
+     "fact": "only the CPFC",
+     "any": [
+      "\\bCPFC\\b",
+      "Central Provident Fund Commissioner",
+      "Central P\\.? ?F\\.? Commissioner"
+     ]
+    }
+   ],
+   "source": "HRM/A-10(88)2008/Shimla dated 31/10/2013, page 1",
+   "review": "draft"
+  },
+  {
+   "id": "jd-2023-uncovered-matters",
+   "question": "Under the 2023 joint declaration SOP, what governs matters that the SOP does not cover?",
+   "as_of": "2023-08-22",
+   "expect_policy": "jd",
+   "must_cite": [
+    "jd-2023-08-22"
+   ],
+   "must_state": [
+    {
+     "fact": "the Manual of Accounting Procedure",
+     "any": [
+      "Manual of Accounting Procedure",
+      "\\bMAP\\b"
+     ]
+    }
+   ],
+   "source": "WSU/2022/Rationalisation of work areas/Joint Declaration dated 22/08/2023, page 1",
+   "review": "draft"
+  },
+  {
+   "id": "legal-panel-review",
+   "question": "How often must Additional CPFCs (Zones) review the performance of panel advocates, and to whom do they report?",
+   "as_of": "2014-05-16",
+   "expect_policy": "legal_case_handling",
+   "must_cite": [
+    "legal_case_handling-2014-05-16-773aa3"
+   ],
+   "must_state": [
+    {
+     "fact": "every quarter",
+     "any": [
+      "quarter"
+     ]
+    },
+    {
+     "fact": "report to the CPFC",
+     "any": [
+      "\\bCPFC\\b",
+      "Central Provident Fund Commissioner",
+      "Central P\\.? ?F\\.? Commissioner"
+     ]
+    }
+   ],
+   "source": "LC-9(12)2013/CPFC Ref./Pt. dated 16/05/2014, page 5",
+   "review": "draft"
+  },
+  {
+   "id": "mts-regulations-2017",
+   "question": "When do the Multi-Tasking Staff Recruitment Regulations, 2017 come into force and what do they replace?",
+   "as_of": "2017-12-31",
+   "expect_policy": "recruitment_promotion",
+   "must_cite": [
+    "rec-2017-12-07-88dea7"
+   ],
+   "must_state": [
+    {
+     "fact": "from publication in the official Gazette",
+     "any": [
+      "Gazette"
+     ]
+    },
+    {
+     "fact": "they supersede the 2011 regulations",
+     "any": [
+      "\\b2011\\b"
+     ]
+    }
+   ],
+   "source": "HRD/C-1(3)2010/RR/MTS dated 07/12/2017, page 6",
+   "review": "draft"
+  },
+  {
+   "id": "pension-para-12-2",
+   "question": "What is the formula for monthly pension for a new entrant under para 12(2) of the Employees Pension Scheme 1995?",
+   "as_of": "2006-03-29",
+   "expect_policy": "pension_member_rules",
+   "must_cite": [
+    "pension_member_rules-2006-03-29-4f237a"
+   ],
+   "must_state": [
+    {
+     "fact": "pensionable salary",
+     "any": [
+      "pensionable salary"
+     ]
+    },
+    {
+     "fact": "pensionable service",
+     "any": [
+      "pensionable service"
+     ]
+    },
+    {
+     "fact": "divided by 70",
+     "any": [
+      "\\b70\\b"
+     ]
+    }
+   ],
+   "source": "Pension-3/1/2006/Para 12(2)Clarification dated 29/03/2006, page 1",
+   "review": "draft"
+  },
+  {
+   "id": "higher-pension-average-pay",
+   "question": "For pension on higher wages, over what period is average monthly pay computed when pension commenced before 1 September 2014, and after it?",
+   "as_of": "2023-06-01",
+   "expect_policy": "higher_pension",
+   "must_cite": [
+    "pohw-2023-06-01"
+   ],
+   "must_state": [
+    {
+     "fact": "12 months before exit for commencement before 01/09/2014",
+     "any": [
+      "\\b12[- ]months?",
+      "twelve months"
+     ]
+    },
+    {
+     "fact": "60 months before exit for commencement after 01/09/2014",
+     "any": [
+      "\\b60[- ]months?",
+      "sixty months"
+     ]
+    }
+   ],
+   "source": "Pension/SC/HigherPension/2022 dated 01/06/2023, page 1",
+   "review": "draft"
+  },
+  {
+   "id": "form-13-destination-office",
+   "question": "Does the destination office still process a Form 13 transfer claim at three levels?",
+   "as_of": "2025-04-25",
+   "expect_policy": "transfers",
+   "must_cite": [
+    "transfer-2025-04-25"
+   ],
+   "must_state": [
+    {
+     "fact": "three-level processing at the destination office is dispensed with",
+     "any": [
+      "dispens",
+      "no longer",
+      "not required",
+      "removed",
+      "eliminat",
+      "done away",
+      "without.{0,40}processing"
+     ]
+    }
+   ],
+   "source": "WSU/Amendments in IT, 1961/E-33306/2025-26 dated 25/04/2025, page 1",
+   "review": "draft"
+  },
+  {
+   "id": "commissioner-transfer-authority",
+   "question": "Who is the competent authority for transfers in the Commissioners' cadre after the May 2022 amendment?",
+   "as_of": "2022-05-30",
+   "expect_policy": "staff_transfer",
+   "must_cite": [
+    "tp-comm-2022-05-30"
+   ],
+   "must_state": [
+    {
+     "fact": "the Chairman, Central Board",
+     "any": [
+      "Chairman.{0,40}(?:Central Board|CBT)"
+     ]
+    }
+   ],
+   "source": "HRD/3/2015/TransferPolicy dated 30/05/2022, page 1",
+   "review": "draft"
+  },
+  {
+   "id": "spf-interest-2011-12",
+   "question": "What interest rate applied to the Staff Provident Fund during 2011-12?",
+   "as_of": "2012-04-26",
+   "expect_policy": "spf_interest",
+   "must_cite": [
+    "spf_interest-2012-04-26-25d2a5"
+   ],
+   "must_state": [
+    {
+     "fact": "8 per cent from 01/04/2011 to 30/11/2011",
+     "any": [
+      "\\b8(?:\\.0+)? ?%",
+      "\\b8 per ?cent",
+      "eight per ?cent"
+     ]
+    },
+    {
+     "fact": "8.6 per cent from 01/12/2011",
+     "any": [
+      "8\\.6"
+     ]
+    }
+   ],
+   "must_not_state": [
+    {
+     "claim": "an EPF members' rate (a different fund)",
+     "any": [
+      "8\\.25",
+      "9\\.5"
+     ]
+    }
+   ],
+   "source": "HRD/3(2) 2012/SPF dated 26/04/2012, page 1",
+   "review": "draft"
+  },
+  {
+   "id": "aadhaar-seeding-deadline-2016",
+   "question": "What deadline did the Ministry set for 100% Aadhaar seeding in the 2016 UAN campaign?",
+   "as_of": "2016-11-21",
+   "expect_policy": "aadhaar",
+   "must_cite": [
+    "aadhaar-2016-11-21"
+   ],
+   "must_state": [
+    {
+     "fact": "31 December 2016",
+     "any": [
+      "\\b0?31(?:st|nd|rd|th)?[ ,/.-]*(?:of )?(?:December|Dec[a-z]*\\.?)[ ,/.-]*2016",
+      "(?:December|Dec[a-z]*\\.?) 0?31(?:st|nd|rd|th)?,? 2016",
+      "\\b0?31[/.-]0?12[/.-]2016\\b"
+     ]
+    }
+   ],
+   "source": "CAIU/011(27)2016/KYC dated 21/11/2016, page 1",
+   "review": "draft"
+  },
+  {
+   "id": "briefcase-ceiling-apfc",
+   "question": "What is the briefcase reimbursement ceiling for an APFC, and how often can it be claimed?",
+   "as_of": "2024-10-01",
+   "expect_policy": "employee_benefits",
+   "must_cite": [
+    "employee_benefits-2024-10-01-7c189e"
+   ],
+   "must_state": [
+    {
+     "fact": "Rs 5,000",
+     "any": [
+      "5,?000"
+     ]
+    },
+    {
+     "fact": "once in three years",
+     "any": [
+      "\\b(?:3|three) years"
+     ]
+    }
+   ],
+   "source": "(E-27818) HRD/1(71)2020/Misc. dated 01/10/2024, page 1",
+   "review": "draft"
+  },
+  {
+   "id": "mid-delinking",
+   "question": "Can a member remove a member ID that was wrongly linked to their UAN?",
+   "as_of": "2025-01-17",
+   "expect_policy": "mid_delinking",
+   "must_cite": [
+    "mid-2025-01-17"
+   ],
+   "must_state": [
+    {
+     "fact": "members have a facility to de-link the member ID",
+     "any": [
+      "de-?link"
+     ]
+    }
+   ],
+   "source": "WSU/ErroneousLinkingofUAN/E-838432/2024-25/10 dated 17/01/2025, page 1",
+   "review": "draft"
+  },
+  {
+   "id": "inoperative-claims-ao",
+   "question": "Up to what amount may an Account Officer authorise claims from inoperative accounts, and what check applies?",
+   "as_of": "2011-12-31",
+   "expect_policy": "claim_authority",
+   "must_cite": [
+    "claimauth-2011-03-11-02d546"
+   ],
+   "must_state": [
+    {
+     "fact": "up to Rs 50,000",
+     "any": [
+      "50,?000"
+     ]
+    },
+    {
+     "fact": "counter-checked by another AO",
+     "any": [
+      "counter[- ]?check"
+     ]
+    }
+   ],
+   "source": "WSU/Inoperative Accounts/Vol.-II dated 11/03/2011, page 2",
+   "review": "draft"
+  },
+  {
+   "id": "apar-2024-25-self-appraisal",
+   "question": "By what date must the officer reported upon submit the self-appraisal for APAR 2024-25, and through which system?",
+   "as_of": "2025-08-26",
+   "expect_policy": "apar_sparrow",
+   "must_cite": [
+    "apar-2025-08-26"
+   ],
+   "must_state": [
+    {
+     "fact": "through SPARROW",
+     "any": [
+      "SPARROW"
+     ]
+    },
+    {
+     "fact": "20 September 2025",
+     "any": [
+      "\\b0?20(?:st|nd|rd|th)?[ ,/.-]*(?:of )?(?:September|Sep[a-z]*\\.?)[ ,/.-]*2025",
+      "(?:September|Sep[a-z]*\\.?) 0?20(?:st|nd|rd|th)?,? 2025",
+      "\\b0?20[/.-]0?9[/.-]2025\\b"
+     ]
+    }
+   ],
+   "source": "HRD-I/65/2025/APAR/2024 dated 26/08/2025, page 1",
+   "review": "draft"
+  },
+  {
+   "id": "pid-delegation-board-meeting",
+   "question": "Which Central Board meeting approved the delegation of financial powers for the Physical Infrastructure Division?",
+   "as_of": "2020-01-17",
+   "expect_policy": "delegation",
+   "must_cite": [
+    "delegation-2020-01-17-f8b101"
+   ],
+   "must_state": [
+    {
+     "fact": "the 225th meeting",
+     "any": [
+      "\\b225"
+     ]
+    }
+   ],
+   "source": "HRD/2(1)2013/Delegation of Powers dated 17/01/2020, page 1",
+   "review": "draft"
+  },
+  {
+   "id": "panel-advocate-fee-2026",
+   "question": "On which Law Ministry memorandum is the 2026 revision of fees for EPFO panel advocates based?",
+   "as_of": "2026-07-08",
+   "expect_policy": "legal_panel",
+   "must_cite": [
+    "lf-2026-07-08"
+   ],
+   "must_state": [
+    {
+     "fact": "the Department of Legal Affairs OM",
+     "any": [
+      "Legal Affairs",
+      "\\bDoLA\\b",
+      "Law (?:and|&) Justice"
+     ]
+    },
+    {
+     "fact": "dated 5 February 2026",
+     "any": [
+      "\\b0?5(?:st|nd|rd|th)?[ ,/.-]*(?:of )?(?:February|Feb[a-z]*\\.?)[ ,/.-]*2026",
+      "(?:February|Feb[a-z]*\\.?) 0?5(?:st|nd|rd|th)?,? 2026",
+      "\\b0?5[/.-]0?2[/.-]2026\\b"
+     ]
+    }
+   ],
+   "source": "Legal Consultation-Part (1)/Circular/E50586 dated 08/07/2026, page 1",
+   "review": "draft"
+  },
+  {
+   "id": "ecr-e-returns-notification",
+   "question": "Which Gazette notification amended the EPF Scheme for submission of e-returns?",
+   "as_of": "2012-05-23",
+   "expect_policy": "ecr_returns",
+   "must_cite": [
+    "ecr_returns-2012-05-23-9d468e"
+   ],
+   "must_state": [
+    {
+     "fact": "G.S.R. 336(E)",
+     "any": [
+      "\\b336"
+     ]
+    }
+   ],
+   "source": "Coord/40(1)2011/claim settlement dated 23/05/2012, page 2",
+   "review": "draft"
+  },
+  {
+   "id": "pidpi-designated-agency",
+   "question": "Which body is the designated agency to receive complaints under the PIDPI resolution?",
+   "as_of": "2012-07-10",
+   "expect_policy": "quality_complaints",
+   "must_cite": [
+    "quality_complaints-2012-07-10-54ff02"
+   ],
+   "must_state": [
+    {
+     "fact": "the Central Vigilance Commission",
+     "any": [
+      "Central Vigilance Commission",
+      "\\bCVC\\b"
+     ]
+    }
+   ],
+   "source": "Vig./Coord./21/CVC Corr. dated 10/07/2012, page 1",
+   "review": "draft"
+  },
+  {
+   "id": "standard-search-recovery-officer",
+   "question": "What are the duties of a Recovery Officer under the Recovery Manual?",
+   "expect_policy": null,
+   "must_state": [],
+   "source": "No curated policy applies; checks standard search returns sources and the answer cites them",
+   "review": "draft"
+  }
+ ]
+}

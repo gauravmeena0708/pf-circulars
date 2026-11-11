@@ -34,6 +34,13 @@ python policy_history.py --policy-name jd --as-of 2025-01-16 --query "closed est
 python eval/joint_declaration/run.py
 python eval/joint_declaration/run.py --policy-name aadhaar --cases eval/member_profile_aadhaar/cases.json
 
+# Answer evaluation through the real API (see eval/answers/README.md)
+python eval/answers/run.py --retrieval-only     # routing and sources; free
+python eval/answers/run.py --out report.json    # generated answers; paid inference, 20-30 min (provider rate limit)
+
+# New circulars: list, read, index, commit, push (see "Keeping the corpus current")
+python scripts/update_circulars.py --check
+
 # Re-check that every recorded original PDF still reproduces from its public URL
 python scripts/verify_policy_pdfs.py
 ```
@@ -80,11 +87,15 @@ The Space cannot hold the index (1 GB repo limit), so the Docker build downloads
 - Adding curated policy pages to the index: `python scripts/index_policy_evidence.py --index-dir vector_store/data_index --output-dir <staging dir outside the repo>`, check the ingestion report (original rows unchanged, ids aligned), then copy all three artifacts over.
 - The root `Dockerfile` and `deploy/react/Dockerfile` are intentionally identical; update both.
 
-### Other workflows
+### Keeping the corpus current
 
-`fetch.py` reads the issuer's listing at https://www.epfo.gov.in/circulars/ (same page at https://pmvbry.epfindia.gov.in/circulars/; every entry is in the page HTML as a `download-box` div) and merges circulars not already held into `circular-data.json`. It never removes or rewrites existing records, because the page lists only part of the archive; duplicates are detected by title and PDF file name, since the URLs differ from the older `site_docs` links. `fetch.yaml` runs it weekly and commits to `main` as `github-actions[bot]`, so pull before pushing.
+`python scripts/update_circulars.py` is the whole update (`--check` reports only; `--no-push` stops after local commits). It must run on `main` with a clean tree, from a machine that can reach the issuer's site: GitHub's hosted runners get 403 from it, so there is no scheduled workflow and none should be re-added without re-testing that. Steps:
 
-`update_faiss.yaml` (runs `update_indexer.py`) is manual-only and should not be run as it stands: it checks out without LFS, so it would start from an empty index and commit that over the full one. Listed circulars therefore reach the search index only through manual local work.
+1. `fetch.py` reads the listing at https://www.epfo.gov.in/circulars/ (same page at https://pmvbry.epfindia.gov.in/circulars/; every entry is a `download-box` div in the HTML) and merges circulars not already held into `circular-data.json`. It never removes or rewrites existing records, because the page lists only part of the archive; duplicates are detected by title and PDF file name, since the URLs differ from the older `site_docs` links.
+2. `scripts/index_new_circulars.py` takes records with a new-site PDF link that have no text record in `ocr_updates/index-*.json`, downloads and reads them (native text, Tesseract fallback), writes the text records and runs `import_pf_circular_index.py`. It then checks that earlier passages are unchanged and the three files are aligned, restoring them otherwise. Failed downloads are not recorded, so they are retried next run.
+3. The index commit is pushed, then `deploy/runtime-assets.json` is pinned to it and pushed.
+
+The importer compares new-site links in full: that site reuses file names such as `161.pdf` across upload folders, whereas a file name identified a circular on the retired site. `update_indexer.py` is the older pipeline and is not used by this flow.
 
 ### Frontend
 
