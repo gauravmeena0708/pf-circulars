@@ -194,7 +194,11 @@ def run_import(
             filename = pdf_url.split('/')[-1]
 
             # Skip if already in index
-            if pdf_url in already_indexed or filename in already_indexed:
+            # The retired site kept one file name per circular, so a name match means the same
+            # document. The new site reuses names such as "161.pdf" across upload folders, so
+            # its links are compared in full.
+            name_identifies = "/site_docs/" in pdf_url or not pdf_url.lower().startswith(("http://", "https://"))
+            if pdf_url in already_indexed or (name_identifies and filename in already_indexed):
                 skipped_count += 1
                 continue
 
