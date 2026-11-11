@@ -368,10 +368,7 @@
    "id": "legal-panel-review",
    "question": "How often must Additional CPFCs (Zones) review the performance of panel advocates, and to whom do they report?",
    "as_of": "2014-05-16",
-   "expect_policy": "legal_case_handling",
-   "must_cite": [
-    "legal_case_handling-2014-05-16-773aa3"
-   ],
+   "expect_policy": "legal_panel",
    "must_state": [
     {
      "fact": "every quarter",
@@ -388,7 +385,7 @@
      ]
     }
    ],
-   "source": "LC-9(12)2013/CPFC Ref./Pt. dated 16/05/2014, page 5",
+   "source": "LC-9(12)2013/CPFC Ref./Pt. dated 16/05/2014, page 5 (a legal case handling circular; a question about panel advocates is routed to the panel advocates policy and receives this circular as a supplementary source)",
    "review": "draft"
   },
   {

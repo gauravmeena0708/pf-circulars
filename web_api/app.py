@@ -20,6 +20,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from policy_registry import registered_policies
+from citation_provenance import normalise_citation_stream
 import currency
 from official_links import official_links, official_url
 import policy_pdfs
@@ -312,8 +313,9 @@ def answer(packet_id: str, request: AnswerRequest, http_request: Request, x_hf_t
                                     currency=packet.get('currency'), answer_detail=request.detail)
             if isinstance(stream, str):
                 stream = [stream]
-            for chunk in stream:
-                text = chunk.content if hasattr(chunk, 'content') else str(chunk)
+            pieces = (chunk.content if hasattr(chunk, 'content') else str(chunk) for chunk in stream)
+            # Models sometimes write 【3】 or [1, 2]; readers and exports only recognise [3].
+            for text in normalise_citation_stream(pieces):
                 yield json.dumps({'text': text}, ensure_ascii=False) + '\n'
             yield json.dumps({'done': True}) + '\n'
         except Exception as error:

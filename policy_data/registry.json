@@ -52,7 +52,7 @@
       "scope": "Pension Division circulars on contribution on salary above the statutory limit (Para 11(3)), pension calculation and weightage of service (Para 12), change of date of birth of pension fund members, Aadhaar as identity document and pension claim forms, and pension on higher wages; not Jeevan Pramaan life certificates or UAN-Aadhaar linking",
       "path": "pension_member_rules/policy.json",
       "include": "(?:para|paragraph) ?(?:11|12)|weightage of service|change (?:of|in) date of birth|aadhaar.*(?:pension|EPS)|pension claim form|higher (?:wages|salary)|table b",
-      "exclude": "UAN card|member account|international worker|jeevan pramaan",
+      "exclude": "UAN card|member account|international worker|jeevan pramaan|pension\\s+on\\s+higher|higher[ -]?pension|\\bPoHW\\b|joint\\s+option",
       "route": "pension_member_rules_policy"
     },
     {
@@ -124,7 +124,7 @@
       "scope": "Who may settle or authorise EPF claims and where claim work is processed: delegated limits, inoperative accounts, multi-location (MLC/CRO) and SSO settlement, name-correction powers; not how to file a claim",
       "path": "claim_authority/policy.json",
       "include": "inoperative\\s+account|multi[- ]?location|\\bMLC\\b|\\bCRO\\b|collaborating\\s+regional|special\\s+state\\s+office|\\bSSO\\b|(?:delegat\\w*|power|authori[sz]\\w*|sanction\\w*|limit|competent\\s+authority)\\W+(?:\\w+\\W+){0,6}(?:claim|settle\\w*)|(?:claim|settle\\w*)\\W+(?:\\w+\\W+){0,6}(?:delegat\\w*|power|authori[sz]\\w*|sanction\\w*|limit)|name\\s+(?:correction|change)\\W+(?:\\w+\\W+){0,4}(?:power|delegat\\w*)",
-      "exclude": "\\bUAN\\b|joint\\s+declaration|\\bJD\\b|aadhaar|aadhar|interest|higher\\s+pension|\\bPoHW\\b",
+      "exclude": "\\bUAN\\b|joint\\s+declaration|\\bJD\\b|aadhaar|aadhar|interest|higher\\s+pension|\\bPoHW\\b|advance|para(?:graph)?\\s*68|auto[ -]?(?:settle|claim|mode)",
       "route": "claim_authority_policy"
     },
     {
@@ -132,7 +132,7 @@
       "label": "Foreign visit permissions",
       "scope": "EPFO staff permission for private foreign visits and the authority that grants it; not EPF members, international workers or social security agreements",
       "path": "foreign_visit/policy.json",
-      "include": "foreign\\s+visit|visit(?:ing)?\\s+abroad|abroad\\s+on\\s+private|private\\s+visit|(?:going|travel(?:ling)?|permission\\W+(?:\\w+\\W+){0,3}go(?:ing)?)\\s+abroad|leaving\\s+station",
+      "include": "foreign\\s+visit|visit(?:ing)?\\s+abroad|abroad\\s+on\\s+private|private\\s+visit|(?:going|travel(?:ling)?|permission\\W+(?:\\w+\\W+){0,3}go(?:ing)?)\\s+abroad|leaving\\s+station|go(?:ing|es)?\\s+abroad|personal\\s+visit|abroad\\s+on\\s+personal",
       "exclude": "international\\s+worker|social\\s+security\\s+agreement|\\bNRI\\b|overseas\\s+employment|\\bEPS\\b|member",
       "route": "foreign_visit_policy"
     },
@@ -168,7 +168,7 @@
       "label": "EPFO staff transfer policy",
       "scope": "EPFO staff transfer policies by cadre (Commissioners, Group B, Group C/SSA) and their amendments; not EPF member account transfers or yearly option notices",
       "path": "staff_transfer/policy.json",
-      "include": "annual\\s+general\\s+transfer|\\bAGT\\b|transfer\\s+polic(?:y|ies)|rotational\\s+transfer|mutual\\s+transfer|request\\s+transfer|inter[- ]?(?:state|regional)\\s+transfer|\\bIRT\\b|\\bTP-(?:CC|GB|GC|SSA)\\b",
+      "include": "annual\\s+general\\s+transfer|\\bAGT\\b|transfer\\s+polic(?:y|ies)|rotational\\s+transfer|mutual\\s+transfer|request\\s+transfer|inter[- ]?(?:state|regional)\\s+transfer|\\bIRT\\b|\\bTP-(?:CC|GB|GC|SSA)\\b|transfers?\\b[^.?]{0,40}\\bcadre|cadre\\b[^.?]{0,40}\\btransfers?",
       "exclude": "transfer\\s+claim|form\\s*13|annexure\\s*[ -]?k|(?:EPF|PF)\\s+account|EPS\\s+service|member\\s+account|\\bUAN\\b|overlap|settlement\\s+of\\s+claim",
       "route": "staff_transfer_policy"
     },
@@ -204,7 +204,7 @@
       "label": "MID de-linking",
       "scope": "Wrong MID linked to UAN; January 2025 process and April 2026 contribution extension",
       "path": "mid_delinking/policy.json",
-      "include": "de[ -]?link|delink|wrong.*(?:member\\s*id|\\bmid\\b)|erroneous.*(?:member\\s*id|\\bmid\\b)",
+      "include": "de[ -]?link|delink|wrong.*(?:member\\s*id|\\bmid\\b)|erroneous.*(?:member\\s*id|\\bmid\\b)|(?:member\\s*id|\\bmid\\b).*(?:wrong|erroneous|incorrect)|(?:wrong|erroneous|incorrect)ly\\s+linked",
       "exclude": "aadhaar|aadhar",
       "route": "mid_delinking_policy"
     },
@@ -213,7 +213,7 @@
       "label": "EPS contribution corrections",
       "scope": "Erroneous EPS membership and contribution correction; concurrent membership context",
       "path": "eps_corrections/policy.json",
-      "include": "(?:erroneous|wrong|incorrect|rectif|correct).*(?:EPS|pension\\s*contribut)|(?:EPS|pension\\s*contribut).*(?:erroneous|wrong|incorrect|rectif|correct)|concurrent.*(?:EPS|pension)|multiple\\s+account.*EPS",
+      "include": "(?:erroneous|wrong|incorrect|rectif|correct).*(?:EPS|pension\\s*contribut)|(?:EPS|pension\\s*contribut).*(?:erroneous|wrong|incorrect|rectif|correct)|concurrent.*(?:EPS|pension)|multiple\\s+account.*EPS|(?:EPS|pension).*concurrent|concurrent(?:ly)?\\s+employ",
       "exclude": "higher\\s*pension|PoHW",
       "route": "eps_corrections_policy"
     },
