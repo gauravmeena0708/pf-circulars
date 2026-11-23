@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "policies": [
+    {
+      "id": "international_workers",
+      "label": "International workers, Certificates of Coverage and Social Security Agreements",
+      "scope": "Pension Division and International Workers Unit circulars on special provisions for international workers (EPF Scheme para 83), compliance and settlement of claims, Certificates of Coverage and the Social Security Agreements India has implemented, and payment to overseas bank accounts; not training or general MIS returns",
+      "path": "international_workers/policy.json",
+      "include": "international worker|certificate of coverage|social security agreement|(?<![a-z])COC(?![a-z])|overseas bank",
+      "exclude": "UAN card|member account|dearness",
+      "route": "international_workers_policy"
+    },
+    {
+      "id": "official_language",
+      "label": "Official Language implementation (check points, annual programme, bilingual practice)",
+      "scope": "Official Language Division circulars with English titles on implementing the Official Language Policy of the Union in EPFO offices: check points, annual Hindi programme, quarterly reports, inspection, bilingual website material, use of Hindi on computers, letter heads and currency symbol; not Hindi fortnight, conferences, magazines, awards or training programmes",
+      "path": "official_language/policy.json",
+      "include": "official language polic|check[- ]?points.*official language|annual hindi programme|bilingual form on website|use of hindi on computers|standard letter head|officers/officials posted in the official language|simple language in hindi translation",
+      "exclude": "UAN|member account|claim settle|dearness|hindi translator (gr|post)|recruitment",
+      "route": "official_language_policy"
+    },
+    {
+      "id": "exemption",
+      "label": "Exemption of establishments (grant, compliance audit, returns, surrender)",
+      "scope": "Compliance and Exemption cell circulars on exemption and relaxation of establishments under section 17 of the EPF Act: grant guidelines, EDLI exemption, compliance audit, surcharge, online returns of exempted establishments, cancellation and surrender, past accumulation transfer, and the 2023-2024 SOPs; not committee minutes or member-account matters",
+      "path": "exemption/policy.json",
+      "include": "exempt(?:ed|ion)? establishment|exemption (?:under|u/s|from)|relaxed establishment|(?:grant|cancellation|surrender) of exemption|edli exemption|exemption/extension|amnesty, 2026|exemption matter",
+      "exclude": "UAN|member account|claim settle|damages|14B|minutes of|section 7A",
+      "route": "exemption_policy"
+    },
+    {
+      "id": "claim_forms_payments",
+      "label": "Payment modes (NEFT, e-payment, CCPAP) and claim forms",
+      "scope": "Finance circulars on how EPFO pays beneficiaries and what claim forms are used: e-payment and NEFT implementation, dishonoured and fake cheques, CCPAP and positive pay, EDLI NEFT payments, UAN-based and composite claim forms, revenue-stamp dispensation and claim-settlement SOP; not investment, pension payments to banks or salary advances",
+      "path": "claim_forms_payments/policy.json",
+      "include": "(?:neft|e-?payment|ccpap|rtgs).*(?:payment|beneficiar|cheque|edli)|fake cheques|dishonou?r of cheques|composite claim form|uan based (?:withdrawal )?claim form|revenue stamp.*claim form|transfer claim format",
+      "exclude": "UAN card|member account|investment|balance sheet|bonus|arrears|pension to designated",
+      "route": "claim_forms_payments_policy"
+    },
+    {
+      "id": "damages_7a",
+      "label": "Damages (14B), interest (7Q) and quasi-judicial proceedings (7A)",
+      "scope": "Compliance circulars on levy of damages under section 14B and interest under 7Q, enquiries under section 7A (guidelines, jurisdiction, review of pending cases), relief from damages, and the 2026 successor arrangements; not exemption, recovery or court-case handling",
+      "path": "damages_7a/policy.json",
+      "include": "(?:section|u/s|under) 14-?B|damages|section 7Q|7-?Q|(?:section|u/s) 7-?A|7A inquir|quasi[- ]judicial|vishwas",
+      "exclude": "UAN|member account|claim settle|exempt|panel advocate",
+      "route": "damages_7a_policy"
+    },
+    {
+      "id": "pension_member_rules",
+      "label": "Pension member rules: Para 11(3), Para 12, date of birth and Aadhaar",
+      "scope": "Pension Division circulars on contribution on salary above the statutory limit (Para 11(3)), pension calculation and weightage of service (Para 12), change of date of birth of pension fund members, Aadhaar as identity document and pension claim forms, and pension on higher wages; not Jeevan Pramaan life certificates or UAN-Aadhaar linking",
+      "path": "pension_member_rules/policy.json",
+      "include": "(?:para|paragraph) ?(?:11|12)|weightage of service|change (?:of|in) date of birth|aadhaar.*(?:pension|EPS)|pension claim form|higher (?:wages|salary)|table b",
+      "exclude": "UAN card|member account|international worker|jeevan pramaan|pension\\s+on\\s+higher|higher[ -]?pension|\\bPoHW\\b|joint\\s+option",
+      "route": "pension_member_rules_policy"
+    },
+    {
+      "id": "ecr_returns",
+      "label": "Employer returns, ECR, KYC and UAN activation",
+      "scope": "Compliance circulars on employers' electronic returns and the Electronic Challan-cum-Return (ECR), Form 3A/6A updation, KYC and Aadhaar seeding of UAN, UAN activation under the ELI Scheme, and registration (PAN upload); not the internal ABP/MIS returns of field offices",
+      "path": "ecr_returns/policy.json",
+      "include": "electronic challan|(?<![a-z])ECR(?![a-z])|e-?returns?|UAN activation|form 5A|abolishing of uploading of scanned copy of PAN",
+      "exclude": "UAN card|member account|claim settle|exempted|relaxed|damages|14B",
+      "route": "ecr_returns_policy"
+    },
+    {
+      "id": "quality_complaints",
+      "label": "ISO 9001 and vigilance complaint procedures",
+      "scope": "Headquarters circulars on implementing ISO 9001 certification in field offices (2012-2015) and Vigilance procedures for complaints (Public Interest Disclosure complaints, lodging of complaints, investigation mechanism); not general public grievance redressal",
+      "path": "quality_complaints/policy.json",
+      "include": "ISO ?9001|public interest disclosures?|PIDPI|lodging of complaints|complaint investigation mechanism",
+      "exclude": "UAN|member account|claim settle|CPGRAMS|EPFiGMS",
+      "route": "quality_complaints_policy"
+    },
+    {
+      "id": "legal_case_handling",
+      "label": "Handling of legal cases in field offices",
+      "scope": "Compliance and Legal Cell circulars on how field offices handle court cases and litigation (guidelines, adverse-order analysis, Legal Dashboard data entry, nodal offices, service-matter cases); not the empanelment or fees of panel advocates",
+      "path": "legal_case_handling/policy.json",
+      "include": "handling (of )?(legal )?cases|dealing with court cases|legal dash ?board|legal cases where|litigation management|adverse orders|cases before consumer forums",
+      "exclude": "UAN|member account|claim settle|empanel|panel advocate|fee",
+      "route": "legal_case_handling_policy"
+    },
+    {
+      "id": "spf_interest",
+      "label": "Staff Provident Fund interest rate",
+      "scope": "HRD circulars announcing the rate of interest credited to the accumulations of EPFO employees in the Staff Provident Fund, 2012 onward; not the EPF member interest rate",
+      "path": "spf_interest/policy.json",
+      "include": "staff provident fund|(?<![a-z])SPF(?![a-z])",
+      "exclude": "UAN|member account|claim settle|EPF member|declaration of rate of interest for the employees",
+      "route": "spf_interest_policy"
+    },
+    {
+      "id": "is_security_systems",
+      "label": "IS systems, authentication and cyber security",
+      "scope": "Information Services circulars on the Issue Tracker and its replacement, mandatory two-factor and multi-factor authentication, e-Office VPN, cyber security advisories, anti-piracy and Government IT policies; not member services",
+      "path": "is_security_systems/policy.json",
+      "include": "issue tracker|samadhan setu|J-?Track|two[ -]factor|2 factor authentication|multi[ -]factor|(?<![a-z])2FA(?![a-z])|(?<![a-z])MFA(?![a-z])|VPN password|e-?office VPN|cyber security advisory|cyber incident|anti-?piracy|e-?mail policy",
+      "exclude": "UAN|member account|claim settle|EPF account|dearness|transfer claim",
+      "route": "is_security_systems_policy"
+    },
+    {
+      "id": "is_hardware_norms",
+      "label": "IT hardware specifications and norms",
+      "scope": "Information Services specifications and norms for EPFO computer hardware (desktops, laptops, tablets, thin clients, servers, mobile devices), the obsolescence policy and device purchase guidelines; not staff laptop entitlement or member services",
+      "path": "is_hardware_norms/policy.json",
+      "include": "(?:laptop|desktop|tablet|thin client|server|notebook|IT equipment).*(?:specification|norms?)|(?:specification|norms?).*(?:laptop|desktop|tablet|thin client|IT equipment|hardware)|obsolescence polic|model technical specification|IT infrastructure enhancement|supplementary norm",
+      "exclude": "UAN|member account|claim settle|dearness|entitle|reimburs|newspaper|briefcase|medical",
+      "route": "is_hardware_norms_policy"
+    },
+    {
+      "id": "recruitment_promotion",
+      "label": "Recruitment rules and promotion",
+      "scope": "EPFO staff recruitment rules/regulations (notified and draft), DPC procedure and model calendars, and MACP/NFU/NFSG guidance; not EPF members",
+      "path": "recruitment_promotion/policy.json",
+      "include": "recruitment\\s+(?:rules?|regulations?)|\\bRRs?\\b|\\bDPCs?\\b|departmental\\s+promotion|model\\s+calendar|\\bMACPS?\\b|assured\\s+career|\\bNFU\\b|\\bNFSG\\b|financial\\s+up-?gradation|promotion\\s+(?:criteria|guidelines|policy|norms|quota)|refusal\\s+of\\s+promotion|direct\\s+recruitment\\s+rules",
+      "exclude": "\\bUAN\\b|(?:EPF|PF)\\s+account|member\\s+(?:account|profile)|settlement\\s+of\\s+claim|claim\\s+settle|\\bEPS\\b|pension\\s+(?:payment|scheme)|interest|advance|inspection|\\bCPPS\\b",
+      "route": "recruitment_promotion_policy"
+    },
+    {
+      "id": "claim_authority",
+      "label": "Claim settlement authority",
+      "scope": "Who may settle or authorise EPF claims and where claim work is processed: delegated limits, inoperative accounts, multi-location (MLC/CRO) and SSO settlement, name-correction powers; not how to file a claim",
+      "path": "claim_authority/policy.json",
+      "include": "inoperative\\s+account|multi[- ]?location|\\bMLC\\b|\\bCRO\\b|collaborating\\s+regional|special\\s+state\\s+office|\\bSSO\\b|(?:delegat\\w*|power|authori[sz]\\w*|sanction\\w*|limit|competent\\s+authority)\\W+(?:\\w+\\W+){0,6}(?:claim|settle\\w*)|(?:claim|settle\\w*)\\W+(?:\\w+\\W+){0,6}(?:delegat\\w*|power|authori[sz]\\w*|sanction\\w*|limit)|name\\s+(?:correction|change)\\W+(?:\\w+\\W+){0,4}(?:power|delegat\\w*)",
+      "exclude": "\\bUAN\\b|joint\\s+declaration|\\bJD\\b|aadhaar|aadhar|interest|higher\\s+pension|\\bPoHW\\b|advance|para(?:graph)?\\s*68|auto[ -]?(?:settle|claim|mode)",
+      "route": "claim_authority_policy"
+    },
+    {
+      "id": "foreign_visit",
+      "label": "Foreign visit permissions",
+      "scope": "EPFO staff permission for private foreign visits and the authority that grants it; not EPF members, international workers or social security agreements",
+      "path": "foreign_visit/policy.json",
+      "include": "foreign\\s+visit|visit(?:ing)?\\s+abroad|abroad\\s+on\\s+private|private\\s+visit|(?:going|travel(?:ling)?|permission\\W+(?:\\w+\\W+){0,3}go(?:ing)?)\\s+abroad|leaving\\s+station|go(?:ing|es)?\\s+abroad|personal\\s+visit|abroad\\s+on\\s+personal",
+      "exclude": "international\\s+worker|social\\s+security\\s+agreement|\\bNRI\\b|overseas\\s+employment|\\bEPS\\b|member",
+      "route": "foreign_visit_policy"
+    },
+    {
+      "id": "legal_panel",
+      "label": "Panel advocates: fees and empanelment",
+      "scope": "EPFO panel advocate fee revisions and empanelment circulars; not EPF members' legal remedies or RTI",
+      "path": "legal_panel/policy.json",
+      "include": "panel\\s+(?:advocate|counsel)s?|legal\\s+fee|empanel\\w*\\s+(?:of\\s+)?(?:advocate|counsel)|(?:advocate|counsel)s?\\s+fee|fee\\s+(?:payable\\s+)?to\\s+(?:panel\\s+)?(?:advocate|counsel)",
+      "exclude": "\\bRTI\\b|right\\s+to\\s+information|\\bUAN\\b|(?:EPF|PF)\\s+(?:account|member)|settlement\\s+of\\s+claim",
+      "route": "legal_panel_policy"
+    },
+    {
+      "id": "dearness",
+      "label": "Dearness allowance / relief (staff)",
+      "scope": "Central Government dearness allowance for EPFO staff and dearness relief for staff pensioners, 2016 onward; not EPF member benefits or EPS pensions",
+      "path": "dearness/policy.json",
+      "include": "dearness\\s+(?:allowance|relief)|महंगाई\\s+(?:भत्ता|राहत)|\\bDA\\b\\s+(?:rate|hike|increase|revision|instal)|\\bDR\\b\\s+(?:rate|hike|increase|revision|instal)",
+      "exclude": "\\bUAN\\b|(?:EPF|PF)\\s+(?:account|member)|member\\s+(?:account|profile)|bonus|\\bCGHS\\b|gratuity|daily\\s+allowance|\\bTA\\s*/\\s*DA\\b|travel",
+      "route": "dearness_policy"
+    },
+    {
+      "id": "apar_sparrow",
+      "label": "APAR / vigilance clearance",
+      "scope": "EPFO staff APAR (SPARROW) timelines and revisions, and vigilance clearance certificate guidelines; not EPF member services",
+      "path": "apar_sparrow/policy.json",
+      "include": "\\bAPARs?\\b|\\bSPARROW\\b|annual\\s+performance\\s+(?:assessment|appraisal)|vigilance\\s+clearance|\\bVCC\\b",
+      "exclude": "\\bUAN\\b|(?:EPF|PF)\\s+account|member\\s+(?:account|profile)|settlement\\s+of\\s+claim|employer|establishment",
+      "route": "apar_sparrow_policy"
+    },
+    {
+      "id": "staff_transfer",
+      "label": "EPFO staff transfer policy",
+      "scope": "EPFO staff transfer policies by cadre (Commissioners, Group B, Group C/SSA) and their amendments; not EPF member account transfers or yearly option notices",
+      "path": "staff_transfer/policy.json",
+      "include": "annual\\s+general\\s+transfer|\\bAGT\\b|transfer\\s+polic(?:y|ies)|rotational\\s+transfer|mutual\\s+transfer|request\\s+transfer|inter[- ]?(?:state|regional)\\s+transfer|\\bIRT\\b|\\bTP-(?:CC|GB|GC|SSA)\\b|transfers?\\b[^.?]{0,40}\\bcadre|cadre\\b[^.?]{0,40}\\btransfers?",
+      "exclude": "transfer\\s+claim|form\\s*13|annexure\\s*[ -]?k|(?:EPF|PF)\\s+account|EPS\\s+service|member\\s+account|\\bUAN\\b|overlap|settlement\\s+of\\s+claim",
+      "route": "staff_transfer_policy"
+    },
+    {
+      "id": "delegation",
+      "label": "Delegation of powers",
+      "scope": "Administrative and financial powers of the Board, CPFC and officers (general schedule, personnel, works, IT, medical, housing, training, honorarium, publicity); claim settlement, foreign visits and JD/Aadhaar have their own collections",
+      "path": "delegation/policy.json",
+      "include": "delegat.*power|power.*delegat|sanctioning authorit|competent authorit.*(?:financial|expenditure|sanction)",
+      "exclude": "power of attorney|joint\\s*declaration|\\bJD\\b|aadhaar|aadhar|member\\s+profile|claim\\s+settle\\w*|settle\\w*\\s+of\\s+claim|inoperative|foreign\\s+visit|abroad|\\bMLC\\b|\\bCRO\\b|\\bSSO\\b",
+      "route": "delegation_policy"
+    },
+    {
+      "id": "employee_benefits",
+      "label": "EPFO employee benefits",
+      "scope": "EPFO staff benefits: briefcase, devices, communications, newspapers and medical reimbursement; not EPF member entitlements",
+      "path": "employee_benefits/policy.json",
+      "include": "briefcase|hand.?bag|office bag|ladies purse|laptop|notebook|newspaper|news paper|telephone.*(?:reimburs|benefit)|(?:reimburs|benefit).*telephone|mobile.*(?:reimburs|bill)|(?:reimburs|bill).*mobile|medical.*(?:reimburs|allowance)|(?:reimburs|fixed).*medical|staff.*benefit|EPFO.*employee.*benefit|\\bCGHS\\b|CS\\s*\\(MA\\)",
+      "exclude": "EPF member|EPS pension|insured person|Aadhaar|UAN",
+      "route": "employee_benefits_policy"
+    },
+    {
+      "id": "bank_kyc",
+      "label": "Bank KYC / cheque upload",
+      "scope": "EPFO UAN bank seeding and cheque/passbook upload requirements",
+      "path": "bank_kyc/policy.json",
+      "include": "bank\\s*kyc|cheque\\s*(?:leaf|upload)|passbook.*upload|upload.*(?:passbook|cheque)|(?:bank\\s*account|bank\\s*details).*(?:seed|link|approv|validat)|(?:seed|link|approv|validat).*bank\\s*(?:account|details)",
+      "exclude": "\\bcpps\\b|pension.*(?:bank|payment)|UIDAI|NPCI.*(?:mapping|mapper)|ELI|PMVBRY",
+      "route": "bank_kyc_policy"
+    },
+    {
+      "id": "mid_delinking",
+      "label": "MID de-linking",
+      "scope": "Wrong MID linked to UAN; January 2025 process and April 2026 contribution extension",
+      "path": "mid_delinking/policy.json",
+      "include": "de[ -]?link|delink|wrong.*(?:member\\s*id|\\bmid\\b)|erroneous.*(?:member\\s*id|\\bmid\\b)|(?:member\\s*id|\\bmid\\b).*(?:wrong|erroneous|incorrect)|(?:wrong|erroneous|incorrect)ly\\s+linked",
+      "exclude": "aadhaar|aadhar",
+      "route": "mid_delinking_policy"
+    },
+    {
+      "id": "eps_corrections",
+      "label": "EPS contribution corrections",
+      "scope": "Erroneous EPS membership and contribution correction; concurrent membership context",
+      "path": "eps_corrections/policy.json",
+      "include": "(?:erroneous|wrong|incorrect|rectif|correct).*(?:EPS|pension\\s*contribut)|(?:EPS|pension\\s*contribut).*(?:erroneous|wrong|incorrect|rectif|correct)|concurrent.*(?:EPS|pension)|multiple\\s+account.*EPS|(?:EPS|pension).*concurrent|concurrent(?:ly)?\\s+employ",
+      "exclude": "higher\\s*pension|PoHW",
+      "route": "eps_corrections_policy"
+    },
+    {
+      "id": "higher_pension",
+      "label": "Higher pension / PoHW",
+      "scope": "EPS pension on higher wages and related joint options; excludes JD profile correction and general EPF enrolment",
+      "path": "higher_pension/policy.json",
+      "include": "higher[ -]?(?:pension|wage)|pension\\s+on\\s+higher|\\bpohw\\b|joint\\s+option|उच्च\\s*पेंशन",
+      "exclude": "",
+      "route": "higher_pension_policy"
+    },
+    {
+      "id": "cpps",
+      "label": "Pension payment / CPPS",
+      "scope": "EPS pension payment routing, PPO office, interim scroll schedules and DLC; excludes pension entitlement and staff pensions",
+      "path": "pension_payment/policy.json",
+      "include": "\\bcpps\\b|centrali[sz]ed\\s+pension|pension.*(?:payment|disburs|bank|scroll)|\\bppo\\b.*(?:transfer|revis)|digital life certificate|\\bdlc\\b",
+      "exclude": "staff pension|CCS|CPPC",
+      "route": "cpps_policy"
+    },
+    {
+      "id": "transfers",
+      "label": "Transfer claims",
+      "scope": "EPF account transfer claims, Form 13, Annexure K, overlapping service; excludes employee postings and EDLI death benefits",
+      "path": "transfer_claims/policy.json",
+      "include": "transfer\\s+(?:claim|of\\s+(?:EPF|PF|account)|(?:EPF|PF)\\s+account)|(?:PF|EPF|EPS|service|account).*transfer|form\\s*13|annexure\\s*[ -]?k|overlap.*service",
+      "exclude": "cadre|posting|staff transfer|compassionate|\\bEDLI\\b|death benefit",
+      "route": "transfers_policy"
+    },
+    {
+      "id": "advances",
+      "label": "Advances / auto-settlement",
+      "scope": "Member EPF advances, auto-processing and withdrawal-reform announcements; excludes staff advances, bonus and settlement of employer dues",
+      "path": "advances/policy.json",
+      "include": "auto[ -]?(?:settle|mode|claim)|(?:EPF|PF|illness|housing|marriage|education|covid).*advance|para(?:graph)?\\s*68|partial\\s+withdraw|withdrawal.*(?:rule|reform)",
+      "exclude": "bonus|\\bPLB\\b|staff advance|LTC|productivity|penal damage",
+      "route": "advances_policy"
+    },
+    {
+      "id": "aadhaar",
+      "label": "Member profile / Aadhaar",
+      "scope": "EPFO member-profile correction, Aadhaar seeding and correcting Aadhaar linked to UAN; not changing the Aadhaar database itself or ECR deadlines",
+      "path": "member_profile_aadhaar/policy.json",
+      "include": "(?:aadhaar|aadhar|आधार).*(?:seed|correct|mismatch|profile|uan|dob|birth|जोड़|सुधार)|(?:seed|correct|mismatch|profile|uan|dob|birth).*(?:aadhaar|aadhar)|member\\s+profile\\s+correction",
+      "exclude": "higher[ -]?pension|joint option|26\\s*\\(6\\)|ईसीआर|\\becr\\b|UIDAI.*(?:address|mobile).*update|update.*(?:address|mobile).*UIDAI|(?:aadhaar|aadhar).*(?:address|mobile).*(?:update|correct|change)|(?:update|correct|change).*(?:aadhaar|aadhar).*(?:address|mobile)",
+      "route": "aadhaar_policy"
+    },
+    {
+      "id": "jd",
+      "label": "JD member profile",
+      "scope": "WSU Joint Declaration member-profile correction only",
+      "path": "joint_declaration/policy.json",
+      "include": "joint\\s*declaration|\\bjd\\b|member\\s+profile|संयुक्त घोषणा|जॉइंट डिक्लेरेशन",
+      "exclude": "higher[ -]?pension|joint option|26\\s*\\(6\\)|उच्च पेंशन|(?:aadhaar|aadhar).*(?:address|mobile).*(?:update|correct|change)|(?:update|correct|change).*(?:aadhaar|aadhar).*(?:address|mobile)",
+      "route": "jd_policy"
+    },
+    {
+      "id": "epf_interest_rate",
+      "label": "EPF interest rate",
+      "scope": "Annual declared rate of interest on EPF member accounts and the interim settlement rate; excludes staff provident fund, NPS, 14B/7Q damages and tax on interest",
+      "path": "epf_interest_rate/policy.json",
+      "include": "(?:rate\\s+of\\s+interest|interest\\s+rate|\\bROI\\b|interest\\s+(?:declar|credit|@)).*(?:EPF|\\bPF\\b|provident|member|subscriber|accumulation)|(?:EPF|\\bPF\\b|provident|member|subscriber).*(?:rate\\s+of\\s+interest|interest\\s+rate|\\bROI\\b)|(?:interest|ब्याज\\s*दर).*(?:for|in)\\s+(?:the\\s+)?(?:f\\.?y\\.?\\s*)?(?:19|20)\\d\\d|ब्याज\\s*दर",
+      "exclude": "advance|conveyance|staff|\\bSPF\\b|\\bGPF\\b|\\bNPS\\b|14\\s*B|7\\s*Q|damages|belated|overdraft|\\bTDS\\b|taxable|income\\s*tax|exempt",
+      "route": "epf_interest_rate_policy"
+    }
+  ]
+}

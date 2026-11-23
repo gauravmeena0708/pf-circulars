@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "id": "eps_corrections",
+  "reviewed_on": "2026-10-28",
+  "documents": [
+    {
+      "id": "eps-1998-11-30",
+      "title": "Concurrent EPS membership guidelines (referenced original)",
+      "circular_no": "Pension/8/MP/Clarification/96",
+      "issued_on": "1998-11-30",
+      "authority": "EPFO referenced circular",
+      "source_url": null,
+      "source_file": null,
+      "verification": "original_not_verified",
+      "effective_from": null,
+      "effective_date_evidence": null
+    },
+    {
+      "id": "transfer-2024-01-29",
+      "title": "EPS entitlement with concurrent multiple account numbers",
+      "circular_no": "e-597452/4406",
+      "issued_on": "2024-01-29",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/EPS-entitlement_multiple_accounts-1.pdf",
+      "source_file": "../transfer_claims/sources/transfer-2024-01-29.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "January 2024 concurrent EPS membership directions",
+      "local_pdf": "../transfer_claims/pdfs/transfer-2024-01-29.pdf",
+      "notes": [
+        "Cover says e-597452/4406; May 2025 transfer circular cites E-597451/4406 with same date and subject. Preserve discrepancy; exact relationship target requires review."
+      ]
+    },
+    {
+      "id": "eps-2025-12-19",
+      "title": "Rectification of erroneous EPS contributions",
+      "circular_no": "WSU/2025/E-961539/Refund of erroneous contribution/42",
+      "issued_on": "2025-12-19",
+      "authority": "EPFO administrative circular (original scan retrieved from mirror)",
+      "source_url": "https://www.sgcms.com/regulatory-updates/wp-content/uploads/2025/12/RECTIFICATION-OF-ERRORNEOUS-EPS-CONTRIBUTION.pdf",
+      "source_file": "sources/eps-2025-12-19.json",
+      "local_pdf": "pdfs/eps-2025-12-19.pdf",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Rectification of erroneous EPS contributions",
+      "source_host_kind": "mirror_copy",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/CircularWSU_RectificationInErronousEPSContribution19122025.pdf",
+      "notes": [
+        "Official PDF URL returned 404/403. Retrieved copy checked visually against circular date, number and indexed text; issuer-hosted bytes could not be independently compared."
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "eps-2024-ref-1998",
+      "source": "transfer-2024-01-29",
+      "target": "eps-1998-11-30",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "transfer-2024-01-29",
+        "page_number": 1,
+        "quote": "Pension/8/MP/Clarification/96\ndated 30.11.1998"
+      },
+      "scope": "January 2024 reiterates the 1998 concurrent-membership guidelines; the supplied two-page PDF does not include the referenced original."
+    }
+  ],
+  "limitations": [
+    "The December circular prescribes correction scenarios; it does not itself establish individual eligibility or a complete EPS eligibility history.",
+    "There is no explicit amendment/reference link from the December circular to the January 2024 circular. They are related by topic only.",
+    "Interest, fund movement and service corrections must be read with the correct exempted/unexempted scenario; do not merge table rows.",
+    "December original URL is unavailable; mirror provenance is retained and issuer-hosted byte identity is unverified.",
+    "The 1998 original is missing; commencement of the checked circulars is not established."
+  ]
+}

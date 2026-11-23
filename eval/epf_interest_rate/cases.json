@@ -1,0 +1,18 @@
+{
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
+  "cases": [
+    {"id": "roi-2023-24", "question": "What interest rate was declared for EPF members for 2023-24?", "as_of": "2024-05-31",
+     "required_evidence": [{"document_id": "roi-2024-05-31", "page_number": 1}]},
+    {"id": "roi-2024-25", "question": "Rate of interest on EPF for 2024-25", "as_of": "2025-05-26",
+     "required_evidence": [{"document_id": "roi-2025-05-26", "page_number": 1}]},
+    {"id": "roi-2025-26", "question": "EPF interest rate for 2025-26 financial year", "as_of": "2026-07-01",
+     "required_evidence": [{"document_id": "roi-2026-07-01", "page_number": 3}]},
+    {"id": "roi-2020-21", "question": "EPF interest rate for the year 2020-21", "as_of": "2021-10-30",
+     "required_evidence": [{"document_id": "roi-2021-10-30", "page_number": 1}]},
+    {"id": "roi-before-issue", "question": "What was the EPF interest rate for 2024-25", "as_of": "2025-05-25",
+     "absent_documents": ["roi-2025-05-26", "roi-2026-07-01"]},
+    {"id": "roi-interim-2011", "question": "Rate for settlement of claims in 2011-12 pending declaration", "as_of": "2011-04-27",
+     "required_evidence": [{"document_id": "roi-2011-04-27", "page_number": 1}],
+     "relationship": {"id": "roi-2011-04-27-modifies-interim-rate", "type": "partially_modifies", "status": "relationship_verified_timing_unresolved"}}
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "original_passages": 75879,
+  "added_passages": 753,
+  "final_passages": 76632,
+  "original_passages_changed": 0,
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "dimension": 384,
+  "source_documents": 57,
+  "new_page_count": 243,
+  "extraction_methods": [
+    "native",
+    "tesseract_eng_180dpi"
+  ],
+  "sparse_cache_written": true,
+  "complete_applicability_established": false,
+  "checked_on": "2026-11-03",
+  "original_vectors_unchanged": true,
+  "id_map_aligned": true,
+  "new_vectors_unit_norm": true,
+  "date_corrections_preserved": true,
+  "groups_added": [
+    "epf_interest_rate",
+    "staff_transfer",
+    "apar_sparrow"
+  ],
+  "note": "753 new passages from 57 source documents; apar_sparrow sources for the two 87-page circulars keep pages 1-5 only (NIC user manual excluded)."
+}

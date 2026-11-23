@@ -1,0 +1,35 @@
+{
+  "document_id": "is_security_systems-2025-06-25-9228b8",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/OfficeCircular_ChangeOfPassword_VPN.pdf",
+  "pdf_sha256": "b0528d6d2fc567ae01defa132b85ce8902e4543578d25fc7a8304509fcb16dd7",
+  "total_pdf_pages": 5,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "Web Ciralar\nPlant uface Pte aot\n\nEMPLOYEES’ PROVIDENT FUND\n\nORGANISATION\n31 Ud VOIR HAG, UR PPR\nMinistry of Labour and Employment, Govt of India\nUPL Sle ez / National Data Center\nSthemah @ratay, Aaex 23, grea, 7s fEceht - 110077 / EPFO Complex, Sector 23, Dwarka, New Delhi\n= 110077\nNo:E-885645 Date: 25/06/2025\n\nOffice Circular\n\nIn line with the scheduled security posture update from RailTel\nCorporation of India Ltd., it is mandatory for all E-Office users to reset\ntheir VPN passwords to ensure uninterrupted access and enhanced\nsecurity. This action is critical to maintaining the integrity of our systems.\n\nAction Required:\n\nDeadline: All users must change their E-Office VPN passwords by 30\"\nJune 2025.\n\nProcedure: Use the following link to reset your password\nhttps.//passmgmt.railtel.in/changePassword\n\nPost-Deadline: After 30 June 2025, only the Forgot Password option will\nbe available at https://passmgmt.railtel.in/forgotPassword\n\nFor guidance, please refer to the attached “User Manual eOffice Forgot\nPassword.pdf” or contact the User Support Services (IS Division) at\nvee4.is@epfindia.gov.in.\n\nEnclosures:\n\n1. User Manual eOffice Forgot Password ase\ni\\\\0\n\n(V. V. B. Singh)\nREGIONAL P.F. COMMISSIONER-I(IS)\nTo,\n1. All Zonal Offices/Regional Offices/PDNASS: for information.\n\n(V. V. B. Sing 5\nREGIONAL P.F. COMMISSIONER-I(IS.",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 2,
+      "text": "Submit\nChange Password\nし\n1 WPFFj\nEnter Captcha Value\nNew Password\nRe-enter Passworр\nSend OTP\n00\nForgot Password\ntest@railtelindia.com\nरेलटेल\nRAILTEL\nτ\n1 WPFFj\nEnter Captcha Value\nSubmit\nChange Password\nरेलटे\nRAII\nअन\nForgot Password\nEmail address\nSend OTP\nNew Password\nRe-enter Password",
+      "extraction_method": "native"
+    },
+    {
+      "page_number": 3,
+      "text": "STEP : 03\n\nEnter the Captcha and click on Submit Button refer snippet below —\n\nQd\n\nsae\nRAILTEL\n\nForgot Password\n\ntest@railtelindia.com\n\nSend OTP\n\nNew Password\n\nRe-enter Password\n\nvo\n1WPFFj\n\nChange Password\n\nSTEP : 04\n\nNow you will get a popup for captcha matched and then click on OK\n\nPassmgmt-railtel.in says\n\nCaptcha Matched\nLY\n\nForgot Password\n\ntest@railtelindia.com\n\nSend OTP\n\nNew Password\n\nRe-enter Password\n\n1WPFFS\nvo\n\n1WPFFj\n\nSubmit\n\nPage 2 of 4",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 4,
+      "text": "STEP : 05\n\nNow click on Send OTP button\n\nQd\n\nae\nRAILTEL\n\nForgot Password\n\ntest@railtelindia.com\n\nSend OTP\n\nNew Password >\n\nRe-enter Password\n\nChange Password\n\nSTEP : 06\n\nOnce you click on Send OTP you will get a pop up like below snippet click ok and check your mail box\nfor OTP\n\npassmgmt railtel.in says\n\nOTP sent successfully\n\nQd\n\nsaat\nRAILTEL\n\nForgot Password\n\nNew Password\n\nRe-enter Password\n\nChange Password\n\nPage 3 of 4",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 5,
+      "text": "STEP : 07\n\nEnter the OTP received on your mail along with New password like below snippet and click onChange\nPassword button\n\nVd\n\neet\nRAILTEL\n\nForgot Password\n\n677282\nSend OTP\n\nChange Password\n\nSTEP : 08\n\nYou will get a pop up for successful password change like below snippet click ok and start accessingyour e-\noffice with your new password\n\npassmgmt.railtel.in says\n\nPassword Changed Successfully\n\nNote: * Mandatory Fields\n\nOnly these Special characters (*,@,.,!) are acceptable\n\nPassword length should be min 12 characters and max 20 characters.\n\nMinimum 1 Lower case letter, 1 Upper case letter, 1 Special Character and 1 Numeric value is required.\n\nPage 4 of 4",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

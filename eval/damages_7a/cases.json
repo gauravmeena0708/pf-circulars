@@ -1,0 +1,79 @@
+{
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
+  "cases": [
+    {
+      "id": "damages_7a-2007-10-17",
+      "question": "Arrangement of Powers under Section 7A, 7B, 7C/14B Order",
+      "as_of": "2007-10-17",
+      "required_evidence": [
+        {
+          "document_id": "damages_7a-2007-10-17-7a8136",
+          "page_number": 2
+        }
+      ]
+    },
+    {
+      "id": "damages_7a-2012-09-11",
+      "question": "Arrangements for smooth exercise of powers under Section 7A, 7B, 7C and 14B of the EPF & MP Act, 1952- Administrative scrutiny of the orders- Instruct",
+      "as_of": "2012-09-11",
+      "required_evidence": [
+        {
+          "document_id": "damages_7a-2012-09-11-143a40",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "damages_7a-2015-11-02",
+      "question": "Levy of Penal Damages under Section 14B and Interest u/s. 7Q of the EPF & MP Act, 1952",
+      "as_of": "2015-11-02",
+      "required_evidence": [
+        {
+          "document_id": "damages_7a-2015-11-02-d1d044",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "damages_7a-2018-03-05",
+      "question": "Review of long pending 7A/14B cases and confirmation of number of cases pending with all RO, under Section 7A/14B",
+      "as_of": "2018-03-05",
+      "required_evidence": [
+        {
+          "document_id": "damages_7a-2018-03-05-2d70d2",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "damages_7a-2021-08-19",
+      "question": "Review of 7-A inquiries pending for more than 3 years",
+      "as_of": "2021-08-19",
+      "required_evidence": [
+        {
+          "document_id": "damages_7a-2021-08-19-46ca9b",
+          "page_number": 2
+        }
+      ]
+    },
+    {
+      "id": "damages_7a-2026-07-31",
+      "question": "Notification of Authorised Officers and Officers competent to levy and recover damages under Chapter III of the Code on Social Security, 2020 — Initia",
+      "as_of": "2026-07-31",
+      "required_evidence": [
+        {
+          "document_id": "damages_7a-2026-07-31-87bb2d",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "damages_7a-before-latest",
+      "question": "Notification of Authorised Officers and Officers competent to levy and recover damages under Chapter III of the Code on Social Security, 2020 — Initia",
+      "as_of": "2026-07-30",
+      "absent_documents": [
+        "damages_7a-2026-07-31-87bb2d"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "original_passages": 78697,
+  "added_passages": 4222,
+  "final_passages": 82919,
+  "original_passages_changed": 0,
+  "legacy_passage_dates_corrected": 181,
+  "source_documents": 404,
+  "new_page_count": 1395,
+  "collections": ["is_hardware_norms","is_security_systems","spf_interest","exemption","damages_7a","ecr_returns","claim_forms_payments","official_language","pension_member_rules","international_workers","legal_case_handling","quality_complaints"],
+  "note": "Date corrections change only the metadata date of legacy passages of 27 PDFs whose typed letter date differs from the issuer listing; text and vectors are unchanged."
+}

@@ -1,0 +1,79 @@
+{
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
+  "cases": [
+    {
+      "id": "quality_complaints-2012-07-10",
+      "question": "Circular regarding the procedure to be complied while filing the complaints under Public Interest Disclosures and Protection of Informers (PIDPI) Reso",
+      "as_of": "2012-07-10",
+      "required_evidence": [
+        {
+          "document_id": "quality_complaints-2012-07-10-54ff02",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "quality_complaints-2012-11-09",
+      "question": "Implementation of ISO 9001 Certification for field offices of EPFO",
+      "as_of": "2012-11-09",
+      "required_evidence": [
+        {
+          "document_id": "quality_complaints-2012-11-09-b3586d",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "quality_complaints-2013-03-28",
+      "question": "Implementation of ISO 9001 Certification for filed offices of EPFO",
+      "as_of": "2013-03-28",
+      "required_evidence": [
+        {
+          "document_id": "quality_complaints-2013-03-28-71fa7e",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "quality_complaints-2013-06-14",
+      "question": "Implementation of ISO 9001 Certification for field offices of EPFO",
+      "as_of": "2013-06-14",
+      "required_evidence": [
+        {
+          "document_id": "quality_complaints-2013-06-14-8e121c",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "quality_complaints-2013-08-01",
+      "question": "Implementation of ISO 9001 Certification for field offices of EPFO",
+      "as_of": "2013-08-01",
+      "required_evidence": [
+        {
+          "document_id": "quality_complaints-2013-08-01-65a8e2",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "quality_complaints-2015-01-23",
+      "question": "Implementation of ISO 9001 Certification for field offices of EPFO",
+      "as_of": "2015-01-23",
+      "required_evidence": [
+        {
+          "document_id": "quality_complaints-2015-01-23-501df4",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "quality_complaints-before-latest",
+      "question": "Implementation of ISO 9001 Certification for field offices of EPFO",
+      "as_of": "2015-01-22",
+      "absent_documents": [
+        "quality_complaints-2015-01-23-501df4"
+      ]
+    }
+  ]
+}

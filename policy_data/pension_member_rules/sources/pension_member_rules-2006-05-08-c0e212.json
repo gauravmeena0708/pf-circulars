@@ -1,0 +1,15 @@
+{
+  "document_id": "pension_member_rules-2006-05-08-c0e212",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/PbmCEPS.pdf",
+  "pdf_sha256": "8ea1f0d6b26e14b44e0615f172839a207fdb33c2067fd6b370707d5ccd2ba8f2",
+  "total_pdf_pages": 1,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "Email: ndcepfo@bol.net.in Telephone: 26178852-53\n\nTelegram: “KENDRIYA NIDHI” New Delhi Fax: 26178831\nVEEN EMPLOYEES’ PROVIDENT FUND ORGANISATION\nNATIONAL DATA CENTER, HEAD OFFICE\n\n6™ FLOOR, NBCC TOWER,\nSee 15, BHIKAIJI CAMA PLACE, NEW DELHI-110 066\n+8 MAY 2006\n\nNo. CC/5(45)96/CEPS Dated 05.2006\n\nTo\n\nAll RPFCs/ All Regions\n\nSub: Problem in CEPS software for calculation of pension for new\nentrants under para 12(2) of EPS 95 — Reg\n\nThis is regarding incorrect pension calculation calculated by CEPS software\ndeveloped by NIC for new entrants under Para 12(2) of EPS-95.\n\n2. The problem has been examined at HQ level and the following ways are\nsuggested to carryout necessary changes/modification.\n\n= Calculate Monthly member pension amount manually\n\n= Generate final PPO as per normal procedure\n\n* In case of any difference in Monthly member pension amount calculated by\nthe software go to [PPO] module option no.2\n\n* Make changes in the Original Monthly pension amount and other related\nchanges respectively\n\n= Take revised PPO print through [PPO] module vide option No.5\n\n3. It is also intimated that the correctness of the data entered through the PPO\n\nmodule vide option no.2, should be ensured by Incharge of Pension Division and before\nissuing the final PPO, the amount of pension and other arrears amounts may be checked\n\nby the concerned officer.\nfiat pith re a\n\n(Col.S.S. Dhan har\nAdditional Central Commissioner (IS)",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

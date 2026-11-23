@@ -1,0 +1,20 @@
+{
+  "document_id": "pension_member_rules-2017-06-21-2d11a8",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Pension_2YrWeightage_5689.pdf",
+  "pdf_sha256": "a4e88b52ce6f824f9c5cd9500a67aed1157bf722bbd5d43dadb6649f4c8f122c",
+  "total_pdf_pages": 2,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "Telephone: 26196236\n\nerrant wifes ff aor\n(3 wa TSR ARI, UA ALT)\nEMPLOYEES’ PROVIDENT FUND ORGANISATION\n(Ministry of Labour & Employment, Govt. of India)\ner Fray / Head Office\nsafer Fahy seq, 14-stesit aera, ag feeett-110 066\nBhavishya Nidhi Bhawan, 14, Bhikaiji Cama Place, New Delhi - 110 066.\n\nNo: Pension- a ( , Dated:\n\nTo 21 JUN 2017\n\nAll ACCs (HQ)/ACC- sci -II (Zones)\nAll RPFC-I/RPFC-II (Regional Offices).\n\nSubject:- Benefit of two years weightage of service to the members with 20 or more years\nof Pensionable Service under Employees’ Pension Scheme, 1995 — reg.\nSir,\n\nSeveral references have been received from the field offices that cases where two years\nweightage was given where the past service comes out to 20 years, the new application software\nwhile generating the worksheet has reduced the past service benefits in comparison to that calculated\n\nin legacy software. The matter has been examined and the following clarification is issued.\nThe provision for the past service pension is provided in Para 12 (3) as under :-\nS.No. Years of past service Salary upto Salary more\nRs.2500/- per than\nmonth Rs.2500/-\nper month\nis Upto 11 years 80 85\nii. More than 11 years but 95 105\nupto 15 years\niii. More than 15 years but 120 135\nless than 20 years\niv. Beyond 20 years 150 170 |\n\nFrom the above said table it is clear that:\ne Row-1 includes past service upto 11 years and 11 years.\n¢ — Row-2 includes past service of more than 11 years and upto 15 years and 15 years.\n¢  Row-3 includes past service of more than 15 years but less than 20 years.\ne Row-4 includes past service beyond 20 years.\n\nAs Row-3 specifically speaks of past service less than 20 years, it will not include past service\nof 20 years as per simple understanding. Hence, the logical conclusion is that Row-4 will include past\nservice of 20 years and beyond 20 years.",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 2,
+      "text": "a\n-\n\nIn this regard necessary changes have been made in the application software by the I.S.\nDivision and the WAR has been released to all field offices.\n\nIn light of the above, it is requested to take necessary action to dispose off all\nreferences/grievances pending at your end.\n\n(This issues with the approval of CPFC)\n\nYours faithfully,\n\n—_———_\n(Mukesh Kumar)\nRegional PF Commissioner-I (Pension)",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

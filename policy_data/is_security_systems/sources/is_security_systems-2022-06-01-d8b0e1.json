@@ -1,0 +1,15 @@
+{
+  "document_id": "is_security_systems-2022-06-01-d8b0e1",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/Cyber_Security_Advisory_Classified_Documents_on_eOffice_09062022.pdf",
+  "pdf_sha256": "0fe0f24b6fea56f1caef5dec6d8fefe68c1e9a5a6f6978f5ad039675227b6cf9",
+  "total_pdf_pages": 1,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "EMPLOYEES’ PROVIDENT FUND ORGANISATION\n\n( , URTERDTR\n(MINISTRY OF LABOUR & EMPLOYMENT, GOVT. OF INDIA)\n\n/NATIONAL DATA CENTRE\n17 Floor, BhavishyaNidhiBhawan, Plot No.23, Sector-23, Dwarka,New Delhi-1 10075\nwww. eptindia.pov.in\n\nCISO/Security/2022/ | 2,22— Date:01.06.2022\nYBER SE ADVI: 'Y_: PROCESSI! F CLASSIFIED D E ILES ON\nE-OFFI\n1. Refer Minutes of the meeting held under the chairmanship of Secretary, Department of\n\n4\n\nCopy\n\n1.\n2. FA & CAO, CVO\n\n3. ALL ACC/ACC(HQ) in Head Office and NDC\n4.\n\n5. CTO\n\nAdministrative Reforms & Public Grievances (AR & PG) on 28.07.2018 (Office Memorandum) to\n\ndiscuss matter regarding Processing of classified documents/files on e-office. (a capy attached)\n\nTt has been observed that letters/files with classification as secret are being shared on e-office\n\napplication within EPFO.\n\n. In this context, it is highlighted that e-office applications do not cater to the requirements of\nsecret/ top secret/ classified communications. Such communications/ files are to be handled on\nphysical mode.\n\n. For information and strict compliance please.\n\nto,\n\nPPS to CPFC\n\nDirector, PDUNASS\n\n(Rahul Modgil)\nChief Information Security Officer",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

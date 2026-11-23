@@ -1,0 +1,18 @@
+{
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
+  "cases": [
+    {"id": "dr-2025-07", "question": "What dearness relief rate applies to pensioners from 1 July 2025?", "as_of": "2025-10-13",
+     "required_evidence": [{"document_id": "dr-2025-10-13", "page_number": 2}]},
+    {"id": "da-2026-01", "question": "Dearness allowance revised rate effective from 01.01.2026", "as_of": "2026-04-24",
+     "required_evidence": [{"document_id": "da-2026-04-24", "page_number": 2}]},
+    {"id": "da-2021-31", "question": "Dearness allowance enhanced from 28% to 31% with effect from 1st July 2021", "as_of": "2021-10-28",
+     "required_evidence": [{"document_id": "da-2021-10-28", "page_number": 3}],
+     "relationship": {"id": "da-2021-10-28-replaces-da-2021-07-20", "type": "partially_modifies", "status": "effective_relationship"}},
+    {"id": "freeze-2020", "question": "Freezing of dearness allowance and dearness relief at current rates till July 2021", "as_of": "2020-04-29",
+     "required_evidence": [{"document_id": "dadr-2020-04-29", "page_number": 2}]},
+    {"id": "dr-2016-reset", "question": "Dearness relief 7th Central Pay Commission nil from 1 January 2016 and 2% from 1 July 2016", "as_of": "2016-11-23",
+     "required_evidence": [{"document_id": "dr-2016-11-23", "page_number": 1}]},
+    {"id": "dr-before-issue", "question": "Dearness relief pensioners revised rate effective from 01.01.2025", "as_of": "2025-04-16",
+     "absent_documents": ["dr-2025-04-17", "dr-2025-10-13", "dr-2026-04-29"]}
+  ]
+}

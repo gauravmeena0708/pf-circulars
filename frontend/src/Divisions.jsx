@@ -1,0 +1,438 @@
+import { useI18n } from "./UiLanguage.jsx";
+import React, { useEffect, useMemo, useState } from "react";
+import { ArrowUpRight, Search } from "lucide-react";
+import Markdown from "./Markdown";
+import { json } from "./client";
+
+const KINDS = [
+  ["all", "All statuses"],
+  ["active", "Active"],
+  ["ended", "Ended, replaced or withdrawn"],
+  ["dormant", "No recent circular"],
+  ["routine", "Routine or operational"],
+];
+const KIND_LABEL = {
+  active: "Active",
+  ended: "Ended / replaced",
+  dormant: "No recent circular",
+  routine: "Routine",
+  other: "Not assessed",
+};
+// Short names for the six kinds of work; the long labels and descriptions come from the API.
+const NATURE_SHORT = {
+  rule: "Rule / policy",
+  forwarded: "Forwarded order",
+  routine: "Routine work",
+  data_request: "Data request",
+  dissemination: "Dissemination",
+  communication: "Communication",
+};
+
+// Table cells are short Markdown (bold, code); keep them inline.
+const Inline = ({ children }) => (
+  <Markdown components={{ p: ({ children: c }) => <span>{c}</span> }}>
+    {children}
+  </Markdown>
+);
+
+function MixBar({ mix, natures }) {
+  const { t: tr } = useI18n();
+  const total = natures.reduce((n, x) => n + (mix[x.id] || 0), 0);
+  if (!total) return null;
+  return (
+    <div className="mix">
+      <div
+        className="mix-bar"
+        role="img"
+        aria-label={tr("Estimated mix of circulars by kind of work")}
+      >
+        {natures
+          .filter((x) => mix[x.id])
+          .map((x) => (
+            <i
+              key={x.id}
+              className={`nat-${x.id}`}
+              style={{ width: `${(100 * mix[x.id]) / total}%` }}
+              title={tr("{value0}: {value1} circulars", {
+                value0: NATURE_SHORT[x.id],
+                value1: mix[x.id],
+              })}
+            />
+          ))}
+      </div>
+      <div className="mix-key">
+        {natures
+          .filter((x) => mix[x.id])
+          .map((x) => (
+            <span key={x.id}>
+              <i className={`nat-${x.id}`} />
+              {NATURE_SHORT[x.id]} {Math.round((100 * mix[x.id]) / total)}%
+            </span>
+          ))}
+        <span className="mix-total">
+          {tr("estimated from the titles of ")}
+          {total.toLocaleString("en-IN")}
+          {tr(" circulars")}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+const AXIS_START = 2006,
+  AXIS_END = 2026;
+// A bar on a shared 2006-2026 axis, so cards can be compared by timeline.
+export function SpanBar({ start, end }) {
+  if (!start || !end) return null;
+  const range = AXIS_END - AXIS_START + 1;
+  const left = Math.max(0, ((start - AXIS_START) / range) * 100);
+  const width = Math.max(
+    2.5,
+    ((end - Math.max(start, AXIS_START) + 1) / range) * 100,
+  );
+  return (
+    <div className="span-bar" title={`${start}-${end}`}>
+      <i
+        style={{ left: `${left}%`, width: `${Math.min(width, 100 - left)}%` }}
+      />
+    </div>
+  );
+}
+const SORTS = {
+  latest: (a, b) => b.end - a.end || b.start - a.start,
+  earliest: (a, b) => a.start - b.start || a.end - b.end,
+  az: (a, b) => a.name.localeCompare(b.name),
+};
+export const sortItems = (items, how) =>
+  [...items].sort(SORTS[how] || SORTS.latest);
+
+// Rule topics from the division catalog that are not yet a curated history, ordered by timeline.
+export function LibraryRules({ sort, onOpenDivision }) {
+  const { t: tr } = useI18n();
+  const [data, setData] = useState(null),
+    [error, setError] = useState("");
+  useEffect(() => {
+    let live = true;
+    json("/api/divisions")
+      .then((d) => live && setData(d))
+      .catch((e) => live && setError(e.message));
+    return () => {
+      live = false;
+    };
+  }, []);
+  const items = useMemo(() => {
+    if (!data) return [];
+    const out = [];
+    data.divisions.forEach((d) =>
+      d.sections.forEach((s) =>
+        s.rows.forEach((r) => {
+          if (r.nature !== "rule" || r.collections.length || !r.span) return;
+          const topicCol = s.columns[0] === "#" ? 1 : 0;
+          out.push({
+            key: `${d.id}-${s.heading}-${r.cells[topicCol]}`,
+            name: r.cells[topicCol],
+            division: d.name,
+            divisionId: d.id,
+            start: r.span[0],
+            end: r.span[1],
+            status: r.status_kind,
+          });
+        }),
+      ),
+    );
+    return sortItems(out, sort);
+  }, [data, sort]);
+  if (error) return <p className="division-note error">{error}</p>;
+  if (!data) return null;
+  if (!items.length)
+    return (
+      <p className="division-note">
+        {tr(
+          "Every rule topic in the division catalog now has a verified history above.",
+        )}
+      </p>
+    );
+  return (
+    <>
+      <div className="library-heading rules-heading">
+        <span>
+          {items.length}
+          {tr(" rule topics without a policy history")}
+        </span>
+        <span>
+          {tr("Rules the divisions create and manage, placed on the ")}
+          {AXIS_START}-{AXIS_END}
+          {tr(
+            " timeline by the span of their circulars. Evidence is from circular titles and the circulars named on the division page.",
+          )}
+        </span>
+      </div>
+      <div className="library-grid">
+        {items.map((it) => (
+          <button
+            className="library-card rule-card"
+            key={it.key}
+            onClick={() => onOpenDivision(it.divisionId)}
+            title={tr("Open {value0}", { value0: it.division })}
+          >
+            <div>
+              <span className="topic-index">{it.division}</span>
+              <ArrowUpRight size={18} />
+            </div>
+            <h2>{it.name}</h2>
+            <SpanBar start={it.start} end={it.end} />
+            <div className="library-facts">
+              <span>
+                {it.start === it.end
+                  ? it.start
+                  : tr("{value0}-{value1}", {
+                      value0: it.start,
+                      value1: it.end,
+                    })}
+              </span>
+              <span className={`kind-text ${it.status}`}>
+                {tr(KIND_LABEL[it.status])}
+              </span>
+            </div>
+          </button>
+        ))}
+      </div>
+    </>
+  );
+}
+
+export default function Divisions({ onOpenPolicy, focus }) {
+  const { t: tr } = useI18n();
+  const [data, setData] = useState(null),
+    [error, setError] = useState(""),
+    [active, setActive] = useState(""),
+    [term, setTerm] = useState(""),
+    [kind, setKind] = useState("all"),
+    [nature, setNature] = useState("all");
+  useEffect(() => {
+    let live = true;
+    json("/api/divisions")
+      .then((d) => {
+        if (!live) return;
+        setData(d);
+        setActive(d.divisions[0]?.id || "");
+      })
+      .catch((e) => live && setError(e.message));
+    return () => {
+      live = false;
+    };
+  }, []);
+  useEffect(() => {
+    if (focus && data?.divisions.some((d) => d.id === focus)) setActive(focus);
+  }, [focus, data]);
+  const division = data?.divisions.find((d) => d.id === active);
+  const needle = term.trim().toLowerCase();
+  const sections = useMemo(() => {
+    if (!division) return [];
+    return division.sections.map((s) => ({
+      ...s,
+      rows: s.rows.filter(
+        (r) =>
+          (kind === "all" || r.status_kind === kind) &&
+          (nature === "all" || r.nature === nature) &&
+          (!needle || r.cells.join(" ").toLowerCase().includes(needle)),
+      ),
+    }));
+  }, [division, needle, kind, nature]);
+  const shown = sections.reduce((n, s) => n + s.rows.length, 0);
+
+  if (error) return <p className="division-note error">{error}</p>;
+  if (!data) return <p className="division-note">{tr("Loading divisions…")}</p>;
+  const total = data.divisions.reduce((n, d) => n + d.row_count, 0);
+  const counts = {};
+  division?.sections.forEach((s) =>
+    s.rows.forEach((r) => (counts[r.nature] = (counts[r.nature] || 0) + 1)),
+  );
+  return (
+    <>
+      <div className="library-heading">
+        <span>
+          {data.divisions.length}
+          {tr(" division groups · ")}
+          {total}
+          {tr(" policy topics")}
+        </span>
+        <span>
+          {tr(
+            "Status is shown only where a circular says it. “No recent circular” is not a finding that a policy has ended.",
+          )}
+        </span>
+      </div>
+      <div className="division-chips" role="tablist">
+        {data.divisions.map((d) => (
+          <button
+            key={d.id}
+            role="tab"
+            aria-selected={d.id === active}
+            className={d.id === active ? "active" : ""}
+            onClick={() => setActive(d.id)}
+          >
+            {d.name}
+            <span>{d.row_count}</span>
+          </button>
+        ))}
+      </div>
+      <div className="nature-legend" aria-label={tr("Kinds of work")}>
+        <span className="nature-legend-title">{tr("Kind of work")}</span>
+        <button
+          className={nature === "all" ? "active" : ""}
+          onClick={() => setNature("all")}
+        >
+          {tr("All")}
+        </button>
+        {data.natures.map((n) => (
+          <button
+            key={n.id}
+            className={nature === n.id ? "active" : ""}
+            onClick={() => setNature(nature === n.id ? "all" : n.id)}
+            title={n.description}
+          >
+            <i className={`nat-${n.id}`} />
+            {tr(NATURE_SHORT[n.id])}
+            <em>{counts[n.id] || 0}</em>
+          </button>
+        ))}
+      </div>
+      {division && (
+        <>
+          <p className="division-intro">
+            <Inline>{division.intro}</Inline>
+          </p>
+          <MixBar mix={division.mix} natures={data.natures} />
+          <div className="division-controls">
+            <label className="division-search">
+              <Search size={15} />
+              <input
+                value={term}
+                onChange={(e) => setTerm(e.target.value)}
+                placeholder={tr("Search {value0}", { value0: division.name })}
+                aria-label={tr("Search policy topics")}
+              />
+            </label>
+            <select
+              value={kind}
+              onChange={(e) => setKind(e.target.value)}
+              aria-label={tr("Filter by status")}
+            >
+              {KINDS.map(([v, label]) => (
+                <option key={v} value={v}>
+                  {tr(label)}
+                </option>
+              ))}
+            </select>
+            <span className="division-count">
+              {shown}
+              {tr(" of ")}
+              {division.row_count}
+              {tr(" topics")}
+            </span>
+          </div>
+          {sections.map((s, i) => {
+            const cols = s.columns
+              .map((c, n) => ({ c, n }))
+              .filter((x) => x.c !== "#");
+            return (
+              <section className="division-section" key={s.heading + i}>
+                {s.heading && <h3>{s.heading}</h3>}
+                {s.text && (
+                  <p className="division-intro">
+                    <Inline>{s.text}</Inline>
+                  </p>
+                )}
+                {s.rows.length > 0 && (
+                  <div className="table-scroll">
+                    <table className="division-table">
+                      <thead>
+                        <tr>
+                          {cols.map((x, k) => (
+                            <React.Fragment key={x.c + x.n}>
+                              <th>{x.c}</th>
+                              {k === 0 && <th>{tr("Kind of work")}</th>}
+                            </React.Fragment>
+                          ))}
+                          <th>{tr("Collection")}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {s.rows.map((r, j) => (
+                          <tr key={j}>
+                            {cols.map((x, k) => (
+                              <React.Fragment key={x.c + x.n}>
+                                <td>
+                                  {/status/i.test(x.c) && (
+                                    <em className={`kind ${r.status_kind}`}>
+                                      {tr(KIND_LABEL[r.status_kind])}
+                                    </em>
+                                  )}
+                                  <Inline>{r.cells[x.n]}</Inline>
+                                </td>
+                                {k === 0 && (
+                                  <td className="nature-cell">
+                                    <span className={`nature nat-${r.nature}`}>
+                                      {tr(NATURE_SHORT[r.nature])}
+                                    </span>
+                                    {r.also.map((a) => (
+                                      <span
+                                        key={a}
+                                        className={`nature also nat-${a}`}
+                                        title={tr("Also includes")}
+                                      >
+                                        + {tr(NATURE_SHORT[a])}
+                                      </span>
+                                    ))}
+                                  </td>
+                                )}
+                              </React.Fragment>
+                            ))}
+                            <td className="division-links">
+                              {r.collections
+                                .filter((id) => data.collections[id])
+                                .map((id) => (
+                                  <button
+                                    key={id}
+                                    onClick={() => onOpenPolicy(id)}
+                                    title={tr("Open {value0}", {
+                                      value0: data.collections[id],
+                                    })}
+                                  >
+                                    {data.collections[id]}
+                                    <ArrowUpRight size={12} />
+                                  </button>
+                                ))}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </section>
+            );
+          })}
+          {shown === 0 && (
+            <p className="division-note">
+              {tr("No topics match. Clear the search or a filter.")}
+            </p>
+          )}
+          {division.notes && (
+            <p className="division-foot">
+              <Inline>{division.notes}</Inline>
+            </p>
+          )}
+          <p className="division-foot">
+            {tr("Source: ")}
+            <code>{division.source_file}</code>
+            {tr(
+              ". Counts are approximate and topics overlap; the division tag is the issuing division. Kind of work: each topic is labelled by hand; the bar is an estimate from circular titles.",
+            )}
+          </p>
+        </>
+      )}
+    </>
+  );
+}

@@ -1,0 +1,19 @@
+{
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
+  "cases": [
+    {"id": "apar-2024-25-initial", "question": "How must APARs for 2024-25 be filed and what are the timelines?", "as_of": "2025-08-26",
+     "required_evidence": [{"document_id": "apar-2025-08-26", "page_number": 1}]},
+    {"id": "apar-2024-25-corrigendum", "question": "Corrigendum year in timelines for APAR 2024-25 January 2026", "as_of": "2025-10-01",
+     "required_evidence": [{"document_id": "apar-2025-10-01", "page_number": 1}],
+     "relationship": {"id": "apar-2025-10-01-revises-2025-09-22", "type": "partially_modifies"}},
+    {"id": "apar-2024-25-latest", "question": "Revision of timelines for APAR 2024-25 reviewing officer", "as_of": "2026-03-25",
+     "required_evidence": [{"document_id": "apar-2026-03-25", "page_number": 1}]},
+    {"id": "apar-2025-26-self-appraisal", "question": "Revision of timelines APAR 2025-26 self appraisal", "as_of": "2026-08-13",
+     "required_evidence": [{"document_id": "apar-2026-08-13", "page_number": 1}]},
+    {"id": "vcc-rpfc2", "question": "Who issues vigilance clearance for Group B C D officials in RPFC-II headed offices?", "as_of": "2017-09-07",
+     "required_evidence": [{"document_id": "apar-2017-09-07", "page_number": 1}],
+     "relationship": {"id": "apar-2017-09-07-clarifies-2017-01-23", "type": "clarifies"}},
+    {"id": "apar-before-2025-26", "question": "APAR 2025-26 timelines through SPARROW", "as_of": "2026-04-19",
+     "absent_documents": ["apar-2026-04-20", "apar-2026-06-16"]}
+  ]
+}

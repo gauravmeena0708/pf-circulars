@@ -1,0 +1,20 @@
+{
+  "document_id": "legal_case_handling-2019-05-07-239fe1",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2019-2020/HRM8_LegalCases_1909.pdf",
+  "pdf_sha256": "be2b72085e17d85891dd0c9a71aa54d1b96188dcc2b8ddbe924c86760a29c602",
+  "total_pdf_pages": 2,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "No. F-23019/3/2018/HRM-VIIT/ <.c°\\\n\nodant afasr fafer wer\n\nEmployees’ Provident Fund Organisation\n\naa Ud Wo AAG, ART UHR | a\nMinistry of Labour & Employment, Government of India PP\nfafft Ha / Bhavishya Nidhi Bhawan CELEBRATING\n\n14, Farsi OFT wre aE feee 110066\nBhikaiji Cama Place, New Delhi 110066\nwww.epfindia.gov.in\n\nDated:- 17 MAY 2019\nOFFICE MEMORANDUM\n\nSubject:- Instructions for handling legal cases pertaining to service matters before Hon'ble\nCAT/High Courts/Supreme Court — Regarding.\n\nAttention is invited to Head Office Legal Cell circular No. LC-9(6)2017/LIMBS/5926 dated\n29.06.2017 and No. F-23019/3/2018/HRM-VIII/18337 dated 13.03.2019 regarding management\nof legal cases pertaining to EPFO. In order to ensure effective and timely management of cases\npertaining to service matters, it has been decided that all the cases pertaining to service matters\nwill be monitored separately through legal dashboard.\n\n2 Accordingly, the Additional CPFCs in charge of Zones and ASD at Head Office &\nDirector, PDNASS are requested to ensure that all the cases pertaining to service matters under\ntheir jurisdiction are updated separately on legal dashboard by 13.05.2019. The said facility can\nbe accessed via MPLS connectivity at http://10.1.1.62:8080/epfo\n\nci For prompt and efficient management of legal cases pertaining to service matters, the\nfollowing may also be ensured:\n\n(i) In such court/CAT cases where union of India/Chairman CBT/LEM/Secretary\nL&E/CPFC have been made a party, the instructions issued vide Head Office letter no. LC-\n2(Misc) 2013/10135 dated 29.10.2018 may scrupulously be adhered to.\n(ii) All contempt cases where Chairman CBT/Secretary L&E/CPFC is/ are a party must\nimmediately be brought to the attention of Head Office.\n(iii) In all court cases pertaining to service matters where an order has been passed\nby the court, an appropriate and timely action may be ensured in terms of either\ncomplying with the order or challenging it at a higher legal forum as the case may be.\n(iv) All ROs must ensure that our legal counsels are suitably advised to take all\npossible actions for opposing the interim stay prayers of the applicants at admission stage\nitself.\n4. The nodal officers for LIMBS portal shall discharge the duty of nodal officers for legal\ndashboard with respect to cases pertaining to service matters.",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 2,
+      "text": "It may be noted that the following fields are mandatory for updation of Legal Dashboard:\n\ni) Panel advocate name\nii) | Court name\niii) | Type of court\niv) Petitioner name\n\nv) | Name of EPFO office\nvi) Designation\n\nAll nodal officers are requested to ensure that the above mentioned fields are correct\nand updated.\n\n6. A certification stating the aforementioned instructions have been adhered to may be\nfurnished to Head Office at rc.hrm8@epfindia.gov.in by 15.05.2019 positively.\n\nld\n(Udita Chowdhary)\nAdditional Central P. F. Commissioner (HRM)\n\nTo\nAll Additional CPFCs (Zonal Offices)\nACC (ASD) Head Office\nDirector, PDNASS",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

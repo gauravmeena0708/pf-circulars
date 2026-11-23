@@ -1,0 +1,637 @@
+{
+  "schema_version": 1,
+  "id": "ecr_returns",
+  "reviewed_on": "2026-11-04",
+  "topics": [
+    {
+      "id": "ecr_returns",
+      "label": "Employer returns, ECR, KYC, UAN activation",
+      "include": "ECR|electronic challan|return|KYC|Aadhaar|UAN|PAN"
+    }
+  ],
+  "documents": [
+    {
+      "id": "ecr_returns-2012-05-23-9d468e",
+      "title": "Amendment in Employees' Provident Fund Scheme, 1952 for submission of E-returns",
+      "circular_no": "HO No. Coord/ 40(1)2011/ claim settlement/ 2537",
+      "issued_on": "2012-05-23",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/Coord_2537.pdf",
+      "source_file": "sources/ecr_returns-2012-05-23-9d468e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Amendment in Employees' Provident Fund Scheme, 1952 for submission of E-returns",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2012-05-23-9d468e",
+        "page_number": 2,
+        "quote": "Amendment in Employees’ Provident Funds Scheme, 1952 for submission"
+      }
+    },
+    {
+      "id": "ecr_returns-2012-10-25-0ff0df",
+      "title": "Time bound updation of members accounts on collection of Form 3A and 6A",
+      "circular_no": "HO No.C-III/4(187)11/HQ/22935",
+      "issued_on": "2012-10-25",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/c3_22935.pdf",
+      "source_file": "sources/ecr_returns-2012-10-25-0ff0df.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Time bound updation of members accounts on collection of Form 3A and 6A",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2012-10-25-0ff0df",
+        "page_number": 1,
+        "quote": "Time bound updation of members accounts on coilection of Form 3A and"
+      }
+    },
+    {
+      "id": "ecr_returns-2016-01-25-a7955e",
+      "title": "Activation of UAN and KYC seeding",
+      "circular_no": "HO No. Coord./40(24)2010/DPG/Review Meeting/35738",
+      "issued_on": "2016-01-25",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/Coord_ActivationUAN_35738.pdf",
+      "source_file": "sources/ecr_returns-2016-01-25-a7955e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Activation of UAN and KYC seeding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2016-01-25-a7955e",
+        "page_number": 1,
+        "quote": "Regional Offices) Dated: 25.01.2016 2 5 JAN 2 6 Subject:- Activation"
+      }
+    },
+    {
+      "id": "ecr_returns-2017-06-30-19cd0b",
+      "title": "Form of Return under Employees' Enrolment Campaign, 2017",
+      "circular_no": "HO No. C-I/4(1)2017/Enrolment Campaign/6787",
+      "issued_on": "2017-06-30",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/CI_Return_EEC_6787.pdf",
+      "source_file": "sources/ecr_returns-2017-06-30-19cd0b.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Form of Return under Employees' Enrolment Campaign, 2017",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2017-06-30-19cd0b",
+        "page_number": 1,
+        "quote": "Form of Return under Employees' Enrolment Campaign, 2017. Sir, The"
+      }
+    },
+    {
+      "id": "ecr_returns-2017-09-29-3dd6e8",
+      "title": "Filing of Returns, Transmitting details of Members' Account Electronically and Better Management of Investment made by the Trust of Exempted Establishments",
+      "circular_no": "HO No. Exem/10(20)/2016/Vol-III/10735",
+      "issued_on": "2017-09-29",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Exem_OnlineReturn_ExEstt_10735.pdf",
+      "source_file": "sources/ecr_returns-2017-09-29-3dd6e8.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Filing of Returns, Transmitting details of Members' Account Electronically and Better Management of Investment made by the Trust of Exempted Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2017-09-29-3dd6e8",
+        "page_number": 1,
+        "quote": "¢ i:ftj1.ft ~ f~RnfllcR ~ ~ 'l..fffil ~ Employees' Provident"
+      }
+    },
+    {
+      "id": "ecr_returns-2018-01-08-a8c9bf",
+      "title": "Abolishing of uploading of scanned copy of PAN Card at the time of registration of establishment",
+      "circular_no": "HO No. CAIU/011(2)2018/PAN Card/16815",
+      "issued_on": "2018-01-08",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/CAIU_PAN_16815.pdf",
+      "source_file": "sources/ecr_returns-2018-01-08-a8c9bf.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Abolishing of uploading of scanned copy of PAN Card at the time of registration of establishment",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2018-01-08-a8c9bf",
+        "page_number": 1,
+        "quote": "All Additional Central P.F. Commissioner (Zones), All Regional P. F"
+      }
+    },
+    {
+      "id": "ecr_returns-2018-11-29-4e24e2",
+      "title": "Facilitating Aadhaar number seeding in UAN",
+      "circular_no": "HO No. C-III/1/2018/Cir/KYC/1228",
+      "issued_on": "2018-11-29",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/C3_AadhaarSeeding_UAN_1228.pdf",
+      "source_file": "sources/ecr_returns-2018-11-29-4e24e2.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Facilitating Aadhaar number seeding in UAN",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2018-11-29-4e24e2",
+        "page_number": 1,
+        "quote": "Facilitating Aadhaar number seeding in UAN Madam/Sir Dated:29.11.2018"
+      }
+    },
+    {
+      "id": "ecr_returns-2021-02-01-a4c5af",
+      "title": "Deployment of electronic facility at Employer Interface of EPFO's Unified Portal for Principal Employers to view EPF compliances of their Contractors & contract workers",
+      "circular_no": "HO No. C-I/011(16)2020-21/ABRY/1179",
+      "issued_on": "2021-02-01",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/C1_ABRY_1179.pdf",
+      "source_file": "sources/ecr_returns-2021-02-01-a4c5af.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Deployment of electronic facility at Employer Interface of EPFO's Unified Portal for Principal Employers to view EPF compliances of their Contractors & contract workers",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2021-02-01-a4c5af",
+        "page_number": 1,
+        "quote": "Deployment of electronic facility at Employer Interface of EPFO’s"
+      }
+    },
+    {
+      "id": "ecr_returns-2024-11-22-9c84d4",
+      "title": "UAN Activation and seeding Bank Account with AADHAAR for available the benefits under ELI Scheme",
+      "circular_no": "ELI/UANActivation/2024",
+      "issued_on": "2024-11-22",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/CircularUAN Activation_22112024.pdf",
+      "source_file": "sources/ecr_returns-2024-11-22-9c84d4.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "UAN Activation and seeding Bank Account with AADHAAR for available the benefits under ELI Scheme",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2024-11-22-9c84d4",
+        "page_number": 1,
+        "quote": "UAN Activation and seeding Bank Account with AADHAAR for availing the"
+      }
+    },
+    {
+      "id": "ecr_returns-2024-12-04-689f0e",
+      "title": "UAN Activation and Seeding Bank Account with AADHAAR for availing the benefits under ELI Scheme – Extension up to 15.12.2024 – regarding",
+      "circular_no": "ELI/UANActivation/2024",
+      "issued_on": "2024-12-04",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/Circular_Extensionoftime_UANActivation_04112024.pdf",
+      "source_file": "sources/ecr_returns-2024-12-04-689f0e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "UAN Activation and Seeding Bank Account with AADHAAR for availing the benefits under ELI Scheme – Extension up to 15.12.2024 – regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2024-12-04-689f0e",
+        "page_number": 1,
+        "quote": "UAN Activation and seeding Bank Account with AADHAAR for availing the"
+      }
+    },
+    {
+      "id": "ecr_returns-2024-12-20-2cdd85",
+      "title": "UAN Activation and seeding Bank Account with AADHAAR for availing the benefits under ELI Scheme- Extension up to 15.01.2025- regarding",
+      "circular_no": "No:ELI/UANActivation/2024",
+      "issued_on": "2024-12-20",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/ExtensionOfUANunderELIScheme_2012204.pdf",
+      "source_file": "sources/ecr_returns-2024-12-20-2cdd85.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "UAN Activation and seeding Bank Account with AADHAAR for availing the benefits under ELI Scheme- Extension up to 15.01.2025- regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2024-12-20-2cdd85",
+        "page_number": 1,
+        "quote": "UAN Activation and seeding Bank Account with AADHAAR for availing the"
+      }
+    },
+    {
+      "id": "ecr_returns-2025-02-06-9827f5",
+      "title": "UAN Activation and seeding Bank Account with AADHAAR for availing the benefits under ELI Scheme- Extension up to 15.02.2025 – regarding",
+      "circular_no": "ELI/UAN Activation/2025",
+      "issued_on": "2025-02-06",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/Circular_ExtentionOfELISchmeDate_06022025.pdf",
+      "source_file": "sources/ecr_returns-2025-02-06-9827f5.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "UAN Activation and seeding Bank Account with AADHAAR for availing the benefits under ELI Scheme- Extension up to 15.02.2025 – regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2025-02-06-9827f5",
+        "page_number": 1,
+        "quote": "UAN Activation and seeding Bank Account with AADHAAR for availing the"
+      }
+    },
+    {
+      "id": "ecr_returns-2025-02-21-713548",
+      "title": "UAN Activation and seeding Bank Account with AADHAAR for availing the benefits under ELI Scheme- Extension up to 15.03.2025- regarding",
+      "circular_no": "No: ELI/UAN Activation/2025",
+      "issued_on": "2025-02-21",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/ExtensionOfDateForELIScheme_UAN_21022025.pdf",
+      "source_file": "sources/ecr_returns-2025-02-21-713548.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "UAN Activation and seeding Bank Account with AADHAAR for availing the benefits under ELI Scheme- Extension up to 15.03.2025- regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2025-02-21-713548",
+        "page_number": 1,
+        "quote": "UAN Activation and seeding Bank Account with AADHAAR for availing the"
+      }
+    },
+    {
+      "id": "ecr_returns-2025-03-28-bf25bc",
+      "title": "UAN Activation and seeding Bank Account with AADHAAR for availing the benefits under ELI Scheme- Extension up to 30.04.2025- regarding",
+      "circular_no": "ELI/UANActivation/2025",
+      "issued_on": "2025-03-28",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/ELI_UANActivation_28032025.pdf",
+      "source_file": "sources/ecr_returns-2025-03-28-bf25bc.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "UAN Activation and seeding Bank Account with AADHAAR for availing the benefits under ELI Scheme- Extension up to 30.04.2025- regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2025-03-28-bf25bc",
+        "page_number": 1,
+        "quote": "UAN Activation and seeding Bank Account with AADHAAR for availing the"
+      }
+    },
+    {
+      "id": "ecr_returns-2025-05-30-4fbc6c",
+      "title": "UAN Activation and seeding Bank Account with AADHAAR for availing the benefits under ELI Scheme- Extension up to 30.06.2025- regarding",
+      "circular_no": "ELI/UANActivation/2025/930083",
+      "issued_on": "2025-05-30",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/UANActivationCircular_30052025.pdf",
+      "source_file": "sources/ecr_returns-2025-05-30-4fbc6c.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "UAN Activation and seeding Bank Account with AADHAAR for availing the benefits under ELI Scheme- Extension up to 30.06.2025- regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2025-05-30-4fbc6c",
+        "page_number": 1,
+        "quote": "UAN Activation and seeding Bank Account with AADHAAR for availing the"
+      }
+    },
+    {
+      "id": "ecr_returns-2025-07-22-6ab28f",
+      "title": "Circular - Furnishing Accurate Gross wages in monthly ECR for the purpose of availing benefit under Employment Linked Incentive Scheme – Regarding",
+      "circular_no": "No:ELI/Gross WagesInECR/2025/E-1132964",
+      "issued_on": "2025-07-22",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_GrossWages_22072025.pdf",
+      "source_file": "sources/ecr_returns-2025-07-22-6ab28f.json",
+      "verification": "source_checked",
+      "effective_from": "2025-08-01",
+      "effective_date_evidence": {
+        "document_id": "ecr_returns-2025-07-22-6ab28f",
+        "page_number": 1,
+        "quote": "to be filed from wage month August 2025 onwards"
+      },
+      "version_label": "Circular - Furnishing Accurate Gross wages in monthly ECR for the purpose of availing benefit under Employment Linked Incentive Scheme – Regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2025-07-22-6ab28f",
+        "page_number": 1,
+        "quote": "Furnishing accurate Gross wages in monthly ECR for the of availing"
+      }
+    },
+    {
+      "id": "ecr_returns-2025-09-26-04d53c",
+      "title": "Launch of the revamped Electronic Challan-cum-Return )ECR) for wage month September - 2025 onwards",
+      "circular_no": "Circular No. Compliance/ECR Revamp/2025/12997",
+      "issued_on": "2025-09-26",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/ECRRevamp_26092025.pdf",
+      "source_file": "sources/ecr_returns-2025-09-26-04d53c.json",
+      "verification": "source_checked",
+      "effective_from": "2025-09-01",
+      "effective_date_evidence": {
+        "document_id": "ecr_returns-2025-09-26-04d53c",
+        "page_number": 1,
+        "quote": "which shall be applicable for the wage month September 2025 onwards"
+      },
+      "version_label": "Launch of the revamped Electronic Challan-cum-Return )ECR) for wage month September - 2025 onwards",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2025-09-26-04d53c",
+        "page_number": 1,
+        "quote": "Launch of the revamped Electronic Challan-cum-Return (ECR) for wage"
+      }
+    },
+    {
+      "id": "ecr_returns-2025-10-07-573bba",
+      "title": "Prominent display of the extract of Form 5A at the entrance of the establishment or on the website along with mobile application of the establishment- Regarding.",
+      "circular_no": "No. Compliance/U/P78/2022/Advocacy/ 55643//13/79",
+      "issued_on": "2025-10-07",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Para78(3)_Circular_07102025.pdf",
+      "source_file": "sources/ecr_returns-2025-10-07-573bba.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Prominent display of the extract of Form 5A at the entrance of the establishment or on the website along with mobile application of the establishment- Regarding.",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2025-10-07-573bba",
+        "page_number": 1,
+        "quote": "Prominent display of the extract of Form 5A at the entrance of the"
+      }
+    },
+    {
+      "id": "ecr_returns-2025-10-08-b50981",
+      "title": "Release of FAQs on the Revamped Electronic Challan-cum-Return (ECR) System",
+      "circular_no": "No-. Compliance (V.6) /e-office-704368/2025/13202",
+      "issued_on": "2025-10-08",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/ComplianceLetter_08102025.pdf",
+      "source_file": "sources/ecr_returns-2025-10-08-b50981.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Release of FAQs on the Revamped Electronic Challan-cum-Return (ECR) System",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2025-10-08-b50981",
+        "page_number": 1,
+        "quote": "Release of FAQs on the Revamped Electronic Challan-cum-Return (ECR)"
+      }
+    },
+    {
+      "id": "ecr_returns-2025-12-01-20bb80",
+      "title": "Discontinuation of Extension of Timeline for mandatory Aadhaar Seeding with UAN for filing of ECR in respect of establishments in the NER and certain class of establishments beyond 31.10.2025",
+      "circular_no": "No. Compliance/BKG-27/5/2021-BKG/6-38791/14066",
+      "issued_on": "2025-12-01",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/DiscontinuationOfAadhaarSeeding_31102025.pdf",
+      "source_file": "sources/ecr_returns-2025-12-01-20bb80.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Discontinuation of Extension of Timeline for mandatory Aadhaar Seeding with UAN for filing of ECR in respect of establishments in the NER and certain class of establishments beyond 31.10.2025",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2025-12-01-20bb80",
+        "page_number": 1,
+        "quote": "Discontinuation of Extension of Timeline for Mandatory Aadhaar"
+      }
+    },
+    {
+      "id": "ecr_returns-2026-01-15-89f538",
+      "title": "Extension of the due date for filing of the Electronic Challan-cum-Return (ECR) for wage month December, 2025- reg.",
+      "circular_no": "No.NDC/VEE4-Estt/1807/ECRFilling/2026/e-1239468",
+      "issued_on": "2026-01-15",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/circular_ECR_FilingExtn_15012026.pdf",
+      "source_file": "sources/ecr_returns-2026-01-15-89f538.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Extension of the due date for filing of the Electronic Challan-cum-Return (ECR) for wage month December, 2025- reg.",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2026-01-15-89f538",
+        "page_number": 1,
+        "quote": "Extension of the due date for filing of the Electronic"
+      }
+    },
+    {
+      "id": "ecr_returns-2026-01-22-a5a872",
+      "title": "Extension of the due date for filing of the Electronic Challan-cum-Return (ECR) for wage month December, 2025 – reg.",
+      "circular_no": "No.NDC/VEE4-Est/1807/ECR Filling/2026/e-1239468/15157",
+      "issued_on": "2026-01-22",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ecr_returns"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_ExtensionOfECR_22012026.pdf",
+      "source_file": "sources/ecr_returns-2026-01-22-a5a872.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Extension of the due date for filing of the Electronic Challan-cum-Return (ECR) for wage month December, 2025 – reg.",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "ecr_returns-2026-01-22-a5a872",
+        "page_number": 1,
+        "quote": "Extension of the due date for filing of the Electronic"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "ecr-2024-12-04-modifies-11-22",
+      "source": "ecr_returns-2024-12-04-689f0e",
+      "target": "ecr_returns-2024-11-22-9c84d4",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "ecr_returns-2024-12-04-689f0e",
+        "page_number": 1,
+        "quote": "In partial modification of the circular dated 22.11.2024 under reference"
+      },
+      "scope": "The 4 December 2024 circular extends the UAN activation and Aadhaar bank-seeding timeline from 30 November 2024 to 15 December 2024; the rest of the 22 November 2024 circular continues."
+    },
+    {
+      "id": "ecr-2024-12-20-extends",
+      "source": "ecr_returns-2024-12-20-2cdd85",
+      "target": "ecr_returns-2024-12-04-689f0e",
+      "type": "partially_modifies",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "ecr_returns-2024-12-20-2cdd85",
+        "page_number": 1,
+        "quote": "the competent authority has granted an extension of timeline from 15.12.2024 to 15.01.2025"
+      },
+      "scope": "Candidate link: the 20 December 2024 circular cites 'the circulars cited' without naming them; its extension of the deadline from 15 December 2024 matches the date set by the 4 December 2024 circular."
+    },
+    {
+      "id": "ecr-2025-02-06-extends",
+      "source": "ecr_returns-2025-02-06-9827f5",
+      "target": "ecr_returns-2024-12-20-2cdd85",
+      "type": "partially_modifies",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "ecr_returns-2025-02-06-9827f5",
+        "page_number": 1,
+        "quote": "the competent authority has granted an extension of timeline for UAN Activation and AADHAAR seeding in Bank Account till 15th Feb, 2025"
+      },
+      "scope": "Candidate link: the 6 February 2025 circular extends the deadline to 15 February 2025 and refers to 'the circulars mentioned under references' without naming them; the previous deadline was 15 January 2025."
+    },
+    {
+      "id": "ecr-2025-02-21-extends",
+      "source": "ecr_returns-2025-02-21-713548",
+      "target": "ecr_returns-2025-02-06-9827f5",
+      "type": "partially_modifies",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "ecr_returns-2025-02-21-713548",
+        "page_number": 1,
+        "quote": "the competent authority has granted an extension of timeline for UAN Activation and AADHAAR seeding in Bank Account till 15th March, 2025"
+      },
+      "scope": "Candidate link: the 21 February 2025 circular extends the deadline to 15 March 2025; the circulars it modifies are not named in the text."
+    },
+    {
+      "id": "ecr-2025-03-28-extends",
+      "source": "ecr_returns-2025-03-28-bf25bc",
+      "target": "ecr_returns-2025-02-21-713548",
+      "type": "partially_modifies",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "ecr_returns-2025-03-28-bf25bc",
+        "page_number": 1,
+        "quote": "the competent authority has granted an extension of timeline for UAN Activation and AADHAAR seeding in Bank Account till 30th April, 2025"
+      },
+      "scope": "Candidate link: the 28 March 2025 circular extends the deadline to 30 April 2025; the circulars it modifies are not named in the text."
+    },
+    {
+      "id": "ecr-2025-05-30-extends",
+      "source": "ecr_returns-2025-05-30-4fbc6c",
+      "target": "ecr_returns-2025-03-28-bf25bc",
+      "type": "partially_modifies",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "ecr_returns-2025-05-30-4fbc6c",
+        "page_number": 1,
+        "quote": "the competent authority has granted an extension of timeline for UAN Activation and AADHAAR seeding in Bank Account till 30th JUNE, 2025"
+      },
+      "scope": "Candidate link: the 30 May 2025 circular extends the deadline to 30 June 2025; the circulars it modifies are not named in the text."
+    },
+    {
+      "id": "ecr-2025-10-08-faq-of-revamp",
+      "source": "ecr_returns-2025-10-08-b50981",
+      "target": "ecr_returns-2025-09-26-04d53c",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "ecr_returns-2025-10-08-b50981",
+        "page_number": 1,
+        "quote": "effective from the wage month of September 2025"
+      },
+      "scope": "The FAQs of 8 October 2025 accompany the revamped ECR system launched by the 26 September 2025 circular; they explain it and do not change it."
+    },
+    {
+      "id": "ecr-2026-01-22-continues-01-15",
+      "source": "ecr_returns-2026-01-22-a5a872",
+      "target": "ecr_returns-2026-01-15-89f538",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "ecr_returns-2026-01-22-a5a872",
+        "page_number": 1,
+        "quote": "In continuation of the circular dated 15.01.2026 regarding the extension of the due date for submission of returns"
+      },
+      "scope": "The 22 January 2026 circular continues the 15 January 2026 extension of the ECR due date for the wage month of December 2025 in view of persistent technical difficulties; the stated due date should be read from the page."
+    }
+  ],
+  "limitations": [
+    "This collection covers employer-facing Compliance circulars on returns and the ECR, KYC and Aadhaar seeding, UAN activation and the PAN-upload abolition. The internal ABP/MIS returns of field offices (2009-2017) are routine reporting and are not included, and returns of exempted establishments are in the Exemption collection.",
+    "Circulars whose only issuer title is in Hindi (for example the 2014-2015 ECR, digital-signature and Form 11 / KYC circulars) are not included in this collection.",
+    "The UAN activation and Aadhaar bank-seeding deadline of the 22 November 2024 circular was extended six times between December 2024 and June 2025; the links after 4 December 2024 are unverified because the circulars name earlier ones only as 'the circulars mentioned under references'. Whether any later circular extended it again is not recorded.",
+    "The 1 December 2025 circular discontinues the extension of the Aadhaar-seeding timeline for North East and certain establishments beyond 31 October 2025; it records the mandatory Aadhaar-seeded ECR requirement 'w.e.f. 01.06.2021', which is background and not a commencement of this circular.",
+    "The January 2026 due-date extensions are time-bound and apply to the wage month named in each circular; they do not change the standing due date.",
+    "Effective dates are recorded only where a circular names a wage month ('from wage month August 2025 onwards', 'wage month September 2025 onwards'); the first day of that month is used.",
+    "PDFs were read from the issuer mirror on 4 November 2026 because the public site returned 404 for these paths; recorded SHA-256 values apply to those files. Scanned pages are OCR. Issue dates were checked against the document headers."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "document_id": "claim_forms_payments-2014-05-15-e03f39",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Bkg_ModuleCCPAP_DigiSign_3836.pdf",
+  "pdf_sha256": "fb8916b71d37cc27d7e31961483b0a71400f8e0596381845205223f887e38c81",
+  "total_pdf_pages": 1,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "orant afasa Pf ess Fax: 011-26173022\nEmployees’ Provident Fund Organisation Telephone: 26172685\n(a4 Ud VONTR AAS, ART UG)\n(Ministry of Labour & Employment, Govt. Of India)\nA / Head Office\nafasy Per var, 14—Arenroll Gra whe, AE feeetl—110066\n\nBhavishya Nidhi Bhawan, 14- Bhikaji Cama Place, New Delhi — 110066\n\nWEB CIRCULATION\nNo. Bkg.1(11)/e-challan/New Process/Vol.-II ~~ , Date: 15\n\nTo O\nAll RPFC/In-charge\n\nRegional/Sub Regional Offices\n\nHt]\n\n\\\n;\n\nSubject: Implementation of CCPAP Module for Payment- Obtaining\nDigital Signature.\nRef. Circular of even no. dated 28.04.2014 (SI. No. 59 on EPFO’s Website)\n\nSir/Madam,\nKindly refer to the above said subject.\n\n2. The transaction under CCPAP will be routed through SFTP (Secured\nFile Transferred Protocol) server of SBI to maintain security of data and to reduce\noperational risk by securing the transmission route. Therefore, the file shall be\ndigitally signed to prevent tampering of data before uploading of the file by EPFO.\n\n3. All RPFCs are requested to obtain Class-2 Digital Signature\nCertificate from the nearest centre of NIC no later than 31.05.2014 to enable the\nimplementation of the above said module as per schedule.\n\n4. The Regional Offices may submit a compliance report by the said\ndate.\n5. This has approval of Central Provident Fund Commissioner.\n\nYours faithfully\n\n(Sanjay Hiker)\nRPFC-I(F&A)\nCopy for information and necessary action to: |5-¢ S=2ol\\\n\n1. RPFC(NDC) with a request to upload the circular on website.",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

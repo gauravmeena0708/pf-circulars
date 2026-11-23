@@ -1,0 +1,342 @@
+{
+  "dataset_status": "development seed, not independent held-out legal benchmark",
+  "cases": [
+    {
+      "id": "jd01",
+      "question": "What did the 2023 cover say should govern matters not contained in the SOP?",
+      "as_of": "2023-08-22",
+      "required_evidence": [
+        {
+          "document_id": "jd-2023-08-22",
+          "page_number": 1
+        }
+      ],
+      "kind": "source_recall"
+    },
+    {
+      "id": "jd02",
+      "question": "What is the effective date specified on the 2023 SOP document control page?",
+      "as_of": "2023-08-22",
+      "required_evidence": [
+        {
+          "document_id": "jd-2023-08-22",
+          "page_number": 2
+        }
+      ],
+      "kind": "source_recall"
+    },
+    {
+      "id": "jd03",
+      "question": "Which instruction removes Aadhaar as acceptable proof for correction of date of birth?",
+      "as_of": "2024-01-16",
+      "required_evidence": [
+        {
+          "document_id": "jd-2024-01-16",
+          "page_number": 1
+        }
+      ],
+      "kind": "source_recall"
+    },
+    {
+      "id": "jd04",
+      "question": "Which table of Annexure I was changed for date of birth proof?",
+      "as_of": "2024-02-01",
+      "required_evidence": [
+        {
+          "document_id": "jd-2024-01-16",
+          "page_number": 1
+        }
+      ],
+      "kind": "source_recall"
+    },
+    {
+      "id": "jd05",
+      "question": "Which March direction adds documents for correction of father mother name?",
+      "as_of": "2024-03-11",
+      "required_evidence": [
+        {
+          "document_id": "jd-2024-03-11",
+          "page_number": 1
+        }
+      ],
+      "kind": "source_recall"
+    },
+    {
+      "id": "jd06",
+      "question": "Where were PAN card and driving license added for parent name correction?",
+      "as_of": "2024-03-12",
+      "required_evidence": [
+        {
+          "document_id": "jd-2024-03-11",
+          "page_number": 1
+        }
+      ],
+      "kind": "source_recall"
+    },
+    {
+      "id": "jd07",
+      "question": "Which earlier SOP was superseded when version 2 was approved?",
+      "as_of": "2024-03-26",
+      "required_evidence": [
+        {
+          "document_id": "jd-2024-03-26",
+          "page_number": 1
+        }
+      ],
+      "kind": "source_recall"
+    },
+    {
+      "id": "jd08",
+      "question": "Where does version 2 state its Effective Date Date of issue?",
+      "as_of": "2024-03-26",
+      "required_evidence": [
+        {
+          "document_id": "jd-2024-03-26",
+          "page_number": 2
+        }
+      ],
+      "kind": "source_recall"
+    },
+    {
+      "id": "jd09",
+      "question": "Which cover approves version 3.0 and directs stronger due diligence against identity theft?",
+      "as_of": "2024-07-31",
+      "required_evidence": [
+        {
+          "document_id": "jd-2024-07-31",
+          "page_number": 1
+        }
+      ],
+      "kind": "source_recall"
+    },
+    {
+      "id": "jd10",
+      "question": "Where does version 3 list spouse name and nationality profile parameters?",
+      "as_of": "2024-07-31",
+      "required_evidence": [
+        {
+          "document_id": "jd-2024-07-31",
+          "page_number": 2
+        }
+      ],
+      "kind": "source_recall"
+    },
+    {
+      "id": "jd11",
+      "question": "Which circular expressly supersedes directions in SOP Version 3.0 issued on 31 July 2024?",
+      "as_of": "2025-01-16",
+      "required_evidence": [
+        {
+          "document_id": "jd-2025-01-16",
+          "page_number": 1
+        }
+      ],
+      "kind": "source_recall"
+    },
+    {
+      "id": "jd12",
+      "question": "What classification distinguishes UAN generated before and after October 2017?",
+      "as_of": "2025-01-16",
+      "required_evidence": [
+        {
+          "document_id": "jd-2025-01-16",
+          "page_number": 1
+        }
+      ],
+      "kind": "source_recall"
+    },
+    {
+      "id": "jd13",
+      "question": "What did January 2025 say about Digilocker documents and uploading a single PDF?",
+      "as_of": "2025-01-16",
+      "required_evidence": [
+        {
+          "document_id": "jd-2025-01-16",
+          "page_number": 1
+        }
+      ],
+      "kind": "source_recall"
+    },
+    {
+      "id": "jd14",
+      "question": "How can closed establishments submit physical Joint Declarations through the PRO?",
+      "as_of": "2025-01-16",
+      "required_evidence": [
+        {
+          "document_id": "jd-2025-01-16",
+          "page_number": 1
+        }
+      ],
+      "kind": "source_recall"
+    },
+    {
+      "id": "jd15",
+      "question": "Who can sign the physical Joint Declaration for deceased members?",
+      "as_of": "2025-01-16",
+      "required_evidence": [
+        {
+          "document_id": "jd-2025-01-16",
+          "page_number": 1
+        }
+      ],
+      "kind": "source_recall"
+    },
+    {
+      "id": "jd16",
+      "question": "Which January direction says matching Aadhaar data is not required for deceased members?",
+      "as_of": "2025-01-16",
+      "required_evidence": [
+        {
+          "document_id": "jd-2025-01-16",
+          "page_number": 1
+        }
+      ],
+      "kind": "source_recall"
+    },
+    {
+      "id": "jd17",
+      "question": "Who can seed Aadhaar when name gender and date of birth match exactly?",
+      "as_of": "2025-08-13",
+      "required_evidence": [
+        {
+          "document_id": "jd-2025-08-13",
+          "page_number": 1
+        }
+      ],
+      "kind": "source_recall"
+    },
+    {
+      "id": "jd18",
+      "question": "What happens when wrong Aadhaar has erroneously been linked with the UAN?",
+      "as_of": "2025-08-13",
+      "required_evidence": [
+        {
+          "document_id": "jd-2025-08-13",
+          "page_number": 1
+        }
+      ],
+      "kind": "source_recall"
+    },
+    {
+      "id": "jd19",
+      "question": "What approval level is required for seeding or correcting Aadhaar requests?",
+      "as_of": "2025-08-13",
+      "required_evidence": [
+        {
+          "document_id": "jd-2025-08-13",
+          "page_number": 2
+        }
+      ],
+      "kind": "source_recall"
+    },
+    {
+      "id": "jd20",
+      "question": "Where should a physical JD go if the employer is unavailable or establishment closed?",
+      "as_of": "2025-08-13",
+      "required_evidence": [
+        {
+          "document_id": "jd-2025-08-13",
+          "page_number": 2
+        }
+      ],
+      "kind": "source_recall"
+    },
+    {
+      "id": "jd21",
+      "question": "What evidence is available before the first curated SOP?",
+      "as_of": "2023-08-21",
+      "kind": "history_guardrail",
+      "expected_document_count": 0
+    },
+    {
+      "id": "jd22",
+      "question": "May January 2024 removal be cited on 15 January?",
+      "as_of": "2024-01-15",
+      "kind": "history_guardrail",
+      "absent_documents": [
+        "jd-2024-01-16"
+      ]
+    },
+    {
+      "id": "jd23",
+      "question": "Was March 11 a whole SOP supersession?",
+      "as_of": "2024-03-11",
+      "kind": "history_guardrail",
+      "relationship": {
+        "source": "jd-2024-03-11",
+        "target": "jd-2023-08-22",
+        "type": "partially_modifies",
+        "status": "relationship_verified_timing_unresolved"
+      }
+    },
+    {
+      "id": "jd24",
+      "question": "Does the explicit version 2 commencement have supporting evidence?",
+      "as_of": "2024-03-26",
+      "kind": "history_guardrail",
+      "document_status": {
+        "id": "jd-2024-03-26",
+        "status": "effective_date_established"
+      }
+    },
+    {
+      "id": "jd25",
+      "question": "Is the particular earlier SOP targeted by version 3 verified?",
+      "as_of": "2024-07-31",
+      "kind": "history_guardrail",
+      "relationship": {
+        "source": "jd-2024-07-31",
+        "target": "jd-2024-03-26",
+        "status": "relationship_unverified"
+      }
+    },
+    {
+      "id": "jd26",
+      "question": "Can January 2025 directions be used in December 2024?",
+      "as_of": "2024-12-31",
+      "kind": "history_guardrail",
+      "absent_documents": [
+        "jd-2025-01-16",
+        "jd-2025-08-13",
+        "jd-2025-12-26"
+      ]
+    },
+    {
+      "id": "jd27",
+      "question": "Has January simplification commencement been independently established?",
+      "as_of": "2025-01-16",
+      "kind": "history_guardrail",
+      "document_status": {
+        "id": "jd-2025-01-16",
+        "status": "issued_effective_date_unverified"
+      }
+    },
+    {
+      "id": "jd28",
+      "question": "Can August 2025 Aadhaar directions appear on August 12?",
+      "as_of": "2025-08-12",
+      "kind": "history_guardrail",
+      "absent_documents": [
+        "jd-2025-08-13"
+      ]
+    },
+    {
+      "id": "jd29",
+      "question": "Has the December transgender certificate PDF been page-verified?",
+      "as_of": "2025-12-26",
+      "kind": "history_guardrail",
+      "document_status": {
+        "id": "jd-2025-12-26",
+        "status": "source_unverified"
+      }
+    },
+    {
+      "id": "jd30",
+      "question": "Does the pilot establish all applicable instructions as at October 2026?",
+      "as_of": "2026-10-28",
+      "kind": "history_guardrail",
+      "expected_conclusion": "evidence_inventory_only",
+      "expected_document_count": 8
+    }
+  ]
+}

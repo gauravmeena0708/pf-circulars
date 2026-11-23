@@ -1,0 +1,1873 @@
+{
+  "schema_version": 1,
+  "id": "dearness",
+  "reviewed_on": "2026-11-03",
+  "topics": [
+    {
+      "id": "da_employees",
+      "label": "Dearness allowance (staff)",
+      "include": "dearness\\s+allowance|\\bDA\\b|महंगाई\\s+भत्ता"
+    },
+    {
+      "id": "dr_pensioners",
+      "label": "Dearness relief (staff pensioners)",
+      "include": "dearness\\s+relief|\\bDR\\b|pensioner|महंगाई\\s+राहत"
+    }
+  ],
+  "documents": [
+    {
+      "id": "da-2016-04-08",
+      "title": "Dearness allowance, Central Government employees (staff): 125% w.e.f. 2016-01-01",
+      "circular_no": "HO No. HRD/29/2015/Allowance/204",
+      "issued_on": "2016-04-08",
+      "authority": "EPFO circular forwarding Ministry of Finance (Department of Expenditure) OM",
+      "topics": [
+        "da_employees"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/HRD_RevisedRate_DA_204.pdf",
+      "source_file": "sources/da-2016-04-08.json",
+      "verification": "source_checked",
+      "version_label": "Dearness allowance, Central Government employees (staff) 125% from 2016-01-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 125,
+      "rate_basis": "basic pay",
+      "previous_rate_percent": 119,
+      "rate_evidence": {
+        "document_id": "da-2016-04-08",
+        "page_number": 2,
+        "quote": "existing rate of 119% to 125%"
+      },
+      "effective_from": "2016-01-01",
+      "effective_date_evidence": {
+        "document_id": "da-2016-04-08",
+        "page_number": 2,
+        "quote": "existing rate of 119% to 125% with effect from 18January, 2016"
+      }
+    },
+    {
+      "id": "da-2016-11-07",
+      "title": "Dearness allowance, Central Government employees (staff): 2% w.e.f. 2016-07-01",
+      "circular_no": "HO No. HRD/29/2015/Allowance/471",
+      "issued_on": "2016-11-07",
+      "authority": "EPFO circular forwarding Ministry of Finance (Department of Expenditure) OM",
+      "topics": [
+        "da_employees"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/HRD_7CPC_DA_471.pdf",
+      "source_file": "sources/da-2016-11-07.json",
+      "verification": "source_checked",
+      "version_label": "Dearness allowance, Central Government employees (staff) 2% from 2016-07-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 2,
+      "rate_basis": "basic pay",
+      "previous_rate_percent": 0,
+      "rate_evidence": {
+        "document_id": "da-2016-11-07",
+        "page_number": 1,
+        "quote": "Rates effective from 01.07.2016"
+      },
+      "effective_from": "2016-07-01",
+      "effective_date_evidence": {
+        "document_id": "da-2016-11-07",
+        "page_number": 1,
+        "quote": "Rates effective from 01.07.2016"
+      },
+      "notes": "Rate and exact wording are in the scanned image layer or a table; the subject line is the checked text evidence for the effective date."
+    },
+    {
+      "id": "da-2017-04-06",
+      "title": "Dearness allowance, Central Government employees (staff): 4% w.e.f. 2017-01-01",
+      "circular_no": "HO No. HRD/29/2015/Allowance/12",
+      "issued_on": "2017-04-06",
+      "authority": "EPFO circular forwarding Ministry of Finance (Department of Expenditure) OM",
+      "topics": [
+        "da_employees"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_DA_12.pdf",
+      "source_file": "sources/da-2017-04-06.json",
+      "verification": "source_checked",
+      "version_label": "Dearness allowance, Central Government employees (staff) 4% from 2017-01-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 4,
+      "rate_basis": "basic pay",
+      "previous_rate_percent": 2,
+      "rate_evidence": {
+        "document_id": "da-2017-04-06",
+        "page_number": 2,
+        "quote": "existing rate of 2% to 4%"
+      },
+      "effective_from": "2017-01-01",
+      "effective_date_evidence": {
+        "document_id": "da-2017-04-06",
+        "page_number": 2,
+        "quote": "existing rate of 2% to 4% of the basic pay with effect from 1st January, 2017"
+      }
+    },
+    {
+      "id": "da-2017-09-22",
+      "title": "Dearness allowance, Central Government employees (staff): 5% w.e.f. 2017-07-01",
+      "circular_no": "HO No. Finance/1(Misc.) circular/2017/3222",
+      "issued_on": "2017-09-22",
+      "authority": "EPFO circular forwarding Ministry of Finance (Department of Expenditure) OM",
+      "topics": [
+        "da_employees"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Finance_DA_3222.pdf",
+      "source_file": "sources/da-2017-09-22.json",
+      "verification": "source_checked",
+      "version_label": "Dearness allowance, Central Government employees (staff) 5% from 2017-07-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 5,
+      "rate_basis": "basic pay",
+      "previous_rate_percent": 4,
+      "rate_evidence": {
+        "document_id": "da-2017-09-22",
+        "page_number": 2,
+        "quote": "existing rate of 4% to 5%"
+      },
+      "effective_from": "2017-07-01",
+      "effective_date_evidence": {
+        "document_id": "da-2017-09-22",
+        "page_number": 2,
+        "quote": "existing rate of 4% to 5% of the basic pay per month, with effect from 111 July, 2017"
+      }
+    },
+    {
+      "id": "da-2018-03-19",
+      "title": "Dearness allowance, Central Government employees (staff): 7% w.e.f. 2018-01-01",
+      "circular_no": "HO No. HRD/29/2015/Allowance/31",
+      "issued_on": "2018-03-19",
+      "authority": "EPFO circular forwarding Ministry of Finance (Department of Expenditure) OM",
+      "topics": [
+        "da_employees"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_RevisedRates_DA_31.pdf",
+      "source_file": "sources/da-2018-03-19.json",
+      "verification": "source_checked",
+      "version_label": "Dearness allowance, Central Government employees (staff) 7% from 2018-01-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 7,
+      "rate_basis": "basic pay",
+      "previous_rate_percent": 5,
+      "rate_evidence": {
+        "document_id": "da-2018-03-19",
+        "page_number": 2,
+        "quote": "existing rate of 5% to 7%"
+      },
+      "effective_from": "2018-01-01",
+      "effective_date_evidence": {
+        "document_id": "da-2018-03-19",
+        "page_number": 2,
+        "quote": "existing rate of 5% to 7% of the basic pay with effect from 151 January, 2018"
+      }
+    },
+    {
+      "id": "da-2018-09-12",
+      "title": "Dearness allowance, Central Government employees (staff): 9% w.e.f. 2018-07-01",
+      "circular_no": "HO No. HRD/29/2015/Allowance/56",
+      "issued_on": "2018-09-12",
+      "authority": "EPFO circular forwarding Ministry of Finance (Department of Expenditure) OM",
+      "topics": [
+        "da_employees"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/HRD_DA_RevisedRate_56.pdf",
+      "source_file": "sources/da-2018-09-12.json",
+      "verification": "source_checked",
+      "version_label": "Dearness allowance, Central Government employees (staff) 9% from 2018-07-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 9,
+      "rate_basis": "basic pay",
+      "previous_rate_percent": 7,
+      "rate_evidence": {
+        "document_id": "da-2018-09-12",
+        "page_number": 2,
+        "quote": "existing rate of 7% to 9%"
+      },
+      "effective_from": "2018-07-01",
+      "effective_date_evidence": {
+        "document_id": "da-2018-09-12",
+        "page_number": 2,
+        "quote": "existing rate of 7% to 9% of the basic pay with effect from 1st July, 2018"
+      }
+    },
+    {
+      "id": "da-2019-03-01",
+      "title": "Dearness allowance, Central Government employees (staff): 12% w.e.f. 2019-01-01",
+      "circular_no": "HO No. HRD/04/2019/DA/84",
+      "issued_on": "2019-03-01",
+      "authority": "EPFO circular forwarding Ministry of Finance (Department of Expenditure) OM",
+      "topics": [
+        "da_employees"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/HRD_DA_RevisedRate_84.pdf",
+      "source_file": "sources/da-2019-03-01.json",
+      "verification": "source_checked",
+      "version_label": "Dearness allowance, Central Government employees (staff) 12% from 2019-01-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 12,
+      "rate_basis": "basic pay",
+      "previous_rate_percent": 9,
+      "rate_evidence": {
+        "document_id": "da-2019-03-01",
+        "page_number": 2,
+        "quote": "existing rate of 9% to 12%"
+      },
+      "effective_from": "2019-01-01",
+      "effective_date_evidence": {
+        "document_id": "da-2019-03-01",
+        "page_number": 2,
+        "quote": "existing rate of 9% to 12% of the basic pay with effect from 1** January, 2019"
+      }
+    },
+    {
+      "id": "da-2019-10-15",
+      "title": "Dearness allowance, Central Government employees (staff): 17% w.e.f. 2019-07-01",
+      "circular_no": "HO No.HRD/4/2019/DA/102",
+      "issued_on": "2019-10-15",
+      "authority": "EPFO circular forwarding Ministry of Finance (Department of Expenditure) OM",
+      "topics": [
+        "da_employees"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2019-2020/HRD_DA_2019_102.pdf",
+      "source_file": "sources/da-2019-10-15.json",
+      "verification": "source_checked",
+      "version_label": "Dearness allowance, Central Government employees (staff) 17% from 2019-07-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 17,
+      "rate_basis": "basic pay",
+      "previous_rate_percent": 12,
+      "rate_evidence": {
+        "document_id": "da-2019-10-15",
+        "page_number": 2,
+        "quote": "existing rate of 12% to 17%"
+      },
+      "effective_from": "2019-07-01",
+      "effective_date_evidence": {
+        "document_id": "da-2019-10-15",
+        "page_number": 2,
+        "quote": "existing rate of 12% to 17% of the basic pay with effect from 1st July, 2019"
+      }
+    },
+    {
+      "id": "da-2021-07-20",
+      "title": "Dearness allowance, Central Government employees (staff): 28% w.e.f. 2021-07-01",
+      "circular_no": "HO  NO. HRD/1(71)2020/Misc./Pt./469",
+      "issued_on": "2021-07-20",
+      "authority": "EPFO circular forwarding Ministry of Finance (Department of Expenditure) OM",
+      "topics": [
+        "da_employees"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/HRD_DA_RevisedRates_469.pdf",
+      "source_file": "sources/da-2021-07-20.json",
+      "verification": "source_checked",
+      "version_label": "Dearness allowance, Central Government employees (staff) 28% from 2021-07-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 28,
+      "rate_basis": "basic pay",
+      "previous_rate_percent": 17,
+      "rate_evidence": {
+        "document_id": "da-2021-07-20",
+        "page_number": 3,
+        "quote": "existing rate of 17% to 28%"
+      },
+      "effective_from": "2021-07-01",
+      "effective_date_evidence": {
+        "document_id": "da-2021-07-20",
+        "page_number": 3,
+        "quote": "existing rate of 17% to 28% of the basic pay with effect from 4st July, 2021"
+      }
+    },
+    {
+      "id": "da-2021-10-28",
+      "title": "Dearness allowance, Central Government employees (staff): 31% w.e.f. 2021-07-01",
+      "circular_no": "HO No. HRD/1(71)2020/Misc./500",
+      "issued_on": "2021-10-28",
+      "authority": "EPFO circular forwarding Ministry of Finance (Department of Expenditure) OM",
+      "topics": [
+        "da_employees"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/HRD_RevsiedDA_500.pdf",
+      "source_file": "sources/da-2021-10-28.json",
+      "verification": "source_checked",
+      "version_label": "Dearness allowance, Central Government employees (staff) 31% from 2021-07-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 31,
+      "rate_basis": "basic pay",
+      "previous_rate_percent": 28,
+      "rate_evidence": {
+        "document_id": "da-2021-10-28",
+        "page_number": 3,
+        "quote": "existing rate of 28% to 31%"
+      },
+      "effective_from": "2021-07-01",
+      "effective_date_evidence": {
+        "document_id": "da-2021-10-28",
+        "page_number": 3,
+        "quote": "existing rate of 28% to 31% of the Basic Pay with effect from 1st July, 2021"
+      }
+    },
+    {
+      "id": "da-2022-04-01",
+      "title": "Dearness allowance, Central Government employees (staff): 34% w.e.f. 2022-01-01",
+      "circular_no": "HO No. HRD/1(71)2020/Misc./585",
+      "issued_on": "2022-04-01",
+      "authority": "EPFO circular forwarding Ministry of Finance (Department of Expenditure) OM",
+      "topics": [
+        "da_employees"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/HRD_DA_585.pdf",
+      "source_file": "sources/da-2022-04-01.json",
+      "verification": "source_checked",
+      "version_label": "Dearness allowance, Central Government employees (staff) 34% from 2022-01-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 34,
+      "rate_basis": "basic pay",
+      "previous_rate_percent": 31,
+      "rate_evidence": {
+        "document_id": "da-2022-04-01",
+        "page_number": 3,
+        "quote": "existing rate of 31% to 34%"
+      },
+      "effective_from": "2022-01-01",
+      "effective_date_evidence": {
+        "document_id": "da-2022-04-01",
+        "page_number": 3,
+        "quote": "existing rate of 31% to 34% of the Basic Pay with effect from 1\" January, 2022"
+      }
+    },
+    {
+      "id": "da-2022-10-04",
+      "title": "Dearness allowance, Central Government employees (staff): 38% w.e.f. 2022-07-01",
+      "circular_no": "HO.No.HRD/1(71)2020/Misc/678",
+      "issued_on": "2022-10-04",
+      "authority": "EPFO circular forwarding Ministry of Finance (Department of Expenditure) OM",
+      "topics": [
+        "da_employees"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/DA_Circular_04102022.pdf",
+      "source_file": "sources/da-2022-10-04.json",
+      "verification": "source_checked",
+      "version_label": "Dearness allowance, Central Government employees (staff) 38% from 2022-07-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 38,
+      "rate_basis": "basic pay",
+      "previous_rate_percent": 34,
+      "rate_evidence": {
+        "document_id": "da-2022-10-04",
+        "page_number": 3,
+        "quote": "34% to 38%"
+      },
+      "effective_from": "2022-07-01",
+      "effective_date_evidence": {
+        "document_id": "da-2022-10-04",
+        "page_number": 3,
+        "quote": "enhanced from 34% to 38% of the Basic Pay with effect from 1% July, 2022"
+      }
+    },
+    {
+      "id": "da-2023-04-05",
+      "title": "Dearness allowance, Central Government employees (staff): 42% w.e.f. 2023-01-01",
+      "circular_no": "HO No. HRD/1(7)2020/Misc/803",
+      "issued_on": "2023-04-05",
+      "authority": "EPFO circular forwarding Ministry of Finance (Department of Expenditure) OM",
+      "topics": [
+        "da_employees"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/DA-from_01012023-circular.pdf",
+      "source_file": "sources/da-2023-04-05.json",
+      "verification": "source_checked",
+      "version_label": "Dearness allowance, Central Government employees (staff) 42% from 2023-01-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 42,
+      "rate_basis": "basic pay",
+      "previous_rate_percent": 38,
+      "rate_evidence": {
+        "document_id": "da-2023-04-05",
+        "page_number": 2,
+        "quote": "existing rate of 38% to 42%"
+      },
+      "effective_from": "2023-01-01",
+      "effective_date_evidence": {
+        "document_id": "da-2023-04-05",
+        "page_number": 2,
+        "quote": "existing rate of 38% to 42% of the Basic Pay with effect from 1° January, 2023"
+      }
+    },
+    {
+      "id": "da-2023-10-23",
+      "title": "Dearness allowance, Central Government employees (staff): 46% w.e.f. 2023-07-01",
+      "circular_no": "HO No, HRD/1(71)/2020/Misc./Pt/895",
+      "issued_on": "2023-10-23",
+      "authority": "EPFO circular forwarding Ministry of Finance (Department of Expenditure) OM",
+      "topics": [
+        "da_employees"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/DA-Rates_for_CGE-23102023.pdf",
+      "source_file": "sources/da-2023-10-23.json",
+      "verification": "source_checked",
+      "version_label": "Dearness allowance, Central Government employees (staff) 46% from 2023-07-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 46,
+      "rate_basis": "basic pay",
+      "previous_rate_percent": 42,
+      "rate_evidence": {
+        "document_id": "da-2023-10-23",
+        "page_number": 2,
+        "quote": "42% to 46%"
+      },
+      "effective_from": "2023-07-01",
+      "effective_date_evidence": {
+        "document_id": "da-2023-10-23",
+        "page_number": 2,
+        "quote": "enhanced from 42% to 46% of the Basic Pay with effect from 1° July, 2023"
+      }
+    },
+    {
+      "id": "da-2024-03-12",
+      "title": "Dearness allowance, Central Government employees (staff): 50% w.e.f. 2024-01-01",
+      "circular_no": "No.HRD/1(71)/2020/Misc./pt 979",
+      "issued_on": "2024-03-12",
+      "authority": "EPFO circular forwarding Ministry of Finance (Department of Expenditure) OM",
+      "topics": [
+        "da_employees"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/Circular_HRD_12032024.pdf",
+      "source_file": "sources/da-2024-03-12.json",
+      "verification": "source_checked",
+      "version_label": "Dearness allowance, Central Government employees (staff) 50% from 2024-01-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 50,
+      "rate_basis": "basic pay",
+      "previous_rate_percent": 46,
+      "rate_evidence": {
+        "document_id": "da-2024-03-12",
+        "page_number": 2,
+        "quote": "46% to 50%"
+      },
+      "effective_from": "2024-01-01",
+      "effective_date_evidence": {
+        "document_id": "da-2024-03-12",
+        "page_number": 2,
+        "quote": "enhanced from 46% to 50% of the Basic Pay with effect from 1 January, 2024"
+      }
+    },
+    {
+      "id": "da-2024-10-22",
+      "title": "Dearness allowance, Central Government employees (staff): 53% w.e.f. 2024-07-01",
+      "circular_no": "HO No. HRD/1(71)/2020/Misc./Pt/1123",
+      "issued_on": "2024-10-22",
+      "authority": "EPFO circular forwarding Ministry of Finance (Department of Expenditure) OM",
+      "topics": [
+        "da_employees"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/Revision_of_DA_rates_july_2024.pdf",
+      "source_file": "sources/da-2024-10-22.json",
+      "verification": "source_checked",
+      "version_label": "Dearness allowance, Central Government employees (staff) 53% from 2024-07-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 53,
+      "rate_basis": "basic pay",
+      "previous_rate_percent": 50,
+      "rate_evidence": {
+        "document_id": "da-2024-10-22",
+        "page_number": 2,
+        "quote": "50% to 53%"
+      },
+      "effective_from": "2024-07-01",
+      "effective_date_evidence": {
+        "document_id": "da-2024-10-22",
+        "page_number": 2,
+        "quote": "enhanced from 50% to 53% of the Basic Pay with effect from 1% July, 2024"
+      }
+    },
+    {
+      "id": "da-2025-04-04",
+      "title": "Dearness allowance, Central Government employees (staff): 55% w.e.f. 2025-01-01",
+      "circular_no": "HRD/1(71)2020/Misc/Pt/1331",
+      "issued_on": "2025-04-04",
+      "authority": "EPFO circular forwarding Ministry of Finance (Department of Expenditure) OM",
+      "topics": [
+        "da_employees"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_DAIncrease_04042025.pdf",
+      "source_file": "sources/da-2025-04-04.json",
+      "verification": "source_checked",
+      "version_label": "Dearness allowance, Central Government employees (staff) 55% from 2025-01-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 55,
+      "rate_basis": "basic pay",
+      "previous_rate_percent": 53,
+      "rate_evidence": {
+        "document_id": "da-2025-04-04",
+        "page_number": 2,
+        "quote": "53% to 55%"
+      },
+      "effective_from": "2025-01-01",
+      "effective_date_evidence": {
+        "document_id": "da-2025-04-04",
+        "page_number": 2,
+        "quote": "enhanced from 53% to 55% of the Basic Pay with effect from 1 January, 2025"
+      }
+    },
+    {
+      "id": "da-2025-10-08",
+      "title": "Dearness allowance, Central Government employees (staff): 58% w.e.f. 2025-07-01",
+      "circular_no": "संख्या: एच.आर.डी/1(71)/2020/ Misc./pt/1435",
+      "issued_on": "2025-10-08",
+      "authority": "EPFO circular forwarding Ministry of Finance (Department of Expenditure) OM",
+      "topics": [
+        "da_employees"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/RevisionOfRatesOfDearnessAllowance.pdf",
+      "source_file": "sources/da-2025-10-08.json",
+      "verification": "source_checked",
+      "version_label": "Dearness allowance, Central Government employees (staff) 58% from 2025-07-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 58,
+      "rate_basis": "basic pay",
+      "previous_rate_percent": 55,
+      "rate_evidence": {
+        "document_id": "da-2025-10-08",
+        "page_number": 2,
+        "quote": "55% to 58%"
+      },
+      "effective_from": "2025-07-01",
+      "effective_date_evidence": {
+        "document_id": "da-2025-10-08",
+        "page_number": 2,
+        "quote": "enhanced from 55% to 58% of the Basic Pay with effect from 1% July, 2025"
+      }
+    },
+    {
+      "id": "da-2026-04-24",
+      "title": "Dearness allowance, Central Government employees (staff): 60% w.e.f. 2026-01-01",
+      "circular_no": "संख्या: एच.आर.डी/171/2020/Misc/pt/1547",
+      "issued_on": "2026-04-24",
+      "authority": "EPFO circular forwarding Ministry of Finance (Department of Expenditure) OM",
+      "topics": [
+        "da_employees"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2026-2027/Circular_EnhancementOfDA_ 24042026.pdf",
+      "source_file": "sources/da-2026-04-24.json",
+      "verification": "source_checked",
+      "version_label": "Dearness allowance, Central Government employees (staff) 60% from 2026-01-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 60,
+      "rate_basis": "basic pay",
+      "previous_rate_percent": 58,
+      "rate_evidence": {
+        "document_id": "da-2026-04-24",
+        "page_number": 2,
+        "quote": "58% to 60%"
+      },
+      "effective_from": "2026-01-01",
+      "effective_date_evidence": {
+        "document_id": "da-2026-04-24",
+        "page_number": 2,
+        "quote": "enhanced from 58% to 60% of the Basic Pay with effect from 1° January, 2026"
+      }
+    },
+    {
+      "id": "dr-2016-04-18",
+      "title": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners): 125% w.e.f. 2016-01-01",
+      "circular_no": "HO No. HRD/29/2015/Allowance/247",
+      "issued_on": "2016-04-18",
+      "authority": "EPFO circular forwarding Department of Pension & Pensioners' Welfare OM",
+      "topics": [
+        "dr_pensioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/HRD_DA_Pensioners_247.pdf",
+      "source_file": "sources/dr-2016-04-18.json",
+      "verification": "source_checked",
+      "version_label": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners) 125% from 2016-01-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 125,
+      "rate_basis": "basic pension / family pension",
+      "previous_rate_percent": 119,
+      "rate_evidence": {
+        "document_id": "dr-2016-04-18",
+        "page_number": 2,
+        "quote": "existing rate of 119% to 125%"
+      },
+      "effective_from": "2016-01-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2016-04-18",
+        "page_number": 2,
+        "quote": "existing rate of 119% to 125% w.e.f. 1\" January, 2016"
+      }
+    },
+    {
+      "id": "dr-2016-11-23",
+      "title": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners): 2% w.e.f. 2016-07-01",
+      "circular_no": "HO No. HRD/29/2015/Allowance/476",
+      "issued_on": "2016-11-23",
+      "authority": "EPFO circular forwarding Department of Pension & Pensioners' Welfare OM",
+      "topics": [
+        "dr_pensioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/HRD_DA_7CPC_476.pdf",
+      "source_file": "sources/dr-2016-11-23.json",
+      "verification": "source_checked",
+      "version_label": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners) 2% from 2016-07-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 2,
+      "rate_basis": "basic pension / family pension",
+      "previous_rate_percent": 0,
+      "rate_evidence": {
+        "document_id": "dr-2016-11-23",
+        "page_number": 1,
+        "quote": "Revised rate effective from 01.07.2016"
+      },
+      "effective_from": "2016-07-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2016-11-23",
+        "page_number": 1,
+        "quote": "Revised rate effective from 01.07.2016"
+      },
+      "notes": "Rate and exact wording are in the scanned image layer or a table; the subject line is the checked text evidence for the effective date."
+    },
+    {
+      "id": "dr-2017-04-28",
+      "title": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners): 4% w.e.f. 2017-01-01",
+      "circular_no": "HO No. एच.अार.डी/29/2015/allowances/DA/678",
+      "issued_on": "2017-04-28",
+      "authority": "EPFO circular forwarding Department of Pension & Pensioners' Welfare OM",
+      "topics": [
+        "dr_pensioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_DA_678.pdf",
+      "source_file": "sources/dr-2017-04-28.json",
+      "verification": "source_checked",
+      "version_label": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners) 4% from 2017-01-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 4,
+      "rate_basis": "basic pension / family pension",
+      "previous_rate_percent": 2,
+      "rate_evidence": {
+        "document_id": "dr-2017-04-28",
+        "page_number": 2,
+        "quote": "2% to 4%"
+      },
+      "effective_from": "2017-01-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2017-04-28",
+        "page_number": 2,
+        "quote": "2% to 4% w.e.f 01.01.2017"
+      }
+    },
+    {
+      "id": "dr-2017-10-10",
+      "title": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners): 5% w.e.f. 2017-07-01",
+      "circular_no": "HO No. HRD/29/2015/Allowance/117",
+      "issued_on": "2017-10-10",
+      "authority": "EPFO circular forwarding Department of Pension & Pensioners' Welfare OM",
+      "topics": [
+        "dr_pensioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_DArevised_117.pdf",
+      "source_file": "sources/dr-2017-10-10.json",
+      "verification": "source_checked",
+      "version_label": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners) 5% from 2017-07-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 5,
+      "rate_basis": "basic pension / family pension",
+      "previous_rate_percent": 4,
+      "rate_evidence": {
+        "document_id": "dr-2017-10-10",
+        "page_number": 2,
+        "quote": "4% to 5%"
+      },
+      "effective_from": "2017-07-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2017-10-10",
+        "page_number": 2,
+        "quote": "4% to 5% w.e.f 01.07.2017"
+      }
+    },
+    {
+      "id": "dr-2018-03-28",
+      "title": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners): 7% w.e.f. 2018-01-01",
+      "circular_no": "HO No.- HRD/29/2015/Allowances/33",
+      "issued_on": "2018-03-28",
+      "authority": "EPFO circular forwarding Department of Pension & Pensioners' Welfare OM",
+      "topics": [
+        "dr_pensioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/DA_relief_pensioners_wef_01012018.pdf",
+      "source_file": "sources/dr-2018-03-28.json",
+      "verification": "source_checked",
+      "version_label": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners) 7% from 2018-01-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 7,
+      "rate_basis": "basic pension / family pension",
+      "previous_rate_percent": 5,
+      "rate_evidence": {
+        "document_id": "dr-2018-03-28",
+        "page_number": 2,
+        "quote": "5% to 7%"
+      },
+      "effective_from": "2018-01-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2018-03-28",
+        "page_number": 2,
+        "quote": "5% to 7% wef 01.01.2018"
+      }
+    },
+    {
+      "id": "dr-2018-10-01",
+      "title": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners): 9% w.e.f. 2018-07-01",
+      "circular_no": "HO No. HRD/29/2015/Allowance/59",
+      "issued_on": "2018-10-01",
+      "authority": "EPFO circular forwarding Department of Pension & Pensioners' Welfare OM",
+      "topics": [
+        "dr_pensioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/HRD_DA_Pensioners_59.pdf",
+      "source_file": "sources/dr-2018-10-01.json",
+      "verification": "source_checked",
+      "version_label": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners) 9% from 2018-07-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 9,
+      "rate_basis": "basic pension / family pension",
+      "previous_rate_percent": 7,
+      "rate_evidence": {
+        "document_id": "dr-2018-10-01",
+        "page_number": 1,
+        "quote": "Revised rate effective from 01.07.2018"
+      },
+      "effective_from": "2018-07-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2018-10-01",
+        "page_number": 1,
+        "quote": "Revised rate effective from 01.07.2018"
+      },
+      "notes": "Rate and exact wording are in the scanned image layer or a table; the subject line is the checked text evidence for the effective date."
+    },
+    {
+      "id": "dr-2019-03-14",
+      "title": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners): 12% w.e.f. 2019-01-01",
+      "circular_no": "HO No. HRD/4/2019/DA/85",
+      "issued_on": "2019-03-14",
+      "authority": "EPFO circular forwarding Department of Pension & Pensioners' Welfare OM",
+      "topics": [
+        "dr_pensioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/HRD4_2019_DA_85.pdf",
+      "source_file": "sources/dr-2019-03-14.json",
+      "verification": "source_checked",
+      "version_label": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners) 12% from 2019-01-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 12,
+      "rate_basis": "basic pension / family pension",
+      "previous_rate_percent": 9,
+      "rate_evidence": {
+        "document_id": "dr-2019-03-14",
+        "page_number": 2,
+        "quote": "9% to 12%"
+      },
+      "effective_from": "2019-01-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2019-03-14",
+        "page_number": 2,
+        "quote": "9% to 12% w.c.f 01.01.2019"
+      }
+    },
+    {
+      "id": "dr-2019-10-22",
+      "title": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners): 17% w.e.f. 2019-07-01",
+      "circular_no": "HO No. HRD/4/2019/DA/103",
+      "issued_on": "2019-10-22",
+      "authority": "EPFO circular forwarding Department of Pension & Pensioners' Welfare OM",
+      "topics": [
+        "dr_pensioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2019-2020/Dearness_relief_to_pensioner_103.pdf",
+      "source_file": "sources/dr-2019-10-22.json",
+      "verification": "source_checked",
+      "version_label": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners) 17% from 2019-07-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 17,
+      "rate_basis": "basic pension / family pension",
+      "previous_rate_percent": 12,
+      "rate_evidence": {
+        "document_id": "dr-2019-10-22",
+        "page_number": 2,
+        "quote": "12% to 17%"
+      },
+      "effective_from": "2019-07-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2019-10-22",
+        "page_number": 2,
+        "quote": "12% to 17% w.e.f 01.07.2019"
+      }
+    },
+    {
+      "id": "dr-2021-07-27",
+      "title": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners): 28% w.e.f. 2021-07-01",
+      "circular_no": "HO No. HRD/1(71)2020/Misc./Pt./472",
+      "issued_on": "2021-07-27",
+      "authority": "EPFO circular forwarding Department of Pension & Pensioners' Welfare OM",
+      "topics": [
+        "dr_pensioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/HRD_RevisedDA_Pensioners_472.pdf",
+      "source_file": "sources/dr-2021-07-27.json",
+      "verification": "source_checked",
+      "version_label": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners) 28% from 2021-07-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 28,
+      "rate_basis": "basic pension / family pension",
+      "previous_rate_percent": 17,
+      "rate_evidence": {
+        "document_id": "dr-2021-07-27",
+        "page_number": 3,
+        "quote": "existing rate of 17% to 28%"
+      },
+      "effective_from": "2021-07-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2021-07-27",
+        "page_number": 3,
+        "quote": "existing rate of 17% to 28% of the basic pension/family pension (including additional pension/family pension) with effect from 1%t July 2021"
+      }
+    },
+    {
+      "id": "dr-2021-11-03",
+      "title": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners): 31% w.e.f. 2021-07-01",
+      "circular_no": "HO No. HRD/1(71)2020/Misc./508",
+      "issued_on": "2021-11-03",
+      "authority": "EPFO circular forwarding Department of Pension & Pensioners' Welfare OM",
+      "topics": [
+        "dr_pensioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/HRD_RevisedDA_508.pdf",
+      "source_file": "sources/dr-2021-11-03.json",
+      "verification": "source_checked",
+      "version_label": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners) 31% from 2021-07-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 31,
+      "rate_basis": "basic pension / family pension",
+      "previous_rate_percent": 28,
+      "rate_evidence": {
+        "document_id": "dr-2021-11-03",
+        "page_number": 3,
+        "quote": "28% to 31%"
+      },
+      "effective_from": "2021-07-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2021-11-03",
+        "page_number": 3,
+        "quote": "28% to 31% of the basic pension/family pension (including additional pension/family pension) w.e.f 01.07.2021"
+      }
+    },
+    {
+      "id": "dr-2022-04-07",
+      "title": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners): 34% w.e.f. 2022-01-01",
+      "circular_no": "HO No. HRD/1(71)2020/Misc./592",
+      "issued_on": "2022-04-07",
+      "authority": "EPFO circular forwarding Department of Pension & Pensioners' Welfare OM",
+      "topics": [
+        "dr_pensioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/HRD_DR_Revised_592.pdf",
+      "source_file": "sources/dr-2022-04-07.json",
+      "verification": "source_checked",
+      "version_label": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners) 34% from 2022-01-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 34,
+      "rate_basis": "basic pension / family pension",
+      "previous_rate_percent": 31,
+      "rate_evidence": {
+        "document_id": "dr-2022-04-07",
+        "page_number": 3,
+        "quote": "31% to 34%"
+      },
+      "effective_from": "2022-01-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2022-04-07",
+        "page_number": 3,
+        "quote": "31% to 34% w.e.f 01.01.2022"
+      }
+    },
+    {
+      "id": "dr-2022-10-10",
+      "title": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners): 38% w.e.f. 2022-07-01",
+      "circular_no": "HO.No.HRD/1(71)2020/Misc/682",
+      "issued_on": "2022-10-10",
+      "authority": "EPFO circular forwarding Department of Pension & Pensioners' Welfare OM",
+      "topics": [
+        "dr_pensioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/Grant_DR_10102022.pdf",
+      "source_file": "sources/dr-2022-10-10.json",
+      "verification": "source_checked",
+      "version_label": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners) 38% from 2022-07-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 38,
+      "rate_basis": "basic pension / family pension",
+      "previous_rate_percent": 34,
+      "rate_evidence": {
+        "document_id": "dr-2022-10-10",
+        "page_number": 3,
+        "quote": "34% to 38%"
+      },
+      "effective_from": "2022-07-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2022-10-10",
+        "page_number": 3,
+        "quote": "34% to 38% w.e.f 01.07.2022"
+      }
+    },
+    {
+      "id": "dr-2023-04-06",
+      "title": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners): 42% w.e.f. 2023-01-01",
+      "circular_no": "HO.No.HRD/1(71)2020/Misc./804",
+      "issued_on": "2023-04-06",
+      "authority": "EPFO circular forwarding Department of Pension & Pensioners' Welfare OM",
+      "topics": [
+        "dr_pensioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/Circular_DA_06042023.pdf",
+      "source_file": "sources/dr-2023-04-06.json",
+      "verification": "source_checked",
+      "version_label": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners) 42% from 2023-01-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 42,
+      "rate_basis": "basic pension / family pension",
+      "previous_rate_percent": 38,
+      "rate_evidence": {
+        "document_id": "dr-2023-04-06",
+        "page_number": 2,
+        "quote": "38% to 42%"
+      },
+      "effective_from": "2023-01-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2023-04-06",
+        "page_number": 2,
+        "quote": "38% to 42% of the basic pension/family pension (including additional pension/family pension) w.e.f 01.01.2023"
+      }
+    },
+    {
+      "id": "dr-2023-10-30",
+      "title": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners): 46% w.e.f. 2023-07-01",
+      "circular_no": "HRD/1(71)2020/Misc/Pt/899",
+      "issued_on": "2023-10-30",
+      "authority": "EPFO circular forwarding Department of Pension & Pensioners' Welfare OM",
+      "topics": [
+        "dr_pensioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/DA_Relief_pensioners_HRD_30102023.pdf",
+      "source_file": "sources/dr-2023-10-30.json",
+      "verification": "source_checked",
+      "version_label": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners) 46% from 2023-07-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 46,
+      "rate_basis": "basic pension / family pension",
+      "previous_rate_percent": 42,
+      "rate_evidence": {
+        "document_id": "dr-2023-10-30",
+        "page_number": 2,
+        "quote": "existing rate of 42% to 46%"
+      },
+      "effective_from": "2023-07-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2023-10-30",
+        "page_number": 2,
+        "quote": "existing rate of 42% to 46% of the basic pension/family pension (including additional pension/family pension) w.e.f 01\" July,2023"
+      }
+    },
+    {
+      "id": "dr-2024-03-14",
+      "title": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners): 50% w.e.f. 2024-01-01",
+      "circular_no": "No.HRD/1(71)2020/Misc./Pt 981",
+      "issued_on": "2024-03-14",
+      "authority": "EPFO circular forwarding Department of Pension & Pensioners' Welfare OM",
+      "topics": [
+        "dr_pensioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/Circular_HRD_18032024.pdf",
+      "source_file": "sources/dr-2024-03-14.json",
+      "verification": "source_checked",
+      "version_label": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners) 50% from 2024-01-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 50,
+      "rate_basis": "basic pension / family pension",
+      "previous_rate_percent": 46,
+      "rate_evidence": {
+        "document_id": "dr-2024-03-14",
+        "page_number": 2,
+        "quote": "existing rate of 46% to 50%"
+      },
+      "effective_from": "2024-01-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2024-03-14",
+        "page_number": 2,
+        "quote": "existing rate of 46% to 50% of the basic pension/family pension (including additional pension/family pension) w.e.f 01° January,2024"
+      }
+    },
+    {
+      "id": "dr-2024-11-07",
+      "title": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners): 53% w.e.f. 2024-07-01",
+      "circular_no": "No.(E-27878)HRD/1(71)/2020/Misc./pt/1148",
+      "issued_on": "2024-11-07",
+      "authority": "EPFO circular forwarding Department of Pension & Pensioners' Welfare OM",
+      "topics": [
+        "dr_pensioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/Circular_EnhanceDA_Pensioners_07-11-2024.pdf",
+      "source_file": "sources/dr-2024-11-07.json",
+      "verification": "source_checked",
+      "version_label": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners) 53% from 2024-07-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 53,
+      "rate_basis": "basic pension / family pension",
+      "previous_rate_percent": 50,
+      "rate_evidence": {
+        "document_id": "dr-2024-11-07",
+        "page_number": 2,
+        "quote": "existing rate of 50% to 53%"
+      },
+      "effective_from": "2024-07-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2024-11-07",
+        "page_number": 2,
+        "quote": "existing rate of 50% to 53% of the basic pension/family pension (including additional pension/family pension) w.e.f 01st July, 2024"
+      }
+    },
+    {
+      "id": "dr-2025-04-17",
+      "title": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners): 55% w.e.f. 2025-01-01",
+      "circular_no": "संख्या: (E-27878) एच.आर.डी/1(71)/2020/Misc./Pt/1338",
+      "issued_on": "2025-04-17",
+      "authority": "EPFO circular forwarding Department of Pension & Pensioners' Welfare OM",
+      "topics": [
+        "dr_pensioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_DAInstalmentdated17042025.pdf",
+      "source_file": "sources/dr-2025-04-17.json",
+      "verification": "source_checked",
+      "version_label": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners) 55% from 2025-01-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 55,
+      "rate_basis": "basic pension / family pension",
+      "previous_rate_percent": 53,
+      "rate_evidence": {
+        "document_id": "dr-2025-04-17",
+        "page_number": 2,
+        "quote": "existing rate of 53% to 55%"
+      },
+      "effective_from": "2025-01-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2025-04-17",
+        "page_number": 2,
+        "quote": "existing rate of 53% to 55% of the basic pension/family pension (including additional pension/family pension) w.e.f 01st January, 2025"
+      }
+    },
+    {
+      "id": "dr-2025-10-13",
+      "title": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners): 58% w.e.f. 2025-07-01",
+      "circular_no": "No.HRD/1(71)/2020/Misc./Pt./1445",
+      "issued_on": "2025-10-13",
+      "authority": "EPFO circular forwarding Department of Pension & Pensioners' Welfare OM",
+      "topics": [
+        "dr_pensioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_GrantOfDA_Pensioner.pdf",
+      "source_file": "sources/dr-2025-10-13.json",
+      "verification": "source_checked",
+      "version_label": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners) 58% from 2025-07-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 58,
+      "rate_basis": "basic pension / family pension",
+      "previous_rate_percent": 55,
+      "rate_evidence": {
+        "document_id": "dr-2025-10-13",
+        "page_number": 2,
+        "quote": "existing rate of 55% to 58%"
+      },
+      "effective_from": "2025-07-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2025-10-13",
+        "page_number": 2,
+        "quote": "existing rate of 55% to 58% of the basic pension/family pension (including additional pension/family pension) w.e.f 01st July, 2025"
+      }
+    },
+    {
+      "id": "dr-2026-04-29",
+      "title": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners): 60% w.e.f. 2026-01-01",
+      "circular_no": "HTA: (E- 27878) VT,HTR.ŠT/1(71)/2020/Misc./pt/1549",
+      "issued_on": "2026-04-29",
+      "authority": "EPFO circular forwarding Department of Pension & Pensioners' Welfare OM",
+      "topics": [
+        "dr_pensioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2026-2027/Circular_DAEnhancement_Pensioners29042026.pdf",
+      "source_file": "sources/dr-2026-04-29.json",
+      "verification": "source_checked",
+      "version_label": "Dearness relief, Central Government pensioners / family pensioners (staff pensioners) 60% from 2026-01-01",
+      "source_host_kind": "issuer_hosted",
+      "rate_percent": 60,
+      "rate_basis": "basic pension / family pension",
+      "previous_rate_percent": 58,
+      "rate_evidence": {
+        "document_id": "dr-2026-04-29",
+        "page_number": 2,
+        "quote": "existing rate of 58% to 60%"
+      },
+      "effective_from": "2026-01-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2026-04-29",
+        "page_number": 2,
+        "quote": "existing rate of 58% to 60% of the basic pension/family pension (including additional pension/additional family pension) w.e.f. 01\" January, 2026"
+      }
+    },
+    {
+      "id": "dadr-2020-04-29",
+      "title": "Freezing of DA and DR at current rates till July 2021 (COVID-19)",
+      "circular_no": "HO No. HRD/4/2019/DA",
+      "issued_on": "2020-04-29",
+      "authority": "EPFO circular forwarding Ministry of Finance (Department of Expenditure) OM of 23.04.2020",
+      "topics": [
+        "da_employees",
+        "dr_pensioners"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/Freezing_of_DA_DR.pdf",
+      "source_file": "sources/dadr-2020-04-29.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "DA/DR frozen at current rates",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "dadr-2020-04-29",
+        "page_number": 2,
+        "quote": "Freezing of Dearness Allowance to Central Government employees and Dearness Relief to Central Government pensioners at current rates till July 2021"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "da-2016-11-07-replaces-da-2016-04-08",
+      "source": "da-2016-11-07",
+      "target": "da-2016-04-08",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2016-07-01",
+      "effective_date_evidence": {
+        "document_id": "da-2016-11-07",
+        "page_number": 1,
+        "quote": "Rates effective from 01.07.2016"
+      },
+      "evidence": {
+        "document_id": "da-2016-11-07",
+        "page_number": 1,
+        "quote": "Rates effective from 01.07.2016"
+      },
+      "scope": "From 2016-07-01 this rate (2%) replaces the earlier rate (0%) for dearness allowance, central government employees (staff). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "da-2017-04-06-replaces-da-2016-11-07",
+      "source": "da-2017-04-06",
+      "target": "da-2016-11-07",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2017-01-01",
+      "effective_date_evidence": {
+        "document_id": "da-2017-04-06",
+        "page_number": 2,
+        "quote": "existing rate of 2% to 4% of the basic pay with effect from 1st January, 2017"
+      },
+      "evidence": {
+        "document_id": "da-2017-04-06",
+        "page_number": 2,
+        "quote": "existing rate of 2% to 4%"
+      },
+      "scope": "From 2017-01-01 this rate (4%) replaces the earlier rate (2%) for dearness allowance, central government employees (staff). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "da-2017-09-22-replaces-da-2017-04-06",
+      "source": "da-2017-09-22",
+      "target": "da-2017-04-06",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2017-07-01",
+      "effective_date_evidence": {
+        "document_id": "da-2017-09-22",
+        "page_number": 2,
+        "quote": "existing rate of 4% to 5% of the basic pay per month, with effect from 111 July, 2017"
+      },
+      "evidence": {
+        "document_id": "da-2017-09-22",
+        "page_number": 2,
+        "quote": "existing rate of 4% to 5%"
+      },
+      "scope": "From 2017-07-01 this rate (5%) replaces the earlier rate (4%) for dearness allowance, central government employees (staff). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "da-2018-03-19-replaces-da-2017-09-22",
+      "source": "da-2018-03-19",
+      "target": "da-2017-09-22",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2018-01-01",
+      "effective_date_evidence": {
+        "document_id": "da-2018-03-19",
+        "page_number": 2,
+        "quote": "existing rate of 5% to 7% of the basic pay with effect from 151 January, 2018"
+      },
+      "evidence": {
+        "document_id": "da-2018-03-19",
+        "page_number": 2,
+        "quote": "existing rate of 5% to 7%"
+      },
+      "scope": "From 2018-01-01 this rate (7%) replaces the earlier rate (5%) for dearness allowance, central government employees (staff). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "da-2018-09-12-replaces-da-2018-03-19",
+      "source": "da-2018-09-12",
+      "target": "da-2018-03-19",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2018-07-01",
+      "effective_date_evidence": {
+        "document_id": "da-2018-09-12",
+        "page_number": 2,
+        "quote": "existing rate of 7% to 9% of the basic pay with effect from 1st July, 2018"
+      },
+      "evidence": {
+        "document_id": "da-2018-09-12",
+        "page_number": 2,
+        "quote": "existing rate of 7% to 9%"
+      },
+      "scope": "From 2018-07-01 this rate (9%) replaces the earlier rate (7%) for dearness allowance, central government employees (staff). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "da-2019-03-01-replaces-da-2018-09-12",
+      "source": "da-2019-03-01",
+      "target": "da-2018-09-12",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2019-01-01",
+      "effective_date_evidence": {
+        "document_id": "da-2019-03-01",
+        "page_number": 2,
+        "quote": "existing rate of 9% to 12% of the basic pay with effect from 1** January, 2019"
+      },
+      "evidence": {
+        "document_id": "da-2019-03-01",
+        "page_number": 2,
+        "quote": "existing rate of 9% to 12%"
+      },
+      "scope": "From 2019-01-01 this rate (12%) replaces the earlier rate (9%) for dearness allowance, central government employees (staff). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "da-2019-10-15-replaces-da-2019-03-01",
+      "source": "da-2019-10-15",
+      "target": "da-2019-03-01",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2019-07-01",
+      "effective_date_evidence": {
+        "document_id": "da-2019-10-15",
+        "page_number": 2,
+        "quote": "existing rate of 12% to 17% of the basic pay with effect from 1st July, 2019"
+      },
+      "evidence": {
+        "document_id": "da-2019-10-15",
+        "page_number": 2,
+        "quote": "existing rate of 12% to 17%"
+      },
+      "scope": "From 2019-07-01 this rate (17%) replaces the earlier rate (12%) for dearness allowance, central government employees (staff). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "da-2021-07-20-replaces-da-2019-10-15",
+      "source": "da-2021-07-20",
+      "target": "da-2019-10-15",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2021-07-01",
+      "effective_date_evidence": {
+        "document_id": "da-2021-07-20",
+        "page_number": 3,
+        "quote": "existing rate of 17% to 28% of the basic pay with effect from 4st July, 2021"
+      },
+      "evidence": {
+        "document_id": "da-2021-07-20",
+        "page_number": 3,
+        "quote": "existing rate of 17% to 28%"
+      },
+      "scope": "From 2021-07-01 this rate (28%) replaces the earlier rate (17%) for dearness allowance, central government employees (staff). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "da-2021-10-28-replaces-da-2021-07-20",
+      "source": "da-2021-10-28",
+      "target": "da-2021-07-20",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2021-07-01",
+      "effective_date_evidence": {
+        "document_id": "da-2021-10-28",
+        "page_number": 3,
+        "quote": "existing rate of 28% to 31% of the Basic Pay with effect from 1st July, 2021"
+      },
+      "evidence": {
+        "document_id": "da-2021-10-28",
+        "page_number": 3,
+        "quote": "existing rate of 28% to 31%"
+      },
+      "scope": "From 2021-07-01 this rate (31%) replaces the earlier rate (28%) for dearness allowance, central government employees (staff). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "da-2022-04-01-replaces-da-2021-10-28",
+      "source": "da-2022-04-01",
+      "target": "da-2021-10-28",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2022-01-01",
+      "effective_date_evidence": {
+        "document_id": "da-2022-04-01",
+        "page_number": 3,
+        "quote": "existing rate of 31% to 34% of the Basic Pay with effect from 1\" January, 2022"
+      },
+      "evidence": {
+        "document_id": "da-2022-04-01",
+        "page_number": 3,
+        "quote": "existing rate of 31% to 34%"
+      },
+      "scope": "From 2022-01-01 this rate (34%) replaces the earlier rate (31%) for dearness allowance, central government employees (staff). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "da-2022-10-04-replaces-da-2022-04-01",
+      "source": "da-2022-10-04",
+      "target": "da-2022-04-01",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2022-07-01",
+      "effective_date_evidence": {
+        "document_id": "da-2022-10-04",
+        "page_number": 3,
+        "quote": "enhanced from 34% to 38% of the Basic Pay with effect from 1% July, 2022"
+      },
+      "evidence": {
+        "document_id": "da-2022-10-04",
+        "page_number": 3,
+        "quote": "34% to 38%"
+      },
+      "scope": "From 2022-07-01 this rate (38%) replaces the earlier rate (34%) for dearness allowance, central government employees (staff). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "da-2023-04-05-replaces-da-2022-10-04",
+      "source": "da-2023-04-05",
+      "target": "da-2022-10-04",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2023-01-01",
+      "effective_date_evidence": {
+        "document_id": "da-2023-04-05",
+        "page_number": 2,
+        "quote": "existing rate of 38% to 42% of the Basic Pay with effect from 1° January, 2023"
+      },
+      "evidence": {
+        "document_id": "da-2023-04-05",
+        "page_number": 2,
+        "quote": "existing rate of 38% to 42%"
+      },
+      "scope": "From 2023-01-01 this rate (42%) replaces the earlier rate (38%) for dearness allowance, central government employees (staff). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "da-2023-10-23-replaces-da-2023-04-05",
+      "source": "da-2023-10-23",
+      "target": "da-2023-04-05",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2023-07-01",
+      "effective_date_evidence": {
+        "document_id": "da-2023-10-23",
+        "page_number": 2,
+        "quote": "enhanced from 42% to 46% of the Basic Pay with effect from 1° July, 2023"
+      },
+      "evidence": {
+        "document_id": "da-2023-10-23",
+        "page_number": 2,
+        "quote": "42% to 46%"
+      },
+      "scope": "From 2023-07-01 this rate (46%) replaces the earlier rate (42%) for dearness allowance, central government employees (staff). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "da-2024-03-12-replaces-da-2023-10-23",
+      "source": "da-2024-03-12",
+      "target": "da-2023-10-23",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2024-01-01",
+      "effective_date_evidence": {
+        "document_id": "da-2024-03-12",
+        "page_number": 2,
+        "quote": "enhanced from 46% to 50% of the Basic Pay with effect from 1 January, 2024"
+      },
+      "evidence": {
+        "document_id": "da-2024-03-12",
+        "page_number": 2,
+        "quote": "46% to 50%"
+      },
+      "scope": "From 2024-01-01 this rate (50%) replaces the earlier rate (46%) for dearness allowance, central government employees (staff). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "da-2024-10-22-replaces-da-2024-03-12",
+      "source": "da-2024-10-22",
+      "target": "da-2024-03-12",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2024-07-01",
+      "effective_date_evidence": {
+        "document_id": "da-2024-10-22",
+        "page_number": 2,
+        "quote": "enhanced from 50% to 53% of the Basic Pay with effect from 1% July, 2024"
+      },
+      "evidence": {
+        "document_id": "da-2024-10-22",
+        "page_number": 2,
+        "quote": "50% to 53%"
+      },
+      "scope": "From 2024-07-01 this rate (53%) replaces the earlier rate (50%) for dearness allowance, central government employees (staff). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "da-2025-04-04-replaces-da-2024-10-22",
+      "source": "da-2025-04-04",
+      "target": "da-2024-10-22",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2025-01-01",
+      "effective_date_evidence": {
+        "document_id": "da-2025-04-04",
+        "page_number": 2,
+        "quote": "enhanced from 53% to 55% of the Basic Pay with effect from 1 January, 2025"
+      },
+      "evidence": {
+        "document_id": "da-2025-04-04",
+        "page_number": 2,
+        "quote": "53% to 55%"
+      },
+      "scope": "From 2025-01-01 this rate (55%) replaces the earlier rate (53%) for dearness allowance, central government employees (staff). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "da-2025-10-08-replaces-da-2025-04-04",
+      "source": "da-2025-10-08",
+      "target": "da-2025-04-04",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2025-07-01",
+      "effective_date_evidence": {
+        "document_id": "da-2025-10-08",
+        "page_number": 2,
+        "quote": "enhanced from 55% to 58% of the Basic Pay with effect from 1% July, 2025"
+      },
+      "evidence": {
+        "document_id": "da-2025-10-08",
+        "page_number": 2,
+        "quote": "55% to 58%"
+      },
+      "scope": "From 2025-07-01 this rate (58%) replaces the earlier rate (55%) for dearness allowance, central government employees (staff). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "da-2026-04-24-replaces-da-2025-10-08",
+      "source": "da-2026-04-24",
+      "target": "da-2025-10-08",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2026-01-01",
+      "effective_date_evidence": {
+        "document_id": "da-2026-04-24",
+        "page_number": 2,
+        "quote": "enhanced from 58% to 60% of the Basic Pay with effect from 1° January, 2026"
+      },
+      "evidence": {
+        "document_id": "da-2026-04-24",
+        "page_number": 2,
+        "quote": "58% to 60%"
+      },
+      "scope": "From 2026-01-01 this rate (60%) replaces the earlier rate (58%) for dearness allowance, central government employees (staff). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "dr-2016-11-23-replaces-dr-2016-04-18",
+      "source": "dr-2016-11-23",
+      "target": "dr-2016-04-18",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2016-07-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2016-11-23",
+        "page_number": 1,
+        "quote": "Revised rate effective from 01.07.2016"
+      },
+      "evidence": {
+        "document_id": "dr-2016-11-23",
+        "page_number": 1,
+        "quote": "Revised rate effective from 01.07.2016"
+      },
+      "scope": "From 2016-07-01 this rate (2%) replaces the earlier rate (0%) for dearness relief, central government pensioners / family pensioners (staff pensioners). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "dr-2017-04-28-replaces-dr-2016-11-23",
+      "source": "dr-2017-04-28",
+      "target": "dr-2016-11-23",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2017-01-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2017-04-28",
+        "page_number": 2,
+        "quote": "2% to 4% w.e.f 01.01.2017"
+      },
+      "evidence": {
+        "document_id": "dr-2017-04-28",
+        "page_number": 2,
+        "quote": "2% to 4%"
+      },
+      "scope": "From 2017-01-01 this rate (4%) replaces the earlier rate (2%) for dearness relief, central government pensioners / family pensioners (staff pensioners). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "dr-2017-10-10-replaces-dr-2017-04-28",
+      "source": "dr-2017-10-10",
+      "target": "dr-2017-04-28",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2017-07-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2017-10-10",
+        "page_number": 2,
+        "quote": "4% to 5% w.e.f 01.07.2017"
+      },
+      "evidence": {
+        "document_id": "dr-2017-10-10",
+        "page_number": 2,
+        "quote": "4% to 5%"
+      },
+      "scope": "From 2017-07-01 this rate (5%) replaces the earlier rate (4%) for dearness relief, central government pensioners / family pensioners (staff pensioners). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "dr-2018-03-28-replaces-dr-2017-10-10",
+      "source": "dr-2018-03-28",
+      "target": "dr-2017-10-10",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2018-01-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2018-03-28",
+        "page_number": 2,
+        "quote": "5% to 7% wef 01.01.2018"
+      },
+      "evidence": {
+        "document_id": "dr-2018-03-28",
+        "page_number": 2,
+        "quote": "5% to 7%"
+      },
+      "scope": "From 2018-01-01 this rate (7%) replaces the earlier rate (5%) for dearness relief, central government pensioners / family pensioners (staff pensioners). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "dr-2018-10-01-replaces-dr-2018-03-28",
+      "source": "dr-2018-10-01",
+      "target": "dr-2018-03-28",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2018-07-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2018-10-01",
+        "page_number": 1,
+        "quote": "Revised rate effective from 01.07.2018"
+      },
+      "evidence": {
+        "document_id": "dr-2018-10-01",
+        "page_number": 1,
+        "quote": "Revised rate effective from 01.07.2018"
+      },
+      "scope": "From 2018-07-01 this rate (9%) replaces the earlier rate (7%) for dearness relief, central government pensioners / family pensioners (staff pensioners). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "dr-2019-03-14-replaces-dr-2018-10-01",
+      "source": "dr-2019-03-14",
+      "target": "dr-2018-10-01",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2019-01-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2019-03-14",
+        "page_number": 2,
+        "quote": "9% to 12% w.c.f 01.01.2019"
+      },
+      "evidence": {
+        "document_id": "dr-2019-03-14",
+        "page_number": 2,
+        "quote": "9% to 12%"
+      },
+      "scope": "From 2019-01-01 this rate (12%) replaces the earlier rate (9%) for dearness relief, central government pensioners / family pensioners (staff pensioners). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "dr-2019-10-22-replaces-dr-2019-03-14",
+      "source": "dr-2019-10-22",
+      "target": "dr-2019-03-14",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2019-07-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2019-10-22",
+        "page_number": 2,
+        "quote": "12% to 17% w.e.f 01.07.2019"
+      },
+      "evidence": {
+        "document_id": "dr-2019-10-22",
+        "page_number": 2,
+        "quote": "12% to 17%"
+      },
+      "scope": "From 2019-07-01 this rate (17%) replaces the earlier rate (12%) for dearness relief, central government pensioners / family pensioners (staff pensioners). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "dr-2021-07-27-replaces-dr-2019-10-22",
+      "source": "dr-2021-07-27",
+      "target": "dr-2019-10-22",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2021-07-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2021-07-27",
+        "page_number": 3,
+        "quote": "existing rate of 17% to 28% of the basic pension/family pension (including additional pension/family pension) with effect from 1%t July 2021"
+      },
+      "evidence": {
+        "document_id": "dr-2021-07-27",
+        "page_number": 3,
+        "quote": "existing rate of 17% to 28%"
+      },
+      "scope": "From 2021-07-01 this rate (28%) replaces the earlier rate (17%) for dearness relief, central government pensioners / family pensioners (staff pensioners). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "dr-2021-11-03-replaces-dr-2021-07-27",
+      "source": "dr-2021-11-03",
+      "target": "dr-2021-07-27",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2021-07-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2021-11-03",
+        "page_number": 3,
+        "quote": "28% to 31% of the basic pension/family pension (including additional pension/family pension) w.e.f 01.07.2021"
+      },
+      "evidence": {
+        "document_id": "dr-2021-11-03",
+        "page_number": 3,
+        "quote": "28% to 31%"
+      },
+      "scope": "From 2021-07-01 this rate (31%) replaces the earlier rate (28%) for dearness relief, central government pensioners / family pensioners (staff pensioners). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "dr-2022-04-07-replaces-dr-2021-11-03",
+      "source": "dr-2022-04-07",
+      "target": "dr-2021-11-03",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2022-01-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2022-04-07",
+        "page_number": 3,
+        "quote": "31% to 34% w.e.f 01.01.2022"
+      },
+      "evidence": {
+        "document_id": "dr-2022-04-07",
+        "page_number": 3,
+        "quote": "31% to 34%"
+      },
+      "scope": "From 2022-01-01 this rate (34%) replaces the earlier rate (31%) for dearness relief, central government pensioners / family pensioners (staff pensioners). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "dr-2022-10-10-replaces-dr-2022-04-07",
+      "source": "dr-2022-10-10",
+      "target": "dr-2022-04-07",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2022-07-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2022-10-10",
+        "page_number": 3,
+        "quote": "34% to 38% w.e.f 01.07.2022"
+      },
+      "evidence": {
+        "document_id": "dr-2022-10-10",
+        "page_number": 3,
+        "quote": "34% to 38%"
+      },
+      "scope": "From 2022-07-01 this rate (38%) replaces the earlier rate (34%) for dearness relief, central government pensioners / family pensioners (staff pensioners). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "dr-2023-04-06-replaces-dr-2022-10-10",
+      "source": "dr-2023-04-06",
+      "target": "dr-2022-10-10",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2023-01-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2023-04-06",
+        "page_number": 2,
+        "quote": "38% to 42% of the basic pension/family pension (including additional pension/family pension) w.e.f 01.01.2023"
+      },
+      "evidence": {
+        "document_id": "dr-2023-04-06",
+        "page_number": 2,
+        "quote": "38% to 42%"
+      },
+      "scope": "From 2023-01-01 this rate (42%) replaces the earlier rate (38%) for dearness relief, central government pensioners / family pensioners (staff pensioners). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "dr-2023-10-30-replaces-dr-2023-04-06",
+      "source": "dr-2023-10-30",
+      "target": "dr-2023-04-06",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2023-07-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2023-10-30",
+        "page_number": 2,
+        "quote": "existing rate of 42% to 46% of the basic pension/family pension (including additional pension/family pension) w.e.f 01\" July,2023"
+      },
+      "evidence": {
+        "document_id": "dr-2023-10-30",
+        "page_number": 2,
+        "quote": "existing rate of 42% to 46%"
+      },
+      "scope": "From 2023-07-01 this rate (46%) replaces the earlier rate (42%) for dearness relief, central government pensioners / family pensioners (staff pensioners). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "dr-2024-03-14-replaces-dr-2023-10-30",
+      "source": "dr-2024-03-14",
+      "target": "dr-2023-10-30",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2024-01-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2024-03-14",
+        "page_number": 2,
+        "quote": "existing rate of 46% to 50% of the basic pension/family pension (including additional pension/family pension) w.e.f 01° January,2024"
+      },
+      "evidence": {
+        "document_id": "dr-2024-03-14",
+        "page_number": 2,
+        "quote": "existing rate of 46% to 50%"
+      },
+      "scope": "From 2024-01-01 this rate (50%) replaces the earlier rate (46%) for dearness relief, central government pensioners / family pensioners (staff pensioners). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "dr-2024-11-07-replaces-dr-2024-03-14",
+      "source": "dr-2024-11-07",
+      "target": "dr-2024-03-14",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2024-07-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2024-11-07",
+        "page_number": 2,
+        "quote": "existing rate of 50% to 53% of the basic pension/family pension (including additional pension/family pension) w.e.f 01st July, 2024"
+      },
+      "evidence": {
+        "document_id": "dr-2024-11-07",
+        "page_number": 2,
+        "quote": "existing rate of 50% to 53%"
+      },
+      "scope": "From 2024-07-01 this rate (53%) replaces the earlier rate (50%) for dearness relief, central government pensioners / family pensioners (staff pensioners). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "dr-2025-04-17-replaces-dr-2024-11-07",
+      "source": "dr-2025-04-17",
+      "target": "dr-2024-11-07",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2025-01-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2025-04-17",
+        "page_number": 2,
+        "quote": "existing rate of 53% to 55% of the basic pension/family pension (including additional pension/family pension) w.e.f 01st January, 2025"
+      },
+      "evidence": {
+        "document_id": "dr-2025-04-17",
+        "page_number": 2,
+        "quote": "existing rate of 53% to 55%"
+      },
+      "scope": "From 2025-01-01 this rate (55%) replaces the earlier rate (53%) for dearness relief, central government pensioners / family pensioners (staff pensioners). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "dr-2025-10-13-replaces-dr-2025-04-17",
+      "source": "dr-2025-10-13",
+      "target": "dr-2025-04-17",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2025-07-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2025-10-13",
+        "page_number": 2,
+        "quote": "existing rate of 55% to 58% of the basic pension/family pension (including additional pension/family pension) w.e.f 01st July, 2025"
+      },
+      "evidence": {
+        "document_id": "dr-2025-10-13",
+        "page_number": 2,
+        "quote": "existing rate of 55% to 58%"
+      },
+      "scope": "From 2025-07-01 this rate (58%) replaces the earlier rate (55%) for dearness relief, central government pensioners / family pensioners (staff pensioners). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "dr-2026-04-29-replaces-dr-2025-10-13",
+      "source": "dr-2026-04-29",
+      "target": "dr-2025-10-13",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": "2026-01-01",
+      "effective_date_evidence": {
+        "document_id": "dr-2026-04-29",
+        "page_number": 2,
+        "quote": "existing rate of 58% to 60% of the basic pension/family pension (including additional pension/additional family pension) w.e.f. 01\" January, 2026"
+      },
+      "evidence": {
+        "document_id": "dr-2026-04-29",
+        "page_number": 2,
+        "quote": "existing rate of 58% to 60%"
+      },
+      "scope": "From 2026-01-01 this rate (60%) replaces the earlier rate (58%) for dearness relief, central government pensioners / family pensioners (staff pensioners). The earlier rate continues to apply for periods before that date."
+    },
+    {
+      "id": "da-2021-07-20-subsumes-frozen-instalments",
+      "source": "da-2021-07-20",
+      "target": "dadr-2020-04-29",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "da-2021-07-20",
+        "page_number": 3,
+        "quote": "The increase subsumes the additional instalments arising on 01.01.2020, 01.07.2020 and 01.01.2021"
+      },
+      "scope": "Ends the freeze from 1 July 2021: the increase subsumes the instalments that were due on 1 Jan 2020, 1 Jul 2020 and 1 Jan 2021 and were not paid. No arrears for the frozen period are stated."
+    },
+    {
+      "id": "dr-2021-07-27-subsumes-frozen-instalments",
+      "source": "dr-2021-07-27",
+      "target": "dadr-2020-04-29",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "dr-2021-07-27",
+        "page_number": 3,
+        "quote": "The increase subsumes the additional instalments arising on 01.01.2020, 01.07.2020 and 01.01.2021"
+      },
+      "scope": "Ends the freeze from 1 July 2021: the increase subsumes the instalments that were due on 1 Jan 2020, 1 Jul 2020 and 1 Jan 2021 and were not paid. No arrears for the frozen period are stated."
+    }
+  ],
+  "limitations": [
+    "This collection concerns EPFO staff and staff pensioners who follow Central Government dearness allowance (DA) and dearness relief (DR) orders. It is not about EPF member benefits or EPS pensions.",
+    "Each EPFO circular forwards a Government OM and states the rate and its effective date. Effective dates are those stated in the circulars; the issue date is the EPFO circular date and is later than the effective date. Arrears, tax and pay-level details are not covered.",
+    "Each rate replaces the previous rate from its effective date; the earlier rate remains the rate for earlier periods. The 28% DA/DR (17% to 28%) and the 31% rate (28% to 31%) both state 1 July 2021, because the second order followed the first; the later order states the operative rate from that date and this history does not resolve how the overlap is applied.",
+    "The April 2020 circular freezes DA and DR at current rates and says the instalments due 1 Jan 2020, 1 Jul 2020 and 1 Jan 2021 will not be paid; the July 2021 circulars subsume them. No arrears are stated.",
+    "The 2016 circulars record the pre-7th-CPC rate of 125% from 1 Jan 2016 and the reset after the revised pay structure: DA/DR nil from 1 Jan 2016 and 2% from 1 Jul 2016.",
+    "The 1 October 2018 DR circular's rate (7% to 9% from 1 July 2018) is in the scanned image layer of the Government OM; the checked text evidence is the subject line. A second circular dated 25 May 2017 conveys the same OM as the 28 April 2017 DR circular and is not separately listed.",
+    "Earlier years (before 2016), the DA-linked allowance enhancements, gratuity enhancement, CGHS, family pension and pension revision circulars are not covered.",
+    "PDFs were read from the issuer mirror on 3 November 2026 because the public site returned 404 for these paths that day; recorded SHA-256 values apply to those files. Scanned pages are OCR."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
+  "cases": [
+    {"id": "lf-2026-fee", "question": "Revision of fee payable to panel advocates of the Central Board/EPFO", "as_of": "2026-07-08",
+     "required_evidence": [{"document_id": "lf-2026-07-08", "page_number": 1}]},
+    {"id": "lf-2026-applicable", "question": "From when do the revised rates of fee for panel advocates apply?", "as_of": "2026-07-08",
+     "required_evidence": [{"document_id": "lf-2026-07-08", "page_number": 9}]},
+    {"id": "lf-2017-eligibility", "question": "Eligibility for empanelment of advocates revised to ten years", "as_of": "2017-05-03",
+     "required_evidence": [{"document_id": "lf-2017-05-03", "page_number": 1}]},
+    {"id": "lf-cgit", "question": "Empanelment of advocates for Central Government Industrial Tribunals after EPFAT merger", "as_of": "2017-09-07",
+     "required_evidence": [{"document_id": "lf-2017-09-07", "page_number": 1}]},
+    {"id": "lf-2012-fee", "question": "Revision of legal fee payable to panel advocates of High Courts CAT benches", "as_of": "2012-01-24",
+     "required_evidence": [{"document_id": "lf-2012-01-24", "page_number": 1}]},
+    {"id": "lf-before-2026", "question": "Revised fee payable to panel advocates", "as_of": "2026-07-07",
+     "absent_documents": ["lf-2026-07-08"]}
+  ]
+}

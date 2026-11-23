@@ -1,0 +1,20 @@
+{
+  "document_id": "claim_forms_payments-2010-05-12-7398e9",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/NEFT7382.PDF",
+  "pdf_sha256": "6b44cca3d6f271988a490e79c207166cf4798fdf6f55694c9f3fac5ece58d23d",
+  "total_pdf_pages": 2,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "ota afasy fafa ds\n\nEmployees’ Provident Fund Organisation\n(a4 Ud Morne Farag, ARG EER )\n(Ministry of Labour & Employment, Govt. Of India)\n(41 oratera) / Corporate Headquarters\nwafaer PAY wa, 14 aftoreofl pr why, Ag fect - 110066.\n\nBhavishya Nidhi Bhawan, 14-Bhikaiji Cama Place, New Delhi-110066\n\nNo.Bkg. 1(25)/NEFT/Electronic Data wonsted He hE Date:12.05.2010\n\nOffice Memorandum 12 ot. ane\n\nSub: Implementation of e-payment Modalities\n\nThis has reference to OM No.Bkg.1(25)/NEFT/Electronic Data Transfer/2087 dated\n28/29.04.2010 whereby e-payment modalities for releasing payment to beneficiaries\nwas introduced for Unix based legacy offices.\n\nThe target date for completion of e-payment modalities was fixed as 10.05.2010\n\nand reports submitted have been reviewed.\n\nIt is noted with deep concern that as on 11.05.2010 only 23 offices have furnished\nreturned MIS received from SBI. The upload report has been submitted by 31 offices\nwho failed to obtain returned MIS from SBI. Collectively, implementation report has\nbeen received from 54 offices only indicating a shortfall of 40% in implementation of\n\ne-payment modalities.\n\nACC(HR & RJ} and ACC(GJ & MP) have put in sincere efforts and have\nachieved appreciable performance. However ACC(AP & OR), ACC(DL & UT),\nACC(KN & GOA), ACC(MH & CHH), ACC(TN & KR) and ACC(WB & NER) have not been\nable to achieve 100% target.\n\nDetailed guidelines for implementation of e-payment module have already\n\nbeen circulated. The process flow at SBI for NEFT implementation has also been mailed",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 2,
+      "text": "to all offices. Despite this, 37 offices have failed to implement the e-payment module\n\nwhich is not acceptable.\nIt is reiterated that implementation of e-payment modalities is a high priority area\n\nand all legacy offices should complete the implementation exercise within two days.\n\nAny problem faced in implementation process to be resolved at Head Office level\n\na\n(S. CHATERJEE)\n\nCentral P.F. Commissioner\n\nshould be brought to the notice of undersigned immediately.\n\nAll ACCs(Zones)\nAll RPFCs (ROs/SROs)\n\nCopy to RPFC(NDC) for uploading on website.",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

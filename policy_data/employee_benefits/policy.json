@@ -1,0 +1,563 @@
+{
+  "schema_version": 1,
+  "id": "employee_benefits",
+  "reviewed_on": "2026-10-29",
+  "topics": [
+    {
+      "id": "briefcase",
+      "label": "Briefcase / office bag / purse",
+      "include": "briefcase|hand.?bag|office bag|purse"
+    },
+    {
+      "id": "devices",
+      "label": "Laptop / notebook / device",
+      "include": "laptop|notebook|ultrabook|macbook|tablet|device"
+    },
+    {
+      "id": "communications",
+      "label": "Mobile / telephone / internet",
+      "include": "telephone|mobile|phone|broadband|internet"
+    },
+    {
+      "id": "newspaper",
+      "label": "Newspaper reimbursement",
+      "include": "news\\s*paper|newspaper"
+    },
+    {
+      "id": "medical",
+      "label": "Medical / CGHS / CS(MA) / FMA",
+      "include": "medical|CGHS|CS\\s*\\(?MA|\\bFMA\\b"
+    }
+  ],
+  "documents": [
+    {
+      "id": "employee_benefits-2008-05-27-3ad7ba",
+      "title": "Reimbursement of Mobile Phone bills to Staff Car Drivers",
+      "circular_no": "No. HRM-V/22/2/2004/Vol-II/10448",
+      "issued_on": "2008-05-27",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/MobStaffCarDrivr.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/MobStaffCarDrivr.pdf",
+      "topics": [
+        "communications"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Reimbursement of Mobile Phone bills to Staff Car Drivers",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "employee_benefits-2009-05-08-ca3171",
+      "title": "Delegation of power in respect of Reimbursement of Medical Expenses in relaxation of CS (MA) Rules-1994 HO",
+      "circular_no": "HO No. HRM-V/9(46)2005/M.Reimb.Policy/5992",
+      "issued_on": "2009-05-08",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/HRM_delegation_of_power.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/HRM_delegation_of_power.pdf",
+      "topics": [
+        "medical"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of power in respect of Reimbursement of Medical Expenses in relaxation of CS (MA) Rules-1994 HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "employee_benefits-2009-08-17-443935",
+      "title": "Delegation of Financial/Administrative powers in case of indoor medical treatment taken by the retired employees of EPFO etc HO",
+      "circular_no": "HO No. HRM-V/12(2)2004/35849",
+      "issued_on": "2009-08-17",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/DeleFAPFMTRetiree.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/DeleFAPFMTRetiree.pdf",
+      "topics": [
+        "medical"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of Financial/Administrative powers in case of indoor medical treatment taken by the retired employees of EPFO etc HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "employee_benefits-2010-01-11-3c5a92",
+      "title": "Enhancement in the rate of FMA payable to serving and retired employees of EPFO for outdoor medical treatment HO",
+      "circular_no": "HO No. HRM-V/12(1)2003/FMA/Vol-II/71801",
+      "issued_on": "2010-01-11",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/FMA1200.PDF",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/FMA1200.PDF",
+      "topics": [
+        "medical"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Enhancement in the rate of FMA payable to serving and retired employees of EPFO for outdoor medical treatment HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "employee_benefits-2011-11-09-23b5fd",
+      "title": "Instruction for providing briefcase/ hand bag to Officers of EPFO - HO",
+      "circular_no": "HO No. HRM-8/V/44/3/2001/Misc./34365",
+      "issued_on": "2011-11-09",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/HRM8_Briefcase_34365.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/HRM8_Briefcase_34365.pdf",
+      "topics": [
+        "briefcase"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Instruction for providing briefcase/ hand bag to Officers of EPFO - HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "employee_benefits-2013-01-07-0b0d68",
+      "title": "Instructions for providing briefcase/handbag to officers/ officials of EPFO HO",
+      "circular_no": "HO No. HRM-8/V/44/3/2001/Misc./28737",
+      "issued_on": "2013-01-07",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/HRM8_BriefcaseOrder_28737.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/HRM8_BriefcaseOrder_28737.pdf",
+      "topics": [
+        "briefcase"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Instructions for providing briefcase/handbag to officers/ officials of EPFO HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "employee_benefits-2013-06-13-6a3b13",
+      "title": "आउट डोर मेडिकल चिकित्सा हेतु क.भ.नि.सं. के सेवारत एवं सेवानिवृत्त कर्मचारियों के लिए देय नियत मेडिकल/चिकित्सा भत्ता के दर में दिनांक 01.03.2013 से रू. 1200/- से 2000/- तक की वृद्धि के संबंध में\nEnhancement in the rate of Fixed Medical Allowance from Rs.1200/- to Rs.2000/- p.m. w.e.f. 01.03.2013, payable to the serving as well as retired employees of the EPFO for outdoor medical treatment HO",
+      "circular_no": "HO No. HRM-8/V/12/1/2003/FMA/Vol-II/6160",
+      "issued_on": "2013-06-13",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/HRM8_FMA_6160.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/HRM8_FMA_6160.pdf",
+      "topics": [
+        "medical"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "आउट डोर मेडिकल चिकित्सा हेतु क.भ.नि.सं. के सेवारत एवं सेवानिवृत्त कर्मचारियों के लिए देय नियत मेडिकल/चिकित्सा भत्ता के दर में दिनांक 01.03.2013 से रू. 1200/- से 2000/- तक की वृद्धि के संबंध में\nEnhancement in the rate of Fixed Medical Allowance from Rs.1200/- to Rs.2000/- p.m. w.e.f. 01.03.2013, payable to the serving as well as retired employees of the EPFO for outdoor medical treatment HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "employee_benefits-2013-08-14-917712",
+      "title": "Revision of rates for reimbursement of medical expenses incurred in emergency conditions under CS(MA) Rules, 1944 HO",
+      "circular_no": "HO No. HRD/4(3)2012/Misc./4991",
+      "issued_on": "2013-08-14",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/HRD_Cir_4991.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/HRD_Cir_4991.pdf",
+      "topics": [
+        "medical"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revision of rates for reimbursement of medical expenses incurred in emergency conditions under CS(MA) Rules, 1944 HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "employee_benefits-2014-03-14-62c45e",
+      "title": "बाह्नय रोगी चिकित्सा हेतु क.भ.नि.सं. के सेवानिवृृत्त एवं सेवारत कर्मचारियों को देय नियत चिकित्सा भत्ता - स्पष्टीकरण \nFixed Medical allowance payable to the serving as well as retired employees of the EPFO for outdoor treatment HO",
+      "circular_no": "HO No. HRM-8/V/12/1/2003/FMA/Vol.II/26632",
+      "issued_on": "2014-03-14",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/HRM8_FMA_26632.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/HRM8_FMA_26632.pdf",
+      "topics": [
+        "medical"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "बाह्नय रोगी चिकित्सा हेतु क.भ.नि.सं. के सेवानिवृृत्त एवं सेवारत कर्मचारियों को देय नियत चिकित्सा भत्ता - स्पष्टीकरण \nFixed Medical allowance payable to the serving as well as retired employees of the EPFO for outdoor treatment HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "employee_benefits-2014-06-16-cab37b",
+      "title": "क.भ.नि.सं. के सेवानिवृत्त कर्मचारियों को चिकित्सा की पूरी राशि की प्रतिपूर्ति के संबंध में \nMedical Reimbursement of full amount to retired EPFO employees HO",
+      "circular_no": "HO No. HRM-8/9(10)2013/Medical/Bangalore/6637",
+      "issued_on": "2014-06-16",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/HRM8_MedicalReimbursement_Pensioners_6637.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/HRM8_MedicalReimbursement_Pensioners_6637.pdf",
+      "topics": [
+        "medical"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "क.भ.नि.सं. के सेवानिवृत्त कर्मचारियों को चिकित्सा की पूरी राशि की प्रतिपूर्ति के संबंध में \nMedical Reimbursement of full amount to retired EPFO employees HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "employee_benefits-2014-08-28-f95e35",
+      "title": "Instructions for providing briefcase / handbag to officers / official of EPFO HO",
+      "circular_no": "HO No. HRM-8/V/44/3/2001/Misc./7448",
+      "issued_on": "2014-08-28",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/HRM8_Briefcase_Instructions_7448.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/HRM8_Briefcase_Instructions_7448.pdf",
+      "topics": [
+        "briefcase"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Instructions for providing briefcase / handbag to officers / official of EPFO HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "employee_benefits-2016-02-22-7c9993",
+      "title": "Delegation of Financial / Administrative Powers in case of indoor medical treatment taken by the retired employees of EPFO and / or their spouse / dependents under CS (MA) Rules, 1944 HO",
+      "circular_no": "HO No. HRM-8/9(25)2015/CAT/40374",
+      "issued_on": "2016-02-22",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/HRM8_IndoorTreatment_40374.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/HRM8_IndoorTreatment_40374.pdf",
+      "topics": [
+        "medical"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of Financial / Administrative Powers in case of indoor medical treatment taken by the retired employees of EPFO and / or their spouse / dependents under CS (MA) Rules, 1944 HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "employee_benefits-2016-02-25-24626f",
+      "title": "Empanelment of Hospital and Diagnostic Centers for medical treatment to the retired employees of EPFO and their family HO",
+      "circular_no": "HO No. HRM-8/12(7)2007/Mumbai/Vol.I/40764",
+      "issued_on": "2016-02-25",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/HRM8_Empanel_Hospital_40764.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/HRM8_Empanel_Hospital_40764.pdf",
+      "topics": [
+        "medical"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Empanelment of Hospital and Diagnostic Centers for medical treatment to the retired employees of EPFO and their family HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "employee_benefits-2016-08-09-94f2d7",
+      "title": "Fixed Medical Allowance payable to the serving as well as retired employees of the EPFO for outdoor treatment HO",
+      "circular_no": "HO No. HRM-8/12(2)2014/Vol.IV/FMA/11990",
+      "issued_on": "2016-08-09",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/HRM8_FMA_11990.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/HRM8_FMA_11990.pdf",
+      "topics": [
+        "medical"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Fixed Medical Allowance payable to the serving as well as retired employees of the EPFO for outdoor treatment HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "employee_benefits-2018-04-17-544683",
+      "title": "Provision of telephone facilities and reimbursement to officers of Government of India HO",
+      "circular_no": "HRD/1/2018/GOI/Circulars/37",
+      "issued_on": "2018-04-17",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry.epfindia.gov.in/wp-content/uploads/2025/09/HRD_TelephoneReimbursement_37-2.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/HRD_TelephoneReimbursement_37.pdf",
+      "topics": [
+        "communications"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Provision of telephone facilities and reimbursement to officers of Government of India HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/employee_benefits-2018-04-17-544683.json",
+      "local_pdf": "pdfs/employee_benefits-2018-04-17-544683.pdf"
+    },
+    {
+      "id": "employee_benefits-2018-04-17-754c44",
+      "title": "Reimbursement in respect of Newspapers purchased / supplied to officers at their residence - guidelines HO",
+      "circular_no": "HRD/1(71)2014/Misc./35",
+      "issued_on": "2018-04-17",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/HRD_NewsP_Reimbursement_35.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/HRD_NewsP_Reimbursement_35.pdf",
+      "topics": [
+        "newspaper"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Reimbursement in respect of Newspapers purchased / supplied to officers at their residence - guidelines HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/employee_benefits-2018-04-17-754c44.json",
+      "local_pdf": "pdfs/employee_benefits-2018-04-17-754c44.pdf"
+    },
+    {
+      "id": "employee_benefits-2018-05-09-f3563f",
+      "title": "Revised Guidelines for Purchase of laptop/ notebook / ultrabook / macbook for eligible officers of EPFO HO",
+      "circular_no": "HO No. IS-1(2)2003/Norms/173",
+      "issued_on": "2018-05-09",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/IS_RevGuidelines_Laptop_173.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/IS_RevGuidelines_Laptop_173.pdf",
+      "topics": [
+        "devices"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Revised Guidelines for Purchase of laptop/ notebook / ultrabook / macbook for eligible officers of EPFO HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "employee_benefits-2018-05-28-b55f93",
+      "title": "Prescription of Timelines under CGHS for settlement of Medical Claims of Pensioner CGHS beneficiaries HO",
+      "circular_no": "HO No. HRD/1/2018/GOI/Circulars/42",
+      "issued_on": "2018-05-28",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/HRD_SettlementMedicalClaims_CGHS_42.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/HRD_SettlementMedicalClaims_CGHS_42.pdf",
+      "topics": [
+        "medical"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Prescription of Timelines under CGHS for settlement of Medical Claims of Pensioner CGHS beneficiaries HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "employee_benefits-2019-01-16-0788ad",
+      "title": "Instructions for the purchase of laptops / notebooks and similar devices for eligible officers - Clarification regarding admissibility of Taxes / GST on the price ceiling HO",
+      "circular_no": "HO No. HRD/1(34)2014/7th CPC/Vol. II/ Pt.I/79",
+      "issued_on": "2019-01-16",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/HRD_7CPC_Laptop_79-1.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/HRD_7CPC_Laptop_79.pdf",
+      "topics": [
+        "devices"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Instructions for the purchase of laptops / notebooks and similar devices for eligible officers - Clarification regarding admissibility of Taxes / GST on the price ceiling HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/employee_benefits-2019-01-16-0788ad.json",
+      "local_pdf": "pdfs/employee_benefits-2019-01-16-0788ad.pdf"
+    },
+    {
+      "id": "employee_benefits-2022-01-28-f39ddd",
+      "title": "Delegation of Financial / administrative powers in case of retired employees of EPFO and / or their spouse /dependents HO",
+      "circular_no": "HO No. HRM-V/12(2)2004/3877",
+      "issued_on": "2022-01-28",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/HRM5_delegation_Medical_3877.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/HRM5_delegation_Medical_3877.pdf",
+      "topics": [
+        "medical"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Delegation of Financial / administrative powers in case of retired employees of EPFO and / or their spouse /dependents HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "employee_benefits-2022-12-09-28cc3c",
+      "title": "Instruction for providing briefcase / handbag to officers/officials of EPFO HO",
+      "circular_no": "HO No. A-45012/5/2022-HRM-VIII/14789",
+      "issued_on": "2022-12-09",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/Briefcase_Allowance_Circular_dated_09-12-2022.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/Briefcase_Allowance_Circular_dated_09-12-2022.pdf",
+      "topics": [
+        "briefcase"
+      ],
+      "verification": "original_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Instruction for providing briefcase / handbag to officers/officials of EPFO HO",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Issue date and operative text require the original; this entry is catalogue metadata only."
+    },
+    {
+      "id": "employee_benefits-2024-10-01-7c189e",
+      "title": "Revision of monetary ceiling for purchase/reimbursement of briefcase/official bag/ladies purses",
+      "circular_no": "(E-27818) HRD/1(71)2020/Misc./1104",
+      "issued_on": "2024-10-01",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Circular_HRD_Briefcase_01102024-1.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/Circular_HRD_Briefcase_01102024.pdf",
+      "topics": [
+        "briefcase"
+      ],
+      "verification": "source_checked",
+      "effective_from": "2024-10-01",
+      "effective_date_evidence": {
+        "document_id": "employee_benefits-2024-10-01-7c189e",
+        "page_number": 1,
+        "quote": "with immediate effect"
+      },
+      "version_label": "Revision of monetary ceiling for purchase/reimbursement of briefcase/official bag/ladies purses",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/employee_benefits-2024-10-01-7c189e.json",
+      "local_pdf": "pdfs/employee_benefits-2024-10-01-7c189e.pdf"
+    },
+    {
+      "id": "employee_benefits-2024-10-15-f63845",
+      "title": "Corrigendum regarding Revision of monetary ceiling for purchase/reimbursement of briefcase/official bag/ladies purses NO: (E-27818)HRD/1(71)2020/Misc./1117 dated 15/10/2024",
+      "circular_no": "(E-27818) HRD/1(71)2020/Misc./1117",
+      "issued_on": "2024-10-15",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry.epfindia.gov.in/wp-content/uploads/2025/09/Circular_HRD_15102024.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/Circular_HRD_15102024.pdf",
+      "topics": [
+        "briefcase"
+      ],
+      "verification": "source_checked",
+      "effective_from": "2024-10-15",
+      "effective_date_evidence": {
+        "document_id": "employee_benefits-2024-10-15-f63845",
+        "page_number": 1,
+        "quote": "with immediate effect"
+      },
+      "version_label": "Corrigendum regarding Revision of monetary ceiling for purchase/reimbursement of briefcase/official bag/ladies purses NO: (E-27818)HRD/1(71)2020/Misc./1117 dated 15/10/2024",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Original recovered from the official EPFO origin host; issue date, identifier and revised table visually checked. It expressly supersedes both 1 October 2024 and 9 December 2022 orders.",
+      "source_file": "sources/employee_benefits-2024-10-15-f63845.json",
+      "local_pdf": "pdfs/employee_benefits-2024-10-15-f63845.pdf"
+    },
+    {
+      "id": "employee_benefits-2024-12-18-992efd",
+      "title": "Web Upload- Revised Instructions for the purchase of laptops/notebooks and similar devices for eligible officers in Regional Offices, District Offices and Special State Offices –revised guidelines.",
+      "circular_no": "(E-55917) HRD/98/2022/LaptopEntitlement/1161",
+      "issued_on": "2024-12-18",
+      "authority": "EPFO administrative circular",
+      "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/Circular_LaptopEntitlement_18122024-1.pdf",
+      "original_source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/Circular_LaptopEntitlement_18122024.pdf",
+      "topics": [
+        "devices"
+      ],
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Web Upload- Revised Instructions for the purchase of laptops/notebooks and similar devices for eligible officers in Regional Offices, District Offices and Special State Offices –revised guidelines.",
+      "source_host_kind": "issuer_hosted",
+      "notes": "Physical pages extracted from the issuer-hosted scan; current applicability is not certified.",
+      "source_file": "sources/employee_benefits-2024-12-18-992efd.json",
+      "local_pdf": "pdfs/employee_benefits-2024-12-18-992efd.pdf"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "employee_benefits-2024-10-01-7c189e-supersedes-employee_benefits-2022-12-09-28cc3c",
+      "source": "employee_benefits-2024-10-01-7c189e",
+      "target": "employee_benefits-2022-12-09-28cc3c",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "employee_benefits-2024-10-01-7c189e",
+        "page_number": 1,
+        "quote": "In supersession of earlier order no. A-45012/5/2022-HRM-VIII/14789 dated\n09.12.2022"
+      },
+      "scope": "Express replacement of the 9 December 2022 EPFO briefcase/handbag order; subsequent October corrigendum remains unresolved."
+    },
+    {
+      "id": "employee_benefits-2024-12-18-992efd-partially_modifies-employee_benefits-2018-05-09-f3563f",
+      "source": "employee_benefits-2024-12-18-992efd",
+      "target": "employee_benefits-2018-05-09-f3563f",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "employee_benefits-2024-12-18-992efd",
+        "page_number": 1,
+        "quote": "existing guidelines of EPFO circulated vide No. IS-1(3)2003/Norms/173 dated 09/05/2018"
+      },
+      "scope": "Revision of the 2018 device guidelines for eligible officers at Regional, District and Special State Offices; attached DoE OM is not treated as EPFO adoption from July 2023."
+    },
+    {
+      "id": "employee_benefits-2024-10-15-f63845-supersedes-employee_benefits-2024-10-01-7c189e",
+      "source": "employee_benefits-2024-10-15-f63845",
+      "target": "employee_benefits-2024-10-01-7c189e",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": "2024-10-15",
+      "effective_date_evidence": {
+        "document_id": "employee_benefits-2024-10-15-f63845",
+        "page_number": 1,
+        "quote": "with immediate effect"
+      },
+      "evidence": {
+        "document_id": "employee_benefits-2024-10-15-f63845",
+        "page_number": 1,
+        "quote": "In supersession of order no. HRD/1(71)2020/Misc. /1104 dated 01.10.2024 and A-\n45012/5/2022-HRM-VIII/14789 dated 09.12.2022"
+      },
+      "scope": "Express supersession limited to the EPFO briefcase/office bag/ladies purse instructions. The revised 15 October table includes specified equivalents in Levels 6 and 7; no general pay-level entitlement is inferred."
+    },
+    {
+      "id": "employee_benefits-2024-10-15-f63845-supersedes-employee_benefits-2022-12-09-28cc3c",
+      "source": "employee_benefits-2024-10-15-f63845",
+      "target": "employee_benefits-2022-12-09-28cc3c",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": "2024-10-15",
+      "effective_date_evidence": {
+        "document_id": "employee_benefits-2024-10-15-f63845",
+        "page_number": 1,
+        "quote": "with immediate effect"
+      },
+      "evidence": {
+        "document_id": "employee_benefits-2024-10-15-f63845",
+        "page_number": 1,
+        "quote": "In supersession of order no. HRD/1(71)2020/Misc. /1104 dated 01.10.2024 and A-\n45012/5/2022-HRM-VIII/14789 dated 09.12.2022"
+      },
+      "scope": "Express supersession limited to the EPFO briefcase/office bag/ladies purse instructions. The revised 15 October table includes specified equivalents in Levels 6 and 7; no general pay-level entitlement is inferred."
+    }
+  ],
+  "limitations": [
+    "This is an incomplete collection of EPFO employee/staff benefits, not EPF member benefits. Pay level, cadre, posting, eligibility and approving authority must be checked separately.",
+    "A central-government OM enclosed with an EPFO letter is not assumed to establish EPFO adoption from the OM date. Issue-date filtering does not resolve retrospective applicability.",
+    "Medical reimbursement, CS(MA), CGHS and fixed medical allowance are distinct regimes. Medical originals remain unverified in this first collection; legacy hybrid results do not certify eligibility, amounts or sanction authority.",
+    "The original 15 October 2024 order expressly supersedes the 1 October 2024 and 9 December 2022 orders. Its complete conditions and any later revisions must still be checked; chronological comparison alone is not used as a supersession rule.",
+    "OCR can lose table cells. The 1 October 2024 briefcase table was visually transcribed; the original scan remains available. No employee is assigned an allowance solely from a matching pay level."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "document_id": "is_security_systems-2022-05-18-b782c7",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/NDC_CISO_Security_DATA_1184.pdf",
+  "pdf_sha256": "3bc96ecedfbc87d1319d1c5fa2c0ad7461d6ba0b82848df16f802a2b5be208f8",
+  "total_pdf_pages": 2,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "apafant ucts PTY TOA\nEMPLOYEES’ PROVIDENT FUND ORGANISATION\n(AF Ua UHI AAG, URNA ALR)\n(MINISTRY OF LABOUR & EMPLOYMENT, GOVT. OF INDIA)\nSTE BR /NATIONAL DATA CENTRE\n1S! Floor, Bhavishya Nidhi Bhawan, Plot No.23, Sector-23, Dwarka,New Delhi-110075 aie\nwww. cpfindia.gov.in aerate ad\n\nClSO/Security/2022/ } gy Date: 18.05.2022\nCYBER SECURITY ADVISORY No 2022/02 : DATA WIPER MALWARE\n\n1. A surge in use of data wiper malware by nation sponsored threat actors\nis being reported. The Primary motive of the attacker for using these malware\nis the destruction of the victim machine/ data. A brief overview of different\ndata wiper active in cyber landscape is provided below:-\n\n(a) AwfulShred: AwfulShred is data-wiping bash script targeting\nLINUX based system.\n\n(b) DoubleZero: Doublezero is a data wiper attributed as a .NET-\nbased implant, which destroys files, registry keys, and trees on the\nVictim Windows machine. It aims to overwrite all files in all drives by\ndestroying all files in all drives except for a specific list of the locations\nhardcoded in the wiper. It wipe files either by overwriting their content\nwith zero blocks of 4096 bytes or using API-calls.\n\n(c) CaddyWiper: CaddyWiper is wiper malware targeting non\nprimary domain controller window machines. Upon execution, malware\noverwrites each file with zero to ensure that data is destroyed and not\nrecoverable.\n\n(d) ACIDRAIN: AcidRain is wiper malware target modems and\nrouters used for internet access. AcidRain performs an initial recursive\noverwrite and delete non-standard files in the filesystem.\n\n(e) DesertBlade: DesertBlade malware is deployed via Active\ndirectory Group Policy Object [GPO] indicating that attacker has first\ngained control of the Active directory for the network. It overwrites files\non victim machine and then deletes them.",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 2,
+      "text": "2. Recommendations: As Data wiper malware wipes the victim machine\ndata, having proper periodic backups of all critical information and data would\nlimit the impact of data or system loss and help in expediting the recovery\nprocess. It is also advised that data backup should be kept on a separate\ndevice and in offline mode.\n\n3. For information and necessary action please. \\\n}\n\n— ~~\n\n__-~ {Rahul Moggil)\nChief Information Security Officer\n\nTo,\n\nWebsite Admin\n\nField Office Application Admin\nNetwork Admin\n\nStorage Admin\n\nOS Admin\n\nActive Directory (AD) Admin\nDatabase Admin\n\nTeam Leader, RailTel Team\n\nONOMARWNS\n\nCopy to:\n\n1. OSD to CPFC\n\n2. Sh. Radha Krishan Singh, ACC HQ (IS)\n\n3. FA& CAO, CVO\n\n4. Sh. Pankaj Raman, ACC (IS) for information please\n5. Director, PDUNASS\n\n6. CTO\n\n7. ALL RPFCs Incharge of Regional Offices & NDC",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

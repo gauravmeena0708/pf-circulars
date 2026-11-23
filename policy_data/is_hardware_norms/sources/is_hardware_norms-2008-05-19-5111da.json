@@ -1,0 +1,20 @@
+{
+  "document_id": "is_hardware_norms-2008-05-19-5111da",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/Thin_Client.pdf",
+  "pdf_sha256": "9d1edbf77eb83920b71b7d472039fbff492e2dac3ed3f4ef7df99f655238c771",
+  "total_pdf_pages": 2,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "—\n\nTelegram : “KENDRIYA NIDHI' New Dethi\n\nadam ufoey fafa wea\n(AA HATS, HRA Ua)\nEmployees’ Provident Fund Seiniibeiibis\n(Ministry of Labour, Govt. of India)\nWRAL HRA /Head Office\nwfasy ff, a4, 14, Aorget wr we, ag feect—110066\nBhavishya Nidhi Bhawan, 14, Bhikaiji Cama Place, New Delhi-110066\n\nNo. 1S-5(3)97/Pt, / q t |} Dated\nTo mag it\n\nAll Additional Central Commissioner(Zones) & Diveeler NARs\nAll Regional Provident Fund Commissioners-I\n(in-charge of Regions)\n\nSubject: Policy decision on use of Thin Clients in place of Dumb Terminals in the\nfield offices of the Organisation-Regarding.\n\nSir,\n\nThis office has been receiving several requests from various field offices for\nproviding Thin Clients in lieu of Dumb Terminals. They have been expressing difficulty\nin procuring Dumb Terminals in some places as these had become obsolete. The issue\nhas been examined at Headquarters and the Competent Authority has approved the use of\nThin Clients in place of Dumb Terminals in offices of Organisation to meet the present\nrequirements and Project related requirements in future.\n\n2i In the first instance, the Thin Clients can be utilized under Unix environment in\nlieu of Dumb Terminals. Later the same can be utilized in relation to the “ Re-inventing\nEPF, India “ Project.\n\na The minimum configuration of Thin Client that are deemed to meet the present\nand future requirements of EPFO are as under:-\n\nThin clients 1 GHZ or above under Windows XP with LE browser having 512\nMBRAM. 512 MB IDE Flash Memory, USB Keyboard, 2 Button Scroll Mouse, Local and\nNetworking Printer Support, Network Port, TCP/IP and PPP support Protocols, 4 USB\nPorts, | Parallel, I Serial, 1 RJ-45, 1 VGA and I PS/2 Port, Windows XP Service Pack 2.\nLE 6.0 or above browser, Enterprise Client Management Software, Emulation Suite\nDHCP-FTP enabled Flash upgrade, VNC Server and Txtpad, Multi_User/Single User\nLogan support locally.\n\n4 It is, therefore, advised that thin clients may be purchased in lieu of dumb\nterminals after making a prudent and justifiable assessment of requirements for the\ncurrently running applications on Foxbase+ under Unix Environments. Such\nassessments should not include any projected requirements under the BPR Project.\nExisting working dumb terminals should remain in use and should not be replaced.\n\n2s 3\n\nGXHTS/Telephone : 6172659\n\n6172670\n\n9 Hh 2008\n\npon ea 4 vara ot Ra A ora wa KE Gea oNag H ond 21 >A f\n* a",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 2,
+      "text": "2&4\n\n5. In view of the above, Thin Clients may be purchased in place of Dumb\nTerminals on need basis under delegation of financial power to RPFC-I(In-charge\nof Region) under budget head “Computerisation” by following GFR provisions and\nrelated instructions issued by CVC from time to time.\n\nYours faithfully,\n—— :\n” — (C.CHAKRABORTY)\nRegional Provident Fund Commissioner(IS) a\nCopy for information to :- (\n\nlL. All OICs, Sub Regional Offices and Zonal Training Institutes.\n2) PS to CPFC.\n3. PS to FA& CAO.\n4. PS to CVO.\n3 PS to all ACC(HQ).\n6. All RPFCs in(HQ) and NDC.\n7. Director(Audit).\n8 All Zonal Deputy Directors(Vigilance) and (Audit)\n9.\n\nWebsite Administrators(with Soft copy) with request to post it on the website\nunder circulars.",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

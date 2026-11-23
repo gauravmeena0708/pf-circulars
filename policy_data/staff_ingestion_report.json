@@ -1,0 +1,17 @@
+{
+  "original_passages": 74884,
+  "added_passages": 226,
+  "final_passages": 75110,
+  "original_passages_changed": 0,
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "dimension": 384,
+  "source_documents": 21,
+  "new_page_count": 74,
+  "extraction_methods": [
+    "native",
+    "tesseract_eng_180dpi",
+    "tesseract_eng_180dpi_with_visually_reviewed_table_transcription"
+  ],
+  "sparse_cache_written": true,
+  "complete_applicability_established": false
+}

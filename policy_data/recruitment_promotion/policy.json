@@ -1,0 +1,1271 @@
+{
+  "schema_version": 1,
+  "id": "recruitment_promotion",
+  "reviewed_on": "2026-11-03",
+  "topics": [
+    {
+      "id": "recruitment_rules",
+      "label": "Recruitment rules / regulations (by cadre)",
+      "include": "recruitment|\\bRRs?\\b|regulation|relax"
+    },
+    {
+      "id": "promotion_dpc",
+      "label": "DPC procedure and promotion guidelines",
+      "include": "\\bDPC\\b|departmental\\s+promotion|model\\s+calendar|promotion|refusal"
+    },
+    {
+      "id": "macp",
+      "label": "MACP / NFU / NFSG",
+      "include": "\\bMACPS?\\b|\\bACP\\b|assured\\s+career|up-?gradation|\\bNFU\\b|\\bNFSG\\b"
+    }
+  ],
+  "documents": [
+    {
+      "id": "rec-2009-09-24-f25691",
+      "title": "Furnishing the notified RR to the post of DPA",
+      "circular_no": "HO No. HRM.III/1(3)2009/DPA/18838",
+      "issued_on": "2009-09-24",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/RR_DPA.pdf",
+      "source_file": "sources/rec-2009-09-24-f25691.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Furnishing the notified RR to the post of DPA",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2009-09-24-f25691",
+        "page_number": 1,
+        "quote": "Fumishing the notified Recruitment Rules to the post of Data"
+      }
+    },
+    {
+      "id": "rec-2011-04-25-6aaf10",
+      "title": "Employees' Provident Fund Organisation, (Multi-Tasking Staff) Recruitment Rules, 2011",
+      "circular_no": "HO No. HRD/C-1(3)2010/RR/3237",
+      "issued_on": "2011-04-25",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/MTS_RRules_3237.pdf",
+      "source_file": "sources/rec-2011-04-25-6aaf10.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Employees' Provident Fund Organisation, (Multi-Tasking Staff) Recruitment Rules, 2011",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2011-04-25-6aaf10",
+        "page_number": 1,
+        "quote": "Employees’ Provident Fund Organisation, (Multi - Tasking Staff)"
+      }
+    },
+    {
+      "id": "rec-2011-09-05-10b54d",
+      "title": "Creation of new grades of UDC (NFSG) and Stenographer Grade 'D' (NFSG) in CSCS and CSSS respectively",
+      "circular_no": "HO No. HRD/ 4(1)2011/misc./circular/26668",
+      "issued_on": "2011-09-05",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "macp"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/HRD_NewGrdCreatin_26668.pdf",
+      "source_file": "sources/rec-2011-09-05-10b54d.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Creation of new grades of UDC (NFSG) and Stenographer Grade 'D' (NFSG) in CSCS and CSSS respectively",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2011-09-05-10b54d",
+        "page_number": 2,
+        "quote": "Creation of a new grade of UDC (NFSG) and Stenographer Grade ‘D’"
+      }
+    },
+    {
+      "id": "rec-2013-01-21-f0c7d6",
+      "title": "Modified Assured Career Progression Scheme for the Central Government Civilian Employees - Clarification",
+      "circular_no": "HO No. HRD/ 4(1) 2010/ Misc.Circular/Pt.1/14045",
+      "issued_on": "2013-01-21",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "macp"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/HRD_miscCir_14045.pdf",
+      "source_file": "sources/rec-2013-01-21-f0c7d6.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Modified Assured Career Progression Scheme for the Central Government Civilian Employees - Clarification",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2013-01-21-f0c7d6",
+        "page_number": 3,
+        "quote": "Modified Assured Career Progression Scheme for the Central Government"
+      }
+    },
+    {
+      "id": "rec-2013-03-21-2fed26",
+      "title": "Deaprtmental Promotion Committees (DPCs) - following Model Calendar",
+      "circular_no": "HO No. HRD/5(1)/13/DPC/41352",
+      "issued_on": "2013-03-21",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "promotion_dpc"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/HRD_DPC_41352.pdf",
+      "source_file": "sources/rec-2013-03-21-2fed26.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Deaprtmental Promotion Committees (DPCs) - following Model Calendar",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2013-03-21-2fed26",
+        "page_number": 1,
+        "quote": "Departmental Promotion Committees (DPCs) - following Model Calendar"
+      }
+    },
+    {
+      "id": "rec-2014-05-20-cfe911",
+      "title": "Model template of minutes of DPC",
+      "circular_no": "HO No. HRD/4(2)2012/2574",
+      "issued_on": "2014-05-20",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "promotion_dpc"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/HRD_ModelMinDPC_2574.pdf",
+      "source_file": "sources/rec-2014-05-20-cfe911.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Model template of minutes of DPC",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2014-05-20-cfe911",
+        "page_number": 3,
+        "quote": "para)— (Quote relevant instructions of the"
+      }
+    },
+    {
+      "id": "rec-2015-05-11-973abc",
+      "title": "Constitution of Committee on NFU",
+      "circular_no": "HO No. HRM II/NFU/181(1)13/Pt.I/207",
+      "issued_on": "2015-05-11",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "macp"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/HRM2_CommitteeNFU_207.pdf",
+      "source_file": "sources/rec-2015-05-11-973abc.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Constitution of Committee on NFU",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2015-05-11-973abc",
+        "page_number": 1,
+        "quote": "FRSA | HEAD OFFICE artant aferer ff dot EMPLOYEES’ PROVIDENT"
+      }
+    },
+    {
+      "id": "rec-2015-05-14-23271e",
+      "title": "Modified Assured Career Progression Scheme for the Central Government Employee - Clarification",
+      "circular_no": "HO No. HRM.VII/59(23)11/HR/2119",
+      "issued_on": "2015-05-14",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "macp"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/HRM7_MACP_Clarification_2119.pdf",
+      "source_file": "sources/rec-2015-05-14-23271e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Modified Assured Career Progression Scheme for the Central Government Employee - Clarification",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2015-05-14-23271e",
+        "page_number": 1,
+        "quote": "Modified Assured Career Progression Scheme for the Central Government"
+      }
+    },
+    {
+      "id": "rec-2015-12-28-8558dc",
+      "title": "Notification of Recruitment Rules (Amended), 2015 in respect of Enforcement Officer / Account Officers",
+      "circular_no": "HO No. HRM-III/22(1)2009/DR Quota/33823",
+      "issued_on": "2015-12-28",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/HRM3_RR_EOAO_33823.pdf",
+      "source_file": "sources/rec-2015-12-28-8558dc.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Notification of Recruitment Rules (Amended), 2015 in respect of Enforcement Officer / Account Officers",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2015-12-28-8558dc",
+        "page_number": 1,
+        "quote": "Regional Offices. Subject : Notification of Recruitment"
+      }
+    },
+    {
+      "id": "rec-2016-10-13-4fafe9",
+      "title": "Modified Assured Career Progression Scheme (MACPS) for the Central Government Civilian Employees - Implementation of Seventh CPC recommendations",
+      "circular_no": "HO No. HRD/1/(34)2014/7th CPC/Vol.II/Pt.I/18824",
+      "issued_on": "2016-10-13",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "macp"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/HRD_MACP_7CPC_18824.pdf",
+      "source_file": "sources/rec-2016-10-13-4fafe9.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Modified Assured Career Progression Scheme (MACPS) for the Central Government Civilian Employees - Implementation of Seventh CPC recommendations",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2016-10-13-4fafe9",
+        "page_number": 2,
+        "quote": "Modified Assured Career Progression Scheme (MACPS) for the Central"
+      }
+    },
+    {
+      "id": "rec-2016-11-25-fdb669",
+      "title": "Timely and advance action in convening of Departmental Promotion Committee meeting in terms of Model Calendar",
+      "circular_no": "HO No. HRD/1(71)2014/Misc./14261",
+      "issued_on": "2016-11-25",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "promotion_dpc"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/HRD_Calendar_DPC_14261.pdf",
+      "source_file": "sources/rec-2016-11-25-fdb669.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Timely and advance action in convening of Departmental Promotion Committee meeting in terms of Model Calendar",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2016-11-25-fdb669",
+        "page_number": 2,
+        "quote": "Timely and advance action in convening of Departmental Promotion"
+      }
+    },
+    {
+      "id": "rec-2017-11-15-683338",
+      "title": "Procedure to be observed by the Departmental Promotion Committee (DPCs) - Model Calendar for DPCs - Relevant year up to which APARs are to be considered and Model Calendar for conducting DPCs",
+      "circular_no": "HO No. HRD/1(34)2014/7th CPC/148",
+      "issued_on": "2017-11-15",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "promotion_dpc"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_DPC_ModelCalendar_148.pdf",
+      "source_file": "sources/rec-2017-11-15-683338.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Procedure to be observed by the Departmental Promotion Committee (DPCs) - Model Calendar for DPCs - Relevant year up to which APARs are to be considered and Model Calendar for conducting DPCs",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2017-11-15-683338",
+        "page_number": 2,
+        "quote": "Procedure to be observed by the Departmental Promotion Committees"
+      }
+    },
+    {
+      "id": "rec-2017-11-28-026833",
+      "title": "Recruitment Rules for the post of Principle Private Secretary (PPS) in EPFO",
+      "circular_no": "HO No. HRD/24/2016/RR/Steno Cadre/1391",
+      "issued_on": "2017-11-28",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_RR_PPS_1391.pdf",
+      "source_file": "sources/rec-2017-11-28-026833.json",
+      "verification": "source_checked",
+      "effective_from": "2017-11-24",
+      "effective_date_evidence": {
+        "document_id": "rec-2017-11-28-026833",
+        "page_number": 1,
+        "quote": "notified in the Gazette of India vide GSR No.445 dated 24th November, 2017"
+      },
+      "version_label": "Recruitment Rules for the post of Principle Private Secretary (PPS) in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2017-11-28-026833",
+        "page_number": 1,
+        "quote": "Recruitment Rules for the post of Principle Private Secretary {PPS)"
+      }
+    },
+    {
+      "id": "rec-2017-12-07-88dea7",
+      "title": "Recruitment Regulation for the post of Multi Tasting Staff (MTS) in EPFO",
+      "circular_no": "HO No. HRD/C-1(3)2010/RR/MTS/1448",
+      "issued_on": "2017-12-07",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_RR_MTS_1448.pdf",
+      "source_file": "sources/rec-2017-12-07-88dea7.json",
+      "verification": "source_checked",
+      "effective_from": "2017-12-05",
+      "effective_date_evidence": {
+        "document_id": "rec-2017-12-07-88dea7",
+        "page_number": 1,
+        "quote": "notified in the Gazette of India vide GSR No.457 dated 05th December, 2017"
+      },
+      "version_label": "Recruitment Regulation for the post of Multi Tasting Staff (MTS) in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2017-12-07-88dea7",
+        "page_number": 1,
+        "quote": "Recruitment Regulation for the post of Multi Tasking Staff {MTS) in"
+      }
+    },
+    {
+      "id": "rec-2017-12-08-133790",
+      "title": "Recruitment Regulation for the post of Section Supervisor (SS) in EPFO",
+      "circular_no": "HO No. HRD/2/2017/RR/SS/1461",
+      "issued_on": "2017-12-08",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_RR_SS_1461.pdf",
+      "source_file": "sources/rec-2017-12-08-133790.json",
+      "verification": "source_checked",
+      "effective_from": "2017-12-05",
+      "effective_date_evidence": {
+        "document_id": "rec-2017-12-08-133790",
+        "page_number": 1,
+        "quote": "notified in the Gazette of India vide GSR No.459 dated 05th December, 2017"
+      },
+      "version_label": "Recruitment Regulation for the post of Section Supervisor (SS) in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2017-12-08-133790",
+        "page_number": 1,
+        "quote": "Recruitment Regulation for the post of Section Supervisor (SS) in"
+      }
+    },
+    {
+      "id": "rec-2017-12-08-18a827",
+      "title": "Recruitment Rules for the post of Director (OL) and Dy. Director (OL) in EPFO",
+      "circular_no": "HO No. HRD/22/2016/RR/OL/1464",
+      "issued_on": "2017-12-08",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_RR_DD(OL)_DIR(OL)_1464.pdf",
+      "source_file": "sources/rec-2017-12-08-18a827.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Recruitment Rules for the post of Director (OL) and Dy. Director (OL) in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2017-12-08-18a827",
+        "page_number": 1,
+        "quote": "Recruitment Rules for the post of Director (OL) and Dy. Director (OL)"
+      }
+    },
+    {
+      "id": "rec-2017-12-21-d3a260",
+      "title": "Draft Recruitment Regulations for the posts of Information Service Division of EPFO",
+      "circular_no": "HO No. HRD/1(1)2009/Re-St. of IS div./Pt.V/16038",
+      "issued_on": "2017-12-21",
+      "authority": "EPFO draft placed on the website for comments; not notified rules",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_DraftRRs_ISDiv_16038.pdf",
+      "source_file": "sources/rec-2017-12-21-d3a260.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Draft Recruitment Regulations for the posts of Information Service Division of EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2017-12-21-d3a260",
+        "page_number": 1,
+        "quote": "Draft Recruitment Regulations for the posts of Information Service"
+      },
+      "document_role": "consultation"
+    },
+    {
+      "id": "rec-2018-01-17-6565b0",
+      "title": "Administrative Arrangements in the Zones for Convening of Departmental Promotion Committee Meetings",
+      "circular_no": "HO No. HRM-I/T-1(1)2007/24012",
+      "issued_on": "2018-01-17",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "promotion_dpc"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRM1_ArrngInZones_DPC_24012.pdf",
+      "source_file": "sources/rec-2018-01-17-6565b0.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Administrative Arrangements in the Zones for Convening of Departmental Promotion Committee Meetings",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2018-01-17-6565b0",
+        "page_number": 1,
+        "quote": "Administrative arrangements in the Zones for convening of"
+      }
+    },
+    {
+      "id": "rec-2018-01-29-8c2c98",
+      "title": "Draft Recruitment Rules for the posts of Assistant Provident Fund Commissioner (APFC) in EPFO",
+      "circular_no": "HO No. HRD/56/2016/RR/Commissioner Cadre/24867",
+      "issued_on": "2018-01-29",
+      "authority": "EPFO draft placed on the website for comments; not notified rules",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_DraftRR_APFC_24867.pdf",
+      "source_file": "sources/rec-2018-01-29-8c2c98.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Draft Recruitment Rules for the posts of Assistant Provident Fund Commissioner (APFC) in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2018-01-29-8c2c98",
+        "page_number": 1,
+        "quote": "Draft Recruitment Rules for the posts of Assistant Provident Fund"
+      },
+      "document_role": "consultation"
+    },
+    {
+      "id": "rec-2018-02-27-e3a694",
+      "title": "Draft Recruitment Rules for the post of the Programmer in EPFO",
+      "circular_no": "HO No. HRD/7/2018/RR/IS Div./Vol-II/179",
+      "issued_on": "2018-02-27",
+      "authority": "EPFO draft placed on the website for comments; not notified rules",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_DraftRR_Programmer_179.pdf",
+      "source_file": "sources/rec-2018-02-27-e3a694.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Draft Recruitment Rules for the post of the Programmer in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2018-02-27-e3a694",
+        "page_number": 1,
+        "quote": "Draft Recruitment Rules for the post of the Programmer in EPFO - reg"
+      },
+      "document_role": "consultation"
+    },
+    {
+      "id": "rec-2018-03-21-26be54",
+      "title": "Amendment of Recruitment Rules for the posts of Commissioner Cadre in EPFO",
+      "circular_no": "HO No. HRD/56/2016/RR/Commissioner\\'s Cadre/30339",
+      "issued_on": "2018-03-21",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/HRD_RR_ACCHQ_ACC_RPFC_30339.pdf",
+      "source_file": "sources/rec-2018-03-21-26be54.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Amendment of Recruitment Rules for the posts of Commissioner Cadre in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2018-03-21-26be54",
+        "page_number": 1,
+        "quote": "Amendment of Recruitment Rules for the posts of Commissioner Cadre in"
+      }
+    },
+    {
+      "id": "rec-2018-05-10-0a9722",
+      "title": "Draft Recruitment Rules for the post of Enforcement Officer / Accounts Officer (EO/AO) in EPFO",
+      "circular_no": "HO No. HRD/55/2016/RR/EO-AO/1266",
+      "issued_on": "2018-05-10",
+      "authority": "EPFO draft placed on the website for comments; not notified rules",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/HRD_DraftRR_EOAO_1266.pdf",
+      "source_file": "sources/rec-2018-05-10-0a9722.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Draft Recruitment Rules for the post of Enforcement Officer / Accounts Officer (EO/AO) in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2018-05-10-0a9722",
+        "page_number": 1,
+        "quote": "Draft Recruitment Rules for the post of Enforcement Officer/ Accounts"
+      },
+      "document_role": "consultation"
+    },
+    {
+      "id": "rec-2018-05-29-9a9ed6",
+      "title": "Draft Recruitment Rules for the post of Assistant Director (OL) and Junior Hindi Translator in EPFO",
+      "circular_no": "HO No HRD/22/2016/RR/OL/Vol-II/216",
+      "issued_on": "2018-05-29",
+      "authority": "EPFO draft placed on the website for comments; not notified rules",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/HRD_DraftRR_ADOL_JHT_216.pdf",
+      "source_file": "sources/rec-2018-05-29-9a9ed6.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Draft Recruitment Rules for the post of Assistant Director (OL) and Junior Hindi Translator in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2018-05-29-9a9ed6",
+        "page_number": 1,
+        "quote": "Draft Recruitment Rules for the post of Assistant Director (OL) and"
+      },
+      "document_role": "consultation"
+    },
+    {
+      "id": "rec-2018-07-31-880df1",
+      "title": "Draft Recruitment Rules for the post of Lower Division Clerk (LDC), Social Security Assistant (SSA), Upper Division Clerk (UDC), Assistant, Stenographer, Personal Assistant and Private Secretary in EPFO",
+      "circular_no": "HO No. HRD/1(1)2011/Cadre Restructuring/Vol. III/236",
+      "issued_on": "2018-07-31",
+      "authority": "EPFO draft placed on the website for comments; not notified rules",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/HRD_DraftRR_CadreRestructuring_236.pdf",
+      "source_file": "sources/rec-2018-07-31-880df1.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Draft Recruitment Rules for the post of Lower Division Clerk (LDC), Social Security Assistant (SSA), Upper Division Clerk (UDC), Assistant, Stenographer, Personal Assistant and Private Secretary in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2018-07-31-880df1",
+        "page_number": 1,
+        "quote": "Draft Recruitment Rules for the post of Lower Division Clerk (LDC)"
+      },
+      "document_role": "consultation"
+    },
+    {
+      "id": "rec-2018-08-30-5a624b",
+      "title": "Financial Upgradation and Promotions after Cadre Restructuring",
+      "circular_no": "HO No. HQ/HRM-VI/2(Misc.)/1/2017/10871",
+      "issued_on": "2018-08-30",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "macp"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/HRM6_CR_Prom_10871.pdf",
+      "source_file": "sources/rec-2018-08-30-5a624b.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Financial Upgradation and Promotions after Cadre Restructuring",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2018-08-30-5a624b",
+        "page_number": 1,
+        "quote": "Financial Upgradation and Promotions after Cadre Restructuring- reg"
+      }
+    },
+    {
+      "id": "rec-2018-09-19-96b818",
+      "title": "Recruitment Rules for the posts of Senior Hindi Translator, Director (Information Services), Joint Director (Information Services), Deputy Director (Information Services) and Assistant Director (Information Services) in EPFO",
+      "circular_no": "HO No. HRD/19/2018/RR for Publication/12240",
+      "issued_on": "2018-09-19",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/HRD_RR_SHT_IS_12240.pdf",
+      "source_file": "sources/rec-2018-09-19-96b818.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Recruitment Rules for the posts of Senior Hindi Translator, Director (Information Services), Joint Director (Information Services), Deputy Director (Information Services) and Assistant Director (Information Services) in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2018-09-19-96b818",
+        "page_number": 1,
+        "quote": "Recruitment Rules for the posts of Senior Hindi Translator, Director"
+      }
+    },
+    {
+      "id": "rec-2019-01-16-fae6e5",
+      "title": "Promotion of Government servants found fit by review DPC after retirement - procedure and guidelines to be followed",
+      "circular_no": "HO No. HRD/1(34)2014/7th CPC/Vol II/Pt.I/76",
+      "issued_on": "2019-01-16",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "promotion_dpc"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/HRD_7CPC_ReviewDPC_76.pdf",
+      "source_file": "sources/rec-2019-01-16-fae6e5.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Promotion of Government servants found fit by review DPC after retirement - procedure and guidelines to be followed",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2019-01-16-fae6e5",
+        "page_number": 1,
+        "quote": "Promotion of Government servants found fit by review DPC after"
+      }
+    },
+    {
+      "id": "rec-2019-02-04-cfd729",
+      "title": "Recruitment Rules for the post of Section Supervisor in EPFO –",
+      "circular_no": "HO No. HRD/19/2018/RR for Publication/1652",
+      "issued_on": "2019-02-04",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/HRD_RRPublication_1652.pdf",
+      "source_file": "sources/rec-2019-02-04-cfd729.json",
+      "verification": "source_checked",
+      "effective_from": "2019-01-31",
+      "effective_date_evidence": {
+        "document_id": "rec-2019-02-04-cfd729",
+        "page_number": 1,
+        "quote": "January, 2019 vide GI No.656"
+      },
+      "version_label": "Recruitment Rules for the post of Section Supervisor in EPFO –",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2019-02-04-cfd729",
+        "page_number": 1,
+        "quote": "Recruitment Rules for the post of Section Supervisor in EPFO —"
+      }
+    },
+    {
+      "id": "rec-2019-03-29-64cbc8",
+      "title": "Promotion from LDC cadre to SSA under Seniority Quota by relaxing the length of service as prescribed in Recruitment Rules",
+      "circular_no": "HO No. HRM-V/4(1)2019/SSA/Promotion Quota",
+      "issued_on": "2019-03-29",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/HRM-V_4(1)2019_SSA_Promotion_Quota.pdf",
+      "source_file": "sources/rec-2019-03-29-64cbc8.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Promotion from LDC cadre to SSA under Seniority Quota by relaxing the length of service as prescribed in Recruitment Rules",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2019-03-29-64cbc8",
+        "page_number": 1,
+        "quote": "Promotion from LDC cadre to SSA under Seniority Quota by relaxing the"
+      }
+    },
+    {
+      "id": "rec-2019-08-05-330c28",
+      "title": "Draft Recruitment Rules to the posts of Chief Engineer, Executive Engineer (Civil), Executive Engineer (Electrical), Assistant Executive Engineer (Civil), Assistant Executive Engineer (Electrical) and Junior Engineer (Civil/Electrical) in EPFO",
+      "circular_no": "HO No. HRD/25/2016/RR/PFD/119",
+      "issued_on": "2019-08-05",
+      "authority": "EPFO draft placed on the website for comments; not notified rules",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2019-2020/HRD_RRPFD_119.pdf",
+      "source_file": "sources/rec-2019-08-05-330c28.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Draft Recruitment Rules to the posts of Chief Engineer, Executive Engineer (Civil), Executive Engineer (Electrical), Assistant Executive Engineer (Civil), Assistant Executive Engineer (Electrical) and Junior Engineer (Civil/Electrical) in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2019-08-05-330c28",
+        "page_number": 1,
+        "quote": "Draft Recruitment Rules to the posts of Chief Engineer, Executive"
+      },
+      "document_role": "consultation"
+    },
+    {
+      "id": "rec-2019-08-26-d9ebfb",
+      "title": "Model Calendar for conducting Departmental Promotion Committee",
+      "circular_no": "HO No.HRM-V/5(25)2019/DPC/SSA/6221",
+      "issued_on": "2019-08-26",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "promotion_dpc"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2019-2020/HRM5_DPC_SSA_6221.pdf",
+      "source_file": "sources/rec-2019-08-26-d9ebfb.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Model Calendar for conducting Departmental Promotion Committee",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2019-08-26-d9ebfb",
+        "page_number": 1,
+        "quote": "Model Calendar for conducting Departmental Promotion Committee"
+      }
+    },
+    {
+      "id": "rec-2019-11-18-706dc1",
+      "title": "Consolidated guidelines regarding Modified Assured Progression Scheme for the Central Government Civilian Employees",
+      "circular_no": "HO.No.HRD/1(34)2014/7th CPC/Vol.II/Pt.I/257",
+      "issued_on": "2019-11-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "macp"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2019-2020/HRD_MAPS_18112019.pdf",
+      "source_file": "sources/rec-2019-11-18-706dc1.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Consolidated guidelines regarding Modified Assured Progression Scheme for the Central Government Civilian Employees",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2019-11-18-706dc1",
+        "page_number": 1,
+        "quote": "Consolidated guidelines regarding Modified Assured Progression Scheme"
+      }
+    },
+    {
+      "id": "rec-2020-09-14-7db206",
+      "title": "Draft Recruitment Rules for the post of Senior Translation Officer (STO) in EPFO",
+      "circular_no": "HO No. HRD/22/2016/RR/OL-Vol-III (Pt.)/417",
+      "issued_on": "2020-09-14",
+      "authority": "EPFO draft placed on the website for comments; not notified rules",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/HRD_DraftRR_STO_417.pdf",
+      "source_file": "sources/rec-2020-09-14-7db206.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Draft Recruitment Rules for the post of Senior Translation Officer (STO) in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2020-09-14-7db206",
+        "page_number": 1,
+        "quote": "Draft Recruitment Rules for the post of Senior Translation Officer"
+      },
+      "document_role": "consultation"
+    },
+    {
+      "id": "rec-2020-09-18-16e52d",
+      "title": "Fixation of pay on grant of benefit under Modified Assured Career Progression Scheme (MACPS) - Extension of the benefit of entry level pay provided in DoE's OM dated 28.09.2018",
+      "circular_no": "HO No. HRD/1(71)2014/Misc./Pt./421",
+      "issued_on": "2020-09-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "macp"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/HRD_MACP_Fixation_421.pdf",
+      "source_file": "sources/rec-2020-09-18-16e52d.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Fixation of pay on grant of benefit under Modified Assured Career Progression Scheme (MACPS) - Extension of the benefit of entry level pay provided in DoE's OM dated 28.09.2018",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2020-09-18-16e52d",
+        "page_number": 2,
+        "quote": "Fixation of pay on grant of benefit under Modified Assured Career"
+      }
+    },
+    {
+      "id": "rec-2022-01-29-7ec924",
+      "title": "Adherence to Model Calendar for Departmental Promotion Committees (DPCs) as prescribed by DoP&T",
+      "circular_no": "HO No. A-45011/Misc. Matter/2022/HRM-VIII/5180",
+      "issued_on": "2022-01-29",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "promotion_dpc"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/HRM8_DPC_5180.pdf",
+      "source_file": "sources/rec-2022-01-29-7ec924.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Adherence to Model Calendar for Departmental Promotion Committees (DPCs) as prescribed by DoP&T",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2022-01-29-7ec924",
+        "page_number": 1,
+        "quote": "Adherence to Model Calendar for Departmental Promotion Committees"
+      }
+    },
+    {
+      "id": "rec-2022-04-07-a000bd",
+      "title": "Model Calendar for Departmental Promotion Committee (DPC)",
+      "circular_no": "HO No. HRM/VIII/2022/Model Calendar/6815",
+      "issued_on": "2022-04-07",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "promotion_dpc"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/HRM8_ModelCalendar_DPC_6815.pdf",
+      "source_file": "sources/rec-2022-04-07-a000bd.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Model Calendar for Departmental Promotion Committee (DPC)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2022-04-07-a000bd",
+        "page_number": 1,
+        "quote": "Model Calendar for Departmental Promotion Committee (DPC)"
+      }
+    },
+    {
+      "id": "rec-2022-10-07-14fc06",
+      "title": "Staff grievances regarding MACP/NFU/NFSG through HR-soft",
+      "circular_no": "HO.No.45011/137/2022-HRM-VIII/11228",
+      "issued_on": "2022-10-07",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "macp"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/Staff_grievance_throughHRSoft_10102022.pdf",
+      "source_file": "sources/rec-2022-10-07-14fc06.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Staff grievances regarding MACP/NFU/NFSG through HR-soft",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2022-10-07-14fc06",
+        "page_number": 1,
+        "quote": "Staff grievances regarding MACP /NFU/NFSG through HR-Soft - reg"
+      }
+    },
+    {
+      "id": "rec-2023-12-01-3d7e41",
+      "title": "Model Calendar for Departmental Promotion Committee (DPC)",
+      "circular_no": "No.HRD-II/03/2023/MISC/918",
+      "issued_on": "2023-12-01",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "promotion_dpc"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/ModelCalendar_DPC_HRD_04122023.pdf",
+      "source_file": "sources/rec-2023-12-01-3d7e41.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Model Calendar for Departmental Promotion Committee (DPC)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2023-12-01-3d7e41",
+        "page_number": 1,
+        "quote": "Model Calendar for Departmental Promotion Committee (DPC)-reg. 0 DEC"
+      }
+    },
+    {
+      "id": "rec-2023-12-19-e472a9",
+      "title": "Clarification on pay fixation on grant of NFU from Level-8 to Level-9 (as per 7th CPC) in the cadre of AO/EO",
+      "circular_no": "HO No.A-45011/69/2022-HRM-III/2630",
+      "issued_on": "2023-12-19",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "macp"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/NFU_EO_HRM_20122023.pdf",
+      "source_file": "sources/rec-2023-12-19-e472a9.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Clarification on pay fixation on grant of NFU from Level-8 to Level-9 (as per 7th CPC) in the cadre of AO/EO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2023-12-19-e472a9",
+        "page_number": 1,
+        "quote": "Clarification on pay fixation on grant of NFU from Level - 8 to"
+      }
+    },
+    {
+      "id": "rec-2023-12-21-ea3f1f",
+      "title": "Guidelines for consideration of the requests for refusal of promotion in group B & C cadre of EPFO",
+      "circular_no": "No.HRM-III/53(3)2019EO-AO/SQ/GI/2693",
+      "issued_on": "2023-12-21",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "promotion_dpc"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/Circular_HRM_21-12-2023.pdf",
+      "source_file": "sources/rec-2023-12-21-ea3f1f.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Guidelines for consideration of the requests for refusal of promotion in group B & C cadre of EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2023-12-21-ea3f1f",
+        "page_number": 1,
+        "quote": "Guidelines for consideration of the requests for refusal of promotion"
+      }
+    },
+    {
+      "id": "rec-2023-12-28-f81abe",
+      "title": "Model Calendar for Departmental Promotion Committee (DPC)",
+      "circular_no": "H.NO.HRD=II/03/2023/MISC/2831",
+      "issued_on": "2023-12-28",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "promotion_dpc"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/Model_Calender_DPC_28122023.pdf",
+      "source_file": "sources/rec-2023-12-28-f81abe.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Model Calendar for Departmental Promotion Committee (DPC)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2023-12-28-f81abe",
+        "page_number": 1,
+        "quote": "Model Calendar for Departmental Promotion Committee (DPC) — reg. Ref:"
+      }
+    },
+    {
+      "id": "rec-2024-03-19-36520d",
+      "title": "Draft Recruitment Rules of Technical Cadres of Information Services division in EPFO",
+      "circular_no": "No.HRD/35/2023/IS.Div/RR/983",
+      "issued_on": "2024-03-19",
+      "authority": "EPFO draft placed on the website for comments; not notified rules",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/Cicular_HRD_19032024.pdf",
+      "source_file": "sources/rec-2024-03-19-36520d.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Draft Recruitment Rules of Technical Cadres of Information Services division in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2024-03-19-36520d",
+        "page_number": 1,
+        "quote": "Draft Recruitment Rules of Technical Cadres of Information Services"
+      },
+      "document_role": "consultation"
+    },
+    {
+      "id": "rec-2024-07-25-880e53",
+      "title": "Draft Recruitment Rules for the post of Programmer of Information Services Division in EPFO",
+      "circular_no": "NO.HRD/7/2018/RR/I.SDiv/Vkol.II/1068",
+      "issued_on": "2024-07-25",
+      "authority": "EPFO draft placed on the website for comments; not notified rules",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/Circular_HRD_RRProg_25072024.pdf",
+      "source_file": "sources/rec-2024-07-25-880e53.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Draft Recruitment Rules for the post of Programmer of Information Services Division in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2024-07-25-880e53",
+        "page_number": 1,
+        "quote": "Draft Recruitment Rules for the post of Programmer of Information"
+      },
+      "document_role": "consultation"
+    },
+    {
+      "id": "rec-2024-08-22-a9d20e",
+      "title": "Proposal for relaxation of Recruitment Rules of the Group ‘A’ Technical Cadre of Information Services Division of EPFO",
+      "circular_no": "HO No. HRD/35/2023/IS.Div/RR/1078",
+      "issued_on": "2024-08-22",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/WebCircular-RR_Relaxation-22082024.pdf",
+      "source_file": "sources/rec-2024-08-22-a9d20e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Proposal for relaxation of Recruitment Rules of the Group ‘A’ Technical Cadre of Information Services Division of EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2024-08-22-a9d20e",
+        "page_number": 1,
+        "quote": "Proposal for relaxation of the Recruitment Rules of the Group ‘A’"
+      }
+    },
+    {
+      "id": "rec-2024-09-09-d41f15",
+      "title": "Draft Recruitment Rules of Junior Secretariat Assistant, Senior Secretariat Assistant and Section Officers",
+      "circular_no": "No.HRD-I/6/2024/RR/HeadQuartersCadre/1084",
+      "issued_on": "2024-09-09",
+      "authority": "EPFO draft placed on the website for comments; not notified rules",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/Circular_HRD_09092024.pdf",
+      "source_file": "sources/rec-2024-09-09-d41f15.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Draft Recruitment Rules of Junior Secretariat Assistant, Senior Secretariat Assistant and Section Officers",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2024-09-09-d41f15",
+        "page_number": 1,
+        "quote": "Draft Recruitment Rules of Junior Secretariat Assistant, Senior"
+      },
+      "document_role": "consultation"
+    },
+    {
+      "id": "rec-2024-12-10-301315",
+      "title": "Clarification regarding consideration of eligible service for grant of MACP in the Rajbhasha Cadre",
+      "circular_no": "HRM-III/JTO/MACP/8887",
+      "issued_on": "2024-12-10",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "macp"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/Circular_ClarificationforMACP_JTO.pdf",
+      "source_file": "sources/rec-2024-12-10-301315.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Clarification regarding consideration of eligible service for grant of MACP in the Rajbhasha Cadre",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2024-12-10-301315",
+        "page_number": 1,
+        "quote": "Clarification regarding consideration of eligible service for grant"
+      }
+    },
+    {
+      "id": "rec-2024-12-30-587abc",
+      "title": "Constitution of Screening Committee for MACP in respect of different cadres of Official Language in EPFO",
+      "circular_no": "No. (E-955504) HRD-I/130/2024/Screening Committee-MACP/1187",
+      "issued_on": "2024-12-30",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "macp"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/Circular_ConstitutionScreeningCommittee_MACP_OL.pdf",
+      "source_file": "sources/rec-2024-12-30-587abc.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Constitution of Screening Committee for MACP in respect of different cadres of Official Language in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2024-12-30-587abc",
+        "page_number": 1,
+        "quote": "Constitution of Screening Committee for MACP in respect of different"
+      }
+    },
+    {
+      "id": "rec-2025-03-03-3c08cb",
+      "title": "Draft Recruitment Rules of Assistant Section Officer in EPFO for stakeholders’ comments –",
+      "circular_no": "HRD/37/RRs/ASO/1297",
+      "issued_on": "2025-03-03",
+      "authority": "EPFO draft placed on the website for comments; not notified rules",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/Letterdated_03032025_ASO.pdf",
+      "source_file": "sources/rec-2025-03-03-3c08cb.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Draft Recruitment Rules of Assistant Section Officer in EPFO for stakeholders’ comments –",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2025-03-03-3c08cb",
+        "page_number": 1,
+        "quote": "Draft Recruitment Rules of Assistant Section Officer in EPFO - reg"
+      },
+      "document_role": "consultation"
+    },
+    {
+      "id": "rec-2025-04-15-40909f",
+      "title": "Draft Recruitment Rules of Commissioners’ cadre in EPFO for seeking stakeholders’ comments",
+      "circular_no": "HRD/56/2016/RR/Commissioner Cadre-Part (1)/1337",
+      "issued_on": "2025-04-15",
+      "authority": "EPFO draft placed on the website for comments; not notified rules",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_RRforCommissionerCadredated_15042025.pdf",
+      "source_file": "sources/rec-2025-04-15-40909f.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Draft Recruitment Rules of Commissioners’ cadre in EPFO for seeking stakeholders’ comments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2025-04-15-40909f",
+        "page_number": 1,
+        "quote": "Draft Recruitment Rules of Commissioners’ cadre in EPFO for seeking"
+      },
+      "document_role": "consultation"
+    },
+    {
+      "id": "rec-2025-05-13-419a80",
+      "title": "Draft Recruitment Rules of Field office cadre in EPFO for seeking stakeholders’ comments –",
+      "circular_no": "HRD-I/71/2024/RR/FieldOfficeCadre/1351",
+      "issued_on": "2025-05-13",
+      "authority": "EPFO draft placed on the website for comments; not notified rules",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_1351.pdf",
+      "source_file": "sources/rec-2025-05-13-419a80.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Draft Recruitment Rules of Field office cadre in EPFO for seeking stakeholders’ comments –",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2025-05-13-419a80",
+        "page_number": 1,
+        "quote": "Draft Recruitment Rules of Field office cadre in EPFO for seeking"
+      },
+      "document_role": "consultation"
+    },
+    {
+      "id": "rec-2026-07-08-e9f394",
+      "title": "Draft Recruitment Rules for the post of Stenographer in EPFO",
+      "circular_no": "No. HRD/2020/RRs/POSTSINSTENOGRAPHERCADRE/1590",
+      "issued_on": "2026-07-08",
+      "authority": "EPFO draft placed on the website for comments; not notified rules",
+      "topics": [
+        "recruitment_rules"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2026-2027/Circular_RROfSteno_08072026.pdf",
+      "source_file": "sources/rec-2026-07-08-e9f394.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Draft Recruitment Rules for the post of Stenographer in EPFO",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "rec-2026-07-08-e9f394",
+        "page_number": 1,
+        "quote": "Draft Recruitment Rules for the post of Stenographer in EPFO -reg"
+      },
+      "document_role": "consultation"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "rec-mts-2017-supersedes-2011",
+      "source": "rec-2017-12-07-88dea7",
+      "target": "rec-2011-04-25-6aaf10",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": "2017-12-05",
+      "effective_date_evidence": {
+        "document_id": "rec-2017-12-07-88dea7",
+        "page_number": 1,
+        "quote": "notified in the Gazette of India vide GSR No.457 dated 05th December, 2017"
+      },
+      "evidence": {
+        "document_id": "rec-2017-12-07-88dea7",
+        "page_number": 5,
+        "quote": "in supersession of the Employees’ Provident Fund Organisation (Multi-Tasking Staff) Recruitment Rules, 2011"
+      },
+      "scope": "The 2017 Multi-Tasking Staff recruitment rules replace the 2011 rules, except as respects things done or omitted before the supersession. Commencement is on publication in the Gazette (GSR 457, 5 December 2017)."
+    },
+    {
+      "id": "rec-ss-2019-supersedes-2017",
+      "source": "rec-2019-02-04-cfd729",
+      "target": "rec-2017-12-08-133790",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": "2019-01-31",
+      "effective_date_evidence": {
+        "document_id": "rec-2019-02-04-cfd729",
+        "page_number": 1,
+        "quote": "January, 2019 vide GI No.656"
+      },
+      "evidence": {
+        "document_id": "rec-2019-02-04-cfd729",
+        "page_number": 4,
+        "quote": "in supersession of the Employees’ Provident Fund Organisation, Section Supervisor, Recruitment Regulations, 2017"
+      },
+      "scope": "The 2019 Section Supervisor recruitment rules replace the 2017 regulations, except as respects things done or omitted before the supersession. Published in the Gazette on 31 January 2019."
+    },
+    {
+      "id": "rec-dpc-2019-cites-2017",
+      "source": "rec-2019-08-26-d9ebfb",
+      "target": "rec-2017-11-15-683338",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "rec-2019-08-26-d9ebfb",
+        "page_number": 1,
+        "quote": "HRD/1(34)2014/7 CPC/148 dated 15.11.2017"
+      },
+      "scope": "The August 2019 model-calendar circular forwards the DoPT OM of 8 May 2017 and refers to the November 2017 Head Office circular on DPC procedure; it does not state that it replaces it."
+    },
+    {
+      "id": "rec-dpc-2023-cites-2022",
+      "source": "rec-2023-12-01-3d7e41",
+      "target": "rec-2022-04-07-a000bd",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "rec-2023-12-01-3d7e41",
+        "page_number": 1,
+        "quote": "HRM-VIII/2022/Model Calendar/6815 dated 07.04.2022"
+      },
+      "scope": "The December 2023 circular reminds offices to follow the April 2022 model calendar; it sets no new timelines."
+    },
+    {
+      "id": "rec-dpc-2023b-cites-2023",
+      "source": "rec-2023-12-28-f81abe",
+      "target": "rec-2023-12-01-3d7e41",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "rec-2023-12-28-f81abe",
+        "page_number": 1,
+        "quote": "HRD-II/03/2023/MISC/918 dated 01.12.2023"
+      },
+      "scope": "A further reminder, referring to the 1 December 2023 circular and the April 2022 calendar; no new timelines."
+    }
+  ],
+  "limitations": [
+    "This concerns EPFO staff recruitment rules and regulations, DPC procedure and promotion guidelines, and the MACP/NFU/NFSG schemes as applied in EPFO. It is not about EPF members.",
+    "15 documents are drafts placed on the website for stakeholder comments (30 or 15 days). They are consultation-only: they appear in the inventory but are never treated as notified rules, and the notified versions of most of them (APFC, EO/AO, Programmer, LDC/SSA, STO, IS technical cadres, JSA/SSA/SO, ASO, Commissioners' cadre, Field office cadre, Stenographer) are not in this collection.",
+    "Only two supersessions are expressly stated and both predecessors are in the set: Multi-Tasking Staff rules 2017 over 2011, and Section Supervisor rules 2019 over the 2017 regulations. The 2011 MTS rules repeal earlier 2004 and 2006 rules, and the 2017 Director (OL) and 2018 Commissioner-cadre documents amend principal rules (2008, 2011) that are not in this collection. Missing predecessors are not inferred.",
+    "Rules come into force on publication in the Gazette. An effective date is recorded only where the circular states the Gazette notification or publication date (PPS, MTS 2017, Section Supervisor 2017 and 2019). For other notified rules the Gazette date is not stated in the checked text and is left unset.",
+    "Most MACP, NFU and DPC circulars forward Department of Personnel and Training or Department of Expenditure OMs; those OMs govern. The model-calendar circulars of 2022 and 2023 are reminders and set no new timelines.",
+    "Individual MACP grants, region-wise lists, annual \"conducting DPC\" notices, direct-recruitment appointment orders and examination notices are not covered, nor is the 2025 Staff Regulations framework mentioned in a 2026 circular. The Recruitment Rules for RPFC Grade-II (Amendment) 2011 circular is not in the issuer mirror and is not included.",
+    "PDFs were read from the issuer mirror on 3 November 2026 because the public site returned 404 for these paths that day; recorded SHA-256 values apply to those files. Scanned pages are OCR."
+  ]
+}

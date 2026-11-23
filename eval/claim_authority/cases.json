@@ -1,0 +1,61 @@
+{
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
+  "cases": [
+    {
+      "id": "inoperative-2011",
+      "question": "delegation of power to authorise claims out of inoperative accounts Account Officer",
+      "as_of": "2011-12-31",
+      "required_evidence": [
+        {
+          "document_id": "claimauth-2011-03-11-02d546",
+          "page_number": 2
+        }
+      ]
+    },
+    {
+      "id": "inoperative-2014",
+      "question": "changes for settlement of claims out of inoperative accounts",
+      "as_of": "2014-12-31",
+      "required_evidence": [
+        {
+          "document_id": "claimauth-2014-07-28-8e696b",
+          "page_number": 1
+        }
+      ],
+      "relationship": {
+        "id": "claimauth-2014-modifies-2011-inoperative",
+        "type": "partially_modifies"
+      }
+    },
+    {
+      "id": "cro-mlc",
+      "question": "delegation of role to assign CRO under MLC to Zonal ACCs",
+      "as_of": "2021-12-31",
+      "required_evidence": [
+        {
+          "document_id": "claimauth-2021-07-13-511f5a",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "sso",
+      "question": "delegation of claim settlement facility to Special State Offices",
+      "as_of": "2023-12-31",
+      "required_evidence": [
+        {
+          "document_id": "claimauth-2023-10-06-0938bd",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "before-sso",
+      "question": "delegation of claim settlement facility to Special State Offices",
+      "as_of": "2023-10-05",
+      "absent_documents": [
+        "claimauth-2023-10-06-0938bd"
+      ]
+    }
+  ]
+}

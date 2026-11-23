@@ -1,0 +1,1471 @@
+{
+  "schema_version": 1,
+  "id": "claim_forms_payments",
+  "reviewed_on": "2026-11-04",
+  "topics": [
+    {
+      "id": "payments",
+      "label": "E-payment, NEFT, CCPAP and cheques",
+      "include": "payment|neft|e-payment|ccpap|cheque|rtgs|fraud"
+    },
+    {
+      "id": "claim_forms",
+      "label": "Claim forms and claim settlement",
+      "include": "claim|form"
+    }
+  ],
+  "documents": [
+    {
+      "id": "claim_forms_payments-2009-11-04-b50b5b",
+      "title": "Addition of columns in the Claim Forms - Form 19, Form 20, Form 10C, Form 5(IF) and Form 31 in mode of remittance - inclusion of payments through Core Banking system",
+      "circular_no": "HO No. WSU/4(2)91/Man/Admt/21440",
+      "issued_on": "2009-11-04",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/AddColPmtMode.PDF",
+      "source_file": "sources/claim_forms_payments-2009-11-04-b50b5b.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Addition of columns in the Claim Forms - Form 19, Form 20, Form 10C, Form 5(IF) and Form 31 in mode of remittance - inclusion of payments through Core Banking system",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2009-11-04-b50b5b",
+        "page_number": 1,
+        "quote": "Addition of columns in. the Claim Forms 19, Form 20, Form 10C, Form"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2009-11-18-91d071",
+      "title": "Clarification on addition to the mode of payment added in the manual and claim forms etc",
+      "circular_no": "HO No. WSU/ 4(2)91/Man/Amdt/23290",
+      "issued_on": "2009-11-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "claim_forms"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/ClariPmtMode.PDF",
+      "source_file": "sources/claim_forms_payments-2009-11-18-91d071.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Clarification on addition to the mode of payment added in the manual and claim forms etc",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2009-11-18-91d071",
+        "page_number": 1,
+        "quote": "Clarification on Addition to the Mode of Payment added in the Manual"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2010-04-12-28bffb",
+      "title": "Stray instances of dishonour of cheques",
+      "circular_no": "HO No. Bkg. 1(5)2006/ Bank.Arr/Part",
+      "issued_on": "2010-04-12",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/DishonCheques.PDF",
+      "source_file": "sources/claim_forms_payments-2010-04-12-28bffb.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Stray instances of dishonour of cheques",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2010-04-12-28bffb",
+        "page_number": 1,
+        "quote": "Stray Instances of Dishonour of Cheques • (,•• ,. n 1' issue of"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2010-04-28-0f771e",
+      "title": "Implementation of National electronic Fund Transfer (NEFT) fpr payment to EPF beneficieries",
+      "circular_no": "HO No. Bkg./1(25)NEFT/ Elec.DataTfr/2087",
+      "issued_on": "2010-04-28",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/NEFTCircular.PDF",
+      "source_file": "sources/claim_forms_payments-2010-04-28-0f771e.json",
+      "verification": "source_checked",
+      "effective_from": "2010-04-28",
+      "effective_date_evidence": {
+        "document_id": "claim_forms_payments-2010-04-28-0f771e",
+        "page_number": 3,
+        "quote": "will be implemented in all offices running Unix based legacy software with immediate effect"
+      },
+      "version_label": "Implementation of National electronic Fund Transfer (NEFT) fpr payment to EPF beneficieries",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2010-04-28-0f771e",
+        "page_number": 1,
+        "quote": "Employees' Provident Fund Organisation (Ministry of Labour &"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2010-04-28-203d77",
+      "title": "Stray instances of dishonour of cheques",
+      "circular_no": "HO No. Bkg.1(5)2006/BA/Part",
+      "issued_on": "2010-04-28",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/DishonCheques2.PDF",
+      "source_file": "sources/claim_forms_payments-2010-04-28-203d77.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Stray instances of dishonour of cheques",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2010-04-28-203d77",
+        "page_number": 1,
+        "quote": "Stray Instances of Dishonour of Cheques This is in continuation of OM"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2010-05-12-7398e9",
+      "title": "Implementation of e-payment modalities",
+      "circular_no": "H.O No. Bkg. 1(25)/NEFT/Elec. Data Tfr/7382",
+      "issued_on": "2010-05-12",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/NEFT7382.PDF",
+      "source_file": "sources/claim_forms_payments-2010-05-12-7398e9.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Implementation of e-payment modalities",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2010-05-12-7398e9",
+        "page_number": 1,
+        "quote": "Implementation of e-payment Modalities This has reference to OM"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2010-06-11-bf764c",
+      "title": "Implementation of National Electronic Fund Transfer (NEFT) for payment to EPF Beneficiaries",
+      "circular_no": "HO No. Bkg/1(25)NEFT/ Electronic Data Transfer/14686-14696",
+      "issued_on": "2010-06-11",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/NEFT_11062010.pdf",
+      "source_file": "sources/claim_forms_payments-2010-06-11-bf764c.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Implementation of National Electronic Fund Transfer (NEFT) for payment to EPF Beneficiaries",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2010-06-11-bf764c",
+        "page_number": 1,
+        "quote": "Implementation of National Electronic Fund Transfer(NEFT) for payment"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2010-06-23-263b5a",
+      "title": "Credit of funds to members Bank Account through \"e-payment system\"",
+      "circular_no": "HO No. Bkg.1(25)NEFT/Electronic Data Transfer/17208",
+      "issued_on": "2010-06-23",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/NEFT_17208.pdf",
+      "source_file": "sources/claim_forms_payments-2010-06-23-263b5a.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Credit of funds to members Bank Account through \"e-payment system\"",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2010-06-23-263b5a",
+        "page_number": 1,
+        "quote": "Regional Offices Subject: Credit of funds to members Rank Account"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2010-10-08-fb8a23",
+      "title": "Stray Instances of Dishonor of Cheques",
+      "circular_no": "HO No. Bkg.1(5)2006/Agreement/Part/41398-41533",
+      "issued_on": "2010-10-08",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/Bkg_Instances_DishnrChq.pdf",
+      "source_file": "sources/claim_forms_payments-2010-10-08-fb8a23.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Stray Instances of Dishonor of Cheques",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2010-10-08-fb8a23",
+        "page_number": 1,
+        "quote": "Stray Instances of Dishonor of Cheques Ref : (i) This Office letter"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2011-04-05-06cdad",
+      "title": "Introduction of NEFT - Cost saving - Carbon credit",
+      "circular_no": "HO No.Bkg/1(25)NEFT/elec.trfr./2008/586",
+      "issued_on": "2011-04-05",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/Bkg_NEFT_586.pdf",
+      "source_file": "sources/claim_forms_payments-2011-04-05-06cdad.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Introduction of NEFT - Cost saving - Carbon credit",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2011-04-05-06cdad",
+        "page_number": 1,
+        "quote": "region. The ACC(Zone) will compile the figures RO/SRO wise and send a"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2011-06-02-eed579",
+      "title": "Processing of application for withdrawal of fund for housing purpose - Declaration to be obtained with Form 31 under para 68B of the EPF Scheme 1952",
+      "circular_no": "HO No. WSU/17(4)99/ advances/10014",
+      "issued_on": "2011-06-02",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "claim_forms"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/WSU_Advances_10014.pdf",
+      "source_file": "sources/claim_forms_payments-2011-06-02-eed579.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Processing of application for withdrawal of fund for housing purpose - Declaration to be obtained with Form 31 under para 68B of the EPF Scheme 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2011-06-02-eed579",
+        "page_number": 1,
+        "quote": "Processing of applications for withdrawal of fund for housing purpose"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2011-09-19-ac6934",
+      "title": "Fraudulent payments in the Accounts of EPFO through fake cheques - precautionary measure to avoid fraudulent payment",
+      "circular_no": "HO No. Bkg/1(5)/2006/Bank Agreement/Part/ 27794",
+      "issued_on": "2011-09-19",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/Bkg_Agrmt_27794.pdf",
+      "source_file": "sources/claim_forms_payments-2011-09-19-ac6934.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Fraudulent payments in the Accounts of EPFO through fake cheques - precautionary measure to avoid fraudulent payment",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2011-09-19-ac6934",
+        "page_number": 1,
+        "quote": "Regional Offices. Subject: Fraudulent payments in the Accounts of"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2011-11-22-da58ab",
+      "title": "Fraudulent withdrawals from the Accounts of EPFO through fake cheques - instructions to avoid fraudulent payment",
+      "circular_no": "HO No. Bkg/ Fraud/05/18210",
+      "issued_on": "2011-11-22",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/Bkg_18210.pdf",
+      "source_file": "sources/claim_forms_payments-2011-11-22-da58ab.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Fraudulent withdrawals from the Accounts of EPFO through fake cheques - instructions to avoid fraudulent payment",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2011-11-22-da58ab",
+        "page_number": 1,
+        "quote": "Regional Offices. Subject: Fraudulent withdrawals from the Accounts"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2011-11-24-9df043",
+      "title": "Fraudulent withdrawals from the Accounts of EPFO through fake cheques - Instructions to avoid fraudulent payment",
+      "circular_no": "HO No.Bkg/Fraud/05/15614",
+      "issued_on": "2011-11-24",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/BkgFraudWithdrawal_15614.pdf",
+      "source_file": "sources/claim_forms_payments-2011-11-24-9df043.json",
+      "verification": "source_checked",
+      "effective_from": "2011-12-01",
+      "effective_date_evidence": {
+        "document_id": "claim_forms_payments-2011-11-24-9df043",
+        "page_number": 1,
+        "quote": "The revised limits shall be effective from 1% December,2011"
+      },
+      "version_label": "Fraudulent withdrawals from the Accounts of EPFO through fake cheques - Instructions to avoid fraudulent payment",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2011-11-24-9df043",
+        "page_number": 1,
+        "quote": "Regional Offices. Subject: Fraudulent withdrawals from the Accounts"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2011-12-20-9a7928",
+      "title": "Fraudulent withdrawals from the Accounts of EPFO through fake cheques - instructions to avoid fraudulent payment",
+      "circular_no": "HO No. Bkg/Fraud/05/39906",
+      "issued_on": "2011-12-20",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/Bkg_39906.pdf",
+      "source_file": "sources/claim_forms_payments-2011-12-20-9a7928.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Fraudulent withdrawals from the Accounts of EPFO through fake cheques - instructions to avoid fraudulent payment",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2011-12-20-9a7928",
+        "page_number": 1,
+        "quote": "Regional Offices. Subject: Fraudulent withdrawals from the Accounts"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2012-01-20-8d8e21",
+      "title": "Fraudulent withdrawals from the Accounts of EPFO through fake cheques - instructions to avoid fraudulent payment",
+      "circular_no": "HO No. Bkg/Fraud/05/22901",
+      "issued_on": "2012-01-20",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/Bkg_22901.pdf",
+      "source_file": "sources/claim_forms_payments-2012-01-20-8d8e21.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Fraudulent withdrawals from the Accounts of EPFO through fake cheques - instructions to avoid fraudulent payment",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2012-01-20-8d8e21",
+        "page_number": 1,
+        "quote": "Regional Offices. Subject: Fraudulent withdrawals from the Accounts"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2012-01-27-859450",
+      "title": "Fraudulent withdrawals from the Accounts of EPFO through fake cheques - instructions to avoid fraudulent payment",
+      "circular_no": "HO No. Bkg/Fraud/05/45354",
+      "issued_on": "2012-01-27",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/Bgk_45354.pdf",
+      "source_file": "sources/claim_forms_payments-2012-01-27-859450.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Fraudulent withdrawals from the Accounts of EPFO through fake cheques - instructions to avoid fraudulent payment",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2012-01-27-859450",
+        "page_number": 1,
+        "quote": "Regional Offices Subject: Fraudulent withdrawals from the Accounts of"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2012-02-01-1d6cc1",
+      "title": "Fraudulent withdrawals from the Accounts of EPFO through fake cheques - instructions to avoid fraudulent payment",
+      "circular_no": "HO No. Bkg/Fraud/05/45956",
+      "issued_on": "2012-02-01",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/Bkg_Fraud_45956.pdf",
+      "source_file": "sources/claim_forms_payments-2012-02-01-1d6cc1.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Fraudulent withdrawals from the Accounts of EPFO through fake cheques - instructions to avoid fraudulent payment",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2012-02-01-1d6cc1",
+        "page_number": 1,
+        "quote": "Regional Offices Subject: Fraudulent withdrawals from the Accounts of"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2012-03-15-5be55c",
+      "title": "Monthly Return on e-payment through NEFT",
+      "circular_no": "HO No. Bkg-1 (25) 2011/NEFT/Vol-I/27476",
+      "issued_on": "2012-03-15",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/Bkg_NEFT_27476.pdf",
+      "source_file": "sources/claim_forms_payments-2012-03-15-5be55c.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Monthly Return on e-payment through NEFT",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2012-03-15-5be55c",
+        "page_number": 1,
+        "quote": "Monthly Return on e-payment through NEFT. Sir, The performance of"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2012-03-22-f1fdb9",
+      "title": "Payment through NEFT cases: Truncation of Bank Branch address from bank details",
+      "circular_no": "HO No. Bkg-1(25)2011/NEFT/Vol-I/ 52480",
+      "issued_on": "2012-03-22",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/Bkg_NEFT_52480.pdf",
+      "source_file": "sources/claim_forms_payments-2012-03-22-f1fdb9.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Payment through NEFT cases: Truncation of Bank Branch address from bank details",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2012-03-22-f1fdb9",
+        "page_number": 1,
+        "quote": "Regional Offices Subject: Payment through NEFT cases: Truncation of"
+      },
+      "date_note": "The circular is typed 'Date: 22.03.2012' (stamp 23 March 2012); the issuer listing shows 23 March 2012."
+    },
+    {
+      "id": "claim_forms_payments-2012-06-15-767285",
+      "title": "Payment of Provident Fund accumulation through Account Payee Cheque - Instructions",
+      "circular_no": "HO No. WSU/17(2)/200/ 7637",
+      "issued_on": "2012-06-15",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/WSU_7637.pdf",
+      "source_file": "sources/claim_forms_payments-2012-06-15-767285.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Payment of Provident Fund accumulation through Account Payee Cheque - Instructions",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2012-06-15-767285",
+        "page_number": 1,
+        "quote": "Payment of Provident Fund accumulation through Account Payee Cheque —"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2012-10-26-34fdff",
+      "title": "Payment through NEFT",
+      "circular_no": "HO No. R-I/NEFT/2010/186/23371",
+      "issued_on": "2012-10-26",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/R1_NEFT_23371.pdf",
+      "source_file": "sources/claim_forms_payments-2012-10-26-34fdff.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Payment through NEFT",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2012-10-26-34fdff",
+        "page_number": 1,
+        "quote": "Regional Office Sub: Payment through NEFT - Reg. Sir, Please refer to"
+      },
+      "date_note": "The circular is typed 'Dated: 26.10.2012' (stamp 29 October 2012); the issuer listing shows 29 October 2012."
+    },
+    {
+      "id": "claim_forms_payments-2013-03-15-f88c99",
+      "title": "Instructions in regard to making 100% payment through NEFT/RTGS where beneficiaries bank accounts is in NEFT/RTGS enabled bank",
+      "circular_no": "HO No. Bkg./Fraud/05/Vol.II/40764",
+      "issued_on": "2013-03-15",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/Bkg_Fraud_40764.pdf",
+      "source_file": "sources/claim_forms_payments-2013-03-15-f88c99.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Instructions in regard to making 100% payment through NEFT/RTGS where beneficiaries bank accounts is in NEFT/RTGS enabled bank",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2013-03-15-f88c99",
+        "page_number": 1,
+        "quote": "Regional Offices Subject: Instructions in regard to making 100%"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2013-07-12-9f8a9d",
+      "title": "Revised Transfer Claim Format",
+      "circular_no": "HO No. Manual/Amendment/2011/ 7368",
+      "issued_on": "2013-07-12",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "claim_forms"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/Manual_RevTfrClaim_7368.pdf",
+      "source_file": "sources/claim_forms_payments-2013-07-12-9f8a9d.json",
+      "verification": "source_checked",
+      "effective_from": "2013-07-12",
+      "effective_date_evidence": {
+        "document_id": "claim_forms_payments-2013-07-12-9f8a9d",
+        "page_number": 1,
+        "quote": "The new revised forms are to be used with immediate effect"
+      },
+      "version_label": "Revised Transfer Claim Format",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2013-07-12-9f8a9d",
+        "page_number": 1,
+        "quote": "Revised Transfer Claim Format. Sir, Kindly find enclosed herewith a"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2013-07-26-bdfe78",
+      "title": "Implementing CCPAP Module",
+      "circular_no": "Bkg.1(11)10/e-challan/New Process/ Vol.-I/8262",
+      "issued_on": "2013-07-26",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/BKG_CCPAP_Module_8262.pdf",
+      "source_file": "sources/claim_forms_payments-2013-07-26-bdfe78.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Implementing CCPAP Module",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2013-07-26-bdfe78",
+        "page_number": 1,
+        "quote": "Implementing CCPAP Module. Sir, In order to improve accountability"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2013-08-19-12e499",
+      "title": "nInstructions with regard to the prevention of fraudulent payment by making 100% payment through CBS / NEFT",
+      "circular_no": "HO No. Bkg./Fraud/ 05/Vol.II/9430",
+      "issued_on": "2013-08-19",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/BKG_CBS_NEFT_9430.pdf",
+      "source_file": "sources/claim_forms_payments-2013-08-19-12e499.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "nInstructions with regard to the prevention of fraudulent payment by making 100% payment through CBS / NEFT",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2013-08-19-12e499",
+        "page_number": 1,
+        "quote": "Regional Offices Subject: Instructions with regard to the prevention"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2013-09-04-fdc45c",
+      "title": "Implementing CCPAP Module and Interest on belated credit claimed - Review of Zones by CPFC",
+      "circular_no": "HO No. Bkg.1(11)10/e-challan/New Process/Vol.-I/10153",
+      "issued_on": "2013-09-04",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/BKG_CCPAP_Module_10153.pdf",
+      "source_file": "sources/claim_forms_payments-2013-09-04-fdc45c.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Implementing CCPAP Module and Interest on belated credit claimed - Review of Zones by CPFC",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2013-09-04-fdc45c",
+        "page_number": 1,
+        "quote": "Implementing CCPAP Module and Interest on belated credit claimed —"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2013-09-27-5356b1",
+      "title": "Implementing CCPAP Facility for EPFO Payments",
+      "circular_no": "HO No. Bkg.1(11)10/New Process/Vol.-II/12355",
+      "issued_on": "2013-09-27",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/BKG_CCPAPFacility_12355.pdf",
+      "source_file": "sources/claim_forms_payments-2013-09-27-5356b1.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Implementing CCPAP Facility for EPFO Payments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2013-09-27-5356b1",
+        "page_number": 1,
+        "quote": "Implementing CCPAP Facility for EPFO Payments. Sir, Kindly refer to"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2013-10-11-276e5d",
+      "title": "nFraudulent Payment through fake cheques",
+      "circular_no": "HO No. Bkg./Fraud/05/Vol.II/9020",
+      "issued_on": "2013-10-11",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/Bkg_FraudPaymentCheques_9020.pdf",
+      "source_file": "sources/claim_forms_payments-2013-10-11-276e5d.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "nFraudulent Payment through fake cheques",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2013-10-11-276e5d",
+        "page_number": 1,
+        "quote": "Fraudulent Payment through fake cheques- reg. Sir, Please refer to"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2014-04-28-c0edd8",
+      "title": "nImplementation of CCPAP Module of payment - Obtaining Digital Signature",
+      "circular_no": "HO No. Bkg.1(11)10/New Process/Vol.II/2480",
+      "issued_on": "2014-04-28",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Bkg_NewProcessDigitalSig_2480.pdf",
+      "source_file": "sources/claim_forms_payments-2014-04-28-c0edd8.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "nImplementation of CCPAP Module of payment - Obtaining Digital Signature",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2014-04-28-c0edd8",
+        "page_number": 1,
+        "quote": "Regional Offices Subject: Implementation of CCPAP Module of payment"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2014-05-15-e03f39",
+      "title": "Implementation of CCPAP Module for Payment - Obtaining Digital Signature",
+      "circular_no": "HO No. Bkg.1(11)/e-challan/New Process/Vol. -II/3836",
+      "issued_on": "2014-05-15",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Bkg_ModuleCCPAP_DigiSign_3836.pdf",
+      "source_file": "sources/claim_forms_payments-2014-05-15-e03f39.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Implementation of CCPAP Module for Payment - Obtaining Digital Signature",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2014-05-15-e03f39",
+        "page_number": 1,
+        "quote": "Implementation of CCPAP Module for Payment- Obtaining Digital"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2014-06-02-a6df18",
+      "title": "Implementation of CCPAP Module for Payment - Obtaining Digital Signature",
+      "circular_no": "HO No. Bkg.1(11)/e-challan/New Proces/Vol.-II",
+      "issued_on": "2014-06-02",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Bkg_CCPA_DigSign.pdf",
+      "source_file": "sources/claim_forms_payments-2014-06-02-a6df18.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Implementation of CCPAP Module for Payment - Obtaining Digital Signature",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2014-06-02-a6df18",
+        "page_number": 1,
+        "quote": "Implementation of CCPAP Module for Payment- Obtaining Digital"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2014-07-24-50c402",
+      "title": "Payment to the EPF beneficiaries through NEFT",
+      "circular_no": "HO No. WSU/9(1)2011/Settlement of Claims/10044/24-714",
+      "issued_on": "2014-07-24",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/WSU_Payment_NEFT_10044.pdf",
+      "source_file": "sources/claim_forms_payments-2014-07-24-50c402.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Payment to the EPF beneficiaries through NEFT",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2014-07-24-50c402",
+        "page_number": 1,
+        "quote": "Payment to the EPF beneficiaries through NEFT. Reference No.:"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2014-08-20-986510",
+      "title": "Implementation of CCPAP Module of Payment",
+      "circular_no": "HO No. Bkg.1(11)10/New Process/Vol. II/275",
+      "issued_on": "2014-08-20",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Bkg_CCPAPModule_275.pdf",
+      "source_file": "sources/claim_forms_payments-2014-08-20-986510.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Implementation of CCPAP Module of Payment",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2014-08-20-986510",
+        "page_number": 1,
+        "quote": "Implementation of CCPAP Module of Payment. Sir, CCPAP Module in the"
+      },
+      "date_note": "The circular is typed 'Date: 20.08.2014' (stamp 21 August 2014); the issuer listing shows 21 August 2014."
+    },
+    {
+      "id": "claim_forms_payments-2014-08-27-9a6553",
+      "title": "Implementation of CCPAP Module of Payment from 05th September, 2014",
+      "circular_no": "HO No. Bkg.1(11)10/New Process/Vol.II/276",
+      "issued_on": "2014-08-27",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Bkg_ModuleCCPAP_276.pdf",
+      "source_file": "sources/claim_forms_payments-2014-08-27-9a6553.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Implementation of CCPAP Module of Payment from 05th September, 2014",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2014-08-27-9a6553",
+        "page_number": 1,
+        "quote": "ara afaer Pre eros Fax: 011-26173022 Employees’ Provident Fu"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2014-08-28-838b8f",
+      "title": "Implementation of CCPAP Module of Payment from 16th September, 2014",
+      "circular_no": "HO No. Bkg.1(11)10/New Process/Vol.II/278",
+      "issued_on": "2014-08-28",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Bkg_PaymentModuleCCPAP_278.pdf",
+      "source_file": "sources/claim_forms_payments-2014-08-28-838b8f.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Implementation of CCPAP Module of Payment from 16th September, 2014",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2014-08-28-838b8f",
+        "page_number": 1,
+        "quote": "= c . Frater — Fax: 011-26173022 Employees Provident Fund Or"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2014-08-29-7f3211",
+      "title": "Timely uploading of NEFT File by ROs / SROs",
+      "circular_no": "HO No. Bkg.1(20)2014/Bank Participating/279",
+      "issued_on": "2014-08-29",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Bkg_UploadingNEFT_279.pdf",
+      "source_file": "sources/claim_forms_payments-2014-08-29-7f3211.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Timely uploading of NEFT File by ROs / SROs",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2014-08-29-7f3211",
+        "page_number": 1,
+        "quote": "Regional Offices Subject: Timely uploading of NEFT File by ROs/SROs"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2014-10-07-8b565c",
+      "title": "nImplementation of CCPAP Module of Payment",
+      "circular_no": "HO No. Bkg.1(11)10/New process/Vol.-II/301",
+      "issued_on": "2014-10-07",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Bkg_ImplementationCCPAPModule_301.pdf",
+      "source_file": "sources/claim_forms_payments-2014-10-07-8b565c.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "nImplementation of CCPAP Module of Payment",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2014-10-07-8b565c",
+        "page_number": 1,
+        "quote": "Regional Offices Subject: Implementation of CCPAP Module of Payment"
+      },
+      "date_note": "The circular is typed 'Date: 07.10.2014' (stamp 14 October 2014); the issuer listing shows 14 October 2014."
+    },
+    {
+      "id": "claim_forms_payments-2014-10-14-fde872",
+      "title": "nImplementation of CCPAP Module in A/c. No. 21",
+      "circular_no": "HO No. Bkg.1(11)10/New Process/Vol.II/302",
+      "issued_on": "2014-10-14",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Bkg_CCPAPModule_302.pdf",
+      "source_file": "sources/claim_forms_payments-2014-10-14-fde872.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "nImplementation of CCPAP Module in A/c. No. 21",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2014-10-14-fde872",
+        "page_number": 1,
+        "quote": "Fax: 011-26173022 Employees’ Provident Fund Organisation Tel"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2014-11-26-eaef3a",
+      "title": "Implementing CCPAP Module in A/c. No. 21 from 5th December, 2014",
+      "circular_no": "HO No. Bkg.1(11)10 Mew Process/Vol. II/25376",
+      "issued_on": "2014-11-26",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Bkg_ModuleCCPAP_25376.pdf",
+      "source_file": "sources/claim_forms_payments-2014-11-26-eaef3a.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Implementing CCPAP Module in A/c. No. 21 from 5th December, 2014",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2014-11-26-eaef3a",
+        "page_number": 1,
+        "quote": "Sir/Madam, All Addi. CPFC (Zones) All RPFC-In-charge"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2015-08-18-60eef6",
+      "title": "Dispensing with the procedure of affixing Rs. 1/- Revenue Stamp on claim forms in case of payments through NEFT",
+      "circular_no": "HO No. WSU/Claim Form/Revenue Stamp/9962",
+      "issued_on": "2015-08-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/WSU_DispensingStamp_9962.pdf",
+      "source_file": "sources/claim_forms_payments-2015-08-18-60eef6.json",
+      "verification": "source_checked",
+      "effective_from": "2015-08-18",
+      "effective_date_evidence": {
+        "document_id": "claim_forms_payments-2015-08-18-60eef6",
+        "page_number": 1,
+        "quote": "the practice of affixing revenue stamp on claim forms is discontinued with immediate effect, in case the claim amount is to be paid through NEFT"
+      },
+      "version_label": "Dispensing with the procedure of affixing Rs. 1/- Revenue Stamp on claim forms in case of payments through NEFT",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2015-08-18-60eef6",
+        "page_number": 1,
+        "quote": "Dispensing with the procedure of affixing of Re 1/- Revenue Stamp on"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2015-09-07-a30cd4",
+      "title": "Payments through NEFT for EDLI benefits",
+      "circular_no": "HO No. WSU/5(3)2012/EDLI/24271",
+      "issued_on": "2015-09-07",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/EDLI_NEFTPayment_24271.pdf",
+      "source_file": "sources/claim_forms_payments-2015-09-07-a30cd4.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Payments through NEFT for EDLI benefits",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2015-09-07-a30cd4",
+        "page_number": 1,
+        "quote": "Payments through NEFT for EDLI benefits. Sir/Madam, Please refer to"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2015-10-15-e01162",
+      "title": "Implementing CCPAP Module in Current A/c. No. 02",
+      "circular_no": "HO No. Bkg.1(11)10/New Process/Vol.-II/406",
+      "issued_on": "2015-10-15",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/Bkg_CCPAP_Ac.2_406.pdf",
+      "source_file": "sources/claim_forms_payments-2015-10-15-e01162.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Implementing CCPAP Module in Current A/c. No. 02",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2015-10-15-e01162",
+        "page_number": 1,
+        "quote": "Regional Offices Subject: Implementing CCPAP Module in Current A/c"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2015-12-01-0c10ab",
+      "title": "Simplified UAN based withdrawal claim Forms No 19 (UAN), 10C (UAN) and 31 (UAN)",
+      "circular_no": "HO No. WSU/10(1)2011/Changes in MAP/31406",
+      "issued_on": "2015-12-01",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "claim_forms"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/WSU_Changes_MAP_31406.pdf",
+      "source_file": "sources/claim_forms_payments-2015-12-01-0c10ab.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Simplified UAN based withdrawal claim Forms No 19 (UAN), 10C (UAN) and 31 (UAN)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2015-12-01-0c10ab",
+        "page_number": 1,
+        "quote": "FoR 'WGB URGLATION HAIN sfaey Ferl Hast EMPLOYEES’ PROVIDENT"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2015-12-04-215c9c",
+      "title": "Simplified UAN based withdrawal claim Form Nos. 19 (UAN), 10C (UAN) and 31 (UAN) - Instructions thereof",
+      "circular_no": "HO No. WSU/10(1)2011/Changes in MAP/32056",
+      "issued_on": "2015-12-04",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "claim_forms"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/WSU_ChangesMAP_32056.pdf",
+      "source_file": "sources/claim_forms_payments-2015-12-04-215c9c.json",
+      "verification": "source_checked",
+      "effective_from": "2015-12-04",
+      "effective_date_evidence": {
+        "document_id": "claim_forms_payments-2015-12-04-215c9c",
+        "page_number": 1,
+        "quote": "to accept the UAN based claim forms with immediate effect"
+      },
+      "version_label": "Simplified UAN based withdrawal claim Form Nos. 19 (UAN), 10C (UAN) and 31 (UAN) - Instructions thereof",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2015-12-04-215c9c",
+        "page_number": 1,
+        "quote": "Simplified UAN based withdrawal claim Form Nos. 19 (UAN), 10C (UAN)"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2015-12-17-b5deec",
+      "title": "Payment through NEFT for EDLI Benefits",
+      "circular_no": "WSU/5(3)2012/EDLI/19583",
+      "issued_on": "2015-12-17",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/WSU_PaymentNEFT_EDLI_19583.pdf",
+      "source_file": "sources/claim_forms_payments-2015-12-17-b5deec.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Payment through NEFT for EDLI Benefits",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2015-12-17-b5deec",
+        "page_number": 1,
+        "quote": "Payments through NEFT for EDLI Benefits. Ref: Head Office circular"
+      },
+      "date_note": "The circular is typed 'Date: 17.12.2015'; the issuer listing shows 22 December 2015."
+    },
+    {
+      "id": "claim_forms_payments-2016-01-04-0277f7",
+      "title": "Reconciliation of Transfer-in cases received through NEFT",
+      "circular_no": "HO No. Manual/Amendment/2016/34529",
+      "issued_on": "2016-01-04",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/Manual_Reconciliation_TransIn_34529.pdf",
+      "source_file": "sources/claim_forms_payments-2016-01-04-0277f7.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Reconciliation of Transfer-in cases received through NEFT",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2016-01-04-0277f7",
+        "page_number": 1,
+        "quote": "Reconciliation of Transfer-in cases received through NEFT. Sir/Madam"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2016-01-18-3e3380",
+      "title": "Payment through NEFT for EDLI Benefits",
+      "circular_no": "HO No. WSU/5(3)2012/EDLI/36365",
+      "issued_on": "2016-01-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/WSU_PaymentNEFT_EDLI_36365.pdf",
+      "source_file": "sources/claim_forms_payments-2016-01-18-3e3380.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Payment through NEFT for EDLI Benefits",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2016-01-18-3e3380",
+        "page_number": 1,
+        "quote": "Payments through NEFT for EDLI Benefits. Ref: Head Office circular of"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2016-02-19-ff7c44",
+      "title": "Implementing CCPAP Module in Current A/c. no. 02",
+      "circular_no": "HO No. Bkg.1(11)10/New Process/Vol.-II/40195",
+      "issued_on": "2016-02-19",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/Bkg_CCPAP_40195.pdf",
+      "source_file": "sources/claim_forms_payments-2016-02-19-ff7c44.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Implementing CCPAP Module in Current A/c. no. 02",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2016-02-19-ff7c44",
+        "page_number": 1,
+        "quote": "Regional Offices Date: . 19 FEB 2016 Subject: Implementing CCPAP"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2016-03-09-f29cda",
+      "title": "Implementation of CCPAP for cheques drawn on A/c. No. 2 w.e.f. March 10, 2016",
+      "circular_no": "HO No. Bkg. 1(11)10/New Process/Vol.-II/453",
+      "issued_on": "2016-03-09",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/Bkg_CCPAP_453.pdf",
+      "source_file": "sources/claim_forms_payments-2016-03-09-f29cda.json",
+      "verification": "source_checked",
+      "effective_from": "2016-03-10",
+      "effective_date_evidence": {
+        "document_id": "claim_forms_payments-2016-03-09-f29cda",
+        "page_number": 1,
+        "quote": "Implementation of CCPAP for cheques drawn on A/C no. 2 w.e.f. March 10, 2016"
+      },
+      "version_label": "Implementation of CCPAP for cheques drawn on A/c. No. 2 w.e.f. March 10, 2016",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2016-03-09-f29cda",
+        "page_number": 1,
+        "quote": "Regional Offices Subject: Implementation of CCPAP for cheques drawn"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2016-08-04-700f14",
+      "title": "UAN based Claim Form No. 31 (UAN) - Instructions on submission of Declaration Form",
+      "circular_no": "HO No. WSU/10(1)2011/Changes in MAP/2078",
+      "issued_on": "2016-08-04",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "claim_forms"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/WSU_Form31(UAN)_2078.pdf",
+      "source_file": "sources/claim_forms_payments-2016-08-04-700f14.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "UAN based Claim Form No. 31 (UAN) - Instructions on submission of Declaration Form",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2016-08-04-700f14",
+        "page_number": 1,
+        "quote": "UAN based Claim Form No. 31 (UAN) — Instructions on submission of"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2016-08-26-820b93",
+      "title": "Claim Form No. 31 - Instructions on submission of Declaration Form therewith",
+      "circular_no": "HO No. WSU/10(1)2011/Change in MAP/13202",
+      "issued_on": "2016-08-26",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "claim_forms"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/WSU_Instructions_Form31_13202.pdf",
+      "source_file": "sources/claim_forms_payments-2016-08-26-820b93.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Claim Form No. 31 - Instructions on submission of Declaration Form therewith",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2016-08-26-820b93",
+        "page_number": 1,
+        "quote": "Claim Form No. 31 — Instructions on submission of Declaration Form"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2017-02-20-0e964e",
+      "title": "In the matter of Introduction of Composite Claim Forms (Aadhar and Non-Aadhar) to replace existing Claim Forms No.19, 10C & 31 and Forms No.19(UAN), 10C(UAN) & 31(UAN)",
+      "circular_no": "HO No. Manual/Amendment/2011/Pt/31792",
+      "issued_on": "2017-02-20",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "claim_forms"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/Composite_Claim_Forms_31792.pdf",
+      "source_file": "sources/claim_forms_payments-2017-02-20-0e964e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "In the matter of Introduction of Composite Claim Forms (Aadhar and Non-Aadhar) to replace existing Claim Forms No.19, 10C & 31 and Forms No.19(UAN), 10C(UAN) & 31(UAN)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2017-02-20-0e964e",
+        "page_number": 1,
+        "quote": "For Web Circulation Only ware sace frit aaroet Employees’ Pr"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2017-03-03-2fd5c8",
+      "title": "Introduction of Composite Claim Form in Death Cases to replace existing claim Form-20, 10-D and 5-IF",
+      "circular_no": "HO No. Manual/Amendment/2011/Pt/163",
+      "issued_on": "2017-03-03",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "claim_forms"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/Manual_CCF_DeathCase_163.pdf",
+      "source_file": "sources/claim_forms_payments-2017-03-03-2fd5c8.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Introduction of Composite Claim Form in Death Cases to replace existing claim Form-20, 10-D and 5-IF",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2017-03-03-2fd5c8",
+        "page_number": 1,
+        "quote": ".. -. cfi.R i:Ufl ~ fil1t\" ;a ell oirt Employees' Provident "
+      }
+    },
+    {
+      "id": "claim_forms_payments-2017-03-07-dddce0",
+      "title": "Dispensing with the Procedure of Affixing of Rs.1/- Revenue Stamp on Claim Forms in case of Payments through NEFT",
+      "circular_no": "HO No. Exem/Misc./CBT-Item/2013/Vol-II/32894",
+      "issued_on": "2017-03-07",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/RevStamp_Claimforms_32894.pdf",
+      "source_file": "sources/claim_forms_payments-2017-03-07-dddce0.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Dispensing with the Procedure of Affixing of Rs.1/- Revenue Stamp on Claim Forms in case of Payments through NEFT",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2017-03-07-dddce0",
+        "page_number": 1,
+        "quote": "Dispensing with the procedure of affixing of Rs. 1/- Revenue Stamp on"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2017-08-21-03f074",
+      "title": "Composite Claim Form for Death Case to replace erstwhile Form No. 20, 10-D & 5-IF - Revised Claim Form thereof",
+      "circular_no": "HO No. Manual/Amendment/2011/Pt./9536",
+      "issued_on": "2017-08-21",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "claim_forms"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Manual_CCF_DeathCase_9536.pdf",
+      "source_file": "sources/claim_forms_payments-2017-08-21-03f074.json",
+      "verification": "source_checked",
+      "effective_from": "2017-08-21",
+      "effective_date_evidence": {
+        "document_id": "claim_forms_payments-2017-08-21-03f074",
+        "page_number": 1,
+        "quote": "This claim form shall come into force from the date of issue of this circular"
+      },
+      "version_label": "Composite Claim Form for Death Case to replace erstwhile Form No. 20, 10-D & 5-IF - Revised Claim Form thereof",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2017-08-21-03f074",
+        "page_number": 1,
+        "quote": "Composite Claim Form for Death Case to replace erstwhile Form No"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2017-12-13-0b24e7",
+      "title": "Standard Operating Procedure (SOP) for settlement of claims in EPFO - Submission of original cancelled cheque with offline claim forms",
+      "circular_no": "HO No. Manual/9(3)2016/Settlement of Claims/21003",
+      "issued_on": "2017-12-13",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "claim_forms"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Manual_SOP_ClaimSettlement_21003.pdf",
+      "source_file": "sources/claim_forms_payments-2017-12-13-0b24e7.json",
+      "verification": "source_checked",
+      "effective_from": "2017-12-13",
+      "effective_date_evidence": {
+        "document_id": "claim_forms_payments-2017-12-13-0b24e7",
+        "page_number": 1,
+        "quote": "This shall come into force with immediate effect"
+      },
+      "version_label": "Standard Operating Procedure (SOP) for settlement of claims in EPFO - Submission of original cancelled cheque with offline claim forms",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2017-12-13-0b24e7",
+        "page_number": 1,
+        "quote": "Standard Operating Procedure (SOP) for settlement of claims in EPFO ·"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2020-08-11-eb3e66",
+      "title": "Printing of Online Claim Form-19,F-13,F-31 and F-10C (WB) and worksheets during claim settlement process-To be discontinued-Regarding.",
+      "circular_no": "HO.No.WSU/2020-21/SOP/",
+      "issued_on": "2020-08-11",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "claim_forms"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/WSU_PRINTING_CLAIMSFORMS_DISCONTINUED.pdf",
+      "source_file": "sources/claim_forms_payments-2020-08-11-eb3e66.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Printing of Online Claim Form-19,F-13,F-31 and F-10C (WB) and worksheets during claim settlement process-To be discontinued-Regarding.",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2020-08-11-eb3e66",
+        "page_number": 1,
+        "quote": "Printing of Online Claim during claim settlement proces Sir/Madam"
+      }
+    },
+    {
+      "id": "claim_forms_payments-2023-11-01-14207a",
+      "title": "Payment of EPF benefits to subscriber’s payment bank account",
+      "circular_no": "No.BKG/1/2021-BKG/C-32521/181",
+      "issued_on": "2023-11-01",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "payments"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/Circular_Banking_02112023.pdf",
+      "source_file": "sources/claim_forms_payments-2023-11-01-14207a.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Payment of EPF benefits to subscriber’s payment bank account",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "claim_forms_payments-2023-11-01-14207a",
+        "page_number": 1,
+        "quote": "Payment of EPF benefits to subscriber’s payment bank account-Reg"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "pay-2010-04-28-dishonour-continues",
+      "source": "claim_forms_payments-2010-04-28-203d77",
+      "target": "claim_forms_payments-2010-04-12-28bffb",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "claim_forms_payments-2010-04-28-203d77",
+        "page_number": 1,
+        "quote": "This is in continuation of OM No. No. Bkg.1(5)2006/Banking Agreement/Part./ dated 12.04.2010"
+      },
+      "scope": "The 28 April 2010 memorandum continues the 12 April 2010 memorandum on stray instances of dishonour of cheques; it does not replace it."
+    },
+    {
+      "id": "pay-2011-11-24-modifies-11-22",
+      "source": "claim_forms_payments-2011-11-24-9df043",
+      "target": "claim_forms_payments-2011-11-22-da58ab",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "claim_forms_payments-2011-11-24-9df043",
+        "page_number": 1,
+        "quote": "The limit of Rs. 10,000/- wherever appears in the circular dated 22.11.2011 referred in para 1 above stands modified accordingly"
+      },
+      "scope": "The 24 November 2011 circular raises the cheque-value limit stated in the 22 November 2011 circular on fraudulent withdrawals, effective 1 December 2011; the rest of the 22 November circular continues."
+    },
+    {
+      "id": "pay-2011-12-20-modifies-earlier",
+      "source": "claim_forms_payments-2011-12-20-9a7928",
+      "target": "claim_forms_payments-2011-11-24-9df043",
+      "type": "partially_modifies",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "claim_forms_payments-2011-12-20-9a7928",
+        "page_number": 2,
+        "quote": "in partial modification to the instructions issued earlier the fresh instructions are issued as under"
+      },
+      "scope": "Candidate link: the 20 December 2011 circular partially modifies 'the instructions issued earlier' on payment of pension and other payments after field references, without naming them; the November 2011 circulars on fake cheques are the likely earlier ones."
+    },
+    {
+      "id": "pay-2015-12-22-edli-continues",
+      "source": "claim_forms_payments-2015-12-17-b5deec",
+      "target": "claim_forms_payments-2015-09-07-a30cd4",
+      "type": "references",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "claim_forms_payments-2015-12-17-b5deec",
+        "page_number": 3,
+        "quote": "In continuation to the above circular, individual cheque of payments from EDLI account No. 21 shall contain the name of the beneficiary"
+      },
+      "scope": "Candidate link: the December 2015 circular continues an earlier circular on NEFT payment of EDLI benefits; the September 2015 circular is the likely earlier one but its number is not read here."
+    },
+    {
+      "id": "pay-2016-01-18-edli-continues",
+      "source": "claim_forms_payments-2016-01-18-3e3380",
+      "target": "claim_forms_payments-2015-12-17-b5deec",
+      "type": "references",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "claim_forms_payments-2016-01-18-3e3380",
+        "page_number": 3,
+        "quote": "In continuation to the above circular, individual cheque of payments from EDLI account No. 21 shall contain the name of the beneficiary"
+      },
+      "scope": "Candidate link: the January 2016 circular repeats the December 2015 instruction on EDLI cheques drawn on account number 21; the cited earlier circular is not named in the text read."
+    },
+    {
+      "id": "pay-2017-03-07-cites-2015-08",
+      "source": "claim_forms_payments-2017-03-07-dddce0",
+      "target": "claim_forms_payments-2015-08-18-60eef6",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "claim_forms_payments-2017-03-07-dddce0",
+        "page_number": 1,
+        "quote": "WSU/Claim Form/Revenue Stamp/9962 dated 18.08.2015"
+      },
+      "scope": "The 7 March 2017 circular reiterates the 18 August 2015 dispensation of the Re 1 revenue stamp on claim forms where payment is through NEFT (file number 9962)."
+    },
+    {
+      "id": "pay-2017-08-21-revises-2017-03-03",
+      "source": "claim_forms_payments-2017-08-21-03f074",
+      "target": "claim_forms_payments-2017-03-03-2fd5c8",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "claim_forms_payments-2017-08-21-03f074",
+        "page_number": 1,
+        "quote": "a revised Composite Claim Form for death cases, approved by CPFC, is attached herewith"
+      },
+      "scope": "The August 2017 circular substitutes a revised composite claim form for death cases for the form introduced in the 3 March 2017 circular (which replaced Forms 20, 10-D and 5-IF); read the August circular and its enclosure for the current form."
+    }
+  ],
+  "limitations": [
+    "This collection covers Finance circulars on payment modes (e-payment, NEFT, RTGS, CCPAP, cheques and fraud precautions) and claim forms (2009-2020). Investment, pension payments to designated banks, VDR collection accounts, salary advances and bonus circulars are not included.",
+    "Progress reports on e-payment implementation, individual DO letters and repeated near-identical reminders were not included; the series from 2010 to 2011 is partial.",
+    "The 2014 CCPAP (Cheque Cum Positive Pay) module circulars form a series (August to November 2014) of which only those in the issuer's table with English titles are included; the instructions in each should be read for the account number and offices it covers.",
+    "Links between successive NEFT, EDLI and fake-cheque circulars that cite earlier ones only as 'the above circular' or 'instructions issued earlier' are marked unverified.",
+    "The 2017 composite claim forms replace Forms 20, 10-D and 5-IF; the later 2017 revision is recorded as a partial modification of the March 2017 form; the 2020 circular on printing online claim forms is a scan with partial text and its effect is not recorded.",
+    "A few older circulars (2010, 2011) state 'immediate effect' with no date other than the issue date; those are recorded as effective on the issue date. The 2011 revised limits for fake-cheque precautions are recorded from 1 December 2011 as stated.",
+    "Dates follow the letter, not the issuer listing; entries whose letter date differs carry a date_note.",
+    "PDFs were read from the issuer mirror on 4 November 2026 because the public site returned 404 for these paths; recorded SHA-256 values apply to those files. Scanned pages are OCR. Issue dates were checked against the document headers."
+  ]
+}

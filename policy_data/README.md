@@ -1,0 +1,181 @@
+# Registered policy version and date histories
+
+The hosted search supports the 31 policies registered in `registry.json` (684 documents
+as of 11 November 2026). The sections below were added as each group of policies was
+built and describe the state at that time.
+Choose a policy or Automatic, set **Evidence as of**, then submit a question.
+Automatic recognises registered scopes in registry order; the more specific Aadhaar
+scope precedes JD. Choose an explicit policy for short follow-up questions. Standard
+search always selects the original hybrid pipeline.
+
+Each policy owns its timeline, scope, evidence status and limitations. Source pages
+can be shared across policy histories without duplicating OCR. Source verification
+does not certify current validity. Numeric versions are retained only when the
+source explicitly provides one; dated circulars do not become invented versions.
+
+The as-of control filters **issue dates**. Commencement dates remain separate and
+require explicit supporting text. This is not a complete bitemporal resolver of
+later-issued retrospective directions. Partial modifications, supersessions and
+references retain distinct scopes and statuses. A reference in a checked document
+does not verify an unfetched original.
+
+For policies without curated histories, the existing hybrid search remains in use
+and no verified amendment/currentness claim is added. For gaps or failures within a
+curated history, supplementary hybrid evidence must match that policy, have a known
+issue date no later than the cutoff, and retain an unverified applicability label.
+Legacy fallback ranges are not promoted to verified physical pages.
+
+## Add a policy
+
+1. Define the scope, authority layer and exclusions before collecting documents.
+2. Create `policy_data/<name>/policy.json` with documents, relationships and limitations.
+   Use the existing histories as examples; document IDs must be unique within a history.
+3. Extract original PDF pages using `scripts/extract_policy_pdf.py`. Retain the URL,
+   PDF SHA-256, physical page numbers and native/OCR extraction method. Visually check
+   relationship passages, dates and identifiers before marking them `source_checked`.
+4. Keep issue dates, effective dates, campaign deadlines, review dates and numeric
+   versions distinct. Keep missing originals and ambiguous targets unverified.
+5. Add one entry to `registry.json`: unique id/label, scope, policy path, include/exclude
+   expressions and route name. The UI choices, routing and CLI use this registry;
+   no policy-specific branch needs to be added to the app or answer generator.
+6. Add date-boundary, scope-isolation, relationship and missing-evidence tests, plus
+   independently reviewed source/page and legal-answer evaluation cases.
+
+Example CLI:
+
+```bash
+python policy_history.py --policy-name aadhaar --as-of 2025-08-13 --query "wrong Aadhaar in UAN"
+python policy_history.py --policy-name jd --as-of 2025-01-16 --query "closed establishment"
+```
+
+Development checks:
+
+```bash
+python eval/joint_declaration/run.py
+python eval/joint_declaration/run.py --policy-name aadhaar --cases eval/member_profile_aadhaar/cases.json
+python -m pytest -q tests/test_policy_registry.py tests/test_policy_router.py tests/test_policy_ui.py tests/test_policy_history.py tests/test_answer_generator.py
+```
+
+These development cases check retrieval and safeguards, not legal completeness or
+generated-answer correctness. New policies need their own reviewed evidence and
+held-out evaluation before any stronger applicability claim.
+
+New histories use original PDFs linked from epfo.gov.in and its EPFO CDN. The CPPS
+history currently has the January 2025 operational circular and October 2025 DLC
+approval; the 2024 approval/pilot chain remains a gap. Higher-pension baseline
+originals and January 2025 clarifications remain unverified. All six histories
+retain standard hybrid search as supplementary evidence where coverage is missing.
+
+The complete LLM prompt has an 18,000-byte UTF-8 budget by default
+(`LLM_MAX_PROMPT_BYTES` can override it). A 413 response retries once with
+9,000 bytes. Whole pages are omitted, original source numbers are retained and
+policy answers receive a reduced-coverage notice. This mitigates provider request
+limits without switching the configured GPT-OSS model or inference provider.
+
+
+## Bank, MID and EPS correction histories
+
+Bank KYC / cheque upload, MID de-linking and EPS contribution corrections are
+registered separately. Original PDFs are not committed; they are fetched from each document's `source_url` and verified against the recorded SHA-256 (see `policy_pdfs.py`, `scripts/verify_policy_pdfs.py`).
+Every checked source has physical page text, extraction method and a PDF hash.
+The April 2026 MID and December 2025 EPS PDFs were recovered as mirror copies
+when the original URLs failed; both retrieval and original URLs are retained.
+
+The January 2024 concurrent-EPS original says **e-597452/4406**. The May 2025
+transfer circular cites **E-597451/4406**. The candidate target is therefore
+unverified despite the same date and subject. The 1998 reference is checked
+against the January original, but the 1998 original itself remains missing.
+
+The bank history records the May 2024 conditional relaxation and April 2025
+bank-validation change. The newer circular does not explicitly name the May
+circular, so its exact amending target remains unverified. April's upload rule
+expressly applies from its issue date; the older software deployment date is
+kept distinct.
+
+`python scripts/index_policy_evidence.py --index-dir vector_store/data_index
+--output-dir /tmp/policy-index` builds a separate candidate dense/passages/BM25
+index, deduplicates source/page/offset hashes, preserves old rows and verifies
+alignment. Check its ingestion report before publishing all three artifacts.
+This command uses the existing cached MiniLM model and normalized embeddings.
+
+## Delegation and EPFO employee benefits
+
+Two further collections are registered: **Delegation of powers** and **EPFO employee
+benefits**. Each exposes a Matter selector in research and Circular history.
+Automatic routing detects one or more named matters; supplementary hybrid results
+stay within those matters and the issue-date cutoff. Selecting a collection/matter
+also supports short follow-up questions without repeating the matter name.
+
+See [delegation](delegation/README.md) and [employee benefits](employee_benefits/README.md)
+for source coverage, verified relationships and unresolved originals. Twenty-one
+new issuer-hosted PDFs supply 74 mapped physical pages and 226 new indexed passages.
+The final aligned index has 75,110 passages, with every original passage unchanged.
+The recovery/ingestion totals are in `staff_ingestion_report.json`.
+
+The 15 October 2024 briefcase original was recovered from EPFO's origin host after
+its CDN copy failed. Its two explicit supersession links and revised table are
+checked. Medical originals and the reported August 2026 publicity revision remain
+unverified. No allowance or financial ceiling is certified merely from chronology.
+
+## EPF interest rate
+
+**EPF interest rate** records the yearly declaration circulars for 2010-11 to 2025-26
+(19 documents; see [epf_interest_rate](epf_interest_rate/README.md)). Each year's rate stands
+on its own; the only modification chain is the 2011 interim settlement rate.
+
+## EPFO staff transfer policy
+
+**EPFO staff transfer policy** covers the Commissioners' cadre, Group B and Group C/SSA
+transfer policies and amendments (see [staff_transfer](staff_transfer/README.md)). It has a
+Matter selector like delegation and employee benefits; drafts are consultation-only.
+
+## APAR / vigilance clearance
+
+**APAR / vigilance clearance** covers SPARROW appraisal timelines (2024-25 and 2025-26 cycles,
+with every revision) and vigilance clearance guidelines (see [apar_sparrow](apar_sparrow/README.md)).
+It has a Matter selector; later revisions change only the dates they list.
+
+## Dearness allowance / relief and panel advocates
+
+**Dearness allowance / relief (staff)** records each Central Government DA/DR step from 2016,
+with the effective date stated in the circular (see [dearness](dearness/README.md)).
+**Panel advocates: fees and empanelment** covers fee revisions and empanelment circulars
+(see [legal_panel](legal_panel/README.md)). Both keep issue dates and effective dates distinct.
+
+## Delegation split: claim settlement authority and foreign visits
+
+The delegation history is now three collections by the question asked: **Delegation of powers**
+(administrative and financial powers schedule), **Claim settlement authority** (who may settle or
+authorise claims, inoperative accounts, MLC/CRO, SSO) and **Foreign visit permissions**. See
+[delegation](delegation/README.md), [claim_authority](claim_authority/README.md) and
+[foreign_visit](foreign_visit/README.md). Documents marked `compiled_copy` were extracted from a
+compilation of circulars: the recorded hash names the compilation and no public download is offered.
+`delegation/screening_2026-11-03.csv` records how each circular in that compilation was classified.
+
+## Recruitment rules and promotion
+
+**Recruitment rules and promotion** covers recruitment rules/regulations by cadre (notified and draft),
+DPC procedure and model calendars, and MACP/NFU/NFSG guidance (see
+[recruitment_promotion](recruitment_promotion/README.md)). Drafts are consultation-only; only two
+supersessions are stated and both are verified.
+
+## Verified histories for every rule topic in the division catalog (2026-11-04)
+
+Every rule-nature row in the division catalog now links to a verified history built from the issuer's
+circulars table and the local PDF mirror (original PDFs, hashes recorded, scanned pages OCR):
+[is_hardware_norms](is_hardware_norms/README.md), [is_security_systems](is_security_systems/README.md),
+[spf_interest](spf_interest/README.md), [exemption](exemption/README.md), [damages_7a](damages_7a/README.md),
+[ecr_returns](ecr_returns/README.md), [claim_forms_payments](claim_forms_payments/README.md),
+[official_language](official_language/README.md), [pension_member_rules](pension_member_rules/README.md),
+[international_workers](international_workers/README.md), [legal_case_handling](legal_case_handling/README.md)
+and [quality_complaints](quality_complaints/README.md).
+
+How they were built: candidates selected from the issuer table by subject rules; each header checked
+against the typed letter date (28 circulars carry a `date_note` where the typed date differs from the
+issuer listing or stamp, and the index dates for those PDFs were corrected); supersessions and
+modifications are recorded only where the circular says so, with the quote checked against the page.
+Generic "supersedes earlier instructions" wording is kept as unverified candidate links. The three
+exemption SOPs (2023-2024) name the circulars they supersede in annexures, so those links are verified.
+Limits are stated in each collection's limitations; the Official Language collection holds only the
+English-titled circulars and the Hindi-titled ones are not yet included. Shared checks live in
+`tests/test_verified_collections.py`. Index: 78,697 -> 82,919 passages.

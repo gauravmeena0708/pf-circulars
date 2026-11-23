@@ -1,0 +1,463 @@
+{
+  "schema_version": 1,
+  "id": "epf_interest_rate",
+  "reviewed_on": "2026-11-03",
+  "documents": [
+    {
+      "id": "roi-2011-03-17",
+      "title": "Central Government approval of 9.5% interest for 2010-11",
+      "circular_no": "R-11018/1/2010.SS-II",
+      "issued_on": "2011-03-17",
+      "authority": "Ministry of Labour & Employment letter to CPFC",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/EPF_RateOfInst.pdf",
+      "source_file": "sources/roi-2011-03-17.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "EPF interest rate, 2010-11",
+      "source_host_kind": "issuer_hosted",
+      "financial_year": "2010-11",
+      "rate_percent": 9.5,
+      "rate_evidence": {
+        "document_id": "roi-2011-03-17",
+        "page_number": 1,
+        "quote": "crediting of interest @ 9.5% for the year 2010-11"
+      }
+    },
+    {
+      "id": "roi-2011-03-18",
+      "title": "Declaration of EPF interest rate for 2010-11 and interim settlement rate",
+      "circular_no": "Invest.I/3(2)/133/10-11/ROI/40717",
+      "issued_on": "2011-03-18",
+      "authority": "EPFO Head Office circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/EPF_ROI_2010-11_40717.pdf",
+      "source_file": "sources/roi-2011-03-18.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "EPF interest rate, 2010-11",
+      "source_host_kind": "issuer_hosted",
+      "financial_year": "2010-11",
+      "rate_percent": 9.5,
+      "rate_evidence": {
+        "document_id": "roi-2011-03-18",
+        "page_number": 1,
+        "quote": "crediting @ 9.5% per annum on the monthly running"
+      }
+    },
+    {
+      "id": "roi-2011-04-27",
+      "title": "Interest rate for settlement of claims during 2011-12 pending declaration",
+      "circular_no": "Invest.I/3(2)/133/10-11/ROI/3197",
+      "issued_on": "2011-04-27",
+      "authority": "EPFO Head Office order",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/OO_ROI_3197.PDF",
+      "source_file": "sources/roi-2011-04-27.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "EPF interest rate, 2011-12 (interim, for settlement)",
+      "source_host_kind": "issuer_hosted",
+      "financial_year": "2011-12 (interim, for settlement)",
+      "rate_percent": 9.5,
+      "rate_evidence": {
+        "document_id": "roi-2011-04-27",
+        "page_number": 1,
+        "quote": "shall be made at 9.5% per annum till rate of interest is declared for 2011-12"
+      }
+    },
+    {
+      "id": "roi-2012-03-14",
+      "title": "Declaration of EPF interest rate for 2011-12",
+      "circular_no": "Invest.I/3(2)/133/11-12/ROI/51350",
+      "issued_on": "2012-03-14",
+      "authority": "EPFO Head Office circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/Invest_ROI_51350.pdf",
+      "source_file": "sources/roi-2012-03-14.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "EPF interest rate, 2011-12",
+      "source_host_kind": "issuer_hosted",
+      "financial_year": "2011-12",
+      "rate_percent": 8.25,
+      "rate_evidence": {
+        "document_id": "roi-2012-03-14",
+        "page_number": 1,
+        "quote": "to credit interest @ 8.25% for the year 2011-12"
+      }
+    },
+    {
+      "id": "roi-2012-03-15",
+      "title": "Settlement of claims at the declared 2011-12 rate",
+      "circular_no": "WSU/10(1)2011/Changes in MAP/51604",
+      "issued_on": "2012-03-15",
+      "authority": "EPFO Head Office circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/WSU_51604.pdf",
+      "source_file": "sources/roi-2012-03-15.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "EPF interest rate, 2011-12",
+      "source_host_kind": "issuer_hosted",
+      "financial_year": "2011-12",
+      "rate_percent": 8.25,
+      "rate_evidence": {
+        "document_id": "roi-2012-03-15",
+        "page_number": 1,
+        "quote": "crediting the interest @8.25% for the financial year 2011-12"
+      }
+    },
+    {
+      "id": "roi-2013-05-15",
+      "title": "Declaration of EPF interest rate for 2012-13",
+      "circular_no": "Invest.I/3(2)/133/ROI/2012-13/4462",
+      "issued_on": "2013-05-15",
+      "authority": "EPFO Head Office circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/Invest1_ROI_4462.pdf",
+      "source_file": "sources/roi-2013-05-15.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "EPF interest rate, 2012-13",
+      "source_host_kind": "issuer_hosted",
+      "financial_year": "2012-13",
+      "rate_percent": 8.5,
+      "rate_evidence": {
+        "document_id": "roi-2013-05-15",
+        "page_number": 1,
+        "quote": "crediting interest @ 8.50% on EPF accumulation for the financial year 2012-13"
+      }
+    },
+    {
+      "id": "roi-2014-03-06",
+      "title": "Declaration of EPF interest rate for 2013-14",
+      "circular_no": "Invest.I/3(2)/133/ROI/2013-14/25363",
+      "issued_on": "2014-03-06",
+      "authority": "EPFO Head Office circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/Invest_ROI_2013-2014_25363.pdf",
+      "source_file": "sources/roi-2014-03-06.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "EPF interest rate, 2013-14",
+      "source_host_kind": "issuer_hosted",
+      "financial_year": "2013-14",
+      "rate_percent": 8.75,
+      "rate_evidence": {
+        "document_id": "roi-2014-03-06",
+        "page_number": 1,
+        "quote": "crediting interest @ 8.75% on EPF accumulation for the financial year 2013-14"
+      }
+    },
+    {
+      "id": "roi-2015-02-04",
+      "title": "Declaration of EPF interest rate for 2014-15",
+      "circular_no": "Invest.I/3(2)/133/ROI/2014-15/36393",
+      "issued_on": "2015-02-04",
+      "authority": "EPFO Head Office circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Invest_ROI_2014-15_36393.pdf",
+      "source_file": "sources/roi-2015-02-04.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "EPF interest rate, 2014-15",
+      "source_host_kind": "issuer_hosted",
+      "financial_year": "2014-15",
+      "rate_percent": 8.75,
+      "rate_evidence": {
+        "document_id": "roi-2015-02-04",
+        "page_number": 1,
+        "quote": "to credit interest@ 8.75% for the Year 2014-15"
+      }
+    },
+    {
+      "id": "roi-2016-05-25",
+      "title": "Declaration of EPF interest rate for 2015-16",
+      "circular_no": "Invest.I/3(2)/133/ROI/2015-16/3725",
+      "issued_on": "2016-05-25",
+      "authority": "EPFO Head Office circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/Invest_InterestRate_2015-16_3725.pdf",
+      "source_file": "sources/roi-2016-05-25.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "EPF interest rate, 2015-16",
+      "source_host_kind": "issuer_hosted",
+      "financial_year": "2015-16",
+      "rate_percent": 8.8,
+      "rate_evidence": {
+        "document_id": "roi-2016-05-25",
+        "page_number": 1,
+        "quote": "to credit interest @ 8.80% for the year 2015-16"
+      }
+    },
+    {
+      "id": "roi-2017-04-27",
+      "title": "Declaration of EPF interest rate for 2016-17",
+      "circular_no": "Invest.I/3(2)133/ROI/2015-16/906",
+      "issued_on": "2017-04-27",
+      "authority": "EPFO Head Office circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/RateOfInterest_1617_906.pdf",
+      "source_file": "sources/roi-2017-04-27.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "EPF interest rate, 2016-17",
+      "source_host_kind": "issuer_hosted",
+      "financial_year": "2016-17",
+      "rate_percent": 8.65,
+      "rate_evidence": {
+        "document_id": "roi-2017-04-27",
+        "page_number": 1,
+        "quote": "to credit interest @ 8.65% for the year 2016-17"
+      }
+    },
+    {
+      "id": "roi-2018-05-25",
+      "title": "Declaration of EPF interest rate for 2017-18",
+      "circular_no": "Invest.I/CBT Agenda/ROI/2017-18/4153",
+      "issued_on": "2018-05-25",
+      "authority": "EPFO Head Office circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/Invest_ROI_2017-18_4153.pdf",
+      "source_file": "sources/roi-2018-05-25.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "EPF interest rate, 2017-18",
+      "source_host_kind": "issuer_hosted",
+      "financial_year": "2017-18",
+      "rate_percent": 8.55,
+      "rate_evidence": {
+        "document_id": "roi-2018-05-25",
+        "page_number": 1,
+        "quote": "to credit interest @ 8.55% for the year 2017-18"
+      }
+    },
+    {
+      "id": "roi-2019-09-27",
+      "title": "Declaration of EPF interest rate for 2018-19",
+      "circular_no": "Invest.I/3(2)133/ROI/2018-19/5519",
+      "issued_on": "2019-09-27",
+      "authority": "EPFO Head Office circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2019-2020/Invest_ROI_2018-19_5519.pdf",
+      "source_file": "sources/roi-2019-09-27.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "EPF interest rate, 2018-19",
+      "source_host_kind": "issuer_hosted",
+      "financial_year": "2018-19",
+      "rate_percent": 8.65,
+      "rate_evidence": {
+        "document_id": "roi-2019-09-27",
+        "page_number": 1,
+        "quote": "to credit interest @ 8.65% for the year 2018-19"
+      }
+    },
+    {
+      "id": "roi-2021-01-04",
+      "title": "Declaration of EPF interest rate for 2019-20",
+      "circular_no": "INV-INV-11/1/2020-INV/2025",
+      "issued_on": "2021-01-04",
+      "authority": "EPFO Head Office circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/Inv_ROI_2019-20_2025.pdf",
+      "source_file": "sources/roi-2021-01-04.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "EPF interest rate, 2019-20",
+      "source_host_kind": "issuer_hosted",
+      "financial_year": "2019-20",
+      "rate_percent": 8.5,
+      "rate_evidence": {
+        "document_id": "roi-2021-01-04",
+        "page_number": 1,
+        "quote": "to credit interest@ 8.50 % for the year 2019-20"
+      }
+    },
+    {
+      "id": "roi-2021-10-30",
+      "title": "Declaration of EPF interest rate for 2020-21",
+      "circular_no": "INV-11/1/2020-INV",
+      "issued_on": "2021-10-30",
+      "authority": "EPFO Head Office circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/INV_ROI_EPF_30102021_new.pdf",
+      "source_file": "sources/roi-2021-10-30.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "EPF interest rate, 2020-21",
+      "source_host_kind": "issuer_hosted",
+      "financial_year": "2020-21",
+      "rate_percent": 8.5,
+      "rate_evidence": {
+        "document_id": "roi-2021-10-30",
+        "page_number": 1,
+        "quote": "to credit interest@ 8.50 % for the year 2020-21"
+      }
+    },
+    {
+      "id": "roi-2022-06-03",
+      "title": "Declaration of EPF interest rate for 2021-22",
+      "circular_no": "INV-11/2/2021-INV/4670",
+      "issued_on": "2022-06-03",
+      "authority": "EPFO Head Office circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/ROI_FY_2021-22_03062022.pdf",
+      "source_file": "sources/roi-2022-06-03.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "EPF interest rate, 2021-22",
+      "source_host_kind": "issuer_hosted",
+      "financial_year": "2021-22",
+      "rate_percent": 8.1,
+      "rate_evidence": {
+        "document_id": "roi-2022-06-03",
+        "page_number": 1,
+        "quote": "@ 8.10 % for the year 2021-22"
+      }
+    },
+    {
+      "id": "roi-2023-07-24",
+      "title": "Declaration of EPF interest rate for 2022-23",
+      "circular_no": "INV-11/2/2021-INV/2766",
+      "issued_on": "2023-07-24",
+      "authority": "EPFO Head Office circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/Declaration_Rateofinterest_INV_24072023.pdf",
+      "source_file": "sources/roi-2023-07-24.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "EPF interest rate, 2022-23",
+      "source_host_kind": "issuer_hosted",
+      "financial_year": "2022-23",
+      "rate_percent": 8.15,
+      "rate_evidence": {
+        "document_id": "roi-2023-07-24",
+        "page_number": 1,
+        "quote": "to credit interest@ 8.15 % for the year 2022-23"
+      }
+    },
+    {
+      "id": "roi-2024-05-31",
+      "title": "Declaration of EPF interest rate for 2023-24",
+      "circular_no": "INV-11/2/2021-INV/1460",
+      "issued_on": "2024-05-31",
+      "authority": "EPFO Head Office circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/Circular_Investment_23072024_Hi.pdf",
+      "source_file": "sources/roi-2024-05-31.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "EPF interest rate, 2023-24",
+      "source_host_kind": "issuer_hosted",
+      "financial_year": "2023-24",
+      "rate_percent": 8.25,
+      "rate_evidence": {
+        "document_id": "roi-2024-05-31",
+        "page_number": 1,
+        "quote": "to credit interest @ 8.25 % for the year 2023-24"
+      }
+    },
+    {
+      "id": "roi-2025-05-26",
+      "title": "Declaration of EPF interest rate for 2024-25",
+      "circular_no": "INV-11/2/2021-INV/3557",
+      "issued_on": "2025-05-26",
+      "authority": "EPFO Head Office circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/DeclarationOfROI_2024_25.pdf",
+      "source_file": "sources/roi-2025-05-26.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "EPF interest rate, 2024-25",
+      "source_host_kind": "issuer_hosted",
+      "financial_year": "2024-25",
+      "rate_percent": 8.25,
+      "rate_evidence": {
+        "document_id": "roi-2025-05-26",
+        "page_number": 1,
+        "quote": "to credit interest @ 8.25 % for the year 2024-25"
+      }
+    },
+    {
+      "id": "roi-2026-07-01",
+      "title": "Declaration of EPF interest rate for 2025-26",
+      "circular_no": "INV-11/2/2021-INV/E-41960/2519",
+      "issued_on": "2026-07-01",
+      "authority": "EPFO Head Office circular",
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2026-2027/Circular_ROI_01072026.pdf",
+      "source_file": "sources/roi-2026-07-01.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "EPF interest rate, 2025-26",
+      "source_host_kind": "issuer_hosted",
+      "financial_year": "2025-26",
+      "rate_percent": 8.25,
+      "rate_evidence": {
+        "document_id": "roi-2026-07-01",
+        "page_number": 1,
+        "quote": "to credit interest @ 8.25 % for the Financial Year 2025-26"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "roi-2011-03-18-cites-ministry-letter",
+      "source": "roi-2011-03-18",
+      "target": "roi-2011-03-17",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "roi-2011-03-18",
+        "page_number": 1,
+        "quote": "vide Ministry of Labour and Employment letter No. R-11018/1/2010.SS-II dated 17.03.2011"
+      },
+      "scope": "The 2010-11 circular conveys the Ministry approval letter by number; the letter is the checked source of the 9.5% approval."
+    },
+    {
+      "id": "roi-2011-04-27-modifies-interim-rate",
+      "source": "roi-2011-04-27",
+      "target": "roi-2011-03-18",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "roi-2011-04-27",
+        "page_number": 1,
+        "quote": "In partial modification to this office letter"
+      },
+      "scope": "Only the interim rate for settling claims during 2011-12 before a 2011-12 rate is declared (8.5% in the March circular, 9.5% in the April order). The 9.5% declared for 2010-11 is not changed."
+    },
+    {
+      "id": "roi-2012-03-15-implements-2011-12-rate",
+      "source": "roi-2012-03-15",
+      "target": "roi-2012-03-14",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "roi-2012-03-15",
+        "page_number": 1,
+        "quote": "rate of interest @8.25% pa, for the financial year 2011-12 has been conveyed"
+      },
+      "scope": "Settlement-process direction that applies the 8.25% rate declared for 2011-12; it adds a procedure for claims in the pipeline and does not alter the rate."
+    }
+  ],
+  "limitations": [
+    "Each financial-year declaration states the rate for that year only. A later year does not supersede an earlier year; no relationship between yearly declarations is inferred.",
+    "Issue date is the date of the EPFO circular, not the date of Central Government approval or the date interest is credited. The approving Ministry letter date is quoted in each circular and is not used as commencement.",
+    "The 18 March 2011 circular is typed \"Dated: 17.03.2011\" but carries an 18 MAR 2011 stamp and is cited as dated 18.03.2011 by the 27 April 2011 order; 2011-03-18 is used. The Ministry letter of March 2011 is dated 17 March 2011 as cited in that circular; its own date line is not fully legible.",
+    "The 9.5% for 2010-11 is described in the circular as a one-time rate. Interim rates for settling claims before a year's rate is declared appear only in the 2011 documents; this history does not state a general interim-rate rule for later years.",
+    "The 2024-25 file labelled _Hi.pdf is the English original of the 31 May 2024 circular for 2023-24; the file without that suffix is its Hindi version. The 2026-27 PDF also encloses the Ministry letter of 17 June 2026 and Finance OM of 8 June 2026 on pages 3-4.",
+    "Source PDFs were verified against the issuer mirror on 3 November 2026 because the public site returned 404 for these paths that day; the recorded SHA-256 applies to those mirror files.",
+    "Rates are for interest on EPF accumulations. Staff Provident Fund quarterly rates, NPS rates, penal damages under 14B, interest under 7Q, interest on belated crediting, TDS on taxable interest and advances are different matters and are not covered.",
+    "Declared rates are not a statement of the tax treatment, of interest credited to an individual account, or of the rate for a year after the latest circular here."
+  ]
+}

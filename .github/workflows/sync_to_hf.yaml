@@ -1,0 +1,22 @@
+name: Sync to Hugging Face Space
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  sync-to-hub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+      - name: Push to hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          pip install huggingface_hub==0.36.0
+          python scripts/fetch_runtime_assets.py --refresh-commit "$GITHUB_SHA"
+          python -c "from huggingface_hub import HfApi; HfApi().upload_folder(folder_path='.', repo_id='gauravmeena0708/epfo-circulars', repo_type='space', ignore_patterns=['.git/*', '.github/*', 'vector_store/*', 'policy_data/*/pdfs/*'], delete_patterns=['vector_store/data_index/faiss_index.texts.json'])"

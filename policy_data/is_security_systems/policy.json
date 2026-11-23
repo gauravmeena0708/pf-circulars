@@ -1,0 +1,431 @@
+{
+  "schema_version": 1,
+  "id": "is_security_systems",
+  "reviewed_on": "2026-11-04",
+  "topics": [
+    {
+      "id": "issue_tracker",
+      "label": "Issue Tracker and Samadhan Setu",
+      "include": "issue tracker|samadhan|j-?track"
+    },
+    {
+      "id": "authentication",
+      "label": "Authentication and VPN",
+      "include": "authentication|2FA|MFA|VPN|password"
+    },
+    {
+      "id": "cyber_security",
+      "label": "Cyber security advisories and IT policies",
+      "include": "cyber|advisory|anti-?piracy|policy|incident|malware"
+    }
+  ],
+  "documents": [
+    {
+      "id": "is_security_systems-2012-11-26-9846ed",
+      "title": "Office Order regarding the procedure for addressing the J-Tracks",
+      "circular_no": "HO No. R-I/J-Track/2012/222/25664",
+      "issued_on": "2012-11-26",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "issue_tracker"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/R1_JTrack_25664.pdf",
+      "source_file": "sources/is_security_systems-2012-11-26-9846ed.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Office Order regarding the procedure for addressing the J-Tracks",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_security_systems-2012-11-26-9846ed",
+        "page_number": 1,
+        "quote": "mhTtr~m-si;sra;;r Employees' Provident Fund Organisation l y"
+      },
+      "date_note": "The office order is typed 'Date: 26.11.2012' (stamp 27 November); the issuer listing shows 27 November 2012."
+    },
+    {
+      "id": "is_security_systems-2015-03-12-0f7e34",
+      "title": "E-mail policy of Government of India",
+      "circular_no": "HO No. R-I/Misc./2009 /Pt./121/18450",
+      "issued_on": "2015-03-12",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "cyber_security"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/RI_EmailPolicy_GOI_18450.pdf",
+      "source_file": "sources/is_security_systems-2015-03-12-0f7e34.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "E-mail policy of Government of India",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_security_systems-2015-03-12-0f7e34",
+        "page_number": 1,
+        "quote": "Regional Dy. (Vigilance)/Audit/Information partieslzonal RPU website"
+      },
+      "date_note": "The circular is typed 'Dated: 12.03.2015'; the issuer listing shows 16 March 2015."
+    },
+    {
+      "id": "is_security_systems-2015-05-27-89cc6c",
+      "title": "Policy on use of IT resources of Govt. of India by Deity",
+      "circular_no": "HO No. IS-8(7)2012/Corr./pt./3715",
+      "issued_on": "2015-05-27",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "cyber_security"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/IS_Policy_ResourcesIT_3715.pdf",
+      "source_file": "sources/is_security_systems-2015-05-27-89cc6c.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Policy on use of IT resources of Govt. of India by Deity",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_security_systems-2015-05-27-89cc6c",
+        "page_number": 1,
+        "quote": "Policy on use of IT resources of Govt. of India by Deity - Reg. Sir"
+      }
+    },
+    {
+      "id": "is_security_systems-2016-04-05-b7edd0",
+      "title": "Regulation of anti-piracy policies (Revised)",
+      "circular_no": "HO No. IS-8(7)2012/Corr./pt/127",
+      "issued_on": "2016-04-05",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "cyber_security"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/IS_Anti-PiracyPolicy_127.pdf",
+      "source_file": "sources/is_security_systems-2016-04-05-b7edd0.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Regulation of anti-piracy policies (Revised)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_security_systems-2016-04-05-b7edd0",
+        "page_number": 1,
+        "quote": "Regional Offices. Sub: Regulation of anti-piracy policies-reg"
+      }
+    },
+    {
+      "id": "is_security_systems-2016-12-22-2bdbad",
+      "title": "Reporting of cyber incidents to GNOC, National Data Centre",
+      "circular_no": "NDC No. NDC/1(12)2016/Cyber Security/655",
+      "issued_on": "2016-12-22",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "cyber_security"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/NDC_CyberIncidents_655.pdf",
+      "source_file": "sources/is_security_systems-2016-12-22-2bdbad.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Reporting of cyber incidents to GNOC, National Data Centre",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_security_systems-2016-12-22-2bdbad",
+        "page_number": 1,
+        "quote": "Reporting of cyber incidents to GNOC, National Data Centre"
+      }
+    },
+    {
+      "id": "is_security_systems-2018-08-20-c6e2aa",
+      "title": "Issue Tracker Web application",
+      "circular_no": "HO No. IS/Tracking System/2018/3233",
+      "issued_on": "2018-08-20",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "issue_tracker"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/IS_IssueTracker_3233.pdf",
+      "source_file": "sources/is_security_systems-2018-08-20-c6e2aa.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Issue Tracker Web application",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_security_systems-2018-08-20-c6e2aa",
+        "page_number": 1,
+        "quote": "Issue Tracker web application - regarding. Madam/Sir, .. A web"
+      }
+    },
+    {
+      "id": "is_security_systems-2020-01-17-ab2ae5",
+      "title": "Raising issues in Issue Tracker and inter alia responding in CPGRAM/RTI and vice versa",
+      "circular_no": "NDC No. IS/Issue Tracking System/2018/30",
+      "issued_on": "2020-01-17",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "issue_tracker"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2019-2020/IS_IssueTracking_CPGRSM_30.pdf",
+      "source_file": "sources/is_security_systems-2020-01-17-ab2ae5.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Raising issues in Issue Tracker and inter alia responding in CPGRAM/RTI and vice versa",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_security_systems-2020-01-17-ab2ae5",
+        "page_number": 1,
+        "quote": "Raising issues in Issue Tracker and inter alia responding in"
+      }
+    },
+    {
+      "id": "is_security_systems-2020-12-09-42c4f4",
+      "title": "Mandatory Installation of 2 Factor Authentication (2FA) for accessing email services (Kavach) – reg",
+      "circular_no": "HO No.NDC/IS/SW/72/email/Chargeable/2020-Part(1)/381",
+      "issued_on": "2020-12-09",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "authentication"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/Email_KAVACH_137.pdf",
+      "source_file": "sources/is_security_systems-2020-12-09-42c4f4.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Mandatory Installation of 2 Factor Authentication (2FA) for accessing email services (Kavach) – reg",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_security_systems-2020-12-09-42c4f4",
+        "page_number": 1,
+        "quote": "No. NDC/IS/SW/72/email/Chargeable/2020-Part(1)/381 Date:09/1"
+      }
+    },
+    {
+      "id": "is_security_systems-2021-12-17-2163f7",
+      "title": "Mandatory activation of Multi-Factor Authentication",
+      "circular_no": "HO No. NDC/IS/SW/72/email/chargeable/2020/873",
+      "issued_on": "2021-12-17",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "authentication"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2021-2022/NDC_KAVACH_873.pdf",
+      "source_file": "sources/is_security_systems-2021-12-17-2163f7.json",
+      "verification": "source_checked",
+      "effective_from": "2021-12-17",
+      "effective_date_evidence": {
+        "document_id": "is_security_systems-2021-12-17-2163f7",
+        "page_number": 1,
+        "quote": "with immediate effect, installation of 2 Factor Authentication (2FA) has been made mandatory by NIC"
+      },
+      "version_label": "Mandatory activation of Multi-Factor Authentication",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_security_systems-2021-12-17-2163f7",
+        "page_number": 1,
+        "quote": "a8 Ud SIR Hae, UR BRR saferog Pte sre, 14, sflaprsit ara whe"
+      }
+    },
+    {
+      "id": "is_security_systems-2022-05-18-175c4a",
+      "title": "Cyber Security Advisory No. 2022/01 : Password Security Best Practices",
+      "circular_no": "NDC No. CISO/Security/2022/1182",
+      "issued_on": "2022-05-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "authentication"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/NDC_CISO_Security_PW_1182.pdf",
+      "source_file": "sources/is_security_systems-2022-05-18-175c4a.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Cyber Security Advisory No. 2022/01 : Password Security Best Practices",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_security_systems-2022-05-18-175c4a",
+        "page_number": 1,
+        "quote": "erent fae Pie aot EMPLOYEES PROVIDENT FUND ORGANISATION (A U"
+      }
+    },
+    {
+      "id": "is_security_systems-2022-05-18-b782c7",
+      "title": "Cyber Security Advisory No. 2022/02 : Data Wiper Malware",
+      "circular_no": "NDC No. CISO/Security/2022/1184",
+      "issued_on": "2022-05-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "cyber_security"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/NDC_CISO_Security_DATA_1184.pdf",
+      "source_file": "sources/is_security_systems-2022-05-18-b782c7.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Cyber Security Advisory No. 2022/02 : Data Wiper Malware",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_security_systems-2022-05-18-b782c7",
+        "page_number": 1,
+        "quote": "apafant ucts PTY TOA EMPLOYEES’ PROVIDENT FUND ORGANISATION "
+      }
+    },
+    {
+      "id": "is_security_systems-2022-06-01-d8b0e1",
+      "title": "Cyber Security Advisory: Processing of classified documents/files on eoffice\\r\\n",
+      "circular_no": "HO.No.CISO/Security/2022/1322",
+      "issued_on": "2022-06-01",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "cyber_security"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/Cyber_Security_Advisory_Classified_Documents_on_eOffice_09062022.pdf",
+      "source_file": "sources/is_security_systems-2022-06-01-d8b0e1.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Cyber Security Advisory: Processing of classified documents/files on eoffice\\r\\n",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_security_systems-2022-06-01-d8b0e1",
+        "page_number": 1,
+        "quote": "EMPLOYEES’ PROVIDENT FUND ORGANISATION ( , URTERDTR (MINISTR"
+      }
+    },
+    {
+      "id": "is_security_systems-2022-07-01-25e1d4",
+      "title": "Cyber Security Advisory No. 2022/03 - Protection against Mobile based Malware",
+      "circular_no": "HO No. CISO/Security/2022/1401",
+      "issued_on": "2022-07-01",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "cyber_security"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/CISO_Security_2022_1401_01072022.pdf",
+      "source_file": "sources/is_security_systems-2022-07-01-25e1d4.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Cyber Security Advisory No. 2022/03 - Protection against Mobile based Malware",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_security_systems-2022-07-01-25e1d4",
+        "page_number": 1,
+        "quote": "aparantt stacey fete Aareet EMPLOYEES’ PROVIDENT FUND ORGANI"
+      }
+    },
+    {
+      "id": "is_security_systems-2024-11-13-dd5dbc",
+      "title": "e-Office VPN Infrastructure Upgrade to Web-Based with MFA",
+      "circular_no": "No: e-907850/2472",
+      "issued_on": "2024-11-13",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "authentication"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/Circular_eOffice_VPNInfrastructure_Upgradeto_WebBased_MFA.pdf",
+      "source_file": "sources/is_security_systems-2024-11-13-dd5dbc.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "e-Office VPN Infrastructure Upgrade to Web-Based with MFA",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_security_systems-2024-11-13-dd5dbc",
+        "page_number": 1,
+        "quote": "e-Office VPN Infrastructure Upgrade to Web-Based with MFA- Reg"
+      }
+    },
+    {
+      "id": "is_security_systems-2025-06-25-9228b8",
+      "title": "Office Circular regarding Change of E-Office VPN passwords by 30 June 2025 – Regarding",
+      "circular_no": "No: E-885645",
+      "issued_on": "2025-06-25",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "authentication"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/OfficeCircular_ChangeOfPassword_VPN.pdf",
+      "source_file": "sources/is_security_systems-2025-06-25-9228b8.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Office Circular regarding Change of E-Office VPN passwords by 30 June 2025 – Regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_security_systems-2025-06-25-9228b8",
+        "page_number": 1,
+        "quote": "Web Ciralar Plant uface Pte aot EMPLOYEES’ PROVIDENT FUND OR"
+      }
+    },
+    {
+      "id": "is_security_systems-2026-07-23-fcaa65",
+      "title": "Deployment of the Samadhan Setu Web Application and Discontinuation of the Issue Tracker Portal",
+      "circular_no": "No. NDC/e-1320153",
+      "issued_on": "2026-07-23",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "issue_tracker"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2026-2027/Samadhan-Setu-Web-Application.pdf",
+      "source_file": "sources/is_security_systems-2026-07-23-fcaa65.json",
+      "verification": "source_checked",
+      "effective_from": "2026-07-23",
+      "effective_date_evidence": {
+        "document_id": "is_security_systems-2026-07-23-fcaa65",
+        "page_number": 1,
+        "quote": "The existing “Issue Tracker Portal” is discontinued"
+      },
+      "version_label": "Deployment of the Samadhan Setu Web Application and Discontinuation of the Issue Tracker Portal",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "is_security_systems-2026-07-23-fcaa65",
+        "page_number": 1,
+        "quote": "Deployment of the Samadhan Setu Web Application and Discontinuation"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "it-2020-cites-2018",
+      "source": "is_security_systems-2020-01-17-ab2ae5",
+      "target": "is_security_systems-2018-08-20-c6e2aa",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "is_security_systems-2020-01-17-ab2ae5",
+        "page_number": 1,
+        "quote": "IS/Tracking System/2018/3233 dated 20/08/2019"
+      },
+      "scope": "The January 2020 circular asks field offices to use the Issue Tracker under the guideline of 20 August 2018 (it cites the date as 20/08/2019); it adds how issues relate to CPGRAMS and RTI and does not replace the guideline."
+    },
+    {
+      "id": "it-2026-discontinues-2018",
+      "source": "is_security_systems-2026-07-23-fcaa65",
+      "target": "is_security_systems-2018-08-20-c6e2aa",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": "2026-07-23",
+      "effective_date_evidence": {
+        "document_id": "is_security_systems-2026-07-23-fcaa65",
+        "page_number": 1,
+        "quote": "The existing “Issue Tracker Portal” is discontinued"
+      },
+      "evidence": {
+        "document_id": "is_security_systems-2026-07-23-fcaa65",
+        "page_number": 1,
+        "quote": "The existing “Issue Tracker Portal” is discontinued"
+      },
+      "scope": "The July 2026 circular deploys the Samadhan Setu web application for reporting technical issues to the IS Division and states the Issue Tracker portal is discontinued. It replaces the process of the 2018 circular (and the 2020 circular that relies on it); stated in the present tense on the issue date."
+    }
+  ],
+  "limitations": [
+    "This collection covers Information Services circulars on issue reporting, authentication and cyber security. Network bandwidth orders, pending-issue lists and hardware specifications (see IT hardware specifications and norms) are not included.",
+    "The Cyber Security Advisories of 2022 (Nos. 2022/01 to 2022/03 and the e-Office classified-documents advisory) are time-bound alerts; they are listed as circulars but are not standing rules.",
+    "The 2020 and 2021 circulars make two-factor and multi-factor authentication mandatory for @epfindia.gov.in e-mail on NIC's direction; only the 17 December 2021 circular states 'with immediate effect', which is recorded. The 2024 circular runs the client-based and web-based VPN together until 15 November 2024 and then disables the client-based VPN; no separate commencement date is recorded.",
+    "J-Track (2012) was an earlier issue-reporting arrangement; no circular here says it was replaced by the Issue Tracker. The 2018 circular is cited by the 2020 circular with a different year (2019), which is recorded as written.",
+    "The Government of India e-mail policy and IT-resources policy (2015) are forwarded policies; the originals are not reproduced.",
+    "Dates follow the letter, not the issuer listing; entries whose letter date differs carry a date_note.",
+    "PDFs were read from the issuer mirror on 4 November 2026 because the public site returned 404 for these paths; recorded SHA-256 values apply to those files. Scanned pages are OCR. Issue dates were checked against the document headers."
+  ]
+}

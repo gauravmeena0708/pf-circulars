@@ -1,0 +1,79 @@
+{
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
+  "cases": [
+    {
+      "id": "ecr_returns-2012-05-23",
+      "question": "Amendment in Employees' Provident Fund Scheme, 1952 for submission of E-returns",
+      "as_of": "2012-05-23",
+      "required_evidence": [
+        {
+          "document_id": "ecr_returns-2012-05-23-9d468e",
+          "page_number": 2
+        }
+      ]
+    },
+    {
+      "id": "ecr_returns-2017-09-29",
+      "question": "Filing of Returns, Transmitting details of Members' Account Electronically and Better Management of Investment made by the Trust of Exempted Establish",
+      "as_of": "2017-09-29",
+      "required_evidence": [
+        {
+          "document_id": "ecr_returns-2017-09-29-3dd6e8",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "ecr_returns-2024-11-22",
+      "question": "UAN Activation and seeding Bank Account with AADHAAR for available the benefits under ELI Scheme",
+      "as_of": "2024-11-22",
+      "required_evidence": [
+        {
+          "document_id": "ecr_returns-2024-11-22-9c84d4",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "ecr_returns-2025-02-21",
+      "question": "UAN Activation and seeding Bank Account with AADHAAR for availing the benefits under ELI Scheme- Extension up to 15.03.2025- regarding",
+      "as_of": "2025-02-21",
+      "required_evidence": [
+        {
+          "document_id": "ecr_returns-2025-02-21-713548",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "ecr_returns-2025-09-26",
+      "question": "Launch of the revamped Electronic Challan-cum-Return )ECR) for wage month September - 2025 onwards",
+      "as_of": "2025-09-26",
+      "required_evidence": [
+        {
+          "document_id": "ecr_returns-2025-09-26-04d53c",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "ecr_returns-2026-01-22",
+      "question": "Extension of the due date for filing of the Electronic Challan-cum-Return (ECR) for wage month December, 2025 – reg.",
+      "as_of": "2026-01-22",
+      "required_evidence": [
+        {
+          "document_id": "ecr_returns-2026-01-22-a5a872",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "ecr_returns-before-latest",
+      "question": "Extension of the due date for filing of the Electronic Challan-cum-Return (ECR) for wage month December, 2025 – reg.",
+      "as_of": "2026-01-21",
+      "absent_documents": [
+        "ecr_returns-2026-01-22-a5a872"
+      ]
+    }
+  ]
+}

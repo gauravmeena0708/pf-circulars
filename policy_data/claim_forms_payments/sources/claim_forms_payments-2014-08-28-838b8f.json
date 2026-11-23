@@ -1,0 +1,15 @@
+{
+  "document_id": "claim_forms_payments-2014-08-28-838b8f",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Bkg_PaymentModuleCCPAP_278.pdf",
+  "pdf_sha256": "20a0a7680db27dc88b0cba89e3fd422fce82d7f52cd23577294bc68d377bf969",
+  "total_pdf_pages": 1,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "= c . Frater — Fax: 011-26173022\nEmployees Provident Fund Organisation Telephone: 26172685\n(A Aare ANA UHR)\n(Ministry of Labour, Govt. Of India)\nTRA / Head Office\nafaey PR vaK, 14—Frnroh war wry, ag feeeh—110066\n\nBhavishya Nidhi Bhawan, 14- Bhikaji Cama Place, New Delhi — 110066\n\n/ WEB CIRCULATION\nNo. Bkg.1(T1)10/New Process/Vol.I /. fo] ed a | 8} \\y\nTo we 2 8 AUG 2014\n\nAll Additional CPFCs (Zones)\n\nRegional P.F. Commissioners/OIC\n\nRO - Meerut, Patna, Hyderabad, Nizamabad, Bhubaneshwar, Bangalore,\nGulbarga, Peenya, Chennai, Madurai, Coimbatore, Tambaram, Kolkata,\nJalpaiguri, Guwahati, Ranchi, Pune, Kandivili, Vadodara, Surat, Indore.\n\nSRO-  Bhagalpur, Muzaffarpur, Kukatpalli, Siddipetah, Karim Nagar, Warangal,\nBerhampur, Keonjhar, Rourkela) Mysore Road, Allahabad, Bareilly,\nBellary, Raichur, Bommasandra, K.R. Puram, Ambatur, Nageroil,\nTirunelveli, Salem, Vellore. Howrah, Barrackpore, Park Street, Port Blair,\nDarjeeling, Jangipur, Siliguri, Shillong, Agartala, Tinsukia, Jamshedpur,\nSholapur, Nasik, Naroda, Bharuch, Bhopal Gwalior, Jabalpur, Sagar,\n\nUjjain.\nSubject Implementation of CCPAP Module of Payment from 16\" September, 2014.\nSir/Madam.\nCCPAP Module in the above said offices may be rolled out from 16\" September,\n2014.\n2, The above offices may generate digitally signed CCPAP advice file and upload\n\nthe same to SBI SFTP server on 15.09.2014. The file of 15.09.2014 should contain the details\nof cheques issued from A/c No. 1 & 10 on 15.09.2014 and also for the period preceding three\nmonths prior to 15.09.2014, Thereafter, the file may be uploaded on a daily basis in respect of\ncheques issued in A/c No. 1 & 10.\n\n3. After uploading the file SBI will fetch the file available in designated folder of\nSFTP server and perform further activities. Any technical issue for roll out of CCPAP may be\ntaken with Shri D.K. Pandey, AGM, SBI & Nodal Officer for EPFO and Shri S, K. Panda,\nDDS). CCPAP has been rolled out in Delhi(South), Bandra, Thane, Dehradun, Jaipur, Laxmi\nNagar, Kota#Udaipur.\n\n4. The concerned officials may be in readiness for sending the details of cheques\nissued during the preceding three months prior to 16\"\" September, 2014 and thereafter on a daily\nbasis. All RPFCs may ascertain beforehand that the digital signatures are functional. A trial\nrun may also be conducted by respective RPFCs before the scheduled date.\n\nYours faithfully,\n\neolOning\n\nRegional P.F. Commissioner-I(F&A)",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

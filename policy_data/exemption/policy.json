@@ -1,0 +1,2493 @@
+{
+  "schema_version": 1,
+  "id": "exemption",
+  "reviewed_on": "2026-11-04",
+  "topics": [
+    {
+      "id": "exemption",
+      "label": "Exemption and relaxation of establishments",
+      "include": "exempt|relax|surrender|surcharge|compliance audit|past accumulation|edli|amnesty|sop"
+    }
+  ],
+  "documents": [
+    {
+      "id": "exemption-2008-07-28-a4be7d",
+      "title": "Compliance Audit of Exempted Establishments",
+      "circular_no": "HO No. C-II/Misc./02/06/Ex./EZ/26401",
+      "issued_on": "2008-07-28",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/AuditExempt.pdf",
+      "source_file": "sources/exemption-2008-07-28-a4be7d.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Compliance Audit of Exempted Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2008-07-28-a4be7d",
+        "page_number": 1,
+        "quote": "Compliance audit of Exempted Establishments. Sir, A comprehensive"
+      },
+      "date_note": "The circular is typed 'Dated: 28.7.2008'; the issuer listing shows 7 August 2008."
+    },
+    {
+      "id": "exemption-2009-03-26-032e9c",
+      "title": "Proposals for grant of exemption from EDLI Scheme 1976 and extension thereof under Section 17(2A) of EPF & MP Act, 1952",
+      "circular_no": "HO No. CPFC/Exemp./SZ/2005/Vol.I.II/42860",
+      "issued_on": "2009-03-26",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/EDLI_let2026032009.pdf",
+      "source_file": "sources/exemption-2009-03-26-032e9c.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Proposals for grant of exemption from EDLI Scheme 1976 and extension thereof under Section 17(2A) of EPF & MP Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2009-03-26-032e9c",
+        "page_number": 1,
+        "quote": "Proposals for grant_of exemption from EDLi Scheme 1976 and extension"
+      }
+    },
+    {
+      "id": "exemption-2009-03-26-621b08",
+      "title": "Proposals for grant of exemption from EDLI Scheme 1976 and extension thereof under Section 17(2A) of EPF & MP Act, 1952",
+      "circular_no": "HO No. CPFC/Exemp./SZ/2005/Vol.I.II/42860",
+      "issued_on": "2009-03-26",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/YOld Circulars/EDLI_let2026032009.pdf",
+      "source_file": "sources/exemption-2009-03-26-621b08.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Proposals for grant of exemption from EDLI Scheme 1976 and extension thereof under Section 17(2A) of EPF & MP Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2009-03-26-621b08",
+        "page_number": 1,
+        "quote": "Proposals for grant_of exemption from EDLi Scheme 1976 and extension"
+      }
+    },
+    {
+      "id": "exemption-2009-04-27-04df6a",
+      "title": "Grant of Exemption under Section 17(1) of the Act - Guidelines for processing the proposal in the light of amendment in the Finance Act",
+      "circular_no": "HO No. C-II/Misc./ 02/06/Exem/Vol.I/5314-5464",
+      "issued_on": "2009-04-27",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/GrantExempt2.pdf",
+      "source_file": "sources/exemption-2009-04-27-04df6a.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Grant of Exemption under Section 17(1) of the Act - Guidelines for processing the proposal in the light of amendment in the Finance Act",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2009-04-27-04df6a",
+        "page_number": 1,
+        "quote": "Grant of exemption u/s 17 (1) of the Act ~ Guidelines for processing"
+      }
+    },
+    {
+      "id": "exemption-2009-08-06-b36d4e",
+      "title": "Proposals for grant of exemption form EDLI Scheme 1976 and extension thereof under Section 17(2A)",
+      "circular_no": "HO No. CPFC/Exemp./SZ/2005/Vol.III/11764",
+      "issued_on": "2009-08-06",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/EDLICirc.pdf",
+      "source_file": "sources/exemption-2009-08-06-b36d4e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Proposals for grant of exemption form EDLI Scheme 1976 and extension thereof under Section 17(2A)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2009-08-06-b36d4e",
+        "page_number": 1,
+        "quote": "Proposals for grant of exemption from _EDLI Scheme 1976 and extension"
+      },
+      "date_note": "The circular is typed 'Dated: 06.08.2009' (stamp 7 August 2009); the issuer listing shows 7 August 2009."
+    },
+    {
+      "id": "exemption-2009-10-15-0d3788",
+      "title": "Compliance Audit of Exempted Establishments",
+      "circular_no": "HO No. C-Ex/Misc/Comp.Audit 2009/52163",
+      "issued_on": "2009-10-15",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/CompAudExempEst.PDF",
+      "source_file": "sources/exemption-2009-10-15-0d3788.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Compliance Audit of Exempted Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2009-10-15-0d3788",
+        "page_number": 1,
+        "quote": "Compliance Audit of Exempted Establishments—ST Sir, A comprehensive"
+      }
+    },
+    {
+      "id": "exemption-2009-10-15-4cf24c",
+      "title": "Review of proposals for grant of exemption from EDLI Scheme 1976 and extension thereof under Section 17(2A) of EPF & MP Act, 1952",
+      "circular_no": "HO No. CPFC/Exemp./SZ/ 2005 /Vol.II/19766-78",
+      "issued_on": "2009-10-15",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/EDLILet_Dt16102009.pdf",
+      "source_file": "sources/exemption-2009-10-15-4cf24c.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Review of proposals for grant of exemption from EDLI Scheme 1976 and extension thereof under Section 17(2A) of EPF & MP Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2009-10-15-4cf24c",
+        "page_number": 1,
+        "quote": "Review of proposals for grant of exemption from EDLI Scheme 1976 and"
+      },
+      "date_note": "The circular is typed 'Dated: 15th October 2009' (stamp 16 October 2009); the issuer listing shows 16 October 2009."
+    },
+    {
+      "id": "exemption-2009-11-09-438a67",
+      "title": "Review of proposals for grant of exemption from EDLI Scheme 1976 and extension thereof",
+      "circular_no": "HO No. CPFC/Exemp. /SZ/2005/Vol.ii/22588",
+      "issued_on": "2009-11-09",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/RevPropoExempEDLI.PDF",
+      "source_file": "sources/exemption-2009-11-09-438a67.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Review of proposals for grant of exemption from EDLI Scheme 1976 and extension thereof",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2009-11-09-438a67",
+        "page_number": 1,
+        "quote": "Review of pro: is for grant of exemption from EDLI Scheme 1976 and"
+      }
+    },
+    {
+      "id": "exemption-2009-12-18-0c9ed8",
+      "title": "Compliance audit of Exempted Establishments",
+      "circular_no": "HO No. C-Ex/Misc/Comp.Audit 2009/77462",
+      "issued_on": "2009-12-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2009-2010/CompAuditEE.PDF",
+      "source_file": "sources/exemption-2009-12-18-0c9ed8.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Compliance audit of Exempted Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2009-12-18-0c9ed8",
+        "page_number": 1,
+        "quote": "Compliance Audit of Exempted Establishments — reg. Sir, Kindly refer"
+      }
+    },
+    {
+      "id": "exemption-2010-02-01-0373c6",
+      "title": "Cancellation of exemption - transfer of past accumulation",
+      "circular_no": "HO No. C-Ex/E-III/16(45)99/WB/CE/EZ/82943-83172",
+      "issued_on": "2010-02-01",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/Exempt82943.PDF",
+      "source_file": "sources/exemption-2010-02-01-0373c6.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Cancellation of exemption - transfer of past accumulation",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2010-02-01-0373c6",
+        "page_number": 1,
+        "quote": "Cancellation of exemption — Transfer of past accumulations regarding"
+      }
+    },
+    {
+      "id": "exemption-2010-03-31-988838",
+      "title": "Exemption us /17(1)(a) of EPF & MP Act, 1952 and u/p 27A of the EPF Scheme, 1952 - forwarding of proposal",
+      "circular_no": "HO No. C-II/Misc/02/06/Ex/EZ/Vol.I/93898",
+      "issued_on": "2010-03-31",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/Exempt93898.PDF",
+      "source_file": "sources/exemption-2010-03-31-988838.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Exemption us /17(1)(a) of EPF & MP Act, 1952 and u/p 27A of the EPF Scheme, 1952 - forwarding of proposal",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2010-03-31-988838",
+        "page_number": 1,
+        "quote": "Exemption us/ 17(1)(a) of the EPF & MP Act, 1952 and u/p 27A of the"
+      }
+    },
+    {
+      "id": "exemption-2010-05-04-78e145",
+      "title": "Compliance Audit of Exempted Establishments",
+      "circular_no": "HO No. C-Ex/Misc/CompAudit/2009/2510",
+      "issued_on": "2010-05-04",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/CompAuditEE2510.PDF",
+      "source_file": "sources/exemption-2010-05-04-78e145.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Compliance Audit of Exempted Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2010-05-04-78e145",
+        "page_number": 1,
+        "quote": "Compliance Audit of Exempted Establishment. Sir, Please refer to Head"
+      }
+    },
+    {
+      "id": "exemption-2010-05-06-562e63",
+      "title": "Compliance Audit Report of Exempted Establishments",
+      "circular_no": "HO NO. C-Ex/Misc./Comp.Audit/2009/6800",
+      "issued_on": "2010-05-06",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/CompAudit6800.PDF",
+      "source_file": "sources/exemption-2010-05-06-562e63.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Compliance Audit Report of Exempted Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2010-05-06-562e63",
+        "page_number": 1,
+        "quote": "Complaint Audit report of exempted establishments. Sir, Central PF"
+      }
+    },
+    {
+      "id": "exemption-2010-10-18-b40132",
+      "title": "Compliance Audit of exempted establishments",
+      "circular_no": "HO No. C-Ex/Misc/Comp.Audit 2009/425670",
+      "issued_on": "2010-10-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/CompAudit_425670.pdf",
+      "source_file": "sources/exemption-2010-10-18-b40132.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Compliance Audit of exempted establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2010-10-18-b40132",
+        "page_number": 1,
+        "quote": "Compliance Audit of exempted establishments — reg. Sir, Central"
+      }
+    },
+    {
+      "id": "exemption-2010-11-24-442ac5",
+      "title": "Proposal for grant of exemption u/s. 17 of EPF & MP Act. 1952",
+      "circular_no": "HO No. C.II/Misc./02/06/Ex./EZ/Vol.I/28678-28828",
+      "issued_on": "2010-11-24",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/GrtExempt28828.PDF",
+      "source_file": "sources/exemption-2010-11-24-442ac5.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Proposal for grant of exemption u/s. 17 of EPF & MP Act. 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2010-11-24-442ac5",
+        "page_number": 1,
+        "quote": "Bp eae for geste of SPinption uls. 17 of eer & MP Act, hb. ‘ Sir"
+      }
+    },
+    {
+      "id": "exemption-2010-12-24-13ef5e",
+      "title": "Compliance Audit of exempted establishments",
+      "circular_no": "HO No. C-Ex/Misc/Comp.audit/2009/57506",
+      "issued_on": "2010-12-24",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/Comp_Audit_Ex.Estt_57506.pdf",
+      "source_file": "sources/exemption-2010-12-24-13ef5e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Compliance Audit of exempted establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2010-12-24-13ef5e",
+        "page_number": 1,
+        "quote": "Compliance Audit of exempted establishments — reg. Sir, Kindly refer"
+      }
+    },
+    {
+      "id": "exemption-2010-12-24-c08e54",
+      "title": "Proposal for Grant of exemption u/s 17 of the EPF & MP Act 1952",
+      "circular_no": "HO No. CII/Misc/02/06/Ex/EZ/Vol I/57657",
+      "issued_on": "2010-12-24",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/CII_Ex_EZ_57657.pdf",
+      "source_file": "sources/exemption-2010-12-24-c08e54.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Proposal for Grant of exemption u/s 17 of the EPF & MP Act 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2010-12-24-c08e54",
+        "page_number": 1,
+        "quote": "Proposal for Grant of exemption u/s 17 of the EPF & MP Act 1952 Sir"
+      }
+    },
+    {
+      "id": "exemption-2011-01-18-5765b5",
+      "title": "Grant of exemption u/s 17",
+      "circular_no": "HO No. Ex/Misc./Comp.Audit/ 09 /90000",
+      "issued_on": "2011-01-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/CompAudit_90000.pdf",
+      "source_file": "sources/exemption-2011-01-18-5765b5.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Grant of exemption u/s 17",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2011-01-18-5765b5",
+        "page_number": 1,
+        "quote": "Grant of exemption u/s 17. Sir, Please refer to Head Office letter of"
+      }
+    },
+    {
+      "id": "exemption-2011-02-02-255893",
+      "title": "Compliance Audit of exempted establishments",
+      "circular_no": "HO No. Ex/Misc/Comp.Audit/2009/94690",
+      "issued_on": "2011-02-02",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/Ex_CompAudit_94690.pdf",
+      "source_file": "sources/exemption-2011-02-02-255893.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Compliance Audit of exempted establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2011-02-02-255893",
+        "page_number": 1,
+        "quote": "Compliance Audit of exempted establishments. Sir, Please refer to"
+      }
+    },
+    {
+      "id": "exemption-2011-03-07-315de1",
+      "title": "Compliance Audit of exempted establishments",
+      "circular_no": "HO No. Ex/Misc/Comp. Audit/2009/101080-100",
+      "issued_on": "2011-03-07",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/Ex_CompAudit_101080-100.pdf",
+      "source_file": "sources/exemption-2011-03-07-315de1.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Compliance Audit of exempted establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2011-03-07-315de1",
+        "page_number": 1,
+        "quote": "Compliance Audit of exempted establishments. Sir, Please refer to"
+      }
+    },
+    {
+      "id": "exemption-2011-06-21-4aab1a",
+      "title": "Transfer of funds to the PF trusts subsequent to grant of exemption u/s 17",
+      "circular_no": "HO No. C-Ex/Misc./Comp.Audit/2008/2473",
+      "issued_on": "2011-06-21",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/C-Ex_CompAudit_2473.pdf",
+      "source_file": "sources/exemption-2011-06-21-4aab1a.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Transfer of funds to the PF trusts subsequent to grant of exemption u/s 17",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2011-06-21-4aab1a",
+        "page_number": 1,
+        "quote": "Transfer of funds to the PF trusts subsequent to grant of exemption"
+      }
+    },
+    {
+      "id": "exemption-2011-07-05-de63af",
+      "title": "Verification of the data provided in MIS 105 in respect of contribution received from Exempted Sector for the year 2010-11",
+      "circular_no": "HO No. MIS 2(1)/CONS MIS/2010-11",
+      "issued_on": "2011-07-05",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/MIS_MIS105.pdf",
+      "source_file": "sources/exemption-2011-07-05-de63af.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Verification of the data provided in MIS 105 in respect of contribution received from Exempted Sector for the year 2010-11",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2011-07-05-de63af",
+        "page_number": 1,
+        "quote": "Verification of the data provided in MIS 105 in respect of"
+      }
+    },
+    {
+      "id": "exemption-2011-08-03-f27d8c",
+      "title": "Proposal for Grant of exemption u/s 17 of the EPF & MP Act 1952",
+      "circular_no": "HO No. C/Ex/Misc/Comp Audit/2009/20700",
+      "issued_on": "2011-08-03",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/Ex_CompAudit_20700.pdf",
+      "source_file": "sources/exemption-2011-08-03-f27d8c.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Proposal for Grant of exemption u/s 17 of the EPF & MP Act 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2011-08-03-f27d8c",
+        "page_number": 1,
+        "quote": "ara uftrer fair aor Cae va TT ATT, WIT ALA) . EMPLOYEES’ PRO"
+      }
+    },
+    {
+      "id": "exemption-2011-10-10-746da6",
+      "title": "Compliance Audit of Exempted Establishments",
+      "circular_no": "HO No. C-Ex/Misc/Comp. Audit/2009/31241",
+      "issued_on": "2011-10-10",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/C-Ex_CompAudit_31241.pdf",
+      "source_file": "sources/exemption-2011-10-10-746da6.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Compliance Audit of Exempted Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2011-10-10-746da6",
+        "page_number": 1,
+        "quote": "Compliance Audit of Exempted Establishments — reg. Sir, A"
+      }
+    },
+    {
+      "id": "exemption-2011-11-18-3cb08d",
+      "title": "Exemption u/s 17(1)(a) of the EPF & MP Act, 1952 & u/p 27A of the EPF Scheme, 1952",
+      "circular_no": "HO No.C-II/Misc/02/06/EZ/Ex/18098",
+      "issued_on": "2011-11-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/C2_Exem_EZ_18098.PDF",
+      "source_file": "sources/exemption-2011-11-18-3cb08d.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Exemption u/s 17(1)(a) of the EPF & MP Act, 1952 & u/p 27A of the EPF Scheme, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2011-11-18-3cb08d",
+        "page_number": 1,
+        "quote": "Exemption u/s 17(1)(a) of the EPF & MP Act, 1952 & u/p 27A of the EPF"
+      }
+    },
+    {
+      "id": "exemption-2011-11-25-7bc362",
+      "title": "Grant of exemption from the provisions of EDLI Scheme, 1976 u/s. 17(2A) of the EPF & MP Act, 1952",
+      "circular_no": "CPFC/EDLI Exemp./SZ/ 2005/Vol.IV/15676",
+      "issued_on": "2011-11-25",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/CPFC_EDLIExem_15676.pdf",
+      "source_file": "sources/exemption-2011-11-25-7bc362.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Grant of exemption from the provisions of EDLI Scheme, 1976 u/s. 17(2A) of the EPF & MP Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2011-11-25-7bc362",
+        "page_number": 1,
+        "quote": "Grant of exemption from the provisions of EDLI Scheme, 1976 u/s"
+      }
+    },
+    {
+      "id": "exemption-2012-05-09-b45a65",
+      "title": "Establishments exempted u/s 16(2) of EPF & MP Act, 1952 for the period 01.04.2010 to 31.03.2015",
+      "circular_no": "HO No. Coord./5(1) MOL /2002/NGO/Vol.I/1625",
+      "issued_on": "2012-05-09",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/Coord_ExEst_1625.pdf",
+      "source_file": "sources/exemption-2012-05-09-b45a65.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Establishments exempted u/s 16(2) of EPF & MP Act, 1952 for the period 01.04.2010 to 31.03.2015",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2012-05-09-b45a65",
+        "page_number": 2,
+        "quote": "Forwarding a copy of Government of India, Ministry of Labour & 5"
+      }
+    },
+    {
+      "id": "exemption-2013-03-01-82922d",
+      "title": "Monitoring of Exempted Establishments",
+      "circular_no": "HO No. C-Ex/Misc./Comp. Audit/ 2009/",
+      "issued_on": "2013-03-01",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/CEx_CompAudit.pdf",
+      "source_file": "sources/exemption-2013-03-01-82922d.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Monitoring of Exempted Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2013-03-01-82922d",
+        "page_number": 1,
+        "quote": "Monitoring of Exempted Establishmentls. Sir, It is proposed to take"
+      }
+    },
+    {
+      "id": "exemption-2013-08-16-11c8b7",
+      "title": "Disposal of exemption applications pending for grant of exemption under Section 17(1)(a) of the EPF & MP Act, 1952 and Para 27A of the Employees' Provident Funds Scheme, 1952 and notification thereof",
+      "circular_no": "HO No. C-II/MISC/02/06/EX/EZ/VOL-I/9360",
+      "issued_on": "2013-08-16",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/EXM_Grant_Of_Exemption_9360.pdf",
+      "source_file": "sources/exemption-2013-08-16-11c8b7.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Disposal of exemption applications pending for grant of exemption under Section 17(1)(a) of the EPF & MP Act, 1952 and Para 27A of the Employees' Provident Funds Scheme, 1952 and notification thereof",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2013-08-16-11c8b7",
+        "page_number": 2,
+        "quote": "section (3) of Section 1 of the Employees’ Provident Funds and"
+      }
+    },
+    {
+      "id": "exemption-2014-03-27-e7cff8",
+      "title": "Online e-Return Format for PF Exempted / Relaxed Establishments",
+      "circular_no": "HO No. C/Misc./Ex-Return/2013/27552",
+      "issued_on": "2014-03-27",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/Exem_OnlineE_Return_27552.pdf",
+      "source_file": "sources/exemption-2014-03-27-e7cff8.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Online e-Return Format for PF Exempted / Relaxed Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2014-03-27-e7cff8",
+        "page_number": 1,
+        "quote": "Regional Offices, Subject: Online e-Return Format for PF"
+      }
+    },
+    {
+      "id": "exemption-2014-04-22-b3a951",
+      "title": "Mandatory online filing of returns by Exempted and Relaxed Establishments",
+      "circular_no": "HO No. C/Misc./Ex-Return/2013/1877",
+      "issued_on": "2014-04-22",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Exem_OnlineReturnExEstt_1877.pdf",
+      "source_file": "sources/exemption-2014-04-22-b3a951.json",
+      "verification": "source_checked",
+      "effective_from": "2014-04-01",
+      "effective_date_evidence": {
+        "document_id": "exemption-2014-04-22-b3a951",
+        "page_number": 1,
+        "quote": "Presently, all the Exempted and Relaxed establishments will only file monthly return online from 01.04.2014"
+      },
+      "version_label": "Mandatory online filing of returns by Exempted and Relaxed Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2014-04-22-b3a951",
+        "page_number": 1,
+        "quote": "Regional Offices Subject: Mandatory online filing of returns by"
+      }
+    },
+    {
+      "id": "exemption-2014-04-30-fd8645",
+      "title": "Re-Auditing of the accounts of Provident Fund maintained by Board of Trustees of Exempted and Relaxed establishments by any other qualified Auditor by RPFC",
+      "circular_no": "HO No. E-III/Misc./14/Exem/Third Party Compliance Audit/2682",
+      "issued_on": "2014-04-30",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Exem_Audit_ExEstt_2682.pdf",
+      "source_file": "sources/exemption-2014-04-30-fd8645.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Re-Auditing of the accounts of Provident Fund maintained by Board of Trustees of Exempted and Relaxed establishments by any other qualified Auditor by RPFC",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2014-04-30-fd8645",
+        "page_number": 1,
+        "quote": "Regional Offices. Subject : Re-Auditing of the accounts of Provident"
+      }
+    },
+    {
+      "id": "exemption-2014-05-06-617db8",
+      "title": "Guidelines on rate of surcharge to be levied on Board of Trustees of the exempted / relaxed establishments on account of deviation from the prescribed pattern of investment by RPFCs",
+      "circular_no": "HO No. E.III/18(1)04/Sub Committee/2961",
+      "issued_on": "2014-05-06",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Exem_SurchargeBOT_2961.pdf",
+      "source_file": "sources/exemption-2014-05-06-617db8.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Guidelines on rate of surcharge to be levied on Board of Trustees of the exempted / relaxed establishments on account of deviation from the prescribed pattern of investment by RPFCs",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2014-05-06-617db8",
+        "page_number": 1,
+        "quote": "Regional Offices. Subject : Guidelines on rate of surcharge to be"
+      }
+    },
+    {
+      "id": "exemption-2014-05-08-a51fb4",
+      "title": "Grant of exemption from the provisions of EDLI Scheme, 1976 under Section 17(2A) of the EPF & MP Act, 1952",
+      "circular_no": "HO No. C-III/8(1)2011/GJ/EDLI Exemp/3173",
+      "issued_on": "2014-05-08",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Comp_ExemptionEDLI_3173.pdf",
+      "source_file": "sources/exemption-2014-05-08-a51fb4.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Grant of exemption from the provisions of EDLI Scheme, 1976 under Section 17(2A) of the EPF & MP Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2014-05-08-a51fb4",
+        "page_number": 1,
+        "quote": "Grant of exemption from the provisions of EDLI Scheme, 1976 under"
+      }
+    },
+    {
+      "id": "exemption-2014-05-08-e78f92",
+      "title": "Grant of exemption from the provisions of EDLI Scheme, 1976 under Section 17(2A) of the EPF & MP Act, 1952",
+      "circular_no": "HO No. C-III/8(1)2011/GJ/EDLI Exemp/3174",
+      "issued_on": "2014-05-08",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Comp_ExemptionEDLI_3174.pdf",
+      "source_file": "sources/exemption-2014-05-08-e78f92.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Grant of exemption from the provisions of EDLI Scheme, 1976 under Section 17(2A) of the EPF & MP Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2014-05-08-e78f92",
+        "page_number": 1,
+        "quote": "Grant of exemption from the provisions of EDLI Scheme, 1976 under"
+      }
+    },
+    {
+      "id": "exemption-2014-05-13-155336",
+      "title": "Grant of exemption from the provisions of EDLI Scheme, 1976 under Section 17(2A) of the EPF & MP Act, 1952",
+      "circular_no": "HO No. C-III/8(1)2011/GJ/EDLI Exemp/3376",
+      "issued_on": "2014-05-13",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Comp_ExemEDLI_3376.pdf",
+      "source_file": "sources/exemption-2014-05-13-155336.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Grant of exemption from the provisions of EDLI Scheme, 1976 under Section 17(2A) of the EPF & MP Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2014-05-13-155336",
+        "page_number": 1,
+        "quote": "Grant of exemption from the provisions of EDLI Scheme, 1976 under"
+      }
+    },
+    {
+      "id": "exemption-2014-06-06-1b752e",
+      "title": "Grant of exemption from the provisions of EDLI Scheme, 1976 under Section 17(2A) of the EPF & MP Act, 1952",
+      "circular_no": "HO No. C-III/8(1)2011/EDLI Exempt/6105",
+      "issued_on": "2014-06-06",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Comp_EDLIExemption_6105.pdf",
+      "source_file": "sources/exemption-2014-06-06-1b752e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Grant of exemption from the provisions of EDLI Scheme, 1976 under Section 17(2A) of the EPF & MP Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2014-06-06-1b752e",
+        "page_number": 1,
+        "quote": "Grant of exemption from the provisions of EDLI Scheme, 1976 under"
+      }
+    },
+    {
+      "id": "exemption-2014-07-30-24d126",
+      "title": "Instructions on Inspection Scheme and new proforma for inspection of covered un-exempted establishments",
+      "circular_no": "HO No. C-III/110001/4/2(25)2014/HQRS/Web Portal/10398",
+      "issued_on": "2014-07-30",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Comp_InspectionNewProforma_10398.pdf",
+      "source_file": "sources/exemption-2014-07-30-24d126.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Instructions on Inspection Scheme and new proforma for inspection of covered un-exempted establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2014-07-30-24d126",
+        "page_number": 1,
+        "quote": "Instructions on Inspection Scheme and new proforma for inspection of"
+      }
+    },
+    {
+      "id": "exemption-2014-07-30-80be78",
+      "title": "Transfer of Past Accumulation on withdrawal of relaxation and on surrender of exemption - Instructions thereof - regarding",
+      "circular_no": "HO No. C-II/Misc./02/06/Ex/EZ/Vol.I/10240",
+      "issued_on": "2014-07-30",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Comp_InstructionPastAccumulation_10240.pdf",
+      "source_file": "sources/exemption-2014-07-30-80be78.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Transfer of Past Accumulation on withdrawal of relaxation and on surrender of exemption - Instructions thereof - regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2014-07-30-80be78",
+        "page_number": 1,
+        "quote": "Transfer of Past Accumulation on withdrawal of relaxation and on"
+      }
+    },
+    {
+      "id": "exemption-2014-07-31-e0d5bf",
+      "title": "Instructions on Inspection Scheme and new proforma for inspection of covered un-exempted establishments",
+      "circular_no": "HO No. C-III/110001/4/2(25)2014/HQRS/Web Portal/10451",
+      "issued_on": "2014-07-31",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Comp_InspectionSchemeProforma_10451.pdf",
+      "source_file": "sources/exemption-2014-07-31-e0d5bf.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Instructions on Inspection Scheme and new proforma for inspection of covered un-exempted establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2014-07-31-e0d5bf",
+        "page_number": 1,
+        "quote": "Instructions on Inspection Scheme and new proforma for inspection of"
+      }
+    },
+    {
+      "id": "exemption-2014-12-24-20acae",
+      "title": "EDLI Exemption Proposal - Insisting for minimum premium of 0.5% of wages in schemes offered in lieu of EDLI - clarification",
+      "circular_no": "HO No. EDLI/6/1/2014/30000",
+      "issued_on": "2014-12-24",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/EDLI_ExemProposal_Clarifi_30000.pdf",
+      "source_file": "sources/exemption-2014-12-24-20acae.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "EDLI Exemption Proposal - Insisting for minimum premium of 0.5% of wages in schemes offered in lieu of EDLI - clarification",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2014-12-24-20acae",
+        "page_number": 1,
+        "quote": "EDL! Exemption Proposal - Insisting for minimum premium of 0.5% of"
+      }
+    },
+    {
+      "id": "exemption-2015-02-23-53f5b3",
+      "title": "Procedure for Cancellation of Exemption",
+      "circular_no": "HO No. C-EX/32(6)13/Cancellation Order/39344",
+      "issued_on": "2015-02-23",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/EX_Cancellation_Exemption_39344.pdf",
+      "source_file": "sources/exemption-2015-02-23-53f5b3.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Procedure for Cancellation of Exemption",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2015-02-23-53f5b3",
+        "page_number": 1,
+        "quote": "Regional Offices. Subject:- Procedure for Cancellation of Exemption"
+      }
+    },
+    {
+      "id": "exemption-2015-03-27-d8e001",
+      "title": "Mandatory Online Filing of Returns by Exempted / Relaxed Establishments",
+      "circular_no": "HO No. C/Misc./Ex-Return/2013/45788",
+      "issued_on": "2015-03-27",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Ex_OnlineReturn_ExEstt_45788.pdf",
+      "source_file": "sources/exemption-2015-03-27-d8e001.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Mandatory Online Filing of Returns by Exempted / Relaxed Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2015-03-27-d8e001",
+        "page_number": 1,
+        "quote": "Regional Offices. & Date: 9 7 MAR 2018 All Addl. CPFC (Zones) Subject"
+      }
+    },
+    {
+      "id": "exemption-2015-06-09-0f7f88",
+      "title": "Pattern of Investment for EPF Exempted Establishments",
+      "circular_no": "HO No. HO/IMC/132/Pattern2015/8004",
+      "issued_on": "2015-06-09",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/IMC_InvestmentPattern_ExEstt_8004.pdf",
+      "source_file": "sources/exemption-2015-06-09-0f7f88.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Pattern of Investment for EPF Exempted Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2015-06-09-0f7f88",
+        "page_number": 1,
+        "quote": "Pattern of Investment for EPF Exempted Establishments. Sir, The"
+      }
+    },
+    {
+      "id": "exemption-2015-06-09-9dde75",
+      "title": "Pattern of Investment for EPF Exempted Establishments",
+      "circular_no": "HO No. HO/IMC/132/Pattern2015/8135",
+      "issued_on": "2015-06-09",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/IMC_InvestmentPattern_ExEstt_8135.pdf",
+      "source_file": "sources/exemption-2015-06-09-9dde75.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Pattern of Investment for EPF Exempted Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2015-06-09-9dde75",
+        "page_number": 1,
+        "quote": "Pattern of Investment for EPF Exempted Establishments. Sir"
+      }
+    },
+    {
+      "id": "exemption-2015-06-26-acadcd",
+      "title": "Copy of Gazette Notification of Pattern of Investment 2015 for EPF Exempted Establishments",
+      "circular_no": "HO No. HO/IMC/132/Pattern2015/12937",
+      "issued_on": "2015-06-26",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/IMC_InvestmentPattern_12937.pdf",
+      "source_file": "sources/exemption-2015-06-26-acadcd.json",
+      "verification": "source_checked",
+      "effective_from": "2015-05-29",
+      "effective_date_evidence": {
+        "document_id": "exemption-2015-06-26-acadcd",
+        "page_number": 1,
+        "quote": "the said pattern will be applicable to all exempted establishments w.e.f. 29"
+      },
+      "version_label": "Copy of Gazette Notification of Pattern of Investment 2015 for EPF Exempted Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2015-06-26-acadcd",
+        "page_number": 1,
+        "quote": "Copy of Gazette Notification of Pattern of Investment 2015 for EPF"
+      }
+    },
+    {
+      "id": "exemption-2015-08-13-9a2b7a",
+      "title": "Compliance Audit of Exempted / Relaxed Establishments",
+      "circular_no": "HO No. C-Ex/Misc/Comp.Audit/2015/9604",
+      "issued_on": "2015-08-13",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/Exem_ComplianceAudit_9604.pdf",
+      "source_file": "sources/exemption-2015-08-13-9a2b7a.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Compliance Audit of Exempted / Relaxed Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2015-08-13-9a2b7a",
+        "page_number": 1,
+        "quote": "Compliance Audit of Exempted/Relaxed Establishments - Regarding. Sir"
+      }
+    },
+    {
+      "id": "exemption-2015-09-07-2a3b41",
+      "title": "Applicability of EPF & MP Act due to non extension of exemption under Section 16(2) of the Act to certain classes of establishments",
+      "circular_no": "HO No. Coord./1(1)2010/Notification u/s. 16(2)/24366",
+      "issued_on": "2015-09-07",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/Coord_Applicability_EPFAct_24366.pdf",
+      "source_file": "sources/exemption-2015-09-07-2a3b41.json",
+      "verification": "source_checked",
+      "effective_from": "2015-04-01",
+      "effective_date_evidence": {
+        "document_id": "exemption-2015-09-07-2a3b41",
+        "page_number": 1,
+        "quote": "all such establishments have come under the purview of the Act w.e.f. 01.04.2015"
+      },
+      "version_label": "Applicability of EPF & MP Act due to non extension of exemption under Section 16(2) of the Act to certain classes of establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2015-09-07-2a3b41",
+        "page_number": 1,
+        "quote": "Applicability of EPF & MP Act due to non extension of exemption under"
+      }
+    },
+    {
+      "id": "exemption-2015-10-06-e976ab",
+      "title": "Investments made by exempted trusts in recently downgraded companies Advisory",
+      "circular_no": "HO No. HO/IMC/188/IBEE/2015/27082-84",
+      "issued_on": "2015-10-06",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/IMC_InvestExemptTrust_27082-84.pdf",
+      "source_file": "sources/exemption-2015-10-06-e976ab.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Investments made by exempted trusts in recently downgraded companies Advisory",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2015-10-06-e976ab",
+        "page_number": 1,
+        "quote": "Investments made by exempted trusts in recently downgraded companies"
+      }
+    },
+    {
+      "id": "exemption-2015-12-01-09b329",
+      "title": "Inviting Suggestions on Proforma of Compliance Audit Report of Exempted / Relaxed Establishments",
+      "circular_no": "HO No. E.III/Misc./14/Exem/Third Party Compliance Audit/31403",
+      "issued_on": "2015-12-01",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/E3_ThirdPartyComplianceAudit_ExEstt_31403.pdf",
+      "source_file": "sources/exemption-2015-12-01-09b329.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Inviting Suggestions on Proforma of Compliance Audit Report of Exempted / Relaxed Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2015-12-01-09b329",
+        "page_number": 1,
+        "quote": "— Inviting Suggestions on Proforma of Compliance Audit Report of"
+      }
+    },
+    {
+      "id": "exemption-2016-08-04-94c38e",
+      "title": "Clarification regarding online filing of returns by Exempted / Relaxed Establishments",
+      "circular_no": "HO No. C-Ex/32(27)07/WB/EX/EZ/8848",
+      "issued_on": "2016-08-04",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/Exemption_OnlineReturn_8848.pdf",
+      "source_file": "sources/exemption-2016-08-04-94c38e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Clarification regarding online filing of returns by Exempted / Relaxed Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2016-08-04-94c38e",
+        "page_number": 1,
+        "quote": "Clarification regarding online filing of returns by Exempted/Relaxed"
+      }
+    },
+    {
+      "id": "exemption-2016-08-05-031a01",
+      "title": "Exemption under Section 17(1)(a) of the EPF & MP Act, 1952 and under Para 27A of the EPF Scheme, 1952",
+      "circular_no": "HO No. C-II/Misc./2/06/EZ/Ex./Vol-II/11901",
+      "issued_on": "2016-08-05",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/Exem_ExemptionGuidelines_11901.pdf",
+      "source_file": "sources/exemption-2016-08-05-031a01.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Exemption under Section 17(1)(a) of the EPF & MP Act, 1952 and under Para 27A of the EPF Scheme, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2016-08-05-031a01",
+        "page_number": 1,
+        "quote": "Exemption under Section 17(1)(a) of the EPF & MP Act, 1952 and under"
+      }
+    },
+    {
+      "id": "exemption-2016-09-05-80c879",
+      "title": "Verification of Closed Exempted / Relaxed Establishments",
+      "circular_no": "HO No. C-Ex/32(1)/15/BR/SRO/MUZ/CE/EZ/10249",
+      "issued_on": "2016-09-05",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/Exem_Verification_ExEstt_10249.pdf",
+      "source_file": "sources/exemption-2016-09-05-80c879.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Verification of Closed Exempted / Relaxed Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2016-09-05-80c879",
+        "page_number": 1,
+        "quote": "Regional Offices. Subject : Verification of Closed Exempted/Relaxed"
+      }
+    },
+    {
+      "id": "exemption-2016-09-12-006225",
+      "title": "Transfer of Past Accumulation on cancellation of exemption - instructions thereof",
+      "circular_no": "HO No. C-II/Misc./02/06/Ex./EZ/Vol. I/15146",
+      "issued_on": "2016-09-12",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/C2_Transfer_PastAcc_CanEx_15146.pdf",
+      "source_file": "sources/exemption-2016-09-12-006225.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Transfer of Past Accumulation on cancellation of exemption - instructions thereof",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2016-09-12-006225",
+        "page_number": 1,
+        "quote": "Transfer of Past Accumulation on cancellation of exemption –"
+      }
+    },
+    {
+      "id": "exemption-2016-11-11-e822cd",
+      "title": "Amendment in Gazette Notification of Pattern of Investment 2015 for EPF Exempted Establishments",
+      "circular_no": "HO No. HO/IMC/132/Pattern2015/21015",
+      "issued_on": "2016-11-11",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/IMC_NotificationAmendPatternInv2015_21015.pdf",
+      "source_file": "sources/exemption-2016-11-11-e822cd.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Amendment in Gazette Notification of Pattern of Investment 2015 for EPF Exempted Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2016-11-11-e822cd",
+        "page_number": 1,
+        "quote": "Amendment in Gazette Notification of Pattern of investment 2015 for"
+      }
+    },
+    {
+      "id": "exemption-2016-12-09-4a87d8",
+      "title": "Establishments complying as Exempted Establishments as per ECR, Verification thereof",
+      "circular_no": "HO No. Exem/32(29)/2016/Misc./EPF Exemption Dashboard/23827",
+      "issued_on": "2016-12-09",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/Exam_ExEstt_Verification_23827.pdf",
+      "source_file": "sources/exemption-2016-12-09-4a87d8.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Establishments complying as Exempted Establishments as per ECR, Verification thereof",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2016-12-09-4a87d8",
+        "page_number": 1,
+        "quote": "Establishments Complying as Exempted Establishments as per ECR"
+      }
+    },
+    {
+      "id": "exemption-2016-12-21-0ba32a",
+      "title": "Verification of Closed Exempted / Relaxed Establishments",
+      "circular_no": "HO No. Exem/10(18)2016/Closed Estt./16264",
+      "issued_on": "2016-12-21",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/Exem_Verification_ExEstt_16264.pdf",
+      "source_file": "sources/exemption-2016-12-21-0ba32a.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Verification of Closed Exempted / Relaxed Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2016-12-21-0ba32a",
+        "page_number": 1,
+        "quote": "Verification of Closed Exempted/Relaxed Establishments - Regarding"
+      }
+    },
+    {
+      "id": "exemption-2016-12-22-ae792e",
+      "title": "Online Filing of Returns by Exempted / Relaxed Establishments",
+      "circular_no": "HO No. Exem/32(29)2016/Misc./EPF Exemption Dashboard/16348",
+      "issued_on": "2016-12-22",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/Exem_OnlineFiling_ExEstt_16348.pdf",
+      "source_file": "sources/exemption-2016-12-22-ae792e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Online Filing of Returns by Exempted / Relaxed Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2016-12-22-ae792e",
+        "page_number": 1,
+        "quote": "Online Filing of Returns by Exempted/Relaxed Establishments —"
+      }
+    },
+    {
+      "id": "exemption-2016-12-27-06ef81",
+      "title": "Guidelines for processing the cases of surrender of EPF Exemption",
+      "circular_no": "HO No. C-Ex/32(6)13/Cancellation Order/24832",
+      "issued_on": "2016-12-27",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/Exem_Guidelines_SurrenderExem_24832.pdf",
+      "source_file": "sources/exemption-2016-12-27-06ef81.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Guidelines for processing the cases of surrender of EPF Exemption",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2016-12-27-06ef81",
+        "page_number": 1,
+        "quote": "Guidelines for processing the cases of surrender of EPF Exemption"
+      }
+    },
+    {
+      "id": "exemption-2017-02-01-7192d7",
+      "title": "Modifies guidelines for rates of Levy of Surcharge in view of New Pattern of Investment prescribed by the Government of India vide notification No. S.O. 1433(E) dated 29.05.2015 to be levied on BoT of the Exempted / Relaxed Establishments by RPFC on A/c of deviation from the prescribed pattern of investment",
+      "circular_no": "HO No. Exem/10(16)2016/28265",
+      "issued_on": "2017-02-01",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/Exem_SurchargeLevy_28265.pdf",
+      "source_file": "sources/exemption-2017-02-01-7192d7.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Modifies guidelines for rates of Levy of Surcharge in view of New Pattern of Investment prescribed by the Government of India vide notification No. S.O. 1433(E) dated 29.05.2015 to be levied on BoT of the Exempted / Relaxed Establishments by RPFC on A/c of deviation from the prescribed pattern of investment",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2017-02-01-7192d7",
+        "page_number": 1,
+        "quote": "Regional Offices. Subject : Modifies guidelines for rates of Levy of"
+      }
+    },
+    {
+      "id": "exemption-2017-02-06-cdb663",
+      "title": "Grant of exemption from EDLI Scheme, 1976 under Section 17(2A) of the EPF & MP Act, 1952",
+      "circular_no": "HO No. EDLI/5(1)Exemption/Extention/17/29967",
+      "issued_on": "2017-02-06",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2016-2017/EDLI_Exemption_29967.pdf",
+      "source_file": "sources/exemption-2017-02-06-cdb663.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Grant of exemption from EDLI Scheme, 1976 under Section 17(2A) of the EPF & MP Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2017-02-06-cdb663",
+        "page_number": 1,
+        "quote": "Grant of exemption from EDLI Scheme, 1976 under section 17(2A) of the"
+      }
+    },
+    {
+      "id": "exemption-2017-05-29-a62683",
+      "title": "Online Filling of Returns of Exempted Establishments under new Software",
+      "circular_no": "HO No. Exem/10(20)2016/Vol. III",
+      "issued_on": "2017-05-29",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Exem_OnlineFilingReturn_ExEstt_29052017.pdf",
+      "source_file": "sources/exemption-2017-05-29-a62683.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Online Filling of Returns of Exempted Establishments under new Software",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2017-05-29-a62683",
+        "page_number": 1,
+        "quote": "Online Filing of Returns of Exempted Establishments under New"
+      }
+    },
+    {
+      "id": "exemption-2017-07-03-94f7df",
+      "title": "Grant of exemption from EDLI Scheme, 1976 U/s 17(2A) of the EPS & MP Act, 1952",
+      "circular_no": "HO No. EDLI/3(25)/Relaxation Order/2016/7113",
+      "issued_on": "2017-07-03",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/EDLI_Exem_EDLIScheme_7113.pdf",
+      "source_file": "sources/exemption-2017-07-03-94f7df.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Grant of exemption from EDLI Scheme, 1976 U/s 17(2A) of the EPS & MP Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2017-07-03-94f7df",
+        "page_number": 1,
+        "quote": "Grant of exemption from EDU Scheme, 1976 U/ s 17 ( 2A) of the EPS &"
+      }
+    },
+    {
+      "id": "exemption-2017-07-19-fc9b03",
+      "title": "Non Filing of Returns by Exempted Establishments through Newly Launched Portal",
+      "circular_no": "HO No. C-Misc./Ex. Return/2013/Vol-II/7247",
+      "issued_on": "2017-07-19",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Exem_OnlineReturn_7247.pdf",
+      "source_file": "sources/exemption-2017-07-19-fc9b03.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Non Filing of Returns by Exempted Establishments through Newly Launched Portal",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2017-07-19-fc9b03",
+        "page_number": 1,
+        "quote": "Non Filing of Returns by Exempted establishments through Newly"
+      }
+    },
+    {
+      "id": "exemption-2017-07-26-0e01f0",
+      "title": "Conducting of Compliance Audit of all Exempted Establishments till Financial Year 2016-17",
+      "circular_no": "HO No. Exem/10(20)2016/Standing Committee/7963",
+      "issued_on": "2017-07-26",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Exem_CompAudit_ExEstt_7963.pdf",
+      "source_file": "sources/exemption-2017-07-26-0e01f0.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Conducting of Compliance Audit of all Exempted Establishments till Financial Year 2016-17",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2017-07-26-0e01f0",
+        "page_number": 1,
+        "quote": "Conducting of Compliance Audit of All Exempted Establishments till"
+      }
+    },
+    {
+      "id": "exemption-2017-09-21-2e6cf3",
+      "title": "Introduction of Real Time Monitoring System for Exempted Establishments",
+      "circular_no": "HO No. C-Misc./Ex. Return/2013/Vol-II/13587",
+      "issued_on": "2017-09-21",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Exem_RTMS_ExemEstt_13587.pdf",
+      "source_file": "sources/exemption-2017-09-21-2e6cf3.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Introduction of Real Time Monitoring System for Exempted Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2017-09-21-2e6cf3",
+        "page_number": 1,
+        "quote": "Introduction of Real Time Monitoring System for Exempted"
+      }
+    },
+    {
+      "id": "exemption-2017-09-29-3dd6e8",
+      "title": "Filing of Returns, Transmitting details of Members' Account Electronically and Better Management of Investment made by the Trust of Exempted Establishments",
+      "circular_no": "HO No. Exem/10(20)/2016/Vol-III/10735",
+      "issued_on": "2017-09-29",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Exem_OnlineReturn_ExEstt_10735.pdf",
+      "source_file": "sources/exemption-2017-09-29-3dd6e8.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Filing of Returns, Transmitting details of Members' Account Electronically and Better Management of Investment made by the Trust of Exempted Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2017-09-29-3dd6e8",
+        "page_number": 1,
+        "quote": "¢ i:ftj1.ft ~ f~RnfllcR ~ ~ 'l..fffil ~ Employees' Provident"
+      }
+    },
+    {
+      "id": "exemption-2017-10-09-61555a",
+      "title": "Procedure to Issue Show Cause Notice to the EPF Exempted Establishments and their Trusts - Regarding",
+      "circular_no": "HO No. Exem/10(20)/2016/Vol.III/14471",
+      "issued_on": "2017-10-09",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/EXEM_showcausenotice_ExEstt_14471.pdf",
+      "source_file": "sources/exemption-2017-10-09-61555a.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Procedure to Issue Show Cause Notice to the EPF Exempted Establishments and their Trusts - Regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2017-10-09-61555a",
+        "page_number": 1,
+        "quote": "Procedure to Issue Show Cause Notice to the EPF Exempted"
+      }
+    },
+    {
+      "id": "exemption-2017-12-01-f43974",
+      "title": "Online Filing of Monthly Returns by the Exempted Establishments and Specified Timeline for the Monthly Returns",
+      "circular_no": "HO No. C-Ex/Ex-Return/2014/19536",
+      "issued_on": "2017-12-01",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Ex_OnlineReturn_ExEstt_19536.pdf",
+      "source_file": "sources/exemption-2017-12-01-f43974.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Online Filing of Monthly Returns by the Exempted Establishments and Specified Timeline for the Monthly Returns",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2017-12-01-f43974",
+        "page_number": 1,
+        "quote": "paragraph 7 of Paragraph 36 read with entry No. 16 of Appendix - A to"
+      }
+    },
+    {
+      "id": "exemption-2017-12-05-47d801",
+      "title": "Compliance Audit of Exempted / Relaxed Establishments",
+      "circular_no": "HO No. C-Ex/Misc./Comp. Audit/2015/19761",
+      "issued_on": "2017-12-05",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/Exem_ComplianceAudit_ExEstt_19761.pdf",
+      "source_file": "sources/exemption-2017-12-05-47d801.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Compliance Audit of Exempted / Relaxed Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2017-12-05-47d801",
+        "page_number": 1,
+        "quote": "WEB CIRCULATION ONLY ~~f.!lflt~ \"f1t'~~~ Employees' Providen"
+      }
+    },
+    {
+      "id": "exemption-2017-12-19-b70de6",
+      "title": "Online Filing of Monthly Returns by the Exempted Establishments and Specified Timeline for the Monthly Returns - Regarding",
+      "circular_no": "HO No. C-Ex/Ex-Return/2013/Vol.II/15920",
+      "issued_on": "2017-12-19",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2017-2018/CEx_MnthlyRet_EE_15920.pdf",
+      "source_file": "sources/exemption-2017-12-19-b70de6.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Online Filing of Monthly Returns by the Exempted Establishments and Specified Timeline for the Monthly Returns - Regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2017-12-19-b70de6",
+        "page_number": 1,
+        "quote": "Online Filing of Monthly Returns by the Exempted Establishments and"
+      }
+    },
+    {
+      "id": "exemption-2018-04-09-a01bbf",
+      "title": "Performance Evaluation cum Ranking System for actions against Exempted Establishments securing 300 or less points",
+      "circular_no": "HO No. C-Misc./Ex-Return/2013/Vol-II/909",
+      "issued_on": "2018-04-09",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/Exem_PerEva_ExEstt_909.pdf",
+      "source_file": "sources/exemption-2018-04-09-a01bbf.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Performance Evaluation cum Ranking System for actions against Exempted Establishments securing 300 or less points",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2018-04-09-a01bbf",
+        "page_number": 1,
+        "quote": "FOR WEB CIRCULATION ONLY r.fi;f'q I{) ~ f.tfir ~ SSl'1T +hll"
+      }
+    },
+    {
+      "id": "exemption-2018-05-01-4e9b44",
+      "title": "Grant of Exemption from the provisions of EDLI Scheme, 1976 under Section 17(2A) & 17(2B) of the EPF Scheme, 1952",
+      "circular_no": "HO No. EDLI/3(25)/Relaxation Order/2016/2181",
+      "issued_on": "2018-05-01",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/EDLI_Exemption_2181.pdf",
+      "source_file": "sources/exemption-2018-05-01-4e9b44.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Grant of Exemption from the provisions of EDLI Scheme, 1976 under Section 17(2A) & 17(2B) of the EPF Scheme, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2018-05-01-4e9b44",
+        "page_number": 1,
+        "quote": "Grant of Exemption from the provisions of EDLI Scheme, 1976 under"
+      }
+    },
+    {
+      "id": "exemption-2018-05-25-f70ab3",
+      "title": "Clarification regarding Trade / Sale / Purchase of Securities by the Trusts of EPF Exempted Establishments",
+      "circular_no": "HO No. C-Ex/Ex-Return/2013/Vol.II/3990",
+      "issued_on": "2018-05-25",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/Exem_Clarification_Securities_Trust_3990.pdf",
+      "source_file": "sources/exemption-2018-05-25-f70ab3.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Clarification regarding Trade / Sale / Purchase of Securities by the Trusts of EPF Exempted Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2018-05-25-f70ab3",
+        "page_number": 1,
+        "quote": "FOR WEB CIRCULATION ONLY cfi~ I {l 'ii fcl ~ f.tfs\" ~ si;rlf"
+      }
+    },
+    {
+      "id": "exemption-2018-09-18-0a22b5",
+      "title": "Monthly return regarding transfer of Past Accumulation on cancellation of exemption",
+      "circular_no": "HO No. Invest-I/6/Confir./Accep. With/46/2017-18/12178",
+      "issued_on": "2018-09-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/Invest_MonthlyReturn_12178.pdf",
+      "source_file": "sources/exemption-2018-09-18-0a22b5.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Monthly return regarding transfer of Past Accumulation on cancellation of exemption",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2018-09-18-0a22b5",
+        "page_number": 1,
+        "quote": "Monthly return regarding transfer of Past Accumulation on"
+      }
+    },
+    {
+      "id": "exemption-2018-09-27-3c413a",
+      "title": "Grant of Exemption from the provisions of EDLI Scheme, 1976 under Section 17(2A) & 17(2B) of the EPF & MP Act, 1952",
+      "circular_no": "HO No. EDLI/3(25)/Relaxation order/2016/12380",
+      "issued_on": "2018-09-27",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/EDLI_Exemption_12380.pdf",
+      "source_file": "sources/exemption-2018-09-27-3c413a.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Grant of Exemption from the provisions of EDLI Scheme, 1976 under Section 17(2A) & 17(2B) of the EPF & MP Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2018-09-27-3c413a",
+        "page_number": 1,
+        "quote": "Grant of Exemption from the provisions of EDLI Scheme, 1976 under"
+      }
+    },
+    {
+      "id": "exemption-2018-11-16-71e1a3",
+      "title": "Grant of Exemption from the provisions of EDLI Scheme, 1976 under Section 17(2A) & 17(2B) of the EPF & MP Act, 1952",
+      "circular_no": "HO No. EDLI/3(25)/Relaxation Order/2016/7084",
+      "issued_on": "2018-11-16",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/EDLI_Exemption_7084.pdf",
+      "source_file": "sources/exemption-2018-11-16-71e1a3.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Grant of Exemption from the provisions of EDLI Scheme, 1976 under Section 17(2A) & 17(2B) of the EPF & MP Act, 1952",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2018-11-16-71e1a3",
+        "page_number": 1,
+        "quote": "Grant of Exemption from the provisions of EDU Scheme, 1976 under"
+      }
+    },
+    {
+      "id": "exemption-2019-03-22-84caef",
+      "title": "Transfer of Government Securities in favour of CBT,EPF on cancellation of exemption",
+      "circular_no": "HO No. Invest-I/1(Custodian)-SCB/2011/Vol.II/19193",
+      "issued_on": "2019-03-22",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2018-2019/Invest-_1(Custodian)-SCB_2011_19193.pdf",
+      "source_file": "sources/exemption-2019-03-22-84caef.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Transfer of Government Securities in favour of CBT,EPF on cancellation of exemption",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2019-03-22-84caef",
+        "page_number": 1,
+        "quote": "Transfer of Government Securities in favour of CBT,EPF on"
+      }
+    },
+    {
+      "id": "exemption-2019-06-28-88f1cf",
+      "title": "1.Forwardal of proposal for grant/cancellation of exemption by Zonal Offices\\r\\n2.Monitoring of and ensuring filing of Online Returns by the Exempted Establishments and the Annual Compliance Audit of all the Exempted Establishments/Trusts by Regional offices/Zonal Offices",
+      "circular_no": "E-III/10(101)2018/Monotoring/Exemption/3644",
+      "issued_on": "2019-06-28",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2019-2020/E3_Mrtng_Exemption_3644.pdf",
+      "source_file": "sources/exemption-2019-06-28-88f1cf.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "1.Forwardal of proposal for grant/cancellation of exemption by Zonal Offices\\r\\n2.Monitoring of and ensuring filing of Online Returns by the Exempted Establishments and the Annual Compliance Audit of all the Exempted Establishments/Trusts by Regional offices/Zonal Offices",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2019-06-28-88f1cf",
+        "page_number": 1,
+        "quote": "I. Forwardal of proposals for grant/cancellation of exemption by"
+      }
+    },
+    {
+      "id": "exemption-2021-01-27-2e87f1",
+      "title": "Amendment in Investment Pattern dated 29th May, 2015 (Exempted Trusts)",
+      "circular_no": "HO No. IMC-11011/2/2020/2465",
+      "issued_on": "2021-01-27",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2020-2021/IMC_InvestmentPatternAmend_2465.pdf",
+      "source_file": "sources/exemption-2021-01-27-2e87f1.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Amendment in Investment Pattern dated 29th May, 2015 (Exempted Trusts)",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2021-01-27-2e87f1",
+        "page_number": 1,
+        "quote": "Amendment in Investment Pattern dated 29th May, 2015(Exempted Trusts)"
+      }
+    },
+    {
+      "id": "exemption-2022-05-06-7785c9",
+      "title": "Proposals for Exemption / Extension of Exemption from EDLI Scheme, 1976",
+      "circular_no": "HO No. EDLI/Exemption/2021/Extension (82720)",
+      "issued_on": "2022-05-06",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2022-2023/EDLI_Proposals_06052022.pdf",
+      "source_file": "sources/exemption-2022-05-06-7785c9.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Proposals for Exemption / Extension of Exemption from EDLI Scheme, 1976",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2022-05-06-7785c9",
+        "page_number": 1,
+        "quote": "Proposals for Exemption/ Extension of Exemption from EDLI Scheme"
+      }
+    },
+    {
+      "id": "exemption-2023-08-22-306e8c",
+      "title": "Standard Operation Procedure (SOP) for Grant of exemption",
+      "circular_no": "No.E-III/10(119)2022/SOP-Grant/3635",
+      "issued_on": "2023-08-22",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/SOP_GrantofExemption_06092023.pdf",
+      "source_file": "sources/exemption-2023-08-22-306e8c.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Standard Operation Procedure (SOP) for Grant of exemption",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2023-08-22-306e8c",
+        "page_number": 1,
+        "quote": "standard Operation Procedure (SOP) for Grant of Exemption - regarding"
+      }
+    },
+    {
+      "id": "exemption-2023-10-06-a12031",
+      "title": "Standard Operation Procedure (SOP) for Management and Regulation of EPF Exempted Establishments",
+      "circular_no": "No.E-III/10(116)2023/SOP-ManagementRegulation/07",
+      "issued_on": "2023-10-06",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2023-2024/SOP_Exemption_06102023.pdf",
+      "source_file": "sources/exemption-2023-10-06-a12031.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Standard Operation Procedure (SOP) for Management and Regulation of EPF Exempted Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2023-10-06-a12031",
+        "page_number": 1,
+        "quote": "Standard Operation Procedure (SOP) for Management and Regulation of"
+      }
+    },
+    {
+      "id": "exemption-2024-07-11-5b1ea2",
+      "title": "Standard Operating Procedure (SOP) for Management and Regulation of EPF Exempted Establishments",
+      "circular_no": "No.E-III/10(116)2023/SOP-ManagementRegulation-Part(1)/6102",
+      "issued_on": "2024-07-11",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/Circular_Exemption_12072024.pdf",
+      "source_file": "sources/exemption-2024-07-11-5b1ea2.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Standard Operating Procedure (SOP) for Management and Regulation of EPF Exempted Establishments",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2024-07-11-5b1ea2",
+        "page_number": 1,
+        "quote": "Standard Operating Procedure (SOP) for Management and Regulation of"
+      }
+    },
+    {
+      "id": "exemption-2024-08-13-22e956",
+      "title": "Deployment of Online System for Surrender of Exemption and Transfer of Past Accumulations",
+      "circular_no": "FILE No. E-III/10(74)/2024/CDAC/4168",
+      "issued_on": "2024-08-13",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2024-2025/2SOP_Surrender_Exemption_04122023_compressed_merged.pdf",
+      "source_file": "sources/exemption-2024-08-13-22e956.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Deployment of Online System for Surrender of Exemption and Transfer of Past Accumulations",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2024-08-13-22e956",
+        "page_number": 1,
+        "quote": "Deployment of Online System for Surrender of Exemption and Transfer"
+      }
+    },
+    {
+      "id": "exemption-2025-06-17-d34bbf",
+      "title": "Circular \"Credit of Past Accumulations of non-UAN members of Exempted Establishments/ Trusts who have submitted proposals for surrender/cancellation of Exemption\"",
+      "circular_no": "Exemption/Past Accumulation/906104/09",
+      "issued_on": "2025-06-17",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/CreditOfPastAccumulations_NonUANMembers_ExemptedEsttTrusts.pdf",
+      "source_file": "sources/exemption-2025-06-17-d34bbf.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Circular \"Credit of Past Accumulations of non-UAN members of Exempted Establishments/ Trusts who have submitted proposals for surrender/cancellation of Exemption\"",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2025-06-17-d34bbf",
+        "page_number": 1,
+        "quote": "Credit of Past Accumulations of non-UAN members of Exempted"
+      }
+    },
+    {
+      "id": "exemption-2025-09-16-ca26c0",
+      "title": "Transfer of securities/SDS on cancellation/surrender of Exemption in favor of CBT, EPF – Regarding",
+      "circular_no": "No.INV-30/24/2021-INV-Part(1)/12802",
+      "issued_on": "2025-09-16",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_16092025_Investment.pdf",
+      "source_file": "sources/exemption-2025-09-16-ca26c0.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Transfer of securities/SDS on cancellation/surrender of Exemption in favor of CBT, EPF – Regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2025-09-16-ca26c0",
+        "page_number": 1,
+        "quote": "Transfer of securities/SDS on cancellation/surrender of Exemption in"
+      }
+    },
+    {
+      "id": "exemption-2025-11-03-47b032",
+      "title": "Examination and Format of EDLI Exemption/Extension Applications - Regarding.",
+      "circular_no": "No. 1189836/EDLI/Directions/FO/X/2025-Part (1)",
+      "issued_on": "2025-11-03",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_03112025_EDLI.pdf",
+      "source_file": "sources/exemption-2025-11-03-47b032.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Examination and Format of EDLI Exemption/Extension Applications - Regarding.",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2025-11-03-47b032",
+        "page_number": 1,
+        "quote": "Examination & Format of EDLI Exemption/Extension Applications — reg"
+      }
+    },
+    {
+      "id": "exemption-2026-07-10-09a544",
+      "title": "Instructions for Monthly review of the Regional Office on Exemption Matter - Regarding",
+      "circular_no": "File No E-II/10(62)2026/SOP/Circular/118",
+      "issued_on": "2026-07-10",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2026-2027/Intruction_MonthlyReview_10072026.pdf",
+      "source_file": "sources/exemption-2026-07-10-09a544.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Instructions for Monthly review of the Regional Office on Exemption Matter - Regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2026-07-10-09a544",
+        "page_number": 1,
+        "quote": "Instructions for Monthly review of the Regional Offcies on Exemption"
+      }
+    },
+    {
+      "id": "exemption-2026-07-10-24c448",
+      "title": "Instructions for Monthly review of the Regional Office on Exemption Matter - Regarding",
+      "circular_no": "File No E-II/10(62)2026/SOP/Circular/118",
+      "issued_on": "2026-07-10",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2026-2027/Intruction_MonthlyReviewExemption_10072026.pdf",
+      "source_file": "sources/exemption-2026-07-10-24c448.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Instructions for Monthly review of the Regional Office on Exemption Matter - Regarding",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2026-07-10-24c448",
+        "page_number": 1,
+        "quote": "Instructions for Monthly review of the Regional Offcies on Exemption"
+      }
+    },
+    {
+      "id": "exemption-2026-07-11-c5e71d",
+      "title": "Launch of \"AMNESTY, 2026\" for regularization of exemption status of Provident Fund Trusts recognized under the Income Tax Act, 1961 (43 of 1961) but not granted formal exemption under the Employees' Provident Funds and Miscellaneous Provisions Act, 1952 / the Code on Social Security, 2020",
+      "circular_no": "No.: Exemption/AMNESTY-2026/[E.III/10(58)/2025]",
+      "issued_on": "2026-07-11",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "exemption"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2026-2027/Circular_AmnestySchemeExemption_11072026.pdf",
+      "source_file": "sources/exemption-2026-07-11-c5e71d.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Launch of \"AMNESTY, 2026\" for regularization of exemption status of Provident Fund Trusts recognized under the Income Tax Act, 1961 (43 of 1961) but not granted formal exemption under the Employees' Provident Funds and Miscellaneous Provisions Act, 1952 / the Code on Social Security, 2020",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "exemption-2026-07-11-c5e71d",
+        "page_number": 1,
+        "quote": "Launch of “AMNESTY, 2026” for regularisation of exemption status of"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "ex-2014-04-22-modifies-03-27",
+      "source": "exemption-2014-04-22-b3a951",
+      "target": "exemption-2014-03-27-e7cff8",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2014-04-22-b3a951",
+        "page_number": 1,
+        "quote": "to the effect that the annual return for the year 2013-14 will also be filed alongwith the monthly return from 01.04.2014 (March, 2014 paid in April, 2014) stands modified"
+      },
+      "scope": "The 22 April 2014 circular withdraws only the instruction of 27 March 2014 that the annual return for 2013-14 would be filed with the monthly return; exempted and relaxed establishments file only the monthly return online from 1 April 2014. The rest of the 27 March 2014 circular continues."
+    },
+    {
+      "id": "ex-2014-05-13-modifies-05-08-a",
+      "source": "exemption-2014-05-13-155336",
+      "target": "exemption-2014-05-08-a51fb4",
+      "type": "partially_modifies",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2014-05-13-155336",
+        "page_number": 1,
+        "quote": "The circular dated 08.05.2014 stands modified accordingly"
+      },
+      "scope": "Candidate link: the 13 May 2014 circular states that the circular dated 8 May 2014 on EDLI exemption stands modified; the issuer lists two circulars of that date with the same title, and which of them is meant is not stated."
+    },
+    {
+      "id": "ex-2014-05-13-modifies-05-08-b",
+      "source": "exemption-2014-05-13-155336",
+      "target": "exemption-2014-05-08-e78f92",
+      "type": "partially_modifies",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2014-05-13-155336",
+        "page_number": 1,
+        "quote": "The circular dated 08.05.2014 stands modified accordingly"
+      },
+      "scope": "Candidate link: the 13 May 2014 circular states that the circular dated 8 May 2014 on EDLI exemption stands modified; the issuer lists two circulars of that date with the same title, and which of them is meant is not stated."
+    },
+    {
+      "id": "ex-2017-12-01-cites-09-21",
+      "source": "exemption-2017-12-01-f43974",
+      "target": "exemption-2017-09-21-2e6cf3",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2017-12-01-f43974",
+        "page_number": 1,
+        "quote": "Head Office Circular No. C-Misc./Ex. Return/2013/Vol. II/13587 Dated: 21.09.2017"
+      },
+      "scope": "The 1 December 2017 circular recalls that the 21 September 2017 circular (number 13587) directed exempted establishments to file the monthly online return on or before the 25th of the following month, in supersession of the 29 May 2017 circular; it fixes the legal basis of the requirement (Para 36(7) read with Appendix A to Para 27AA)."
+    },
+    {
+      "id": "ex-2017-12-01-cites-05-29",
+      "source": "exemption-2017-12-01-f43974",
+      "target": "exemption-2017-05-29-a62683",
+      "type": "references",
+      "verification": "target_unverified",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2017-12-01-f43974",
+        "page_number": 1,
+        "quote": "Head Office Circular No. Exem/10(20)2016/Vol. III/ Dated: 29.05.2017"
+      },
+      "scope": "Candidate link: the 1 December 2017 circular says the 29 May 2017 circular (which required the March 2017 return by 15 May 2017) was superseded by the 21 September 2017 circular; the issuer's 29 May 2017 circular on online filing of returns under the new software is the likely match."
+    },
+    {
+      "id": "ex-2023-08-22-annex-2009-04-27-04df6a",
+      "source": "exemption-2023-08-22-306e8c",
+      "target": "exemption-2009-04-27-04df6a",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2023-08-22-306e8c",
+        "page_number": 40,
+        "quote": "27-04-2009 Guidelines for grant cases in light of I.T. Act & Treatment post Para 79"
+      },
+      "scope": "The SOP for grant of exemption (22 August 2023) states that it supersedes all previous instructions and circulars and annexes a list of them; the annexure lists a circular dated 27-04-2009 on this subject, which the issuer's table shows as this circular. Read the SOP for what it retains."
+    },
+    {
+      "id": "ex-2023-08-22-annex-2011-06-21-4aab1a",
+      "source": "exemption-2023-08-22-306e8c",
+      "target": "exemption-2011-06-21-4aab1a",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2023-08-22-306e8c",
+        "page_number": 40,
+        "quote": "21-06-2011 Transfer of funds to the PF trusts subsequent to grant of exemption u/s 17 - reg"
+      },
+      "scope": "The SOP for grant of exemption (22 August 2023) states that it supersedes all previous instructions and circulars and annexes a list of them; the annexure lists a circular dated 21-06-2011 on this subject, which the issuer's table shows as this circular. Read the SOP for what it retains."
+    },
+    {
+      "id": "ex-2023-08-22-annex-2011-11-18-3cb08d",
+      "source": "exemption-2023-08-22-306e8c",
+      "target": "exemption-2011-11-18-3cb08d",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2023-08-22-306e8c",
+        "page_number": 40,
+        "quote": "18-11-2011 Amendments in circular dated 28/12/2007"
+      },
+      "scope": "The SOP for grant of exemption (22 August 2023) states that it supersedes all previous instructions and circulars and annexes a list of them; the annexure lists a circular dated 18-11-2011 on this subject, which the issuer's table shows as this circular. Read the SOP for what it retains."
+    },
+    {
+      "id": "ex-2023-08-22-annex-2013-08-16-11c8b7",
+      "source": "exemption-2023-08-22-306e8c",
+      "target": "exemption-2013-08-16-11c8b7",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2023-08-22-306e8c",
+        "page_number": 40,
+        "quote": "16-08-2013 Guidelines & Timelines for processing cases in view of I.T. Act timeline"
+      },
+      "scope": "The SOP for grant of exemption (22 August 2023) states that it supersedes all previous instructions and circulars and annexes a list of them; the annexure lists a circular dated 16-08-2013 on this subject, which the issuer's table shows as this circular. Read the SOP for what it retains."
+    },
+    {
+      "id": "ex-2023-08-22-annex-2016-08-05-031a01",
+      "source": "exemption-2023-08-22-306e8c",
+      "target": "exemption-2016-08-05-031a01",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2023-08-22-306e8c",
+        "page_number": 40,
+        "quote": "05-08-2016 I.T recognition not necessary for grant cases;amendment of circular dated 28/12/2007"
+      },
+      "scope": "The SOP for grant of exemption (22 August 2023) states that it supersedes all previous instructions and circulars and annexes a list of them; the annexure lists a circular dated 05-08-2016 on this subject, which the issuer's table shows as this circular. Read the SOP for what it retains."
+    },
+    {
+      "id": "ex-2023-08-22-annex-2019-06-28-88f1cf",
+      "source": "exemption-2023-08-22-306e8c",
+      "target": "exemption-2019-06-28-88f1cf",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2023-08-22-306e8c",
+        "page_number": 40,
+        "quote": "28-06-2019 Monitoring by Z.O of Grant/cancellation proposals"
+      },
+      "scope": "The SOP for grant of exemption (22 August 2023) states that it supersedes all previous instructions and circulars and annexes a list of them; the annexure lists a circular dated 28-06-2019 on this subject, which the issuer's table shows as this circular. Read the SOP for what it retains."
+    },
+    {
+      "id": "ex-2023-10-06-annex-2010-10-18-b40132",
+      "source": "exemption-2023-10-06-a12031",
+      "target": "exemption-2010-10-18-b40132",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2023-10-06-a12031",
+        "page_number": 59,
+        "quote": "18.10.2010 Compliance Audit of exempted establishments"
+      },
+      "scope": "The SOP for management and regulation of exempted establishments (6 October 2023) states that it supersedes all previous instructions and circulars and annexes a list of them; the annexure lists a circular dated 18.10.2010 on this subject, which the issuer's table shows as this circular. Read the SOP for what it retains."
+    },
+    {
+      "id": "ex-2023-10-06-annex-2014-04-30-fd8645",
+      "source": "exemption-2023-10-06-a12031",
+      "target": "exemption-2014-04-30-fd8645",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2023-10-06-a12031",
+        "page_number": 59,
+        "quote": "30.04.2014 Re-auditing of the accounts of Provident Fund maintained by Board of Trustees of Exempted and Relaxed establishments by any other qualified Auditor by RPFC"
+      },
+      "scope": "The SOP for management and regulation of exempted establishments (6 October 2023) states that it supersedes all previous instructions and circulars and annexes a list of them; the annexure lists a circular dated 30.04.2014 on this subject, which the issuer's table shows as this circular. Read the SOP for what it retains."
+    },
+    {
+      "id": "ex-2023-10-06-annex-2017-02-01-7192d7",
+      "source": "exemption-2023-10-06-a12031",
+      "target": "exemption-2017-02-01-7192d7",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2023-10-06-a12031",
+        "page_number": 59,
+        "quote": "01.02.2017 Gudielines for levy of surcharge"
+      },
+      "scope": "The SOP for management and regulation of exempted establishments (6 October 2023) states that it supersedes all previous instructions and circulars and annexes a list of them; the annexure lists a circular dated 01.02.2017 on this subject, which the issuer's table shows as this circular. Read the SOP for what it retains."
+    },
+    {
+      "id": "ex-2023-10-06-annex-2017-07-26-0e01f0",
+      "source": "exemption-2023-10-06-a12031",
+      "target": "exemption-2017-07-26-0e01f0",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2023-10-06-a12031",
+        "page_number": 59,
+        "quote": "26.07.2017 Conducting of Compliance Audit of All Exempted Establishments till Financial Year 2016-17"
+      },
+      "scope": "The SOP for management and regulation of exempted establishments (6 October 2023) states that it supersedes all previous instructions and circulars and annexes a list of them; the annexure lists a circular dated 26.07.2017 on this subject, which the issuer's table shows as this circular. Read the SOP for what it retains."
+    },
+    {
+      "id": "ex-2023-10-06-annex-2017-09-21-2e6cf3",
+      "source": "exemption-2023-10-06-a12031",
+      "target": "exemption-2017-09-21-2e6cf3",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2023-10-06-a12031",
+        "page_number": 59,
+        "quote": "21.09.2017 Parameters to evaluate performance of exempted establishments in respect of filing of online returns."
+      },
+      "scope": "The SOP for management and regulation of exempted establishments (6 October 2023) states that it supersedes all previous instructions and circulars and annexes a list of them; the annexure lists a circular dated 21.09.2017 on this subject, which the issuer's table shows as this circular. Read the SOP for what it retains."
+    },
+    {
+      "id": "ex-2023-10-06-annex-2017-09-29-3dd6e8",
+      "source": "exemption-2023-10-06-a12031",
+      "target": "exemption-2017-09-29-3dd6e8",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2023-10-06-a12031",
+        "page_number": 59,
+        "quote": "29.09.2017 Zonal ACC to review the performance of online returns"
+      },
+      "scope": "The SOP for management and regulation of exempted establishments (6 October 2023) states that it supersedes all previous instructions and circulars and annexes a list of them; the annexure lists a circular dated 29.09.2017 on this subject, which the issuer's table shows as this circular. Read the SOP for what it retains."
+    },
+    {
+      "id": "ex-2023-10-06-annex-2017-10-09-61555a",
+      "source": "exemption-2023-10-06-a12031",
+      "target": "exemption-2017-10-09-61555a",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2023-10-06-a12031",
+        "page_number": 59,
+        "quote": "09.10.2017 Issuance of Show Cause Notice to establishments not filing online returns."
+      },
+      "scope": "The SOP for management and regulation of exempted establishments (6 October 2023) states that it supersedes all previous instructions and circulars and annexes a list of them; the annexure lists a circular dated 09.10.2017 on this subject, which the issuer's table shows as this circular. Read the SOP for what it retains."
+    },
+    {
+      "id": "ex-2023-10-06-annex-2017-12-01-f43974",
+      "source": "exemption-2023-10-06-a12031",
+      "target": "exemption-2017-12-01-f43974",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2023-10-06-a12031",
+        "page_number": 59,
+        "quote": "01.12.2017 Online filing of monthly returns by the Exempted Establishments and specified timeline for the monthly returns."
+      },
+      "scope": "The SOP for management and regulation of exempted establishments (6 October 2023) states that it supersedes all previous instructions and circulars and annexes a list of them; the annexure lists a circular dated 01.12.2017 on this subject, which the issuer's table shows as this circular. Read the SOP for what it retains."
+    },
+    {
+      "id": "ex-2023-10-06-annex-2017-12-05-47d801",
+      "source": "exemption-2023-10-06-a12031",
+      "target": "exemption-2017-12-05-47d801",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2023-10-06-a12031",
+        "page_number": 59,
+        "quote": "05.12.2017 Conducting Compliance Audit every year"
+      },
+      "scope": "The SOP for management and regulation of exempted establishments (6 October 2023) states that it supersedes all previous instructions and circulars and annexes a list of them; the annexure lists a circular dated 05.12.2017 on this subject, which the issuer's table shows as this circular. Read the SOP for what it retains."
+    },
+    {
+      "id": "ex-2023-10-06-annex-2019-06-28-88f1cf",
+      "source": "exemption-2023-10-06-a12031",
+      "target": "exemption-2019-06-28-88f1cf",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2023-10-06-a12031",
+        "page_number": 60,
+        "quote": "28.06.2019 Monitoring of and ensuring Filing of Online Returns by the Exempted Establishments and the Annual Compliance Audit of all the Exe"
+      },
+      "scope": "The SOP for management and regulation of exempted establishments (6 October 2023) states that it supersedes all previous instructions and circulars and annexes a list of them; the annexure lists a circular dated 28.06.2019 on this subject, which the issuer's table shows as this circular. Read the SOP for what it retains."
+    },
+    {
+      "id": "ex-2024-08-13-annex-2014-07-30-80be78",
+      "source": "exemption-2024-08-13-22e956",
+      "target": "exemption-2014-07-30-80be78",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2024-08-13-22e956",
+        "page_number": 42,
+        "quote": "30-07-2014 Transfer of P.A on relaxation withdrawal and surrender"
+      },
+      "scope": "The SOP for surrender of exemption and transfer of past accumulations (13 August 2024) states that it supersedes all previous instructions and circulars and annexes a list of them; the annexure lists a circular dated 30-07-2014 on this subject, which the issuer's table shows as this circular. Read the SOP for what it retains."
+    },
+    {
+      "id": "ex-2024-08-13-annex-2016-12-27-06ef81",
+      "source": "exemption-2024-08-13-22e956",
+      "target": "exemption-2016-12-27-06ef81",
+      "type": "supersedes",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2024-08-13-22e956",
+        "page_number": 42,
+        "quote": "27-12-2016 Guidelines for processing the cases of surrender of EPF exemption - regarding"
+      },
+      "scope": "The SOP for surrender of exemption and transfer of past accumulations (13 August 2024) states that it supersedes all previous instructions and circulars and annexes a list of them; the annexure lists a circular dated 27-12-2016 on this subject, which the issuer's table shows as this circular. Read the SOP for what it retains."
+    },
+    {
+      "id": "ex-2015-06-26-gazette-after-06-09",
+      "source": "exemption-2015-06-26-acadcd",
+      "target": "exemption-2015-06-09-0f7f88",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2015-06-26-acadcd",
+        "page_number": 1,
+        "quote": "In continuation of this Section letter no. HO/IMC/132/Pattern2015/2015/8004 dated 09.06.2015"
+      },
+      "scope": "The 26 June 2015 circular forwards the Gazette copy of the Pattern of Investment 2015 for exempted establishments, following the 9 June 2015 letter that forwarded the draft; it states the pattern applies to exempted establishments from 29 May 2015."
+    },
+    {
+      "id": "ex-2016-11-11-amends-pattern-2015",
+      "source": "exemption-2016-11-11-e822cd",
+      "target": "exemption-2015-06-26-acadcd",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2016-11-11-e822cd",
+        "page_number": 1,
+        "quote": "an amendment has been notified by the Ministry of Labour & Employment, Govt. of India vide S.O. no. 3035(E) dated 22.09.2016"
+      },
+      "scope": "The 11 November 2016 circular forwards the Ministry's amendment (S.O. 3035(E) of 22 September 2016) to the Pattern of Investment 2015 for exempted establishments; read the amendment for what changed."
+    },
+    {
+      "id": "ex-2021-01-27-amends-pattern-2015",
+      "source": "exemption-2021-01-27-2e87f1",
+      "target": "exemption-2015-06-26-acadcd",
+      "type": "partially_modifies",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2021-01-27-2e87f1",
+        "page_number": 1,
+        "quote": "The notification bearing no. S.O. 28(E) dated 4th January, 2021 has been notified by MoL&E, regarding amendment in Investment Pattern"
+      },
+      "scope": "The 27 January 2021 circular forwards the Ministry's amendment (S.O. 28(E) of 4 January 2021) to the Investment Pattern of 29 May 2015 for exempted trusts (debt instruments category); read the notification for the changed limits."
+    },
+    {
+      "id": "ex-2017-07-03-cites-02-06",
+      "source": "exemption-2017-07-03-94f7df",
+      "target": "exemption-2017-02-06-cdb663",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2017-07-03-94f7df",
+        "page_number": 1,
+        "quote": "Kind attention is invited to the circular issued by Head Office No.EDLI/ 5 ( 1) Exemption/ Extention/ 17/29967 dated 06.02.2017"
+      },
+      "scope": "The July 2017 circular recalls the 6 February 2017 circular (number 29967) on reviewing EDLI exemption and extension proposals and asks for proposals received up to 31 December 2016; it adds to it."
+    },
+    {
+      "id": "ex-2018-09-27-cites-05-01",
+      "source": "exemption-2018-09-27-3c413a",
+      "target": "exemption-2018-05-01-4e9b44",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2018-09-27-3c413a",
+        "page_number": 1,
+        "quote": "No. EDLI /3(25)/ Relaxation order/2016/2181 dated 01.05.2018"
+      },
+      "scope": "The 27 September 2018 reminder repeats the 1 May 2018 request for lists of establishments granted EDLI exemption."
+    },
+    {
+      "id": "ex-2018-11-16-cites-09-27",
+      "source": "exemption-2018-11-16-71e1a3",
+      "target": "exemption-2018-09-27-3c413a",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2018-11-16-71e1a3",
+        "page_number": 1,
+        "quote": "Relaxation order/2016/12380 dated 27.09.2018"
+      },
+      "scope": "The 16 November 2018 reminder (Reminder-II) repeats the earlier requests of 1 May and 27 September 2018 for lists of establishments granted EDLI exemption."
+    },
+    {
+      "id": "ex-2025-09-16-cites-2019-03-22",
+      "source": "exemption-2025-09-16-ca26c0",
+      "target": "exemption-2019-03-22-84caef",
+      "type": "references",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "evidence": {
+        "document_id": "exemption-2025-09-16-ca26c0",
+        "page_number": 1,
+        "quote": "Invest-l/I(Custodian)-SCB/2011/Vol.II/19193 dated 22.03.2019"
+      },
+      "scope": "The 16 September 2025 circular continues the 22 March 2019 circular on transfer of Government securities to CBT, EPF on cancellation of exemption and updates the contact persons; it does not withdraw the 2019 circular."
+    }
+  ],
+  "limitations": [
+    "This collection covers Compliance and Exemption cell circulars on exemption and relaxation of establishments under section 17 (2008-2026): grant guidelines, EDLI exemption, compliance audit, surcharge, online returns of exempted establishments, cancellation and surrender, transfer of past accumulation, the 2023-2024 SOPs and the 2026 amnesty. Meeting minutes, RTI replies, lists of establishments, court-case reports, MIS-105 returns and committee reconstitutions are not included.",
+    "The 28 December 2007 comprehensive guideline on exemption, which the 2011 and 2016 circulars say they amend, is not in the mirror and is not in this collection; the 2023 SOP's annexure lists it among the circulars it supersedes.",
+    "The SOPs of 22 August 2023 (grant), 6 October 2023 (management and regulation) and 13 August 2024 (surrender) state that they supersede all earlier instructions and circulars and annex a list of them; each listed circular that is in this collection is linked by a supersession read from the annexure (the annexure marks each circular's provisions as same, modified or deleted in the SOP, which is not recorded here). Circulars of 2008 to 2015 on compliance audit, minutes and other matters that are not in the annexure are not stated to be superseded.",
+    "The 2023-2024 SOPs state no commencement date other than their issue date. The 2026 circulars (monthly review of Regional Offices on exemption matters, 10 July 2026; AMNESTY 2026, 11 July 2026) and the 2025 circulars on past accumulations of non-UAN members and on EDLI exemption applications state no commencement date in the passages checked; AMNESTY 2026 states that it is valid up to 28 December 2026 unless extended.",
+    "Several circulars before 2012 were issued only to zones or regions and refer to Income Tax recognition rules since changed; the effect of later changes in tax law is not assessed.",
+    "Transfer of securities and past accumulations on cancellation of exemption and the Pattern of Investment 2015 for exempted trusts (Finance) are included from 2015; the Finance circulars before 2015 and the Investment Pattern of 2003 are not. EDLI exemption circulars issued by the Pension Division (2017-2022) are included; the 2009 Gazette notification on investment pattern is not included because its first page is a Gazette notification, not an EPFO circular.",
+    "Dates follow the letter, not the issuer listing; entries whose letter date differs carry a date_note.",
+    "PDFs were read from the issuer mirror on 4 November 2026 because the public site returned 404 for these paths; recorded SHA-256 values apply to those files. Scanned pages are OCR. Issue dates were checked against the document headers."
+  ]
+}

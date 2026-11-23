@@ -1,0 +1,20 @@
+{
+  "document_id": "claim_forms_payments-2016-02-19-ff7c44",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/Bkg_CCPAP_40195.pdf",
+  "pdf_sha256": "392ac7d550f4085219af481bf172101179bb63c46b2d16d6adbf50313ff2dd17",
+  "total_pdf_pages": 2,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "(1 Va VOTTR AAA ARG WHR)\n(Ministry of Labour and Employment, Govt. Of India)\nbah We Head Office\nafesy fe aa, 14—Arersht Hr tera, ag feeehl—110066\n\nBhavishya Nidhi Bhawan, 14- Bhikaji Cama Place, New Delhi — 110066\n\nFOR WEB CIRCULATION ONLY\n\nNo. Bkg.1(11)10/New ProceesVol-ll “7 €\n\\\nTo We\n\nAll Addl. CPFC (Zones)\nAll RPFC-In-charge\nRegional/Sub-Regional Offices\n\nDate:\n. 19 FEB 2016\n\nSubject: Implementing CCPAP Module in Current A/c No. 02.\n\nReference: Head Office circular No.Bkg.1(11)10/New Process/Vol.II/406 dated\n15.10.2015 placed at Sl. No.434 of EPFO Website.\n\nSir /Madam,\n\nThe CCPAP Module for payment has been implemented in A/c No. 1, 10 &\n21 in all offices to prevent frauds.\n\n2. Now, it has been decided to replicate CCPAP Module in Current A/c No. 02\nat all field offices. For this purpose issuing Type-29 cheques in Current A/c No. 02 is\nrequired. SBI, Corporate Centre, Mumbai has made a concern that inasmuch as all the\naccounts of A/c NO.02 have been opened recently, only MCC type 29 would have been\nissued to all offices. It is, therefore, requested to ensure and confirm that Type 29 cheque\nleaves are issued by the Bank in Current A/c No. 02.\n\nThe launch date of implementation of CCPAP Module in A/c No. 02\nis 10.03.2016 for all offices.\n\n8 The Offices may generate digitally signed CCPAP file and upload the\nsame to SBI SFTP server on 10.03.2016 itself. The file of 10.03.2016 will\ncontain the data of Type 29 cheques issued from current A/c No.02 during\npreceding three months’ period and the cheques issued on 10.03.2016.\nThereafter, the CCPAP file will be uploaded on a daily basis.\n\notal afass fe a4 Fax: 011-26173022\n\nEmployees’ Provident Fund Organisation Telephone: 26172685",
+      "extraction_method": "tesseract_eng_180dpi"
+    },
+    {
+      "page_number": 2,
+      "text": "4. The Offices may be in readiness with the details of cheques issued\nduring the preceding three months priod to 10.03.2016 for uploading. For any\ntechnical issue in roll out of CCPAP may be taken with Shri S.K. Panda,\nDD(IS) at NDC and the issues related to Bank with Shri M.S. Negi, AGM, SBI\n& Nodal Officer for EPFO.\n\n5. APFC (Cash) at ROs/SROs may ensure uploading of digitally signed\nfile of CCPAP to SBI SFTP Server on 10.03.2016 (containing details of\npreceding three months) and thereafter on a daily basis. RPFC-II (F&A) posted\nat Regional Offices and RPFC-II-Incharge of Sub-Regional Offices shall\nensure that the cheques issued in A/c No.02 during the day are uploaded\nthrough CCPAP file at the end of the day. For this, a link\nhttp://banking.epfoservices.org/CCPAP/ has been provided for monitoring the\nstatus of CCPAP.\n\nYours faithfully\n\nhe 2\n(Sanjay Kumar)\n\nRegional P.F. Commissioner-I(F&A)",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "document_id": "claim_forms_payments-2014-06-02-a6df18",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Bkg_CCPA_DigSign.pdf",
+  "pdf_sha256": "b420d8da98929c07afa76cfc62ebfdd2234eb468a76bd2e73b701c4d6491eb16",
+  "total_pdf_pages": 1,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "corte afeea Pater WI Fax: 011-26173022\nEmployees’ Provident Fund Organisation Telephone: 26172685\n(74 Ve WONT AAT, ART WHT)\n(Ministry of Labour & Employment, Govt. Of India)\nzw / Head Office\nafasy fe vas, 14ers Gr were, AE fecei!—110066\n\nBhavishya Nidhi Bhawan, 14- Bhikaji Cama Place, New Delhi — 110066\n\nWEB CIRCULATION\nNo. Bkg.1(11)/e-challan/New Process/Vol.-I] Date: 5), /\n\nZ| fle\n= i\n\nTo\nAll RPFC/In-charge\nRegional/Sub Regional Offices\n\nSubject: Implementation of CCPAP Module for Payment- Obtaining\nDigital Signature.\n\nRef. Circular of even no. dated 28.04.2014 (SI. No. 59 on EPFO’s Website) and\ndated 15.05.2014 (SI. No. 117 on EPFO’s website)\n\nSir/Madam,\nKindly refer to the above said subject.\n\n2. The transaction under CCPAP will be routed through SFTP (Secured\nFile Transferred Protocol) server of SBI to maintain security of data and to reduce\noperational risk by securing the transmission route. Therefore, the file shall be\ndigitally signed to prevent tampering of data before uploading of the file by EPFO.\n\n3. All RPFCs are requested to obtain Class-2 Digital Signature\nCertificate from the nearest centre of NIC immediately to enable the\nimplementation of the above said module.\n\n4. All Regional Offices may submit a compliance report within 7 days.\n\nYours faithfully\nf\n(Wadiax\n(SanjayKamar)\nRPFC-I(F&A)\nCopy for information and necessary action to:\n\n1. RPFC(NDC) with a request to upload the circular on website.",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

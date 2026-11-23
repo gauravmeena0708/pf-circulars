@@ -1,0 +1,63 @@
+{
+  "dataset_status": "Development source/page seeds and guardrails; not held-out legal-answer evaluation",
+  "cases": [
+    {
+      "id": "cpps-0",
+      "as_of": "2025-01-17",
+      "question": "Can pension claims use any scheduled commercial bank branch?",
+      "required_evidence": [
+        {
+          "document_id": "cpps-2025-01-17",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "cpps-1",
+      "as_of": "2025-01-17",
+      "question": "Which office revises an existing PPO including PoHW?",
+      "required_evidence": [
+        {
+          "document_id": "cpps-2025-01-17",
+          "page_number": 2
+        }
+      ]
+    },
+    {
+      "id": "cpps-2",
+      "as_of": "2025-01-17",
+      "question": "What weekly and monthly pension scroll payment schedule is specified until further notice?",
+      "required_evidence": [
+        {
+          "document_id": "cpps-2025-01-17",
+          "page_number": 2
+        }
+      ]
+    },
+    {
+      "id": "cpps-3",
+      "as_of": "2025-10-13",
+      "question": "What did CBT approve about IPPB doorstep digital life certificates?",
+      "required_evidence": [
+        {
+          "document_id": "advances-2025-10-13",
+          "page_number": 3
+        }
+      ]
+    },
+    {
+      "id": "cpps-cutoff",
+      "as_of": "2024-01-01",
+      "question": "latest rules",
+      "absent_documents": [
+        "cpps-2025-01-17"
+      ]
+    },
+    {
+      "id": "cpps-incomplete",
+      "as_of": "2026-10-28",
+      "question": "all applicable rules",
+      "expected_conclusion": "evidence_inventory_only"
+    }
+  ]
+}

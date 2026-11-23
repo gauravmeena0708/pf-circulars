@@ -1,0 +1,15 @@
+{
+  "document_id": "claim_forms_payments-2014-08-20-986510",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Bkg_CCPAPModule_275.pdf",
+  "pdf_sha256": "9e748698a8931daa0f9638053474bb961cdfc6e8b2d0e79c5bac58ce05959c16",
+  "total_pdf_pages": 1,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "oaant afass fat dost\n\n(4 Ud VNTR AACA ART BHR) Fax: 011-26173022\nEmployees’ Provident Fund Organisation Telephone: 26172685\n(Ministry of Labour & Employment, Govt. Of India)\nFRAT HATA / Head Office\n\nafesa Fe aaa, 14—slpreit Gar were, ae feeei-110066\n\nBhavishya Nidhi Bhawan, 14- Bhikaji Cama Place, New Delhi — 110066\n\nWeb Circulation\n\n/ ra\nNo. Bkg.1 (11)10/New Process/Vol.-II [a it Date: 20.08.2014\nA ONTA\nTo AUG 2014\nThe Additional CPFCs,\n(Delhi & Uttrakhand), (Haryana & Rajasthan), (UP & Bihar)\nThe Regional P.F. Commissioners\nRO- Dehradun, Faridabad, Gurgaon & Jaipur\nSRO- Haldwani, Jhilmil, Karnal, Rohtak, Udaipur, Kota, Noida\n\nSubject: Implementation of CCPAP Module of Payment.\n\nSir,\nCCPAP Module in the above said offices may be rolled out from 26.08.2014.\n\n2. The above offices may generate digitally signed CCPAP advice file and\nupload the same to SBI SFTP server on 25.08.2014. The file of 25.08.2014 should contain\nthe details of cheques issued from A/c No. 1 & 10 on 25.08.2014 and also for the period\npreceding three months prior to 25.08.2014. Thereafter, the file may be uploaded on a\ndaily basis in respect of cheques issued in A/c No. 1 & 10.\n\n3. After uploading the file SBI will fetch the file available in designated folder\nof SFTP server and perform further activities. Any technical issue for roll out of CCPAP\nmay be taken with Shri D.K. Pandey, AGM, SBI & Nodal Officer for EPFO and Shri S.\nK. Panda, DD(IS).\n\n4. The concerned officials may be in readiness for sending the details of cheques\nissued during the preceding three months prior to 25.08.2014 and thereafter on a daily\nbasis.\n\nYours faithfully,\n\n(Sanjay Kumar)\nRegional] P.F. Commissioner-I(F&A)",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

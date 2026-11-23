@@ -1,0 +1,79 @@
+{
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
+  "cases": [
+    {
+      "id": "legal_case_handling-2014-05-16",
+      "question": "nProper handling of legal cases in field offices",
+      "as_of": "2014-05-16",
+      "required_evidence": [
+        {
+          "document_id": "legal_case_handling-2014-05-16-773aa3",
+          "page_number": 5
+        }
+      ]
+    },
+    {
+      "id": "legal_case_handling-2015-05-05",
+      "question": "Data entry in legal dashboard",
+      "as_of": "2015-05-05",
+      "required_evidence": [
+        {
+          "document_id": "legal_case_handling-2015-05-05-3dcb8c",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "legal_case_handling-2015-06-22",
+      "question": "Deletion of the name of Cabinet Secretary from the array of respondents in Litigation/Court Cases",
+      "as_of": "2015-06-22",
+      "required_evidence": [
+        {
+          "document_id": "legal_case_handling-2015-06-22-285d81",
+          "page_number": 4
+        }
+      ]
+    },
+    {
+      "id": "legal_case_handling-2015-12-16",
+      "question": "Monitoring progress of data entry in the Legal Dashboard",
+      "as_of": "2015-12-16",
+      "required_evidence": [
+        {
+          "document_id": "legal_case_handling-2015-12-16-2a1ea7",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "legal_case_handling-2016-01-15",
+      "question": "Avoiding duplicate entry in Legal Dashboard",
+      "as_of": "2016-01-15",
+      "required_evidence": [
+        {
+          "document_id": "legal_case_handling-2016-01-15-8b29b1",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "legal_case_handling-2025-11-20",
+      "question": "Circular regarding Strengthening Litigation Management - Mandatory Compliance in Handling of Court Cases",
+      "as_of": "2025-11-20",
+      "required_evidence": [
+        {
+          "document_id": "legal_case_handling-2025-11-20-ac1896",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "legal_case_handling-before-latest",
+      "question": "Circular regarding Strengthening Litigation Management - Mandatory Compliance in Handling of Court Cases",
+      "as_of": "2025-11-19",
+      "absent_documents": [
+        "legal_case_handling-2025-11-20-ac1896"
+      ]
+    }
+  ]
+}

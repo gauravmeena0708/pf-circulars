@@ -1,0 +1,79 @@
+{
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
+  "cases": [
+    {
+      "id": "is_hardware_norms-2008-05-19",
+      "question": "Policy Decision on use of Thin Clients in place of Dumb Terminals in the field offices",
+      "as_of": "2008-05-19",
+      "required_evidence": [
+        {
+          "document_id": "is_hardware_norms-2008-05-19-5111da",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "is_hardware_norms-2009-03-06",
+      "question": "Norms for basic minimum number of Desktops etc.",
+      "as_of": "2009-03-06",
+      "required_evidence": [
+        {
+          "document_id": "is_hardware_norms-2009-03-06-cb0fd1",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "is_hardware_norms-2009-10-07",
+      "question": "Supplemental norms for IT equipment covering requirements for Head Office, Office of ACCs (Zones), NATRSS/ZTIs, Zonal Vigilance Offices, Zonal Audit O",
+      "as_of": "2009-10-07",
+      "required_evidence": [
+        {
+          "document_id": "is_hardware_norms-2009-10-07-6fb515",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "is_hardware_norms-2016-01-19",
+      "question": "Purchase of Thin Clients revised specification",
+      "as_of": "2016-01-19",
+      "required_evidence": [
+        {
+          "document_id": "is_hardware_norms-2016-01-19-a18430",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "is_hardware_norms-2017-11-09",
+      "question": "Supplementary Norms for Mobile Devices covering the requirement of registration of Digital Life Certificate (DLC) of Jeevan Praman for Pensioners thro",
+      "as_of": "2017-11-09",
+      "required_evidence": [
+        {
+          "document_id": "is_hardware_norms-2017-11-09-204d21",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "is_hardware_norms-2025-12-11",
+      "question": "Revised Model Technical Specifications of Desktop PCs, Laptop PCs & Tablet PCs - circular dated 11-12-2025",
+      "as_of": "2025-12-11",
+      "required_evidence": [
+        {
+          "document_id": "is_hardware_norms-2025-12-11-35b53e",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "is_hardware_norms-before-latest",
+      "question": "Revised Model Technical Specifications of Desktop PCs, Laptop PCs & Tablet PCs - circular dated 11-12-2025",
+      "as_of": "2025-12-10",
+      "absent_documents": [
+        "is_hardware_norms-2025-12-11-35b53e"
+      ]
+    }
+  ]
+}

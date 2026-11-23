@@ -1,0 +1,15 @@
+{
+  "document_id": "claim_forms_payments-2014-08-29-7f3211",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Bkg_UploadingNEFT_279.pdf",
+  "pdf_sha256": "f9b9458478f663bea487d5fcb0e52013cbf0a8cd62238aabc1ad2f4084987b1f",
+  "total_pdf_pages": 1,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "(TA Ua UST FATT ART UG)\n(Ministry of Labour and Employment, Govt. Of India)\nFA / Head Office\nafasa fa was, 14—fenrsit arr were, ag feect~110066\nBhavishya Nidhi Bhawan, 14- Bhikaji Cama Place, New Delhi — 110066\nWEB CIRCULATION\n\nNo. Bkg.1(20)2014/Bank Participating , Ka Date\nti 99 7 my\n\nAll Addl. CPFC (Zones)\n\nAll RPFC-In-charge\n\nRegional/Sub-Regional Offices\n\nSubject: Timely uploading of NEFT File by ROs/SROs.\n\nSir/Madam,\n\nA report has been received from a field office that the payments through\nNEFT are taking upto three days for transfer of fund to the members’ accounts.\n\n2. The matter had been taken up in the meeting with SBI, Corporate\nCentre, Mumbai. Presently, NEFT operates in hourly batches from 9 a.m to 7 p.m. on\nweekdays and from 9 a.m. to 1 p.m. on Saturdays and credit is given to a beneficiary\nwithin two hours of batch settlement time. Therefore, all field offices may ensure that\nthe soft copy of NEFT file is uploaded on SBI’s system on the same day so that the\ntransaction is processed in the next batch of NEFT and the money is credited to\nmembers’ account in time.\n\nYours faithfully,\n\nculls Remar)\n\nRegional P F Commissioner-I(F&A)\n\nota afar fe dro Fax: 011-26173022\n\nEmployees’ Provident Fund Organisation Telephone: 26172685",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
+  "cases": [
+    {
+      "id": "exemption-2008-07-28",
+      "question": "Compliance Audit of Exempted Establishments",
+      "as_of": "2008-07-28",
+      "required_evidence": [
+        {
+          "document_id": "exemption-2008-07-28-a4be7d",
+          "page_number": 11
+        }
+      ]
+    },
+    {
+      "id": "exemption-2011-02-02",
+      "question": "Compliance Audit of exempted establishments",
+      "as_of": "2011-02-02",
+      "required_evidence": [
+        {
+          "document_id": "exemption-2011-02-02-255893",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "exemption-2014-06-06",
+      "question": "Grant of exemption from the provisions of EDLI Scheme, 1976 under Section 17(2A) of the EPF & MP Act, 1952",
+      "as_of": "2014-06-06",
+      "required_evidence": [
+        {
+          "document_id": "exemption-2014-06-06-1b752e",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "exemption-2016-11-11",
+      "question": "Amendment in Gazette Notification of Pattern of Investment 2015 for EPF Exempted Establishments",
+      "as_of": "2016-11-11",
+      "required_evidence": [
+        {
+          "document_id": "exemption-2016-11-11-e822cd",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "exemption-2018-05-01",
+      "question": "Grant of Exemption from the provisions of EDLI Scheme, 1976 under Section 17(2A) & 17(2B) of the EPF Scheme, 1952",
+      "as_of": "2018-05-01",
+      "required_evidence": [
+        {
+          "document_id": "exemption-2018-05-01-4e9b44",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "exemption-2026-07-11",
+      "question": "Launch of \"AMNESTY, 2026\" for regularization of exemption status of Provident Fund Trusts recognized under the Income Tax Act, 1961 (43 of 1961) but n",
+      "as_of": "2026-07-11",
+      "required_evidence": [
+        {
+          "document_id": "exemption-2026-07-11-c5e71d",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "exemption-before-latest",
+      "question": "Launch of \"AMNESTY, 2026\" for regularization of exemption status of Provident Fund Trusts recognized under the Income Tax Act, 1961 (43 of 1961) but n",
+      "as_of": "2026-07-10",
+      "absent_documents": [
+        "exemption-2026-07-11-c5e71d"
+      ]
+    }
+  ]
+}

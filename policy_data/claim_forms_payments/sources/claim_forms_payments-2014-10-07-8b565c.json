@@ -1,0 +1,15 @@
+{
+  "document_id": "claim_forms_payments-2014-10-07-8b565c",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2014-2015/Bkg_ImplementationCCPAPModule_301.pdf",
+  "pdf_sha256": "b8cb513d76c6351e7c9a97cbb94ed1153c187e028521dbf2b1a2f419a924a162",
+  "total_pdf_pages": 1,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "FOR WEB CIRCULATI\n\nHaan sieve far wereet\n\nEmployees’ Provident Fund Organisation\n(8 Ue Voit AAA, HRT BHR)\n{Ministry of Labour & Employment, Govt. Of India}\naw artes / Head Office\narfasy fet stat, 14 sfenrvsih rar core, aS Peedi - 110066.\nBhavishya Nidhi Bhawan, 14-Bhikaiji Cama Place, New Delhi-1 10066\n\nNo. Bkg.1 (11)10/New Process/Vol.-II /3.0) Date: 07.10.2014\n\nTo\nAll Additional CPFCs (Zone)\nAll Regional P.F. Commissioner-Incharge of\nRegional/Sub-Regional Offices\n\nSubject: Implementation of CCPAP Module of Payment.\n\nSir/Madam,\n\nThe CCPAP Module for payment in A/c No. 1 & 10 has been implemented successfully\nby all field offices except RO, Delhi(North), SRO, Bathinda & SRO Siliguri.\n\n2. RPFCs are, therefore, advised to ensure uploading of digitally signed file of CCPAP to\nSBI SFTP Server on a daily basis. APFC (Cash) may ensure that files are simultaneously\nuploaded in respect of cheques issued in A/c No. 1 & 10. The responsibility of prompt\nuploading of files shall lie with APFC (Cash). RPFC-II (F&A) posted in Regional Offices &\nRPFC-II of Sub-Regional Offices shall ensure that the cheques issued during the day are\nuploaded through CCPAP file at the end of the day. For this, a_ fink\n“http://banking.epfoservices.org/CCPAP/” has been provided for monitoring the status of\nCCPAP.\n\n3. Further, after implementation of CCPAP, the limit prescribed vide this office circular\nletter no, Bkg/Fraud/05/15614 dated 24/11/2011 (Posted at SI. No. 408 of 2011-12 on EPFO\nwebsite) for drawing cheques for maximum of Rs. 1 lac in A/c no. 1 and Rs. 50,000/- in A/c\nno. 10 would cease to be in force. Hence, all cheques irrespective of any amount may be\nissued from A/c no. 1 & 10 through CCPAP.\n\n, Yours faithfully,\nA\n\n{Sanjay Kumar)\n\nFinancial Advisor & Chief Accounts Officer",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

@@ -1,0 +1,397 @@
+{
+  "schema_version": 1,
+  "id": "official_language",
+  "reviewed_on": "2026-11-04",
+  "topics": [
+    {
+      "id": "ol_policy",
+      "label": "Official Language implementation circulars",
+      "include": "official language|hindi|bilingual|check[- ]?points|rajbhasha|olic|o\\.l\\."
+    }
+  ],
+  "documents": [
+    {
+      "id": "official_language-2010-06-14-99fee6",
+      "title": "Uploading of material in Bilingual form on Website",
+      "circular_no": "HO No. Hindi Section/Website/HeadOffice/2010/2123",
+      "issued_on": "2010-06-14",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ol_policy"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/WebsiteBilingual.pdf",
+      "source_file": "sources/official_language-2010-06-14-99fee6.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Uploading of material in Bilingual form on Website",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "official_language-2010-06-14-99fee6",
+        "page_number": 1,
+        "quote": "ow watts Pf’ ant feet : “KENDRIY A NIDHI” New Deihi WAN Tele"
+      }
+    },
+    {
+      "id": "official_language-2010-07-09-c9c084",
+      "title": "Issuance of check points in compliance with Official Language Policy of the Union",
+      "circular_no": "HO No. H.S.4/15/Org./ 10/2895",
+      "issued_on": "2010-07-09",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ol_policy"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/CheckPointOL.PDF",
+      "source_file": "sources/official_language-2010-07-09-c9c084.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Issuance of check points in compliance with Official Language Policy of the Union",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "official_language-2010-07-09-c9c084",
+        "page_number": 1,
+        "quote": "*N9.4i:ft.31.4/15A-iJI /1 0/ a14, wp- 1-44\" Telegram: \"KENDR"
+      }
+    },
+    {
+      "id": "official_language-2011-01-18-8bd48a",
+      "title": "This office circular no. OLI-4(85)/2007/Quarterly Meeting/ 6286 dated 21/12/2010 and office circular no. OLI-4(85)/2007/Quarterly Meeting/6809-6894 dated 29/12/2010",
+      "circular_no": "HO No. OLI-4(85)/Quarterly Meeting/2009/ 34510",
+      "issued_on": "2011-01-18",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ol_policy"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2010-2011/HindiCir_34510.pdf",
+      "source_file": "sources/official_language-2011-01-18-8bd48a.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "This office circular no. OLI-4(85)/2007/Quarterly Meeting/ 6286 dated 21/12/2010 and office circular no. OLI-4(85)/2007/Quarterly Meeting/6809-6894 dated 29/12/2010",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "official_language-2011-01-18-8bd48a",
+        "page_number": 1,
+        "quote": "ae “arate Rife” a feet §XHTH/Telephone: 011-26185097 Telegra"
+      }
+    },
+    {
+      "id": "official_language-2011-04-21-8e5550",
+      "title": "Compliance of Annual Hindi Programme- Year 2011-12",
+      "circular_no": "HO No.Hindi Section/8(2)/2011-12/AP/1139",
+      "issued_on": "2011-04-21",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ol_policy"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/Hindi_AnnProg_1139.pdf",
+      "source_file": "sources/official_language-2011-04-21-8e5550.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Compliance of Annual Hindi Programme- Year 2011-12",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "official_language-2011-04-21-8e5550",
+        "page_number": 1,
+        "quote": "GATS / Telephone: 011-26185007 8A / Fax: 011-26185007 wrant "
+      }
+    },
+    {
+      "id": "official_language-2011-07-07-2d3b16",
+      "title": "Circulation of standard Letter Head",
+      "circular_no": "HO No. Hindi Section/ 4(85)/07/Qtrly Meeting/5560",
+      "issued_on": "2011-07-07",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ol_policy"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/HindiCir.pdf",
+      "source_file": "sources/official_language-2011-07-07-2d3b16.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Circulation of standard Letter Head",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "official_language-2011-07-07-2d3b16",
+        "page_number": 1,
+        "quote": "avant ufos fife wear EMPLOYEES PROVIDENT FUND ORGANISATION ."
+      }
+    },
+    {
+      "id": "official_language-2011-09-14-f7c2b6",
+      "title": "Issuance of check points in compliance with the Official Language Policy of the Union",
+      "circular_no": "HO No. Hindi Section. 4 (85) 07/ Quarterly Meeting/13613",
+      "issued_on": "2011-09-14",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ol_policy"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/HinSec_QtrlyMeet_13613.pdf",
+      "source_file": "sources/official_language-2011-09-14-f7c2b6.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Issuance of check points in compliance with the Official Language Policy of the Union",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "official_language-2011-09-14-f7c2b6",
+        "page_number": 1,
+        "quote": "FLATT / Telephone: 01 1-26185097 BAT / Fax: 011-26185007 Hae"
+      }
+    },
+    {
+      "id": "official_language-2012-02-02-25d71f",
+      "title": "Organizing meetings of O.L.I.C regularly",
+      "circular_no": "HO No. Hindi Section /4/17/ Org/2012/18429",
+      "issued_on": "2012-02-02",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ol_policy"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/HinSec_MeetingOLIC_18429.pdf",
+      "source_file": "sources/official_language-2012-02-02-25d71f.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Organizing meetings of O.L.I.C regularly",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "official_language-2012-02-02-25d71f",
+        "page_number": 1,
+        "quote": ". EFF - dir.ol@epfindia.gov in ELH Telephone; 0! 1-26185097 "
+      }
+    },
+    {
+      "id": "official_language-2012-02-14-407f61",
+      "title": "Compliance of Annual Programme",
+      "circular_no": "HO No. Hindi Sec 4/ 17th Meeting/ Oraganisation/12/19235",
+      "issued_on": "2012-02-14",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ol_policy"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/HinSec_19235.PDF",
+      "source_file": "sources/official_language-2012-02-14-407f61.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Compliance of Annual Programme",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "official_language-2012-02-14-407f61",
+        "page_number": 1,
+        "quote": "t-11R - dir.ol@ePfindia.gov.in Te311117Te1ephone: 011-261850"
+      }
+    },
+    {
+      "id": "official_language-2012-02-14-de939c",
+      "title": "Usage of simple language in Hindi Translation",
+      "circular_no": "HO No. Hindi Sec 4/ 17th Meeting/ Oraganisation/12/19386",
+      "issued_on": "2012-02-14",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ol_policy"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2011-2012/HinSec_19386.pdf",
+      "source_file": "sources/official_language-2012-02-14-de939c.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Usage of simple language in Hindi Translation",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "official_language-2012-02-14-de939c",
+        "page_number": 1,
+        "quote": "t-Ita - dir.ol epfindia.gov.in VITT/Telephone: 011 -26185097"
+      }
+    },
+    {
+      "id": "official_language-2012-04-19-fd0c10",
+      "title": "Issuance of check points in compliance with Official Language Policy of the Union",
+      "circular_no": "HO No. HinSec 4(17)/Organisation/12/ 827",
+      "issued_on": "2012-04-19",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ol_policy"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/HindiSection_827.pdf",
+      "source_file": "sources/official_language-2012-04-19-fd0c10.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Issuance of check points in compliance with Official Language Policy of the Union",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "official_language-2012-04-19-fd0c10",
+        "page_number": 1,
+        "quote": "XAG Telephone: 011-26185097 HARTFAX —--_—=«11-26185097 (Sm T"
+      }
+    },
+    {
+      "id": "official_language-2012-11-06-49660d",
+      "title": "Compliance of Annual Programme",
+      "circular_no": "HO No. Hin. Sec.4/18/Org/2012/ 11073",
+      "issued_on": "2012-11-06",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ol_policy"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/HindiSec_11073.pdf",
+      "source_file": "sources/official_language-2012-11-06-49660d.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Compliance of Annual Programme",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "official_language-2012-11-06-49660d",
+        "page_number": 1,
+        "quote": "cll. *t Telegram: \"KENDRIYA NIDHI\" New Delhi t- - dinol.epfi"
+      }
+    },
+    {
+      "id": "official_language-2012-11-06-54f323",
+      "title": "Any other item with the permission of the chair - Submission of Quarterly Report in respect of Vigilance Directorates",
+      "circular_no": "HO No. Hin. Sec.4/18/Org/ 2012/10671",
+      "issued_on": "2012-11-06",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ol_policy"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/HindiSec_10671.pdf",
+      "source_file": "sources/official_language-2012-11-06-54f323.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Any other item with the permission of the chair - Submission of Quarterly Report in respect of Vigilance Directorates",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "official_language-2012-11-06-54f323",
+        "page_number": 1,
+        "quote": "\"*--47:1 r914\" 9tfSrMl ciR Telegram: \"KENDRIYA NIDHI\" New De"
+      }
+    },
+    {
+      "id": "official_language-2012-11-06-5c53b1",
+      "title": "Inspection regarding Official Language of various offices of the organisation",
+      "circular_no": "HO No. Hin. Sec.4/18/Org/2012/11877",
+      "issued_on": "2012-11-06",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ol_policy"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/HindiSec_11877.pdf",
+      "source_file": "sources/official_language-2012-11-06-5c53b1.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Inspection regarding Official Language of various offices of the organisation",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "official_language-2012-11-06-5c53b1",
+        "page_number": 1,
+        "quote": "ark TTT :fg.31-.4/18/ki , k5-1/2o12/ ffr-{ \"*\"*4 fee 'fft cm"
+      }
+    },
+    {
+      "id": "official_language-2012-11-06-7678ff",
+      "title": "Use of Hindi on Computers",
+      "circular_no": "HO No. Hin. Sec.4/18/Org/2012/11475",
+      "issued_on": "2012-11-06",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ol_policy"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2012-2013/HindiSec_11475.pdf",
+      "source_file": "sources/official_language-2012-11-06-7678ff.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Use of Hindi on Computers",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "official_language-2012-11-06-7678ff",
+        "page_number": 1,
+        "quote": "f9fti\" NcTi Telegram: \"KENDRIYA NIDHI\" New Delhi - dir.ol.ep"
+      }
+    },
+    {
+      "id": "official_language-2013-07-12-cb30a4",
+      "title": "Use of Indian International currency standard Rs. instead of Rs.",
+      "circular_no": "HO No. Dir(OL)/2013/4103",
+      "issued_on": "2013-07-12",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ol_policy"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2013-2014/OL_Cir_4103.pdf",
+      "source_file": "sources/official_language-2013-07-12-cb30a4.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Use of Indian International currency standard Rs. instead of Rs.",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "official_language-2013-07-12-cb30a4",
+        "page_number": 1,
+        "quote": "d k 4 /HEAD OFFICE ~ ~ f = r f e r ~ l Employees Provident F"
+      }
+    },
+    {
+      "id": "official_language-2015-12-29-f154b5",
+      "title": "Arrangement for using services of officers / officials posted in the Official Language Wing on tour basis for operative efficiency",
+      "circular_no": "HO No. HRM-VII//8(Misc.) 2011/Part/34110",
+      "issued_on": "2015-12-29",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ol_policy"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/HRM7_Arrangement_OfficersOL_34110.pdf",
+      "source_file": "sources/official_language-2015-12-29-f154b5.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "Arrangement for using services of officers / officials posted in the Official Language Wing on tour basis for operative efficiency",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "official_language-2015-12-29-f154b5",
+        "page_number": 1,
+        "quote": "Arrangement for using services of officers/ officials posted in the"
+      }
+    },
+    {
+      "id": "official_language-2019-05-22-ac259e",
+      "title": "r\\nIssuance of Check-Points for implementation of Official Language Policy of the Union",
+      "circular_no": "मु.का. हि.अ/संगठन/4(1) जाँच- बिंदु/2019-20/1162",
+      "issued_on": "2019-05-22",
+      "authority": "EPFO Head Office circular",
+      "topics": [
+        "ol_policy"
+      ],
+      "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2019-2020/OL_CheckPoint_org_1162.pdf",
+      "source_file": "sources/official_language-2019-05-22-ac259e.json",
+      "verification": "source_checked",
+      "effective_from": null,
+      "effective_date_evidence": null,
+      "version_label": "r\\nIssuance of Check-Points for implementation of Official Language Policy of the Union",
+      "source_host_kind": "issuer_hosted",
+      "subject_evidence": {
+        "document_id": "official_language-2019-05-22-ac259e",
+        "page_number": 1,
+        "quote": "aa_aftarerat EMPLOYEES’ PROVIDENT FUND ORGANISATION wl a (44"
+      }
+    }
+  ],
+  "relationships": [],
+  "limitations": [
+    "This collection holds only the Official Language Division circulars in the issuer's table with English titles (2010-2019): check points for the Official Language Policy (2010, 2011, 2012, 2019), the annual Hindi programme (2011, 2012), quarterly reports and inspection (2011-2012), bilingual website material (2010), standard letter head (2011), use of Hindi on computers (2012), simple language in Hindi translation (2012), the Rs. currency symbol (2013) and the 2015 arrangement for using Official Language Wing staff. Circulars with only Hindi titles (2010-2026), including the Hindi teaching scheme, incentive schemes, awards and later check-point circulars, are not included because they cannot be classified from the issuer table without Hindi OCR.",
+    "Most circulars are in Hindi first and are OCR'd with an English model, so the Hindi text is unreliable; the English portions (subject lines, names, dates in Roman figures) were checked, but the Hindi directions should be read from the page image. Their headers show no legible date, so issue dates follow the issuer listing and were not checked against the letter.",
+    "No circular here states that an earlier check-points circular is withdrawn; each reissue is a separate dated circular and no supersession is asserted. Whether the 2019 check points are still in force is not recorded here.",
+    "Hindi fortnight, Hindi conferences, departmental magazines, workshops, training and awards circulars (routine or promotional) are deliberately left out; they are listed under the Official Language catalog rows as routine or communication.",
+    "No commencement dates are recorded; the circulars state none beyond their issue date in the English passages read.",
+    "PDFs were read from the issuer mirror on 4 November 2026 because the public site returned 404 for these paths; recorded SHA-256 values apply to those files. Scanned pages are OCR. Issue dates were checked against the document headers."
+  ]
+}

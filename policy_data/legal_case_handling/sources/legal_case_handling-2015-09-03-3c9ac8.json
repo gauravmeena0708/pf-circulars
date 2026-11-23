@@ -1,0 +1,15 @@
+{
+  "document_id": "legal_case_handling-2015-09-03-3c9ac8",
+  "source_url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2015-2016/LC_Entry_LegalDashboard_23942.pdf",
+  "pdf_sha256": "dc69227432830811d458d15f4d5e38de36be94df6281453358f85157d201f6da",
+  "total_pdf_pages": 1,
+  "extracted_on": "2026-11-04",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "arent wfaer fats ao\n(ay we THT AAT, MT ACT)\nEMPLOYEES’ PROVIDENT FUND ORGANISATION\n(Ministry of Labour & Employment, Govt. of India)\ntyer amie / Head Office\nBhavishya Nidhi Bhawan, 14, Bhikaiji Came Place, Mew Delhi - 110 066.\n\nLC-9(2015)/Review of Legal Dash Roary Date : 03.09.2015\n\nfa = 9 SEP 205\n\nTo\nAll Additional CPFC (Zone)\n\nSub: -Proper entry of data in Legal Dash Board-reg.\nSir,\n\nOn analysis of data obtained from Legal Dash Board, it is found that\na large number of Prosecution cases or the cases under IPC Section 405\nhave been entered by the field offices in the Legal Dash Board. The\nCompliance MIS Software already has a function to record the Prosecution\ncases and also the cases under section 405. The Legal Cases are actually\nfor the recording of the cases where there is an impugned order. However\nthe field offices have entered the Prosecution and FIR Cases also under\nLegal Dash Board. As a result the reports is generated will project wrong\ndata because it will also include non legal cases in the data.\n\nBy Therefore, you are requested to take necessary action to get the\ndata related Prosecution and the FIR Cases deleted from the legal dash\nboard and record the same under the correct function in the Compliance\nMIS Software, or else the dash board that have been developed and are\nunder testing will not be able to correctly display the actual data.\n\nours’ faithfully,\n\nAddl Central P. F. Commissioner(Legal)\n\nAWS \\v",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ]
+}

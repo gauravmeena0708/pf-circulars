@@ -1,0 +1,30 @@
+{
+  "original_passages": 76632,
+  "added_passages": 464,
+  "final_passages": 77096,
+  "original_passages_changed": 0,
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "dimension": 384,
+  "source_documents": 46,
+  "new_page_count": 156,
+  "extraction_methods": [
+    "native",
+    "tesseract_eng_180dpi"
+  ],
+  "sparse_cache_written": true,
+  "complete_applicability_established": false,
+  "checked_on": "2026-11-03",
+  "original_vectors_unchanged": true,
+  "id_map_aligned": true,
+  "new_vectors_unit_norm": true,
+  "date_corrections_preserved": true,
+  "groups_added": [
+    "dearness",
+    "legal_panel"
+  ],
+  "date_fixes_in_this_build": [
+    "NATRSS_EoTSAT.pdf -> 02/01/2012",
+    "Minutes_AIPA_10092014.pdf -> 10/09/2014"
+  ],
+  "note": "464 new passages from 46 source documents (39 dearness, 7 legal_panel). The two documents newly dated here print their own dates; the other 21 undated circulars show a blank date line and remain undated."
+}

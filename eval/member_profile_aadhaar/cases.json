@@ -1,0 +1,203 @@
+{
+  "dataset_status": "development seed; not independently reviewed legal gold answers",
+  "cases": [
+    {
+      "id": "a01",
+      "question": "What Aadhaar seeding completion target was set by the Ministry in the 2016 UAN campaign?",
+      "as_of": "2016-11-21",
+      "required_evidence": [
+        {
+          "document_id": "aadhaar-2016-11-21",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "a02",
+      "question": "How frequently was Aadhaar seeding to be monitored by Head Office in the 2016 instruction?",
+      "as_of": "2016-12-01",
+      "required_evidence": [
+        {
+          "document_id": "aadhaar-2016-11-21",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "a03",
+      "question": "Which instruction removes Aadhaar as acceptable proof for date of birth correction?",
+      "as_of": "2024-01-16",
+      "required_evidence": [
+        {
+          "document_id": "jd-2024-01-16",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "a04",
+      "question": "Which Annexure I table was changed regarding Aadhaar as birth proof?",
+      "as_of": "2024-02-01",
+      "required_evidence": [
+        {
+          "document_id": "jd-2024-01-16",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "a05",
+      "question": "Which SOP control page identifies member profile correction version 2.0?",
+      "as_of": "2024-03-26",
+      "required_evidence": [
+        {
+          "document_id": "jd-2024-03-26",
+          "page_number": 2
+        }
+      ]
+    },
+    {
+      "id": "a06",
+      "question": "Which SOP control page identifies member profile correction version 3.0?",
+      "as_of": "2024-07-31",
+      "required_evidence": [
+        {
+          "document_id": "jd-2024-07-31",
+          "page_number": 2
+        }
+      ]
+    },
+    {
+      "id": "a07",
+      "question": "What did January 2025 say about Aadhaar validated member categories?",
+      "as_of": "2025-01-16",
+      "required_evidence": [
+        {
+          "document_id": "jd-2025-01-16",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "a08",
+      "question": "What documents must an employee upload when he can carry out the change himself?",
+      "as_of": "2025-01-16",
+      "required_evidence": [
+        {
+          "document_id": "jd-2025-01-16",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "a09",
+      "question": "Can an employer seed Aadhaar when name gender and birth date match exactly?",
+      "as_of": "2025-08-13",
+      "required_evidence": [
+        {
+          "document_id": "jd-2025-08-13",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "a10",
+      "question": "How is a wrong Aadhaar erroneously linked with UAN corrected?",
+      "as_of": "2025-08-13",
+      "required_evidence": [
+        {
+          "document_id": "jd-2025-08-13",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "a11",
+      "question": "Who approves requests involving seeding or correcting Aadhaar?",
+      "as_of": "2025-08-13",
+      "required_evidence": [
+        {
+          "document_id": "jd-2025-08-13",
+          "page_number": 2
+        }
+      ]
+    },
+    {
+      "id": "a12",
+      "question": "How can a member act if the employer is unavailable or the establishment closed?",
+      "as_of": "2025-08-13",
+      "required_evidence": [
+        {
+          "document_id": "jd-2025-08-13",
+          "page_number": 2
+        }
+      ]
+    },
+    {
+      "id": "a13",
+      "question": "What was known before the referenced baseline?",
+      "as_of": "2014-07-24",
+      "expected_document_count": 0
+    },
+    {
+      "id": "a14",
+      "question": "Is the original 2014 Aadhaar circular verified?",
+      "as_of": "2014-07-25",
+      "document_status": {
+        "id": "aadhaar-2014-07-25",
+        "status": "source_unverified"
+      }
+    },
+    {
+      "id": "a15",
+      "question": "Does a campaign deadline establish commencement?",
+      "as_of": "2016-11-21",
+      "document_status": {
+        "id": "aadhaar-2016-11-21",
+        "status": "issued_effective_date_unverified"
+      }
+    },
+    {
+      "id": "a16",
+      "question": "Can the 2024 Aadhaar proof removal be used on January 15?",
+      "as_of": "2024-01-15",
+      "absent_documents": [
+        "jd-2024-01-16"
+      ]
+    },
+    {
+      "id": "a17",
+      "question": "Is January 2025 commencement established?",
+      "as_of": "2025-01-16",
+      "document_status": {
+        "id": "jd-2025-01-16",
+        "status": "issued_effective_date_unverified"
+      }
+    },
+    {
+      "id": "a18",
+      "question": "Can August 13 instructions appear on August 12?",
+      "as_of": "2025-08-12",
+      "absent_documents": [
+        "jd-2025-08-13"
+      ]
+    },
+    {
+      "id": "a19",
+      "question": "Is the link to the 2014 circular supersession?",
+      "as_of": "2025-08-13",
+      "relationship": {
+        "source": "jd-2025-08-13",
+        "target": "aadhaar-2014-07-25",
+        "type": "references"
+      }
+    },
+    {
+      "id": "a20",
+      "question": "Does the timeline certify all applicable Aadhaar rules?",
+      "as_of": "2026-10-28",
+      "expected_conclusion": "evidence_inventory_only",
+      "expected_document_count": 11
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "document_id": "aadhaar-2016-11-21",
+  "source_url": "https://pmvbry-cdn.epfindia.gov.in/wp-content/uploads/2025/09/CAIU_AadhaarSeeding_UAN_13466-2.pdf",
+  "pdf_sha256": "8ea9b7d9ebb19361c5e9937393ce2938e5ab8cf8f278a5bf41158b30654f643e",
+  "total_pdf_pages": 1,
+  "extracted_on": "2026-10-28",
+  "page_numbering": "physical PDF page, one-based",
+  "pages": [
+    {
+      "page_number": 1,
+      "text": "antant wférer Pfr ast\n(arr ued TI Taree, NIT BTR)\nEMPLOYEES’ PROVIDENT FUND ORGANISATION\n(Ministry of Labour & Employment, Govt. of India)\nye arate / Head Office\nafer ft war, 14-sienet erat ate, ae Peeet-110 066.\nBhavishya Nidhi Bhawan, 14, Bhikaiji Cama Place, New Delhi — 110 066.\n(CENTRAL ANALYSIS & INTELLIGENCE UNIT)\n\nNo. CAIU/011(27)2016/KYC bb Date: 21.11.2016\nTo we 91 NOV 201\n\nAll Additional Central P.F. Commissioner (Zones)\nAll Regional P.F. Commissioner-In-charge of ROs/SROs\n\nSub:-Seeding of Aadhaar number in the UAN database of EPF members -\nregarding.\n\nMadam /Sir,\n\nIt is noted that under the implemented Universal Account Number (UAN)\nprogramme, the seeding of Aadhaar number in the UAN database of EPF members is very\nlow(just 23% up to 25.10.2016). At present for 7.95 crores UAN issued by EPFO only\naround 1.82 crores Aadhar numbers of members have been uploaded and approimately 1.5\ncrores Aadhaar numbers of members have been digitally verified by the employers.\n\nIt needs to be emphasized that to identify the member across his different\nemployments, the Universal Account Number (UAN) database of members has to be seeded\nwith his KYC details. The Aadhaar number issued by UIDAI is one of the important KYCs\nbeing seeded to extend a number of direct services to the member.\n\nAt PRAGATI Meeting dated 24/08/16, it was pointed out that seeding of Aadhaar\nnumber in the UAN database of EPF members is very low (20%) and OSD(L&E) asked for\ntimelines for completion of Aadhaar Seeding in view of the poor performance.\nSubsequently, Ministry of Labour & Employment has set the timeline to ensure 100%\nAadhaar Seeding in Beneficiary Database by 31/12/2016.\n\nSo, field offices may conduct awareness programme regarding benefits of Aadhaar\nSeeding and are required to take all necessary steps to complete the task of Seeding of\nAadhaar within given time frame and monitor the same on daily basis.\n\nAadhaar Seeding will be monitored on weekly basis at Head Office and the\nexplanation of low progressing offices shall be called.\n\nThis is for your information and necessary action.\n\nYours faithfully,\n\nSted Ud\n\n(S C Goyal)\nAddl. Central P.F. Commissioner-II (CAIU& Compliance)",
+      "extraction_method": "tesseract_eng_180dpi"
+    }
+  ],
+  "retrieved_on": "2026-10-28",
+  "catalogue_url": "https://www.epfo.gov.in/circulars",
+  "review": "Cover date, identifier, scope and campaign deadline visually checked; OCR retained unchanged."
+}

@@ -1,0 +1,66 @@
+{
+  "dataset_status": "Development source/page checks; not a held-out legal accuracy benchmark",
+  "cases": [
+    {
+      "id": "briefcase-before",
+      "question": "briefcase reimbursement",
+      "as_of": "2024-09-30",
+      "absent_documents": [
+        "employee_benefits-2024-10-01-7c189e"
+      ]
+    },
+    {
+      "id": "briefcase-oct1",
+      "question": "briefcase monetary ceiling",
+      "as_of": "2024-10-01",
+      "required_evidence": [
+        {
+          "document_id": "employee_benefits-2024-10-01-7c189e",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "briefcase-corrigendum",
+      "question": "briefcase Level 6 and 7 reimbursement",
+      "as_of": "2024-10-15",
+      "required_evidence": [
+        {
+          "document_id": "employee_benefits-2024-10-15-f63845",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "laptop",
+      "question": "laptop notebook eligibility",
+      "as_of": "2024-12-18",
+      "required_evidence": [
+        {
+          "document_id": "employee_benefits-2024-12-18-992efd",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "newspaper",
+      "question": "newspaper reimbursement guidelines",
+      "as_of": "2018-04-17",
+      "required_evidence": [
+        {
+          "document_id": "employee_benefits-2018-04-17-754c44",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "medical-gap",
+      "question": "medical reimbursement",
+      "as_of": "2026-10-29",
+      "document_status": {
+        "id": "employee_benefits-2014-06-16-cab37b",
+        "status": "source_unverified"
+      }
+    }
+  ]
+}

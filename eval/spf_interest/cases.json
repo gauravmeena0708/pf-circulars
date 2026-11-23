@@ -1,0 +1,57 @@
+{
+  "dataset_status": "Development source/page cases; no held-out legal-answer certification",
+  "cases": [
+    {
+      "id": "spf_interest-2012-04-26",
+      "question": "Revised rate if interest - with regard to Staff Provident Fund in EPFO",
+      "as_of": "2012-04-26",
+      "required_evidence": [
+        {
+          "document_id": "spf_interest-2012-04-26-25d2a5",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "spf_interest-2017-02-17",
+      "question": "Revised Rate of Interest - with regard to Staff Provident Fund in EPFO",
+      "as_of": "2017-02-17",
+      "required_evidence": [
+        {
+          "document_id": "spf_interest-2017-02-17-1d705f",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "spf_interest-2021-07-22",
+      "question": "Revised rate of interest - with regard to Staff Provident Fund in EPFO",
+      "as_of": "2021-07-22",
+      "required_evidence": [
+        {
+          "document_id": "spf_interest-2021-07-22-134abf",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "spf_interest-2026-05-05",
+      "question": "Revised rate of interest of Q1 for financial year 2026-2027 with regard to Staff Provident Fund in EPFO-regarding",
+      "as_of": "2026-05-05",
+      "required_evidence": [
+        {
+          "document_id": "spf_interest-2026-05-05-af24d9",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "spf_interest-before-latest",
+      "question": "Revised rate of interest of Q1 for financial year 2026-2027 with regard to Staff Provident Fund in EPFO-regarding",
+      "as_of": "2026-05-04",
+      "absent_documents": [
+        "spf_interest-2026-05-05-af24d9"
+      ]
+    }
+  ]
+}

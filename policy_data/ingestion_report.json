@@ -1,0 +1,112 @@
+{
+  "original_passages": 74317,
+  "added_passages": 567,
+  "final_passages": 74884,
+  "original_passages_changed": 0,
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "dimension": 384,
+  "source_documents": 26,
+  "new_page_count": 232,
+  "extraction_methods": [
+    "native",
+    "tesseract_eng_180dpi"
+  ],
+  "sparse_cache_written": true,
+  "complete_applicability_established": false,
+  "original_vectors_unchanged": true,
+  "original_vector_bytes_sha256": "0d766e9c1a6c1359199103565a53e3160101c93ca5b043d6a8a5878734f2e47a",
+  "dense_retrieval_checks": [
+    {
+      "query": "bank KYC employer approval cheque passbook upload",
+      "new_evidence_hits": [
+        {
+          "rank": 1,
+          "id": 74319,
+          "doc": "bank-2024-05-28",
+          "page": 1
+        },
+        {
+          "rank": 3,
+          "id": 74322,
+          "doc": "bank-2025-04-03",
+          "page": 1
+        },
+        {
+          "rank": 4,
+          "id": 74318,
+          "doc": "bank-2024-05-28",
+          "page": 1
+        },
+        {
+          "rank": 5,
+          "id": 74323,
+          "doc": "bank-2025-04-03",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "query": "De-linking MIDs where contributions are remitted by employer",
+      "new_evidence_hits": [
+        {
+          "rank": 1,
+          "id": 74334,
+          "doc": "mid-2026-04-13",
+          "page": 1
+        },
+        {
+          "rank": 3,
+          "id": 74333,
+          "doc": "mid-2026-04-13",
+          "page": 1
+        },
+        {
+          "rank": 4,
+          "id": 74371,
+          "doc": "mid-2026-04-13",
+          "page": 30
+        },
+        {
+          "rank": 5,
+          "id": 74336,
+          "doc": "mid-2026-04-13",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "query": "Rectification of erroneous EPS contributions interest account 10 account 1",
+      "new_evidence_hits": [
+        {
+          "rank": 1,
+          "id": 74396,
+          "doc": "eps-2025-12-19",
+          "page": 1
+        },
+        {
+          "rank": 2,
+          "id": 74392,
+          "doc": "eps-2025-12-19",
+          "page": 1
+        },
+        {
+          "rank": 3,
+          "id": 74393,
+          "doc": "eps-2025-12-19",
+          "page": 1
+        },
+        {
+          "rank": 4,
+          "id": 74395,
+          "doc": "eps-2025-12-19",
+          "page": 1
+        }
+      ]
+    }
+  ],
+  "artifact_sha256": {
+    "faiss_index.index": "d7318fa56e80df3e63161c78d842bea27b1e130df58a24575d1fb43162f2e7ba",
+    "faiss_index.passages.db": "17adb39d5f95fd3a2dd91df9916c07decd5c15d2b6f009142153baa685e94520",
+    "faiss_index.bm25.json.gz": "bac448d271df39e3cf9433709e055710ac63cf53e11330d14da43078d958b324"
+  }
+}

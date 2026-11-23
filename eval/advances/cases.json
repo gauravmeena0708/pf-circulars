@@ -1,0 +1,74 @@
+{
+  "dataset_status": "Development source/page seeds and guardrails; not held-out legal-answer evaluation",
+  "cases": [
+    {
+      "id": "advances-0",
+      "as_of": "2024-04-16",
+      "question": "What illness auto claim processing limit was deployed on 10 April 2024?",
+      "required_evidence": [
+        {
+          "document_id": "advances-2024-04-16",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "advances-1",
+      "as_of": "2024-06-12",
+      "question": "Was the COVID-19 advance discontinued with immediate effect for exempted trusts?",
+      "required_evidence": [
+        {
+          "document_id": "advances-2024-06-12",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "advances-2",
+      "as_of": "2025-04-17",
+      "question": "Does self-declaration under Para 68B(7) require 60 months after completion of dwelling house?",
+      "required_evidence": [
+        {
+          "document_id": "advances-2025-04-17",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "advances-3",
+      "as_of": "2025-06-24",
+      "question": "What increase from one lakh to five lakh is reported for auto-settlement?",
+      "required_evidence": [
+        {
+          "document_id": "advances-2025-06-24",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "advances-4",
+      "as_of": "2025-10-13",
+      "question": "What partial-withdrawal categories and minimum service did the CBT approve?",
+      "required_evidence": [
+        {
+          "document_id": "advances-2025-10-13",
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "advances-cutoff",
+      "as_of": "2024-01-01",
+      "question": "latest rules",
+      "absent_documents": [
+        "advances-2024-04-16"
+      ]
+    },
+    {
+      "id": "advances-incomplete",
+      "as_of": "2026-10-28",
+      "question": "all applicable rules",
+      "expected_conclusion": "evidence_inventory_only"
+    }
+  ]
+}
